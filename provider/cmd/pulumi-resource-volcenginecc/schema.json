@@ -1,0 +1,3885 @@
+{
+    "name": "volcenginecc",
+    "description": "A Pulumi package to safely use randomness in Pulumi programs.",
+    "keywords": [
+        "pulumi",
+        "volcenginecc",
+        "category/cloud"
+    ],
+    "homepage": "https://github.com/volcengine/pulumi-volcenginecc",
+    "license": "MPL-2.0",
+    "attribution": "This Pulumi package is based on the [`volcenginecc` Terraform Provider](https://github.com/volcengine/terraform-provider-volcenginecc).",
+    "repository": "https://github.com/volcengine/pulumi-volcenginecc",
+    "logoUrl": "https://avatars.githubusercontent.com/u/67365215",
+    "pluginDownloadURL": "github://api.github.com/volcengine",
+    "publisher": "Volcengine",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20"
+        },
+        "go": {
+            "importBasePath": "github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true,
+            "respectSchemaVersion": true
+        },
+        "java": {
+            "basePackage": "com.volcengine",
+            "buildFiles": "",
+            "gradleNexusPublishPluginVersion": "",
+            "gradleTest": ""
+        },
+        "nodejs": {
+            "packageName": "@volcengine/pulumi-volcenginecc",
+            "packageDescription": "A Pulumi package to safely use randomness in Pulumi programs.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/volcengine/terraform-provider-volcenginecc)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-volcenginecc` repo](https://github.com/volcengine/pulumi-volcenginecc/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-volcenginecc` repo](https://github.com/volcengine/terraform-provider-volcenginecc/issues).",
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
+        },
+        "python": {
+            "packageName": "pulumi_volcenginecc",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/volcengine/terraform-provider-volcenginecc)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-volcenginecc` repo](https://github.com/volcengine/pulumi-volcenginecc/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-volcenginecc` repo](https://github.com/volcengine/terraform-provider-volcenginecc/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
+        }
+    },
+    "config": {
+        "variables": {
+            "accessKey": {
+                "type": "string",
+                "description": "The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY`\nenvironment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_ACCESS_KEY"
+                    ]
+                }
+            },
+            "assumeRole": {
+                "$ref": "#/types/volcenginecc:config/assumeRole:assumeRole",
+                "description": "An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration.\n"
+            },
+            "customerHeaders": {
+                "type": "string",
+                "description": "CUSTOMER HEADERS for Volcengine Provider. The customer_headers field uses commas (,) to separate multiple headers, and\ncolons (:) to separate each header key from its corresponding value.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_CUSTOMER_HEADERS"
+                    ]
+                }
+            },
+            "disableSsl": {
+                "type": "boolean",
+                "description": "Disable SSL for Volcengine Provider\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_DISABLE_SSL"
+                    ]
+                }
+            },
+            "endpoints": {
+                "$ref": "#/types/volcenginecc:config/endpoints:endpoints",
+                "description": "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.\n"
+            },
+            "proxyUrl": {
+                "type": "string",
+                "description": "PROXY URL for Volcengine Provider\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_PROXY_URL"
+                    ]
+                }
+            },
+            "region": {
+                "type": "string",
+                "description": "The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`\nenvironment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_REGION"
+                    ]
+                }
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`\nenvironment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_SECRET_KEY"
+                    ]
+                }
+            }
+        }
+    },
+    "types": {
+        "volcenginecc:config/assumeRole:assumeRole": {
+            "properties": {
+                "assumeRoleTrn": {
+                    "type": "string",
+                    "description": "he TRN of the role to assume.\n"
+                },
+                "durationSeconds": {
+                    "type": "integer",
+                    "description": "The duration of the session when making the AssumeRole call. Its value ranges from 900 to 43200(seconds), and default is 3600 seconds.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "A more restrictive policy when making the AssumeRole call\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "assumeRoleTrn"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:config/endpoints:endpoints": {
+            "properties": {
+                "cloudcontrolapi": {
+                    "type": "string",
+                    "description": "Use this to override the default Cloud Control API service endpoint URL\n"
+                },
+                "sts": {
+                    "type": "string",
+                    "description": "Use this to override the default STS service endpoint URL\n"
+                }
+            },
+            "type": "object"
+        },
+        "volcenginecc:ecs/ImageDetectionResults:ImageDetectionResults": {
+            "properties": {
+                "detectionStatus": {
+                    "type": "string",
+                    "description": "检测状态。可以选择Finished（已完成）、Processing（处理中）类型。\n"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:ecs/ImageDetectionResultsItem:ImageDetectionResultsItem"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "detectionStatus",
+                        "items"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:ecs/ImageDetectionResultsItem:ImageDetectionResultsItem": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "检测项名称。\n"
+                },
+                "result": {
+                    "type": "string",
+                    "description": "该检测项对应结果。\n"
+                },
+                "riskCode": {
+                    "type": "string",
+                    "description": "风险描述码。\n"
+                },
+                "riskLevel": {
+                    "type": "string",
+                    "description": "风险等级。若该参数返回值为空，表示无风险。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "result",
+                        "riskCode",
+                        "riskLevel"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:ecs/ImageSnapshot:ImageSnapshot": {
+            "properties": {
+                "size": {
+                    "type": "integer",
+                    "description": "快照大小。单位为GiB。\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "快照ID。\n"
+                },
+                "volumeKind": {
+                    "type": "string",
+                    "description": "云盘种类。system：系统盘。data：数据盘。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "size",
+                        "snapshotId",
+                        "volumeKind"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:ecs/ImageTag:ImageTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "镜像标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "镜像标签的值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:ecs/getImageDetectionResults:getImageDetectionResults": {
+            "properties": {
+                "detectionStatus": {
+                    "type": "string",
+                    "description": "检测状态。可以选择Finished（已完成）、Processing（处理中）类型。\n"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:ecs/getImageDetectionResultsItem:getImageDetectionResultsItem"
+                    },
+                    "description": "镜像检测项详情。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "detectionStatus",
+                "items"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:ecs/getImageDetectionResultsItem:getImageDetectionResultsItem": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "检测项名称。\n"
+                },
+                "result": {
+                    "type": "string",
+                    "description": "该检测项对应结果。\n"
+                },
+                "riskCode": {
+                    "type": "string",
+                    "description": "风险描述码。\n"
+                },
+                "riskLevel": {
+                    "type": "string",
+                    "description": "风险等级。若该参数返回值为空，表示无风险。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "result",
+                "riskCode",
+                "riskLevel"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:ecs/getImageSnapshot:getImageSnapshot": {
+            "properties": {
+                "size": {
+                    "type": "integer",
+                    "description": "快照大小。单位为GiB。\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "快照ID。\n"
+                },
+                "volumeKind": {
+                    "type": "string",
+                    "description": "云盘种类。system：系统盘。data：数据盘。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "size",
+                "snapshotId",
+                "volumeKind"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:ecs/getImageTag:getImageTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "镜像标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "镜像标签的值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:iam/RolePolicy:RolePolicy": {
+            "properties": {
+                "policyName": {
+                    "type": "string",
+                    "description": "策略名。\n"
+                },
+                "policyType": {
+                    "type": "string",
+                    "description": "策略类型，策略类型。System代表系统预设策略，Custom代表自定义策略。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "policyName",
+                        "policyType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:iam/RoleTag:RoleTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:iam/UserLoginProfile:UserLoginProfile": {
+            "properties": {
+                "createDate": {
+                    "type": "string",
+                    "description": "登录配置创建时间。\n"
+                },
+                "lastLoginDate": {
+                    "type": "string",
+                    "description": "上次登录时间。\n"
+                },
+                "lastLoginIp": {
+                    "type": "string",
+                    "description": "上次登录IP。\n"
+                },
+                "lastResetPasswordTime": {
+                    "type": "number",
+                    "description": "上次重置密码的时间，上次重置密码的时间。0代表未设置过密码，非0代表过期时间的时间戳。\n"
+                },
+                "loginAllowed": {
+                    "type": "boolean",
+                    "description": "是否允许登录，是否允许登录。true代表允许，false代表不允许，默认为false。\n"
+                },
+                "loginLocked": {
+                    "type": "boolean",
+                    "description": "登录是否被锁定。true代表已锁定，false代表未锁定。管理员设置错误密码重试次数限制后，用户命中后登录会被锁定。\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "登录密码。\n"
+                },
+                "passwordExpireAt": {
+                    "type": "number",
+                    "description": "密码过期时间。0代表永不过期，非0代表过期时间的时间戳。\n"
+                },
+                "passwordResetRequired": {
+                    "type": "boolean",
+                    "description": "下次登录是否需要重设密码，下次登录是否需要重设密码。true代表允许，false代表不允许，默认为false。\n"
+                },
+                "safeAuthExemptDuration": {
+                    "type": "number",
+                    "description": "登录保护豁免时长，登录保护豁免时长。支持设置1至7（天），或1至168（小时），或5至1440（分钟）。单位设置请参考SafeAuthExemptUnit参数。\n"
+                },
+                "safeAuthExemptRequired": {
+                    "type": "number",
+                    "description": "是否开启登录保护豁免，是否开启登录保护豁免。0代表不开启，1代表开启。开启登录保护豁免后，验证完成后一定时间内登录将不再进行验证。\n"
+                },
+                "safeAuthExemptUnit": {
+                    "type": "number",
+                    "description": "登录保护豁免的时间单位，登录保护豁免的时间单位。0代表分钟，1代表小时，2代表天。\n"
+                },
+                "safeAuthFlag": {
+                    "type": "boolean",
+                    "description": "是否开启登录保护，是否开启登录保护。true代表开启，false代表不开启，默认为false。\n"
+                },
+                "safeAuthType": {
+                    "type": "string",
+                    "description": "登录保护类型，登录保护类型。phone代表手机验证，email代表邮箱验证，vmfa代表验证MFA设备验证。支持设置多种操作保护类型，以英文逗号分隔。可选vmfa, phone, email, 多个选项逗号隔开。\n"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "description": "登录配置更新时间。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "createDate",
+                        "lastLoginDate",
+                        "lastLoginIp",
+                        "lastResetPasswordTime",
+                        "loginAllowed",
+                        "loginLocked",
+                        "password",
+                        "passwordExpireAt",
+                        "passwordResetRequired",
+                        "safeAuthExemptDuration",
+                        "safeAuthExemptRequired",
+                        "safeAuthExemptUnit",
+                        "safeAuthFlag",
+                        "safeAuthType",
+                        "updateDate"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:iam/UserPolicy:UserPolicy": {
+            "properties": {
+                "policyName": {
+                    "type": "string",
+                    "description": "权限策略名称，长度1~64，支持英文、数字和+=,.@-_符号。\n"
+                },
+                "policyType": {
+                    "type": "string",
+                    "description": "权限策略类型，策略类型。System代表系统预设策略，Custom代表自定义策略。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "policyName",
+                        "policyType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:iam/UserSecurityConfig:UserSecurityConfig": {
+            "properties": {
+                "safeAuthClose": {
+                    "type": "number",
+                    "description": "是否开启操作保护。0代表开启，1代表关闭。\n"
+                },
+                "safeAuthExemptDuration": {
+                    "type": "number",
+                    "description": "操作保护的豁免时间，完成验证后在豁免时间内将不再进行验证。支持设置5至30，默认值为10。单位为分钟。\n"
+                },
+                "safeAuthType": {
+                    "type": "string",
+                    "description": "操作保护类型。phone代表手机验证，email代表邮箱验证，vmfa代表验证MFA设备验证。支持设置多种操作保护类型，以英文逗号分隔。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "safeAuthClose",
+                        "safeAuthExemptDuration",
+                        "safeAuthType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:iam/UserTag:UserTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:iam/getRolePolicy:getRolePolicy": {
+            "properties": {
+                "policyName": {
+                    "type": "string",
+                    "description": "策略名。\n"
+                },
+                "policyType": {
+                    "type": "string",
+                    "description": "策略类型，策略类型。System代表系统预设策略，Custom代表自定义策略。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "policyName",
+                "policyType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:iam/getRoleTag:getRoleTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:iam/getUserLoginProfile:getUserLoginProfile": {
+            "properties": {
+                "createDate": {
+                    "type": "string",
+                    "description": "登录配置创建时间。\n"
+                },
+                "lastLoginDate": {
+                    "type": "string",
+                    "description": "上次登录时间。\n"
+                },
+                "lastLoginIp": {
+                    "type": "string",
+                    "description": "上次登录IP。\n"
+                },
+                "lastResetPasswordTime": {
+                    "type": "number",
+                    "description": "上次重置密码的时间，上次重置密码的时间。0代表未设置过密码，非0代表过期时间的时间戳。\n"
+                },
+                "loginAllowed": {
+                    "type": "boolean",
+                    "description": "是否允许登录，是否允许登录。true代表允许，false代表不允许，默认为false。\n"
+                },
+                "loginLocked": {
+                    "type": "boolean",
+                    "description": "登录是否被锁定。true代表已锁定，false代表未锁定。管理员设置错误密码重试次数限制后，用户命中后登录会被锁定。\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "登录密码。\n"
+                },
+                "passwordExpireAt": {
+                    "type": "number",
+                    "description": "密码过期时间。0代表永不过期，非0代表过期时间的时间戳。\n"
+                },
+                "passwordResetRequired": {
+                    "type": "boolean",
+                    "description": "下次登录是否需要重设密码，下次登录是否需要重设密码。true代表允许，false代表不允许，默认为false。\n"
+                },
+                "safeAuthExemptDuration": {
+                    "type": "number",
+                    "description": "登录保护豁免时长，登录保护豁免时长。支持设置1至7（天），或1至168（小时），或5至1440（分钟）。单位设置请参考SafeAuthExemptUnit参数。\n"
+                },
+                "safeAuthExemptRequired": {
+                    "type": "number",
+                    "description": "是否开启登录保护豁免，是否开启登录保护豁免。0代表不开启，1代表开启。开启登录保护豁免后，验证完成后一定时间内登录将不再进行验证。\n"
+                },
+                "safeAuthExemptUnit": {
+                    "type": "number",
+                    "description": "登录保护豁免的时间单位，登录保护豁免的时间单位。0代表分钟，1代表小时，2代表天。\n"
+                },
+                "safeAuthFlag": {
+                    "type": "boolean",
+                    "description": "是否开启登录保护，是否开启登录保护。true代表开启，false代表不开启，默认为false。\n"
+                },
+                "safeAuthType": {
+                    "type": "string",
+                    "description": "登录保护类型，登录保护类型。phone代表手机验证，email代表邮箱验证，vmfa代表验证MFA设备验证。支持设置多种操作保护类型，以英文逗号分隔。可选vmfa, phone, email, 多个选项逗号隔开。\n"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "description": "登录配置更新时间。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "createDate",
+                "lastLoginDate",
+                "lastLoginIp",
+                "lastResetPasswordTime",
+                "loginAllowed",
+                "loginLocked",
+                "password",
+                "passwordExpireAt",
+                "passwordResetRequired",
+                "safeAuthExemptDuration",
+                "safeAuthExemptRequired",
+                "safeAuthExemptUnit",
+                "safeAuthFlag",
+                "safeAuthType",
+                "updateDate"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:iam/getUserPolicy:getUserPolicy": {
+            "properties": {
+                "policyName": {
+                    "type": "string",
+                    "description": "权限策略名称，长度1~64，支持英文、数字和+=,.@-_符号。\n"
+                },
+                "policyType": {
+                    "type": "string",
+                    "description": "权限策略类型，策略类型。System代表系统预设策略，Custom代表自定义策略。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "policyName",
+                "policyType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:iam/getUserSecurityConfig:getUserSecurityConfig": {
+            "properties": {
+                "safeAuthClose": {
+                    "type": "number",
+                    "description": "是否开启操作保护。0代表开启，1代表关闭。\n"
+                },
+                "safeAuthExemptDuration": {
+                    "type": "number",
+                    "description": "操作保护的豁免时间，完成验证后在豁免时间内将不再进行验证。支持设置5至30，默认值为10。单位为分钟。\n"
+                },
+                "safeAuthType": {
+                    "type": "string",
+                    "description": "操作保护类型。phone代表手机验证，email代表邮箱验证，vmfa代表验证MFA设备验证。支持设置多种操作保护类型，以英文逗号分隔。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "safeAuthClose",
+                "safeAuthExemptDuration",
+                "safeAuthType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:iam/getUserTag:getUserTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:index/ProviderAssumeRole:ProviderAssumeRole": {
+            "properties": {
+                "assumeRoleTrn": {
+                    "type": "string",
+                    "description": "he TRN of the role to assume.\n"
+                },
+                "durationSeconds": {
+                    "type": "integer",
+                    "description": "The duration of the session when making the AssumeRole call. Its value ranges from 900 to 43200(seconds), and default is 3600 seconds.\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "A more restrictive policy when making the AssumeRole call\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "assumeRoleTrn"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": []
+                }
+            }
+        },
+        "volcenginecc:index/ProviderEndpoints:ProviderEndpoints": {
+            "properties": {
+                "cloudcontrolapi": {
+                    "type": "string",
+                    "description": "Use this to override the default Cloud Control API service endpoint URL\n"
+                },
+                "sts": {
+                    "type": "string",
+                    "description": "Use this to override the default STS service endpoint URL\n"
+                }
+            },
+            "type": "object"
+        },
+        "volcenginecc:tos/BucketAcl:BucketAcl": {
+            "properties": {
+                "bucketAclDelivered": {
+                    "type": "boolean",
+                    "description": "是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。\n"
+                },
+                "grants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketAclGrant:BucketAclGrant"
+                    }
+                },
+                "owner": {
+                    "$ref": "#/types/volcenginecc:tos/BucketAclOwner:BucketAclOwner",
+                    "description": "对象所有者。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "bucketAclDelivered",
+                        "grants",
+                        "owner"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketAclGrant:BucketAclGrant": {
+            "properties": {
+                "acl": {
+                    "type": "string",
+                    "description": "桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。\n"
+                },
+                "grantFullControl": {
+                    "type": "string",
+                    "description": "授予指定用户所有权限。\n"
+                },
+                "grantRead": {
+                    "type": "string",
+                    "description": "授予指定用户读权限。\n"
+                },
+                "grantReadAcp": {
+                    "type": "string",
+                    "description": "授予指定用户查看桶 ACL 的权限。\n"
+                },
+                "grantWrite": {
+                    "type": "string",
+                    "description": "授予指定用户写权限。\n"
+                },
+                "grantWriteAcp": {
+                    "type": "string",
+                    "description": "授予指定用户修改和删除桶 ACL 的权限。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "acl",
+                        "grantFullControl",
+                        "grantRead",
+                        "grantReadAcp",
+                        "grantWrite",
+                        "grantWriteAcp"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketAclGrantGrantee:BucketAclGrantGrantee": {
+            "properties": {
+                "canned": {
+                    "type": "string",
+                    "description": "预定义组。包括AllUsers、AuthenticatedUsers。\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "展示名。\n"
+                },
+                "granteeId": {
+                    "type": "string",
+                    "description": "账号ID。\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "用户类型。包括Group、CanonicalUser。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "canned",
+                        "displayName",
+                        "granteeId",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketAclOwner:BucketAclOwner": {
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "展示名。\n"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "账号ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "displayName",
+                        "ownerId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfig:BucketLifecycleConfig": {
+            "properties": {
+                "abortInCompleteMultipartUpload": {
+                    "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigAbortInCompleteMultipartUpload:BucketLifecycleConfigAbortInCompleteMultipartUpload",
+                    "description": "指定未合并的分片任务（碎片）的过期属性。\n"
+                },
+                "expiration": {
+                    "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigExpiration:BucketLifecycleConfigExpiration",
+                    "description": "基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。\n"
+                },
+                "filter": {
+                    "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigFilter:BucketLifecycleConfigFilter",
+                    "description": "指定规则生效的过滤条件。\n"
+                },
+                "lifecycleRuleId": {
+                    "type": "string",
+                    "description": "规则 ID。\n"
+                },
+                "noCurrentVersionExpiration": {
+                    "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigNoCurrentVersionExpiration:BucketLifecycleConfigNoCurrentVersionExpiration"
+                },
+                "nonCurrentVersionTransitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigNonCurrentVersionTransition:BucketLifecycleConfigNonCurrentVersionTransition"
+                    }
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "规则所适用的前缀。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "是否启用规则。包括Enabled、Disabled。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigTag:BucketLifecycleConfigTag"
+                    }
+                },
+                "transitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfigTransition:BucketLifecycleConfigTransition"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "abortInCompleteMultipartUpload",
+                        "expiration",
+                        "filter",
+                        "lifecycleRuleId",
+                        "noCurrentVersionExpiration",
+                        "nonCurrentVersionTransitions",
+                        "prefix",
+                        "status",
+                        "tags",
+                        "transitions"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigAbortInCompleteMultipartUpload:BucketLifecycleConfigAbortInCompleteMultipartUpload": {
+            "properties": {
+                "daysAfterInitiation": {
+                    "type": "integer",
+                    "description": "指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "daysAfterInitiation"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigExpiration:BucketLifecycleConfigExpiration": {
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。\n"
+                },
+                "days": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "date",
+                        "days"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigFilter:BucketLifecycleConfigFilter": {
+            "properties": {
+                "greaterThanIncludeEqual": {
+                    "type": "string",
+                    "description": "是否启用相等条件。包括Enabled、Disabled。\n"
+                },
+                "lessThanIncludeEqual": {
+                    "type": "string",
+                    "description": "是否启用相等条件。包括Enabled、Disabled。\n"
+                },
+                "objectSizeGreaterThan": {
+                    "type": "integer",
+                    "description": "设置规则生效于大于指定大小的对象。\n"
+                },
+                "objectSizeLessThan": {
+                    "type": "integer",
+                    "description": "设置规则生效于小于指定大小的对象。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "greaterThanIncludeEqual",
+                        "lessThanIncludeEqual",
+                        "objectSizeGreaterThan",
+                        "objectSizeLessThan"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigNoCurrentVersionExpiration:BucketLifecycleConfigNoCurrentVersionExpiration": {
+            "properties": {
+                "nonCurrentDate": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。\n"
+                },
+                "nonCurrentDays": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "nonCurrentDate",
+                        "nonCurrentDays"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigNonCurrentVersionTransition:BucketLifecycleConfigNonCurrentVersionTransition": {
+            "properties": {
+                "nonCurrentDate": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。\n"
+                },
+                "nonCurrentDays": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象沉降的天数。\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "nonCurrentDate",
+                        "nonCurrentDays",
+                        "storageClass"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigTag:BucketLifecycleConfigTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketLifecycleConfigTransition:BucketLifecycleConfigTransition": {
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。\n"
+                },
+                "days": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "date",
+                        "days",
+                        "storageClass"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/BucketTag:BucketTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketAcl:getBucketAcl": {
+            "properties": {
+                "bucketAclDelivered": {
+                    "type": "boolean",
+                    "description": "是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。\n"
+                },
+                "grants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/getBucketAclGrant:getBucketAclGrant"
+                    },
+                    "description": "对象的访问控制权限根节点。\n"
+                },
+                "owner": {
+                    "$ref": "#/types/volcenginecc:tos/getBucketAclOwner:getBucketAclOwner",
+                    "description": "对象所有者。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketAclDelivered",
+                "grants",
+                "owner"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketAclGrant:getBucketAclGrant": {
+            "properties": {
+                "acl": {
+                    "type": "string",
+                    "description": "桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。\n"
+                },
+                "grantFullControl": {
+                    "type": "string",
+                    "description": "授予指定用户所有权限。\n"
+                },
+                "grantRead": {
+                    "type": "string",
+                    "description": "授予指定用户读权限。\n"
+                },
+                "grantReadAcp": {
+                    "type": "string",
+                    "description": "授予指定用户查看桶 ACL 的权限。\n"
+                },
+                "grantWrite": {
+                    "type": "string",
+                    "description": "授予指定用户写权限。\n"
+                },
+                "grantWriteAcp": {
+                    "type": "string",
+                    "description": "授予指定用户修改和删除桶 ACL 的权限。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "acl",
+                "grantFullControl",
+                "grantRead",
+                "grantReadAcp",
+                "grantWrite",
+                "grantWriteAcp"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketAclGrantGrantee:getBucketAclGrantGrantee": {
+            "properties": {
+                "canned": {
+                    "type": "string",
+                    "description": "预定义组。包括AllUsers、AuthenticatedUsers。\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "展示名。\n"
+                },
+                "granteeId": {
+                    "type": "string",
+                    "description": "账号ID。\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "用户类型。包括Group、CanonicalUser。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "canned",
+                "displayName",
+                "granteeId",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketAclOwner:getBucketAclOwner": {
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "展示名。\n"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "账号ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "displayName",
+                "ownerId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfig:getBucketLifecycleConfig": {
+            "properties": {
+                "abortInCompleteMultipartUpload": {
+                    "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigAbortInCompleteMultipartUpload:getBucketLifecycleConfigAbortInCompleteMultipartUpload",
+                    "description": "指定未合并的分片任务（碎片）的过期属性。\n"
+                },
+                "expiration": {
+                    "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigExpiration:getBucketLifecycleConfigExpiration",
+                    "description": "基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。\n"
+                },
+                "filter": {
+                    "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigFilter:getBucketLifecycleConfigFilter",
+                    "description": "指定规则生效的过滤条件。\n"
+                },
+                "lifecycleRuleId": {
+                    "type": "string",
+                    "description": "规则 ID。\n"
+                },
+                "noCurrentVersionExpiration": {
+                    "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigNoCurrentVersionExpiration:getBucketLifecycleConfigNoCurrentVersionExpiration"
+                },
+                "nonCurrentVersionTransitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigNonCurrentVersionTransition:getBucketLifecycleConfigNonCurrentVersionTransition"
+                    },
+                    "description": "基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。\n"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "规则所适用的前缀。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "是否启用规则。包括Enabled、Disabled。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigTag:getBucketLifecycleConfigTag"
+                    },
+                    "description": "标签。\n"
+                },
+                "transitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfigTransition:getBucketLifecycleConfigTransition"
+                    },
+                    "description": "基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "abortInCompleteMultipartUpload",
+                "expiration",
+                "filter",
+                "lifecycleRuleId",
+                "noCurrentVersionExpiration",
+                "nonCurrentVersionTransitions",
+                "prefix",
+                "status",
+                "tags",
+                "transitions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigAbortInCompleteMultipartUpload:getBucketLifecycleConfigAbortInCompleteMultipartUpload": {
+            "properties": {
+                "daysAfterInitiation": {
+                    "type": "integer",
+                    "description": "指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "daysAfterInitiation"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigExpiration:getBucketLifecycleConfigExpiration": {
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。\n"
+                },
+                "days": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "date",
+                "days"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigFilter:getBucketLifecycleConfigFilter": {
+            "properties": {
+                "greaterThanIncludeEqual": {
+                    "type": "string",
+                    "description": "是否启用相等条件。包括Enabled、Disabled。\n"
+                },
+                "lessThanIncludeEqual": {
+                    "type": "string",
+                    "description": "是否启用相等条件。包括Enabled、Disabled。\n"
+                },
+                "objectSizeGreaterThan": {
+                    "type": "integer",
+                    "description": "设置规则生效于大于指定大小的对象。\n"
+                },
+                "objectSizeLessThan": {
+                    "type": "integer",
+                    "description": "设置规则生效于小于指定大小的对象。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "greaterThanIncludeEqual",
+                "lessThanIncludeEqual",
+                "objectSizeGreaterThan",
+                "objectSizeLessThan"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigNoCurrentVersionExpiration:getBucketLifecycleConfigNoCurrentVersionExpiration": {
+            "properties": {
+                "nonCurrentDate": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。\n"
+                },
+                "nonCurrentDays": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "nonCurrentDate",
+                "nonCurrentDays"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigNonCurrentVersionTransition:getBucketLifecycleConfigNonCurrentVersionTransition": {
+            "properties": {
+                "nonCurrentDate": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。\n"
+                },
+                "nonCurrentDays": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象沉降的天数。\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "nonCurrentDate",
+                "nonCurrentDays",
+                "storageClass"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigTag:getBucketLifecycleConfigTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketLifecycleConfigTransition:getBucketLifecycleConfigTransition": {
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。\n"
+                },
+                "days": {
+                    "type": "integer",
+                    "description": "基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "date",
+                "days",
+                "storageClass"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:tos/getBucketTag:getBucketTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vpc/VpcAssociateCen:VpcAssociateCen": {
+            "properties": {
+                "cenId": {
+                    "type": "string",
+                    "description": "CEN的ID。\n"
+                },
+                "cenOwnerId": {
+                    "type": "string",
+                    "description": "CEN的用户ID。\n"
+                },
+                "cenStatus": {
+                    "type": "string",
+                    "description": "VPC在CEN中的状态。Attaching：加载中，Attached：已加载\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cenId",
+                        "cenOwnerId",
+                        "cenStatus"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vpc/VpcTag:VpcTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vpc/getVpcAssociateCen:getVpcAssociateCen": {
+            "properties": {
+                "cenId": {
+                    "type": "string",
+                    "description": "CEN的ID。\n"
+                },
+                "cenOwnerId": {
+                    "type": "string",
+                    "description": "CEN的用户ID。\n"
+                },
+                "cenStatus": {
+                    "type": "string",
+                    "description": "VPC在CEN中的状态。Attaching：加载中，Attached：已加载\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cenId",
+                "cenOwnerId",
+                "cenStatus"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vpc/getVpcTag:getVpcTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the volcenginecc package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "accessKey": {
+                "type": "string",
+                "description": "The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY`\nenvironment variable\n"
+            },
+            "assumeRole": {
+                "$ref": "#/types/volcenginecc:index/ProviderAssumeRole:ProviderAssumeRole",
+                "description": "An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration.\n"
+            },
+            "customerHeaders": {
+                "type": "string",
+                "description": "CUSTOMER HEADERS for Volcengine Provider. The customer_headers field uses commas (,) to separate multiple headers, and\ncolons (:) to separate each header key from its corresponding value.\n"
+            },
+            "disableSsl": {
+                "type": "boolean",
+                "description": "Disable SSL for Volcengine Provider\n"
+            },
+            "endpoints": {
+                "$ref": "#/types/volcenginecc:index/ProviderEndpoints:ProviderEndpoints",
+                "description": "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.\n"
+            },
+            "proxyUrl": {
+                "type": "string",
+                "description": "PROXY URL for Volcengine Provider\n"
+            },
+            "region": {
+                "type": "string",
+                "description": "The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`\nenvironment variable\n"
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`\nenvironment variable\n"
+            }
+        },
+        "inputProperties": {
+            "accessKey": {
+                "type": "string",
+                "description": "The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY`\nenvironment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_ACCESS_KEY"
+                    ]
+                }
+            },
+            "assumeRole": {
+                "$ref": "#/types/volcenginecc:index/ProviderAssumeRole:ProviderAssumeRole",
+                "description": "An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration.\n"
+            },
+            "customerHeaders": {
+                "type": "string",
+                "description": "CUSTOMER HEADERS for Volcengine Provider. The customer_headers field uses commas (,) to separate multiple headers, and\ncolons (:) to separate each header key from its corresponding value.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_CUSTOMER_HEADERS"
+                    ]
+                }
+            },
+            "disableSsl": {
+                "type": "boolean",
+                "description": "Disable SSL for Volcengine Provider\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_DISABLE_SSL"
+                    ]
+                }
+            },
+            "endpoints": {
+                "$ref": "#/types/volcenginecc:index/ProviderEndpoints:ProviderEndpoints",
+                "description": "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.\n"
+            },
+            "proxyUrl": {
+                "type": "string",
+                "description": "PROXY URL for Volcengine Provider\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_PROXY_URL"
+                    ]
+                }
+            },
+            "region": {
+                "type": "string",
+                "description": "The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`\nenvironment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_REGION"
+                    ]
+                }
+            },
+            "secretKey": {
+                "type": "string",
+                "description": "he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`\nenvironment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_SECRET_KEY"
+                    ]
+                }
+            }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:volcenginecc/terraformConfig"
+        }
+    },
+    "resources": {
+        "volcenginecc:ecs/image:Image": {
+            "description": "镜像是包含了云服务器实例所需的基本操作系统、应用数据的特殊文件。创建实例时，必须选择镜像。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  imageDemo:\n    type: volcenginecc:ecs:Image\n    name: ImageDemo\n    properties:\n      bootMode: UEFI\n      createWholeImage: true\n      description: ImageDemo Example\n      imageName: image-demo\n      instanceId: i-ydzhj1el8gr9cxxdnxxxx\n      kernel: Linux\n      licenseType: BYOL\n      needDetection: false\n      osName: CentOS\n      osType: Linux\n      platform: CentOS\n      platformVersion: '8.3'\n      projectName: default\n      sharePermissions:\n        - 2000000***\n      tags:\n        - key: test\n          value: value1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:ecs/image:Image example \"image_id\"\n```\n\n",
+            "properties": {
+                "architecture": {
+                    "type": "string",
+                    "description": "镜像的架构类型。可以选择amd64（x86计算）、arm64（ARM计算）类型。\n"
+                },
+                "bootMode": {
+                    "type": "string",
+                    "description": "镜像的启动模式。可以选择BIOS、UEFI类型。\n"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "镜像创建时间\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "镜像描述。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、英文句号“.”、中文逗号“，”、中文句号“。”和空格。长度限制为0～255个字符。不填默认为空。\n"
+                },
+                "detectionResults": {
+                    "$ref": "#/types/volcenginecc:ecs/ImageDetectionResults:ImageDetectionResults",
+                    "description": "镜像的检测结果。\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "镜像ID。\n"
+                },
+                "imageName": {
+                    "type": "string",
+                    "description": "镜像名称。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、英文句号“.”。长度限制为1 ~ 128个字符。\n"
+                },
+                "imageOwnerId": {
+                    "type": "string",
+                    "description": "镜像所属的账号ID。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例ID。本参数与SnapshotId、SnapshotGroupId参数，三选一必填。\n"
+                },
+                "isInstallRunCommandAgent": {
+                    "type": "boolean",
+                    "description": "镜像中是否安装了云助手Agent。\n"
+                },
+                "isLts": {
+                    "type": "boolean",
+                    "description": "公共镜像是否长期维护。\n"
+                },
+                "isSupportCloudInit": {
+                    "type": "boolean",
+                    "description": "镜像是否支持Cloud-init。\n"
+                },
+                "kernel": {
+                    "type": "string",
+                    "description": "镜像的内核版本。\n"
+                },
+                "licenseType": {
+                    "type": "string",
+                    "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
+                },
+                "osName": {
+                    "type": "string",
+                    "description": "镜像操作系统的名称。\n"
+                },
+                "osType": {
+                    "type": "string",
+                    "description": "操作系统类型。\n"
+                },
+                "platform": {
+                    "type": "string",
+                    "description": "镜像操作系统的发行版本。可以选择CentOS、Debian、veLinux、Windows Server、Fedora、OpenSUSE、Ubuntu。\n"
+                },
+                "platformVersion": {
+                    "type": "string",
+                    "description": "镜像的发行版本。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "资源所属项目。调用接口账号若仅拥有部分项目权限时必须传入有权限的项目信息。\n"
+                },
+                "sharePermissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "镜像共享的账户\n"
+                },
+                "shareStatus": {
+                    "type": "string",
+                    "description": "镜像共享状态。HasShared：自定义镜像已被共享给其他用户。当自定义镜像未被共享或使用公共镜像时，ShareStatus返回为空。\n"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "镜像大小，单位为GiB。\n"
+                },
+                "snapshotGroupId": {
+                    "type": "string",
+                    "description": "快照一致性组ID，表示使用快照一致性组创建自定义镜像。本参数与SnapshotId、InstanceId参数，三选一必填。\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "系统盘快照ID，表示使用系统盘快照创建自定义镜像。本参数与InstanceId、SnapshotGroupId参数，三选一必填。\n"
+                },
+                "snapshots": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:ecs/ImageSnapshot:ImageSnapshot"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "镜像的状态。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:ecs/ImageTag:ImageTag"
+                    }
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "镜像更新时间\n"
+                },
+                "virtualSize": {
+                    "type": "number",
+                    "description": "镜像大小，单位为Byte。\n"
+                },
+                "visibility": {
+                    "type": "string",
+                    "description": "镜像的可见性。public：公共镜像。private：私有镜像。shared：共享镜像。\n"
+                }
+            },
+            "required": [
+                "architecture",
+                "bootMode",
+                "createdAt",
+                "description",
+                "detectionResults",
+                "imageId",
+                "imageName",
+                "imageOwnerId",
+                "instanceId",
+                "isInstallRunCommandAgent",
+                "isLts",
+                "isSupportCloudInit",
+                "kernel",
+                "licenseType",
+                "osName",
+                "osType",
+                "platform",
+                "platformVersion",
+                "projectName",
+                "sharePermissions",
+                "shareStatus",
+                "size",
+                "snapshotGroupId",
+                "snapshotId",
+                "snapshots",
+                "status",
+                "tags",
+                "updatedAt",
+                "virtualSize",
+                "visibility"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "镜像描述。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、英文句号“.”、中文逗号“，”、中文句号“。”和空格。长度限制为0～255个字符。不填默认为空。\n"
+                },
+                "detectionResults": {
+                    "$ref": "#/types/volcenginecc:ecs/ImageDetectionResults:ImageDetectionResults",
+                    "description": "镜像的检测结果。\n"
+                },
+                "imageName": {
+                    "type": "string",
+                    "description": "镜像名称。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、英文句号“.”。长度限制为1 ~ 128个字符。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例ID。本参数与SnapshotId、SnapshotGroupId参数，三选一必填。\n"
+                },
+                "kernel": {
+                    "type": "string",
+                    "description": "镜像的内核版本。\n"
+                },
+                "licenseType": {
+                    "type": "string",
+                    "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
+                },
+                "osName": {
+                    "type": "string",
+                    "description": "镜像操作系统的名称。\n"
+                },
+                "osType": {
+                    "type": "string",
+                    "description": "操作系统类型。\n"
+                },
+                "platform": {
+                    "type": "string",
+                    "description": "镜像操作系统的发行版本。可以选择CentOS、Debian、veLinux、Windows Server、Fedora、OpenSUSE、Ubuntu。\n"
+                },
+                "platformVersion": {
+                    "type": "string",
+                    "description": "镜像的发行版本。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "资源所属项目。调用接口账号若仅拥有部分项目权限时必须传入有权限的项目信息。\n"
+                },
+                "sharePermissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "镜像共享的账户\n"
+                },
+                "snapshotGroupId": {
+                    "type": "string",
+                    "description": "快照一致性组ID，表示使用快照一致性组创建自定义镜像。本参数与SnapshotId、InstanceId参数，三选一必填。\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "系统盘快照ID，表示使用系统盘快照创建自定义镜像。本参数与InstanceId、SnapshotGroupId参数，三选一必填。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:ecs/ImageTag:ImageTag"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "imageName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Image resources.\n",
+                "properties": {
+                    "architecture": {
+                        "type": "string",
+                        "description": "镜像的架构类型。可以选择amd64（x86计算）、arm64（ARM计算）类型。\n"
+                    },
+                    "bootMode": {
+                        "type": "string",
+                        "description": "镜像的启动模式。可以选择BIOS、UEFI类型。\n"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "description": "镜像创建时间\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "镜像描述。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、英文句号“.”、中文逗号“，”、中文句号“。”和空格。长度限制为0～255个字符。不填默认为空。\n"
+                    },
+                    "detectionResults": {
+                        "$ref": "#/types/volcenginecc:ecs/ImageDetectionResults:ImageDetectionResults",
+                        "description": "镜像的检测结果。\n"
+                    },
+                    "imageId": {
+                        "type": "string",
+                        "description": "镜像ID。\n"
+                    },
+                    "imageName": {
+                        "type": "string",
+                        "description": "镜像名称。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、英文句号“.”。长度限制为1 ~ 128个字符。\n"
+                    },
+                    "imageOwnerId": {
+                        "type": "string",
+                        "description": "镜像所属的账号ID。\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "实例ID。本参数与SnapshotId、SnapshotGroupId参数，三选一必填。\n"
+                    },
+                    "isInstallRunCommandAgent": {
+                        "type": "boolean",
+                        "description": "镜像中是否安装了云助手Agent。\n"
+                    },
+                    "isLts": {
+                        "type": "boolean",
+                        "description": "公共镜像是否长期维护。\n"
+                    },
+                    "isSupportCloudInit": {
+                        "type": "boolean",
+                        "description": "镜像是否支持Cloud-init。\n"
+                    },
+                    "kernel": {
+                        "type": "string",
+                        "description": "镜像的内核版本。\n"
+                    },
+                    "licenseType": {
+                        "type": "string",
+                        "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
+                    },
+                    "osName": {
+                        "type": "string",
+                        "description": "镜像操作系统的名称。\n"
+                    },
+                    "osType": {
+                        "type": "string",
+                        "description": "操作系统类型。\n"
+                    },
+                    "platform": {
+                        "type": "string",
+                        "description": "镜像操作系统的发行版本。可以选择CentOS、Debian、veLinux、Windows Server、Fedora、OpenSUSE、Ubuntu。\n"
+                    },
+                    "platformVersion": {
+                        "type": "string",
+                        "description": "镜像的发行版本。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "资源所属项目。调用接口账号若仅拥有部分项目权限时必须传入有权限的项目信息。\n"
+                    },
+                    "sharePermissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "镜像共享的账户\n"
+                    },
+                    "shareStatus": {
+                        "type": "string",
+                        "description": "镜像共享状态。HasShared：自定义镜像已被共享给其他用户。当自定义镜像未被共享或使用公共镜像时，ShareStatus返回为空。\n"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "description": "镜像大小，单位为GiB。\n"
+                    },
+                    "snapshotGroupId": {
+                        "type": "string",
+                        "description": "快照一致性组ID，表示使用快照一致性组创建自定义镜像。本参数与SnapshotId、InstanceId参数，三选一必填。\n"
+                    },
+                    "snapshotId": {
+                        "type": "string",
+                        "description": "系统盘快照ID，表示使用系统盘快照创建自定义镜像。本参数与InstanceId、SnapshotGroupId参数，三选一必填。\n"
+                    },
+                    "snapshots": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:ecs/ImageSnapshot:ImageSnapshot"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "镜像的状态。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:ecs/ImageTag:ImageTag"
+                        }
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "镜像更新时间\n"
+                    },
+                    "virtualSize": {
+                        "type": "number",
+                        "description": "镜像大小，单位为Byte。\n"
+                    },
+                    "visibility": {
+                        "type": "string",
+                        "description": "镜像的可见性。public：公共镜像。private：私有镜像。shared：共享镜像。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:iam/role:Role": {
+            "description": "角色（Role）是IAM体系里的一种虚拟身份，用于将账号内某些访问权限授予给各类身份实体，受信任的身份实体可扮演该角色来访问账号内的云资源。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst roleDemo = new volcenginecc.iam.Role(\"RoleDemo\", {\n    roleName: \"RoleDemo\",\n    description: \"role attach policies\",\n    maxSessionDuration: 3600,\n    trustPolicyDocument: `{\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Action\": [\n                \"sts:AssumeRole\"\n            ],\n            \"Principal\": {\n                \"IAM\": [\n                    \"trn:iam::20000000xx:root\"\n                ]\n            }\n        }\n    ]\n}`,\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nrole_demo = volcenginecc.iam.Role(\"RoleDemo\",\n    role_name=\"RoleDemo\",\n    description=\"role attach policies\",\n    max_session_duration=3600,\n    trust_policy_document=\"\"\"{\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Action\": [\n                \"sts:AssumeRole\"\n            ],\n            \"Principal\": {\n                \"IAM\": [\n                    \"trn:iam::20000000xx:root\"\n                ]\n            }\n        }\n    ]\n}\"\"\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var roleDemo = new Volcenginecc.Iam.Role(\"RoleDemo\", new()\n    {\n        RoleName = \"RoleDemo\",\n        Description = \"role attach policies\",\n        MaxSessionDuration = 3600,\n        TrustPolicyDocument = @\"{\n    \"\"Statement\"\": [\n        {\n            \"\"Effect\"\": \"\"Allow\"\",\n            \"\"Action\"\": [\n                \"\"sts:AssumeRole\"\"\n            ],\n            \"\"Principal\"\": {\n                \"\"IAM\"\": [\n                    \"\"trn:iam::20000000xx:root\"\"\n                ]\n            }\n        }\n    ]\n}\",\n        Tags = new[]\n        {\n            new Volcenginecc.Iam.Inputs.RoleTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/iam\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := iam.NewRole(ctx, \"RoleDemo\", \u0026iam.RoleArgs{\n\t\t\tRoleName:           pulumi.String(\"RoleDemo\"),\n\t\t\tDescription:        pulumi.String(\"role attach policies\"),\n\t\t\tMaxSessionDuration: pulumi.Int(3600),\n\t\t\tTrustPolicyDocument: pulumi.String(`{\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Action\": [\n                \"sts:AssumeRole\"\n            ],\n            \"Principal\": {\n                \"IAM\": [\n                    \"trn:iam::20000000xx:root\"\n                ]\n            }\n        }\n    ]\n}`),\n\t\t\tTags: iam.RoleTagArray{\n\t\t\t\t\u0026iam.RoleTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.iam.Role;\nimport com.volcengine.volcenginecc.iam.RoleArgs;\nimport com.pulumi.volcenginecc.iam.inputs.RoleTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var roleDemo = new Role(\"roleDemo\", RoleArgs.builder()\n            .roleName(\"RoleDemo\")\n            .description(\"role attach policies\")\n            .maxSessionDuration(3600)\n            .trustPolicyDocument(\"\"\"\n{\n    \"Statement\": [\n        {\n            \"Effect\": \"Allow\",\n            \"Action\": [\n                \"sts:AssumeRole\"\n            ],\n            \"Principal\": {\n                \"IAM\": [\n                    \"trn:iam::20000000xx:root\"\n                ]\n            }\n        }\n    ]\n}            \"\"\")\n            .tags(RoleTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  roleDemo:\n    type: volcenginecc:iam:Role\n    name: RoleDemo\n    properties:\n      roleName: RoleDemo\n      description: role attach policies\n      maxSessionDuration: 3600\n      trustPolicyDocument: |-\n        {\n            \"Statement\": [\n                {\n                    \"Effect\": \"Allow\",\n                    \"Action\": [\n                        \"sts:AssumeRole\"\n                    ],\n                    \"Principal\": {\n                        \"IAM\": [\n                            \"trn:iam::20000000xx:root\"\n                        ]\n                    }\n                }\n            ]\n        }\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:iam/role:Role example \"role_name\"\n```\n\n",
+            "properties": {
+                "createDate": {
+                    "type": "string",
+                    "description": "角色创建时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "角色描述，长度不超过128。\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "角色显示名，长度不超过64。\n"
+                },
+                "isServiceLinkedRole": {
+                    "type": "integer",
+                    "description": "是否是服务关联角色, 0否，1是。\n"
+                },
+                "maxSessionDuration": {
+                    "type": "integer",
+                    "description": "角色最大会话时间，角色最大会话时间。用于限制角色扮演产生的临时安全凭证的有效期的最大范围。取值范围：3600~43200，单位为秒，默认为43200。\n"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/RolePolicy:RolePolicy"
+                    }
+                },
+                "roleId": {
+                    "type": "integer",
+                    "description": "角色ID。\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "角色名，长度1~64，支持英文、数字和.-_符号。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/RoleTag:RoleTag"
+                    }
+                },
+                "trn": {
+                    "type": "string",
+                    "description": "角色TRN。\n"
+                },
+                "trustPolicyDocument": {
+                    "type": "string",
+                    "description": "角色信任策略，信任策略遵循IAM的策略语法中基于资源的策略规则。\n"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "description": "角色更新时间。\n"
+                }
+            },
+            "required": [
+                "createDate",
+                "description",
+                "displayName",
+                "isServiceLinkedRole",
+                "maxSessionDuration",
+                "policies",
+                "roleId",
+                "roleName",
+                "tags",
+                "trn",
+                "trustPolicyDocument",
+                "updateDate"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "角色描述，长度不超过128。\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "角色显示名，长度不超过64。\n"
+                },
+                "maxSessionDuration": {
+                    "type": "integer",
+                    "description": "角色最大会话时间，角色最大会话时间。用于限制角色扮演产生的临时安全凭证的有效期的最大范围。取值范围：3600~43200，单位为秒，默认为43200。\n"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/RolePolicy:RolePolicy"
+                    }
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "角色名，长度1~64，支持英文、数字和.-_符号。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/RoleTag:RoleTag"
+                    }
+                },
+                "trustPolicyDocument": {
+                    "type": "string",
+                    "description": "角色信任策略，信任策略遵循IAM的策略语法中基于资源的策略规则。\n"
+                }
+            },
+            "requiredInputs": [
+                "roleName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Role resources.\n",
+                "properties": {
+                    "createDate": {
+                        "type": "string",
+                        "description": "角色创建时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "角色描述，长度不超过128。\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "角色显示名，长度不超过64。\n"
+                    },
+                    "isServiceLinkedRole": {
+                        "type": "integer",
+                        "description": "是否是服务关联角色, 0否，1是。\n"
+                    },
+                    "maxSessionDuration": {
+                        "type": "integer",
+                        "description": "角色最大会话时间，角色最大会话时间。用于限制角色扮演产生的临时安全凭证的有效期的最大范围。取值范围：3600~43200，单位为秒，默认为43200。\n"
+                    },
+                    "policies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/RolePolicy:RolePolicy"
+                        }
+                    },
+                    "roleId": {
+                        "type": "integer",
+                        "description": "角色ID。\n"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "角色名，长度1~64，支持英文、数字和.-_符号。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/RoleTag:RoleTag"
+                        }
+                    },
+                    "trn": {
+                        "type": "string",
+                        "description": "角色TRN。\n"
+                    },
+                    "trustPolicyDocument": {
+                        "type": "string",
+                        "description": "角色信任策略，信任策略遵循IAM的策略语法中基于资源的策略规则。\n"
+                    },
+                    "updateDate": {
+                        "type": "string",
+                        "description": "角色更新时间。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:iam/user:User": {
+            "description": "IAM子用户是访问控制的一种身份，由账号或是拥有权限的用户创建。用户被授予权限后，可登录控制台或使用访问密钥调用API访问云资源。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  userDemo:\n    type: volcenginecc:iam:User\n    name: UserDemo\n    properties:\n      userName: UserDemo\n      description: user for tf demo\n      groups:\n        - UserGroupDemo\n      policies:\n        - policy_name: TOSReadOnlyAccess\n          policy_type: System\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:iam/user:User example \"user_name\"\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "number",
+                    "description": "子用户归属的主账号。\n"
+                },
+                "createDate": {
+                    "type": "string",
+                    "description": "子用户对应的创建时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "子用户对应的描述信息，长度不超过255。\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "子用户对应的电子邮件地址。\n"
+                },
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "子用户归属的用户组。\n"
+                },
+                "loginProfile": {
+                    "$ref": "#/types/volcenginecc:iam/UserLoginProfile:UserLoginProfile",
+                    "description": "子用户的登录配置。\n"
+                },
+                "mobilePhone": {
+                    "type": "string",
+                    "description": "子用户对应的手机号。\n"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/UserPolicy:UserPolicy"
+                    }
+                },
+                "securityConfig": {
+                    "$ref": "#/types/volcenginecc:iam/UserSecurityConfig:UserSecurityConfig",
+                    "description": "子用户的操作保护配置。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/UserTag:UserTag"
+                    }
+                },
+                "trn": {
+                    "type": "string",
+                    "description": "子用户对应的Trn表达式。\n"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "description": "子用户对应的更新时间。\n"
+                },
+                "userId": {
+                    "type": "integer",
+                    "description": "子用户的ID。\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "子用户名称，用户名。长度1~64，支持英文、数字、下划线、和.-@符号。\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "createDate",
+                "description",
+                "displayName",
+                "email",
+                "groups",
+                "loginProfile",
+                "mobilePhone",
+                "policies",
+                "securityConfig",
+                "tags",
+                "trn",
+                "updateDate",
+                "userId",
+                "userName"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "子用户对应的描述信息，长度不超过255。\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "子用户对应的电子邮件地址。\n"
+                },
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "子用户归属的用户组。\n"
+                },
+                "loginProfile": {
+                    "$ref": "#/types/volcenginecc:iam/UserLoginProfile:UserLoginProfile",
+                    "description": "子用户的登录配置。\n"
+                },
+                "mobilePhone": {
+                    "type": "string",
+                    "description": "子用户对应的手机号。\n"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/UserPolicy:UserPolicy"
+                    }
+                },
+                "securityConfig": {
+                    "$ref": "#/types/volcenginecc:iam/UserSecurityConfig:UserSecurityConfig",
+                    "description": "子用户的操作保护配置。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:iam/UserTag:UserTag"
+                    }
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "子用户名称，用户名。长度1~64，支持英文、数字、下划线、和.-@符号。\n"
+                }
+            },
+            "requiredInputs": [
+                "userName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "number",
+                        "description": "子用户归属的主账号。\n"
+                    },
+                    "createDate": {
+                        "type": "string",
+                        "description": "子用户对应的创建时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "子用户对应的描述信息，长度不超过255。\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "子用户对应的电子邮件地址。\n"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "子用户归属的用户组。\n"
+                    },
+                    "loginProfile": {
+                        "$ref": "#/types/volcenginecc:iam/UserLoginProfile:UserLoginProfile",
+                        "description": "子用户的登录配置。\n"
+                    },
+                    "mobilePhone": {
+                        "type": "string",
+                        "description": "子用户对应的手机号。\n"
+                    },
+                    "policies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/UserPolicy:UserPolicy"
+                        }
+                    },
+                    "securityConfig": {
+                        "$ref": "#/types/volcenginecc:iam/UserSecurityConfig:UserSecurityConfig",
+                        "description": "子用户的操作保护配置。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/UserTag:UserTag"
+                        }
+                    },
+                    "trn": {
+                        "type": "string",
+                        "description": "子用户对应的Trn表达式。\n"
+                    },
+                    "updateDate": {
+                        "type": "string",
+                        "description": "子用户对应的更新时间。\n"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "description": "子用户的ID。\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "子用户名称，用户名。长度1~64，支持英文、数字、下划线、和.-@符号。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:tos/bucket:Bucket": {
+            "description": "存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  bucketDemo:\n    type: volcenginecc:tos:Bucket\n    name: BucketDemo\n    properties:\n      name: bucket-demo\n      enableVersionStatus: Enabled\n      tags:\n        - key: env\n          value: test\n      lifecycleConfigs:\n        - expiration:\n            date: 2027-01-18T00:00:00Z\n          filter:\n            greaterThanIncludeEqual: Disabled\n            lessThanIncludeEqual: Disabled\n            objectSizeGreaterThan: 123\n            objectSizeLessThan: 789\n          id: bucketdemo\n          prefix: prefix\n          status: Enabled\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:tos/bucket:Bucket example \"name\"\n```\n\n",
+            "properties": {
+                "acl": {
+                    "$ref": "#/types/volcenginecc:tos/BucketAcl:BucketAcl",
+                    "description": "桶的访问控制权限。\n"
+                },
+                "aclGrant": {
+                    "$ref": "#/types/volcenginecc:tos/BucketAclGrant:BucketAclGrant"
+                },
+                "azRedundancy": {
+                    "type": "string",
+                    "description": "桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。\n"
+                },
+                "bucketType": {
+                    "type": "string",
+                    "description": "桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。\n"
+                },
+                "creationDate": {
+                    "type": "string",
+                    "description": "桶的创建时间。\n"
+                },
+                "enableVersionStatus": {
+                    "type": "string",
+                    "description": "存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。\n"
+                },
+                "extranetEndpoint": {
+                    "type": "string",
+                    "description": "存储桶的 TOS 协议公网访问域名。\n"
+                },
+                "intranetEndpoint": {
+                    "type": "string",
+                    "description": "存储桶的 TOS 协议私网访问域名\n"
+                },
+                "lifecycleConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfig:BucketLifecycleConfig"
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "description": "桶所在区域。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "桶名。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "存储桶所属项目。\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketTag:BucketTag"
+                    }
+                }
+            },
+            "required": [
+                "acl",
+                "aclGrant",
+                "azRedundancy",
+                "bucketType",
+                "creationDate",
+                "enableVersionStatus",
+                "extranetEndpoint",
+                "intranetEndpoint",
+                "lifecycleConfigs",
+                "location",
+                "name",
+                "projectName",
+                "storageClass",
+                "tags"
+            ],
+            "inputProperties": {
+                "acl": {
+                    "$ref": "#/types/volcenginecc:tos/BucketAcl:BucketAcl",
+                    "description": "桶的访问控制权限。\n"
+                },
+                "aclGrant": {
+                    "$ref": "#/types/volcenginecc:tos/BucketAclGrant:BucketAclGrant"
+                },
+                "azRedundancy": {
+                    "type": "string",
+                    "description": "桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。\n"
+                },
+                "bucketType": {
+                    "type": "string",
+                    "description": "桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。\n"
+                },
+                "enableVersionStatus": {
+                    "type": "string",
+                    "description": "存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。\n"
+                },
+                "lifecycleConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfig:BucketLifecycleConfig"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "桶名。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "存储桶所属项目。\n"
+                },
+                "storageClass": {
+                    "type": "string",
+                    "description": "桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:tos/BucketTag:BucketTag"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Bucket resources.\n",
+                "properties": {
+                    "acl": {
+                        "$ref": "#/types/volcenginecc:tos/BucketAcl:BucketAcl",
+                        "description": "桶的访问控制权限。\n"
+                    },
+                    "aclGrant": {
+                        "$ref": "#/types/volcenginecc:tos/BucketAclGrant:BucketAclGrant"
+                    },
+                    "azRedundancy": {
+                        "type": "string",
+                        "description": "桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。\n"
+                    },
+                    "bucketType": {
+                        "type": "string",
+                        "description": "桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。\n"
+                    },
+                    "creationDate": {
+                        "type": "string",
+                        "description": "桶的创建时间。\n"
+                    },
+                    "enableVersionStatus": {
+                        "type": "string",
+                        "description": "存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。\n"
+                    },
+                    "extranetEndpoint": {
+                        "type": "string",
+                        "description": "存储桶的 TOS 协议公网访问域名。\n"
+                    },
+                    "intranetEndpoint": {
+                        "type": "string",
+                        "description": "存储桶的 TOS 协议私网访问域名\n"
+                    },
+                    "lifecycleConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:tos/BucketLifecycleConfig:BucketLifecycleConfig"
+                        }
+                    },
+                    "location": {
+                        "type": "string",
+                        "description": "桶所在区域。\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "桶名。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "存储桶所属项目。\n"
+                    },
+                    "storageClass": {
+                        "type": "string",
+                        "description": "桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:tos/BucketTag:BucketTag"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:vpc/vpc:Vpc": {
+            "description": "私有网络为云上资源构建隔离的、自主配置的虚拟网络环境。可以在私有网络中自定义IP地址段、安全组、路由策略等网络特性，简单高效安全地管理云上资源。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  vPCDemo:\n    type: volcenginecc:vpc:Vpc\n    name: VPCDemo\n    properties:\n      cidrBlock: 192.168.0.0/24\n      supportIpv4Gateway: true\n      enableIpv6: false\n      vpcName: vpc-demo\n      description: VpcDemo Example\n      dnsServers:\n        - 12.3.x.x\n      associateCens:\n        - cen_id: cen-3re8cx4vwdibk5zsk2xxxx\n          cen_owner_id: 200000xxx\n          cen_status: Attaching\n      natGatewayIds:\n        - ngw-2d6tp1y8zq41s58ozfdxxx\n      routeTableIds:\n        - vtb-29mkf8ft83l6o1e1hgixxx\n      securityGroupIds:\n        - sg-29mkx39jb80741e1hgj2bxxx\n      projectName: default\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vpc/vpc:Vpc example \"vpc_id\"\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "VPC所属账号的ID。\n"
+                },
+                "associateCens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vpc/VpcAssociateCen:VpcAssociateCen"
+                    }
+                },
+                "cidrBlock": {
+                    "type": "string",
+                    "description": "VPC的IPv4网段。您可以使用以下网段或其子集作为VPC的IPv4网段：192.168.0.0/16 ~ 24、10.0.0.0/8 ~ 24、172.16.0.0/12 ~ 24。\n"
+                },
+                "creationTime": {
+                    "type": "string",
+                    "description": "创建VPC的时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "VPC的描述信息。长度限制为0~ 255个字符。不填默认为空字符串。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。不能以http://或https://开头。\n"
+                },
+                "dnsServers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC的DNS服务器地址。单次调用数量上限为5个，每个DnsServer必须以合法IP形式给出。多个IP之间用\u0026分隔。不填则配置为默认DNS服务器地址。\n"
+                },
+                "ipv4GatewayId": {
+                    "type": "string",
+                    "description": "VPC 绑定的 IPv4 网关的 ID。\n"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string",
+                    "description": "VPC的IPv6网段。传入此参数后，参数Ipv6MaskLen不生效。参数Ipv6Isp传入非BGP后，参数Ipv6MaskLen和参数Ipv6CidrBlock二者必须传入一个。参数Ipv6Isp未传或传入BGP，此参数未传，则由系统自动分配IPv6网段。\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "该VPC是否为默认VPC。true：默认VPC，表示该VPC是创建ECS实例时系统自动创建的VPC。false：非默认VPC，表示该VPC是用户手动创建的。\n"
+                },
+                "natGatewayIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC中创建的NAT网关的ID。\n"
+                },
+                "networkAclNum": {
+                    "type": "string",
+                    "description": "VPC中的网络ACL的数量。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "VPC所属项目的名称。不填默认加入default项目。\n"
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC关联的路由表ID。\n"
+                },
+                "secondaryCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC的辅助网段。\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC中安全组的列表。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "VPC的状态。Creating：创建中。Pending：已创建。Available：可用。\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC中子网的列表。\n"
+                },
+                "supportIpv4Gateway": {
+                    "type": "boolean",
+                    "description": "VPC 是否启用 IPv4 网关。false（默认值）：不启用。true：启用。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vpc/VpcTag:VpcTag"
+                    }
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "更新VPC的时间。\n"
+                },
+                "userCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC的用户网段。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPC的ID。\n"
+                },
+                "vpcName": {
+                    "type": "string",
+                    "description": "VPC的名称。长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-）。不填默认为VPC实例的ID。不能以http://或https://开头。\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "associateCens",
+                "cidrBlock",
+                "creationTime",
+                "description",
+                "dnsServers",
+                "ipv4GatewayId",
+                "ipv6CidrBlock",
+                "isDefault",
+                "natGatewayIds",
+                "networkAclNum",
+                "projectName",
+                "routeTableIds",
+                "secondaryCidrBlocks",
+                "securityGroupIds",
+                "status",
+                "subnetIds",
+                "supportIpv4Gateway",
+                "tags",
+                "updateTime",
+                "userCidrBlocks",
+                "vpcId",
+                "vpcName"
+            ],
+            "inputProperties": {
+                "associateCens": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vpc/VpcAssociateCen:VpcAssociateCen"
+                    }
+                },
+                "cidrBlock": {
+                    "type": "string",
+                    "description": "VPC的IPv4网段。您可以使用以下网段或其子集作为VPC的IPv4网段：192.168.0.0/16 ~ 24、10.0.0.0/8 ~ 24、172.16.0.0/12 ~ 24。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "VPC的描述信息。长度限制为0~ 255个字符。不填默认为空字符串。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。不能以http://或https://开头。\n"
+                },
+                "dnsServers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC的DNS服务器地址。单次调用数量上限为5个，每个DnsServer必须以合法IP形式给出。多个IP之间用\u0026分隔。不填则配置为默认DNS服务器地址。\n"
+                },
+                "ipv4GatewayId": {
+                    "type": "string",
+                    "description": "VPC 绑定的 IPv4 网关的 ID。\n"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string",
+                    "description": "VPC的IPv6网段。传入此参数后，参数Ipv6MaskLen不生效。参数Ipv6Isp传入非BGP后，参数Ipv6MaskLen和参数Ipv6CidrBlock二者必须传入一个。参数Ipv6Isp未传或传入BGP，此参数未传，则由系统自动分配IPv6网段。\n"
+                },
+                "natGatewayIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC中创建的NAT网关的ID。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "VPC所属项目的名称。不填默认加入default项目。\n"
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC关联的路由表ID。\n"
+                },
+                "secondaryCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC的辅助网段。\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC中安全组的列表。\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC中子网的列表。\n"
+                },
+                "supportIpv4Gateway": {
+                    "type": "boolean",
+                    "description": "VPC 是否启用 IPv4 网关。false（默认值）：不启用。true：启用。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vpc/VpcTag:VpcTag"
+                    }
+                },
+                "userCidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC的用户网段。\n"
+                },
+                "vpcName": {
+                    "type": "string",
+                    "description": "VPC的名称。长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-）。不填默认为VPC实例的ID。不能以http://或https://开头。\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Vpc resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "VPC所属账号的ID。\n"
+                    },
+                    "associateCens": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vpc/VpcAssociateCen:VpcAssociateCen"
+                        }
+                    },
+                    "cidrBlock": {
+                        "type": "string",
+                        "description": "VPC的IPv4网段。您可以使用以下网段或其子集作为VPC的IPv4网段：192.168.0.0/16 ~ 24、10.0.0.0/8 ~ 24、172.16.0.0/12 ~ 24。\n"
+                    },
+                    "creationTime": {
+                        "type": "string",
+                        "description": "创建VPC的时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "VPC的描述信息。长度限制为0~ 255个字符。不填默认为空字符串。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。不能以http://或https://开头。\n"
+                    },
+                    "dnsServers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC的DNS服务器地址。单次调用数量上限为5个，每个DnsServer必须以合法IP形式给出。多个IP之间用\u0026分隔。不填则配置为默认DNS服务器地址。\n"
+                    },
+                    "ipv4GatewayId": {
+                        "type": "string",
+                        "description": "VPC 绑定的 IPv4 网关的 ID。\n"
+                    },
+                    "ipv6CidrBlock": {
+                        "type": "string",
+                        "description": "VPC的IPv6网段。传入此参数后，参数Ipv6MaskLen不生效。参数Ipv6Isp传入非BGP后，参数Ipv6MaskLen和参数Ipv6CidrBlock二者必须传入一个。参数Ipv6Isp未传或传入BGP，此参数未传，则由系统自动分配IPv6网段。\n"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "该VPC是否为默认VPC。true：默认VPC，表示该VPC是创建ECS实例时系统自动创建的VPC。false：非默认VPC，表示该VPC是用户手动创建的。\n"
+                    },
+                    "natGatewayIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC中创建的NAT网关的ID。\n"
+                    },
+                    "networkAclNum": {
+                        "type": "string",
+                        "description": "VPC中的网络ACL的数量。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "VPC所属项目的名称。不填默认加入default项目。\n"
+                    },
+                    "routeTableIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC关联的路由表ID。\n"
+                    },
+                    "secondaryCidrBlocks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC的辅助网段。\n"
+                    },
+                    "securityGroupIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC中安全组的列表。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "VPC的状态。Creating：创建中。Pending：已创建。Available：可用。\n"
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC中子网的列表。\n"
+                    },
+                    "supportIpv4Gateway": {
+                        "type": "boolean",
+                        "description": "VPC 是否启用 IPv4 网关。false（默认值）：不启用。true：启用。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vpc/VpcTag:VpcTag"
+                        }
+                    },
+                    "updateTime": {
+                        "type": "string",
+                        "description": "更新VPC的时间。\n"
+                    },
+                    "userCidrBlocks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "VPC的用户网段。\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "VPC的ID。\n"
+                    },
+                    "vpcName": {
+                        "type": "string",
+                        "description": "VPC的名称。长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-）。不填默认为VPC实例的ID。不能以http://或https://开头。\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "pulumi:providers:volcenginecc/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:volcenginecc"
+                    }
+                },
+                "type": "pulumi:providers:volcenginecc/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:ecs/getImage:getImage": {
+            "description": "Data Source schema for Volcengine::ECS::Image\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getImage.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getImage.\n",
+                "properties": {
+                    "architecture": {
+                        "description": "镜像的架构类型。可以选择amd64（x86计算）、arm64（ARM计算）类型。\n",
+                        "type": "string"
+                    },
+                    "bootMode": {
+                        "description": "镜像的启动模式。可以选择BIOS、UEFI类型。\n",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "description": "镜像创建时间\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "镜像描述。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、英文句号“.”、中文逗号“，”、中文句号“。”和空格。长度限制为0～255个字符。不填默认为空。\n",
+                        "type": "string"
+                    },
+                    "detectionResults": {
+                        "$ref": "#/types/volcenginecc:ecs/getImageDetectionResults:getImageDetectionResults",
+                        "description": "镜像的检测结果。\n"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "imageId": {
+                        "description": "镜像ID。\n",
+                        "type": "string"
+                    },
+                    "imageName": {
+                        "description": "镜像名称。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、英文句号“.”。长度限制为1 ~ 128个字符。\n",
+                        "type": "string"
+                    },
+                    "imageOwnerId": {
+                        "description": "镜像所属的账号ID。\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "description": "实例ID。本参数与SnapshotId、SnapshotGroupId参数，三选一必填。\n",
+                        "type": "string"
+                    },
+                    "isInstallRunCommandAgent": {
+                        "description": "镜像中是否安装了云助手Agent。\n",
+                        "type": "boolean"
+                    },
+                    "isLts": {
+                        "description": "公共镜像是否长期维护。\n",
+                        "type": "boolean"
+                    },
+                    "isSupportCloudInit": {
+                        "description": "镜像是否支持Cloud-init。\n",
+                        "type": "boolean"
+                    },
+                    "kernel": {
+                        "description": "镜像的内核版本。\n",
+                        "type": "string"
+                    },
+                    "licenseType": {
+                        "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n",
+                        "type": "string"
+                    },
+                    "osName": {
+                        "description": "镜像操作系统的名称。\n",
+                        "type": "string"
+                    },
+                    "osType": {
+                        "description": "操作系统类型。\n",
+                        "type": "string"
+                    },
+                    "platform": {
+                        "description": "镜像操作系统的发行版本。可以选择CentOS、Debian、veLinux、Windows Server、Fedora、OpenSUSE、Ubuntu。\n",
+                        "type": "string"
+                    },
+                    "platformVersion": {
+                        "description": "镜像的发行版本。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "资源所属项目。调用接口账号若仅拥有部分项目权限时必须传入有权限的项目信息。\n",
+                        "type": "string"
+                    },
+                    "sharePermissions": {
+                        "description": "镜像共享的账户\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "shareStatus": {
+                        "description": "镜像共享状态。HasShared：自定义镜像已被共享给其他用户。当自定义镜像未被共享或使用公共镜像时，ShareStatus返回为空。\n",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "镜像大小，单位为GiB。\n",
+                        "type": "integer"
+                    },
+                    "snapshotGroupId": {
+                        "description": "快照一致性组ID，表示使用快照一致性组创建自定义镜像。本参数与SnapshotId、InstanceId参数，三选一必填。\n",
+                        "type": "string"
+                    },
+                    "snapshotId": {
+                        "description": "系统盘快照ID，表示使用系统盘快照创建自定义镜像。本参数与InstanceId、SnapshotGroupId参数，三选一必填。\n",
+                        "type": "string"
+                    },
+                    "snapshots": {
+                        "description": "镜像关联快照的信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:ecs/getImageSnapshot:getImageSnapshot"
+                        },
+                        "type": "array"
+                    },
+                    "status": {
+                        "description": "镜像的状态。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "镜像绑定的标签列表。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:ecs/getImageTag:getImageTag"
+                        },
+                        "type": "array"
+                    },
+                    "updatedAt": {
+                        "description": "镜像更新时间\n",
+                        "type": "string"
+                    },
+                    "virtualSize": {
+                        "description": "镜像大小，单位为Byte。\n",
+                        "type": "number"
+                    },
+                    "visibility": {
+                        "description": "镜像的可见性。public：公共镜像。private：私有镜像。shared：共享镜像。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "architecture",
+                    "bootMode",
+                    "createdAt",
+                    "description",
+                    "detectionResults",
+                    "id",
+                    "imageId",
+                    "imageName",
+                    "imageOwnerId",
+                    "instanceId",
+                    "isInstallRunCommandAgent",
+                    "isLts",
+                    "isSupportCloudInit",
+                    "kernel",
+                    "licenseType",
+                    "osName",
+                    "osType",
+                    "platform",
+                    "platformVersion",
+                    "projectName",
+                    "sharePermissions",
+                    "shareStatus",
+                    "size",
+                    "snapshotGroupId",
+                    "snapshotId",
+                    "snapshots",
+                    "status",
+                    "tags",
+                    "updatedAt",
+                    "virtualSize",
+                    "visibility"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:ecs/getImages:getImages": {
+            "description": "Plural Data Source schema for Volcengine::ECS::Image\n",
+            "outputs": {
+                "description": "A collection of values returned by getImages.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:iam/getRole:getRole": {
+            "description": "Data Source schema for Volcengine::IAM::Role\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRole.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRole.\n",
+                "properties": {
+                    "createDate": {
+                        "description": "角色创建时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "角色描述，长度不超过128。\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "角色显示名，长度不超过64。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "isServiceLinkedRole": {
+                        "description": "是否是服务关联角色, 0否，1是。\n",
+                        "type": "integer"
+                    },
+                    "maxSessionDuration": {
+                        "description": "角色最大会话时间，角色最大会话时间。用于限制角色扮演产生的临时安全凭证的有效期的最大范围。取值范围：3600~43200，单位为秒，默认为43200。\n",
+                        "type": "integer"
+                    },
+                    "policies": {
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/getRolePolicy:getRolePolicy"
+                        },
+                        "type": "array"
+                    },
+                    "roleId": {
+                        "description": "角色ID。\n",
+                        "type": "integer"
+                    },
+                    "roleName": {
+                        "description": "角色名，长度1~64，支持英文、数字和.-_符号。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/getRoleTag:getRoleTag"
+                        },
+                        "type": "array"
+                    },
+                    "trn": {
+                        "description": "角色TRN。\n",
+                        "type": "string"
+                    },
+                    "trustPolicyDocument": {
+                        "description": "角色信任策略，信任策略遵循IAM的策略语法中基于资源的策略规则。\n",
+                        "type": "string"
+                    },
+                    "updateDate": {
+                        "description": "角色更新时间。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createDate",
+                    "description",
+                    "displayName",
+                    "id",
+                    "isServiceLinkedRole",
+                    "maxSessionDuration",
+                    "policies",
+                    "roleId",
+                    "roleName",
+                    "tags",
+                    "trn",
+                    "trustPolicyDocument",
+                    "updateDate"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:iam/getRoles:getRoles": {
+            "description": "Plural Data Source schema for Volcengine::IAM::Role\n",
+            "outputs": {
+                "description": "A collection of values returned by getRoles.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:iam/getUser:getUser": {
+            "description": "Data Source schema for Volcengine::IAM::User\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUser.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUser.\n",
+                "properties": {
+                    "accountId": {
+                        "description": "子用户归属的主账号。\n",
+                        "type": "number"
+                    },
+                    "createDate": {
+                        "description": "子用户对应的创建时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "子用户对应的描述信息，长度不超过255。\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。\n",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "子用户对应的电子邮件地址。\n",
+                        "type": "string"
+                    },
+                    "groups": {
+                        "description": "子用户归属的用户组。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "loginProfile": {
+                        "$ref": "#/types/volcenginecc:iam/getUserLoginProfile:getUserLoginProfile",
+                        "description": "子用户的登录配置。\n"
+                    },
+                    "mobilePhone": {
+                        "description": "子用户对应的手机号。\n",
+                        "type": "string"
+                    },
+                    "policies": {
+                        "description": "子用户对应的权限策略。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/getUserPolicy:getUserPolicy"
+                        },
+                        "type": "array"
+                    },
+                    "securityConfig": {
+                        "$ref": "#/types/volcenginecc:iam/getUserSecurityConfig:getUserSecurityConfig",
+                        "description": "子用户的操作保护配置。\n"
+                    },
+                    "tags": {
+                        "description": "子用户对应的资源标签。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:iam/getUserTag:getUserTag"
+                        },
+                        "type": "array"
+                    },
+                    "trn": {
+                        "description": "子用户对应的Trn表达式。\n",
+                        "type": "string"
+                    },
+                    "updateDate": {
+                        "description": "子用户对应的更新时间。\n",
+                        "type": "string"
+                    },
+                    "userId": {
+                        "description": "子用户的ID。\n",
+                        "type": "integer"
+                    },
+                    "userName": {
+                        "description": "子用户名称，用户名。长度1~64，支持英文、数字、下划线、和.-@符号。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "createDate",
+                    "description",
+                    "displayName",
+                    "email",
+                    "groups",
+                    "id",
+                    "loginProfile",
+                    "mobilePhone",
+                    "policies",
+                    "securityConfig",
+                    "tags",
+                    "trn",
+                    "updateDate",
+                    "userId",
+                    "userName"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:iam/getUsers:getUsers": {
+            "description": "Plural Data Source schema for Volcengine::IAM::User\n",
+            "outputs": {
+                "description": "A collection of values returned by getUsers.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:tos/getBucket:getBucket": {
+            "description": "Data Source schema for Volcengine::TOS::Bucket\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getBucket.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getBucket.\n",
+                "properties": {
+                    "acl": {
+                        "$ref": "#/types/volcenginecc:tos/getBucketAcl:getBucketAcl",
+                        "description": "桶的访问控制权限。\n"
+                    },
+                    "aclGrant": {
+                        "$ref": "#/types/volcenginecc:tos/getBucketAclGrant:getBucketAclGrant"
+                    },
+                    "azRedundancy": {
+                        "description": "桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。\n",
+                        "type": "string"
+                    },
+                    "bucketType": {
+                        "description": "桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。\n",
+                        "type": "string"
+                    },
+                    "creationDate": {
+                        "description": "桶的创建时间。\n",
+                        "type": "string"
+                    },
+                    "enableVersionStatus": {
+                        "description": "存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。\n",
+                        "type": "string"
+                    },
+                    "extranetEndpoint": {
+                        "description": "存储桶的 TOS 协议公网访问域名。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "intranetEndpoint": {
+                        "description": "存储桶的 TOS 协议私网访问域名\n",
+                        "type": "string"
+                    },
+                    "lifecycleConfigs": {
+                        "description": "存储桶的声明周期。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:tos/getBucketLifecycleConfig:getBucketLifecycleConfig"
+                        },
+                        "type": "array"
+                    },
+                    "location": {
+                        "description": "桶所在区域。\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "桶名。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "存储桶所属项目。\n",
+                        "type": "string"
+                    },
+                    "storageClass": {
+                        "description": "桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "存储桶的标签信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:tos/getBucketTag:getBucketTag"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "acl",
+                    "aclGrant",
+                    "azRedundancy",
+                    "bucketType",
+                    "creationDate",
+                    "enableVersionStatus",
+                    "extranetEndpoint",
+                    "id",
+                    "intranetEndpoint",
+                    "lifecycleConfigs",
+                    "location",
+                    "name",
+                    "projectName",
+                    "storageClass",
+                    "tags"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:tos/getBuckets:getBuckets": {
+            "description": "Plural Data Source schema for Volcengine::TOS::Bucket\n",
+            "outputs": {
+                "description": "A collection of values returned by getBuckets.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vpc/getVpc:getVpc": {
+            "description": "Data Source schema for Volcengine::VPC::VPC\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getVpc.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVpc.\n",
+                "properties": {
+                    "accountId": {
+                        "description": "VPC所属账号的ID。\n",
+                        "type": "string"
+                    },
+                    "associateCens": {
+                        "description": "VPC关联的CEN信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vpc/getVpcAssociateCen:getVpcAssociateCen"
+                        },
+                        "type": "array"
+                    },
+                    "cidrBlock": {
+                        "description": "VPC的IPv4网段。您可以使用以下网段或其子集作为VPC的IPv4网段：192.168.0.0/16 ~ 24、10.0.0.0/8 ~ 24、172.16.0.0/12 ~ 24。\n",
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "description": "创建VPC的时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "VPC的描述信息。长度限制为0~ 255个字符。不填默认为空字符串。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。不能以http://或https://开头。\n",
+                        "type": "string"
+                    },
+                    "dnsServers": {
+                        "description": "VPC的DNS服务器地址。单次调用数量上限为5个，每个DnsServer必须以合法IP形式给出。多个IP之间用\u0026分隔。不填则配置为默认DNS服务器地址。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "ipv4GatewayId": {
+                        "description": "VPC 绑定的 IPv4 网关的 ID。\n",
+                        "type": "string"
+                    },
+                    "ipv6CidrBlock": {
+                        "description": "VPC的IPv6网段。传入此参数后，参数Ipv6MaskLen不生效。参数Ipv6Isp传入非BGP后，参数Ipv6MaskLen和参数Ipv6CidrBlock二者必须传入一个。参数Ipv6Isp未传或传入BGP，此参数未传，则由系统自动分配IPv6网段。\n",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "该VPC是否为默认VPC。true：默认VPC，表示该VPC是创建ECS实例时系统自动创建的VPC。false：非默认VPC，表示该VPC是用户手动创建的。\n",
+                        "type": "boolean"
+                    },
+                    "natGatewayIds": {
+                        "description": "VPC中创建的NAT网关的ID。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "networkAclNum": {
+                        "description": "VPC中的网络ACL的数量。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "VPC所属项目的名称。不填默认加入default项目。\n",
+                        "type": "string"
+                    },
+                    "routeTableIds": {
+                        "description": "VPC关联的路由表ID。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "secondaryCidrBlocks": {
+                        "description": "VPC的辅助网段。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "securityGroupIds": {
+                        "description": "VPC中安全组的列表。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "status": {
+                        "description": "VPC的状态。Creating：创建中。Pending：已创建。Available：可用。\n",
+                        "type": "string"
+                    },
+                    "subnetIds": {
+                        "description": "VPC中子网的列表。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "supportIpv4Gateway": {
+                        "description": "VPC 是否启用 IPv4 网关。false（默认值）：不启用。true：启用。\n",
+                        "type": "boolean"
+                    },
+                    "tags": {
+                        "description": "私有网络绑定的标签。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vpc/getVpcTag:getVpcTag"
+                        },
+                        "type": "array"
+                    },
+                    "updateTime": {
+                        "description": "更新VPC的时间。\n",
+                        "type": "string"
+                    },
+                    "userCidrBlocks": {
+                        "description": "VPC的用户网段。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "vpcId": {
+                        "description": "VPC的ID。\n",
+                        "type": "string"
+                    },
+                    "vpcName": {
+                        "description": "VPC的名称。长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-）。不填默认为VPC实例的ID。不能以http://或https://开头。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "associateCens",
+                    "cidrBlock",
+                    "creationTime",
+                    "description",
+                    "dnsServers",
+                    "id",
+                    "ipv4GatewayId",
+                    "ipv6CidrBlock",
+                    "isDefault",
+                    "natGatewayIds",
+                    "networkAclNum",
+                    "projectName",
+                    "routeTableIds",
+                    "secondaryCidrBlocks",
+                    "securityGroupIds",
+                    "status",
+                    "subnetIds",
+                    "supportIpv4Gateway",
+                    "tags",
+                    "updateTime",
+                    "userCidrBlocks",
+                    "vpcId",
+                    "vpcName"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vpc/getVpcs:getVpcs": {
+            "description": "Plural Data Source schema for Volcengine::VPC::VPC\n",
+            "outputs": {
+                "description": "A collection of values returned by getVpcs.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        }
+    }
+}

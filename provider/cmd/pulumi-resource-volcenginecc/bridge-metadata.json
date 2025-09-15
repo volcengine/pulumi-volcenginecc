@@ -1,0 +1,282 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "volcenginecc_ecs_image": {
+                "current": "volcenginecc:ecs/image:Image",
+                "majorVersion": 1,
+                "fields": {
+                    "detection_results": {
+                        "fields": {
+                            "items": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "share_permission": {
+                        "maxItemsOne": false
+                    },
+                    "snapshots": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_iam_role": {
+                "current": "volcenginecc:iam/role:Role",
+                "majorVersion": 1,
+                "fields": {
+                    "policies": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_iam_user": {
+                "current": "volcenginecc:iam/user:User",
+                "majorVersion": 1,
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "policies": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tos_bucket": {
+                "current": "volcenginecc:tos/bucket:Bucket",
+                "majorVersion": 1,
+                "fields": {
+                    "acl": {
+                        "fields": {
+                            "grants": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "lifecycle_config": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "non_current_version_transitions": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                },
+                                "transitions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpc_vpc": {
+                "current": "volcenginecc:vpc/vpc:Vpc",
+                "majorVersion": 1,
+                "fields": {
+                    "associate_cens": {
+                        "maxItemsOne": false
+                    },
+                    "dns_servers": {
+                        "maxItemsOne": false
+                    },
+                    "nat_gateway_ids": {
+                        "maxItemsOne": false
+                    },
+                    "route_table_ids": {
+                        "maxItemsOne": false
+                    },
+                    "secondary_cidr_blocks": {
+                        "maxItemsOne": false
+                    },
+                    "security_group_ids": {
+                        "maxItemsOne": false
+                    },
+                    "subnet_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "user_cidr_blocks": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        },
+        "datasources": {
+            "volcenginecc_ecs_image": {
+                "current": "volcenginecc:ecs/getImage:getImage",
+                "majorVersion": 1,
+                "fields": {
+                    "detection_results": {
+                        "fields": {
+                            "items": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "share_permission": {
+                        "maxItemsOne": false
+                    },
+                    "snapshots": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_ecs_images": {
+                "current": "volcenginecc:ecs/getImages:getImages",
+                "majorVersion": 1,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_iam_role": {
+                "current": "volcenginecc:iam/getRole:getRole",
+                "majorVersion": 1,
+                "fields": {
+                    "policies": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_iam_roles": {
+                "current": "volcenginecc:iam/getRoles:getRoles",
+                "majorVersion": 1,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_iam_user": {
+                "current": "volcenginecc:iam/getUser:getUser",
+                "majorVersion": 1,
+                "fields": {
+                    "groups": {
+                        "maxItemsOne": false
+                    },
+                    "policies": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_iam_users": {
+                "current": "volcenginecc:iam/getUsers:getUsers",
+                "majorVersion": 1,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tos_bucket": {
+                "current": "volcenginecc:tos/getBucket:getBucket",
+                "majorVersion": 1,
+                "fields": {
+                    "acl": {
+                        "fields": {
+                            "grants": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "lifecycle_config": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "non_current_version_transitions": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false
+                                },
+                                "transitions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tos_buckets": {
+                "current": "volcenginecc:tos/getBuckets:getBuckets",
+                "majorVersion": 1,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpc_vpc": {
+                "current": "volcenginecc:vpc/getVpc:getVpc",
+                "majorVersion": 1,
+                "fields": {
+                    "associate_cens": {
+                        "maxItemsOne": false
+                    },
+                    "dns_servers": {
+                        "maxItemsOne": false
+                    },
+                    "nat_gateway_ids": {
+                        "maxItemsOne": false
+                    },
+                    "route_table_ids": {
+                        "maxItemsOne": false
+                    },
+                    "secondary_cidr_blocks": {
+                        "maxItemsOne": false
+                    },
+                    "security_group_ids": {
+                        "maxItemsOne": false
+                    },
+                    "subnet_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "user_cidr_blocks": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpc_vpcs": {
+                "current": "volcenginecc:vpc/getVpcs:getVpcs",
+                "majorVersion": 1,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            }
+        }
+    },
+    "auto-settings": {}
+}
