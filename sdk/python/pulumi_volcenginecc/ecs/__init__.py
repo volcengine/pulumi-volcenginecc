@@ -6,8 +6,20 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .command import *
+from .get_command import *
+from .get_commands import *
+from .get_hpc_cluster import *
+from .get_hpc_clusters import *
 from .get_image import *
 from .get_images import *
+from .get_invocation import *
+from .get_invocations import *
+from .get_keypair import *
+from .get_keypairs import *
+from .hpc_cluster import *
 from .image import *
+from .invocation import *
+from .keypair import *
 from ._inputs import *
 from . import outputs

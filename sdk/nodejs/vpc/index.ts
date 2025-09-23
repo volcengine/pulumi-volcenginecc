@@ -5,6 +5,81 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BandwidthPackageArgs, BandwidthPackageState } from "./bandwidthPackage";
+export type BandwidthPackage = import("./bandwidthPackage").BandwidthPackage;
+export const BandwidthPackage: typeof import("./bandwidthPackage").BandwidthPackage = null as any;
+utilities.lazyLoad(exports, ["BandwidthPackage"], () => require("./bandwidthPackage"));
+
+export { EipArgs, EipState } from "./eip";
+export type Eip = import("./eip").Eip;
+export const Eip: typeof import("./eip").Eip = null as any;
+utilities.lazyLoad(exports, ["Eip"], () => require("./eip"));
+
+export { EniArgs, EniState } from "./eni";
+export type Eni = import("./eni").Eni;
+export const Eni: typeof import("./eni").Eni = null as any;
+utilities.lazyLoad(exports, ["Eni"], () => require("./eni"));
+
+export { GetBandwidthPackageArgs, GetBandwidthPackageResult, GetBandwidthPackageOutputArgs } from "./getBandwidthPackage";
+export const getBandwidthPackage: typeof import("./getBandwidthPackage").getBandwidthPackage = null as any;
+export const getBandwidthPackageOutput: typeof import("./getBandwidthPackage").getBandwidthPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getBandwidthPackage","getBandwidthPackageOutput"], () => require("./getBandwidthPackage"));
+
+export { GetBandwidthPackagesResult } from "./getBandwidthPackages";
+export const getBandwidthPackages: typeof import("./getBandwidthPackages").getBandwidthPackages = null as any;
+export const getBandwidthPackagesOutput: typeof import("./getBandwidthPackages").getBandwidthPackagesOutput = null as any;
+utilities.lazyLoad(exports, ["getBandwidthPackages","getBandwidthPackagesOutput"], () => require("./getBandwidthPackages"));
+
+export { GetEipArgs, GetEipResult, GetEipOutputArgs } from "./getEip";
+export const getEip: typeof import("./getEip").getEip = null as any;
+export const getEipOutput: typeof import("./getEip").getEipOutput = null as any;
+utilities.lazyLoad(exports, ["getEip","getEipOutput"], () => require("./getEip"));
+
+export { GetEipsResult } from "./getEips";
+export const getEips: typeof import("./getEips").getEips = null as any;
+export const getEipsOutput: typeof import("./getEips").getEipsOutput = null as any;
+utilities.lazyLoad(exports, ["getEips","getEipsOutput"], () => require("./getEips"));
+
+export { GetEniArgs, GetEniResult, GetEniOutputArgs } from "./getEni";
+export const getEni: typeof import("./getEni").getEni = null as any;
+export const getEniOutput: typeof import("./getEni").getEniOutput = null as any;
+utilities.lazyLoad(exports, ["getEni","getEniOutput"], () => require("./getEni"));
+
+export { GetEnisResult } from "./getEnis";
+export const getEnis: typeof import("./getEnis").getEnis = null as any;
+export const getEnisOutput: typeof import("./getEnis").getEnisOutput = null as any;
+utilities.lazyLoad(exports, ["getEnis","getEnisOutput"], () => require("./getEnis"));
+
+export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
+export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
+export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+
+export { GetRouteTablesResult } from "./getRouteTables";
+export const getRouteTables: typeof import("./getRouteTables").getRouteTables = null as any;
+export const getRouteTablesOutput: typeof import("./getRouteTables").getRouteTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteTables","getRouteTablesOutput"], () => require("./getRouteTables"));
+
+export { GetSecurityGroupArgs, GetSecurityGroupResult, GetSecurityGroupOutputArgs } from "./getSecurityGroup";
+export const getSecurityGroup: typeof import("./getSecurityGroup").getSecurityGroup = null as any;
+export const getSecurityGroupOutput: typeof import("./getSecurityGroup").getSecurityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityGroup","getSecurityGroupOutput"], () => require("./getSecurityGroup"));
+
+export { GetSecurityGroupsResult } from "./getSecurityGroups";
+export const getSecurityGroups: typeof import("./getSecurityGroups").getSecurityGroups = null as any;
+export const getSecurityGroupsOutput: typeof import("./getSecurityGroups").getSecurityGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityGroups","getSecurityGroupsOutput"], () => require("./getSecurityGroups"));
+
+export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
+export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
+export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
+utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
+
+export { GetSubnetsResult } from "./getSubnets";
+export const getSubnets: typeof import("./getSubnets").getSubnets = null as any;
+export const getSubnetsOutput: typeof import("./getSubnets").getSubnetsOutput = null as any;
+utilities.lazyLoad(exports, ["getSubnets","getSubnetsOutput"], () => require("./getSubnets"));
+
 export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
 export const getVpc: typeof import("./getVpc").getVpc = null as any;
 export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
@@ -14,6 +89,21 @@ export { GetVpcsResult } from "./getVpcs";
 export const getVpcs: typeof import("./getVpcs").getVpcs = null as any;
 export const getVpcsOutput: typeof import("./getVpcs").getVpcsOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));
+
+export { RouteTableArgs, RouteTableState } from "./routeTable";
+export type RouteTable = import("./routeTable").RouteTable;
+export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
+utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
+
+export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
+export type SecurityGroup = import("./securityGroup").SecurityGroup;
+export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
+utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
+
+export { SubnetArgs, SubnetState } from "./subnet";
+export type Subnet = import("./subnet").Subnet;
+export const Subnet: typeof import("./subnet").Subnet = null as any;
+utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
 
 export { VpcArgs, VpcState } from "./vpc";
 export type Vpc = import("./vpc").Vpc;
@@ -25,6 +115,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:vpc/bandwidthPackage:BandwidthPackage":
+                return new BandwidthPackage(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/eip:Eip":
+                return new Eip(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/eni:Eni":
+                return new Eni(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/routeTable:RouteTable":
+                return new RouteTable(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/securityGroup:SecurityGroup":
+                return new SecurityGroup(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/subnet:Subnet":
+                return new Subnet(name, <any>undefined, { urn })
             case "volcenginecc:vpc/vpc:Vpc":
                 return new Vpc(name, <any>undefined, { urn })
             default:
@@ -32,4 +134,10 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/bandwidthPackage", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/eip", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/eni", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/routeTable", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/securityGroup", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/subnet", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/vpc", _module)

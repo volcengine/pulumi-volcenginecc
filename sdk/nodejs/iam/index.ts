@@ -5,6 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccesskeyArgs, AccesskeyState } from "./accesskey";
+export type Accesskey = import("./accesskey").Accesskey;
+export const Accesskey: typeof import("./accesskey").Accesskey = null as any;
+utilities.lazyLoad(exports, ["Accesskey"], () => require("./accesskey"));
+
+export { GetAccesskeyArgs, GetAccesskeyResult, GetAccesskeyOutputArgs } from "./getAccesskey";
+export const getAccesskey: typeof import("./getAccesskey").getAccesskey = null as any;
+export const getAccesskeyOutput: typeof import("./getAccesskey").getAccesskeyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccesskey","getAccesskeyOutput"], () => require("./getAccesskey"));
+
+export { GetAccesskeysResult } from "./getAccesskeys";
+export const getAccesskeys: typeof import("./getAccesskeys").getAccesskeys = null as any;
+export const getAccesskeysOutput: typeof import("./getAccesskeys").getAccesskeysOutput = null as any;
+utilities.lazyLoad(exports, ["getAccesskeys","getAccesskeysOutput"], () => require("./getAccesskeys"));
+
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GetGroupsResult } from "./getGroups";
+export const getGroups: typeof import("./getGroups").getGroups = null as any;
+export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
+
+export { GetPoliciesResult } from "./getPolicies";
+export const getPolicies: typeof import("./getPolicies").getPolicies = null as any;
+export const getPoliciesOutput: typeof import("./getPolicies").getPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicies","getPoliciesOutput"], () => require("./getPolicies"));
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
@@ -25,6 +60,16 @@ export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
 utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
 export { RoleArgs, RoleState } from "./role";
 export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
@@ -40,6 +85,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:iam/accesskey:Accesskey":
+                return new Accesskey(name, <any>undefined, { urn })
+            case "volcenginecc:iam/group:Group":
+                return new Group(name, <any>undefined, { urn })
+            case "volcenginecc:iam/policy:Policy":
+                return new Policy(name, <any>undefined, { urn })
             case "volcenginecc:iam/role:Role":
                 return new Role(name, <any>undefined, { urn })
             case "volcenginecc:iam/user:User":
@@ -49,5 +100,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "iam/accesskey", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "iam/group", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "iam/policy", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/role", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/user", _module)
