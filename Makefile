@@ -129,6 +129,7 @@ build_java: .make/build_java
 	PULUMI_HOME=$(GEN_PULUMI_HOME) PULUMI_CONVERT_EXAMPLES_CACHE_DIR=$(GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR) bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
 	cp -f gralde.file ./sdk/java/build.gradle
+	cp -f setting.gradle.file ./sdk/java/setting.gradle
 	@touch $@
 .make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
 .make/build_java: .make/generate_java

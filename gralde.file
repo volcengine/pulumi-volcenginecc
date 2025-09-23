@@ -24,9 +24,10 @@ def publishRepoPassword = System.getenv("PUBLISH_REPO_PASSWORD")
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
+tasks.withType(JavaCompile).configureEach { options.release = 11 }
 
 compileJava {
     options.fork = true
