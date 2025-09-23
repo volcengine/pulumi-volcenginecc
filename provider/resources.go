@@ -60,7 +60,7 @@ func Provider() tfbridge.ProviderInfo {
 		Resources:         map[string]*tfbridge.ResourceInfo{},
 		GitHubHost:        "github.com",
 		GitHubOrg:         "volcengine",
-		UpstreamRepoPath:  "/Users/bytedance/workspace/terraform-provider-volcenginecc",
+		//UpstreamRepoPath:  "/Users/bytedance/workspace/terraform-provider-volcenginecc",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Default: &tfbridge.DefaultInfo{

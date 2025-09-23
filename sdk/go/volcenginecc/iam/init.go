@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:iam/accesskey:Accesskey":
+		r = &Accesskey{}
+	case "volcenginecc:iam/group:Group":
+		r = &Group{}
+	case "volcenginecc:iam/policy:Policy":
+		r = &Policy{}
 	case "volcenginecc:iam/role:Role":
 		r = &Role{}
 	case "volcenginecc:iam/user:User":
@@ -38,6 +44,21 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"iam/accesskey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"iam/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"iam/policy",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"iam/role",

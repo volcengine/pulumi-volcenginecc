@@ -3,7 +3,7 @@
     "version": "${VERSION}",
     "description": "A Pulumi package to safely use randomness in Pulumi programs.",
     "keywords": [
-        "pulumi",
+        "volcengine",
         "volcenginecc",
         "category/cloud"
     ],

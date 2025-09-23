@@ -5,6 +5,903 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export namespace alb {
+    export interface CertificateTag {
+        key: string;
+        value: string;
+    }
+
+    export interface GetCertificateTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace ark {
+    export interface EndpointCertificate {
+        /**
+         * X509私有证书过期的时间。使用秒级时间戳表示。
+         */
+        notAfter: number;
+        /**
+         * X509私有证书开始生效的时间。使用秒级时间戳表示。
+         */
+        notBefore: number;
+        /**
+         * 证书方。
+         */
+        pcaHost: string;
+        /**
+         * PEM 格式的叶子证书。
+         */
+        pcaInstanceCertificate: string;
+        /**
+         * 证书名称。
+         */
+        pcaName: string;
+        /**
+         * PEM 格式的根证书。
+         */
+        pcaRootCaCertificate: string;
+        /**
+         * PEM 格式的中间根证书和根证书。
+         */
+        pcaSubCaCertificate: string;
+    }
+
+    export interface EndpointModelReference {
+        /**
+         * 定制模型的ID。
+         */
+        customModelId: string;
+        /**
+         * 基础模型。
+         */
+        foundationModel: outputs.ark.EndpointModelReferenceFoundationModel;
+    }
+
+    export interface EndpointModelReferenceFoundationModel {
+        /**
+         * 基础模型版本。
+         */
+        modelVersion: string;
+        /**
+         * 基础模型名称。请注意模型名称为小写。doubao 1.5 代模型的模型名称格式为"doubao-1-5-**"。
+         */
+        name: string;
+    }
+
+    export interface EndpointModeration {
+        /**
+         * 内容安全护栏方案。取值:Default: 默认方案。更低延迟，广泛覆盖内容安全通用需求;Basic：基本方案（公测中）。支持在接口响应中提供命中的风险分类，暂时只包含严重违规和激进行为两类风险。注意：如果是流式接口调用，不建议此方案，会导致吐出的每个分片的长度变长，延时变高。
+         */
+        strategy: string;
+    }
+
+    export interface EndpointRateLimit {
+        /**
+         * Requests Per Minute，每分钟请求数。
+         */
+        rpm: number;
+        /**
+         * Tokens Per Minute，每分钟请求 token 数。
+         */
+        tpm: number;
+    }
+
+    export interface EndpointTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetEndpointCertificate {
+        /**
+         * X509私有证书过期的时间。使用秒级时间戳表示。
+         */
+        notAfter: number;
+        /**
+         * X509私有证书开始生效的时间。使用秒级时间戳表示。
+         */
+        notBefore: number;
+        /**
+         * 证书方。
+         */
+        pcaHost: string;
+        /**
+         * PEM 格式的叶子证书。
+         */
+        pcaInstanceCertificate: string;
+        /**
+         * 证书名称。
+         */
+        pcaName: string;
+        /**
+         * PEM 格式的根证书。
+         */
+        pcaRootCaCertificate: string;
+        /**
+         * PEM 格式的中间根证书和根证书。
+         */
+        pcaSubCaCertificate: string;
+    }
+
+    export interface GetEndpointModelReference {
+        /**
+         * 定制模型的ID。
+         */
+        customModelId: string;
+        /**
+         * 基础模型。
+         */
+        foundationModel: outputs.ark.GetEndpointModelReferenceFoundationModel;
+    }
+
+    export interface GetEndpointModelReferenceFoundationModel {
+        /**
+         * 基础模型版本。
+         */
+        modelVersion: string;
+        /**
+         * 基础模型名称。请注意模型名称为小写。doubao 1.5 代模型的模型名称格式为"doubao-1-5-**"。
+         */
+        name: string;
+    }
+
+    export interface GetEndpointModeration {
+        /**
+         * 内容安全护栏方案。取值:Default: 默认方案。更低延迟，广泛覆盖内容安全通用需求;Basic：基本方案（公测中）。支持在接口响应中提供命中的风险分类，暂时只包含严重违规和激进行为两类风险。注意：如果是流式接口调用，不建议此方案，会导致吐出的每个分片的长度变长，延时变高。
+         */
+        strategy: string;
+    }
+
+    export interface GetEndpointRateLimit {
+        /**
+         * Requests Per Minute，每分钟请求数。
+         */
+        rpm: number;
+        /**
+         * Tokens Per Minute，每分钟请求 token 数。
+         */
+        tpm: number;
+    }
+
+    export interface GetEndpointTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace clb {
+    export interface ClbAccessLog {
+        /**
+         * 存储七层访问日志的对象存储桶的名称
+         */
+        bucketName: string;
+        /**
+         * 日志投递类型
+         */
+        deliveryType: string;
+        /**
+         * 是否开启访问日志（七层）投递至对象存储TOS的功能
+         */
+        enabled: boolean;
+        /**
+         * 日志项目
+         */
+        tlsProjectId: string;
+        /**
+         * 日志主题
+         */
+        tlsTopicId: string;
+    }
+
+    export interface ClbEip {
+        /**
+         * 带宽峰值
+         */
+        bandwidth: number;
+        /**
+         * 共享带宽包ID
+         */
+        bandwidthPackageId: string;
+        /**
+         * 计费方式
+         */
+        eipBillingType: number;
+        /**
+         * 线路类型
+         */
+        isp: string;
+        /**
+         * 防护包ID
+         */
+        securityProtectionInstanceId: number;
+        /**
+         * 安全防护类型
+         */
+        securityProtectionTypes: string[];
+    }
+
+    export interface ClbEni {
+        /**
+         * 负载均衡实例的私网IP地址
+         */
+        eniAddress: string;
+        /**
+         * 负载均衡实例占用的网卡ID
+         */
+        eniId: string;
+    }
+
+    export interface ClbEnis {
+        /**
+         * 负载均衡实例的私网IP地址
+         */
+        eniAddress: string;
+        /**
+         * 负载均衡实例占用的网卡ID
+         */
+        eniId: string;
+    }
+
+    export interface ClbListener {
+        /**
+         * 监听器的ID
+         */
+        listenerId: string;
+        /**
+         * 监听器的名称
+         */
+        listenerName: string;
+    }
+
+    export interface ClbServerGroup {
+        /**
+         * 负载均衡实例中后端服务器组的ID
+         */
+        serverGroupId: string;
+        /**
+         * 负载均衡实例中后端服务器组的名称
+         */
+        serverGroupName: string;
+    }
+
+    export interface ClbTag {
+        /**
+         * 标签键
+         */
+        key: string;
+        /**
+         * 标签值
+         */
+        value: string;
+    }
+
+    export interface GetClbAccessLog {
+        /**
+         * 存储七层访问日志的对象存储桶的名称
+         */
+        bucketName: string;
+        /**
+         * 日志投递类型
+         */
+        deliveryType: string;
+        /**
+         * 是否开启访问日志（七层）投递至对象存储TOS的功能
+         */
+        enabled: boolean;
+        /**
+         * 日志项目
+         */
+        tlsProjectId: string;
+        /**
+         * 日志主题
+         */
+        tlsTopicId: string;
+    }
+
+    export interface GetClbEip {
+        /**
+         * 带宽峰值
+         */
+        bandwidth: number;
+        /**
+         * 共享带宽包ID
+         */
+        bandwidthPackageId: string;
+        /**
+         * 计费方式
+         */
+        eipBillingType: number;
+        /**
+         * 线路类型
+         */
+        isp: string;
+        /**
+         * 防护包ID
+         */
+        securityProtectionInstanceId: number;
+        /**
+         * 安全防护类型
+         */
+        securityProtectionTypes: string[];
+    }
+
+    export interface GetClbEni {
+        /**
+         * 负载均衡实例的私网IP地址
+         */
+        eniAddress: string;
+        /**
+         * 负载均衡实例占用的网卡ID
+         */
+        eniId: string;
+    }
+
+    export interface GetClbEnis {
+        /**
+         * 负载均衡实例的私网IP地址
+         */
+        eniAddress: string;
+        /**
+         * 负载均衡实例占用的网卡ID
+         */
+        eniId: string;
+    }
+
+    export interface GetClbListener {
+        /**
+         * 监听器的ID
+         */
+        listenerId: string;
+        /**
+         * 监听器的名称
+         */
+        listenerName: string;
+    }
+
+    export interface GetClbServerGroup {
+        /**
+         * 负载均衡实例中后端服务器组的ID
+         */
+        serverGroupId: string;
+        /**
+         * 负载均衡实例中后端服务器组的名称
+         */
+        serverGroupName: string;
+    }
+
+    export interface GetClbTag {
+        /**
+         * 标签键
+         */
+        key: string;
+        /**
+         * 标签值
+         */
+        value: string;
+    }
+
+    export interface GetNlbListenerHealth {
+        /**
+         * 后端服务器的实例 ID或IP地址。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的IP地址。
+         */
+        ip: string;
+        /**
+         * 后端服务器提供服务的端口。
+         */
+        port: number;
+        /**
+         * 后端服务器ID。
+         */
+        serverId: string;
+        /**
+         * 后端服务器的类型。ecs：云服务器实例（即主网卡）；eni：辅助网卡；ip：IP地址
+         */
+        serverType: string;
+        /**
+         * 后端服务器的健康状态。Up：正常；Down：异常；Unused：未被使用（NLB实例已关闭跨可用区转发，且没有来自该后端服务器可用区的访问流量）。
+         */
+        status: string;
+        /**
+         * 健康状态最后更新时间。
+         */
+        updatedTime: string;
+        /**
+         * 后端服务器接收访问流量的可用区ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetNlbListenerTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetNlbServerGroupHealthCheck {
+        /**
+         * 健康检查的域名
+         */
+        domain: string;
+        /**
+         * 是否开启健康检查
+         */
+        enabled: boolean;
+        /**
+         * 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
+         */
+        healthyThreshold: number;
+        /**
+         * 健康检查正常的HTTP状态码
+         */
+        httpCode: string;
+        /**
+         * 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
+         */
+        interval: number;
+        /**
+         * 健康检查的请求方法
+         */
+        method: string;
+        /**
+         * 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
+         */
+        port: number;
+        /**
+         * 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
+         */
+        timeout: number;
+        /**
+         * 健康检查的协议类型
+         */
+        type: string;
+        /**
+         * UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
+         */
+        udpExpect: string;
+        /**
+         * UDP健康检查的预期响应字符串
+         */
+        udpRequest: string;
+        /**
+         * 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
+         */
+        unhealthyThreshold: number;
+        /**
+         * 健康检查的路径
+         */
+        uri: string;
+    }
+
+    export interface GetNlbServerGroupServer {
+        /**
+         * 后端服务器的描述，默认值为空字符串
+         */
+        description: string;
+        /**
+         * 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的私网IP地址。您可以调用DescribeInstances接口获取“ecs”类型后端服务器的私网IP地址。您可以调用DescribeNetworkInterfaces接口获取“eni”类型后端服务器的私网IP地址。
+         */
+        ip: string;
+        /**
+         * 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
+         */
+        port: number;
+        /**
+         * 后端服务器 ID
+         */
+        serverId: string;
+        /**
+         * 后端服务器的类型
+         */
+        type: string;
+        /**
+         * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+         */
+        weight: number;
+        /**
+         * 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
+         */
+        zoneId: string;
+    }
+
+    export interface GetNlbServerGroupTag {
+        /**
+         * 标签键
+         */
+        key: string;
+        /**
+         * 标签值
+         */
+        value: string;
+    }
+
+    export interface GetNlbTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetNlbZoneMapping {
+        /**
+         * 网卡ID。
+         */
+        eniId: string;
+        /**
+         * NLB实例的私网IPv4 VIP地址。该参数不传入，则系统自动从子网中分配一个可用的IPv4地址。
+         */
+        ipv4Address: string;
+        /**
+         * NLB实例的公网IPv4 EIP地址。
+         */
+        ipv4EipAddress: string;
+        /**
+         * NLB实例的公网IPv4 EIP ID。
+         */
+        ipv4EipId: string;
+        /**
+         * NLB实例私网IPv4地址的健康状态。Healthy：健康。Unhealthy：异常。
+         */
+        ipv4HcStatus: string;
+        /**
+         * NLB实例的私网IPv4 LIP地址。
+         */
+        ipv4LocalAddresses: string[];
+        /**
+         * NLB实例的私网IPv6 VIP地址。
+         */
+        ipv6Address: string;
+        /**
+         * NLB实例关联的IPv6公网带宽的ID。
+         */
+        ipv6EipId: string;
+        /**
+         * NLB实例私网IPv6地址的健康状态。Healthy：健康。Unhealthy：异常。
+         */
+        ipv6HcStatus: string;
+        /**
+         * NLB实例的私网IPv6 LIP地址。
+         */
+        ipv6LocalAddresses: string[];
+        /**
+         * NLB实例所属的子网ID。
+         */
+        subnetId: string;
+        /**
+         * NLB实例所属的可用区ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetServerGroupListener {
+        /**
+         * 监听器的ID。
+         */
+        listenerId: string;
+    }
+
+    export interface GetServerGroupServer {
+        /**
+         * 是否开启全端口转发。on：开启。off（默认值）：关闭。
+         */
+        anyPortEnabled: string;
+        /**
+         * 后端服务器的描述。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255字符。不填则默认为空字符串。
+         */
+        description: string;
+        /**
+         * 后端服务器。取值情况如下：当 Type 取ecs时，传云服务器实例的ID。当Type 取eni时，传已挂载至云服务器的辅助网卡的ID。当 Type 取ip时，传IP地址作为后端服务器。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
+         */
+        ip: string;
+        /**
+         * 后端服务器接收请求的端口号。取值范围为1～65535。
+         */
+        port: number;
+        /**
+         * 后端服务器ID。
+         */
+        serverId: string;
+        /**
+         * 后端服务器实例类型。当参数Type取instance时，取值如下：ecs：云服务器实例。eni：网卡。当参数Type取ip时，本参数取值为ip。
+         */
+        type: string;
+        /**
+         * 后端服务器的权重，取值范围为0 ～ 100。不填则默认为0。0表示不会将请求转发给该后端服务器。
+         */
+        weight: number;
+    }
+
+    export interface GetServerGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface NlbListenerHealth {
+        /**
+         * 后端服务器的实例 ID或IP地址。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的IP地址。
+         */
+        ip: string;
+        /**
+         * 后端服务器提供服务的端口。
+         */
+        port: number;
+        /**
+         * 后端服务器ID。
+         */
+        serverId: string;
+        /**
+         * 后端服务器的类型。ecs：云服务器实例（即主网卡）；eni：辅助网卡；ip：IP地址
+         */
+        serverType: string;
+        /**
+         * 后端服务器的健康状态。Up：正常；Down：异常；Unused：未被使用（NLB实例已关闭跨可用区转发，且没有来自该后端服务器可用区的访问流量）。
+         */
+        status: string;
+        /**
+         * 健康状态最后更新时间。
+         */
+        updatedTime: string;
+        /**
+         * 后端服务器接收访问流量的可用区ID。
+         */
+        zoneId: string;
+    }
+
+    export interface NlbListenerTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface NlbServerGroupHealthCheck {
+        /**
+         * 健康检查的域名
+         */
+        domain: string;
+        /**
+         * 是否开启健康检查
+         */
+        enabled: boolean;
+        /**
+         * 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
+         */
+        healthyThreshold: number;
+        /**
+         * 健康检查正常的HTTP状态码
+         */
+        httpCode: string;
+        /**
+         * 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
+         */
+        interval: number;
+        /**
+         * 健康检查的请求方法
+         */
+        method: string;
+        /**
+         * 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
+         */
+        port: number;
+        /**
+         * 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
+         */
+        timeout: number;
+        /**
+         * 健康检查的协议类型
+         */
+        type: string;
+        /**
+         * UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
+         */
+        udpExpect: string;
+        /**
+         * UDP健康检查的预期响应字符串
+         */
+        udpRequest: string;
+        /**
+         * 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
+         */
+        unhealthyThreshold: number;
+        /**
+         * 健康检查的路径
+         */
+        uri: string;
+    }
+
+    export interface NlbServerGroupServer {
+        /**
+         * 后端服务器的描述，默认值为空字符串
+         */
+        description: string;
+        /**
+         * 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的私网IP地址。您可以调用DescribeInstances接口获取“ecs”类型后端服务器的私网IP地址。您可以调用DescribeNetworkInterfaces接口获取“eni”类型后端服务器的私网IP地址。
+         */
+        ip: string;
+        /**
+         * 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
+         */
+        port: number;
+        /**
+         * 后端服务器 ID
+         */
+        serverId: string;
+        /**
+         * 后端服务器的类型
+         */
+        type: string;
+        /**
+         * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+         */
+        weight: number;
+        /**
+         * 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
+         */
+        zoneId: string;
+    }
+
+    export interface NlbServerGroupTag {
+        /**
+         * 标签键
+         */
+        key: string;
+        /**
+         * 标签值
+         */
+        value: string;
+    }
+
+    export interface NlbTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface NlbZoneMapping {
+        /**
+         * 网卡ID。
+         */
+        eniId: string;
+        /**
+         * NLB实例的私网IPv4 VIP地址。该参数不传入，则系统自动从子网中分配一个可用的IPv4地址。
+         */
+        ipv4Address: string;
+        /**
+         * NLB实例的公网IPv4 EIP地址。
+         */
+        ipv4EipAddress: string;
+        /**
+         * NLB实例的公网IPv4 EIP ID。
+         */
+        ipv4EipId: string;
+        /**
+         * NLB实例私网IPv4地址的健康状态。Healthy：健康。Unhealthy：异常。
+         */
+        ipv4HcStatus: string;
+        /**
+         * NLB实例的私网IPv4 LIP地址。
+         */
+        ipv4LocalAddresses: string[];
+        /**
+         * NLB实例的私网IPv6 VIP地址。
+         */
+        ipv6Address: string;
+        /**
+         * NLB实例关联的IPv6公网带宽的ID。
+         */
+        ipv6EipId: string;
+        /**
+         * NLB实例私网IPv6地址的健康状态。Healthy：健康。Unhealthy：异常。
+         */
+        ipv6HcStatus: string;
+        /**
+         * NLB实例的私网IPv6 LIP地址。
+         */
+        ipv6LocalAddresses: string[];
+        /**
+         * NLB实例所属的子网ID。
+         */
+        subnetId: string;
+        /**
+         * NLB实例所属的可用区ID。
+         */
+        zoneId: string;
+    }
+
+    export interface ServerGroupListener {
+        /**
+         * 监听器的ID。
+         */
+        listenerId: string;
+    }
+
+    export interface ServerGroupServer {
+        /**
+         * 后端服务器的描述。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255字符。不填则默认为空字符串。
+         */
+        description: string;
+        /**
+         * 后端服务器。取值情况如下：当 Type 取ecs时，传云服务器实例的ID。当Type 取eni时，传已挂载至云服务器的辅助网卡的ID。当 Type 取ip时，传IP地址作为后端服务器。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
+         */
+        ip: string;
+        /**
+         * 后端服务器接收请求的端口号。取值范围为1～65535。
+         */
+        port: number;
+        /**
+         * 后端服务器实例类型。当参数Type取instance时，取值如下：ecs：云服务器实例。eni：网卡。当参数Type取ip时，本参数取值为ip。
+         */
+        type: string;
+        /**
+         * 后端服务器的权重，取值范围为0 ～ 100。不填则默认为0。0表示不会将请求转发给该后端服务器。
+         */
+        weight: number;
+    }
+
+    export interface ServerGroupTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace config {
     export interface AssumeRole {
         /**
@@ -35,6 +932,94 @@ export namespace config {
 }
 
 export namespace ecs {
+    export interface CommandParameterDefinition {
+        /**
+         * 自定义参数值（数字）允许的小数点后位数。
+         */
+        decimalPrecision: number;
+        /**
+         * 自定义参数默认值。
+         */
+        defaultValue: string;
+        /**
+         * 自定义参数值（字符串）的最大长度。
+         */
+        maxLength: number;
+        /**
+         * 自定义参数值（数字）的最大值。
+         */
+        maxValue: string;
+        /**
+         * 自定义参数值（字符串）的最小长度。
+         */
+        minLength: number;
+        /**
+         * 自定义参数值（数字）的最小值。
+         */
+        minValue: string;
+        /**
+         * 自定义参数名称，需要在脚本中通过{{Param}}定义 。单个参数名不能超过64字节。遵循Shell变量命名规则，a-zA-Z0-9-_的组合。首个字符不能以数字开头。中间不能有空格，可以使用下划线。
+         */
+        name: string;
+        /**
+         * 是否必填。
+         */
+        required: boolean;
+        /**
+         * 自定义参数类型。
+         */
+        type: string;
+    }
+
+    export interface CommandTag {
+        key: string;
+        value: string;
+    }
+
+    export interface GetCommandParameterDefinition {
+        /**
+         * 自定义参数值（数字）允许的小数点后位数。
+         */
+        decimalPrecision: number;
+        /**
+         * 自定义参数默认值。
+         */
+        defaultValue: string;
+        /**
+         * 自定义参数值（字符串）的最大长度。
+         */
+        maxLength: number;
+        /**
+         * 自定义参数值（数字）的最大值。
+         */
+        maxValue: string;
+        /**
+         * 自定义参数值（字符串）的最小长度。
+         */
+        minLength: number;
+        /**
+         * 自定义参数值（数字）的最小值。
+         */
+        minValue: string;
+        /**
+         * 自定义参数名称，需要在脚本中通过{{Param}}定义 。单个参数名不能超过64字节。遵循Shell变量命名规则，a-zA-Z0-9-_的组合。首个字符不能以数字开头。中间不能有空格，可以使用下划线。
+         */
+        name: string;
+        /**
+         * 是否必填。
+         */
+        required: boolean;
+        /**
+         * 自定义参数类型。
+         */
+        type: string;
+    }
+
+    export interface GetCommandTag {
+        key: string;
+        value: string;
+    }
+
     export interface GetImageDetectionResults {
         /**
          * 检测状态。可以选择Finished（已完成）、Processing（处理中）类型。
@@ -87,6 +1072,112 @@ export namespace ecs {
         key: string;
         /**
          * 镜像标签的值。
+         */
+        value: string;
+    }
+
+    export interface GetInvocationInvocationResult {
+        /**
+         * 命令ID。
+         */
+        commandId: string;
+        /**
+         * 命令执行的完成时间。
+         */
+        endTime: string;
+        /**
+         * 命令执行失败的错误码。TaskDeliveryTimeout：表示命令下发超时。TaskExecutionTimeout：表示命令执行超时。TaskExecutionFailed：表示命令执行失败。
+         */
+        errorCode: string;
+        /**
+         * 命令执行失败的错误信息。
+         */
+        errorMessage: string;
+        /**
+         * 脚本执行后的退出状态码。
+         */
+        exitCode: number;
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+        /**
+         * 任务执行ID。
+         */
+        invocationId: string;
+        /**
+         * 任务执行结果ID。
+         */
+        invocationResultId: string;
+        /**
+         * 单台实例的命令进度状态。
+         */
+        invocationResultStatus: string;
+        /**
+         * 经过Base64编码的命令执行后输出信息。
+         */
+        output: string;
+        /**
+         * 命令在实例中开始执行的时间。
+         */
+        startTime: string;
+        /**
+         * 在实例中执行命令的用户名称。
+         */
+        username: string;
+    }
+
+    export interface GetInvocationParameterDefinition {
+        /**
+         * 自定义参数值（数字）允许的小数点后位数。
+         */
+        decimalPrecision: number;
+        /**
+         * 自定义参数默认值。
+         */
+        defaultValue: string;
+        /**
+         * 自定义参数值（字符串）的最大长度。
+         */
+        maxLength: number;
+        /**
+         * 自定义参数值（数字）的最大值。
+         */
+        maxValue: string;
+        /**
+         * 自定义参数值（字符串）的最小长度。
+         */
+        minLength: number;
+        /**
+         * 自定义参数值（数字）的最小值。
+         */
+        minValue: string;
+        /**
+         * 自定义参数名称，需要在脚本中通过{{Param}}定义 。
+         */
+        name: string;
+        /**
+         * 是否必填。true：必填。false：非必填。
+         */
+        required: boolean;
+        /**
+         * 自定义参数类型。String：表示自定义参数类型字符串类型。Digit：表示自定义参数类型为数值类型。
+         */
+        type: string;
+    }
+
+    export interface GetInvocationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface GetKeypairTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
          */
         value: string;
     }
@@ -144,9 +1235,391 @@ export namespace ecs {
         value: string;
     }
 
+    export interface InvocationInvocationResult {
+        /**
+         * 命令ID。
+         */
+        commandId: string;
+        /**
+         * 命令执行的完成时间。
+         */
+        endTime: string;
+        /**
+         * 命令执行失败的错误码。TaskDeliveryTimeout：表示命令下发超时。TaskExecutionTimeout：表示命令执行超时。TaskExecutionFailed：表示命令执行失败。
+         */
+        errorCode: string;
+        /**
+         * 命令执行失败的错误信息。
+         */
+        errorMessage: string;
+        /**
+         * 脚本执行后的退出状态码。
+         */
+        exitCode: number;
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+        /**
+         * 任务执行ID。
+         */
+        invocationId: string;
+        /**
+         * 任务执行结果ID。
+         */
+        invocationResultId: string;
+        /**
+         * 单台实例的命令进度状态。
+         */
+        invocationResultStatus: string;
+        /**
+         * 经过Base64编码的命令执行后输出信息。
+         */
+        output: string;
+        /**
+         * 命令在实例中开始执行的时间。
+         */
+        startTime: string;
+        /**
+         * 在实例中执行命令的用户名称。
+         */
+        username: string;
+    }
+
+    export interface InvocationParameterDefinition {
+        /**
+         * 自定义参数值（数字）允许的小数点后位数。
+         */
+        decimalPrecision: number;
+        /**
+         * 自定义参数默认值。
+         */
+        defaultValue: string;
+        /**
+         * 自定义参数值（字符串）的最大长度。
+         */
+        maxLength: number;
+        /**
+         * 自定义参数值（数字）的最大值。
+         */
+        maxValue: string;
+        /**
+         * 自定义参数值（字符串）的最小长度。
+         */
+        minLength: number;
+        /**
+         * 自定义参数值（数字）的最小值。
+         */
+        minValue: string;
+        /**
+         * 自定义参数名称，需要在脚本中通过{{Param}}定义 。
+         */
+        name: string;
+        /**
+         * 是否必填。true：必填。false：非必填。
+         */
+        required: boolean;
+        /**
+         * 自定义参数类型。String：表示自定义参数类型字符串类型。Digit：表示自定义参数类型为数值类型。
+         */
+        type: string;
+    }
+
+    export interface InvocationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface KeypairTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace filenas {
+    export interface GetInstanceCachePerformance {
+        /**
+         * 预配置带宽，用于增加文件系统带宽。
+         */
+        cacheBandwidth: number;
+    }
+
+    export interface GetInstanceCapacity {
+        /**
+         * 文件系统可用总容量，单位为 GiB。
+         */
+        total: number;
+        /**
+         * 文件系统已使用容量，单位为 MiB。
+         */
+        used: number;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签类型。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceCachePerformance {
+        /**
+         * 预配置带宽，用于增加文件系统带宽。
+         */
+        cacheBandwidth: number;
+    }
+
+    export interface InstanceCapacity {
+        /**
+         * 文件系统可用总容量，单位为 GiB。
+         */
+        total: number;
+        /**
+         * 文件系统已使用容量，单位为 MiB。
+         */
+        used: number;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签类型。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
 }
 
 export namespace iam {
+    export interface GetGroupAttachedPolicy {
+        /**
+         * 策略绑定时间。
+         */
+        attachTime: string;
+        /**
+         * 策略描述。
+         */
+        description: string;
+        /**
+         * 策略名。
+         */
+        policyName: string;
+        /**
+         * 策略授权的作用范围，特指项目范围。
+         */
+        policyScopes: outputs.iam.GetGroupAttachedPolicyPolicyScope[];
+        /**
+         * 策略TRN。
+         */
+        policyTrn: string;
+        /**
+         * 策略类型。System代表系统预设策略，Custom代表自定义策略。
+         */
+        policyType: string;
+    }
+
+    export interface GetGroupAttachedPolicyPolicyScope {
+        /**
+         * 项目授权时间。
+         */
+        attachTime: string;
+        /**
+         * 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+         */
+        policyScopeType: string;
+        /**
+         * 按项目授权时的项目显示名。
+         */
+        projectDisplayName: string;
+        /**
+         * 按项目授权时的项目名。
+         */
+        projectName: string;
+    }
+
+    export interface GetGroupUser {
+        /**
+         * 用户描述。
+         */
+        description: string;
+        /**
+         * 用户显示名。
+         */
+        displayName: string;
+        /**
+         * 用户加入用户组的时间。
+         */
+        joinTime: string;
+        /**
+         * 用户ID。
+         */
+        userId: number;
+        /**
+         * 用户名。
+         */
+        userName: string;
+    }
+
+    export interface GetPolicyPolicyRole {
+        /**
+         * 策略绑定时间。
+         */
+        createdTime: string;
+        /**
+         * 策略描述。
+         */
+        description: string;
+        /**
+         * 显示名称。
+         */
+        displayName: string;
+        /**
+         * 唯一标识。
+         */
+        entitiesId: number;
+        /**
+         * 对应用户、角色、用户组的名称。
+         */
+        name: string;
+        /**
+         * 策略绑定的项目列表。
+         */
+        policyScopes: outputs.iam.GetPolicyPolicyRolePolicyScope[];
+    }
+
+    export interface GetPolicyPolicyRolePolicyScope {
+        /**
+         * 项目授权时间。
+         */
+        createdTime: string;
+        /**
+         * 授权类型。Global代表全局授权，Project代表按项目授权。
+         */
+        policyScopeType: string;
+        /**
+         * 项目显示名。
+         */
+        projectDisplayName: string;
+        /**
+         * 项目名。
+         */
+        projectName: string;
+    }
+
+    export interface GetPolicyPolicyUser {
+        /**
+         * 策略绑定时间。
+         */
+        createdTime: string;
+        /**
+         * 策略描述。
+         */
+        description: string;
+        /**
+         * 显示名称。
+         */
+        displayName: string;
+        /**
+         * 唯一标识。
+         */
+        entitiesId: number;
+        /**
+         * 对应用户、角色、用户组的名称。
+         */
+        name: string;
+        /**
+         * 策略绑定的项目列表。
+         */
+        policyScopes: outputs.iam.GetPolicyPolicyUserPolicyScope[];
+    }
+
+    export interface GetPolicyPolicyUserGroup {
+        /**
+         * 策略绑定时间。
+         */
+        createdTime: string;
+        /**
+         * 策略描述。
+         */
+        description: string;
+        /**
+         * 显示名称。
+         */
+        displayName: string;
+        /**
+         * 唯一标识。
+         */
+        entitiesId: number;
+        /**
+         * 对应用户、角色、用户组的名称。
+         */
+        name: string;
+        /**
+         * 策略绑定的项目列表。
+         */
+        policyScopes: outputs.iam.GetPolicyPolicyUserGroupPolicyScope[];
+    }
+
+    export interface GetPolicyPolicyUserGroupPolicyScope {
+        /**
+         * 项目授权时间。
+         */
+        createdTime: string;
+        /**
+         * 授权类型。Global代表全局授权，Project代表按项目授权。
+         */
+        policyScopeType: string;
+        /**
+         * 项目显示名。
+         */
+        projectDisplayName: string;
+        /**
+         * 项目名。
+         */
+        projectName: string;
+    }
+
+    export interface GetPolicyPolicyUserPolicyScope {
+        /**
+         * 项目授权时间。
+         */
+        createdTime: string;
+        /**
+         * 授权类型。Global代表全局授权，Project代表按项目授权。
+         */
+        policyScopeType: string;
+        /**
+         * 项目显示名。
+         */
+        projectDisplayName: string;
+        /**
+         * 项目名。
+         */
+        projectName: string;
+    }
+
     export interface GetRolePolicy {
         /**
          * 策略名。
@@ -269,6 +1742,89 @@ export namespace iam {
         value: string;
     }
 
+    export interface GroupAttachedPolicy {
+        /**
+         * 策略名。
+         */
+        policyName: string;
+        policyScopes: outputs.iam.GroupAttachedPolicyPolicyScope[];
+        /**
+         * 策略类型。System代表系统预设策略，Custom代表自定义策略。
+         */
+        policyType: string;
+    }
+
+    export interface GroupAttachedPolicyPolicyScope {
+        /**
+         * 项目授权时间。
+         */
+        attachTime: string;
+        /**
+         * 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+         */
+        policyScopeType: string;
+        /**
+         * 按项目授权时的项目显示名。
+         */
+        projectDisplayName: string;
+        /**
+         * 按项目授权时的项目名。
+         */
+        projectName: string;
+    }
+
+    export interface GroupUser {
+        /**
+         * 用户名。
+         */
+        userName: string;
+    }
+
+    export interface PolicyPolicyRole {
+        /**
+         * 对应用户、角色、用户组的名称。
+         */
+        name: string;
+        policyScopes: outputs.iam.PolicyPolicyRolePolicyScope[];
+    }
+
+    export interface PolicyPolicyRolePolicyScope {
+        /**
+         * 项目名。
+         */
+        projectName: string;
+    }
+
+    export interface PolicyPolicyUser {
+        /**
+         * 对应用户、角色、用户组的名称。
+         */
+        name: string;
+        policyScopes: outputs.iam.PolicyPolicyUserPolicyScope[];
+    }
+
+    export interface PolicyPolicyUserGroup {
+        /**
+         * 对应用户、角色、用户组的名称。
+         */
+        name: string;
+        policyScopes: outputs.iam.PolicyPolicyUserGroupPolicyScope[];
+    }
+
+    export interface PolicyPolicyUserGroupPolicyScope {
+        /**
+         * 项目名。
+         */
+        projectName: string;
+    }
+
+    export interface PolicyPolicyUserPolicyScope {
+        /**
+         * 项目名。
+         */
+        projectName: string;
+    }
+
     export interface RolePolicy {
         /**
          * 策略名。
@@ -389,6 +1945,83 @@ export namespace iam {
          * 标签值。
          */
         value: string;
+    }
+
+}
+
+export namespace storageebs {
+    export interface GetVolumeBaselinePerformance {
+        /**
+         * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
+         */
+        iops: number;
+        /**
+         * 云盘的总吞吐量，即云盘的基准吞吐量和额外吞吐量之和。
+         */
+        throughput: number;
+    }
+
+    export interface GetVolumeExtraPerformance {
+        /**
+         * 额外性能的类型，取值如下：Balance：均衡型额外性能；IOPS：IOPS型额外性能；Throughput：吞吐量型额外性能。
+         */
+        extraPerformanceTypeId: string;
+        /**
+         * 云盘的额外IOPS。
+         */
+        iops: number;
+        /**
+         * 云盘的额外吞吐量。
+         */
+        throughput: number;
+    }
+
+    export interface GetVolumeTotalPerformance {
+        /**
+         * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
+         */
+        iops: number;
+        /**
+         * 云盘的总吞吐量，即云盘的基准吞吐量和额外吞吐量之和。
+         */
+        throughput: number;
+    }
+
+    export interface VolumeBaselinePerformance {
+        /**
+         * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
+         */
+        iops: number;
+        /**
+         * 云盘的总吞吐量，即云盘的基准吞吐量和额外吞吐量之和。
+         */
+        throughput: number;
+    }
+
+    export interface VolumeExtraPerformance {
+        /**
+         * 额外性能的类型，取值如下：Balance：均衡型额外性能；IOPS：IOPS型额外性能；Throughput：吞吐量型额外性能。
+         */
+        extraPerformanceTypeId: string;
+        /**
+         * 云盘的额外IOPS。
+         */
+        iops: number;
+        /**
+         * 云盘的额外吞吐量。
+         */
+        throughput: number;
+    }
+
+    export interface VolumeTotalPerformance {
+        /**
+         * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
+         */
+        iops: number;
+        /**
+         * 云盘的总吞吐量，即云盘的基准吞吐量和额外吞吐量之和。
+         */
+        throughput: number;
     }
 
 }
@@ -770,7 +2403,856 @@ export namespace tos {
 
 }
 
+export namespace transitrouter {
+    export interface GetTransitRouterAttachment {
+        /**
+         * 网络实例连接所属的账号ID。
+         */
+        accountId: string;
+        /**
+         * 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
+         */
+        autoPublishRouteEnabled: boolean;
+        /**
+         * 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
+         */
+        businessStatus: string;
+        /**
+         * 网络实例连接的创建时间。
+         */
+        creationTime: string;
+        /**
+         * 网络实例连接的删除时间。
+         */
+        deletedTime: string;
+        /**
+         * 网络实例连接的描述信息。
+         */
+        description: string;
+        /**
+         * 是否开启IPv6功能。true：是。false：否。
+         */
+        ipv6Enabled: boolean;
+        /**
+         * 网络实例连接的欠费关停时间。
+         */
+        overdueTime: string;
+        /**
+         * 网络实例的ID。
+         */
+        resourceId: string;
+        /**
+         * 网络实例连接关联的网络实例类型。VPC：私有网络。VPN：VPN连接。DirectConnectGateway：专线网关。TransitRouter：中转路由器。
+         */
+        resourceType: string;
+        /**
+         * 网络实例连接的状态。Creating: 创建中。Deleting: 删除中。Pending：配置中。Available：可用。
+         */
+        status: string;
+        /**
+         * 网络实例连接的标签信息
+         */
+        tags: outputs.transitrouter.GetTransitRouterAttachmentTag[];
+        /**
+         * 网络实例连接的ID。
+         */
+        transitRouterAttachmentId: string;
+        /**
+         * 网络实例连接的名称。
+         */
+        transitRouterAttachmentName: string;
+        /**
+         * 跨地域连接关联的转发策略的ID。
+         */
+        transitRouterForwardPolicyTableId: string;
+        /**
+         * 中转路由器实例的ID。
+         */
+        transitRouterId: string;
+        /**
+         * 网络实例连接关联转发的路由表ID。
+         */
+        transitRouterRouteTableId: string;
+        /**
+         * 跨地域连接关联的流标记策略的ID。
+         */
+        transitRouterTrafficQosMarkingPolicyId: string;
+        /**
+         * 跨地域连接关联的流队列策略的ID。
+         */
+        transitRouterTrafficQosQueuePolicyId: string;
+        /**
+         * 网络实例连接的最近操作时间。
+         */
+        updateTime: string;
+    }
+
+    export interface GetTransitRouterAttachmentTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetTransitRouterTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface TransitRouterAttachment {
+        /**
+         * 网络实例连接所属的账号ID。
+         */
+        accountId: string;
+        /**
+         * 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
+         */
+        autoPublishRouteEnabled: boolean;
+        /**
+         * 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
+         */
+        businessStatus: string;
+        /**
+         * 网络实例连接的创建时间。
+         */
+        creationTime: string;
+        /**
+         * 网络实例连接的删除时间。
+         */
+        deletedTime: string;
+        /**
+         * 网络实例连接的描述信息。
+         */
+        description: string;
+        /**
+         * 是否开启IPv6功能。true：是。false：否。
+         */
+        ipv6Enabled: boolean;
+        /**
+         * 网络实例连接的欠费关停时间。
+         */
+        overdueTime: string;
+        /**
+         * 网络实例的ID。
+         */
+        resourceId: string;
+        /**
+         * 网络实例连接关联的网络实例类型。VPC：私有网络。VPN：VPN连接。DirectConnectGateway：专线网关。TransitRouter：中转路由器。
+         */
+        resourceType: string;
+        /**
+         * 网络实例连接的状态。Creating: 创建中。Deleting: 删除中。Pending：配置中。Available：可用。
+         */
+        status: string;
+        tags: outputs.transitrouter.TransitRouterAttachmentTag[];
+        /**
+         * 网络实例连接的ID。
+         */
+        transitRouterAttachmentId: string;
+        /**
+         * 网络实例连接的名称。
+         */
+        transitRouterAttachmentName: string;
+        /**
+         * 跨地域连接关联的转发策略的ID。
+         */
+        transitRouterForwardPolicyTableId: string;
+        /**
+         * 中转路由器实例的ID。
+         */
+        transitRouterId: string;
+        /**
+         * 网络实例连接关联转发的路由表ID。
+         */
+        transitRouterRouteTableId: string;
+        /**
+         * 跨地域连接关联的流标记策略的ID。
+         */
+        transitRouterTrafficQosMarkingPolicyId: string;
+        /**
+         * 跨地域连接关联的流队列策略的ID。
+         */
+        transitRouterTrafficQosQueuePolicyId: string;
+        /**
+         * 网络实例连接的最近操作时间。
+         */
+        updateTime: string;
+    }
+
+    export interface TransitRouterAttachmentTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface TransitRouterTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace vmp {
+    export interface GetWorkspaceInstanceType {
+        /**
+         * 最大活跃时序数。
+         */
+        activeSeries: number;
+        /**
+         * 可用区（az）数。
+         */
+        availabilityZoneReplicas: number;
+        /**
+         * 降采样策略。
+         */
+        downsamplingPeriods: string[];
+        /**
+         * 最大每秒写入样本数。
+         */
+        ingestSamplesPerSecond: number;
+        /**
+         * 最大查询并发数。
+         */
+        queryConcurrency: number;
+        /**
+         * 最大查询 QPS。
+         */
+        queryPerSecond: number;
+        /**
+         * 每个可用区（az）的数据副本数。
+         */
+        replicasPerZone: number;
+        /**
+         * 最长数据保留时间。
+         */
+        retentionPeriod: string;
+        /**
+         * 最大每秒扫描样本数。
+         */
+        scanSamplesPerSecond: number;
+        /**
+         * 最大每秒扫描时序数。
+         */
+        scanSeriesPerSecond: number;
+    }
+
+    export interface GetWorkspaceQuota {
+        /**
+         * 最大活跃时序数。整数形式，默认取值范围为 1～50000000。
+         */
+        activeSeries: number;
+        /**
+         * 指标摄入速率，即最大每秒写入样本数。整数形式，默认取值范围为 1～5000000。
+         */
+        ingestSamplesPerSecond: number;
+        /**
+         * 最大查询 QPS。整数形式，默认取值范围为 1～500。
+         */
+        queryPerSecond: number;
+        /**
+         * 最大每秒扫描样本数。整数形式，默认取值范围为 1～1000000000。
+         */
+        scanSamplesPerSecond: number;
+        /**
+         * 最大每秒扫描时序数。整数形式，默认取值范围为 1～200000。
+         */
+        scanSeriesPerSecond: number;
+    }
+
+    export interface GetWorkspaceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetWorkspaceUsage {
+        /**
+         * 活跃时序数。
+         */
+        activeSeries: number;
+        /**
+         * 每秒写入样本数。
+         */
+        ingestedSamplesPerSecond: number;
+    }
+
+    export interface WorkspaceInstanceType {
+        /**
+         * 最大活跃时序数。
+         */
+        activeSeries: number;
+        /**
+         * 可用区（az）数。
+         */
+        availabilityZoneReplicas: number;
+        /**
+         * 降采样策略。
+         */
+        downsamplingPeriods: string[];
+        /**
+         * 最大每秒写入样本数。
+         */
+        ingestSamplesPerSecond: number;
+        /**
+         * 最大查询并发数。
+         */
+        queryConcurrency: number;
+        /**
+         * 最大查询 QPS。
+         */
+        queryPerSecond: number;
+        /**
+         * 每个可用区（az）的数据副本数。
+         */
+        replicasPerZone: number;
+        /**
+         * 最长数据保留时间。
+         */
+        retentionPeriod: string;
+        /**
+         * 最大每秒扫描样本数。
+         */
+        scanSamplesPerSecond: number;
+        /**
+         * 最大每秒扫描时序数。
+         */
+        scanSeriesPerSecond: number;
+    }
+
+    export interface WorkspaceQuota {
+        /**
+         * 最大活跃时序数。整数形式，默认取值范围为 1～50000000。
+         */
+        activeSeries: number;
+        /**
+         * 指标摄入速率，即最大每秒写入样本数。整数形式，默认取值范围为 1～5000000。
+         */
+        ingestSamplesPerSecond: number;
+        /**
+         * 最大查询 QPS。整数形式，默认取值范围为 1～500。
+         */
+        queryPerSecond: number;
+        /**
+         * 最大每秒扫描样本数。整数形式，默认取值范围为 1～1000000000。
+         */
+        scanSamplesPerSecond: number;
+        /**
+         * 最大每秒扫描时序数。整数形式，默认取值范围为 1～200000。
+         */
+        scanSeriesPerSecond: number;
+    }
+
+    export interface WorkspaceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface WorkspaceUsage {
+        /**
+         * 活跃时序数。
+         */
+        activeSeries: number;
+        /**
+         * 每秒写入样本数。
+         */
+        ingestedSamplesPerSecond: number;
+    }
+
+}
+
 export namespace vpc {
+    export interface BandwidthPackageEipAddress {
+        /**
+         * 分配ID
+         */
+        allocationId: string;
+        /**
+         * 弹性IP地址
+         */
+        eipAddress: string;
+    }
+
+    export interface BandwidthPackageTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface EipTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface EniPrimaryIpAddress {
+        /**
+         * 网卡主私网IPv4关联的公网IP的信息。
+         */
+        associatedElasticIp: outputs.vpc.EniPrimaryIpAddressAssociatedElasticIp;
+        /**
+         * 是否为主私网IPv4地址。
+         */
+        primary: boolean;
+        /**
+         * 网卡的私网IP地址。
+         */
+        privateIpAddress: string;
+    }
+
+    export interface EniPrimaryIpAddressAssociatedElasticIp {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的地址。
+         */
+        eipAddress: string;
+        /**
+         * 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+         */
+        releaseWithInstance: boolean;
+    }
+
+    export interface EniPrivateIpSet {
+        /**
+         * 网卡主私网IPv4关联的公网IP的信息。
+         */
+        associatedElasticIp: outputs.vpc.EniPrivateIpSetAssociatedElasticIp;
+        /**
+         * 网卡的私网IP地址。
+         */
+        privateIpAddress: string;
+    }
+
+    export interface EniPrivateIpSetAssociatedElasticIp {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId: string;
+    }
+
+    export interface EniTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetBandwidthPackageEipAddress {
+        /**
+         * 分配ID
+         */
+        allocationId: string;
+        /**
+         * 弹性IP地址
+         */
+        eipAddress: string;
+    }
+
+    export interface GetBandwidthPackageTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetEipTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetEniPrimaryIpAddress {
+        /**
+         * 网卡主私网IPv4关联的公网IP的信息。
+         */
+        associatedElasticIp: outputs.vpc.GetEniPrimaryIpAddressAssociatedElasticIp;
+        /**
+         * 是否为主私网IPv4地址。
+         */
+        primary: boolean;
+        /**
+         * 网卡的私网IP地址。
+         */
+        privateIpAddress: string;
+    }
+
+    export interface GetEniPrimaryIpAddressAssociatedElasticIp {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的地址。
+         */
+        eipAddress: string;
+        /**
+         * 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+         */
+        releaseWithInstance: boolean;
+    }
+
+    export interface GetEniPrivateIpSet {
+        /**
+         * 网卡主私网IPv4关联的公网IP的信息。
+         */
+        associatedElasticIp: outputs.vpc.GetEniPrivateIpSetAssociatedElasticIp;
+        /**
+         * 是否为主私网IPv4地址。
+         */
+        primary: boolean;
+        /**
+         * 网卡的私网IP地址。
+         */
+        privateIpAddress: string;
+    }
+
+    export interface GetEniPrivateIpSetAssociatedElasticIp {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的地址。
+         */
+        eipAddress: string;
+        /**
+         * 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+         */
+        releaseWithInstance: boolean;
+    }
+
+    export interface GetEniTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetRouteTableCustomRouteEntry {
+        /**
+         * 路由条目描述。
+         */
+        description: string;
+        /**
+         * 路由条目的目标网段。
+         */
+        destinationCidrBlock: string;
+        /**
+         * 前缀列表ID。
+         */
+        destinationPrefixListId: string;
+        /**
+         * 下一跳资源ID。
+         */
+        nextHopId: string;
+        /**
+         * 路由条目下一跳资源的名称。
+         */
+        nextHopName: string;
+        /**
+         * 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+         */
+        nextHopType: string;
+        /**
+         * 前缀列表的CIDR。
+         */
+        prefixListCidrBlocks: string[];
+        /**
+         * 路由条目ID。
+         */
+        routeEntryId: string;
+        /**
+         * 路由条目名称。
+         */
+        routeEntryName: string;
+        /**
+         * 路由表ID。
+         */
+        routeTableId: string;
+        /**
+         * 路由条目状态。1、Pending：待创建。2、Available：可用。
+         */
+        status: string;
+        /**
+         * 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+         */
+        type: string;
+        /**
+         * 路由条目所属私有网络的ID。
+         */
+        vpcId: string;
+    }
+
+    export interface GetRouteTableSystemRouteEntry {
+        /**
+         * 路由条目描述。
+         */
+        description: string;
+        /**
+         * 路由条目的目标网段。
+         */
+        destinationCidrBlock: string;
+        /**
+         * 前缀列表ID。
+         */
+        destinationPrefixListId: string;
+        /**
+         * 下一跳资源ID。
+         */
+        nextHopId: string;
+        /**
+         * 路由条目下一跳资源的名称。
+         */
+        nextHopName: string;
+        /**
+         * 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+         */
+        nextHopType: string;
+        /**
+         * 前缀列表的CIDR。
+         */
+        prefixListCidrBlocks: string[];
+        /**
+         * 路由条目ID。
+         */
+        routeEntryId: string;
+        /**
+         * 路由条目名称。
+         */
+        routeEntryName: string;
+        /**
+         * 路由表ID。
+         */
+        routeTableId: string;
+        /**
+         * 路由条目状态。1、Pending：待创建。2、Available：可用。
+         */
+        status: string;
+        /**
+         * 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+         */
+        type: string;
+        /**
+         * 路由条目所属私有网络的ID。
+         */
+        vpcId: string;
+    }
+
+    export interface GetRouteTableTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetSecurityGroupEgressPermission {
+        /**
+         * 源地址的IPv4 CIDR或IPv6 CIDR
+         */
+        cidrIp: string;
+        /**
+         * 安全组规则创建时间。
+         */
+        creationTime: string;
+        /**
+         * 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+         */
+        description: string;
+        /**
+         * 安全组规则方向。ingress：入方向。egress：出方向
+         */
+        direction: string;
+        /**
+         * 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+         */
+        policy: string;
+        /**
+         * 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portEnd: number;
+        /**
+         * 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portStart: number;
+        /**
+         * 前缀列表的CIDR。
+         */
+        prefixListCidrs: string[];
+        /**
+         * 前缀列表的ID
+         */
+        prefixListId: string;
+        /**
+         * 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp、udp、icmp、icmpv6、all
+         */
+        protocol: string;
+        /**
+         * 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+         */
+        sourceGroupId: string;
+        /**
+         * 安全组规则更新时间。
+         */
+        updateTime: string;
+    }
+
+    export interface GetSecurityGroupIngressPermission {
+        /**
+         * 源地址的IPv4 CIDR或IPv6 CIDR
+         */
+        cidrIp: string;
+        /**
+         * 安全组规则创建时间。
+         */
+        creationTime: string;
+        /**
+         * 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+         */
+        description: string;
+        /**
+         * 安全组规则方向。ingress：入方向。egress：出方向
+         */
+        direction: string;
+        /**
+         * 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+         */
+        policy: string;
+        /**
+         * 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portEnd: number;
+        /**
+         * 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portStart: number;
+        /**
+         * 前缀列表的CIDR。
+         */
+        prefixListCidrs: string[];
+        /**
+         * 前缀列表的ID
+         */
+        prefixListId: string;
+        /**
+         * 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp、udp、icmp、icmpv6、all
+         */
+        protocol: string;
+        /**
+         * 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+         */
+        sourceGroupId: string;
+        /**
+         * 安全组规则更新时间。
+         */
+        updateTime: string;
+    }
+
+    export interface GetSecurityGroupTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetSubnetRouteTable {
+        /**
+         * 子网关联的路由表ID。
+         */
+        routeTableId: string;
+        /**
+         * 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+         */
+        routeTableType: string;
+    }
+
+    export interface GetSubnetTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
     export interface GetVpcAssociateCen {
         /**
          * CEN的ID。
@@ -793,6 +3275,222 @@ export namespace vpc {
         key: string;
         /**
          * 标签值。
+         */
+        value: string;
+    }
+
+    export interface RouteTableCustomRouteEntry {
+        /**
+         * 路由条目描述。
+         */
+        description: string;
+        /**
+         * 路由条目的目标网段。
+         */
+        destinationCidrBlock: string;
+        /**
+         * 前缀列表ID。
+         */
+        destinationPrefixListId: string;
+        /**
+         * 下一跳资源ID。
+         */
+        nextHopId: string;
+        /**
+         * 路由条目下一跳资源的名称。
+         */
+        nextHopName: string;
+        /**
+         * 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+         */
+        nextHopType: string;
+        /**
+         * 路由条目名称。
+         */
+        routeEntryName: string;
+    }
+
+    export interface RouteTableSystemRouteEntry {
+        /**
+         * 路由条目描述。
+         */
+        description: string;
+        /**
+         * 路由条目的目标网段。
+         */
+        destinationCidrBlock: string;
+        /**
+         * 前缀列表ID。
+         */
+        destinationPrefixListId: string;
+        /**
+         * 下一跳资源ID。
+         */
+        nextHopId: string;
+        /**
+         * 路由条目下一跳资源的名称。
+         */
+        nextHopName: string;
+        /**
+         * 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+         */
+        nextHopType: string;
+        /**
+         * 前缀列表的CIDR。
+         */
+        prefixListCidrBlocks: string[];
+        /**
+         * 路由条目ID。
+         */
+        routeEntryId: string;
+        /**
+         * 路由条目名称。
+         */
+        routeEntryName: string;
+        /**
+         * 路由表ID。
+         */
+        routeTableId: string;
+        /**
+         * 路由条目状态。1、Pending：待创建。2、Available：可用。
+         */
+        status: string;
+        /**
+         * 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+         */
+        type: string;
+        /**
+         * 路由条目所属私有网络的ID。
+         */
+        vpcId: string;
+    }
+
+    export interface RouteTableTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface SecurityGroupEgressPermission {
+        /**
+         * 源地址的IPv4 CIDR或IPv6 CIDR
+         */
+        cidrIp: string;
+        /**
+         * 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+         */
+        description: string;
+        /**
+         * 安全组规则方向。ingress：入方向。egress：出方向
+         */
+        direction: string;
+        /**
+         * 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+         */
+        policy: string;
+        /**
+         * 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portEnd: number;
+        /**
+         * 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portStart: number;
+        /**
+         * 前缀列表的ID
+         */
+        prefixListId: string;
+        /**
+         * 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp、udp、icmp、icmpv6、all
+         */
+        protocol: string;
+        /**
+         * 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+         */
+        sourceGroupId: string;
+    }
+
+    export interface SecurityGroupIngressPermission {
+        /**
+         * 源地址的IPv4 CIDR或IPv6 CIDR
+         */
+        cidrIp: string;
+        /**
+         * 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+         */
+        description: string;
+        /**
+         * 安全组规则方向。ingress：入方向。egress：出方向
+         */
+        direction: string;
+        /**
+         * 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+         */
+        policy: string;
+        /**
+         * 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portEnd: number;
+        /**
+         * 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+         */
+        portStart: number;
+        /**
+         * 前缀列表的ID
+         */
+        prefixListId: string;
+        /**
+         * 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp、udp、icmp、icmpv6、all
+         */
+        protocol: string;
+        /**
+         * 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+         */
+        sourceGroupId: string;
+    }
+
+    export interface SecurityGroupTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface SubnetRouteTable {
+        /**
+         * 子网关联的路由表ID。
+         */
+        routeTableId: string;
+        /**
+         * 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+         */
+        routeTableType: string;
+    }
+
+    export interface SubnetTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
          */
         value: string;
     }

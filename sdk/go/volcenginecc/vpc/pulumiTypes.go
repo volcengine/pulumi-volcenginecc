@@ -13,6 +13,2209 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BandwidthPackageEipAddress struct {
+	// 分配ID
+	AllocationId *string `pulumi:"allocationId"`
+	// 弹性IP地址
+	EipAddress *string `pulumi:"eipAddress"`
+}
+
+// BandwidthPackageEipAddressInput is an input type that accepts BandwidthPackageEipAddressArgs and BandwidthPackageEipAddressOutput values.
+// You can construct a concrete instance of `BandwidthPackageEipAddressInput` via:
+//
+//	BandwidthPackageEipAddressArgs{...}
+type BandwidthPackageEipAddressInput interface {
+	pulumi.Input
+
+	ToBandwidthPackageEipAddressOutput() BandwidthPackageEipAddressOutput
+	ToBandwidthPackageEipAddressOutputWithContext(context.Context) BandwidthPackageEipAddressOutput
+}
+
+type BandwidthPackageEipAddressArgs struct {
+	// 分配ID
+	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+	// 弹性IP地址
+	EipAddress pulumi.StringPtrInput `pulumi:"eipAddress"`
+}
+
+func (BandwidthPackageEipAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (i BandwidthPackageEipAddressArgs) ToBandwidthPackageEipAddressOutput() BandwidthPackageEipAddressOutput {
+	return i.ToBandwidthPackageEipAddressOutputWithContext(context.Background())
+}
+
+func (i BandwidthPackageEipAddressArgs) ToBandwidthPackageEipAddressOutputWithContext(ctx context.Context) BandwidthPackageEipAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthPackageEipAddressOutput)
+}
+
+// BandwidthPackageEipAddressArrayInput is an input type that accepts BandwidthPackageEipAddressArray and BandwidthPackageEipAddressArrayOutput values.
+// You can construct a concrete instance of `BandwidthPackageEipAddressArrayInput` via:
+//
+//	BandwidthPackageEipAddressArray{ BandwidthPackageEipAddressArgs{...} }
+type BandwidthPackageEipAddressArrayInput interface {
+	pulumi.Input
+
+	ToBandwidthPackageEipAddressArrayOutput() BandwidthPackageEipAddressArrayOutput
+	ToBandwidthPackageEipAddressArrayOutputWithContext(context.Context) BandwidthPackageEipAddressArrayOutput
+}
+
+type BandwidthPackageEipAddressArray []BandwidthPackageEipAddressInput
+
+func (BandwidthPackageEipAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (i BandwidthPackageEipAddressArray) ToBandwidthPackageEipAddressArrayOutput() BandwidthPackageEipAddressArrayOutput {
+	return i.ToBandwidthPackageEipAddressArrayOutputWithContext(context.Background())
+}
+
+func (i BandwidthPackageEipAddressArray) ToBandwidthPackageEipAddressArrayOutputWithContext(ctx context.Context) BandwidthPackageEipAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthPackageEipAddressArrayOutput)
+}
+
+type BandwidthPackageEipAddressOutput struct{ *pulumi.OutputState }
+
+func (BandwidthPackageEipAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (o BandwidthPackageEipAddressOutput) ToBandwidthPackageEipAddressOutput() BandwidthPackageEipAddressOutput {
+	return o
+}
+
+func (o BandwidthPackageEipAddressOutput) ToBandwidthPackageEipAddressOutputWithContext(ctx context.Context) BandwidthPackageEipAddressOutput {
+	return o
+}
+
+// 分配ID
+func (o BandwidthPackageEipAddressOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BandwidthPackageEipAddress) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// 弹性IP地址
+func (o BandwidthPackageEipAddressOutput) EipAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BandwidthPackageEipAddress) *string { return v.EipAddress }).(pulumi.StringPtrOutput)
+}
+
+type BandwidthPackageEipAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (BandwidthPackageEipAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (o BandwidthPackageEipAddressArrayOutput) ToBandwidthPackageEipAddressArrayOutput() BandwidthPackageEipAddressArrayOutput {
+	return o
+}
+
+func (o BandwidthPackageEipAddressArrayOutput) ToBandwidthPackageEipAddressArrayOutputWithContext(ctx context.Context) BandwidthPackageEipAddressArrayOutput {
+	return o
+}
+
+func (o BandwidthPackageEipAddressArrayOutput) Index(i pulumi.IntInput) BandwidthPackageEipAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BandwidthPackageEipAddress {
+		return vs[0].([]BandwidthPackageEipAddress)[vs[1].(int)]
+	}).(BandwidthPackageEipAddressOutput)
+}
+
+type BandwidthPackageTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// BandwidthPackageTagInput is an input type that accepts BandwidthPackageTagArgs and BandwidthPackageTagOutput values.
+// You can construct a concrete instance of `BandwidthPackageTagInput` via:
+//
+//	BandwidthPackageTagArgs{...}
+type BandwidthPackageTagInput interface {
+	pulumi.Input
+
+	ToBandwidthPackageTagOutput() BandwidthPackageTagOutput
+	ToBandwidthPackageTagOutputWithContext(context.Context) BandwidthPackageTagOutput
+}
+
+type BandwidthPackageTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (BandwidthPackageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthPackageTag)(nil)).Elem()
+}
+
+func (i BandwidthPackageTagArgs) ToBandwidthPackageTagOutput() BandwidthPackageTagOutput {
+	return i.ToBandwidthPackageTagOutputWithContext(context.Background())
+}
+
+func (i BandwidthPackageTagArgs) ToBandwidthPackageTagOutputWithContext(ctx context.Context) BandwidthPackageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthPackageTagOutput)
+}
+
+// BandwidthPackageTagArrayInput is an input type that accepts BandwidthPackageTagArray and BandwidthPackageTagArrayOutput values.
+// You can construct a concrete instance of `BandwidthPackageTagArrayInput` via:
+//
+//	BandwidthPackageTagArray{ BandwidthPackageTagArgs{...} }
+type BandwidthPackageTagArrayInput interface {
+	pulumi.Input
+
+	ToBandwidthPackageTagArrayOutput() BandwidthPackageTagArrayOutput
+	ToBandwidthPackageTagArrayOutputWithContext(context.Context) BandwidthPackageTagArrayOutput
+}
+
+type BandwidthPackageTagArray []BandwidthPackageTagInput
+
+func (BandwidthPackageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BandwidthPackageTag)(nil)).Elem()
+}
+
+func (i BandwidthPackageTagArray) ToBandwidthPackageTagArrayOutput() BandwidthPackageTagArrayOutput {
+	return i.ToBandwidthPackageTagArrayOutputWithContext(context.Background())
+}
+
+func (i BandwidthPackageTagArray) ToBandwidthPackageTagArrayOutputWithContext(ctx context.Context) BandwidthPackageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthPackageTagArrayOutput)
+}
+
+type BandwidthPackageTagOutput struct{ *pulumi.OutputState }
+
+func (BandwidthPackageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthPackageTag)(nil)).Elem()
+}
+
+func (o BandwidthPackageTagOutput) ToBandwidthPackageTagOutput() BandwidthPackageTagOutput {
+	return o
+}
+
+func (o BandwidthPackageTagOutput) ToBandwidthPackageTagOutputWithContext(ctx context.Context) BandwidthPackageTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o BandwidthPackageTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BandwidthPackageTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o BandwidthPackageTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BandwidthPackageTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type BandwidthPackageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BandwidthPackageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BandwidthPackageTag)(nil)).Elem()
+}
+
+func (o BandwidthPackageTagArrayOutput) ToBandwidthPackageTagArrayOutput() BandwidthPackageTagArrayOutput {
+	return o
+}
+
+func (o BandwidthPackageTagArrayOutput) ToBandwidthPackageTagArrayOutputWithContext(ctx context.Context) BandwidthPackageTagArrayOutput {
+	return o
+}
+
+func (o BandwidthPackageTagArrayOutput) Index(i pulumi.IntInput) BandwidthPackageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BandwidthPackageTag {
+		return vs[0].([]BandwidthPackageTag)[vs[1].(int)]
+	}).(BandwidthPackageTagOutput)
+}
+
+type EipTag struct {
+	// 标签键。
+	Key *string `pulumi:"key"`
+	// 标签值。
+	Value *string `pulumi:"value"`
+}
+
+// EipTagInput is an input type that accepts EipTagArgs and EipTagOutput values.
+// You can construct a concrete instance of `EipTagInput` via:
+//
+//	EipTagArgs{...}
+type EipTagInput interface {
+	pulumi.Input
+
+	ToEipTagOutput() EipTagOutput
+	ToEipTagOutputWithContext(context.Context) EipTagOutput
+}
+
+type EipTagArgs struct {
+	// 标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EipTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipTag)(nil)).Elem()
+}
+
+func (i EipTagArgs) ToEipTagOutput() EipTagOutput {
+	return i.ToEipTagOutputWithContext(context.Background())
+}
+
+func (i EipTagArgs) ToEipTagOutputWithContext(ctx context.Context) EipTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipTagOutput)
+}
+
+// EipTagArrayInput is an input type that accepts EipTagArray and EipTagArrayOutput values.
+// You can construct a concrete instance of `EipTagArrayInput` via:
+//
+//	EipTagArray{ EipTagArgs{...} }
+type EipTagArrayInput interface {
+	pulumi.Input
+
+	ToEipTagArrayOutput() EipTagArrayOutput
+	ToEipTagArrayOutputWithContext(context.Context) EipTagArrayOutput
+}
+
+type EipTagArray []EipTagInput
+
+func (EipTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EipTag)(nil)).Elem()
+}
+
+func (i EipTagArray) ToEipTagArrayOutput() EipTagArrayOutput {
+	return i.ToEipTagArrayOutputWithContext(context.Background())
+}
+
+func (i EipTagArray) ToEipTagArrayOutputWithContext(ctx context.Context) EipTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipTagArrayOutput)
+}
+
+type EipTagOutput struct{ *pulumi.OutputState }
+
+func (EipTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipTag)(nil)).Elem()
+}
+
+func (o EipTagOutput) ToEipTagOutput() EipTagOutput {
+	return o
+}
+
+func (o EipTagOutput) ToEipTagOutputWithContext(ctx context.Context) EipTagOutput {
+	return o
+}
+
+// 标签键。
+func (o EipTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EipTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 标签值。
+func (o EipTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EipTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EipTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EipTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EipTag)(nil)).Elem()
+}
+
+func (o EipTagArrayOutput) ToEipTagArrayOutput() EipTagArrayOutput {
+	return o
+}
+
+func (o EipTagArrayOutput) ToEipTagArrayOutputWithContext(ctx context.Context) EipTagArrayOutput {
+	return o
+}
+
+func (o EipTagArrayOutput) Index(i pulumi.IntInput) EipTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EipTag {
+		return vs[0].([]EipTag)[vs[1].(int)]
+	}).(EipTagOutput)
+}
+
+type EniPrimaryIpAddress struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp *EniPrimaryIpAddressAssociatedElasticIp `pulumi:"associatedElasticIp"`
+	// 是否为主私网IPv4地址。
+	Primary *bool `pulumi:"primary"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+}
+
+// EniPrimaryIpAddressInput is an input type that accepts EniPrimaryIpAddressArgs and EniPrimaryIpAddressOutput values.
+// You can construct a concrete instance of `EniPrimaryIpAddressInput` via:
+//
+//	EniPrimaryIpAddressArgs{...}
+type EniPrimaryIpAddressInput interface {
+	pulumi.Input
+
+	ToEniPrimaryIpAddressOutput() EniPrimaryIpAddressOutput
+	ToEniPrimaryIpAddressOutputWithContext(context.Context) EniPrimaryIpAddressOutput
+}
+
+type EniPrimaryIpAddressArgs struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp EniPrimaryIpAddressAssociatedElasticIpPtrInput `pulumi:"associatedElasticIp"`
+	// 是否为主私网IPv4地址。
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+}
+
+func (EniPrimaryIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrimaryIpAddress)(nil)).Elem()
+}
+
+func (i EniPrimaryIpAddressArgs) ToEniPrimaryIpAddressOutput() EniPrimaryIpAddressOutput {
+	return i.ToEniPrimaryIpAddressOutputWithContext(context.Background())
+}
+
+func (i EniPrimaryIpAddressArgs) ToEniPrimaryIpAddressOutputWithContext(ctx context.Context) EniPrimaryIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrimaryIpAddressOutput)
+}
+
+func (i EniPrimaryIpAddressArgs) ToEniPrimaryIpAddressPtrOutput() EniPrimaryIpAddressPtrOutput {
+	return i.ToEniPrimaryIpAddressPtrOutputWithContext(context.Background())
+}
+
+func (i EniPrimaryIpAddressArgs) ToEniPrimaryIpAddressPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrimaryIpAddressOutput).ToEniPrimaryIpAddressPtrOutputWithContext(ctx)
+}
+
+// EniPrimaryIpAddressPtrInput is an input type that accepts EniPrimaryIpAddressArgs, EniPrimaryIpAddressPtr and EniPrimaryIpAddressPtrOutput values.
+// You can construct a concrete instance of `EniPrimaryIpAddressPtrInput` via:
+//
+//	        EniPrimaryIpAddressArgs{...}
+//
+//	or:
+//
+//	        nil
+type EniPrimaryIpAddressPtrInput interface {
+	pulumi.Input
+
+	ToEniPrimaryIpAddressPtrOutput() EniPrimaryIpAddressPtrOutput
+	ToEniPrimaryIpAddressPtrOutputWithContext(context.Context) EniPrimaryIpAddressPtrOutput
+}
+
+type eniPrimaryIpAddressPtrType EniPrimaryIpAddressArgs
+
+func EniPrimaryIpAddressPtr(v *EniPrimaryIpAddressArgs) EniPrimaryIpAddressPtrInput {
+	return (*eniPrimaryIpAddressPtrType)(v)
+}
+
+func (*eniPrimaryIpAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EniPrimaryIpAddress)(nil)).Elem()
+}
+
+func (i *eniPrimaryIpAddressPtrType) ToEniPrimaryIpAddressPtrOutput() EniPrimaryIpAddressPtrOutput {
+	return i.ToEniPrimaryIpAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *eniPrimaryIpAddressPtrType) ToEniPrimaryIpAddressPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrimaryIpAddressPtrOutput)
+}
+
+type EniPrimaryIpAddressOutput struct{ *pulumi.OutputState }
+
+func (EniPrimaryIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrimaryIpAddress)(nil)).Elem()
+}
+
+func (o EniPrimaryIpAddressOutput) ToEniPrimaryIpAddressOutput() EniPrimaryIpAddressOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressOutput) ToEniPrimaryIpAddressOutputWithContext(ctx context.Context) EniPrimaryIpAddressOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressOutput) ToEniPrimaryIpAddressPtrOutput() EniPrimaryIpAddressPtrOutput {
+	return o.ToEniPrimaryIpAddressPtrOutputWithContext(context.Background())
+}
+
+func (o EniPrimaryIpAddressOutput) ToEniPrimaryIpAddressPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EniPrimaryIpAddress) *EniPrimaryIpAddress {
+		return &v
+	}).(EniPrimaryIpAddressPtrOutput)
+}
+
+// 网卡主私网IPv4关联的公网IP的信息。
+func (o EniPrimaryIpAddressOutput) AssociatedElasticIp() EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return o.ApplyT(func(v EniPrimaryIpAddress) *EniPrimaryIpAddressAssociatedElasticIp { return v.AssociatedElasticIp }).(EniPrimaryIpAddressAssociatedElasticIpPtrOutput)
+}
+
+// 是否为主私网IPv4地址。
+func (o EniPrimaryIpAddressOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EniPrimaryIpAddress) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// 网卡的私网IP地址。
+func (o EniPrimaryIpAddressOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniPrimaryIpAddress) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type EniPrimaryIpAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (EniPrimaryIpAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EniPrimaryIpAddress)(nil)).Elem()
+}
+
+func (o EniPrimaryIpAddressPtrOutput) ToEniPrimaryIpAddressPtrOutput() EniPrimaryIpAddressPtrOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressPtrOutput) ToEniPrimaryIpAddressPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressPtrOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressPtrOutput) Elem() EniPrimaryIpAddressOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddress) EniPrimaryIpAddress {
+		if v != nil {
+			return *v
+		}
+		var ret EniPrimaryIpAddress
+		return ret
+	}).(EniPrimaryIpAddressOutput)
+}
+
+// 网卡主私网IPv4关联的公网IP的信息。
+func (o EniPrimaryIpAddressPtrOutput) AssociatedElasticIp() EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddress) *EniPrimaryIpAddressAssociatedElasticIp {
+		if v == nil {
+			return nil
+		}
+		return v.AssociatedElasticIp
+	}).(EniPrimaryIpAddressAssociatedElasticIpPtrOutput)
+}
+
+// 是否为主私网IPv4地址。
+func (o EniPrimaryIpAddressPtrOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddress) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.BoolPtrOutput)
+}
+
+// 网卡的私网IP地址。
+func (o EniPrimaryIpAddressPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+type EniPrimaryIpAddressAssociatedElasticIp struct {
+	// 公网IP的ID。
+	AllocationId *string `pulumi:"allocationId"`
+	// 公网IP的地址。
+	EipAddress *string `pulumi:"eipAddress"`
+	// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+	ReleaseWithInstance *bool `pulumi:"releaseWithInstance"`
+}
+
+// EniPrimaryIpAddressAssociatedElasticIpInput is an input type that accepts EniPrimaryIpAddressAssociatedElasticIpArgs and EniPrimaryIpAddressAssociatedElasticIpOutput values.
+// You can construct a concrete instance of `EniPrimaryIpAddressAssociatedElasticIpInput` via:
+//
+//	EniPrimaryIpAddressAssociatedElasticIpArgs{...}
+type EniPrimaryIpAddressAssociatedElasticIpInput interface {
+	pulumi.Input
+
+	ToEniPrimaryIpAddressAssociatedElasticIpOutput() EniPrimaryIpAddressAssociatedElasticIpOutput
+	ToEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(context.Context) EniPrimaryIpAddressAssociatedElasticIpOutput
+}
+
+type EniPrimaryIpAddressAssociatedElasticIpArgs struct {
+	// 公网IP的ID。
+	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+	// 公网IP的地址。
+	EipAddress pulumi.StringPtrInput `pulumi:"eipAddress"`
+	// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+	ReleaseWithInstance pulumi.BoolPtrInput `pulumi:"releaseWithInstance"`
+}
+
+func (EniPrimaryIpAddressAssociatedElasticIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrimaryIpAddressAssociatedElasticIp)(nil)).Elem()
+}
+
+func (i EniPrimaryIpAddressAssociatedElasticIpArgs) ToEniPrimaryIpAddressAssociatedElasticIpOutput() EniPrimaryIpAddressAssociatedElasticIpOutput {
+	return i.ToEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(context.Background())
+}
+
+func (i EniPrimaryIpAddressAssociatedElasticIpArgs) ToEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(ctx context.Context) EniPrimaryIpAddressAssociatedElasticIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrimaryIpAddressAssociatedElasticIpOutput)
+}
+
+func (i EniPrimaryIpAddressAssociatedElasticIpArgs) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutput() EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return i.ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(context.Background())
+}
+
+func (i EniPrimaryIpAddressAssociatedElasticIpArgs) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrimaryIpAddressAssociatedElasticIpOutput).ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(ctx)
+}
+
+// EniPrimaryIpAddressAssociatedElasticIpPtrInput is an input type that accepts EniPrimaryIpAddressAssociatedElasticIpArgs, EniPrimaryIpAddressAssociatedElasticIpPtr and EniPrimaryIpAddressAssociatedElasticIpPtrOutput values.
+// You can construct a concrete instance of `EniPrimaryIpAddressAssociatedElasticIpPtrInput` via:
+//
+//	        EniPrimaryIpAddressAssociatedElasticIpArgs{...}
+//
+//	or:
+//
+//	        nil
+type EniPrimaryIpAddressAssociatedElasticIpPtrInput interface {
+	pulumi.Input
+
+	ToEniPrimaryIpAddressAssociatedElasticIpPtrOutput() EniPrimaryIpAddressAssociatedElasticIpPtrOutput
+	ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(context.Context) EniPrimaryIpAddressAssociatedElasticIpPtrOutput
+}
+
+type eniPrimaryIpAddressAssociatedElasticIpPtrType EniPrimaryIpAddressAssociatedElasticIpArgs
+
+func EniPrimaryIpAddressAssociatedElasticIpPtr(v *EniPrimaryIpAddressAssociatedElasticIpArgs) EniPrimaryIpAddressAssociatedElasticIpPtrInput {
+	return (*eniPrimaryIpAddressAssociatedElasticIpPtrType)(v)
+}
+
+func (*eniPrimaryIpAddressAssociatedElasticIpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EniPrimaryIpAddressAssociatedElasticIp)(nil)).Elem()
+}
+
+func (i *eniPrimaryIpAddressAssociatedElasticIpPtrType) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutput() EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return i.ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(context.Background())
+}
+
+func (i *eniPrimaryIpAddressAssociatedElasticIpPtrType) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrimaryIpAddressAssociatedElasticIpPtrOutput)
+}
+
+type EniPrimaryIpAddressAssociatedElasticIpOutput struct{ *pulumi.OutputState }
+
+func (EniPrimaryIpAddressAssociatedElasticIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrimaryIpAddressAssociatedElasticIp)(nil)).Elem()
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) ToEniPrimaryIpAddressAssociatedElasticIpOutput() EniPrimaryIpAddressAssociatedElasticIpOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) ToEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(ctx context.Context) EniPrimaryIpAddressAssociatedElasticIpOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutput() EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return o.ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(context.Background())
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EniPrimaryIpAddressAssociatedElasticIp) *EniPrimaryIpAddressAssociatedElasticIp {
+		return &v
+	}).(EniPrimaryIpAddressAssociatedElasticIpPtrOutput)
+}
+
+// 公网IP的ID。
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniPrimaryIpAddressAssociatedElasticIp) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// 公网IP的地址。
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) EipAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniPrimaryIpAddressAssociatedElasticIp) *string { return v.EipAddress }).(pulumi.StringPtrOutput)
+}
+
+// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+func (o EniPrimaryIpAddressAssociatedElasticIpOutput) ReleaseWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EniPrimaryIpAddressAssociatedElasticIp) *bool { return v.ReleaseWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+type EniPrimaryIpAddressAssociatedElasticIpPtrOutput struct{ *pulumi.OutputState }
+
+func (EniPrimaryIpAddressAssociatedElasticIpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EniPrimaryIpAddressAssociatedElasticIp)(nil)).Elem()
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpPtrOutput) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutput() EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpPtrOutput) ToEniPrimaryIpAddressAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrimaryIpAddressAssociatedElasticIpPtrOutput {
+	return o
+}
+
+func (o EniPrimaryIpAddressAssociatedElasticIpPtrOutput) Elem() EniPrimaryIpAddressAssociatedElasticIpOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddressAssociatedElasticIp) EniPrimaryIpAddressAssociatedElasticIp {
+		if v != nil {
+			return *v
+		}
+		var ret EniPrimaryIpAddressAssociatedElasticIp
+		return ret
+	}).(EniPrimaryIpAddressAssociatedElasticIpOutput)
+}
+
+// 公网IP的ID。
+func (o EniPrimaryIpAddressAssociatedElasticIpPtrOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddressAssociatedElasticIp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// 公网IP的地址。
+func (o EniPrimaryIpAddressAssociatedElasticIpPtrOutput) EipAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddressAssociatedElasticIp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EipAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+func (o EniPrimaryIpAddressAssociatedElasticIpPtrOutput) ReleaseWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EniPrimaryIpAddressAssociatedElasticIp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseWithInstance
+	}).(pulumi.BoolPtrOutput)
+}
+
+type EniPrivateIpSet struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp *EniPrivateIpSetAssociatedElasticIp `pulumi:"associatedElasticIp"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+}
+
+// EniPrivateIpSetInput is an input type that accepts EniPrivateIpSetArgs and EniPrivateIpSetOutput values.
+// You can construct a concrete instance of `EniPrivateIpSetInput` via:
+//
+//	EniPrivateIpSetArgs{...}
+type EniPrivateIpSetInput interface {
+	pulumi.Input
+
+	ToEniPrivateIpSetOutput() EniPrivateIpSetOutput
+	ToEniPrivateIpSetOutputWithContext(context.Context) EniPrivateIpSetOutput
+}
+
+type EniPrivateIpSetArgs struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp EniPrivateIpSetAssociatedElasticIpPtrInput `pulumi:"associatedElasticIp"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+}
+
+func (EniPrivateIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrivateIpSet)(nil)).Elem()
+}
+
+func (i EniPrivateIpSetArgs) ToEniPrivateIpSetOutput() EniPrivateIpSetOutput {
+	return i.ToEniPrivateIpSetOutputWithContext(context.Background())
+}
+
+func (i EniPrivateIpSetArgs) ToEniPrivateIpSetOutputWithContext(ctx context.Context) EniPrivateIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrivateIpSetOutput)
+}
+
+// EniPrivateIpSetArrayInput is an input type that accepts EniPrivateIpSetArray and EniPrivateIpSetArrayOutput values.
+// You can construct a concrete instance of `EniPrivateIpSetArrayInput` via:
+//
+//	EniPrivateIpSetArray{ EniPrivateIpSetArgs{...} }
+type EniPrivateIpSetArrayInput interface {
+	pulumi.Input
+
+	ToEniPrivateIpSetArrayOutput() EniPrivateIpSetArrayOutput
+	ToEniPrivateIpSetArrayOutputWithContext(context.Context) EniPrivateIpSetArrayOutput
+}
+
+type EniPrivateIpSetArray []EniPrivateIpSetInput
+
+func (EniPrivateIpSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EniPrivateIpSet)(nil)).Elem()
+}
+
+func (i EniPrivateIpSetArray) ToEniPrivateIpSetArrayOutput() EniPrivateIpSetArrayOutput {
+	return i.ToEniPrivateIpSetArrayOutputWithContext(context.Background())
+}
+
+func (i EniPrivateIpSetArray) ToEniPrivateIpSetArrayOutputWithContext(ctx context.Context) EniPrivateIpSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrivateIpSetArrayOutput)
+}
+
+type EniPrivateIpSetOutput struct{ *pulumi.OutputState }
+
+func (EniPrivateIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrivateIpSet)(nil)).Elem()
+}
+
+func (o EniPrivateIpSetOutput) ToEniPrivateIpSetOutput() EniPrivateIpSetOutput {
+	return o
+}
+
+func (o EniPrivateIpSetOutput) ToEniPrivateIpSetOutputWithContext(ctx context.Context) EniPrivateIpSetOutput {
+	return o
+}
+
+// 网卡主私网IPv4关联的公网IP的信息。
+func (o EniPrivateIpSetOutput) AssociatedElasticIp() EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return o.ApplyT(func(v EniPrivateIpSet) *EniPrivateIpSetAssociatedElasticIp { return v.AssociatedElasticIp }).(EniPrivateIpSetAssociatedElasticIpPtrOutput)
+}
+
+// 网卡的私网IP地址。
+func (o EniPrivateIpSetOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniPrivateIpSet) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type EniPrivateIpSetArrayOutput struct{ *pulumi.OutputState }
+
+func (EniPrivateIpSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EniPrivateIpSet)(nil)).Elem()
+}
+
+func (o EniPrivateIpSetArrayOutput) ToEniPrivateIpSetArrayOutput() EniPrivateIpSetArrayOutput {
+	return o
+}
+
+func (o EniPrivateIpSetArrayOutput) ToEniPrivateIpSetArrayOutputWithContext(ctx context.Context) EniPrivateIpSetArrayOutput {
+	return o
+}
+
+func (o EniPrivateIpSetArrayOutput) Index(i pulumi.IntInput) EniPrivateIpSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EniPrivateIpSet {
+		return vs[0].([]EniPrivateIpSet)[vs[1].(int)]
+	}).(EniPrivateIpSetOutput)
+}
+
+type EniPrivateIpSetAssociatedElasticIp struct {
+	// 公网IP的ID。
+	AllocationId *string `pulumi:"allocationId"`
+}
+
+// EniPrivateIpSetAssociatedElasticIpInput is an input type that accepts EniPrivateIpSetAssociatedElasticIpArgs and EniPrivateIpSetAssociatedElasticIpOutput values.
+// You can construct a concrete instance of `EniPrivateIpSetAssociatedElasticIpInput` via:
+//
+//	EniPrivateIpSetAssociatedElasticIpArgs{...}
+type EniPrivateIpSetAssociatedElasticIpInput interface {
+	pulumi.Input
+
+	ToEniPrivateIpSetAssociatedElasticIpOutput() EniPrivateIpSetAssociatedElasticIpOutput
+	ToEniPrivateIpSetAssociatedElasticIpOutputWithContext(context.Context) EniPrivateIpSetAssociatedElasticIpOutput
+}
+
+type EniPrivateIpSetAssociatedElasticIpArgs struct {
+	// 公网IP的ID。
+	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+}
+
+func (EniPrivateIpSetAssociatedElasticIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrivateIpSetAssociatedElasticIp)(nil)).Elem()
+}
+
+func (i EniPrivateIpSetAssociatedElasticIpArgs) ToEniPrivateIpSetAssociatedElasticIpOutput() EniPrivateIpSetAssociatedElasticIpOutput {
+	return i.ToEniPrivateIpSetAssociatedElasticIpOutputWithContext(context.Background())
+}
+
+func (i EniPrivateIpSetAssociatedElasticIpArgs) ToEniPrivateIpSetAssociatedElasticIpOutputWithContext(ctx context.Context) EniPrivateIpSetAssociatedElasticIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrivateIpSetAssociatedElasticIpOutput)
+}
+
+func (i EniPrivateIpSetAssociatedElasticIpArgs) ToEniPrivateIpSetAssociatedElasticIpPtrOutput() EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return i.ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(context.Background())
+}
+
+func (i EniPrivateIpSetAssociatedElasticIpArgs) ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrivateIpSetAssociatedElasticIpOutput).ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(ctx)
+}
+
+// EniPrivateIpSetAssociatedElasticIpPtrInput is an input type that accepts EniPrivateIpSetAssociatedElasticIpArgs, EniPrivateIpSetAssociatedElasticIpPtr and EniPrivateIpSetAssociatedElasticIpPtrOutput values.
+// You can construct a concrete instance of `EniPrivateIpSetAssociatedElasticIpPtrInput` via:
+//
+//	        EniPrivateIpSetAssociatedElasticIpArgs{...}
+//
+//	or:
+//
+//	        nil
+type EniPrivateIpSetAssociatedElasticIpPtrInput interface {
+	pulumi.Input
+
+	ToEniPrivateIpSetAssociatedElasticIpPtrOutput() EniPrivateIpSetAssociatedElasticIpPtrOutput
+	ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(context.Context) EniPrivateIpSetAssociatedElasticIpPtrOutput
+}
+
+type eniPrivateIpSetAssociatedElasticIpPtrType EniPrivateIpSetAssociatedElasticIpArgs
+
+func EniPrivateIpSetAssociatedElasticIpPtr(v *EniPrivateIpSetAssociatedElasticIpArgs) EniPrivateIpSetAssociatedElasticIpPtrInput {
+	return (*eniPrivateIpSetAssociatedElasticIpPtrType)(v)
+}
+
+func (*eniPrivateIpSetAssociatedElasticIpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EniPrivateIpSetAssociatedElasticIp)(nil)).Elem()
+}
+
+func (i *eniPrivateIpSetAssociatedElasticIpPtrType) ToEniPrivateIpSetAssociatedElasticIpPtrOutput() EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return i.ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(context.Background())
+}
+
+func (i *eniPrivateIpSetAssociatedElasticIpPtrType) ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniPrivateIpSetAssociatedElasticIpPtrOutput)
+}
+
+type EniPrivateIpSetAssociatedElasticIpOutput struct{ *pulumi.OutputState }
+
+func (EniPrivateIpSetAssociatedElasticIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniPrivateIpSetAssociatedElasticIp)(nil)).Elem()
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpOutput) ToEniPrivateIpSetAssociatedElasticIpOutput() EniPrivateIpSetAssociatedElasticIpOutput {
+	return o
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpOutput) ToEniPrivateIpSetAssociatedElasticIpOutputWithContext(ctx context.Context) EniPrivateIpSetAssociatedElasticIpOutput {
+	return o
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpOutput) ToEniPrivateIpSetAssociatedElasticIpPtrOutput() EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return o.ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(context.Background())
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpOutput) ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EniPrivateIpSetAssociatedElasticIp) *EniPrivateIpSetAssociatedElasticIp {
+		return &v
+	}).(EniPrivateIpSetAssociatedElasticIpPtrOutput)
+}
+
+// 公网IP的ID。
+func (o EniPrivateIpSetAssociatedElasticIpOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniPrivateIpSetAssociatedElasticIp) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+type EniPrivateIpSetAssociatedElasticIpPtrOutput struct{ *pulumi.OutputState }
+
+func (EniPrivateIpSetAssociatedElasticIpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EniPrivateIpSetAssociatedElasticIp)(nil)).Elem()
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpPtrOutput) ToEniPrivateIpSetAssociatedElasticIpPtrOutput() EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return o
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpPtrOutput) ToEniPrivateIpSetAssociatedElasticIpPtrOutputWithContext(ctx context.Context) EniPrivateIpSetAssociatedElasticIpPtrOutput {
+	return o
+}
+
+func (o EniPrivateIpSetAssociatedElasticIpPtrOutput) Elem() EniPrivateIpSetAssociatedElasticIpOutput {
+	return o.ApplyT(func(v *EniPrivateIpSetAssociatedElasticIp) EniPrivateIpSetAssociatedElasticIp {
+		if v != nil {
+			return *v
+		}
+		var ret EniPrivateIpSetAssociatedElasticIp
+		return ret
+	}).(EniPrivateIpSetAssociatedElasticIpOutput)
+}
+
+// 公网IP的ID。
+func (o EniPrivateIpSetAssociatedElasticIpPtrOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EniPrivateIpSetAssociatedElasticIp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type EniTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// EniTagInput is an input type that accepts EniTagArgs and EniTagOutput values.
+// You can construct a concrete instance of `EniTagInput` via:
+//
+//	EniTagArgs{...}
+type EniTagInput interface {
+	pulumi.Input
+
+	ToEniTagOutput() EniTagOutput
+	ToEniTagOutputWithContext(context.Context) EniTagOutput
+}
+
+type EniTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EniTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniTag)(nil)).Elem()
+}
+
+func (i EniTagArgs) ToEniTagOutput() EniTagOutput {
+	return i.ToEniTagOutputWithContext(context.Background())
+}
+
+func (i EniTagArgs) ToEniTagOutputWithContext(ctx context.Context) EniTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniTagOutput)
+}
+
+// EniTagArrayInput is an input type that accepts EniTagArray and EniTagArrayOutput values.
+// You can construct a concrete instance of `EniTagArrayInput` via:
+//
+//	EniTagArray{ EniTagArgs{...} }
+type EniTagArrayInput interface {
+	pulumi.Input
+
+	ToEniTagArrayOutput() EniTagArrayOutput
+	ToEniTagArrayOutputWithContext(context.Context) EniTagArrayOutput
+}
+
+type EniTagArray []EniTagInput
+
+func (EniTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EniTag)(nil)).Elem()
+}
+
+func (i EniTagArray) ToEniTagArrayOutput() EniTagArrayOutput {
+	return i.ToEniTagArrayOutputWithContext(context.Background())
+}
+
+func (i EniTagArray) ToEniTagArrayOutputWithContext(ctx context.Context) EniTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EniTagArrayOutput)
+}
+
+type EniTagOutput struct{ *pulumi.OutputState }
+
+func (EniTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EniTag)(nil)).Elem()
+}
+
+func (o EniTagOutput) ToEniTagOutput() EniTagOutput {
+	return o
+}
+
+func (o EniTagOutput) ToEniTagOutputWithContext(ctx context.Context) EniTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o EniTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o EniTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EniTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EniTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EniTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EniTag)(nil)).Elem()
+}
+
+func (o EniTagArrayOutput) ToEniTagArrayOutput() EniTagArrayOutput {
+	return o
+}
+
+func (o EniTagArrayOutput) ToEniTagArrayOutputWithContext(ctx context.Context) EniTagArrayOutput {
+	return o
+}
+
+func (o EniTagArrayOutput) Index(i pulumi.IntInput) EniTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EniTag {
+		return vs[0].([]EniTag)[vs[1].(int)]
+	}).(EniTagOutput)
+}
+
+type RouteTableCustomRouteEntry struct {
+	// 路由条目描述。
+	Description *string `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId *string `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName *string `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType *string `pulumi:"nextHopType"`
+	// 路由条目名称。
+	RouteEntryName *string `pulumi:"routeEntryName"`
+}
+
+// RouteTableCustomRouteEntryInput is an input type that accepts RouteTableCustomRouteEntryArgs and RouteTableCustomRouteEntryOutput values.
+// You can construct a concrete instance of `RouteTableCustomRouteEntryInput` via:
+//
+//	RouteTableCustomRouteEntryArgs{...}
+type RouteTableCustomRouteEntryInput interface {
+	pulumi.Input
+
+	ToRouteTableCustomRouteEntryOutput() RouteTableCustomRouteEntryOutput
+	ToRouteTableCustomRouteEntryOutputWithContext(context.Context) RouteTableCustomRouteEntryOutput
+}
+
+type RouteTableCustomRouteEntryArgs struct {
+	// 路由条目描述。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId pulumi.StringPtrInput `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName pulumi.StringPtrInput `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType pulumi.StringPtrInput `pulumi:"nextHopType"`
+	// 路由条目名称。
+	RouteEntryName pulumi.StringPtrInput `pulumi:"routeEntryName"`
+}
+
+func (RouteTableCustomRouteEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (i RouteTableCustomRouteEntryArgs) ToRouteTableCustomRouteEntryOutput() RouteTableCustomRouteEntryOutput {
+	return i.ToRouteTableCustomRouteEntryOutputWithContext(context.Background())
+}
+
+func (i RouteTableCustomRouteEntryArgs) ToRouteTableCustomRouteEntryOutputWithContext(ctx context.Context) RouteTableCustomRouteEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableCustomRouteEntryOutput)
+}
+
+// RouteTableCustomRouteEntryArrayInput is an input type that accepts RouteTableCustomRouteEntryArray and RouteTableCustomRouteEntryArrayOutput values.
+// You can construct a concrete instance of `RouteTableCustomRouteEntryArrayInput` via:
+//
+//	RouteTableCustomRouteEntryArray{ RouteTableCustomRouteEntryArgs{...} }
+type RouteTableCustomRouteEntryArrayInput interface {
+	pulumi.Input
+
+	ToRouteTableCustomRouteEntryArrayOutput() RouteTableCustomRouteEntryArrayOutput
+	ToRouteTableCustomRouteEntryArrayOutputWithContext(context.Context) RouteTableCustomRouteEntryArrayOutput
+}
+
+type RouteTableCustomRouteEntryArray []RouteTableCustomRouteEntryInput
+
+func (RouteTableCustomRouteEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (i RouteTableCustomRouteEntryArray) ToRouteTableCustomRouteEntryArrayOutput() RouteTableCustomRouteEntryArrayOutput {
+	return i.ToRouteTableCustomRouteEntryArrayOutputWithContext(context.Background())
+}
+
+func (i RouteTableCustomRouteEntryArray) ToRouteTableCustomRouteEntryArrayOutputWithContext(ctx context.Context) RouteTableCustomRouteEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableCustomRouteEntryArrayOutput)
+}
+
+type RouteTableCustomRouteEntryOutput struct{ *pulumi.OutputState }
+
+func (RouteTableCustomRouteEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (o RouteTableCustomRouteEntryOutput) ToRouteTableCustomRouteEntryOutput() RouteTableCustomRouteEntryOutput {
+	return o
+}
+
+func (o RouteTableCustomRouteEntryOutput) ToRouteTableCustomRouteEntryOutputWithContext(ctx context.Context) RouteTableCustomRouteEntryOutput {
+	return o
+}
+
+// 路由条目描述。
+func (o RouteTableCustomRouteEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目的目标网段。
+func (o RouteTableCustomRouteEntryOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// 前缀列表ID。
+func (o RouteTableCustomRouteEntryOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// 下一跳资源ID。
+func (o RouteTableCustomRouteEntryOutput) NextHopId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.NextHopId }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目下一跳资源的名称。
+func (o RouteTableCustomRouteEntryOutput) NextHopName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.NextHopName }).(pulumi.StringPtrOutput)
+}
+
+// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+func (o RouteTableCustomRouteEntryOutput) NextHopType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.NextHopType }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目名称。
+func (o RouteTableCustomRouteEntryOutput) RouteEntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableCustomRouteEntry) *string { return v.RouteEntryName }).(pulumi.StringPtrOutput)
+}
+
+type RouteTableCustomRouteEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteTableCustomRouteEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (o RouteTableCustomRouteEntryArrayOutput) ToRouteTableCustomRouteEntryArrayOutput() RouteTableCustomRouteEntryArrayOutput {
+	return o
+}
+
+func (o RouteTableCustomRouteEntryArrayOutput) ToRouteTableCustomRouteEntryArrayOutputWithContext(ctx context.Context) RouteTableCustomRouteEntryArrayOutput {
+	return o
+}
+
+func (o RouteTableCustomRouteEntryArrayOutput) Index(i pulumi.IntInput) RouteTableCustomRouteEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTableCustomRouteEntry {
+		return vs[0].([]RouteTableCustomRouteEntry)[vs[1].(int)]
+	}).(RouteTableCustomRouteEntryOutput)
+}
+
+type RouteTableSystemRouteEntry struct {
+	// 路由条目描述。
+	Description *string `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId *string `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName *string `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType *string `pulumi:"nextHopType"`
+	// 前缀列表的CIDR。
+	PrefixListCidrBlocks []string `pulumi:"prefixListCidrBlocks"`
+	// 路由条目ID。
+	RouteEntryId *string `pulumi:"routeEntryId"`
+	// 路由条目名称。
+	RouteEntryName *string `pulumi:"routeEntryName"`
+	// 路由表ID。
+	RouteTableId *string `pulumi:"routeTableId"`
+	// 路由条目状态。1、Pending：待创建。2、Available：可用。
+	Status *string `pulumi:"status"`
+	// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+	Type *string `pulumi:"type"`
+	// 路由条目所属私有网络的ID。
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// RouteTableSystemRouteEntryInput is an input type that accepts RouteTableSystemRouteEntryArgs and RouteTableSystemRouteEntryOutput values.
+// You can construct a concrete instance of `RouteTableSystemRouteEntryInput` via:
+//
+//	RouteTableSystemRouteEntryArgs{...}
+type RouteTableSystemRouteEntryInput interface {
+	pulumi.Input
+
+	ToRouteTableSystemRouteEntryOutput() RouteTableSystemRouteEntryOutput
+	ToRouteTableSystemRouteEntryOutputWithContext(context.Context) RouteTableSystemRouteEntryOutput
+}
+
+type RouteTableSystemRouteEntryArgs struct {
+	// 路由条目描述。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId pulumi.StringPtrInput `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName pulumi.StringPtrInput `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType pulumi.StringPtrInput `pulumi:"nextHopType"`
+	// 前缀列表的CIDR。
+	PrefixListCidrBlocks pulumi.StringArrayInput `pulumi:"prefixListCidrBlocks"`
+	// 路由条目ID。
+	RouteEntryId pulumi.StringPtrInput `pulumi:"routeEntryId"`
+	// 路由条目名称。
+	RouteEntryName pulumi.StringPtrInput `pulumi:"routeEntryName"`
+	// 路由表ID。
+	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
+	// 路由条目状态。1、Pending：待创建。2、Available：可用。
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// 路由条目所属私有网络的ID。
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (RouteTableSystemRouteEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (i RouteTableSystemRouteEntryArgs) ToRouteTableSystemRouteEntryOutput() RouteTableSystemRouteEntryOutput {
+	return i.ToRouteTableSystemRouteEntryOutputWithContext(context.Background())
+}
+
+func (i RouteTableSystemRouteEntryArgs) ToRouteTableSystemRouteEntryOutputWithContext(ctx context.Context) RouteTableSystemRouteEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableSystemRouteEntryOutput)
+}
+
+// RouteTableSystemRouteEntryArrayInput is an input type that accepts RouteTableSystemRouteEntryArray and RouteTableSystemRouteEntryArrayOutput values.
+// You can construct a concrete instance of `RouteTableSystemRouteEntryArrayInput` via:
+//
+//	RouteTableSystemRouteEntryArray{ RouteTableSystemRouteEntryArgs{...} }
+type RouteTableSystemRouteEntryArrayInput interface {
+	pulumi.Input
+
+	ToRouteTableSystemRouteEntryArrayOutput() RouteTableSystemRouteEntryArrayOutput
+	ToRouteTableSystemRouteEntryArrayOutputWithContext(context.Context) RouteTableSystemRouteEntryArrayOutput
+}
+
+type RouteTableSystemRouteEntryArray []RouteTableSystemRouteEntryInput
+
+func (RouteTableSystemRouteEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (i RouteTableSystemRouteEntryArray) ToRouteTableSystemRouteEntryArrayOutput() RouteTableSystemRouteEntryArrayOutput {
+	return i.ToRouteTableSystemRouteEntryArrayOutputWithContext(context.Background())
+}
+
+func (i RouteTableSystemRouteEntryArray) ToRouteTableSystemRouteEntryArrayOutputWithContext(ctx context.Context) RouteTableSystemRouteEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableSystemRouteEntryArrayOutput)
+}
+
+type RouteTableSystemRouteEntryOutput struct{ *pulumi.OutputState }
+
+func (RouteTableSystemRouteEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (o RouteTableSystemRouteEntryOutput) ToRouteTableSystemRouteEntryOutput() RouteTableSystemRouteEntryOutput {
+	return o
+}
+
+func (o RouteTableSystemRouteEntryOutput) ToRouteTableSystemRouteEntryOutputWithContext(ctx context.Context) RouteTableSystemRouteEntryOutput {
+	return o
+}
+
+// 路由条目描述。
+func (o RouteTableSystemRouteEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目的目标网段。
+func (o RouteTableSystemRouteEntryOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// 前缀列表ID。
+func (o RouteTableSystemRouteEntryOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// 下一跳资源ID。
+func (o RouteTableSystemRouteEntryOutput) NextHopId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.NextHopId }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目下一跳资源的名称。
+func (o RouteTableSystemRouteEntryOutput) NextHopName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.NextHopName }).(pulumi.StringPtrOutput)
+}
+
+// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+func (o RouteTableSystemRouteEntryOutput) NextHopType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.NextHopType }).(pulumi.StringPtrOutput)
+}
+
+// 前缀列表的CIDR。
+func (o RouteTableSystemRouteEntryOutput) PrefixListCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) []string { return v.PrefixListCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// 路由条目ID。
+func (o RouteTableSystemRouteEntryOutput) RouteEntryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.RouteEntryId }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目名称。
+func (o RouteTableSystemRouteEntryOutput) RouteEntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.RouteEntryName }).(pulumi.StringPtrOutput)
+}
+
+// 路由表ID。
+func (o RouteTableSystemRouteEntryOutput) RouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目状态。1、Pending：待创建。2、Available：可用。
+func (o RouteTableSystemRouteEntryOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+func (o RouteTableSystemRouteEntryOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// 路由条目所属私有网络的ID。
+func (o RouteTableSystemRouteEntryOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableSystemRouteEntry) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type RouteTableSystemRouteEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteTableSystemRouteEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (o RouteTableSystemRouteEntryArrayOutput) ToRouteTableSystemRouteEntryArrayOutput() RouteTableSystemRouteEntryArrayOutput {
+	return o
+}
+
+func (o RouteTableSystemRouteEntryArrayOutput) ToRouteTableSystemRouteEntryArrayOutputWithContext(ctx context.Context) RouteTableSystemRouteEntryArrayOutput {
+	return o
+}
+
+func (o RouteTableSystemRouteEntryArrayOutput) Index(i pulumi.IntInput) RouteTableSystemRouteEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTableSystemRouteEntry {
+		return vs[0].([]RouteTableSystemRouteEntry)[vs[1].(int)]
+	}).(RouteTableSystemRouteEntryOutput)
+}
+
+type RouteTableTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// RouteTableTagInput is an input type that accepts RouteTableTagArgs and RouteTableTagOutput values.
+// You can construct a concrete instance of `RouteTableTagInput` via:
+//
+//	RouteTableTagArgs{...}
+type RouteTableTagInput interface {
+	pulumi.Input
+
+	ToRouteTableTagOutput() RouteTableTagOutput
+	ToRouteTableTagOutputWithContext(context.Context) RouteTableTagOutput
+}
+
+type RouteTableTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableTag)(nil)).Elem()
+}
+
+func (i RouteTableTagArgs) ToRouteTableTagOutput() RouteTableTagOutput {
+	return i.ToRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i RouteTableTagArgs) ToRouteTableTagOutputWithContext(ctx context.Context) RouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableTagOutput)
+}
+
+// RouteTableTagArrayInput is an input type that accepts RouteTableTagArray and RouteTableTagArrayOutput values.
+// You can construct a concrete instance of `RouteTableTagArrayInput` via:
+//
+//	RouteTableTagArray{ RouteTableTagArgs{...} }
+type RouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToRouteTableTagArrayOutput() RouteTableTagArrayOutput
+	ToRouteTableTagArrayOutputWithContext(context.Context) RouteTableTagArrayOutput
+}
+
+type RouteTableTagArray []RouteTableTagInput
+
+func (RouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableTag)(nil)).Elem()
+}
+
+func (i RouteTableTagArray) ToRouteTableTagArrayOutput() RouteTableTagArrayOutput {
+	return i.ToRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i RouteTableTagArray) ToRouteTableTagArrayOutputWithContext(ctx context.Context) RouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableTagArrayOutput)
+}
+
+type RouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (RouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableTag)(nil)).Elem()
+}
+
+func (o RouteTableTagOutput) ToRouteTableTagOutput() RouteTableTagOutput {
+	return o
+}
+
+func (o RouteTableTagOutput) ToRouteTableTagOutputWithContext(ctx context.Context) RouteTableTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o RouteTableTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o RouteTableTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableTag)(nil)).Elem()
+}
+
+func (o RouteTableTagArrayOutput) ToRouteTableTagArrayOutput() RouteTableTagArrayOutput {
+	return o
+}
+
+func (o RouteTableTagArrayOutput) ToRouteTableTagArrayOutputWithContext(ctx context.Context) RouteTableTagArrayOutput {
+	return o
+}
+
+func (o RouteTableTagArrayOutput) Index(i pulumi.IntInput) RouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTableTag {
+		return vs[0].([]RouteTableTag)[vs[1].(int)]
+	}).(RouteTableTagOutput)
+}
+
+type SecurityGroupEgressPermission struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp *string `pulumi:"cidrIp"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description *string `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction *string `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy *string `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd *int `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart *int `pulumi:"portStart"`
+	// 前缀列表的ID
+	PrefixListId *string `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority *int `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol *string `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId *string `pulumi:"sourceGroupId"`
+}
+
+// SecurityGroupEgressPermissionInput is an input type that accepts SecurityGroupEgressPermissionArgs and SecurityGroupEgressPermissionOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressPermissionInput` via:
+//
+//	SecurityGroupEgressPermissionArgs{...}
+type SecurityGroupEgressPermissionInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressPermissionOutput() SecurityGroupEgressPermissionOutput
+	ToSecurityGroupEgressPermissionOutputWithContext(context.Context) SecurityGroupEgressPermissionOutput
+}
+
+type SecurityGroupEgressPermissionArgs struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction pulumi.StringPtrInput `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd pulumi.IntPtrInput `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart pulumi.IntPtrInput `pulumi:"portStart"`
+	// 前缀列表的ID
+	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId pulumi.StringPtrInput `pulumi:"sourceGroupId"`
+}
+
+func (SecurityGroupEgressPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressPermissionArgs) ToSecurityGroupEgressPermissionOutput() SecurityGroupEgressPermissionOutput {
+	return i.ToSecurityGroupEgressPermissionOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressPermissionArgs) ToSecurityGroupEgressPermissionOutputWithContext(ctx context.Context) SecurityGroupEgressPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressPermissionOutput)
+}
+
+// SecurityGroupEgressPermissionArrayInput is an input type that accepts SecurityGroupEgressPermissionArray and SecurityGroupEgressPermissionArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressPermissionArrayInput` via:
+//
+//	SecurityGroupEgressPermissionArray{ SecurityGroupEgressPermissionArgs{...} }
+type SecurityGroupEgressPermissionArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressPermissionArrayOutput() SecurityGroupEgressPermissionArrayOutput
+	ToSecurityGroupEgressPermissionArrayOutputWithContext(context.Context) SecurityGroupEgressPermissionArrayOutput
+}
+
+type SecurityGroupEgressPermissionArray []SecurityGroupEgressPermissionInput
+
+func (SecurityGroupEgressPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressPermissionArray) ToSecurityGroupEgressPermissionArrayOutput() SecurityGroupEgressPermissionArrayOutput {
+	return i.ToSecurityGroupEgressPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressPermissionArray) ToSecurityGroupEgressPermissionArrayOutputWithContext(ctx context.Context) SecurityGroupEgressPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressPermissionArrayOutput)
+}
+
+type SecurityGroupEgressPermissionOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressPermissionOutput) ToSecurityGroupEgressPermissionOutput() SecurityGroupEgressPermissionOutput {
+	return o
+}
+
+func (o SecurityGroupEgressPermissionOutput) ToSecurityGroupEgressPermissionOutputWithContext(ctx context.Context) SecurityGroupEgressPermissionOutput {
+	return o
+}
+
+// 源地址的IPv4 CIDR或IPv6 CIDR
+func (o SecurityGroupEgressPermissionOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+func (o SecurityGroupEgressPermissionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 安全组规则方向。ingress：入方向。egress：出方向
+func (o SecurityGroupEgressPermissionOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+func (o SecurityGroupEgressPermissionOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o SecurityGroupEgressPermissionOutput) PortEnd() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *int { return v.PortEnd }).(pulumi.IntPtrOutput)
+}
+
+// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o SecurityGroupEgressPermissionOutput) PortStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *int { return v.PortStart }).(pulumi.IntPtrOutput)
+}
+
+// 前缀列表的ID
+func (o SecurityGroupEgressPermissionOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+func (o SecurityGroupEgressPermissionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// 协议类型。tcp、udp、icmp、icmpv6、all
+func (o SecurityGroupEgressPermissionOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+func (o SecurityGroupEgressPermissionOutput) SourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressPermission) *string { return v.SourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupEgressPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressPermissionArrayOutput) ToSecurityGroupEgressPermissionArrayOutput() SecurityGroupEgressPermissionArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressPermissionArrayOutput) ToSecurityGroupEgressPermissionArrayOutputWithContext(ctx context.Context) SecurityGroupEgressPermissionArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressPermissionArrayOutput) Index(i pulumi.IntInput) SecurityGroupEgressPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupEgressPermission {
+		return vs[0].([]SecurityGroupEgressPermission)[vs[1].(int)]
+	}).(SecurityGroupEgressPermissionOutput)
+}
+
+type SecurityGroupIngressPermission struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp *string `pulumi:"cidrIp"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description *string `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction *string `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy *string `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd *int `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart *int `pulumi:"portStart"`
+	// 前缀列表的ID
+	PrefixListId *string `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority *int `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol *string `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId *string `pulumi:"sourceGroupId"`
+}
+
+// SecurityGroupIngressPermissionInput is an input type that accepts SecurityGroupIngressPermissionArgs and SecurityGroupIngressPermissionOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressPermissionInput` via:
+//
+//	SecurityGroupIngressPermissionArgs{...}
+type SecurityGroupIngressPermissionInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressPermissionOutput() SecurityGroupIngressPermissionOutput
+	ToSecurityGroupIngressPermissionOutputWithContext(context.Context) SecurityGroupIngressPermissionOutput
+}
+
+type SecurityGroupIngressPermissionArgs struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction pulumi.StringPtrInput `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd pulumi.IntPtrInput `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart pulumi.IntPtrInput `pulumi:"portStart"`
+	// 前缀列表的ID
+	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId pulumi.StringPtrInput `pulumi:"sourceGroupId"`
+}
+
+func (SecurityGroupIngressPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressPermissionArgs) ToSecurityGroupIngressPermissionOutput() SecurityGroupIngressPermissionOutput {
+	return i.ToSecurityGroupIngressPermissionOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressPermissionArgs) ToSecurityGroupIngressPermissionOutputWithContext(ctx context.Context) SecurityGroupIngressPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressPermissionOutput)
+}
+
+// SecurityGroupIngressPermissionArrayInput is an input type that accepts SecurityGroupIngressPermissionArray and SecurityGroupIngressPermissionArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressPermissionArrayInput` via:
+//
+//	SecurityGroupIngressPermissionArray{ SecurityGroupIngressPermissionArgs{...} }
+type SecurityGroupIngressPermissionArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressPermissionArrayOutput() SecurityGroupIngressPermissionArrayOutput
+	ToSecurityGroupIngressPermissionArrayOutputWithContext(context.Context) SecurityGroupIngressPermissionArrayOutput
+}
+
+type SecurityGroupIngressPermissionArray []SecurityGroupIngressPermissionInput
+
+func (SecurityGroupIngressPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressPermissionArray) ToSecurityGroupIngressPermissionArrayOutput() SecurityGroupIngressPermissionArrayOutput {
+	return i.ToSecurityGroupIngressPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressPermissionArray) ToSecurityGroupIngressPermissionArrayOutputWithContext(ctx context.Context) SecurityGroupIngressPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressPermissionArrayOutput)
+}
+
+type SecurityGroupIngressPermissionOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressPermissionOutput) ToSecurityGroupIngressPermissionOutput() SecurityGroupIngressPermissionOutput {
+	return o
+}
+
+func (o SecurityGroupIngressPermissionOutput) ToSecurityGroupIngressPermissionOutputWithContext(ctx context.Context) SecurityGroupIngressPermissionOutput {
+	return o
+}
+
+// 源地址的IPv4 CIDR或IPv6 CIDR
+func (o SecurityGroupIngressPermissionOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+func (o SecurityGroupIngressPermissionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 安全组规则方向。ingress：入方向。egress：出方向
+func (o SecurityGroupIngressPermissionOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+func (o SecurityGroupIngressPermissionOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o SecurityGroupIngressPermissionOutput) PortEnd() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *int { return v.PortEnd }).(pulumi.IntPtrOutput)
+}
+
+// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o SecurityGroupIngressPermissionOutput) PortStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *int { return v.PortStart }).(pulumi.IntPtrOutput)
+}
+
+// 前缀列表的ID
+func (o SecurityGroupIngressPermissionOutput) PrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.PrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+func (o SecurityGroupIngressPermissionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// 协议类型。tcp、udp、icmp、icmpv6、all
+func (o SecurityGroupIngressPermissionOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+func (o SecurityGroupIngressPermissionOutput) SourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressPermission) *string { return v.SourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupIngressPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressPermissionArrayOutput) ToSecurityGroupIngressPermissionArrayOutput() SecurityGroupIngressPermissionArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressPermissionArrayOutput) ToSecurityGroupIngressPermissionArrayOutputWithContext(ctx context.Context) SecurityGroupIngressPermissionArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressPermissionArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngressPermission {
+		return vs[0].([]SecurityGroupIngressPermission)[vs[1].(int)]
+	}).(SecurityGroupIngressPermissionOutput)
+}
+
+type SecurityGroupTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// SecurityGroupTagInput is an input type that accepts SecurityGroupTagArgs and SecurityGroupTagOutput values.
+// You can construct a concrete instance of `SecurityGroupTagInput` via:
+//
+//	SecurityGroupTagArgs{...}
+type SecurityGroupTagInput interface {
+	pulumi.Input
+
+	ToSecurityGroupTagOutput() SecurityGroupTagOutput
+	ToSecurityGroupTagOutputWithContext(context.Context) SecurityGroupTagOutput
+}
+
+type SecurityGroupTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SecurityGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupTag)(nil)).Elem()
+}
+
+func (i SecurityGroupTagArgs) ToSecurityGroupTagOutput() SecurityGroupTagOutput {
+	return i.ToSecurityGroupTagOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupTagArgs) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagOutput)
+}
+
+// SecurityGroupTagArrayInput is an input type that accepts SecurityGroupTagArray and SecurityGroupTagArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupTagArrayInput` via:
+//
+//	SecurityGroupTagArray{ SecurityGroupTagArgs{...} }
+type SecurityGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput
+	ToSecurityGroupTagArrayOutputWithContext(context.Context) SecurityGroupTagArrayOutput
+}
+
+type SecurityGroupTagArray []SecurityGroupTagInput
+
+func (SecurityGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupTag)(nil)).Elem()
+}
+
+func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput {
+	return i.ToSecurityGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagArrayOutput)
+}
+
+type SecurityGroupTagOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupTag)(nil)).Elem()
+}
+
+func (o SecurityGroupTagOutput) ToSecurityGroupTagOutput() SecurityGroupTagOutput {
+	return o
+}
+
+func (o SecurityGroupTagOutput) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o SecurityGroupTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o SecurityGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupTag)(nil)).Elem()
+}
+
+func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o SecurityGroupTagArrayOutput) Index(i pulumi.IntInput) SecurityGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupTag {
+		return vs[0].([]SecurityGroupTag)[vs[1].(int)]
+	}).(SecurityGroupTagOutput)
+}
+
+type SubnetRouteTable struct {
+	// 子网关联的路由表ID。
+	RouteTableId *string `pulumi:"routeTableId"`
+	// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+	RouteTableType *string `pulumi:"routeTableType"`
+}
+
+// SubnetRouteTableInput is an input type that accepts SubnetRouteTableArgs and SubnetRouteTableOutput values.
+// You can construct a concrete instance of `SubnetRouteTableInput` via:
+//
+//	SubnetRouteTableArgs{...}
+type SubnetRouteTableInput interface {
+	pulumi.Input
+
+	ToSubnetRouteTableOutput() SubnetRouteTableOutput
+	ToSubnetRouteTableOutputWithContext(context.Context) SubnetRouteTableOutput
+}
+
+type SubnetRouteTableArgs struct {
+	// 子网关联的路由表ID。
+	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
+	// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+	RouteTableType pulumi.StringPtrInput `pulumi:"routeTableType"`
+}
+
+func (SubnetRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetRouteTable)(nil)).Elem()
+}
+
+func (i SubnetRouteTableArgs) ToSubnetRouteTableOutput() SubnetRouteTableOutput {
+	return i.ToSubnetRouteTableOutputWithContext(context.Background())
+}
+
+func (i SubnetRouteTableArgs) ToSubnetRouteTableOutputWithContext(ctx context.Context) SubnetRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableOutput)
+}
+
+func (i SubnetRouteTableArgs) ToSubnetRouteTablePtrOutput() SubnetRouteTablePtrOutput {
+	return i.ToSubnetRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i SubnetRouteTableArgs) ToSubnetRouteTablePtrOutputWithContext(ctx context.Context) SubnetRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableOutput).ToSubnetRouteTablePtrOutputWithContext(ctx)
+}
+
+// SubnetRouteTablePtrInput is an input type that accepts SubnetRouteTableArgs, SubnetRouteTablePtr and SubnetRouteTablePtrOutput values.
+// You can construct a concrete instance of `SubnetRouteTablePtrInput` via:
+//
+//	        SubnetRouteTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubnetRouteTablePtrInput interface {
+	pulumi.Input
+
+	ToSubnetRouteTablePtrOutput() SubnetRouteTablePtrOutput
+	ToSubnetRouteTablePtrOutputWithContext(context.Context) SubnetRouteTablePtrOutput
+}
+
+type subnetRouteTablePtrType SubnetRouteTableArgs
+
+func SubnetRouteTablePtr(v *SubnetRouteTableArgs) SubnetRouteTablePtrInput {
+	return (*subnetRouteTablePtrType)(v)
+}
+
+func (*subnetRouteTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetRouteTable)(nil)).Elem()
+}
+
+func (i *subnetRouteTablePtrType) ToSubnetRouteTablePtrOutput() SubnetRouteTablePtrOutput {
+	return i.ToSubnetRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *subnetRouteTablePtrType) ToSubnetRouteTablePtrOutputWithContext(ctx context.Context) SubnetRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTablePtrOutput)
+}
+
+type SubnetRouteTableOutput struct{ *pulumi.OutputState }
+
+func (SubnetRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetRouteTable)(nil)).Elem()
+}
+
+func (o SubnetRouteTableOutput) ToSubnetRouteTableOutput() SubnetRouteTableOutput {
+	return o
+}
+
+func (o SubnetRouteTableOutput) ToSubnetRouteTableOutputWithContext(ctx context.Context) SubnetRouteTableOutput {
+	return o
+}
+
+func (o SubnetRouteTableOutput) ToSubnetRouteTablePtrOutput() SubnetRouteTablePtrOutput {
+	return o.ToSubnetRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (o SubnetRouteTableOutput) ToSubnetRouteTablePtrOutputWithContext(ctx context.Context) SubnetRouteTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetRouteTable) *SubnetRouteTable {
+		return &v
+	}).(SubnetRouteTablePtrOutput)
+}
+
+// 子网关联的路由表ID。
+func (o SubnetRouteTableOutput) RouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetRouteTable) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+}
+
+// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+func (o SubnetRouteTableOutput) RouteTableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetRouteTable) *string { return v.RouteTableType }).(pulumi.StringPtrOutput)
+}
+
+type SubnetRouteTablePtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetRouteTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetRouteTable)(nil)).Elem()
+}
+
+func (o SubnetRouteTablePtrOutput) ToSubnetRouteTablePtrOutput() SubnetRouteTablePtrOutput {
+	return o
+}
+
+func (o SubnetRouteTablePtrOutput) ToSubnetRouteTablePtrOutputWithContext(ctx context.Context) SubnetRouteTablePtrOutput {
+	return o
+}
+
+func (o SubnetRouteTablePtrOutput) Elem() SubnetRouteTableOutput {
+	return o.ApplyT(func(v *SubnetRouteTable) SubnetRouteTable {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetRouteTable
+		return ret
+	}).(SubnetRouteTableOutput)
+}
+
+// 子网关联的路由表ID。
+func (o SubnetRouteTablePtrOutput) RouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetRouteTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+func (o SubnetRouteTablePtrOutput) RouteTableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetRouteTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableType
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubnetTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// SubnetTagInput is an input type that accepts SubnetTagArgs and SubnetTagOutput values.
+// You can construct a concrete instance of `SubnetTagInput` via:
+//
+//	SubnetTagArgs{...}
+type SubnetTagInput interface {
+	pulumi.Input
+
+	ToSubnetTagOutput() SubnetTagOutput
+	ToSubnetTagOutputWithContext(context.Context) SubnetTagOutput
+}
+
+type SubnetTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SubnetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetTag)(nil)).Elem()
+}
+
+func (i SubnetTagArgs) ToSubnetTagOutput() SubnetTagOutput {
+	return i.ToSubnetTagOutputWithContext(context.Background())
+}
+
+func (i SubnetTagArgs) ToSubnetTagOutputWithContext(ctx context.Context) SubnetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetTagOutput)
+}
+
+// SubnetTagArrayInput is an input type that accepts SubnetTagArray and SubnetTagArrayOutput values.
+// You can construct a concrete instance of `SubnetTagArrayInput` via:
+//
+//	SubnetTagArray{ SubnetTagArgs{...} }
+type SubnetTagArrayInput interface {
+	pulumi.Input
+
+	ToSubnetTagArrayOutput() SubnetTagArrayOutput
+	ToSubnetTagArrayOutputWithContext(context.Context) SubnetTagArrayOutput
+}
+
+type SubnetTagArray []SubnetTagInput
+
+func (SubnetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetTag)(nil)).Elem()
+}
+
+func (i SubnetTagArray) ToSubnetTagArrayOutput() SubnetTagArrayOutput {
+	return i.ToSubnetTagArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetTagArray) ToSubnetTagArrayOutputWithContext(ctx context.Context) SubnetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetTagArrayOutput)
+}
+
+type SubnetTagOutput struct{ *pulumi.OutputState }
+
+func (SubnetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetTag)(nil)).Elem()
+}
+
+func (o SubnetTagOutput) ToSubnetTagOutput() SubnetTagOutput {
+	return o
+}
+
+func (o SubnetTagOutput) ToSubnetTagOutputWithContext(ctx context.Context) SubnetTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o SubnetTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o SubnetTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SubnetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetTag)(nil)).Elem()
+}
+
+func (o SubnetTagArrayOutput) ToSubnetTagArrayOutput() SubnetTagArrayOutput {
+	return o
+}
+
+func (o SubnetTagArrayOutput) ToSubnetTagArrayOutputWithContext(ctx context.Context) SubnetTagArrayOutput {
+	return o
+}
+
+func (o SubnetTagArrayOutput) Index(i pulumi.IntInput) SubnetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetTag {
+		return vs[0].([]SubnetTag)[vs[1].(int)]
+	}).(SubnetTagOutput)
+}
+
 type VpcAssociateCen struct {
 	// CEN的ID。
 	CenId *string `pulumi:"cenId"`
@@ -232,6 +2435,1954 @@ func (o VpcTagArrayOutput) Index(i pulumi.IntInput) VpcTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcTag {
 		return vs[0].([]VpcTag)[vs[1].(int)]
 	}).(VpcTagOutput)
+}
+
+type GetBandwidthPackageEipAddress struct {
+	// 分配ID
+	AllocationId string `pulumi:"allocationId"`
+	// 弹性IP地址
+	EipAddress string `pulumi:"eipAddress"`
+}
+
+// GetBandwidthPackageEipAddressInput is an input type that accepts GetBandwidthPackageEipAddressArgs and GetBandwidthPackageEipAddressOutput values.
+// You can construct a concrete instance of `GetBandwidthPackageEipAddressInput` via:
+//
+//	GetBandwidthPackageEipAddressArgs{...}
+type GetBandwidthPackageEipAddressInput interface {
+	pulumi.Input
+
+	ToGetBandwidthPackageEipAddressOutput() GetBandwidthPackageEipAddressOutput
+	ToGetBandwidthPackageEipAddressOutputWithContext(context.Context) GetBandwidthPackageEipAddressOutput
+}
+
+type GetBandwidthPackageEipAddressArgs struct {
+	// 分配ID
+	AllocationId pulumi.StringInput `pulumi:"allocationId"`
+	// 弹性IP地址
+	EipAddress pulumi.StringInput `pulumi:"eipAddress"`
+}
+
+func (GetBandwidthPackageEipAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (i GetBandwidthPackageEipAddressArgs) ToGetBandwidthPackageEipAddressOutput() GetBandwidthPackageEipAddressOutput {
+	return i.ToGetBandwidthPackageEipAddressOutputWithContext(context.Background())
+}
+
+func (i GetBandwidthPackageEipAddressArgs) ToGetBandwidthPackageEipAddressOutputWithContext(ctx context.Context) GetBandwidthPackageEipAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBandwidthPackageEipAddressOutput)
+}
+
+// GetBandwidthPackageEipAddressArrayInput is an input type that accepts GetBandwidthPackageEipAddressArray and GetBandwidthPackageEipAddressArrayOutput values.
+// You can construct a concrete instance of `GetBandwidthPackageEipAddressArrayInput` via:
+//
+//	GetBandwidthPackageEipAddressArray{ GetBandwidthPackageEipAddressArgs{...} }
+type GetBandwidthPackageEipAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetBandwidthPackageEipAddressArrayOutput() GetBandwidthPackageEipAddressArrayOutput
+	ToGetBandwidthPackageEipAddressArrayOutputWithContext(context.Context) GetBandwidthPackageEipAddressArrayOutput
+}
+
+type GetBandwidthPackageEipAddressArray []GetBandwidthPackageEipAddressInput
+
+func (GetBandwidthPackageEipAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (i GetBandwidthPackageEipAddressArray) ToGetBandwidthPackageEipAddressArrayOutput() GetBandwidthPackageEipAddressArrayOutput {
+	return i.ToGetBandwidthPackageEipAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetBandwidthPackageEipAddressArray) ToGetBandwidthPackageEipAddressArrayOutputWithContext(ctx context.Context) GetBandwidthPackageEipAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBandwidthPackageEipAddressArrayOutput)
+}
+
+type GetBandwidthPackageEipAddressOutput struct{ *pulumi.OutputState }
+
+func (GetBandwidthPackageEipAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (o GetBandwidthPackageEipAddressOutput) ToGetBandwidthPackageEipAddressOutput() GetBandwidthPackageEipAddressOutput {
+	return o
+}
+
+func (o GetBandwidthPackageEipAddressOutput) ToGetBandwidthPackageEipAddressOutputWithContext(ctx context.Context) GetBandwidthPackageEipAddressOutput {
+	return o
+}
+
+// 分配ID
+func (o GetBandwidthPackageEipAddressOutput) AllocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBandwidthPackageEipAddress) string { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+// 弹性IP地址
+func (o GetBandwidthPackageEipAddressOutput) EipAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBandwidthPackageEipAddress) string { return v.EipAddress }).(pulumi.StringOutput)
+}
+
+type GetBandwidthPackageEipAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBandwidthPackageEipAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBandwidthPackageEipAddress)(nil)).Elem()
+}
+
+func (o GetBandwidthPackageEipAddressArrayOutput) ToGetBandwidthPackageEipAddressArrayOutput() GetBandwidthPackageEipAddressArrayOutput {
+	return o
+}
+
+func (o GetBandwidthPackageEipAddressArrayOutput) ToGetBandwidthPackageEipAddressArrayOutputWithContext(ctx context.Context) GetBandwidthPackageEipAddressArrayOutput {
+	return o
+}
+
+func (o GetBandwidthPackageEipAddressArrayOutput) Index(i pulumi.IntInput) GetBandwidthPackageEipAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBandwidthPackageEipAddress {
+		return vs[0].([]GetBandwidthPackageEipAddress)[vs[1].(int)]
+	}).(GetBandwidthPackageEipAddressOutput)
+}
+
+type GetBandwidthPackageTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetBandwidthPackageTagInput is an input type that accepts GetBandwidthPackageTagArgs and GetBandwidthPackageTagOutput values.
+// You can construct a concrete instance of `GetBandwidthPackageTagInput` via:
+//
+//	GetBandwidthPackageTagArgs{...}
+type GetBandwidthPackageTagInput interface {
+	pulumi.Input
+
+	ToGetBandwidthPackageTagOutput() GetBandwidthPackageTagOutput
+	ToGetBandwidthPackageTagOutputWithContext(context.Context) GetBandwidthPackageTagOutput
+}
+
+type GetBandwidthPackageTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetBandwidthPackageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBandwidthPackageTag)(nil)).Elem()
+}
+
+func (i GetBandwidthPackageTagArgs) ToGetBandwidthPackageTagOutput() GetBandwidthPackageTagOutput {
+	return i.ToGetBandwidthPackageTagOutputWithContext(context.Background())
+}
+
+func (i GetBandwidthPackageTagArgs) ToGetBandwidthPackageTagOutputWithContext(ctx context.Context) GetBandwidthPackageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBandwidthPackageTagOutput)
+}
+
+// GetBandwidthPackageTagArrayInput is an input type that accepts GetBandwidthPackageTagArray and GetBandwidthPackageTagArrayOutput values.
+// You can construct a concrete instance of `GetBandwidthPackageTagArrayInput` via:
+//
+//	GetBandwidthPackageTagArray{ GetBandwidthPackageTagArgs{...} }
+type GetBandwidthPackageTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBandwidthPackageTagArrayOutput() GetBandwidthPackageTagArrayOutput
+	ToGetBandwidthPackageTagArrayOutputWithContext(context.Context) GetBandwidthPackageTagArrayOutput
+}
+
+type GetBandwidthPackageTagArray []GetBandwidthPackageTagInput
+
+func (GetBandwidthPackageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBandwidthPackageTag)(nil)).Elem()
+}
+
+func (i GetBandwidthPackageTagArray) ToGetBandwidthPackageTagArrayOutput() GetBandwidthPackageTagArrayOutput {
+	return i.ToGetBandwidthPackageTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBandwidthPackageTagArray) ToGetBandwidthPackageTagArrayOutputWithContext(ctx context.Context) GetBandwidthPackageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBandwidthPackageTagArrayOutput)
+}
+
+type GetBandwidthPackageTagOutput struct{ *pulumi.OutputState }
+
+func (GetBandwidthPackageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBandwidthPackageTag)(nil)).Elem()
+}
+
+func (o GetBandwidthPackageTagOutput) ToGetBandwidthPackageTagOutput() GetBandwidthPackageTagOutput {
+	return o
+}
+
+func (o GetBandwidthPackageTagOutput) ToGetBandwidthPackageTagOutputWithContext(ctx context.Context) GetBandwidthPackageTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetBandwidthPackageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBandwidthPackageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetBandwidthPackageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBandwidthPackageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetBandwidthPackageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBandwidthPackageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBandwidthPackageTag)(nil)).Elem()
+}
+
+func (o GetBandwidthPackageTagArrayOutput) ToGetBandwidthPackageTagArrayOutput() GetBandwidthPackageTagArrayOutput {
+	return o
+}
+
+func (o GetBandwidthPackageTagArrayOutput) ToGetBandwidthPackageTagArrayOutputWithContext(ctx context.Context) GetBandwidthPackageTagArrayOutput {
+	return o
+}
+
+func (o GetBandwidthPackageTagArrayOutput) Index(i pulumi.IntInput) GetBandwidthPackageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBandwidthPackageTag {
+		return vs[0].([]GetBandwidthPackageTag)[vs[1].(int)]
+	}).(GetBandwidthPackageTagOutput)
+}
+
+type GetEipTag struct {
+	// 标签键。
+	Key string `pulumi:"key"`
+	// 标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetEipTagInput is an input type that accepts GetEipTagArgs and GetEipTagOutput values.
+// You can construct a concrete instance of `GetEipTagInput` via:
+//
+//	GetEipTagArgs{...}
+type GetEipTagInput interface {
+	pulumi.Input
+
+	ToGetEipTagOutput() GetEipTagOutput
+	ToGetEipTagOutputWithContext(context.Context) GetEipTagOutput
+}
+
+type GetEipTagArgs struct {
+	// 标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetEipTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEipTag)(nil)).Elem()
+}
+
+func (i GetEipTagArgs) ToGetEipTagOutput() GetEipTagOutput {
+	return i.ToGetEipTagOutputWithContext(context.Background())
+}
+
+func (i GetEipTagArgs) ToGetEipTagOutputWithContext(ctx context.Context) GetEipTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEipTagOutput)
+}
+
+// GetEipTagArrayInput is an input type that accepts GetEipTagArray and GetEipTagArrayOutput values.
+// You can construct a concrete instance of `GetEipTagArrayInput` via:
+//
+//	GetEipTagArray{ GetEipTagArgs{...} }
+type GetEipTagArrayInput interface {
+	pulumi.Input
+
+	ToGetEipTagArrayOutput() GetEipTagArrayOutput
+	ToGetEipTagArrayOutputWithContext(context.Context) GetEipTagArrayOutput
+}
+
+type GetEipTagArray []GetEipTagInput
+
+func (GetEipTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEipTag)(nil)).Elem()
+}
+
+func (i GetEipTagArray) ToGetEipTagArrayOutput() GetEipTagArrayOutput {
+	return i.ToGetEipTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetEipTagArray) ToGetEipTagArrayOutputWithContext(ctx context.Context) GetEipTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEipTagArrayOutput)
+}
+
+type GetEipTagOutput struct{ *pulumi.OutputState }
+
+func (GetEipTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEipTag)(nil)).Elem()
+}
+
+func (o GetEipTagOutput) ToGetEipTagOutput() GetEipTagOutput {
+	return o
+}
+
+func (o GetEipTagOutput) ToGetEipTagOutputWithContext(ctx context.Context) GetEipTagOutput {
+	return o
+}
+
+// 标签键。
+func (o GetEipTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEipTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 标签值。
+func (o GetEipTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEipTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetEipTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEipTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEipTag)(nil)).Elem()
+}
+
+func (o GetEipTagArrayOutput) ToGetEipTagArrayOutput() GetEipTagArrayOutput {
+	return o
+}
+
+func (o GetEipTagArrayOutput) ToGetEipTagArrayOutputWithContext(ctx context.Context) GetEipTagArrayOutput {
+	return o
+}
+
+func (o GetEipTagArrayOutput) Index(i pulumi.IntInput) GetEipTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEipTag {
+		return vs[0].([]GetEipTag)[vs[1].(int)]
+	}).(GetEipTagOutput)
+}
+
+type GetEniPrimaryIpAddress struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp GetEniPrimaryIpAddressAssociatedElasticIp `pulumi:"associatedElasticIp"`
+	// 是否为主私网IPv4地址。
+	Primary bool `pulumi:"primary"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+// GetEniPrimaryIpAddressInput is an input type that accepts GetEniPrimaryIpAddressArgs and GetEniPrimaryIpAddressOutput values.
+// You can construct a concrete instance of `GetEniPrimaryIpAddressInput` via:
+//
+//	GetEniPrimaryIpAddressArgs{...}
+type GetEniPrimaryIpAddressInput interface {
+	pulumi.Input
+
+	ToGetEniPrimaryIpAddressOutput() GetEniPrimaryIpAddressOutput
+	ToGetEniPrimaryIpAddressOutputWithContext(context.Context) GetEniPrimaryIpAddressOutput
+}
+
+type GetEniPrimaryIpAddressArgs struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp GetEniPrimaryIpAddressAssociatedElasticIpInput `pulumi:"associatedElasticIp"`
+	// 是否为主私网IPv4地址。
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (GetEniPrimaryIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrimaryIpAddress)(nil)).Elem()
+}
+
+func (i GetEniPrimaryIpAddressArgs) ToGetEniPrimaryIpAddressOutput() GetEniPrimaryIpAddressOutput {
+	return i.ToGetEniPrimaryIpAddressOutputWithContext(context.Background())
+}
+
+func (i GetEniPrimaryIpAddressArgs) ToGetEniPrimaryIpAddressOutputWithContext(ctx context.Context) GetEniPrimaryIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniPrimaryIpAddressOutput)
+}
+
+type GetEniPrimaryIpAddressOutput struct{ *pulumi.OutputState }
+
+func (GetEniPrimaryIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrimaryIpAddress)(nil)).Elem()
+}
+
+func (o GetEniPrimaryIpAddressOutput) ToGetEniPrimaryIpAddressOutput() GetEniPrimaryIpAddressOutput {
+	return o
+}
+
+func (o GetEniPrimaryIpAddressOutput) ToGetEniPrimaryIpAddressOutputWithContext(ctx context.Context) GetEniPrimaryIpAddressOutput {
+	return o
+}
+
+// 网卡主私网IPv4关联的公网IP的信息。
+func (o GetEniPrimaryIpAddressOutput) AssociatedElasticIp() GetEniPrimaryIpAddressAssociatedElasticIpOutput {
+	return o.ApplyT(func(v GetEniPrimaryIpAddress) GetEniPrimaryIpAddressAssociatedElasticIp { return v.AssociatedElasticIp }).(GetEniPrimaryIpAddressAssociatedElasticIpOutput)
+}
+
+// 是否为主私网IPv4地址。
+func (o GetEniPrimaryIpAddressOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEniPrimaryIpAddress) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// 网卡的私网IP地址。
+func (o GetEniPrimaryIpAddressOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniPrimaryIpAddress) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type GetEniPrimaryIpAddressAssociatedElasticIp struct {
+	// 公网IP的ID。
+	AllocationId string `pulumi:"allocationId"`
+	// 公网IP的地址。
+	EipAddress string `pulumi:"eipAddress"`
+	// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+	ReleaseWithInstance bool `pulumi:"releaseWithInstance"`
+}
+
+// GetEniPrimaryIpAddressAssociatedElasticIpInput is an input type that accepts GetEniPrimaryIpAddressAssociatedElasticIpArgs and GetEniPrimaryIpAddressAssociatedElasticIpOutput values.
+// You can construct a concrete instance of `GetEniPrimaryIpAddressAssociatedElasticIpInput` via:
+//
+//	GetEniPrimaryIpAddressAssociatedElasticIpArgs{...}
+type GetEniPrimaryIpAddressAssociatedElasticIpInput interface {
+	pulumi.Input
+
+	ToGetEniPrimaryIpAddressAssociatedElasticIpOutput() GetEniPrimaryIpAddressAssociatedElasticIpOutput
+	ToGetEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(context.Context) GetEniPrimaryIpAddressAssociatedElasticIpOutput
+}
+
+type GetEniPrimaryIpAddressAssociatedElasticIpArgs struct {
+	// 公网IP的ID。
+	AllocationId pulumi.StringInput `pulumi:"allocationId"`
+	// 公网IP的地址。
+	EipAddress pulumi.StringInput `pulumi:"eipAddress"`
+	// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+	ReleaseWithInstance pulumi.BoolInput `pulumi:"releaseWithInstance"`
+}
+
+func (GetEniPrimaryIpAddressAssociatedElasticIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrimaryIpAddressAssociatedElasticIp)(nil)).Elem()
+}
+
+func (i GetEniPrimaryIpAddressAssociatedElasticIpArgs) ToGetEniPrimaryIpAddressAssociatedElasticIpOutput() GetEniPrimaryIpAddressAssociatedElasticIpOutput {
+	return i.ToGetEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(context.Background())
+}
+
+func (i GetEniPrimaryIpAddressAssociatedElasticIpArgs) ToGetEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(ctx context.Context) GetEniPrimaryIpAddressAssociatedElasticIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniPrimaryIpAddressAssociatedElasticIpOutput)
+}
+
+type GetEniPrimaryIpAddressAssociatedElasticIpOutput struct{ *pulumi.OutputState }
+
+func (GetEniPrimaryIpAddressAssociatedElasticIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrimaryIpAddressAssociatedElasticIp)(nil)).Elem()
+}
+
+func (o GetEniPrimaryIpAddressAssociatedElasticIpOutput) ToGetEniPrimaryIpAddressAssociatedElasticIpOutput() GetEniPrimaryIpAddressAssociatedElasticIpOutput {
+	return o
+}
+
+func (o GetEniPrimaryIpAddressAssociatedElasticIpOutput) ToGetEniPrimaryIpAddressAssociatedElasticIpOutputWithContext(ctx context.Context) GetEniPrimaryIpAddressAssociatedElasticIpOutput {
+	return o
+}
+
+// 公网IP的ID。
+func (o GetEniPrimaryIpAddressAssociatedElasticIpOutput) AllocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniPrimaryIpAddressAssociatedElasticIp) string { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+// 公网IP的地址。
+func (o GetEniPrimaryIpAddressAssociatedElasticIpOutput) EipAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniPrimaryIpAddressAssociatedElasticIp) string { return v.EipAddress }).(pulumi.StringOutput)
+}
+
+// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+func (o GetEniPrimaryIpAddressAssociatedElasticIpOutput) ReleaseWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEniPrimaryIpAddressAssociatedElasticIp) bool { return v.ReleaseWithInstance }).(pulumi.BoolOutput)
+}
+
+type GetEniPrivateIpSet struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp GetEniPrivateIpSetAssociatedElasticIp `pulumi:"associatedElasticIp"`
+	// 是否为主私网IPv4地址。
+	Primary bool `pulumi:"primary"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+// GetEniPrivateIpSetInput is an input type that accepts GetEniPrivateIpSetArgs and GetEniPrivateIpSetOutput values.
+// You can construct a concrete instance of `GetEniPrivateIpSetInput` via:
+//
+//	GetEniPrivateIpSetArgs{...}
+type GetEniPrivateIpSetInput interface {
+	pulumi.Input
+
+	ToGetEniPrivateIpSetOutput() GetEniPrivateIpSetOutput
+	ToGetEniPrivateIpSetOutputWithContext(context.Context) GetEniPrivateIpSetOutput
+}
+
+type GetEniPrivateIpSetArgs struct {
+	// 网卡主私网IPv4关联的公网IP的信息。
+	AssociatedElasticIp GetEniPrivateIpSetAssociatedElasticIpInput `pulumi:"associatedElasticIp"`
+	// 是否为主私网IPv4地址。
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// 网卡的私网IP地址。
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (GetEniPrivateIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrivateIpSet)(nil)).Elem()
+}
+
+func (i GetEniPrivateIpSetArgs) ToGetEniPrivateIpSetOutput() GetEniPrivateIpSetOutput {
+	return i.ToGetEniPrivateIpSetOutputWithContext(context.Background())
+}
+
+func (i GetEniPrivateIpSetArgs) ToGetEniPrivateIpSetOutputWithContext(ctx context.Context) GetEniPrivateIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniPrivateIpSetOutput)
+}
+
+// GetEniPrivateIpSetArrayInput is an input type that accepts GetEniPrivateIpSetArray and GetEniPrivateIpSetArrayOutput values.
+// You can construct a concrete instance of `GetEniPrivateIpSetArrayInput` via:
+//
+//	GetEniPrivateIpSetArray{ GetEniPrivateIpSetArgs{...} }
+type GetEniPrivateIpSetArrayInput interface {
+	pulumi.Input
+
+	ToGetEniPrivateIpSetArrayOutput() GetEniPrivateIpSetArrayOutput
+	ToGetEniPrivateIpSetArrayOutputWithContext(context.Context) GetEniPrivateIpSetArrayOutput
+}
+
+type GetEniPrivateIpSetArray []GetEniPrivateIpSetInput
+
+func (GetEniPrivateIpSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEniPrivateIpSet)(nil)).Elem()
+}
+
+func (i GetEniPrivateIpSetArray) ToGetEniPrivateIpSetArrayOutput() GetEniPrivateIpSetArrayOutput {
+	return i.ToGetEniPrivateIpSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetEniPrivateIpSetArray) ToGetEniPrivateIpSetArrayOutputWithContext(ctx context.Context) GetEniPrivateIpSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniPrivateIpSetArrayOutput)
+}
+
+type GetEniPrivateIpSetOutput struct{ *pulumi.OutputState }
+
+func (GetEniPrivateIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrivateIpSet)(nil)).Elem()
+}
+
+func (o GetEniPrivateIpSetOutput) ToGetEniPrivateIpSetOutput() GetEniPrivateIpSetOutput {
+	return o
+}
+
+func (o GetEniPrivateIpSetOutput) ToGetEniPrivateIpSetOutputWithContext(ctx context.Context) GetEniPrivateIpSetOutput {
+	return o
+}
+
+// 网卡主私网IPv4关联的公网IP的信息。
+func (o GetEniPrivateIpSetOutput) AssociatedElasticIp() GetEniPrivateIpSetAssociatedElasticIpOutput {
+	return o.ApplyT(func(v GetEniPrivateIpSet) GetEniPrivateIpSetAssociatedElasticIp { return v.AssociatedElasticIp }).(GetEniPrivateIpSetAssociatedElasticIpOutput)
+}
+
+// 是否为主私网IPv4地址。
+func (o GetEniPrivateIpSetOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEniPrivateIpSet) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// 网卡的私网IP地址。
+func (o GetEniPrivateIpSetOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniPrivateIpSet) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type GetEniPrivateIpSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEniPrivateIpSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEniPrivateIpSet)(nil)).Elem()
+}
+
+func (o GetEniPrivateIpSetArrayOutput) ToGetEniPrivateIpSetArrayOutput() GetEniPrivateIpSetArrayOutput {
+	return o
+}
+
+func (o GetEniPrivateIpSetArrayOutput) ToGetEniPrivateIpSetArrayOutputWithContext(ctx context.Context) GetEniPrivateIpSetArrayOutput {
+	return o
+}
+
+func (o GetEniPrivateIpSetArrayOutput) Index(i pulumi.IntInput) GetEniPrivateIpSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEniPrivateIpSet {
+		return vs[0].([]GetEniPrivateIpSet)[vs[1].(int)]
+	}).(GetEniPrivateIpSetOutput)
+}
+
+type GetEniPrivateIpSetAssociatedElasticIp struct {
+	// 公网IP的ID。
+	AllocationId string `pulumi:"allocationId"`
+	// 公网IP的地址。
+	EipAddress string `pulumi:"eipAddress"`
+	// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+	ReleaseWithInstance bool `pulumi:"releaseWithInstance"`
+}
+
+// GetEniPrivateIpSetAssociatedElasticIpInput is an input type that accepts GetEniPrivateIpSetAssociatedElasticIpArgs and GetEniPrivateIpSetAssociatedElasticIpOutput values.
+// You can construct a concrete instance of `GetEniPrivateIpSetAssociatedElasticIpInput` via:
+//
+//	GetEniPrivateIpSetAssociatedElasticIpArgs{...}
+type GetEniPrivateIpSetAssociatedElasticIpInput interface {
+	pulumi.Input
+
+	ToGetEniPrivateIpSetAssociatedElasticIpOutput() GetEniPrivateIpSetAssociatedElasticIpOutput
+	ToGetEniPrivateIpSetAssociatedElasticIpOutputWithContext(context.Context) GetEniPrivateIpSetAssociatedElasticIpOutput
+}
+
+type GetEniPrivateIpSetAssociatedElasticIpArgs struct {
+	// 公网IP的ID。
+	AllocationId pulumi.StringInput `pulumi:"allocationId"`
+	// 公网IP的地址。
+	EipAddress pulumi.StringInput `pulumi:"eipAddress"`
+	// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+	ReleaseWithInstance pulumi.BoolInput `pulumi:"releaseWithInstance"`
+}
+
+func (GetEniPrivateIpSetAssociatedElasticIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrivateIpSetAssociatedElasticIp)(nil)).Elem()
+}
+
+func (i GetEniPrivateIpSetAssociatedElasticIpArgs) ToGetEniPrivateIpSetAssociatedElasticIpOutput() GetEniPrivateIpSetAssociatedElasticIpOutput {
+	return i.ToGetEniPrivateIpSetAssociatedElasticIpOutputWithContext(context.Background())
+}
+
+func (i GetEniPrivateIpSetAssociatedElasticIpArgs) ToGetEniPrivateIpSetAssociatedElasticIpOutputWithContext(ctx context.Context) GetEniPrivateIpSetAssociatedElasticIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniPrivateIpSetAssociatedElasticIpOutput)
+}
+
+type GetEniPrivateIpSetAssociatedElasticIpOutput struct{ *pulumi.OutputState }
+
+func (GetEniPrivateIpSetAssociatedElasticIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniPrivateIpSetAssociatedElasticIp)(nil)).Elem()
+}
+
+func (o GetEniPrivateIpSetAssociatedElasticIpOutput) ToGetEniPrivateIpSetAssociatedElasticIpOutput() GetEniPrivateIpSetAssociatedElasticIpOutput {
+	return o
+}
+
+func (o GetEniPrivateIpSetAssociatedElasticIpOutput) ToGetEniPrivateIpSetAssociatedElasticIpOutputWithContext(ctx context.Context) GetEniPrivateIpSetAssociatedElasticIpOutput {
+	return o
+}
+
+// 公网IP的ID。
+func (o GetEniPrivateIpSetAssociatedElasticIpOutput) AllocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniPrivateIpSetAssociatedElasticIp) string { return v.AllocationId }).(pulumi.StringOutput)
+}
+
+// 公网IP的地址。
+func (o GetEniPrivateIpSetAssociatedElasticIpOutput) EipAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniPrivateIpSetAssociatedElasticIp) string { return v.EipAddress }).(pulumi.StringOutput)
+}
+
+// 公网IP是否随云服务器实例删除。仅主网卡的主私网IP绑定按量计费公网IP有效。开启后，当云服务器实例被系统自动回收（退订24小时后、到期回收、欠费回收）或被调用DeleteInstances接口时，公网IP随其一同释放，true：是，false：否。
+func (o GetEniPrivateIpSetAssociatedElasticIpOutput) ReleaseWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEniPrivateIpSetAssociatedElasticIp) bool { return v.ReleaseWithInstance }).(pulumi.BoolOutput)
+}
+
+type GetEniTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetEniTagInput is an input type that accepts GetEniTagArgs and GetEniTagOutput values.
+// You can construct a concrete instance of `GetEniTagInput` via:
+//
+//	GetEniTagArgs{...}
+type GetEniTagInput interface {
+	pulumi.Input
+
+	ToGetEniTagOutput() GetEniTagOutput
+	ToGetEniTagOutputWithContext(context.Context) GetEniTagOutput
+}
+
+type GetEniTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetEniTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniTag)(nil)).Elem()
+}
+
+func (i GetEniTagArgs) ToGetEniTagOutput() GetEniTagOutput {
+	return i.ToGetEniTagOutputWithContext(context.Background())
+}
+
+func (i GetEniTagArgs) ToGetEniTagOutputWithContext(ctx context.Context) GetEniTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniTagOutput)
+}
+
+// GetEniTagArrayInput is an input type that accepts GetEniTagArray and GetEniTagArrayOutput values.
+// You can construct a concrete instance of `GetEniTagArrayInput` via:
+//
+//	GetEniTagArray{ GetEniTagArgs{...} }
+type GetEniTagArrayInput interface {
+	pulumi.Input
+
+	ToGetEniTagArrayOutput() GetEniTagArrayOutput
+	ToGetEniTagArrayOutputWithContext(context.Context) GetEniTagArrayOutput
+}
+
+type GetEniTagArray []GetEniTagInput
+
+func (GetEniTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEniTag)(nil)).Elem()
+}
+
+func (i GetEniTagArray) ToGetEniTagArrayOutput() GetEniTagArrayOutput {
+	return i.ToGetEniTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetEniTagArray) ToGetEniTagArrayOutputWithContext(ctx context.Context) GetEniTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEniTagArrayOutput)
+}
+
+type GetEniTagOutput struct{ *pulumi.OutputState }
+
+func (GetEniTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEniTag)(nil)).Elem()
+}
+
+func (o GetEniTagOutput) ToGetEniTagOutput() GetEniTagOutput {
+	return o
+}
+
+func (o GetEniTagOutput) ToGetEniTagOutputWithContext(ctx context.Context) GetEniTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetEniTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetEniTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEniTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetEniTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEniTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEniTag)(nil)).Elem()
+}
+
+func (o GetEniTagArrayOutput) ToGetEniTagArrayOutput() GetEniTagArrayOutput {
+	return o
+}
+
+func (o GetEniTagArrayOutput) ToGetEniTagArrayOutputWithContext(ctx context.Context) GetEniTagArrayOutput {
+	return o
+}
+
+func (o GetEniTagArrayOutput) Index(i pulumi.IntInput) GetEniTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEniTag {
+		return vs[0].([]GetEniTag)[vs[1].(int)]
+	}).(GetEniTagOutput)
+}
+
+type GetRouteTableCustomRouteEntry struct {
+	// 路由条目描述。
+	Description string `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId string `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId string `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName string `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType string `pulumi:"nextHopType"`
+	// 前缀列表的CIDR。
+	PrefixListCidrBlocks []string `pulumi:"prefixListCidrBlocks"`
+	// 路由条目ID。
+	RouteEntryId string `pulumi:"routeEntryId"`
+	// 路由条目名称。
+	RouteEntryName string `pulumi:"routeEntryName"`
+	// 路由表ID。
+	RouteTableId string `pulumi:"routeTableId"`
+	// 路由条目状态。1、Pending：待创建。2、Available：可用。
+	Status string `pulumi:"status"`
+	// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+	Type string `pulumi:"type"`
+	// 路由条目所属私有网络的ID。
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetRouteTableCustomRouteEntryInput is an input type that accepts GetRouteTableCustomRouteEntryArgs and GetRouteTableCustomRouteEntryOutput values.
+// You can construct a concrete instance of `GetRouteTableCustomRouteEntryInput` via:
+//
+//	GetRouteTableCustomRouteEntryArgs{...}
+type GetRouteTableCustomRouteEntryInput interface {
+	pulumi.Input
+
+	ToGetRouteTableCustomRouteEntryOutput() GetRouteTableCustomRouteEntryOutput
+	ToGetRouteTableCustomRouteEntryOutputWithContext(context.Context) GetRouteTableCustomRouteEntryOutput
+}
+
+type GetRouteTableCustomRouteEntryArgs struct {
+	// 路由条目描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId pulumi.StringInput `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId pulumi.StringInput `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName pulumi.StringInput `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType pulumi.StringInput `pulumi:"nextHopType"`
+	// 前缀列表的CIDR。
+	PrefixListCidrBlocks pulumi.StringArrayInput `pulumi:"prefixListCidrBlocks"`
+	// 路由条目ID。
+	RouteEntryId pulumi.StringInput `pulumi:"routeEntryId"`
+	// 路由条目名称。
+	RouteEntryName pulumi.StringInput `pulumi:"routeEntryName"`
+	// 路由表ID。
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
+	// 路由条目状态。1、Pending：待创建。2、Available：可用。
+	Status pulumi.StringInput `pulumi:"status"`
+	// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+	Type pulumi.StringInput `pulumi:"type"`
+	// 路由条目所属私有网络的ID。
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetRouteTableCustomRouteEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (i GetRouteTableCustomRouteEntryArgs) ToGetRouteTableCustomRouteEntryOutput() GetRouteTableCustomRouteEntryOutput {
+	return i.ToGetRouteTableCustomRouteEntryOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableCustomRouteEntryArgs) ToGetRouteTableCustomRouteEntryOutputWithContext(ctx context.Context) GetRouteTableCustomRouteEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableCustomRouteEntryOutput)
+}
+
+// GetRouteTableCustomRouteEntryArrayInput is an input type that accepts GetRouteTableCustomRouteEntryArray and GetRouteTableCustomRouteEntryArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableCustomRouteEntryArrayInput` via:
+//
+//	GetRouteTableCustomRouteEntryArray{ GetRouteTableCustomRouteEntryArgs{...} }
+type GetRouteTableCustomRouteEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTableCustomRouteEntryArrayOutput() GetRouteTableCustomRouteEntryArrayOutput
+	ToGetRouteTableCustomRouteEntryArrayOutputWithContext(context.Context) GetRouteTableCustomRouteEntryArrayOutput
+}
+
+type GetRouteTableCustomRouteEntryArray []GetRouteTableCustomRouteEntryInput
+
+func (GetRouteTableCustomRouteEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (i GetRouteTableCustomRouteEntryArray) ToGetRouteTableCustomRouteEntryArrayOutput() GetRouteTableCustomRouteEntryArrayOutput {
+	return i.ToGetRouteTableCustomRouteEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableCustomRouteEntryArray) ToGetRouteTableCustomRouteEntryArrayOutputWithContext(ctx context.Context) GetRouteTableCustomRouteEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableCustomRouteEntryArrayOutput)
+}
+
+type GetRouteTableCustomRouteEntryOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableCustomRouteEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (o GetRouteTableCustomRouteEntryOutput) ToGetRouteTableCustomRouteEntryOutput() GetRouteTableCustomRouteEntryOutput {
+	return o
+}
+
+func (o GetRouteTableCustomRouteEntryOutput) ToGetRouteTableCustomRouteEntryOutputWithContext(ctx context.Context) GetRouteTableCustomRouteEntryOutput {
+	return o
+}
+
+// 路由条目描述。
+func (o GetRouteTableCustomRouteEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 路由条目的目标网段。
+func (o GetRouteTableCustomRouteEntryOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+// 前缀列表ID。
+func (o GetRouteTableCustomRouteEntryOutput) DestinationPrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.DestinationPrefixListId }).(pulumi.StringOutput)
+}
+
+// 下一跳资源ID。
+func (o GetRouteTableCustomRouteEntryOutput) NextHopId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.NextHopId }).(pulumi.StringOutput)
+}
+
+// 路由条目下一跳资源的名称。
+func (o GetRouteTableCustomRouteEntryOutput) NextHopName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.NextHopName }).(pulumi.StringOutput)
+}
+
+// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+func (o GetRouteTableCustomRouteEntryOutput) NextHopType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.NextHopType }).(pulumi.StringOutput)
+}
+
+// 前缀列表的CIDR。
+func (o GetRouteTableCustomRouteEntryOutput) PrefixListCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) []string { return v.PrefixListCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// 路由条目ID。
+func (o GetRouteTableCustomRouteEntryOutput) RouteEntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.RouteEntryId }).(pulumi.StringOutput)
+}
+
+// 路由条目名称。
+func (o GetRouteTableCustomRouteEntryOutput) RouteEntryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.RouteEntryName }).(pulumi.StringOutput)
+}
+
+// 路由表ID。
+func (o GetRouteTableCustomRouteEntryOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+// 路由条目状态。1、Pending：待创建。2、Available：可用。
+func (o GetRouteTableCustomRouteEntryOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+func (o GetRouteTableCustomRouteEntryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// 路由条目所属私有网络的ID。
+func (o GetRouteTableCustomRouteEntryOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableCustomRouteEntry) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetRouteTableCustomRouteEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableCustomRouteEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableCustomRouteEntry)(nil)).Elem()
+}
+
+func (o GetRouteTableCustomRouteEntryArrayOutput) ToGetRouteTableCustomRouteEntryArrayOutput() GetRouteTableCustomRouteEntryArrayOutput {
+	return o
+}
+
+func (o GetRouteTableCustomRouteEntryArrayOutput) ToGetRouteTableCustomRouteEntryArrayOutputWithContext(ctx context.Context) GetRouteTableCustomRouteEntryArrayOutput {
+	return o
+}
+
+func (o GetRouteTableCustomRouteEntryArrayOutput) Index(i pulumi.IntInput) GetRouteTableCustomRouteEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableCustomRouteEntry {
+		return vs[0].([]GetRouteTableCustomRouteEntry)[vs[1].(int)]
+	}).(GetRouteTableCustomRouteEntryOutput)
+}
+
+type GetRouteTableSystemRouteEntry struct {
+	// 路由条目描述。
+	Description string `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId string `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId string `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName string `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType string `pulumi:"nextHopType"`
+	// 前缀列表的CIDR。
+	PrefixListCidrBlocks []string `pulumi:"prefixListCidrBlocks"`
+	// 路由条目ID。
+	RouteEntryId string `pulumi:"routeEntryId"`
+	// 路由条目名称。
+	RouteEntryName string `pulumi:"routeEntryName"`
+	// 路由表ID。
+	RouteTableId string `pulumi:"routeTableId"`
+	// 路由条目状态。1、Pending：待创建。2、Available：可用。
+	Status string `pulumi:"status"`
+	// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+	Type string `pulumi:"type"`
+	// 路由条目所属私有网络的ID。
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetRouteTableSystemRouteEntryInput is an input type that accepts GetRouteTableSystemRouteEntryArgs and GetRouteTableSystemRouteEntryOutput values.
+// You can construct a concrete instance of `GetRouteTableSystemRouteEntryInput` via:
+//
+//	GetRouteTableSystemRouteEntryArgs{...}
+type GetRouteTableSystemRouteEntryInput interface {
+	pulumi.Input
+
+	ToGetRouteTableSystemRouteEntryOutput() GetRouteTableSystemRouteEntryOutput
+	ToGetRouteTableSystemRouteEntryOutputWithContext(context.Context) GetRouteTableSystemRouteEntryOutput
+}
+
+type GetRouteTableSystemRouteEntryArgs struct {
+	// 路由条目描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 路由条目的目标网段。
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
+	// 前缀列表ID。
+	DestinationPrefixListId pulumi.StringInput `pulumi:"destinationPrefixListId"`
+	// 下一跳资源ID。
+	NextHopId pulumi.StringInput `pulumi:"nextHopId"`
+	// 路由条目下一跳资源的名称。
+	NextHopName pulumi.StringInput `pulumi:"nextHopName"`
+	// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+	NextHopType pulumi.StringInput `pulumi:"nextHopType"`
+	// 前缀列表的CIDR。
+	PrefixListCidrBlocks pulumi.StringArrayInput `pulumi:"prefixListCidrBlocks"`
+	// 路由条目ID。
+	RouteEntryId pulumi.StringInput `pulumi:"routeEntryId"`
+	// 路由条目名称。
+	RouteEntryName pulumi.StringInput `pulumi:"routeEntryName"`
+	// 路由表ID。
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
+	// 路由条目状态。1、Pending：待创建。2、Available：可用。
+	Status pulumi.StringInput `pulumi:"status"`
+	// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+	Type pulumi.StringInput `pulumi:"type"`
+	// 路由条目所属私有网络的ID。
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetRouteTableSystemRouteEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (i GetRouteTableSystemRouteEntryArgs) ToGetRouteTableSystemRouteEntryOutput() GetRouteTableSystemRouteEntryOutput {
+	return i.ToGetRouteTableSystemRouteEntryOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableSystemRouteEntryArgs) ToGetRouteTableSystemRouteEntryOutputWithContext(ctx context.Context) GetRouteTableSystemRouteEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableSystemRouteEntryOutput)
+}
+
+// GetRouteTableSystemRouteEntryArrayInput is an input type that accepts GetRouteTableSystemRouteEntryArray and GetRouteTableSystemRouteEntryArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableSystemRouteEntryArrayInput` via:
+//
+//	GetRouteTableSystemRouteEntryArray{ GetRouteTableSystemRouteEntryArgs{...} }
+type GetRouteTableSystemRouteEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTableSystemRouteEntryArrayOutput() GetRouteTableSystemRouteEntryArrayOutput
+	ToGetRouteTableSystemRouteEntryArrayOutputWithContext(context.Context) GetRouteTableSystemRouteEntryArrayOutput
+}
+
+type GetRouteTableSystemRouteEntryArray []GetRouteTableSystemRouteEntryInput
+
+func (GetRouteTableSystemRouteEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (i GetRouteTableSystemRouteEntryArray) ToGetRouteTableSystemRouteEntryArrayOutput() GetRouteTableSystemRouteEntryArrayOutput {
+	return i.ToGetRouteTableSystemRouteEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableSystemRouteEntryArray) ToGetRouteTableSystemRouteEntryArrayOutputWithContext(ctx context.Context) GetRouteTableSystemRouteEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableSystemRouteEntryArrayOutput)
+}
+
+type GetRouteTableSystemRouteEntryOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableSystemRouteEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (o GetRouteTableSystemRouteEntryOutput) ToGetRouteTableSystemRouteEntryOutput() GetRouteTableSystemRouteEntryOutput {
+	return o
+}
+
+func (o GetRouteTableSystemRouteEntryOutput) ToGetRouteTableSystemRouteEntryOutputWithContext(ctx context.Context) GetRouteTableSystemRouteEntryOutput {
+	return o
+}
+
+// 路由条目描述。
+func (o GetRouteTableSystemRouteEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 路由条目的目标网段。
+func (o GetRouteTableSystemRouteEntryOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+// 前缀列表ID。
+func (o GetRouteTableSystemRouteEntryOutput) DestinationPrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.DestinationPrefixListId }).(pulumi.StringOutput)
+}
+
+// 下一跳资源ID。
+func (o GetRouteTableSystemRouteEntryOutput) NextHopId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.NextHopId }).(pulumi.StringOutput)
+}
+
+// 路由条目下一跳资源的名称。
+func (o GetRouteTableSystemRouteEntryOutput) NextHopName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.NextHopName }).(pulumi.StringOutput)
+}
+
+// 自定义路由条目的下一跳的类型。1、Instance：ECS实例。2、HaVip：高可用虚拟IP。3、NetworkInterface：辅助网卡。4、NatGW：NAT网关。5、VpnGW：VPN网关。6、TransitRouter：中转路由器。7、IPv6GW：IPv6网关。8、CloudConnector：云连接器。9、GWLBEndpoint：网关负载均衡终端节点。
+func (o GetRouteTableSystemRouteEntryOutput) NextHopType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.NextHopType }).(pulumi.StringOutput)
+}
+
+// 前缀列表的CIDR。
+func (o GetRouteTableSystemRouteEntryOutput) PrefixListCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) []string { return v.PrefixListCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// 路由条目ID。
+func (o GetRouteTableSystemRouteEntryOutput) RouteEntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.RouteEntryId }).(pulumi.StringOutput)
+}
+
+// 路由条目名称。
+func (o GetRouteTableSystemRouteEntryOutput) RouteEntryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.RouteEntryName }).(pulumi.StringOutput)
+}
+
+// 路由表ID。
+func (o GetRouteTableSystemRouteEntryOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+// 路由条目状态。1、Pending：待创建。2、Available：可用。
+func (o GetRouteTableSystemRouteEntryOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// 路由条目类型。1、Custom：自定义路由条目。2、System：系统默认路由条目。
+func (o GetRouteTableSystemRouteEntryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// 路由条目所属私有网络的ID。
+func (o GetRouteTableSystemRouteEntryOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableSystemRouteEntry) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetRouteTableSystemRouteEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableSystemRouteEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableSystemRouteEntry)(nil)).Elem()
+}
+
+func (o GetRouteTableSystemRouteEntryArrayOutput) ToGetRouteTableSystemRouteEntryArrayOutput() GetRouteTableSystemRouteEntryArrayOutput {
+	return o
+}
+
+func (o GetRouteTableSystemRouteEntryArrayOutput) ToGetRouteTableSystemRouteEntryArrayOutputWithContext(ctx context.Context) GetRouteTableSystemRouteEntryArrayOutput {
+	return o
+}
+
+func (o GetRouteTableSystemRouteEntryArrayOutput) Index(i pulumi.IntInput) GetRouteTableSystemRouteEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableSystemRouteEntry {
+		return vs[0].([]GetRouteTableSystemRouteEntry)[vs[1].(int)]
+	}).(GetRouteTableSystemRouteEntryOutput)
+}
+
+type GetRouteTableTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetRouteTableTagInput is an input type that accepts GetRouteTableTagArgs and GetRouteTableTagOutput values.
+// You can construct a concrete instance of `GetRouteTableTagInput` via:
+//
+//	GetRouteTableTagArgs{...}
+type GetRouteTableTagInput interface {
+	pulumi.Input
+
+	ToGetRouteTableTagOutput() GetRouteTableTagOutput
+	ToGetRouteTableTagOutputWithContext(context.Context) GetRouteTableTagOutput
+}
+
+type GetRouteTableTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetRouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableTag)(nil)).Elem()
+}
+
+func (i GetRouteTableTagArgs) ToGetRouteTableTagOutput() GetRouteTableTagOutput {
+	return i.ToGetRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableTagArgs) ToGetRouteTableTagOutputWithContext(ctx context.Context) GetRouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableTagOutput)
+}
+
+// GetRouteTableTagArrayInput is an input type that accepts GetRouteTableTagArray and GetRouteTableTagArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableTagArrayInput` via:
+//
+//	GetRouteTableTagArray{ GetRouteTableTagArgs{...} }
+type GetRouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTableTagArrayOutput() GetRouteTableTagArrayOutput
+	ToGetRouteTableTagArrayOutputWithContext(context.Context) GetRouteTableTagArrayOutput
+}
+
+type GetRouteTableTagArray []GetRouteTableTagInput
+
+func (GetRouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableTag)(nil)).Elem()
+}
+
+func (i GetRouteTableTagArray) ToGetRouteTableTagArrayOutput() GetRouteTableTagArrayOutput {
+	return i.ToGetRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableTagArray) ToGetRouteTableTagArrayOutputWithContext(ctx context.Context) GetRouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableTagArrayOutput)
+}
+
+type GetRouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableTag)(nil)).Elem()
+}
+
+func (o GetRouteTableTagOutput) ToGetRouteTableTagOutput() GetRouteTableTagOutput {
+	return o
+}
+
+func (o GetRouteTableTagOutput) ToGetRouteTableTagOutputWithContext(ctx context.Context) GetRouteTableTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetRouteTableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetRouteTableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetRouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableTag)(nil)).Elem()
+}
+
+func (o GetRouteTableTagArrayOutput) ToGetRouteTableTagArrayOutput() GetRouteTableTagArrayOutput {
+	return o
+}
+
+func (o GetRouteTableTagArrayOutput) ToGetRouteTableTagArrayOutputWithContext(ctx context.Context) GetRouteTableTagArrayOutput {
+	return o
+}
+
+func (o GetRouteTableTagArrayOutput) Index(i pulumi.IntInput) GetRouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableTag {
+		return vs[0].([]GetRouteTableTag)[vs[1].(int)]
+	}).(GetRouteTableTagOutput)
+}
+
+type GetSecurityGroupEgressPermission struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp string `pulumi:"cidrIp"`
+	// 安全组规则创建时间。
+	CreationTime string `pulumi:"creationTime"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description string `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction string `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy string `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd int `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart int `pulumi:"portStart"`
+	// 前缀列表的CIDR。
+	PrefixListCidrs []string `pulumi:"prefixListCidrs"`
+	// 前缀列表的ID
+	PrefixListId string `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority int `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol string `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId string `pulumi:"sourceGroupId"`
+	// 安全组规则更新时间。
+	UpdateTime string `pulumi:"updateTime"`
+}
+
+// GetSecurityGroupEgressPermissionInput is an input type that accepts GetSecurityGroupEgressPermissionArgs and GetSecurityGroupEgressPermissionOutput values.
+// You can construct a concrete instance of `GetSecurityGroupEgressPermissionInput` via:
+//
+//	GetSecurityGroupEgressPermissionArgs{...}
+type GetSecurityGroupEgressPermissionInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupEgressPermissionOutput() GetSecurityGroupEgressPermissionOutput
+	ToGetSecurityGroupEgressPermissionOutputWithContext(context.Context) GetSecurityGroupEgressPermissionOutput
+}
+
+type GetSecurityGroupEgressPermissionArgs struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp pulumi.StringInput `pulumi:"cidrIp"`
+	// 安全组规则创建时间。
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy pulumi.StringInput `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd pulumi.IntInput `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart pulumi.IntInput `pulumi:"portStart"`
+	// 前缀列表的CIDR。
+	PrefixListCidrs pulumi.StringArrayInput `pulumi:"prefixListCidrs"`
+	// 前缀列表的ID
+	PrefixListId pulumi.StringInput `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId pulumi.StringInput `pulumi:"sourceGroupId"`
+	// 安全组规则更新时间。
+	UpdateTime pulumi.StringInput `pulumi:"updateTime"`
+}
+
+func (GetSecurityGroupEgressPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (i GetSecurityGroupEgressPermissionArgs) ToGetSecurityGroupEgressPermissionOutput() GetSecurityGroupEgressPermissionOutput {
+	return i.ToGetSecurityGroupEgressPermissionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupEgressPermissionArgs) ToGetSecurityGroupEgressPermissionOutputWithContext(ctx context.Context) GetSecurityGroupEgressPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupEgressPermissionOutput)
+}
+
+// GetSecurityGroupEgressPermissionArrayInput is an input type that accepts GetSecurityGroupEgressPermissionArray and GetSecurityGroupEgressPermissionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupEgressPermissionArrayInput` via:
+//
+//	GetSecurityGroupEgressPermissionArray{ GetSecurityGroupEgressPermissionArgs{...} }
+type GetSecurityGroupEgressPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupEgressPermissionArrayOutput() GetSecurityGroupEgressPermissionArrayOutput
+	ToGetSecurityGroupEgressPermissionArrayOutputWithContext(context.Context) GetSecurityGroupEgressPermissionArrayOutput
+}
+
+type GetSecurityGroupEgressPermissionArray []GetSecurityGroupEgressPermissionInput
+
+func (GetSecurityGroupEgressPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (i GetSecurityGroupEgressPermissionArray) ToGetSecurityGroupEgressPermissionArrayOutput() GetSecurityGroupEgressPermissionArrayOutput {
+	return i.ToGetSecurityGroupEgressPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupEgressPermissionArray) ToGetSecurityGroupEgressPermissionArrayOutputWithContext(ctx context.Context) GetSecurityGroupEgressPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupEgressPermissionArrayOutput)
+}
+
+type GetSecurityGroupEgressPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupEgressPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (o GetSecurityGroupEgressPermissionOutput) ToGetSecurityGroupEgressPermissionOutput() GetSecurityGroupEgressPermissionOutput {
+	return o
+}
+
+func (o GetSecurityGroupEgressPermissionOutput) ToGetSecurityGroupEgressPermissionOutputWithContext(ctx context.Context) GetSecurityGroupEgressPermissionOutput {
+	return o
+}
+
+// 源地址的IPv4 CIDR或IPv6 CIDR
+func (o GetSecurityGroupEgressPermissionOutput) CidrIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.CidrIp }).(pulumi.StringOutput)
+}
+
+// 安全组规则创建时间。
+func (o GetSecurityGroupEgressPermissionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+func (o GetSecurityGroupEgressPermissionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 安全组规则方向。ingress：入方向。egress：出方向
+func (o GetSecurityGroupEgressPermissionOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+func (o GetSecurityGroupEgressPermissionOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o GetSecurityGroupEgressPermissionOutput) PortEnd() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) int { return v.PortEnd }).(pulumi.IntOutput)
+}
+
+// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o GetSecurityGroupEgressPermissionOutput) PortStart() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) int { return v.PortStart }).(pulumi.IntOutput)
+}
+
+// 前缀列表的CIDR。
+func (o GetSecurityGroupEgressPermissionOutput) PrefixListCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) []string { return v.PrefixListCidrs }).(pulumi.StringArrayOutput)
+}
+
+// 前缀列表的ID
+func (o GetSecurityGroupEgressPermissionOutput) PrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+func (o GetSecurityGroupEgressPermissionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// 协议类型。tcp、udp、icmp、icmpv6、all
+func (o GetSecurityGroupEgressPermissionOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+func (o GetSecurityGroupEgressPermissionOutput) SourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.SourceGroupId }).(pulumi.StringOutput)
+}
+
+// 安全组规则更新时间。
+func (o GetSecurityGroupEgressPermissionOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupEgressPermission) string { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
+type GetSecurityGroupEgressPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupEgressPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupEgressPermission)(nil)).Elem()
+}
+
+func (o GetSecurityGroupEgressPermissionArrayOutput) ToGetSecurityGroupEgressPermissionArrayOutput() GetSecurityGroupEgressPermissionArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupEgressPermissionArrayOutput) ToGetSecurityGroupEgressPermissionArrayOutputWithContext(ctx context.Context) GetSecurityGroupEgressPermissionArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupEgressPermissionArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupEgressPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupEgressPermission {
+		return vs[0].([]GetSecurityGroupEgressPermission)[vs[1].(int)]
+	}).(GetSecurityGroupEgressPermissionOutput)
+}
+
+type GetSecurityGroupIngressPermission struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp string `pulumi:"cidrIp"`
+	// 安全组规则创建时间。
+	CreationTime string `pulumi:"creationTime"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description string `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction string `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy string `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd int `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart int `pulumi:"portStart"`
+	// 前缀列表的CIDR。
+	PrefixListCidrs []string `pulumi:"prefixListCidrs"`
+	// 前缀列表的ID
+	PrefixListId string `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority int `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol string `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId string `pulumi:"sourceGroupId"`
+	// 安全组规则更新时间。
+	UpdateTime string `pulumi:"updateTime"`
+}
+
+// GetSecurityGroupIngressPermissionInput is an input type that accepts GetSecurityGroupIngressPermissionArgs and GetSecurityGroupIngressPermissionOutput values.
+// You can construct a concrete instance of `GetSecurityGroupIngressPermissionInput` via:
+//
+//	GetSecurityGroupIngressPermissionArgs{...}
+type GetSecurityGroupIngressPermissionInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupIngressPermissionOutput() GetSecurityGroupIngressPermissionOutput
+	ToGetSecurityGroupIngressPermissionOutputWithContext(context.Context) GetSecurityGroupIngressPermissionOutput
+}
+
+type GetSecurityGroupIngressPermissionArgs struct {
+	// 源地址的IPv4 CIDR或IPv6 CIDR
+	CidrIp pulumi.StringInput `pulumi:"cidrIp"`
+	// 安全组规则创建时间。
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 安全组规则方向。ingress：入方向。egress：出方向
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+	Policy pulumi.StringInput `pulumi:"policy"`
+	// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortEnd pulumi.IntInput `pulumi:"portEnd"`
+	// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+	PortStart pulumi.IntInput `pulumi:"portStart"`
+	// 前缀列表的CIDR。
+	PrefixListCidrs pulumi.StringArrayInput `pulumi:"prefixListCidrs"`
+	// 前缀列表的ID
+	PrefixListId pulumi.StringInput `pulumi:"prefixListId"`
+	// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// 协议类型。tcp、udp、icmp、icmpv6、all
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+	SourceGroupId pulumi.StringInput `pulumi:"sourceGroupId"`
+	// 安全组规则更新时间。
+	UpdateTime pulumi.StringInput `pulumi:"updateTime"`
+}
+
+func (GetSecurityGroupIngressPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (i GetSecurityGroupIngressPermissionArgs) ToGetSecurityGroupIngressPermissionOutput() GetSecurityGroupIngressPermissionOutput {
+	return i.ToGetSecurityGroupIngressPermissionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupIngressPermissionArgs) ToGetSecurityGroupIngressPermissionOutputWithContext(ctx context.Context) GetSecurityGroupIngressPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupIngressPermissionOutput)
+}
+
+// GetSecurityGroupIngressPermissionArrayInput is an input type that accepts GetSecurityGroupIngressPermissionArray and GetSecurityGroupIngressPermissionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupIngressPermissionArrayInput` via:
+//
+//	GetSecurityGroupIngressPermissionArray{ GetSecurityGroupIngressPermissionArgs{...} }
+type GetSecurityGroupIngressPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupIngressPermissionArrayOutput() GetSecurityGroupIngressPermissionArrayOutput
+	ToGetSecurityGroupIngressPermissionArrayOutputWithContext(context.Context) GetSecurityGroupIngressPermissionArrayOutput
+}
+
+type GetSecurityGroupIngressPermissionArray []GetSecurityGroupIngressPermissionInput
+
+func (GetSecurityGroupIngressPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (i GetSecurityGroupIngressPermissionArray) ToGetSecurityGroupIngressPermissionArrayOutput() GetSecurityGroupIngressPermissionArrayOutput {
+	return i.ToGetSecurityGroupIngressPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupIngressPermissionArray) ToGetSecurityGroupIngressPermissionArrayOutputWithContext(ctx context.Context) GetSecurityGroupIngressPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupIngressPermissionArrayOutput)
+}
+
+type GetSecurityGroupIngressPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupIngressPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (o GetSecurityGroupIngressPermissionOutput) ToGetSecurityGroupIngressPermissionOutput() GetSecurityGroupIngressPermissionOutput {
+	return o
+}
+
+func (o GetSecurityGroupIngressPermissionOutput) ToGetSecurityGroupIngressPermissionOutputWithContext(ctx context.Context) GetSecurityGroupIngressPermissionOutput {
+	return o
+}
+
+// 源地址的IPv4 CIDR或IPv6 CIDR
+func (o GetSecurityGroupIngressPermissionOutput) CidrIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.CidrIp }).(pulumi.StringOutput)
+}
+
+// 安全组规则创建时间。
+func (o GetSecurityGroupIngressPermissionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// 安全组规则的描述信息。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1~ 255个字符。不填保持原有配置。
+func (o GetSecurityGroupIngressPermissionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 安全组规则方向。ingress：入方向。egress：出方向
+func (o GetSecurityGroupIngressPermissionOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// 访问策略。即CidrIp 、SourceGroupId 或 PrefixListId 对应的资源访问安全组内的网卡。取值如下：accept：允许；drop：拒绝。
+func (o GetSecurityGroupIngressPermissionOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// 端口范围结束值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o GetSecurityGroupIngressPermissionOutput) PortEnd() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) int { return v.PortEnd }).(pulumi.IntOutput)
+}
+
+// 端口范围起始值。1、当Protocol 传入tcp或udp时，取值范围为1~65535。2、当Protocol 传入icmp、icmpv6或all时，仅支持传入-1，表示不限制端口
+func (o GetSecurityGroupIngressPermissionOutput) PortStart() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) int { return v.PortStart }).(pulumi.IntOutput)
+}
+
+// 前缀列表的CIDR。
+func (o GetSecurityGroupIngressPermissionOutput) PrefixListCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) []string { return v.PrefixListCidrs }).(pulumi.StringArrayOutput)
+}
+
+// 前缀列表的ID
+func (o GetSecurityGroupIngressPermissionOutput) PrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// 安全组规则优先级，数字越小，代表优先级越高。取值范围：1～100。不填默认值：1
+func (o GetSecurityGroupIngressPermissionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// 协议类型。tcp、udp、icmp、icmpv6、all
+func (o GetSecurityGroupIngressPermissionOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// 源地址安全组ID。即该安全组中的所有网卡的地址作为源地址。
+func (o GetSecurityGroupIngressPermissionOutput) SourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.SourceGroupId }).(pulumi.StringOutput)
+}
+
+// 安全组规则更新时间。
+func (o GetSecurityGroupIngressPermissionOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupIngressPermission) string { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
+type GetSecurityGroupIngressPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupIngressPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupIngressPermission)(nil)).Elem()
+}
+
+func (o GetSecurityGroupIngressPermissionArrayOutput) ToGetSecurityGroupIngressPermissionArrayOutput() GetSecurityGroupIngressPermissionArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupIngressPermissionArrayOutput) ToGetSecurityGroupIngressPermissionArrayOutputWithContext(ctx context.Context) GetSecurityGroupIngressPermissionArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupIngressPermissionArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupIngressPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupIngressPermission {
+		return vs[0].([]GetSecurityGroupIngressPermission)[vs[1].(int)]
+	}).(GetSecurityGroupIngressPermissionOutput)
+}
+
+type GetSecurityGroupTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetSecurityGroupTagInput is an input type that accepts GetSecurityGroupTagArgs and GetSecurityGroupTagOutput values.
+// You can construct a concrete instance of `GetSecurityGroupTagInput` via:
+//
+//	GetSecurityGroupTagArgs{...}
+type GetSecurityGroupTagInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupTagOutput() GetSecurityGroupTagOutput
+	ToGetSecurityGroupTagOutputWithContext(context.Context) GetSecurityGroupTagOutput
+}
+
+type GetSecurityGroupTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSecurityGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupTag)(nil)).Elem()
+}
+
+func (i GetSecurityGroupTagArgs) ToGetSecurityGroupTagOutput() GetSecurityGroupTagOutput {
+	return i.ToGetSecurityGroupTagOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupTagArgs) ToGetSecurityGroupTagOutputWithContext(ctx context.Context) GetSecurityGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupTagOutput)
+}
+
+// GetSecurityGroupTagArrayInput is an input type that accepts GetSecurityGroupTagArray and GetSecurityGroupTagArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupTagArrayInput` via:
+//
+//	GetSecurityGroupTagArray{ GetSecurityGroupTagArgs{...} }
+type GetSecurityGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupTagArrayOutput() GetSecurityGroupTagArrayOutput
+	ToGetSecurityGroupTagArrayOutputWithContext(context.Context) GetSecurityGroupTagArrayOutput
+}
+
+type GetSecurityGroupTagArray []GetSecurityGroupTagInput
+
+func (GetSecurityGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupTag)(nil)).Elem()
+}
+
+func (i GetSecurityGroupTagArray) ToGetSecurityGroupTagArrayOutput() GetSecurityGroupTagArrayOutput {
+	return i.ToGetSecurityGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupTagArray) ToGetSecurityGroupTagArrayOutputWithContext(ctx context.Context) GetSecurityGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupTagArrayOutput)
+}
+
+type GetSecurityGroupTagOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupTag)(nil)).Elem()
+}
+
+func (o GetSecurityGroupTagOutput) ToGetSecurityGroupTagOutput() GetSecurityGroupTagOutput {
+	return o
+}
+
+func (o GetSecurityGroupTagOutput) ToGetSecurityGroupTagOutputWithContext(ctx context.Context) GetSecurityGroupTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetSecurityGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetSecurityGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetSecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupTag)(nil)).Elem()
+}
+
+func (o GetSecurityGroupTagArrayOutput) ToGetSecurityGroupTagArrayOutput() GetSecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupTagArrayOutput) ToGetSecurityGroupTagArrayOutputWithContext(ctx context.Context) GetSecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupTag {
+		return vs[0].([]GetSecurityGroupTag)[vs[1].(int)]
+	}).(GetSecurityGroupTagOutput)
+}
+
+type GetSubnetRouteTable struct {
+	// 子网关联的路由表ID。
+	RouteTableId string `pulumi:"routeTableId"`
+	// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+	RouteTableType string `pulumi:"routeTableType"`
+}
+
+// GetSubnetRouteTableInput is an input type that accepts GetSubnetRouteTableArgs and GetSubnetRouteTableOutput values.
+// You can construct a concrete instance of `GetSubnetRouteTableInput` via:
+//
+//	GetSubnetRouteTableArgs{...}
+type GetSubnetRouteTableInput interface {
+	pulumi.Input
+
+	ToGetSubnetRouteTableOutput() GetSubnetRouteTableOutput
+	ToGetSubnetRouteTableOutputWithContext(context.Context) GetSubnetRouteTableOutput
+}
+
+type GetSubnetRouteTableArgs struct {
+	// 子网关联的路由表ID。
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
+	// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+	RouteTableType pulumi.StringInput `pulumi:"routeTableType"`
+}
+
+func (GetSubnetRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetRouteTable)(nil)).Elem()
+}
+
+func (i GetSubnetRouteTableArgs) ToGetSubnetRouteTableOutput() GetSubnetRouteTableOutput {
+	return i.ToGetSubnetRouteTableOutputWithContext(context.Background())
+}
+
+func (i GetSubnetRouteTableArgs) ToGetSubnetRouteTableOutputWithContext(ctx context.Context) GetSubnetRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetRouteTableOutput)
+}
+
+type GetSubnetRouteTableOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetRouteTable)(nil)).Elem()
+}
+
+func (o GetSubnetRouteTableOutput) ToGetSubnetRouteTableOutput() GetSubnetRouteTableOutput {
+	return o
+}
+
+func (o GetSubnetRouteTableOutput) ToGetSubnetRouteTableOutputWithContext(ctx context.Context) GetSubnetRouteTableOutput {
+	return o
+}
+
+// 子网关联的路由表ID。
+func (o GetSubnetRouteTableOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetRouteTable) string { return v.RouteTableId }).(pulumi.StringOutput)
+}
+
+// 子网关联的路由表的类型。1、System：表示系统路由表。2、Custom：表示自定义路由表。
+func (o GetSubnetRouteTableOutput) RouteTableType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetRouteTable) string { return v.RouteTableType }).(pulumi.StringOutput)
+}
+
+type GetSubnetTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetSubnetTagInput is an input type that accepts GetSubnetTagArgs and GetSubnetTagOutput values.
+// You can construct a concrete instance of `GetSubnetTagInput` via:
+//
+//	GetSubnetTagArgs{...}
+type GetSubnetTagInput interface {
+	pulumi.Input
+
+	ToGetSubnetTagOutput() GetSubnetTagOutput
+	ToGetSubnetTagOutputWithContext(context.Context) GetSubnetTagOutput
+}
+
+type GetSubnetTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSubnetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetTag)(nil)).Elem()
+}
+
+func (i GetSubnetTagArgs) ToGetSubnetTagOutput() GetSubnetTagOutput {
+	return i.ToGetSubnetTagOutputWithContext(context.Background())
+}
+
+func (i GetSubnetTagArgs) ToGetSubnetTagOutputWithContext(ctx context.Context) GetSubnetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetTagOutput)
+}
+
+// GetSubnetTagArrayInput is an input type that accepts GetSubnetTagArray and GetSubnetTagArrayOutput values.
+// You can construct a concrete instance of `GetSubnetTagArrayInput` via:
+//
+//	GetSubnetTagArray{ GetSubnetTagArgs{...} }
+type GetSubnetTagArrayInput interface {
+	pulumi.Input
+
+	ToGetSubnetTagArrayOutput() GetSubnetTagArrayOutput
+	ToGetSubnetTagArrayOutputWithContext(context.Context) GetSubnetTagArrayOutput
+}
+
+type GetSubnetTagArray []GetSubnetTagInput
+
+func (GetSubnetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetTag)(nil)).Elem()
+}
+
+func (i GetSubnetTagArray) ToGetSubnetTagArrayOutput() GetSubnetTagArrayOutput {
+	return i.ToGetSubnetTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubnetTagArray) ToGetSubnetTagArrayOutputWithContext(ctx context.Context) GetSubnetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetTagArrayOutput)
+}
+
+type GetSubnetTagOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetTag)(nil)).Elem()
+}
+
+func (o GetSubnetTagOutput) ToGetSubnetTagOutput() GetSubnetTagOutput {
+	return o
+}
+
+func (o GetSubnetTagOutput) ToGetSubnetTagOutputWithContext(ctx context.Context) GetSubnetTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetSubnetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetSubnetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetSubnetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetTag)(nil)).Elem()
+}
+
+func (o GetSubnetTagArrayOutput) ToGetSubnetTagArrayOutput() GetSubnetTagArrayOutput {
+	return o
+}
+
+func (o GetSubnetTagArrayOutput) ToGetSubnetTagArrayOutputWithContext(ctx context.Context) GetSubnetTagArrayOutput {
+	return o
+}
+
+func (o GetSubnetTagArrayOutput) Index(i pulumi.IntInput) GetSubnetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubnetTag {
+		return vs[0].([]GetSubnetTag)[vs[1].(int)]
+	}).(GetSubnetTagOutput)
 }
 
 type GetVpcAssociateCen struct {
@@ -456,18 +4607,138 @@ func (o GetVpcTagArrayOutput) Index(i pulumi.IntInput) GetVpcTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BandwidthPackageEipAddressInput)(nil)).Elem(), BandwidthPackageEipAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BandwidthPackageEipAddressArrayInput)(nil)).Elem(), BandwidthPackageEipAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BandwidthPackageTagInput)(nil)).Elem(), BandwidthPackageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BandwidthPackageTagArrayInput)(nil)).Elem(), BandwidthPackageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipTagInput)(nil)).Elem(), EipTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipTagArrayInput)(nil)).Elem(), EipTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrimaryIpAddressInput)(nil)).Elem(), EniPrimaryIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrimaryIpAddressPtrInput)(nil)).Elem(), EniPrimaryIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrimaryIpAddressAssociatedElasticIpInput)(nil)).Elem(), EniPrimaryIpAddressAssociatedElasticIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrimaryIpAddressAssociatedElasticIpPtrInput)(nil)).Elem(), EniPrimaryIpAddressAssociatedElasticIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrivateIpSetInput)(nil)).Elem(), EniPrivateIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrivateIpSetArrayInput)(nil)).Elem(), EniPrivateIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrivateIpSetAssociatedElasticIpInput)(nil)).Elem(), EniPrivateIpSetAssociatedElasticIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniPrivateIpSetAssociatedElasticIpPtrInput)(nil)).Elem(), EniPrivateIpSetAssociatedElasticIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniTagInput)(nil)).Elem(), EniTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EniTagArrayInput)(nil)).Elem(), EniTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableCustomRouteEntryInput)(nil)).Elem(), RouteTableCustomRouteEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableCustomRouteEntryArrayInput)(nil)).Elem(), RouteTableCustomRouteEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableSystemRouteEntryInput)(nil)).Elem(), RouteTableSystemRouteEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableSystemRouteEntryArrayInput)(nil)).Elem(), RouteTableSystemRouteEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableTagInput)(nil)).Elem(), RouteTableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableTagArrayInput)(nil)).Elem(), RouteTableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressPermissionInput)(nil)).Elem(), SecurityGroupEgressPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressPermissionArrayInput)(nil)).Elem(), SecurityGroupEgressPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressPermissionInput)(nil)).Elem(), SecurityGroupIngressPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressPermissionArrayInput)(nil)).Elem(), SecurityGroupIngressPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupTagInput)(nil)).Elem(), SecurityGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupTagArrayInput)(nil)).Elem(), SecurityGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableInput)(nil)).Elem(), SubnetRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTablePtrInput)(nil)).Elem(), SubnetRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagInput)(nil)).Elem(), SubnetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetTagArrayInput)(nil)).Elem(), SubnetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAssociateCenInput)(nil)).Elem(), VpcAssociateCenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAssociateCenArrayInput)(nil)).Elem(), VpcAssociateCenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagInput)(nil)).Elem(), VpcTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagArrayInput)(nil)).Elem(), VpcTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBandwidthPackageEipAddressInput)(nil)).Elem(), GetBandwidthPackageEipAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBandwidthPackageEipAddressArrayInput)(nil)).Elem(), GetBandwidthPackageEipAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBandwidthPackageTagInput)(nil)).Elem(), GetBandwidthPackageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBandwidthPackageTagArrayInput)(nil)).Elem(), GetBandwidthPackageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEipTagInput)(nil)).Elem(), GetEipTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEipTagArrayInput)(nil)).Elem(), GetEipTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniPrimaryIpAddressInput)(nil)).Elem(), GetEniPrimaryIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniPrimaryIpAddressAssociatedElasticIpInput)(nil)).Elem(), GetEniPrimaryIpAddressAssociatedElasticIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniPrivateIpSetInput)(nil)).Elem(), GetEniPrivateIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniPrivateIpSetArrayInput)(nil)).Elem(), GetEniPrivateIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniPrivateIpSetAssociatedElasticIpInput)(nil)).Elem(), GetEniPrivateIpSetAssociatedElasticIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniTagInput)(nil)).Elem(), GetEniTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEniTagArrayInput)(nil)).Elem(), GetEniTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableCustomRouteEntryInput)(nil)).Elem(), GetRouteTableCustomRouteEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableCustomRouteEntryArrayInput)(nil)).Elem(), GetRouteTableCustomRouteEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableSystemRouteEntryInput)(nil)).Elem(), GetRouteTableSystemRouteEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableSystemRouteEntryArrayInput)(nil)).Elem(), GetRouteTableSystemRouteEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableTagInput)(nil)).Elem(), GetRouteTableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableTagArrayInput)(nil)).Elem(), GetRouteTableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupEgressPermissionInput)(nil)).Elem(), GetSecurityGroupEgressPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupEgressPermissionArrayInput)(nil)).Elem(), GetSecurityGroupEgressPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupIngressPermissionInput)(nil)).Elem(), GetSecurityGroupIngressPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupIngressPermissionArrayInput)(nil)).Elem(), GetSecurityGroupIngressPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupTagInput)(nil)).Elem(), GetSecurityGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupTagArrayInput)(nil)).Elem(), GetSecurityGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetRouteTableInput)(nil)).Elem(), GetSubnetRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetTagInput)(nil)).Elem(), GetSubnetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetTagArrayInput)(nil)).Elem(), GetSubnetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAssociateCenInput)(nil)).Elem(), GetVpcAssociateCenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAssociateCenArrayInput)(nil)).Elem(), GetVpcAssociateCenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcTagInput)(nil)).Elem(), GetVpcTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcTagArrayInput)(nil)).Elem(), GetVpcTagArray{})
+	pulumi.RegisterOutputType(BandwidthPackageEipAddressOutput{})
+	pulumi.RegisterOutputType(BandwidthPackageEipAddressArrayOutput{})
+	pulumi.RegisterOutputType(BandwidthPackageTagOutput{})
+	pulumi.RegisterOutputType(BandwidthPackageTagArrayOutput{})
+	pulumi.RegisterOutputType(EipTagOutput{})
+	pulumi.RegisterOutputType(EipTagArrayOutput{})
+	pulumi.RegisterOutputType(EniPrimaryIpAddressOutput{})
+	pulumi.RegisterOutputType(EniPrimaryIpAddressPtrOutput{})
+	pulumi.RegisterOutputType(EniPrimaryIpAddressAssociatedElasticIpOutput{})
+	pulumi.RegisterOutputType(EniPrimaryIpAddressAssociatedElasticIpPtrOutput{})
+	pulumi.RegisterOutputType(EniPrivateIpSetOutput{})
+	pulumi.RegisterOutputType(EniPrivateIpSetArrayOutput{})
+	pulumi.RegisterOutputType(EniPrivateIpSetAssociatedElasticIpOutput{})
+	pulumi.RegisterOutputType(EniPrivateIpSetAssociatedElasticIpPtrOutput{})
+	pulumi.RegisterOutputType(EniTagOutput{})
+	pulumi.RegisterOutputType(EniTagArrayOutput{})
+	pulumi.RegisterOutputType(RouteTableCustomRouteEntryOutput{})
+	pulumi.RegisterOutputType(RouteTableCustomRouteEntryArrayOutput{})
+	pulumi.RegisterOutputType(RouteTableSystemRouteEntryOutput{})
+	pulumi.RegisterOutputType(RouteTableSystemRouteEntryArrayOutput{})
+	pulumi.RegisterOutputType(RouteTableTagOutput{})
+	pulumi.RegisterOutputType(RouteTableTagArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressPermissionOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressPermissionArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressPermissionOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressPermissionArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupTagOutput{})
+	pulumi.RegisterOutputType(SecurityGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(SubnetRouteTableOutput{})
+	pulumi.RegisterOutputType(SubnetRouteTablePtrOutput{})
+	pulumi.RegisterOutputType(SubnetTagOutput{})
+	pulumi.RegisterOutputType(SubnetTagArrayOutput{})
 	pulumi.RegisterOutputType(VpcAssociateCenOutput{})
 	pulumi.RegisterOutputType(VpcAssociateCenArrayOutput{})
 	pulumi.RegisterOutputType(VpcTagOutput{})
 	pulumi.RegisterOutputType(VpcTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBandwidthPackageEipAddressOutput{})
+	pulumi.RegisterOutputType(GetBandwidthPackageEipAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetBandwidthPackageTagOutput{})
+	pulumi.RegisterOutputType(GetBandwidthPackageTagArrayOutput{})
+	pulumi.RegisterOutputType(GetEipTagOutput{})
+	pulumi.RegisterOutputType(GetEipTagArrayOutput{})
+	pulumi.RegisterOutputType(GetEniPrimaryIpAddressOutput{})
+	pulumi.RegisterOutputType(GetEniPrimaryIpAddressAssociatedElasticIpOutput{})
+	pulumi.RegisterOutputType(GetEniPrivateIpSetOutput{})
+	pulumi.RegisterOutputType(GetEniPrivateIpSetArrayOutput{})
+	pulumi.RegisterOutputType(GetEniPrivateIpSetAssociatedElasticIpOutput{})
+	pulumi.RegisterOutputType(GetEniTagOutput{})
+	pulumi.RegisterOutputType(GetEniTagArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTableCustomRouteEntryOutput{})
+	pulumi.RegisterOutputType(GetRouteTableCustomRouteEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTableSystemRouteEntryOutput{})
+	pulumi.RegisterOutputType(GetRouteTableSystemRouteEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTableTagOutput{})
+	pulumi.RegisterOutputType(GetRouteTableTagArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupEgressPermissionOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupEgressPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupIngressPermissionOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupIngressPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupTagOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(GetSubnetRouteTableOutput{})
+	pulumi.RegisterOutputType(GetSubnetTagOutput{})
+	pulumi.RegisterOutputType(GetSubnetTagArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcAssociateCenOutput{})
 	pulumi.RegisterOutputType(GetVpcAssociateCenArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcTagOutput{})

@@ -10,10 +10,22 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.iam.inputs.GetAccesskeyArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetAccesskeyPlainArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetGroupArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetGroupPlainArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetPolicyArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetPolicyPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetRoleArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetRolePlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetUserArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetUserPlainArgs;
+import com.volcengine.volcenginecc.iam.outputs.GetAccesskeyResult;
+import com.volcengine.volcenginecc.iam.outputs.GetAccesskeysResult;
+import com.volcengine.volcenginecc.iam.outputs.GetGroupResult;
+import com.volcengine.volcenginecc.iam.outputs.GetGroupsResult;
+import com.volcengine.volcenginecc.iam.outputs.GetPoliciesResult;
+import com.volcengine.volcenginecc.iam.outputs.GetPolicyResult;
 import com.volcengine.volcenginecc.iam.outputs.GetRoleResult;
 import com.volcengine.volcenginecc.iam.outputs.GetRolesResult;
 import com.volcengine.volcenginecc.iam.outputs.GetUserResult;
@@ -21,6 +33,258 @@ import com.volcengine.volcenginecc.iam.outputs.GetUsersResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class IamFunctions {
+    /**
+     * Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeyResult> getAccesskey(GetAccesskeyArgs args) {
+        return getAccesskey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static CompletableFuture<GetAccesskeyResult> getAccesskeyPlain(GetAccesskeyPlainArgs args) {
+        return getAccesskeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeyResult> getAccesskey(GetAccesskeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getAccesskey:getAccesskey", TypeShape.of(GetAccesskeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeyResult> getAccesskey(GetAccesskeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getAccesskey:getAccesskey", TypeShape.of(GetAccesskeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static CompletableFuture<GetAccesskeyResult> getAccesskeyPlain(GetAccesskeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getAccesskey:getAccesskey", TypeShape.of(GetAccesskeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeysResult> getAccesskeys() {
+        return getAccesskeys(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static CompletableFuture<GetAccesskeysResult> getAccesskeysPlain() {
+        return getAccesskeysPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeysResult> getAccesskeys(InvokeArgs args) {
+        return getAccesskeys(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static CompletableFuture<GetAccesskeysResult> getAccesskeysPlain(InvokeArgs args) {
+        return getAccesskeysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeysResult> getAccesskeys(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getAccesskeys:getAccesskeys", TypeShape.of(GetAccesskeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static Output<GetAccesskeysResult> getAccesskeys(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getAccesskeys:getAccesskeys", TypeShape.of(GetAccesskeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Accesskey
+     * 
+     */
+    public static CompletableFuture<GetAccesskeysResult> getAccesskeysPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getAccesskeys:getAccesskeys", TypeShape.of(GetAccesskeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
+        return getGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
+        return getGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups() {
+        return getGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain() {
+        return getGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args) {
+        return getGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args) {
+        return getGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies() {
+        return getPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPoliciesResult> getPoliciesPlain() {
+        return getPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(InvokeArgs args) {
+        return getPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPoliciesResult> getPoliciesPlain(InvokeArgs args) {
+        return getPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPoliciesResult> getPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
+        return getPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
+        return getPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::IAM::Role
      * 

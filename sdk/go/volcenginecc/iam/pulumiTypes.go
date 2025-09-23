@@ -13,6 +13,939 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GroupAttachedPolicy struct {
+	// 策略名。
+	PolicyName   *string                          `pulumi:"policyName"`
+	PolicyScopes []GroupAttachedPolicyPolicyScope `pulumi:"policyScopes"`
+	// 策略类型。System代表系统预设策略，Custom代表自定义策略。
+	PolicyType *string `pulumi:"policyType"`
+}
+
+// GroupAttachedPolicyInput is an input type that accepts GroupAttachedPolicyArgs and GroupAttachedPolicyOutput values.
+// You can construct a concrete instance of `GroupAttachedPolicyInput` via:
+//
+//	GroupAttachedPolicyArgs{...}
+type GroupAttachedPolicyInput interface {
+	pulumi.Input
+
+	ToGroupAttachedPolicyOutput() GroupAttachedPolicyOutput
+	ToGroupAttachedPolicyOutputWithContext(context.Context) GroupAttachedPolicyOutput
+}
+
+type GroupAttachedPolicyArgs struct {
+	// 策略名。
+	PolicyName   pulumi.StringPtrInput                    `pulumi:"policyName"`
+	PolicyScopes GroupAttachedPolicyPolicyScopeArrayInput `pulumi:"policyScopes"`
+	// 策略类型。System代表系统预设策略，Custom代表自定义策略。
+	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
+}
+
+func (GroupAttachedPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAttachedPolicy)(nil)).Elem()
+}
+
+func (i GroupAttachedPolicyArgs) ToGroupAttachedPolicyOutput() GroupAttachedPolicyOutput {
+	return i.ToGroupAttachedPolicyOutputWithContext(context.Background())
+}
+
+func (i GroupAttachedPolicyArgs) ToGroupAttachedPolicyOutputWithContext(ctx context.Context) GroupAttachedPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAttachedPolicyOutput)
+}
+
+// GroupAttachedPolicyArrayInput is an input type that accepts GroupAttachedPolicyArray and GroupAttachedPolicyArrayOutput values.
+// You can construct a concrete instance of `GroupAttachedPolicyArrayInput` via:
+//
+//	GroupAttachedPolicyArray{ GroupAttachedPolicyArgs{...} }
+type GroupAttachedPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGroupAttachedPolicyArrayOutput() GroupAttachedPolicyArrayOutput
+	ToGroupAttachedPolicyArrayOutputWithContext(context.Context) GroupAttachedPolicyArrayOutput
+}
+
+type GroupAttachedPolicyArray []GroupAttachedPolicyInput
+
+func (GroupAttachedPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupAttachedPolicy)(nil)).Elem()
+}
+
+func (i GroupAttachedPolicyArray) ToGroupAttachedPolicyArrayOutput() GroupAttachedPolicyArrayOutput {
+	return i.ToGroupAttachedPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GroupAttachedPolicyArray) ToGroupAttachedPolicyArrayOutputWithContext(ctx context.Context) GroupAttachedPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAttachedPolicyArrayOutput)
+}
+
+type GroupAttachedPolicyOutput struct{ *pulumi.OutputState }
+
+func (GroupAttachedPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAttachedPolicy)(nil)).Elem()
+}
+
+func (o GroupAttachedPolicyOutput) ToGroupAttachedPolicyOutput() GroupAttachedPolicyOutput {
+	return o
+}
+
+func (o GroupAttachedPolicyOutput) ToGroupAttachedPolicyOutputWithContext(ctx context.Context) GroupAttachedPolicyOutput {
+	return o
+}
+
+// 策略名。
+func (o GroupAttachedPolicyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAttachedPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupAttachedPolicyOutput) PolicyScopes() GroupAttachedPolicyPolicyScopeArrayOutput {
+	return o.ApplyT(func(v GroupAttachedPolicy) []GroupAttachedPolicyPolicyScope { return v.PolicyScopes }).(GroupAttachedPolicyPolicyScopeArrayOutput)
+}
+
+// 策略类型。System代表系统预设策略，Custom代表自定义策略。
+func (o GroupAttachedPolicyOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAttachedPolicy) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+type GroupAttachedPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupAttachedPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupAttachedPolicy)(nil)).Elem()
+}
+
+func (o GroupAttachedPolicyArrayOutput) ToGroupAttachedPolicyArrayOutput() GroupAttachedPolicyArrayOutput {
+	return o
+}
+
+func (o GroupAttachedPolicyArrayOutput) ToGroupAttachedPolicyArrayOutputWithContext(ctx context.Context) GroupAttachedPolicyArrayOutput {
+	return o
+}
+
+func (o GroupAttachedPolicyArrayOutput) Index(i pulumi.IntInput) GroupAttachedPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupAttachedPolicy {
+		return vs[0].([]GroupAttachedPolicy)[vs[1].(int)]
+	}).(GroupAttachedPolicyOutput)
+}
+
+type GroupAttachedPolicyPolicyScope struct {
+	// 项目授权时间。
+	AttachTime *string `pulumi:"attachTime"`
+	// 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+	PolicyScopeType *string `pulumi:"policyScopeType"`
+	// 按项目授权时的项目显示名。
+	ProjectDisplayName *string `pulumi:"projectDisplayName"`
+	// 按项目授权时的项目名。
+	ProjectName *string `pulumi:"projectName"`
+}
+
+// GroupAttachedPolicyPolicyScopeInput is an input type that accepts GroupAttachedPolicyPolicyScopeArgs and GroupAttachedPolicyPolicyScopeOutput values.
+// You can construct a concrete instance of `GroupAttachedPolicyPolicyScopeInput` via:
+//
+//	GroupAttachedPolicyPolicyScopeArgs{...}
+type GroupAttachedPolicyPolicyScopeInput interface {
+	pulumi.Input
+
+	ToGroupAttachedPolicyPolicyScopeOutput() GroupAttachedPolicyPolicyScopeOutput
+	ToGroupAttachedPolicyPolicyScopeOutputWithContext(context.Context) GroupAttachedPolicyPolicyScopeOutput
+}
+
+type GroupAttachedPolicyPolicyScopeArgs struct {
+	// 项目授权时间。
+	AttachTime pulumi.StringPtrInput `pulumi:"attachTime"`
+	// 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+	PolicyScopeType pulumi.StringPtrInput `pulumi:"policyScopeType"`
+	// 按项目授权时的项目显示名。
+	ProjectDisplayName pulumi.StringPtrInput `pulumi:"projectDisplayName"`
+	// 按项目授权时的项目名。
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+}
+
+func (GroupAttachedPolicyPolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (i GroupAttachedPolicyPolicyScopeArgs) ToGroupAttachedPolicyPolicyScopeOutput() GroupAttachedPolicyPolicyScopeOutput {
+	return i.ToGroupAttachedPolicyPolicyScopeOutputWithContext(context.Background())
+}
+
+func (i GroupAttachedPolicyPolicyScopeArgs) ToGroupAttachedPolicyPolicyScopeOutputWithContext(ctx context.Context) GroupAttachedPolicyPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAttachedPolicyPolicyScopeOutput)
+}
+
+// GroupAttachedPolicyPolicyScopeArrayInput is an input type that accepts GroupAttachedPolicyPolicyScopeArray and GroupAttachedPolicyPolicyScopeArrayOutput values.
+// You can construct a concrete instance of `GroupAttachedPolicyPolicyScopeArrayInput` via:
+//
+//	GroupAttachedPolicyPolicyScopeArray{ GroupAttachedPolicyPolicyScopeArgs{...} }
+type GroupAttachedPolicyPolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToGroupAttachedPolicyPolicyScopeArrayOutput() GroupAttachedPolicyPolicyScopeArrayOutput
+	ToGroupAttachedPolicyPolicyScopeArrayOutputWithContext(context.Context) GroupAttachedPolicyPolicyScopeArrayOutput
+}
+
+type GroupAttachedPolicyPolicyScopeArray []GroupAttachedPolicyPolicyScopeInput
+
+func (GroupAttachedPolicyPolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (i GroupAttachedPolicyPolicyScopeArray) ToGroupAttachedPolicyPolicyScopeArrayOutput() GroupAttachedPolicyPolicyScopeArrayOutput {
+	return i.ToGroupAttachedPolicyPolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GroupAttachedPolicyPolicyScopeArray) ToGroupAttachedPolicyPolicyScopeArrayOutputWithContext(ctx context.Context) GroupAttachedPolicyPolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAttachedPolicyPolicyScopeArrayOutput)
+}
+
+type GroupAttachedPolicyPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (GroupAttachedPolicyPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (o GroupAttachedPolicyPolicyScopeOutput) ToGroupAttachedPolicyPolicyScopeOutput() GroupAttachedPolicyPolicyScopeOutput {
+	return o
+}
+
+func (o GroupAttachedPolicyPolicyScopeOutput) ToGroupAttachedPolicyPolicyScopeOutputWithContext(ctx context.Context) GroupAttachedPolicyPolicyScopeOutput {
+	return o
+}
+
+// 项目授权时间。
+func (o GroupAttachedPolicyPolicyScopeOutput) AttachTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAttachedPolicyPolicyScope) *string { return v.AttachTime }).(pulumi.StringPtrOutput)
+}
+
+// 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+func (o GroupAttachedPolicyPolicyScopeOutput) PolicyScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAttachedPolicyPolicyScope) *string { return v.PolicyScopeType }).(pulumi.StringPtrOutput)
+}
+
+// 按项目授权时的项目显示名。
+func (o GroupAttachedPolicyPolicyScopeOutput) ProjectDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAttachedPolicyPolicyScope) *string { return v.ProjectDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// 按项目授权时的项目名。
+func (o GroupAttachedPolicyPolicyScopeOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAttachedPolicyPolicyScope) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+type GroupAttachedPolicyPolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupAttachedPolicyPolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (o GroupAttachedPolicyPolicyScopeArrayOutput) ToGroupAttachedPolicyPolicyScopeArrayOutput() GroupAttachedPolicyPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GroupAttachedPolicyPolicyScopeArrayOutput) ToGroupAttachedPolicyPolicyScopeArrayOutputWithContext(ctx context.Context) GroupAttachedPolicyPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GroupAttachedPolicyPolicyScopeArrayOutput) Index(i pulumi.IntInput) GroupAttachedPolicyPolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupAttachedPolicyPolicyScope {
+		return vs[0].([]GroupAttachedPolicyPolicyScope)[vs[1].(int)]
+	}).(GroupAttachedPolicyPolicyScopeOutput)
+}
+
+type GroupUser struct {
+	// 用户名。
+	UserName *string `pulumi:"userName"`
+}
+
+// GroupUserInput is an input type that accepts GroupUserArgs and GroupUserOutput values.
+// You can construct a concrete instance of `GroupUserInput` via:
+//
+//	GroupUserArgs{...}
+type GroupUserInput interface {
+	pulumi.Input
+
+	ToGroupUserOutput() GroupUserOutput
+	ToGroupUserOutputWithContext(context.Context) GroupUserOutput
+}
+
+type GroupUserArgs struct {
+	// 用户名。
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (GroupUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupUser)(nil)).Elem()
+}
+
+func (i GroupUserArgs) ToGroupUserOutput() GroupUserOutput {
+	return i.ToGroupUserOutputWithContext(context.Background())
+}
+
+func (i GroupUserArgs) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
+}
+
+// GroupUserArrayInput is an input type that accepts GroupUserArray and GroupUserArrayOutput values.
+// You can construct a concrete instance of `GroupUserArrayInput` via:
+//
+//	GroupUserArray{ GroupUserArgs{...} }
+type GroupUserArrayInput interface {
+	pulumi.Input
+
+	ToGroupUserArrayOutput() GroupUserArrayOutput
+	ToGroupUserArrayOutputWithContext(context.Context) GroupUserArrayOutput
+}
+
+type GroupUserArray []GroupUserInput
+
+func (GroupUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupUser)(nil)).Elem()
+}
+
+func (i GroupUserArray) ToGroupUserArrayOutput() GroupUserArrayOutput {
+	return i.ToGroupUserArrayOutputWithContext(context.Background())
+}
+
+func (i GroupUserArray) ToGroupUserArrayOutputWithContext(ctx context.Context) GroupUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupUserArrayOutput)
+}
+
+type GroupUserOutput struct{ *pulumi.OutputState }
+
+func (GroupUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupUser)(nil)).Elem()
+}
+
+func (o GroupUserOutput) ToGroupUserOutput() GroupUserOutput {
+	return o
+}
+
+func (o GroupUserOutput) ToGroupUserOutputWithContext(ctx context.Context) GroupUserOutput {
+	return o
+}
+
+// 用户名。
+func (o GroupUserOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupUser) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type GroupUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupUser)(nil)).Elem()
+}
+
+func (o GroupUserArrayOutput) ToGroupUserArrayOutput() GroupUserArrayOutput {
+	return o
+}
+
+func (o GroupUserArrayOutput) ToGroupUserArrayOutputWithContext(ctx context.Context) GroupUserArrayOutput {
+	return o
+}
+
+func (o GroupUserArrayOutput) Index(i pulumi.IntInput) GroupUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupUser {
+		return vs[0].([]GroupUser)[vs[1].(int)]
+	}).(GroupUserOutput)
+}
+
+type PolicyPolicyRole struct {
+	// 对应用户、角色、用户组的名称。
+	Name         *string                       `pulumi:"name"`
+	PolicyScopes []PolicyPolicyRolePolicyScope `pulumi:"policyScopes"`
+}
+
+// PolicyPolicyRoleInput is an input type that accepts PolicyPolicyRoleArgs and PolicyPolicyRoleOutput values.
+// You can construct a concrete instance of `PolicyPolicyRoleInput` via:
+//
+//	PolicyPolicyRoleArgs{...}
+type PolicyPolicyRoleInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyRoleOutput() PolicyPolicyRoleOutput
+	ToPolicyPolicyRoleOutputWithContext(context.Context) PolicyPolicyRoleOutput
+}
+
+type PolicyPolicyRoleArgs struct {
+	// 对应用户、角色、用户组的名称。
+	Name         pulumi.StringPtrInput                 `pulumi:"name"`
+	PolicyScopes PolicyPolicyRolePolicyScopeArrayInput `pulumi:"policyScopes"`
+}
+
+func (PolicyPolicyRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyRole)(nil)).Elem()
+}
+
+func (i PolicyPolicyRoleArgs) ToPolicyPolicyRoleOutput() PolicyPolicyRoleOutput {
+	return i.ToPolicyPolicyRoleOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyRoleArgs) ToPolicyPolicyRoleOutputWithContext(ctx context.Context) PolicyPolicyRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyRoleOutput)
+}
+
+// PolicyPolicyRoleArrayInput is an input type that accepts PolicyPolicyRoleArray and PolicyPolicyRoleArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicyRoleArrayInput` via:
+//
+//	PolicyPolicyRoleArray{ PolicyPolicyRoleArgs{...} }
+type PolicyPolicyRoleArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyRoleArrayOutput() PolicyPolicyRoleArrayOutput
+	ToPolicyPolicyRoleArrayOutputWithContext(context.Context) PolicyPolicyRoleArrayOutput
+}
+
+type PolicyPolicyRoleArray []PolicyPolicyRoleInput
+
+func (PolicyPolicyRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyRole)(nil)).Elem()
+}
+
+func (i PolicyPolicyRoleArray) ToPolicyPolicyRoleArrayOutput() PolicyPolicyRoleArrayOutput {
+	return i.ToPolicyPolicyRoleArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyRoleArray) ToPolicyPolicyRoleArrayOutputWithContext(ctx context.Context) PolicyPolicyRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyRoleArrayOutput)
+}
+
+type PolicyPolicyRoleOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyRole)(nil)).Elem()
+}
+
+func (o PolicyPolicyRoleOutput) ToPolicyPolicyRoleOutput() PolicyPolicyRoleOutput {
+	return o
+}
+
+func (o PolicyPolicyRoleOutput) ToPolicyPolicyRoleOutputWithContext(ctx context.Context) PolicyPolicyRoleOutput {
+	return o
+}
+
+// 对应用户、角色、用户组的名称。
+func (o PolicyPolicyRoleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicyRole) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyPolicyRoleOutput) PolicyScopes() PolicyPolicyRolePolicyScopeArrayOutput {
+	return o.ApplyT(func(v PolicyPolicyRole) []PolicyPolicyRolePolicyScope { return v.PolicyScopes }).(PolicyPolicyRolePolicyScopeArrayOutput)
+}
+
+type PolicyPolicyRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyRole)(nil)).Elem()
+}
+
+func (o PolicyPolicyRoleArrayOutput) ToPolicyPolicyRoleArrayOutput() PolicyPolicyRoleArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyRoleArrayOutput) ToPolicyPolicyRoleArrayOutputWithContext(ctx context.Context) PolicyPolicyRoleArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyRoleArrayOutput) Index(i pulumi.IntInput) PolicyPolicyRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyRole {
+		return vs[0].([]PolicyPolicyRole)[vs[1].(int)]
+	}).(PolicyPolicyRoleOutput)
+}
+
+type PolicyPolicyRolePolicyScope struct {
+	// 项目名。
+	ProjectName *string `pulumi:"projectName"`
+}
+
+// PolicyPolicyRolePolicyScopeInput is an input type that accepts PolicyPolicyRolePolicyScopeArgs and PolicyPolicyRolePolicyScopeOutput values.
+// You can construct a concrete instance of `PolicyPolicyRolePolicyScopeInput` via:
+//
+//	PolicyPolicyRolePolicyScopeArgs{...}
+type PolicyPolicyRolePolicyScopeInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyRolePolicyScopeOutput() PolicyPolicyRolePolicyScopeOutput
+	ToPolicyPolicyRolePolicyScopeOutputWithContext(context.Context) PolicyPolicyRolePolicyScopeOutput
+}
+
+type PolicyPolicyRolePolicyScopeArgs struct {
+	// 项目名。
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+}
+
+func (PolicyPolicyRolePolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (i PolicyPolicyRolePolicyScopeArgs) ToPolicyPolicyRolePolicyScopeOutput() PolicyPolicyRolePolicyScopeOutput {
+	return i.ToPolicyPolicyRolePolicyScopeOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyRolePolicyScopeArgs) ToPolicyPolicyRolePolicyScopeOutputWithContext(ctx context.Context) PolicyPolicyRolePolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyRolePolicyScopeOutput)
+}
+
+// PolicyPolicyRolePolicyScopeArrayInput is an input type that accepts PolicyPolicyRolePolicyScopeArray and PolicyPolicyRolePolicyScopeArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicyRolePolicyScopeArrayInput` via:
+//
+//	PolicyPolicyRolePolicyScopeArray{ PolicyPolicyRolePolicyScopeArgs{...} }
+type PolicyPolicyRolePolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyRolePolicyScopeArrayOutput() PolicyPolicyRolePolicyScopeArrayOutput
+	ToPolicyPolicyRolePolicyScopeArrayOutputWithContext(context.Context) PolicyPolicyRolePolicyScopeArrayOutput
+}
+
+type PolicyPolicyRolePolicyScopeArray []PolicyPolicyRolePolicyScopeInput
+
+func (PolicyPolicyRolePolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (i PolicyPolicyRolePolicyScopeArray) ToPolicyPolicyRolePolicyScopeArrayOutput() PolicyPolicyRolePolicyScopeArrayOutput {
+	return i.ToPolicyPolicyRolePolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyRolePolicyScopeArray) ToPolicyPolicyRolePolicyScopeArrayOutputWithContext(ctx context.Context) PolicyPolicyRolePolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyRolePolicyScopeArrayOutput)
+}
+
+type PolicyPolicyRolePolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyRolePolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (o PolicyPolicyRolePolicyScopeOutput) ToPolicyPolicyRolePolicyScopeOutput() PolicyPolicyRolePolicyScopeOutput {
+	return o
+}
+
+func (o PolicyPolicyRolePolicyScopeOutput) ToPolicyPolicyRolePolicyScopeOutputWithContext(ctx context.Context) PolicyPolicyRolePolicyScopeOutput {
+	return o
+}
+
+// 项目名。
+func (o PolicyPolicyRolePolicyScopeOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicyRolePolicyScope) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+type PolicyPolicyRolePolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyRolePolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (o PolicyPolicyRolePolicyScopeArrayOutput) ToPolicyPolicyRolePolicyScopeArrayOutput() PolicyPolicyRolePolicyScopeArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyRolePolicyScopeArrayOutput) ToPolicyPolicyRolePolicyScopeArrayOutputWithContext(ctx context.Context) PolicyPolicyRolePolicyScopeArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyRolePolicyScopeArrayOutput) Index(i pulumi.IntInput) PolicyPolicyRolePolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyRolePolicyScope {
+		return vs[0].([]PolicyPolicyRolePolicyScope)[vs[1].(int)]
+	}).(PolicyPolicyRolePolicyScopeOutput)
+}
+
+type PolicyPolicyUser struct {
+	// 对应用户、角色、用户组的名称。
+	Name         *string                       `pulumi:"name"`
+	PolicyScopes []PolicyPolicyUserPolicyScope `pulumi:"policyScopes"`
+}
+
+// PolicyPolicyUserInput is an input type that accepts PolicyPolicyUserArgs and PolicyPolicyUserOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserInput` via:
+//
+//	PolicyPolicyUserArgs{...}
+type PolicyPolicyUserInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserOutput() PolicyPolicyUserOutput
+	ToPolicyPolicyUserOutputWithContext(context.Context) PolicyPolicyUserOutput
+}
+
+type PolicyPolicyUserArgs struct {
+	// 对应用户、角色、用户组的名称。
+	Name         pulumi.StringPtrInput                 `pulumi:"name"`
+	PolicyScopes PolicyPolicyUserPolicyScopeArrayInput `pulumi:"policyScopes"`
+}
+
+func (PolicyPolicyUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUser)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserArgs) ToPolicyPolicyUserOutput() PolicyPolicyUserOutput {
+	return i.ToPolicyPolicyUserOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserArgs) ToPolicyPolicyUserOutputWithContext(ctx context.Context) PolicyPolicyUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserOutput)
+}
+
+// PolicyPolicyUserArrayInput is an input type that accepts PolicyPolicyUserArray and PolicyPolicyUserArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserArrayInput` via:
+//
+//	PolicyPolicyUserArray{ PolicyPolicyUserArgs{...} }
+type PolicyPolicyUserArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserArrayOutput() PolicyPolicyUserArrayOutput
+	ToPolicyPolicyUserArrayOutputWithContext(context.Context) PolicyPolicyUserArrayOutput
+}
+
+type PolicyPolicyUserArray []PolicyPolicyUserInput
+
+func (PolicyPolicyUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUser)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserArray) ToPolicyPolicyUserArrayOutput() PolicyPolicyUserArrayOutput {
+	return i.ToPolicyPolicyUserArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserArray) ToPolicyPolicyUserArrayOutputWithContext(ctx context.Context) PolicyPolicyUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserArrayOutput)
+}
+
+type PolicyPolicyUserOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUser)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserOutput) ToPolicyPolicyUserOutput() PolicyPolicyUserOutput {
+	return o
+}
+
+func (o PolicyPolicyUserOutput) ToPolicyPolicyUserOutputWithContext(ctx context.Context) PolicyPolicyUserOutput {
+	return o
+}
+
+// 对应用户、角色、用户组的名称。
+func (o PolicyPolicyUserOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicyUser) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyPolicyUserOutput) PolicyScopes() PolicyPolicyUserPolicyScopeArrayOutput {
+	return o.ApplyT(func(v PolicyPolicyUser) []PolicyPolicyUserPolicyScope { return v.PolicyScopes }).(PolicyPolicyUserPolicyScopeArrayOutput)
+}
+
+type PolicyPolicyUserArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUser)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserArrayOutput) ToPolicyPolicyUserArrayOutput() PolicyPolicyUserArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserArrayOutput) ToPolicyPolicyUserArrayOutputWithContext(ctx context.Context) PolicyPolicyUserArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserArrayOutput) Index(i pulumi.IntInput) PolicyPolicyUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyUser {
+		return vs[0].([]PolicyPolicyUser)[vs[1].(int)]
+	}).(PolicyPolicyUserOutput)
+}
+
+type PolicyPolicyUserGroup struct {
+	// 对应用户、角色、用户组的名称。
+	Name         *string                            `pulumi:"name"`
+	PolicyScopes []PolicyPolicyUserGroupPolicyScope `pulumi:"policyScopes"`
+}
+
+// PolicyPolicyUserGroupInput is an input type that accepts PolicyPolicyUserGroupArgs and PolicyPolicyUserGroupOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserGroupInput` via:
+//
+//	PolicyPolicyUserGroupArgs{...}
+type PolicyPolicyUserGroupInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserGroupOutput() PolicyPolicyUserGroupOutput
+	ToPolicyPolicyUserGroupOutputWithContext(context.Context) PolicyPolicyUserGroupOutput
+}
+
+type PolicyPolicyUserGroupArgs struct {
+	// 对应用户、角色、用户组的名称。
+	Name         pulumi.StringPtrInput                      `pulumi:"name"`
+	PolicyScopes PolicyPolicyUserGroupPolicyScopeArrayInput `pulumi:"policyScopes"`
+}
+
+func (PolicyPolicyUserGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserGroupArgs) ToPolicyPolicyUserGroupOutput() PolicyPolicyUserGroupOutput {
+	return i.ToPolicyPolicyUserGroupOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserGroupArgs) ToPolicyPolicyUserGroupOutputWithContext(ctx context.Context) PolicyPolicyUserGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserGroupOutput)
+}
+
+// PolicyPolicyUserGroupArrayInput is an input type that accepts PolicyPolicyUserGroupArray and PolicyPolicyUserGroupArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserGroupArrayInput` via:
+//
+//	PolicyPolicyUserGroupArray{ PolicyPolicyUserGroupArgs{...} }
+type PolicyPolicyUserGroupArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserGroupArrayOutput() PolicyPolicyUserGroupArrayOutput
+	ToPolicyPolicyUserGroupArrayOutputWithContext(context.Context) PolicyPolicyUserGroupArrayOutput
+}
+
+type PolicyPolicyUserGroupArray []PolicyPolicyUserGroupInput
+
+func (PolicyPolicyUserGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserGroupArray) ToPolicyPolicyUserGroupArrayOutput() PolicyPolicyUserGroupArrayOutput {
+	return i.ToPolicyPolicyUserGroupArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserGroupArray) ToPolicyPolicyUserGroupArrayOutputWithContext(ctx context.Context) PolicyPolicyUserGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserGroupArrayOutput)
+}
+
+type PolicyPolicyUserGroupOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserGroupOutput) ToPolicyPolicyUserGroupOutput() PolicyPolicyUserGroupOutput {
+	return o
+}
+
+func (o PolicyPolicyUserGroupOutput) ToPolicyPolicyUserGroupOutputWithContext(ctx context.Context) PolicyPolicyUserGroupOutput {
+	return o
+}
+
+// 对应用户、角色、用户组的名称。
+func (o PolicyPolicyUserGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicyUserGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyPolicyUserGroupOutput) PolicyScopes() PolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return o.ApplyT(func(v PolicyPolicyUserGroup) []PolicyPolicyUserGroupPolicyScope { return v.PolicyScopes }).(PolicyPolicyUserGroupPolicyScopeArrayOutput)
+}
+
+type PolicyPolicyUserGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserGroupArrayOutput) ToPolicyPolicyUserGroupArrayOutput() PolicyPolicyUserGroupArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserGroupArrayOutput) ToPolicyPolicyUserGroupArrayOutputWithContext(ctx context.Context) PolicyPolicyUserGroupArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserGroupArrayOutput) Index(i pulumi.IntInput) PolicyPolicyUserGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyUserGroup {
+		return vs[0].([]PolicyPolicyUserGroup)[vs[1].(int)]
+	}).(PolicyPolicyUserGroupOutput)
+}
+
+type PolicyPolicyUserGroupPolicyScope struct {
+	// 项目名。
+	ProjectName *string `pulumi:"projectName"`
+}
+
+// PolicyPolicyUserGroupPolicyScopeInput is an input type that accepts PolicyPolicyUserGroupPolicyScopeArgs and PolicyPolicyUserGroupPolicyScopeOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserGroupPolicyScopeInput` via:
+//
+//	PolicyPolicyUserGroupPolicyScopeArgs{...}
+type PolicyPolicyUserGroupPolicyScopeInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserGroupPolicyScopeOutput() PolicyPolicyUserGroupPolicyScopeOutput
+	ToPolicyPolicyUserGroupPolicyScopeOutputWithContext(context.Context) PolicyPolicyUserGroupPolicyScopeOutput
+}
+
+type PolicyPolicyUserGroupPolicyScopeArgs struct {
+	// 项目名。
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+}
+
+func (PolicyPolicyUserGroupPolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserGroupPolicyScopeArgs) ToPolicyPolicyUserGroupPolicyScopeOutput() PolicyPolicyUserGroupPolicyScopeOutput {
+	return i.ToPolicyPolicyUserGroupPolicyScopeOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserGroupPolicyScopeArgs) ToPolicyPolicyUserGroupPolicyScopeOutputWithContext(ctx context.Context) PolicyPolicyUserGroupPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserGroupPolicyScopeOutput)
+}
+
+// PolicyPolicyUserGroupPolicyScopeArrayInput is an input type that accepts PolicyPolicyUserGroupPolicyScopeArray and PolicyPolicyUserGroupPolicyScopeArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserGroupPolicyScopeArrayInput` via:
+//
+//	PolicyPolicyUserGroupPolicyScopeArray{ PolicyPolicyUserGroupPolicyScopeArgs{...} }
+type PolicyPolicyUserGroupPolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserGroupPolicyScopeArrayOutput() PolicyPolicyUserGroupPolicyScopeArrayOutput
+	ToPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(context.Context) PolicyPolicyUserGroupPolicyScopeArrayOutput
+}
+
+type PolicyPolicyUserGroupPolicyScopeArray []PolicyPolicyUserGroupPolicyScopeInput
+
+func (PolicyPolicyUserGroupPolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserGroupPolicyScopeArray) ToPolicyPolicyUserGroupPolicyScopeArrayOutput() PolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return i.ToPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserGroupPolicyScopeArray) ToPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(ctx context.Context) PolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserGroupPolicyScopeArrayOutput)
+}
+
+type PolicyPolicyUserGroupPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserGroupPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserGroupPolicyScopeOutput) ToPolicyPolicyUserGroupPolicyScopeOutput() PolicyPolicyUserGroupPolicyScopeOutput {
+	return o
+}
+
+func (o PolicyPolicyUserGroupPolicyScopeOutput) ToPolicyPolicyUserGroupPolicyScopeOutputWithContext(ctx context.Context) PolicyPolicyUserGroupPolicyScopeOutput {
+	return o
+}
+
+// 项目名。
+func (o PolicyPolicyUserGroupPolicyScopeOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicyUserGroupPolicyScope) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+type PolicyPolicyUserGroupPolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserGroupPolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserGroupPolicyScopeArrayOutput) ToPolicyPolicyUserGroupPolicyScopeArrayOutput() PolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserGroupPolicyScopeArrayOutput) ToPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(ctx context.Context) PolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserGroupPolicyScopeArrayOutput) Index(i pulumi.IntInput) PolicyPolicyUserGroupPolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyUserGroupPolicyScope {
+		return vs[0].([]PolicyPolicyUserGroupPolicyScope)[vs[1].(int)]
+	}).(PolicyPolicyUserGroupPolicyScopeOutput)
+}
+
+type PolicyPolicyUserPolicyScope struct {
+	// 项目名。
+	ProjectName *string `pulumi:"projectName"`
+}
+
+// PolicyPolicyUserPolicyScopeInput is an input type that accepts PolicyPolicyUserPolicyScopeArgs and PolicyPolicyUserPolicyScopeOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserPolicyScopeInput` via:
+//
+//	PolicyPolicyUserPolicyScopeArgs{...}
+type PolicyPolicyUserPolicyScopeInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserPolicyScopeOutput() PolicyPolicyUserPolicyScopeOutput
+	ToPolicyPolicyUserPolicyScopeOutputWithContext(context.Context) PolicyPolicyUserPolicyScopeOutput
+}
+
+type PolicyPolicyUserPolicyScopeArgs struct {
+	// 项目名。
+	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
+}
+
+func (PolicyPolicyUserPolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserPolicyScopeArgs) ToPolicyPolicyUserPolicyScopeOutput() PolicyPolicyUserPolicyScopeOutput {
+	return i.ToPolicyPolicyUserPolicyScopeOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserPolicyScopeArgs) ToPolicyPolicyUserPolicyScopeOutputWithContext(ctx context.Context) PolicyPolicyUserPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserPolicyScopeOutput)
+}
+
+// PolicyPolicyUserPolicyScopeArrayInput is an input type that accepts PolicyPolicyUserPolicyScopeArray and PolicyPolicyUserPolicyScopeArrayOutput values.
+// You can construct a concrete instance of `PolicyPolicyUserPolicyScopeArrayInput` via:
+//
+//	PolicyPolicyUserPolicyScopeArray{ PolicyPolicyUserPolicyScopeArgs{...} }
+type PolicyPolicyUserPolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToPolicyPolicyUserPolicyScopeArrayOutput() PolicyPolicyUserPolicyScopeArrayOutput
+	ToPolicyPolicyUserPolicyScopeArrayOutputWithContext(context.Context) PolicyPolicyUserPolicyScopeArrayOutput
+}
+
+type PolicyPolicyUserPolicyScopeArray []PolicyPolicyUserPolicyScopeInput
+
+func (PolicyPolicyUserPolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (i PolicyPolicyUserPolicyScopeArray) ToPolicyPolicyUserPolicyScopeArrayOutput() PolicyPolicyUserPolicyScopeArrayOutput {
+	return i.ToPolicyPolicyUserPolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyPolicyUserPolicyScopeArray) ToPolicyPolicyUserPolicyScopeArrayOutputWithContext(ctx context.Context) PolicyPolicyUserPolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyUserPolicyScopeArrayOutput)
+}
+
+type PolicyPolicyUserPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserPolicyScopeOutput) ToPolicyPolicyUserPolicyScopeOutput() PolicyPolicyUserPolicyScopeOutput {
+	return o
+}
+
+func (o PolicyPolicyUserPolicyScopeOutput) ToPolicyPolicyUserPolicyScopeOutputWithContext(ctx context.Context) PolicyPolicyUserPolicyScopeOutput {
+	return o
+}
+
+// 项目名。
+func (o PolicyPolicyUserPolicyScopeOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyPolicyUserPolicyScope) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
+}
+
+type PolicyPolicyUserPolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyPolicyUserPolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (o PolicyPolicyUserPolicyScopeArrayOutput) ToPolicyPolicyUserPolicyScopeArrayOutput() PolicyPolicyUserPolicyScopeArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserPolicyScopeArrayOutput) ToPolicyPolicyUserPolicyScopeArrayOutputWithContext(ctx context.Context) PolicyPolicyUserPolicyScopeArrayOutput {
+	return o
+}
+
+func (o PolicyPolicyUserPolicyScopeArrayOutput) Index(i pulumi.IntInput) PolicyPolicyUserPolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyUserPolicyScope {
+		return vs[0].([]PolicyPolicyUserPolicyScope)[vs[1].(int)]
+	}).(PolicyPolicyUserPolicyScopeOutput)
+}
+
 type RolePolicy struct {
 	// 策略名。
 	PolicyName *string `pulumi:"policyName"`
@@ -1015,6 +1948,1203 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 	}).(UserTagOutput)
 }
 
+type GetGroupAttachedPolicy struct {
+	// 策略绑定时间。
+	AttachTime string `pulumi:"attachTime"`
+	// 策略描述。
+	Description string `pulumi:"description"`
+	// 策略名。
+	PolicyName string `pulumi:"policyName"`
+	// 策略授权的作用范围，特指项目范围。
+	PolicyScopes []GetGroupAttachedPolicyPolicyScope `pulumi:"policyScopes"`
+	// 策略TRN。
+	PolicyTrn string `pulumi:"policyTrn"`
+	// 策略类型。System代表系统预设策略，Custom代表自定义策略。
+	PolicyType string `pulumi:"policyType"`
+}
+
+// GetGroupAttachedPolicyInput is an input type that accepts GetGroupAttachedPolicyArgs and GetGroupAttachedPolicyOutput values.
+// You can construct a concrete instance of `GetGroupAttachedPolicyInput` via:
+//
+//	GetGroupAttachedPolicyArgs{...}
+type GetGroupAttachedPolicyInput interface {
+	pulumi.Input
+
+	ToGetGroupAttachedPolicyOutput() GetGroupAttachedPolicyOutput
+	ToGetGroupAttachedPolicyOutputWithContext(context.Context) GetGroupAttachedPolicyOutput
+}
+
+type GetGroupAttachedPolicyArgs struct {
+	// 策略绑定时间。
+	AttachTime pulumi.StringInput `pulumi:"attachTime"`
+	// 策略描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 策略名。
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// 策略授权的作用范围，特指项目范围。
+	PolicyScopes GetGroupAttachedPolicyPolicyScopeArrayInput `pulumi:"policyScopes"`
+	// 策略TRN。
+	PolicyTrn pulumi.StringInput `pulumi:"policyTrn"`
+	// 策略类型。System代表系统预设策略，Custom代表自定义策略。
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+}
+
+func (GetGroupAttachedPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAttachedPolicy)(nil)).Elem()
+}
+
+func (i GetGroupAttachedPolicyArgs) ToGetGroupAttachedPolicyOutput() GetGroupAttachedPolicyOutput {
+	return i.ToGetGroupAttachedPolicyOutputWithContext(context.Background())
+}
+
+func (i GetGroupAttachedPolicyArgs) ToGetGroupAttachedPolicyOutputWithContext(ctx context.Context) GetGroupAttachedPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAttachedPolicyOutput)
+}
+
+// GetGroupAttachedPolicyArrayInput is an input type that accepts GetGroupAttachedPolicyArray and GetGroupAttachedPolicyArrayOutput values.
+// You can construct a concrete instance of `GetGroupAttachedPolicyArrayInput` via:
+//
+//	GetGroupAttachedPolicyArray{ GetGroupAttachedPolicyArgs{...} }
+type GetGroupAttachedPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupAttachedPolicyArrayOutput() GetGroupAttachedPolicyArrayOutput
+	ToGetGroupAttachedPolicyArrayOutputWithContext(context.Context) GetGroupAttachedPolicyArrayOutput
+}
+
+type GetGroupAttachedPolicyArray []GetGroupAttachedPolicyInput
+
+func (GetGroupAttachedPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupAttachedPolicy)(nil)).Elem()
+}
+
+func (i GetGroupAttachedPolicyArray) ToGetGroupAttachedPolicyArrayOutput() GetGroupAttachedPolicyArrayOutput {
+	return i.ToGetGroupAttachedPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupAttachedPolicyArray) ToGetGroupAttachedPolicyArrayOutputWithContext(ctx context.Context) GetGroupAttachedPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAttachedPolicyArrayOutput)
+}
+
+type GetGroupAttachedPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAttachedPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAttachedPolicy)(nil)).Elem()
+}
+
+func (o GetGroupAttachedPolicyOutput) ToGetGroupAttachedPolicyOutput() GetGroupAttachedPolicyOutput {
+	return o
+}
+
+func (o GetGroupAttachedPolicyOutput) ToGetGroupAttachedPolicyOutputWithContext(ctx context.Context) GetGroupAttachedPolicyOutput {
+	return o
+}
+
+// 策略绑定时间。
+func (o GetGroupAttachedPolicyOutput) AttachTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicy) string { return v.AttachTime }).(pulumi.StringOutput)
+}
+
+// 策略描述。
+func (o GetGroupAttachedPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicy) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 策略名。
+func (o GetGroupAttachedPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicy) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// 策略授权的作用范围，特指项目范围。
+func (o GetGroupAttachedPolicyOutput) PolicyScopes() GetGroupAttachedPolicyPolicyScopeArrayOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicy) []GetGroupAttachedPolicyPolicyScope { return v.PolicyScopes }).(GetGroupAttachedPolicyPolicyScopeArrayOutput)
+}
+
+// 策略TRN。
+func (o GetGroupAttachedPolicyOutput) PolicyTrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicy) string { return v.PolicyTrn }).(pulumi.StringOutput)
+}
+
+// 策略类型。System代表系统预设策略，Custom代表自定义策略。
+func (o GetGroupAttachedPolicyOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+type GetGroupAttachedPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAttachedPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupAttachedPolicy)(nil)).Elem()
+}
+
+func (o GetGroupAttachedPolicyArrayOutput) ToGetGroupAttachedPolicyArrayOutput() GetGroupAttachedPolicyArrayOutput {
+	return o
+}
+
+func (o GetGroupAttachedPolicyArrayOutput) ToGetGroupAttachedPolicyArrayOutputWithContext(ctx context.Context) GetGroupAttachedPolicyArrayOutput {
+	return o
+}
+
+func (o GetGroupAttachedPolicyArrayOutput) Index(i pulumi.IntInput) GetGroupAttachedPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupAttachedPolicy {
+		return vs[0].([]GetGroupAttachedPolicy)[vs[1].(int)]
+	}).(GetGroupAttachedPolicyOutput)
+}
+
+type GetGroupAttachedPolicyPolicyScope struct {
+	// 项目授权时间。
+	AttachTime string `pulumi:"attachTime"`
+	// 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+	PolicyScopeType string `pulumi:"policyScopeType"`
+	// 按项目授权时的项目显示名。
+	ProjectDisplayName string `pulumi:"projectDisplayName"`
+	// 按项目授权时的项目名。
+	ProjectName string `pulumi:"projectName"`
+}
+
+// GetGroupAttachedPolicyPolicyScopeInput is an input type that accepts GetGroupAttachedPolicyPolicyScopeArgs and GetGroupAttachedPolicyPolicyScopeOutput values.
+// You can construct a concrete instance of `GetGroupAttachedPolicyPolicyScopeInput` via:
+//
+//	GetGroupAttachedPolicyPolicyScopeArgs{...}
+type GetGroupAttachedPolicyPolicyScopeInput interface {
+	pulumi.Input
+
+	ToGetGroupAttachedPolicyPolicyScopeOutput() GetGroupAttachedPolicyPolicyScopeOutput
+	ToGetGroupAttachedPolicyPolicyScopeOutputWithContext(context.Context) GetGroupAttachedPolicyPolicyScopeOutput
+}
+
+type GetGroupAttachedPolicyPolicyScopeArgs struct {
+	// 项目授权时间。
+	AttachTime pulumi.StringInput `pulumi:"attachTime"`
+	// 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+	PolicyScopeType pulumi.StringInput `pulumi:"policyScopeType"`
+	// 按项目授权时的项目显示名。
+	ProjectDisplayName pulumi.StringInput `pulumi:"projectDisplayName"`
+	// 按项目授权时的项目名。
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+}
+
+func (GetGroupAttachedPolicyPolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (i GetGroupAttachedPolicyPolicyScopeArgs) ToGetGroupAttachedPolicyPolicyScopeOutput() GetGroupAttachedPolicyPolicyScopeOutput {
+	return i.ToGetGroupAttachedPolicyPolicyScopeOutputWithContext(context.Background())
+}
+
+func (i GetGroupAttachedPolicyPolicyScopeArgs) ToGetGroupAttachedPolicyPolicyScopeOutputWithContext(ctx context.Context) GetGroupAttachedPolicyPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAttachedPolicyPolicyScopeOutput)
+}
+
+// GetGroupAttachedPolicyPolicyScopeArrayInput is an input type that accepts GetGroupAttachedPolicyPolicyScopeArray and GetGroupAttachedPolicyPolicyScopeArrayOutput values.
+// You can construct a concrete instance of `GetGroupAttachedPolicyPolicyScopeArrayInput` via:
+//
+//	GetGroupAttachedPolicyPolicyScopeArray{ GetGroupAttachedPolicyPolicyScopeArgs{...} }
+type GetGroupAttachedPolicyPolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupAttachedPolicyPolicyScopeArrayOutput() GetGroupAttachedPolicyPolicyScopeArrayOutput
+	ToGetGroupAttachedPolicyPolicyScopeArrayOutputWithContext(context.Context) GetGroupAttachedPolicyPolicyScopeArrayOutput
+}
+
+type GetGroupAttachedPolicyPolicyScopeArray []GetGroupAttachedPolicyPolicyScopeInput
+
+func (GetGroupAttachedPolicyPolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (i GetGroupAttachedPolicyPolicyScopeArray) ToGetGroupAttachedPolicyPolicyScopeArrayOutput() GetGroupAttachedPolicyPolicyScopeArrayOutput {
+	return i.ToGetGroupAttachedPolicyPolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupAttachedPolicyPolicyScopeArray) ToGetGroupAttachedPolicyPolicyScopeArrayOutputWithContext(ctx context.Context) GetGroupAttachedPolicyPolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAttachedPolicyPolicyScopeArrayOutput)
+}
+
+type GetGroupAttachedPolicyPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAttachedPolicyPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (o GetGroupAttachedPolicyPolicyScopeOutput) ToGetGroupAttachedPolicyPolicyScopeOutput() GetGroupAttachedPolicyPolicyScopeOutput {
+	return o
+}
+
+func (o GetGroupAttachedPolicyPolicyScopeOutput) ToGetGroupAttachedPolicyPolicyScopeOutputWithContext(ctx context.Context) GetGroupAttachedPolicyPolicyScopeOutput {
+	return o
+}
+
+// 项目授权时间。
+func (o GetGroupAttachedPolicyPolicyScopeOutput) AttachTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicyPolicyScope) string { return v.AttachTime }).(pulumi.StringOutput)
+}
+
+// 授权类型。Global代表全局授权（不限制项目），Project代表按项目授权。
+func (o GetGroupAttachedPolicyPolicyScopeOutput) PolicyScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicyPolicyScope) string { return v.PolicyScopeType }).(pulumi.StringOutput)
+}
+
+// 按项目授权时的项目显示名。
+func (o GetGroupAttachedPolicyPolicyScopeOutput) ProjectDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicyPolicyScope) string { return v.ProjectDisplayName }).(pulumi.StringOutput)
+}
+
+// 按项目授权时的项目名。
+func (o GetGroupAttachedPolicyPolicyScopeOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupAttachedPolicyPolicyScope) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+type GetGroupAttachedPolicyPolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupAttachedPolicyPolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupAttachedPolicyPolicyScope)(nil)).Elem()
+}
+
+func (o GetGroupAttachedPolicyPolicyScopeArrayOutput) ToGetGroupAttachedPolicyPolicyScopeArrayOutput() GetGroupAttachedPolicyPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetGroupAttachedPolicyPolicyScopeArrayOutput) ToGetGroupAttachedPolicyPolicyScopeArrayOutputWithContext(ctx context.Context) GetGroupAttachedPolicyPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetGroupAttachedPolicyPolicyScopeArrayOutput) Index(i pulumi.IntInput) GetGroupAttachedPolicyPolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupAttachedPolicyPolicyScope {
+		return vs[0].([]GetGroupAttachedPolicyPolicyScope)[vs[1].(int)]
+	}).(GetGroupAttachedPolicyPolicyScopeOutput)
+}
+
+type GetGroupUser struct {
+	// 用户描述。
+	Description string `pulumi:"description"`
+	// 用户显示名。
+	DisplayName string `pulumi:"displayName"`
+	// 用户加入用户组的时间。
+	JoinTime string `pulumi:"joinTime"`
+	// 用户ID。
+	UserId int `pulumi:"userId"`
+	// 用户名。
+	UserName string `pulumi:"userName"`
+}
+
+// GetGroupUserInput is an input type that accepts GetGroupUserArgs and GetGroupUserOutput values.
+// You can construct a concrete instance of `GetGroupUserInput` via:
+//
+//	GetGroupUserArgs{...}
+type GetGroupUserInput interface {
+	pulumi.Input
+
+	ToGetGroupUserOutput() GetGroupUserOutput
+	ToGetGroupUserOutputWithContext(context.Context) GetGroupUserOutput
+}
+
+type GetGroupUserArgs struct {
+	// 用户描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 用户显示名。
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// 用户加入用户组的时间。
+	JoinTime pulumi.StringInput `pulumi:"joinTime"`
+	// 用户ID。
+	UserId pulumi.IntInput `pulumi:"userId"`
+	// 用户名。
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetGroupUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupUser)(nil)).Elem()
+}
+
+func (i GetGroupUserArgs) ToGetGroupUserOutput() GetGroupUserOutput {
+	return i.ToGetGroupUserOutputWithContext(context.Background())
+}
+
+func (i GetGroupUserArgs) ToGetGroupUserOutputWithContext(ctx context.Context) GetGroupUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserOutput)
+}
+
+// GetGroupUserArrayInput is an input type that accepts GetGroupUserArray and GetGroupUserArrayOutput values.
+// You can construct a concrete instance of `GetGroupUserArrayInput` via:
+//
+//	GetGroupUserArray{ GetGroupUserArgs{...} }
+type GetGroupUserArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupUserArrayOutput() GetGroupUserArrayOutput
+	ToGetGroupUserArrayOutputWithContext(context.Context) GetGroupUserArrayOutput
+}
+
+type GetGroupUserArray []GetGroupUserInput
+
+func (GetGroupUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupUser)(nil)).Elem()
+}
+
+func (i GetGroupUserArray) ToGetGroupUserArrayOutput() GetGroupUserArrayOutput {
+	return i.ToGetGroupUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupUserArray) ToGetGroupUserArrayOutputWithContext(ctx context.Context) GetGroupUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserArrayOutput)
+}
+
+type GetGroupUserOutput struct{ *pulumi.OutputState }
+
+func (GetGroupUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupUser)(nil)).Elem()
+}
+
+func (o GetGroupUserOutput) ToGetGroupUserOutput() GetGroupUserOutput {
+	return o
+}
+
+func (o GetGroupUserOutput) ToGetGroupUserOutputWithContext(ctx context.Context) GetGroupUserOutput {
+	return o
+}
+
+// 用户描述。
+func (o GetGroupUserOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupUser) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 用户显示名。
+func (o GetGroupUserOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupUser) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// 用户加入用户组的时间。
+func (o GetGroupUserOutput) JoinTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupUser) string { return v.JoinTime }).(pulumi.StringOutput)
+}
+
+// 用户ID。
+func (o GetGroupUserOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGroupUser) int { return v.UserId }).(pulumi.IntOutput)
+}
+
+// 用户名。
+func (o GetGroupUserOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupUser) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type GetGroupUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupUser)(nil)).Elem()
+}
+
+func (o GetGroupUserArrayOutput) ToGetGroupUserArrayOutput() GetGroupUserArrayOutput {
+	return o
+}
+
+func (o GetGroupUserArrayOutput) ToGetGroupUserArrayOutputWithContext(ctx context.Context) GetGroupUserArrayOutput {
+	return o
+}
+
+func (o GetGroupUserArrayOutput) Index(i pulumi.IntInput) GetGroupUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupUser {
+		return vs[0].([]GetGroupUser)[vs[1].(int)]
+	}).(GetGroupUserOutput)
+}
+
+type GetPolicyPolicyRole struct {
+	// 策略绑定时间。
+	CreatedTime string `pulumi:"createdTime"`
+	// 策略描述。
+	Description string `pulumi:"description"`
+	// 显示名称。
+	DisplayName string `pulumi:"displayName"`
+	// 唯一标识。
+	EntitiesId int `pulumi:"entitiesId"`
+	// 对应用户、角色、用户组的名称。
+	Name string `pulumi:"name"`
+	// 策略绑定的项目列表。
+	PolicyScopes []GetPolicyPolicyRolePolicyScope `pulumi:"policyScopes"`
+}
+
+// GetPolicyPolicyRoleInput is an input type that accepts GetPolicyPolicyRoleArgs and GetPolicyPolicyRoleOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyRoleInput` via:
+//
+//	GetPolicyPolicyRoleArgs{...}
+type GetPolicyPolicyRoleInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyRoleOutput() GetPolicyPolicyRoleOutput
+	ToGetPolicyPolicyRoleOutputWithContext(context.Context) GetPolicyPolicyRoleOutput
+}
+
+type GetPolicyPolicyRoleArgs struct {
+	// 策略绑定时间。
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// 策略描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 显示名称。
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// 唯一标识。
+	EntitiesId pulumi.IntInput `pulumi:"entitiesId"`
+	// 对应用户、角色、用户组的名称。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 策略绑定的项目列表。
+	PolicyScopes GetPolicyPolicyRolePolicyScopeArrayInput `pulumi:"policyScopes"`
+}
+
+func (GetPolicyPolicyRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyRole)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyRoleArgs) ToGetPolicyPolicyRoleOutput() GetPolicyPolicyRoleOutput {
+	return i.ToGetPolicyPolicyRoleOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyRoleArgs) ToGetPolicyPolicyRoleOutputWithContext(ctx context.Context) GetPolicyPolicyRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyRoleOutput)
+}
+
+// GetPolicyPolicyRoleArrayInput is an input type that accepts GetPolicyPolicyRoleArray and GetPolicyPolicyRoleArrayOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyRoleArrayInput` via:
+//
+//	GetPolicyPolicyRoleArray{ GetPolicyPolicyRoleArgs{...} }
+type GetPolicyPolicyRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyRoleArrayOutput() GetPolicyPolicyRoleArrayOutput
+	ToGetPolicyPolicyRoleArrayOutputWithContext(context.Context) GetPolicyPolicyRoleArrayOutput
+}
+
+type GetPolicyPolicyRoleArray []GetPolicyPolicyRoleInput
+
+func (GetPolicyPolicyRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyRole)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyRoleArray) ToGetPolicyPolicyRoleArrayOutput() GetPolicyPolicyRoleArrayOutput {
+	return i.ToGetPolicyPolicyRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyRoleArray) ToGetPolicyPolicyRoleArrayOutputWithContext(ctx context.Context) GetPolicyPolicyRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyRoleArrayOutput)
+}
+
+type GetPolicyPolicyRoleOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyRole)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyRoleOutput) ToGetPolicyPolicyRoleOutput() GetPolicyPolicyRoleOutput {
+	return o
+}
+
+func (o GetPolicyPolicyRoleOutput) ToGetPolicyPolicyRoleOutputWithContext(ctx context.Context) GetPolicyPolicyRoleOutput {
+	return o
+}
+
+// 策略绑定时间。
+func (o GetPolicyPolicyRoleOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRole) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// 策略描述。
+func (o GetPolicyPolicyRoleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRole) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 显示名称。
+func (o GetPolicyPolicyRoleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRole) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// 唯一标识。
+func (o GetPolicyPolicyRoleOutput) EntitiesId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRole) int { return v.EntitiesId }).(pulumi.IntOutput)
+}
+
+// 对应用户、角色、用户组的名称。
+func (o GetPolicyPolicyRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRole) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 策略绑定的项目列表。
+func (o GetPolicyPolicyRoleOutput) PolicyScopes() GetPolicyPolicyRolePolicyScopeArrayOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRole) []GetPolicyPolicyRolePolicyScope { return v.PolicyScopes }).(GetPolicyPolicyRolePolicyScopeArrayOutput)
+}
+
+type GetPolicyPolicyRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyRole)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyRoleArrayOutput) ToGetPolicyPolicyRoleArrayOutput() GetPolicyPolicyRoleArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyRoleArrayOutput) ToGetPolicyPolicyRoleArrayOutputWithContext(ctx context.Context) GetPolicyPolicyRoleArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyRoleArrayOutput) Index(i pulumi.IntInput) GetPolicyPolicyRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyPolicyRole {
+		return vs[0].([]GetPolicyPolicyRole)[vs[1].(int)]
+	}).(GetPolicyPolicyRoleOutput)
+}
+
+type GetPolicyPolicyRolePolicyScope struct {
+	// 项目授权时间。
+	CreatedTime string `pulumi:"createdTime"`
+	// 授权类型。Global代表全局授权，Project代表按项目授权。
+	PolicyScopeType string `pulumi:"policyScopeType"`
+	// 项目显示名。
+	ProjectDisplayName string `pulumi:"projectDisplayName"`
+	// 项目名。
+	ProjectName string `pulumi:"projectName"`
+}
+
+// GetPolicyPolicyRolePolicyScopeInput is an input type that accepts GetPolicyPolicyRolePolicyScopeArgs and GetPolicyPolicyRolePolicyScopeOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyRolePolicyScopeInput` via:
+//
+//	GetPolicyPolicyRolePolicyScopeArgs{...}
+type GetPolicyPolicyRolePolicyScopeInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyRolePolicyScopeOutput() GetPolicyPolicyRolePolicyScopeOutput
+	ToGetPolicyPolicyRolePolicyScopeOutputWithContext(context.Context) GetPolicyPolicyRolePolicyScopeOutput
+}
+
+type GetPolicyPolicyRolePolicyScopeArgs struct {
+	// 项目授权时间。
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// 授权类型。Global代表全局授权，Project代表按项目授权。
+	PolicyScopeType pulumi.StringInput `pulumi:"policyScopeType"`
+	// 项目显示名。
+	ProjectDisplayName pulumi.StringInput `pulumi:"projectDisplayName"`
+	// 项目名。
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+}
+
+func (GetPolicyPolicyRolePolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyRolePolicyScopeArgs) ToGetPolicyPolicyRolePolicyScopeOutput() GetPolicyPolicyRolePolicyScopeOutput {
+	return i.ToGetPolicyPolicyRolePolicyScopeOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyRolePolicyScopeArgs) ToGetPolicyPolicyRolePolicyScopeOutputWithContext(ctx context.Context) GetPolicyPolicyRolePolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyRolePolicyScopeOutput)
+}
+
+// GetPolicyPolicyRolePolicyScopeArrayInput is an input type that accepts GetPolicyPolicyRolePolicyScopeArray and GetPolicyPolicyRolePolicyScopeArrayOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyRolePolicyScopeArrayInput` via:
+//
+//	GetPolicyPolicyRolePolicyScopeArray{ GetPolicyPolicyRolePolicyScopeArgs{...} }
+type GetPolicyPolicyRolePolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyRolePolicyScopeArrayOutput() GetPolicyPolicyRolePolicyScopeArrayOutput
+	ToGetPolicyPolicyRolePolicyScopeArrayOutputWithContext(context.Context) GetPolicyPolicyRolePolicyScopeArrayOutput
+}
+
+type GetPolicyPolicyRolePolicyScopeArray []GetPolicyPolicyRolePolicyScopeInput
+
+func (GetPolicyPolicyRolePolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyRolePolicyScopeArray) ToGetPolicyPolicyRolePolicyScopeArrayOutput() GetPolicyPolicyRolePolicyScopeArrayOutput {
+	return i.ToGetPolicyPolicyRolePolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyRolePolicyScopeArray) ToGetPolicyPolicyRolePolicyScopeArrayOutputWithContext(ctx context.Context) GetPolicyPolicyRolePolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyRolePolicyScopeArrayOutput)
+}
+
+type GetPolicyPolicyRolePolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyRolePolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyRolePolicyScopeOutput) ToGetPolicyPolicyRolePolicyScopeOutput() GetPolicyPolicyRolePolicyScopeOutput {
+	return o
+}
+
+func (o GetPolicyPolicyRolePolicyScopeOutput) ToGetPolicyPolicyRolePolicyScopeOutputWithContext(ctx context.Context) GetPolicyPolicyRolePolicyScopeOutput {
+	return o
+}
+
+// 项目授权时间。
+func (o GetPolicyPolicyRolePolicyScopeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRolePolicyScope) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// 授权类型。Global代表全局授权，Project代表按项目授权。
+func (o GetPolicyPolicyRolePolicyScopeOutput) PolicyScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRolePolicyScope) string { return v.PolicyScopeType }).(pulumi.StringOutput)
+}
+
+// 项目显示名。
+func (o GetPolicyPolicyRolePolicyScopeOutput) ProjectDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRolePolicyScope) string { return v.ProjectDisplayName }).(pulumi.StringOutput)
+}
+
+// 项目名。
+func (o GetPolicyPolicyRolePolicyScopeOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyRolePolicyScope) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+type GetPolicyPolicyRolePolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyRolePolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyRolePolicyScope)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyRolePolicyScopeArrayOutput) ToGetPolicyPolicyRolePolicyScopeArrayOutput() GetPolicyPolicyRolePolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyRolePolicyScopeArrayOutput) ToGetPolicyPolicyRolePolicyScopeArrayOutputWithContext(ctx context.Context) GetPolicyPolicyRolePolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyRolePolicyScopeArrayOutput) Index(i pulumi.IntInput) GetPolicyPolicyRolePolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyPolicyRolePolicyScope {
+		return vs[0].([]GetPolicyPolicyRolePolicyScope)[vs[1].(int)]
+	}).(GetPolicyPolicyRolePolicyScopeOutput)
+}
+
+type GetPolicyPolicyUser struct {
+	// 策略绑定时间。
+	CreatedTime string `pulumi:"createdTime"`
+	// 策略描述。
+	Description string `pulumi:"description"`
+	// 显示名称。
+	DisplayName string `pulumi:"displayName"`
+	// 唯一标识。
+	EntitiesId int `pulumi:"entitiesId"`
+	// 对应用户、角色、用户组的名称。
+	Name string `pulumi:"name"`
+	// 策略绑定的项目列表。
+	PolicyScopes []GetPolicyPolicyUserPolicyScope `pulumi:"policyScopes"`
+}
+
+// GetPolicyPolicyUserInput is an input type that accepts GetPolicyPolicyUserArgs and GetPolicyPolicyUserOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserInput` via:
+//
+//	GetPolicyPolicyUserArgs{...}
+type GetPolicyPolicyUserInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserOutput() GetPolicyPolicyUserOutput
+	ToGetPolicyPolicyUserOutputWithContext(context.Context) GetPolicyPolicyUserOutput
+}
+
+type GetPolicyPolicyUserArgs struct {
+	// 策略绑定时间。
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// 策略描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 显示名称。
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// 唯一标识。
+	EntitiesId pulumi.IntInput `pulumi:"entitiesId"`
+	// 对应用户、角色、用户组的名称。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 策略绑定的项目列表。
+	PolicyScopes GetPolicyPolicyUserPolicyScopeArrayInput `pulumi:"policyScopes"`
+}
+
+func (GetPolicyPolicyUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUser)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserArgs) ToGetPolicyPolicyUserOutput() GetPolicyPolicyUserOutput {
+	return i.ToGetPolicyPolicyUserOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserArgs) ToGetPolicyPolicyUserOutputWithContext(ctx context.Context) GetPolicyPolicyUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserOutput)
+}
+
+// GetPolicyPolicyUserArrayInput is an input type that accepts GetPolicyPolicyUserArray and GetPolicyPolicyUserArrayOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserArrayInput` via:
+//
+//	GetPolicyPolicyUserArray{ GetPolicyPolicyUserArgs{...} }
+type GetPolicyPolicyUserArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserArrayOutput() GetPolicyPolicyUserArrayOutput
+	ToGetPolicyPolicyUserArrayOutputWithContext(context.Context) GetPolicyPolicyUserArrayOutput
+}
+
+type GetPolicyPolicyUserArray []GetPolicyPolicyUserInput
+
+func (GetPolicyPolicyUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUser)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserArray) ToGetPolicyPolicyUserArrayOutput() GetPolicyPolicyUserArrayOutput {
+	return i.ToGetPolicyPolicyUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserArray) ToGetPolicyPolicyUserArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserArrayOutput)
+}
+
+type GetPolicyPolicyUserOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUser)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserOutput) ToGetPolicyPolicyUserOutput() GetPolicyPolicyUserOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserOutput) ToGetPolicyPolicyUserOutputWithContext(ctx context.Context) GetPolicyPolicyUserOutput {
+	return o
+}
+
+// 策略绑定时间。
+func (o GetPolicyPolicyUserOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUser) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// 策略描述。
+func (o GetPolicyPolicyUserOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUser) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 显示名称。
+func (o GetPolicyPolicyUserOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUser) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// 唯一标识。
+func (o GetPolicyPolicyUserOutput) EntitiesId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUser) int { return v.EntitiesId }).(pulumi.IntOutput)
+}
+
+// 对应用户、角色、用户组的名称。
+func (o GetPolicyPolicyUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 策略绑定的项目列表。
+func (o GetPolicyPolicyUserOutput) PolicyScopes() GetPolicyPolicyUserPolicyScopeArrayOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUser) []GetPolicyPolicyUserPolicyScope { return v.PolicyScopes }).(GetPolicyPolicyUserPolicyScopeArrayOutput)
+}
+
+type GetPolicyPolicyUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUser)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserArrayOutput) ToGetPolicyPolicyUserArrayOutput() GetPolicyPolicyUserArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserArrayOutput) ToGetPolicyPolicyUserArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserArrayOutput) Index(i pulumi.IntInput) GetPolicyPolicyUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyPolicyUser {
+		return vs[0].([]GetPolicyPolicyUser)[vs[1].(int)]
+	}).(GetPolicyPolicyUserOutput)
+}
+
+type GetPolicyPolicyUserGroup struct {
+	// 策略绑定时间。
+	CreatedTime string `pulumi:"createdTime"`
+	// 策略描述。
+	Description string `pulumi:"description"`
+	// 显示名称。
+	DisplayName string `pulumi:"displayName"`
+	// 唯一标识。
+	EntitiesId int `pulumi:"entitiesId"`
+	// 对应用户、角色、用户组的名称。
+	Name string `pulumi:"name"`
+	// 策略绑定的项目列表。
+	PolicyScopes []GetPolicyPolicyUserGroupPolicyScope `pulumi:"policyScopes"`
+}
+
+// GetPolicyPolicyUserGroupInput is an input type that accepts GetPolicyPolicyUserGroupArgs and GetPolicyPolicyUserGroupOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserGroupInput` via:
+//
+//	GetPolicyPolicyUserGroupArgs{...}
+type GetPolicyPolicyUserGroupInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserGroupOutput() GetPolicyPolicyUserGroupOutput
+	ToGetPolicyPolicyUserGroupOutputWithContext(context.Context) GetPolicyPolicyUserGroupOutput
+}
+
+type GetPolicyPolicyUserGroupArgs struct {
+	// 策略绑定时间。
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// 策略描述。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 显示名称。
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// 唯一标识。
+	EntitiesId pulumi.IntInput `pulumi:"entitiesId"`
+	// 对应用户、角色、用户组的名称。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 策略绑定的项目列表。
+	PolicyScopes GetPolicyPolicyUserGroupPolicyScopeArrayInput `pulumi:"policyScopes"`
+}
+
+func (GetPolicyPolicyUserGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserGroupArgs) ToGetPolicyPolicyUserGroupOutput() GetPolicyPolicyUserGroupOutput {
+	return i.ToGetPolicyPolicyUserGroupOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserGroupArgs) ToGetPolicyPolicyUserGroupOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserGroupOutput)
+}
+
+// GetPolicyPolicyUserGroupArrayInput is an input type that accepts GetPolicyPolicyUserGroupArray and GetPolicyPolicyUserGroupArrayOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserGroupArrayInput` via:
+//
+//	GetPolicyPolicyUserGroupArray{ GetPolicyPolicyUserGroupArgs{...} }
+type GetPolicyPolicyUserGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserGroupArrayOutput() GetPolicyPolicyUserGroupArrayOutput
+	ToGetPolicyPolicyUserGroupArrayOutputWithContext(context.Context) GetPolicyPolicyUserGroupArrayOutput
+}
+
+type GetPolicyPolicyUserGroupArray []GetPolicyPolicyUserGroupInput
+
+func (GetPolicyPolicyUserGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserGroupArray) ToGetPolicyPolicyUserGroupArrayOutput() GetPolicyPolicyUserGroupArrayOutput {
+	return i.ToGetPolicyPolicyUserGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserGroupArray) ToGetPolicyPolicyUserGroupArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserGroupArrayOutput)
+}
+
+type GetPolicyPolicyUserGroupOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserGroupOutput) ToGetPolicyPolicyUserGroupOutput() GetPolicyPolicyUserGroupOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserGroupOutput) ToGetPolicyPolicyUserGroupOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupOutput {
+	return o
+}
+
+// 策略绑定时间。
+func (o GetPolicyPolicyUserGroupOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroup) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// 策略描述。
+func (o GetPolicyPolicyUserGroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroup) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 显示名称。
+func (o GetPolicyPolicyUserGroupOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroup) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// 唯一标识。
+func (o GetPolicyPolicyUserGroupOutput) EntitiesId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroup) int { return v.EntitiesId }).(pulumi.IntOutput)
+}
+
+// 对应用户、角色、用户组的名称。
+func (o GetPolicyPolicyUserGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 策略绑定的项目列表。
+func (o GetPolicyPolicyUserGroupOutput) PolicyScopes() GetPolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroup) []GetPolicyPolicyUserGroupPolicyScope { return v.PolicyScopes }).(GetPolicyPolicyUserGroupPolicyScopeArrayOutput)
+}
+
+type GetPolicyPolicyUserGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUserGroup)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserGroupArrayOutput) ToGetPolicyPolicyUserGroupArrayOutput() GetPolicyPolicyUserGroupArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserGroupArrayOutput) ToGetPolicyPolicyUserGroupArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserGroupArrayOutput) Index(i pulumi.IntInput) GetPolicyPolicyUserGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyPolicyUserGroup {
+		return vs[0].([]GetPolicyPolicyUserGroup)[vs[1].(int)]
+	}).(GetPolicyPolicyUserGroupOutput)
+}
+
+type GetPolicyPolicyUserGroupPolicyScope struct {
+	// 项目授权时间。
+	CreatedTime string `pulumi:"createdTime"`
+	// 授权类型。Global代表全局授权，Project代表按项目授权。
+	PolicyScopeType string `pulumi:"policyScopeType"`
+	// 项目显示名。
+	ProjectDisplayName string `pulumi:"projectDisplayName"`
+	// 项目名。
+	ProjectName string `pulumi:"projectName"`
+}
+
+// GetPolicyPolicyUserGroupPolicyScopeInput is an input type that accepts GetPolicyPolicyUserGroupPolicyScopeArgs and GetPolicyPolicyUserGroupPolicyScopeOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserGroupPolicyScopeInput` via:
+//
+//	GetPolicyPolicyUserGroupPolicyScopeArgs{...}
+type GetPolicyPolicyUserGroupPolicyScopeInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserGroupPolicyScopeOutput() GetPolicyPolicyUserGroupPolicyScopeOutput
+	ToGetPolicyPolicyUserGroupPolicyScopeOutputWithContext(context.Context) GetPolicyPolicyUserGroupPolicyScopeOutput
+}
+
+type GetPolicyPolicyUserGroupPolicyScopeArgs struct {
+	// 项目授权时间。
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// 授权类型。Global代表全局授权，Project代表按项目授权。
+	PolicyScopeType pulumi.StringInput `pulumi:"policyScopeType"`
+	// 项目显示名。
+	ProjectDisplayName pulumi.StringInput `pulumi:"projectDisplayName"`
+	// 项目名。
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+}
+
+func (GetPolicyPolicyUserGroupPolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserGroupPolicyScopeArgs) ToGetPolicyPolicyUserGroupPolicyScopeOutput() GetPolicyPolicyUserGroupPolicyScopeOutput {
+	return i.ToGetPolicyPolicyUserGroupPolicyScopeOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserGroupPolicyScopeArgs) ToGetPolicyPolicyUserGroupPolicyScopeOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserGroupPolicyScopeOutput)
+}
+
+// GetPolicyPolicyUserGroupPolicyScopeArrayInput is an input type that accepts GetPolicyPolicyUserGroupPolicyScopeArray and GetPolicyPolicyUserGroupPolicyScopeArrayOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserGroupPolicyScopeArrayInput` via:
+//
+//	GetPolicyPolicyUserGroupPolicyScopeArray{ GetPolicyPolicyUserGroupPolicyScopeArgs{...} }
+type GetPolicyPolicyUserGroupPolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserGroupPolicyScopeArrayOutput() GetPolicyPolicyUserGroupPolicyScopeArrayOutput
+	ToGetPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(context.Context) GetPolicyPolicyUserGroupPolicyScopeArrayOutput
+}
+
+type GetPolicyPolicyUserGroupPolicyScopeArray []GetPolicyPolicyUserGroupPolicyScopeInput
+
+func (GetPolicyPolicyUserGroupPolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserGroupPolicyScopeArray) ToGetPolicyPolicyUserGroupPolicyScopeArrayOutput() GetPolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return i.ToGetPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserGroupPolicyScopeArray) ToGetPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserGroupPolicyScopeArrayOutput)
+}
+
+type GetPolicyPolicyUserGroupPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserGroupPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserGroupPolicyScopeOutput) ToGetPolicyPolicyUserGroupPolicyScopeOutput() GetPolicyPolicyUserGroupPolicyScopeOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserGroupPolicyScopeOutput) ToGetPolicyPolicyUserGroupPolicyScopeOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupPolicyScopeOutput {
+	return o
+}
+
+// 项目授权时间。
+func (o GetPolicyPolicyUserGroupPolicyScopeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroupPolicyScope) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// 授权类型。Global代表全局授权，Project代表按项目授权。
+func (o GetPolicyPolicyUserGroupPolicyScopeOutput) PolicyScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroupPolicyScope) string { return v.PolicyScopeType }).(pulumi.StringOutput)
+}
+
+// 项目显示名。
+func (o GetPolicyPolicyUserGroupPolicyScopeOutput) ProjectDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroupPolicyScope) string { return v.ProjectDisplayName }).(pulumi.StringOutput)
+}
+
+// 项目名。
+func (o GetPolicyPolicyUserGroupPolicyScopeOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserGroupPolicyScope) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+type GetPolicyPolicyUserGroupPolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserGroupPolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUserGroupPolicyScope)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserGroupPolicyScopeArrayOutput) ToGetPolicyPolicyUserGroupPolicyScopeArrayOutput() GetPolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserGroupPolicyScopeArrayOutput) ToGetPolicyPolicyUserGroupPolicyScopeArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserGroupPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserGroupPolicyScopeArrayOutput) Index(i pulumi.IntInput) GetPolicyPolicyUserGroupPolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyPolicyUserGroupPolicyScope {
+		return vs[0].([]GetPolicyPolicyUserGroupPolicyScope)[vs[1].(int)]
+	}).(GetPolicyPolicyUserGroupPolicyScopeOutput)
+}
+
+type GetPolicyPolicyUserPolicyScope struct {
+	// 项目授权时间。
+	CreatedTime string `pulumi:"createdTime"`
+	// 授权类型。Global代表全局授权，Project代表按项目授权。
+	PolicyScopeType string `pulumi:"policyScopeType"`
+	// 项目显示名。
+	ProjectDisplayName string `pulumi:"projectDisplayName"`
+	// 项目名。
+	ProjectName string `pulumi:"projectName"`
+}
+
+// GetPolicyPolicyUserPolicyScopeInput is an input type that accepts GetPolicyPolicyUserPolicyScopeArgs and GetPolicyPolicyUserPolicyScopeOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserPolicyScopeInput` via:
+//
+//	GetPolicyPolicyUserPolicyScopeArgs{...}
+type GetPolicyPolicyUserPolicyScopeInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserPolicyScopeOutput() GetPolicyPolicyUserPolicyScopeOutput
+	ToGetPolicyPolicyUserPolicyScopeOutputWithContext(context.Context) GetPolicyPolicyUserPolicyScopeOutput
+}
+
+type GetPolicyPolicyUserPolicyScopeArgs struct {
+	// 项目授权时间。
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// 授权类型。Global代表全局授权，Project代表按项目授权。
+	PolicyScopeType pulumi.StringInput `pulumi:"policyScopeType"`
+	// 项目显示名。
+	ProjectDisplayName pulumi.StringInput `pulumi:"projectDisplayName"`
+	// 项目名。
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+}
+
+func (GetPolicyPolicyUserPolicyScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserPolicyScopeArgs) ToGetPolicyPolicyUserPolicyScopeOutput() GetPolicyPolicyUserPolicyScopeOutput {
+	return i.ToGetPolicyPolicyUserPolicyScopeOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserPolicyScopeArgs) ToGetPolicyPolicyUserPolicyScopeOutputWithContext(ctx context.Context) GetPolicyPolicyUserPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserPolicyScopeOutput)
+}
+
+// GetPolicyPolicyUserPolicyScopeArrayInput is an input type that accepts GetPolicyPolicyUserPolicyScopeArray and GetPolicyPolicyUserPolicyScopeArrayOutput values.
+// You can construct a concrete instance of `GetPolicyPolicyUserPolicyScopeArrayInput` via:
+//
+//	GetPolicyPolicyUserPolicyScopeArray{ GetPolicyPolicyUserPolicyScopeArgs{...} }
+type GetPolicyPolicyUserPolicyScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyPolicyUserPolicyScopeArrayOutput() GetPolicyPolicyUserPolicyScopeArrayOutput
+	ToGetPolicyPolicyUserPolicyScopeArrayOutputWithContext(context.Context) GetPolicyPolicyUserPolicyScopeArrayOutput
+}
+
+type GetPolicyPolicyUserPolicyScopeArray []GetPolicyPolicyUserPolicyScopeInput
+
+func (GetPolicyPolicyUserPolicyScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (i GetPolicyPolicyUserPolicyScopeArray) ToGetPolicyPolicyUserPolicyScopeArrayOutput() GetPolicyPolicyUserPolicyScopeArrayOutput {
+	return i.ToGetPolicyPolicyUserPolicyScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyPolicyUserPolicyScopeArray) ToGetPolicyPolicyUserPolicyScopeArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserPolicyScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyPolicyUserPolicyScopeArrayOutput)
+}
+
+type GetPolicyPolicyUserPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserPolicyScopeOutput) ToGetPolicyPolicyUserPolicyScopeOutput() GetPolicyPolicyUserPolicyScopeOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserPolicyScopeOutput) ToGetPolicyPolicyUserPolicyScopeOutputWithContext(ctx context.Context) GetPolicyPolicyUserPolicyScopeOutput {
+	return o
+}
+
+// 项目授权时间。
+func (o GetPolicyPolicyUserPolicyScopeOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserPolicyScope) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// 授权类型。Global代表全局授权，Project代表按项目授权。
+func (o GetPolicyPolicyUserPolicyScopeOutput) PolicyScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserPolicyScope) string { return v.PolicyScopeType }).(pulumi.StringOutput)
+}
+
+// 项目显示名。
+func (o GetPolicyPolicyUserPolicyScopeOutput) ProjectDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserPolicyScope) string { return v.ProjectDisplayName }).(pulumi.StringOutput)
+}
+
+// 项目名。
+func (o GetPolicyPolicyUserPolicyScopeOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyPolicyUserPolicyScope) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+type GetPolicyPolicyUserPolicyScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyPolicyUserPolicyScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyPolicyUserPolicyScope)(nil)).Elem()
+}
+
+func (o GetPolicyPolicyUserPolicyScopeArrayOutput) ToGetPolicyPolicyUserPolicyScopeArrayOutput() GetPolicyPolicyUserPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserPolicyScopeArrayOutput) ToGetPolicyPolicyUserPolicyScopeArrayOutputWithContext(ctx context.Context) GetPolicyPolicyUserPolicyScopeArrayOutput {
+	return o
+}
+
+func (o GetPolicyPolicyUserPolicyScopeArrayOutput) Index(i pulumi.IntInput) GetPolicyPolicyUserPolicyScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyPolicyUserPolicyScope {
+		return vs[0].([]GetPolicyPolicyUserPolicyScope)[vs[1].(int)]
+	}).(GetPolicyPolicyUserPolicyScopeOutput)
+}
+
 type GetRolePolicy struct {
 	// 策略名。
 	PolicyName string `pulumi:"policyName"`
@@ -1688,6 +3818,24 @@ func (o GetUserTagArrayOutput) Index(i pulumi.IntInput) GetUserTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAttachedPolicyInput)(nil)).Elem(), GroupAttachedPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAttachedPolicyArrayInput)(nil)).Elem(), GroupAttachedPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAttachedPolicyPolicyScopeInput)(nil)).Elem(), GroupAttachedPolicyPolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAttachedPolicyPolicyScopeArrayInput)(nil)).Elem(), GroupAttachedPolicyPolicyScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupUserInput)(nil)).Elem(), GroupUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupUserArrayInput)(nil)).Elem(), GroupUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyRoleInput)(nil)).Elem(), PolicyPolicyRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyRoleArrayInput)(nil)).Elem(), PolicyPolicyRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyRolePolicyScopeInput)(nil)).Elem(), PolicyPolicyRolePolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyRolePolicyScopeArrayInput)(nil)).Elem(), PolicyPolicyRolePolicyScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserInput)(nil)).Elem(), PolicyPolicyUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserArrayInput)(nil)).Elem(), PolicyPolicyUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserGroupInput)(nil)).Elem(), PolicyPolicyUserGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserGroupArrayInput)(nil)).Elem(), PolicyPolicyUserGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserGroupPolicyScopeInput)(nil)).Elem(), PolicyPolicyUserGroupPolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserGroupPolicyScopeArrayInput)(nil)).Elem(), PolicyPolicyUserGroupPolicyScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserPolicyScopeInput)(nil)).Elem(), PolicyPolicyUserPolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicyUserPolicyScopeArrayInput)(nil)).Elem(), PolicyPolicyUserPolicyScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyInput)(nil)).Elem(), RolePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyArrayInput)(nil)).Elem(), RolePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagInput)(nil)).Elem(), RoleTagArgs{})
@@ -1700,6 +3848,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSecurityConfigPtrInput)(nil)).Elem(), UserSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAttachedPolicyInput)(nil)).Elem(), GetGroupAttachedPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAttachedPolicyArrayInput)(nil)).Elem(), GetGroupAttachedPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAttachedPolicyPolicyScopeInput)(nil)).Elem(), GetGroupAttachedPolicyPolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAttachedPolicyPolicyScopeArrayInput)(nil)).Elem(), GetGroupAttachedPolicyPolicyScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserInput)(nil)).Elem(), GetGroupUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserArrayInput)(nil)).Elem(), GetGroupUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyRoleInput)(nil)).Elem(), GetPolicyPolicyRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyRoleArrayInput)(nil)).Elem(), GetPolicyPolicyRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyRolePolicyScopeInput)(nil)).Elem(), GetPolicyPolicyRolePolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyRolePolicyScopeArrayInput)(nil)).Elem(), GetPolicyPolicyRolePolicyScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserInput)(nil)).Elem(), GetPolicyPolicyUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserArrayInput)(nil)).Elem(), GetPolicyPolicyUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserGroupInput)(nil)).Elem(), GetPolicyPolicyUserGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserGroupArrayInput)(nil)).Elem(), GetPolicyPolicyUserGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserGroupPolicyScopeInput)(nil)).Elem(), GetPolicyPolicyUserGroupPolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserGroupPolicyScopeArrayInput)(nil)).Elem(), GetPolicyPolicyUserGroupPolicyScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserPolicyScopeInput)(nil)).Elem(), GetPolicyPolicyUserPolicyScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyPolicyUserPolicyScopeArrayInput)(nil)).Elem(), GetPolicyPolicyUserPolicyScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolePolicyInput)(nil)).Elem(), GetRolePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolePolicyArrayInput)(nil)).Elem(), GetRolePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleTagInput)(nil)).Elem(), GetRoleTagArgs{})
@@ -1710,6 +3876,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityConfigInput)(nil)).Elem(), GetUserSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserTagInput)(nil)).Elem(), GetUserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserTagArrayInput)(nil)).Elem(), GetUserTagArray{})
+	pulumi.RegisterOutputType(GroupAttachedPolicyOutput{})
+	pulumi.RegisterOutputType(GroupAttachedPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GroupAttachedPolicyPolicyScopeOutput{})
+	pulumi.RegisterOutputType(GroupAttachedPolicyPolicyScopeArrayOutput{})
+	pulumi.RegisterOutputType(GroupUserOutput{})
+	pulumi.RegisterOutputType(GroupUserArrayOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyRoleOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyRoleArrayOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyRolePolicyScopeOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyRolePolicyScopeArrayOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserArrayOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserGroupOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserGroupArrayOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserGroupPolicyScopeOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserGroupPolicyScopeArrayOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserPolicyScopeOutput{})
+	pulumi.RegisterOutputType(PolicyPolicyUserPolicyScopeArrayOutput{})
 	pulumi.RegisterOutputType(RolePolicyOutput{})
 	pulumi.RegisterOutputType(RolePolicyArrayOutput{})
 	pulumi.RegisterOutputType(RoleTagOutput{})
@@ -1722,6 +3906,24 @@ func init() {
 	pulumi.RegisterOutputType(UserSecurityConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupAttachedPolicyOutput{})
+	pulumi.RegisterOutputType(GetGroupAttachedPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupAttachedPolicyPolicyScopeOutput{})
+	pulumi.RegisterOutputType(GetGroupAttachedPolicyPolicyScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupUserOutput{})
+	pulumi.RegisterOutputType(GetGroupUserArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyRoleOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyRoleArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyRolePolicyScopeOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyRolePolicyScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserGroupOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserGroupPolicyScopeOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserGroupPolicyScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserPolicyScopeOutput{})
+	pulumi.RegisterOutputType(GetPolicyPolicyUserPolicyScopeArrayOutput{})
 	pulumi.RegisterOutputType(GetRolePolicyOutput{})
 	pulumi.RegisterOutputType(GetRolePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleTagOutput{})

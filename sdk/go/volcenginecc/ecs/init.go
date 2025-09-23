@@ -21,8 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:ecs/command:Command":
+		r = &Command{}
+	case "volcenginecc:ecs/hpcCluster:HpcCluster":
+		r = &HpcCluster{}
 	case "volcenginecc:ecs/image:Image":
 		r = &Image{}
+	case "volcenginecc:ecs/invocation:Invocation":
+		r = &Invocation{}
+	case "volcenginecc:ecs/keypair:Keypair":
+		r = &Keypair{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,7 +46,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"ecs/command",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/hpcCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"ecs/image",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/invocation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/keypair",
 		&module{version},
 	)
 }

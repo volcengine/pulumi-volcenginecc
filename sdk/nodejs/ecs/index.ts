@@ -5,6 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CommandArgs, CommandState } from "./command";
+export type Command = import("./command").Command;
+export const Command: typeof import("./command").Command = null as any;
+utilities.lazyLoad(exports, ["Command"], () => require("./command"));
+
+export { GetCommandArgs, GetCommandResult, GetCommandOutputArgs } from "./getCommand";
+export const getCommand: typeof import("./getCommand").getCommand = null as any;
+export const getCommandOutput: typeof import("./getCommand").getCommandOutput = null as any;
+utilities.lazyLoad(exports, ["getCommand","getCommandOutput"], () => require("./getCommand"));
+
+export { GetCommandsResult } from "./getCommands";
+export const getCommands: typeof import("./getCommands").getCommands = null as any;
+export const getCommandsOutput: typeof import("./getCommands").getCommandsOutput = null as any;
+utilities.lazyLoad(exports, ["getCommands","getCommandsOutput"], () => require("./getCommands"));
+
+export { GetHpcClusterArgs, GetHpcClusterResult, GetHpcClusterOutputArgs } from "./getHpcCluster";
+export const getHpcCluster: typeof import("./getHpcCluster").getHpcCluster = null as any;
+export const getHpcClusterOutput: typeof import("./getHpcCluster").getHpcClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getHpcCluster","getHpcClusterOutput"], () => require("./getHpcCluster"));
+
+export { GetHpcClustersResult } from "./getHpcClusters";
+export const getHpcClusters: typeof import("./getHpcClusters").getHpcClusters = null as any;
+export const getHpcClustersOutput: typeof import("./getHpcClusters").getHpcClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getHpcClusters","getHpcClustersOutput"], () => require("./getHpcClusters"));
+
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
@@ -15,21 +40,68 @@ export const getImages: typeof import("./getImages").getImages = null as any;
 export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
 utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
 
+export { GetInvocationArgs, GetInvocationResult, GetInvocationOutputArgs } from "./getInvocation";
+export const getInvocation: typeof import("./getInvocation").getInvocation = null as any;
+export const getInvocationOutput: typeof import("./getInvocation").getInvocationOutput = null as any;
+utilities.lazyLoad(exports, ["getInvocation","getInvocationOutput"], () => require("./getInvocation"));
+
+export { GetInvocationsResult } from "./getInvocations";
+export const getInvocations: typeof import("./getInvocations").getInvocations = null as any;
+export const getInvocationsOutput: typeof import("./getInvocations").getInvocationsOutput = null as any;
+utilities.lazyLoad(exports, ["getInvocations","getInvocationsOutput"], () => require("./getInvocations"));
+
+export { GetKeypairArgs, GetKeypairResult, GetKeypairOutputArgs } from "./getKeypair";
+export const getKeypair: typeof import("./getKeypair").getKeypair = null as any;
+export const getKeypairOutput: typeof import("./getKeypair").getKeypairOutput = null as any;
+utilities.lazyLoad(exports, ["getKeypair","getKeypairOutput"], () => require("./getKeypair"));
+
+export { GetKeypairsResult } from "./getKeypairs";
+export const getKeypairs: typeof import("./getKeypairs").getKeypairs = null as any;
+export const getKeypairsOutput: typeof import("./getKeypairs").getKeypairsOutput = null as any;
+utilities.lazyLoad(exports, ["getKeypairs","getKeypairsOutput"], () => require("./getKeypairs"));
+
+export { HpcClusterArgs, HpcClusterState } from "./hpcCluster";
+export type HpcCluster = import("./hpcCluster").HpcCluster;
+export const HpcCluster: typeof import("./hpcCluster").HpcCluster = null as any;
+utilities.lazyLoad(exports, ["HpcCluster"], () => require("./hpcCluster"));
+
 export { ImageArgs, ImageState } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
 utilities.lazyLoad(exports, ["Image"], () => require("./image"));
+
+export { InvocationArgs, InvocationState } from "./invocation";
+export type Invocation = import("./invocation").Invocation;
+export const Invocation: typeof import("./invocation").Invocation = null as any;
+utilities.lazyLoad(exports, ["Invocation"], () => require("./invocation"));
+
+export { KeypairArgs, KeypairState } from "./keypair";
+export type Keypair = import("./keypair").Keypair;
+export const Keypair: typeof import("./keypair").Keypair = null as any;
+utilities.lazyLoad(exports, ["Keypair"], () => require("./keypair"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:ecs/command:Command":
+                return new Command(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/hpcCluster:HpcCluster":
+                return new HpcCluster(name, <any>undefined, { urn })
             case "volcenginecc:ecs/image:Image":
                 return new Image(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/invocation:Invocation":
+                return new Invocation(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/keypair:Keypair":
+                return new Keypair(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/command", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/hpcCluster", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/image", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/invocation", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/keypair", _module)
