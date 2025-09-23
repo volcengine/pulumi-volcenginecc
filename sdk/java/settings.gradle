@@ -11,4 +11,3 @@ pluginManagement {
 }
 
 rootProject.name = "com.volcengine.volcenginecc"
-include("lib")
