@@ -24,7 +24,7 @@ setup(name='pulumi_volcenginecc',
       description="A Pulumi package to safely use randomness in Pulumi programs.",
       long_description=readme(),
       long_description_content_type='text/markdown',
-      keywords='pulumi volcenginecc category/cloud',
+      keywords='volcengine volcenginecc category/cloud',
       url='https://github.com/volcengine/pulumi-volcenginecc',
       project_urls={
           'Repository': 'https://github.com/volcengine/pulumi-volcenginecc'

@@ -10,13 +10,541 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vpc.inputs.GetBandwidthPackageArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetBandwidthPackagePlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetEipArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetEipPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetEniArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetEniPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetRouteTableArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetRouteTablePlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetSecurityGroupArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetSecurityGroupPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetSubnetArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetSubnetPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetVpcArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetVpcPlainArgs;
+import com.volcengine.volcenginecc.vpc.outputs.GetBandwidthPackageResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetBandwidthPackagesResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetEipResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetEipsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetEniResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetEnisResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetRouteTableResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetRouteTablesResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetSecurityGroupResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetSecurityGroupsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetSubnetResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetSubnetsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetVpcResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetVpcsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VpcFunctions {
+    /**
+     * Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackageResult> getBandwidthPackage(GetBandwidthPackageArgs args) {
+        return getBandwidthPackage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackageResult> getBandwidthPackagePlain(GetBandwidthPackagePlainArgs args) {
+        return getBandwidthPackagePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackageResult> getBandwidthPackage(GetBandwidthPackageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getBandwidthPackage:getBandwidthPackage", TypeShape.of(GetBandwidthPackageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackageResult> getBandwidthPackage(GetBandwidthPackageArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getBandwidthPackage:getBandwidthPackage", TypeShape.of(GetBandwidthPackageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackageResult> getBandwidthPackagePlain(GetBandwidthPackagePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getBandwidthPackage:getBandwidthPackage", TypeShape.of(GetBandwidthPackageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages() {
+        return getBandwidthPackages(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackagesResult> getBandwidthPackagesPlain() {
+        return getBandwidthPackagesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages(InvokeArgs args) {
+        return getBandwidthPackages(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackagesResult> getBandwidthPackagesPlain(InvokeArgs args) {
+        return getBandwidthPackagesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getBandwidthPackages:getBandwidthPackages", TypeShape.of(GetBandwidthPackagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getBandwidthPackages:getBandwidthPackages", TypeShape.of(GetBandwidthPackagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackagesResult> getBandwidthPackagesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getBandwidthPackages:getBandwidthPackages", TypeShape.of(GetBandwidthPackagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipResult> getEip(GetEipArgs args) {
+        return getEip(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static CompletableFuture<GetEipResult> getEipPlain(GetEipPlainArgs args) {
+        return getEipPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipResult> getEip(GetEipArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEip:getEip", TypeShape.of(GetEipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipResult> getEip(GetEipArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEip:getEip", TypeShape.of(GetEipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static CompletableFuture<GetEipResult> getEipPlain(GetEipPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getEip:getEip", TypeShape.of(GetEipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipsResult> getEips() {
+        return getEips(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static CompletableFuture<GetEipsResult> getEipsPlain() {
+        return getEipsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipsResult> getEips(InvokeArgs args) {
+        return getEips(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static CompletableFuture<GetEipsResult> getEipsPlain(InvokeArgs args) {
+        return getEipsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipsResult> getEips(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEips:getEips", TypeShape.of(GetEipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static Output<GetEipsResult> getEips(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEips:getEips", TypeShape.of(GetEipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::EIP
+     * 
+     */
+    public static CompletableFuture<GetEipsResult> getEipsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getEips:getEips", TypeShape.of(GetEipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEniResult> getEni(GetEniArgs args) {
+        return getEni(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static CompletableFuture<GetEniResult> getEniPlain(GetEniPlainArgs args) {
+        return getEniPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEniResult> getEni(GetEniArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEni:getEni", TypeShape.of(GetEniResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEniResult> getEni(GetEniArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEni:getEni", TypeShape.of(GetEniResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static CompletableFuture<GetEniResult> getEniPlain(GetEniPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getEni:getEni", TypeShape.of(GetEniResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEnisResult> getEnis() {
+        return getEnis(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static CompletableFuture<GetEnisResult> getEnisPlain() {
+        return getEnisPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEnisResult> getEnis(InvokeArgs args) {
+        return getEnis(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static CompletableFuture<GetEnisResult> getEnisPlain(InvokeArgs args) {
+        return getEnisPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEnisResult> getEnis(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEnis:getEnis", TypeShape.of(GetEnisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static Output<GetEnisResult> getEnis(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getEnis:getEnis", TypeShape.of(GetEnisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::ENI
+     * 
+     */
+    public static CompletableFuture<GetEnisResult> getEnisPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getEnis:getEnis", TypeShape.of(GetEnisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args) {
+        return getRouteTable(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args) {
+        return getRouteTablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getRouteTable:getRouteTable", TypeShape.of(GetRouteTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getRouteTable:getRouteTable", TypeShape.of(GetRouteTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getRouteTable:getRouteTable", TypeShape.of(GetRouteTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTablesResult> getRouteTables() {
+        return getRouteTables(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain() {
+        return getRouteTablesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTablesResult> getRouteTables(InvokeArgs args) {
+        return getRouteTables(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain(InvokeArgs args) {
+        return getRouteTablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTablesResult> getRouteTables(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static Output<GetRouteTablesResult> getRouteTables(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::RouteTable
+     * 
+     */
+    public static CompletableFuture<GetRouteTablesResult> getRouteTablesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getRouteTables:getRouteTables", TypeShape.of(GetRouteTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupResult> getSecurityGroup(GetSecurityGroupArgs args) {
+        return getSecurityGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static CompletableFuture<GetSecurityGroupResult> getSecurityGroupPlain(GetSecurityGroupPlainArgs args) {
+        return getSecurityGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupResult> getSecurityGroup(GetSecurityGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSecurityGroup:getSecurityGroup", TypeShape.of(GetSecurityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupResult> getSecurityGroup(GetSecurityGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSecurityGroup:getSecurityGroup", TypeShape.of(GetSecurityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static CompletableFuture<GetSecurityGroupResult> getSecurityGroupPlain(GetSecurityGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getSecurityGroup:getSecurityGroup", TypeShape.of(GetSecurityGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupsResult> getSecurityGroups() {
+        return getSecurityGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static CompletableFuture<GetSecurityGroupsResult> getSecurityGroupsPlain() {
+        return getSecurityGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupsResult> getSecurityGroups(InvokeArgs args) {
+        return getSecurityGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static CompletableFuture<GetSecurityGroupsResult> getSecurityGroupsPlain(InvokeArgs args) {
+        return getSecurityGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupsResult> getSecurityGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSecurityGroups:getSecurityGroups", TypeShape.of(GetSecurityGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static Output<GetSecurityGroupsResult> getSecurityGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSecurityGroups:getSecurityGroups", TypeShape.of(GetSecurityGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::SecurityGroup
+     * 
+     */
+    public static CompletableFuture<GetSecurityGroupsResult> getSecurityGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getSecurityGroups:getSecurityGroups", TypeShape.of(GetSecurityGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args) {
+        return getSubnet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args) {
+        return getSubnetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSubnet:getSubnet", TypeShape.of(GetSubnetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSubnet:getSubnet", TypeShape.of(GetSubnetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getSubnet:getSubnet", TypeShape.of(GetSubnetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetsResult> getSubnets() {
+        return getSubnets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static CompletableFuture<GetSubnetsResult> getSubnetsPlain() {
+        return getSubnetsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetsResult> getSubnets(InvokeArgs args) {
+        return getSubnets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(InvokeArgs args) {
+        return getSubnetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetsResult> getSubnets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static Output<GetSubnetsResult> getSubnets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Subnet
+     * 
+     */
+    public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VPC::VPC
      * 

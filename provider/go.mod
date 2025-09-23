@@ -11,8 +11,6 @@ require (
 
 replace github.com/volcengine/terraform-provider-volcenginecc/shim => ./shim
 
-replace github.com/volcengine/terraform-provider-volcenginecc => /Users/bytedance/workspace/terraform-provider-volcenginecc
-
 require (
 	cloud.google.com/go v0.112.1 // indirect
 	cloud.google.com/go/compute/metadata v0.6.0 // indirect
@@ -86,6 +84,7 @@ require (
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.15.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.2.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-timetypes v0.5.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.18.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.27.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
@@ -162,7 +161,7 @@ require (
 	github.com/ulikunitz/xz v0.5.11 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
-	github.com/volcengine/terraform-provider-volcenginecc v0.0.4 // indirect
+	github.com/volcengine/terraform-provider-volcenginecc v0.0.7 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.23 // indirect
 	github.com/volcengine/volcengine-go-sdk v1.1.18 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
