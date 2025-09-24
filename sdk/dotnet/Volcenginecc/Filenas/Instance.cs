@@ -19,7 +19,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Filenas
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Volcenginecc = Pulumi.Volcenginecc;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
