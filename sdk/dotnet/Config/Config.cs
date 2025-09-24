@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Volcenginecc
+namespace Volcengine.Pulumi.Volcenginecc
 {
     public static class Config
     {
@@ -43,11 +43,11 @@ namespace Pulumi.Volcenginecc
             set => _accessKey.Set(value);
         }
 
-        private static readonly __Value<Pulumi.Volcenginecc.Config.Types.AssumeRole?> _assumeRole = new __Value<Pulumi.Volcenginecc.Config.Types.AssumeRole?>(() => __config.GetObject<Pulumi.Volcenginecc.Config.Types.AssumeRole>("assumeRole"));
+        private static readonly __Value<Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole?> _assumeRole = new __Value<Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole?>(() => __config.GetObject<Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole>("assumeRole"));
         /// <summary>
         /// An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration.
         /// </summary>
-        public static Pulumi.Volcenginecc.Config.Types.AssumeRole? AssumeRole
+        public static Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole? AssumeRole
         {
             get => _assumeRole.Get();
             set => _assumeRole.Set(value);
@@ -74,11 +74,11 @@ namespace Pulumi.Volcenginecc
             set => _disableSsl.Set(value);
         }
 
-        private static readonly __Value<Pulumi.Volcenginecc.Config.Types.Endpoints?> _endpoints = new __Value<Pulumi.Volcenginecc.Config.Types.Endpoints?>(() => __config.GetObject<Pulumi.Volcenginecc.Config.Types.Endpoints>("endpoints"));
+        private static readonly __Value<Volcengine.Pulumi.Volcenginecc.Config.Types.Endpoints?> _endpoints = new __Value<Volcengine.Pulumi.Volcenginecc.Config.Types.Endpoints?>(() => __config.GetObject<Volcengine.Pulumi.Volcenginecc.Config.Types.Endpoints>("endpoints"));
         /// <summary>
         /// An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.
         /// </summary>
-        public static Pulumi.Volcenginecc.Config.Types.Endpoints? Endpoints
+        public static Volcengine.Pulumi.Volcenginecc.Config.Types.Endpoints? Endpoints
         {
             get => _endpoints.Get();
             set => _endpoints.Set(value);

@@ -21,7 +21,8 @@
             "packageReferences": {
                 "Pulumi": "3.*"
             },
-            "compatibility": "tfbridge20"
+            "compatibility": "tfbridge20",
+            "rootNamespace": "Volcengine.Pulumi"
         },
         "go": {
             "importBasePath": "github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc",

@@ -141,6 +141,7 @@ func Provider() tfbridge.ProviderInfo {
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
+			RootNamespace: "Volcengine.Pulumi",
 		},
 		Python: &tfbridge.PythonInfo{
 			PackageName: "pulumi_volcenginecc",
