@@ -17,13 +17,14 @@ The Volcenginecc provider is available as a package in all Pulumi languages:
 
 ## Overview
 
-## Overview
+The Volcengine Cloud Control Provider enables interaction with various Volcengine-supported resources through the Cloud Control API. Prior to usage, you must configure the provider with appropriate credentials.
 
-The Volcenginecc provider is used to interact with the
-many resources supported by [Volcengine](https://www.volcengine.com). The provider needs to be configured
-with the proper credentials before it can be used.
+## volcengine && volcenginecc 
+Both volcenginecc and volcengine are Infrastructure-as-Code providers for Volcengine.
+* The volcengine provider was the first-generation IaC provider offered by Volcengine.
+* The volcenginecc provider is automatically generated based on Volcengine’s Cloud Control API. It will be the long-term supported version going forward.
+Compared to the original provider, volcenginecc offers a more standardized resource definition model and will serve as the primary provider for future enhancements and feature evolution.
 
-Use the navigation on the left to read about the available resources.
 ## Example Usage
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
