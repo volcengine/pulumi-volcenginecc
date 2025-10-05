@@ -55,7 +55,6 @@ import * as ve from "@volcengine/pulumi-volcenginecc"
 import {ProviderEndpoints} from "../pulumi-volcenginecc/sdk/nodejs/types/input";
 
 
-// 初始化 AWS Provider
 // ⚠️ 敏感信息请勿在代码中明文指定，本示例仅为演示用途。
 //   建议通过环境变量、安全配置文件或密钥管理服务进行管理。
 const provider = new ve.Provider("volcengine-provider", {
