@@ -55,9 +55,10 @@ import * as ve from "@volcengine/pulumi-volcenginecc"
 import {ProviderEndpoints} from "../pulumi-volcenginecc/sdk/nodejs/types/input";
 
 
-// 初始化 AWS Provider
-// ⚠️ 敏感信息请勿在代码中明文指定，本示例仅为演示用途。
-//   建议通过环境变量、安全配置文件或密钥管理服务进行管理。
+// ⚠️ Sensitive information should not be hardcoded in the source code.
+//   This example is for demonstration purposes only.
+//   It’s recommended to manage such data using environment variables,
+//   secure configuration files, or a secret management service.
 const provider = new ve.Provider("volcengine-provider", {
     region: "cn-beijing",   // REGION
     accessKey: "",   // ACCESSKEY
@@ -67,20 +68,19 @@ const provider = new ve.Provider("volcengine-provider", {
     },
 });
 
-// 初始化一个 IAM User
 const user = new ve.iam.User("pulumi-node-user", {
-    userName: "pulumi-nodejs-user-1",           // 必填
-    description: "pulumi user description update",     // 可选
-    displayName: "pulumi-nodejs-display",       // 可选
-    groups: ["ccapi-test"],                     // 可选
-    policies: [                                 // 可选：绑定策略
+    userName: "pulumi-nodejs-user-1",           // Required
+    description: "pulumi user description update",     // Optional
+    displayName: "pulumi-nodejs-display",       // Optional
+    groups: ["ccapi-test"],                     // Optional
+    policies: [                                 // Optional
         { policyName: "ReadOnlyAccess", policyType: "System" },
         { policyName: "TOSReadOnlyAccess", policyType: "System" },
         { policyName: "VPCFullAccess", policyType: "System" },
         { policyName: "IAMFullAccess", policyType: "System" },
 
     ],
-    tags: [                                     // 可选：打标签
+    tags: [                                     // Optional
         { key: "env", value: "dev" },
         { key: "team", value: "backend" },
     ],
@@ -107,8 +107,10 @@ config:
 
 import pulumi
 import pulumi_volcenginecc as ve
-# ⚠️ 敏感信息请勿在代码中明文指定，本示例仅为演示用途。
-# 建议通过环境变量、安全配置文件或密钥管理服务进行管理。
+# ⚠️ Sensitive information should not be hardcoded in the source code.
+#   This example is for demonstration purposes only.
+#   It’s recommended to manage such data using environment variables,
+#   secure configuration files, or a secret management service.
 provider = ve.Provider("volcengine",
                        access_key="",
                        secret_key="",
@@ -116,7 +118,6 @@ provider = ve.Provider("volcengine",
                        endpoints={
                            "cloudcontrol": "cloudcontrol.cn-beijing.volcengineapi.com"
                        })
-# 构造一个 UserArgs
 args = ve.iam.UserArgs(
     user_name="pulumi-python-user-1",
     description="pulumi user description update",
@@ -154,8 +155,10 @@ using Pulumi.Volcenginecc.Inputs;
 
 return await Deployment.RunAsync(() => 
 {
-    // ⚠️ 敏感信息请勿在代码中明文指定，本示例仅为演示用途。
-    // 建议通过环境变量、安全配置文件或密钥管理服务进行管理。
+    // ⚠️ Sensitive information should not be hardcoded in the source code.
+    //   This example is for demonstration purposes only.
+    //   It’s recommended to manage such data using environment variables,
+    //   secure configuration files, or a secret management service.
     var provider = new Provider("volcengine", new ProviderArgs
     {
         AccessKey = "",
@@ -222,8 +225,10 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-		// ⚠️ 敏感信息请勿在代码中明文指定，本示例仅为演示用途。
-		// 建议通过环境变量、安全配置文件或密钥管理服务进行管理。
+		// ⚠️ Sensitive information should not be hardcoded in the source code.
+		//   This example is for demonstration purposes only.
+		//   It’s recommended to manage such data using environment variables,
+		//   secure configuration files, or a secret management service.
 		prov, err := myprovider.NewProvider(ctx, "pulumi", &myprovider.ProviderArgs{
 			AccessKey: pulumi.String(""),
 			SecretKey: pulumi.String("=="),
@@ -236,7 +241,7 @@ func main() {
 			return err
 		}
 
-		// 使用资源
+		
 		user, err := iam.NewUser(ctx, "pulumi-test-user", &iam.UserArgs{
 			UserName:    pulumi.String("pulumi-user-2"),
 			DisplayName: pulumi.StringPtr("pulumi-user-display"),
@@ -321,8 +326,10 @@ import com.volcengine.volcenginecc.inputs.ProviderEndpointsArgs;
 public class App {
     public static void main(String[] args) {
         Pulumi.run(ctx -> {
-            // ⚠️ 敏感信息请勿在代码中明文指定，本示例仅为演示用途。
-            // 建议通过环境变量、安全配置文件或密钥管理服务进行管理。
+            // ⚠️ Sensitive information should not be hardcoded in the source code.
+            //   This example is for demonstration purposes only.
+            //   It’s recommended to manage such data using environment variables,
+            //   secure configuration files, or a secret management service.
             Provider volcenginecc = new Provider("volcenginecc", ProviderArgs.builder()
                     .accessKey("")
                     .secretKey("")
