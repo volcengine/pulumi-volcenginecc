@@ -402,7 +402,7 @@ runtime:
 ```shell
 $ export VOLCENGINE_ACCESS_KEY="<Your-Access-Key-ID>"
 $ export VOLCENGINE_SECRET_KEY="<Your-Access-Key-Secret>"
-$ export ALIBABA_CLOUD_REGION="cn-beijing"
+$ export VOLCENGINE_REGION="cn-beijing"
 $ pulumi preview
 ```
 
