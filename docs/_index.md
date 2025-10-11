@@ -369,7 +369,7 @@ The following methods are supported, in this order, and explained below:
 ### Static credentials
 
 Static credentials can be provided by adding `accessKey`, `secretKey` and `region` in-line in the
-alicloud provider configuration:
+volcengine provider configuration:
 
 Usage:
 
