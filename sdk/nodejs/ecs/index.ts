@@ -40,6 +40,16 @@ export const getImages: typeof import("./getImages").getImages = null as any;
 export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
 utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
 
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+
+export { GetInstancesResult } from "./getInstances";
+export const getInstances: typeof import("./getInstances").getInstances = null as any;
+export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
+
 export { GetInvocationArgs, GetInvocationResult, GetInvocationOutputArgs } from "./getInvocation";
 export const getInvocation: typeof import("./getInvocation").getInvocation = null as any;
 export const getInvocationOutput: typeof import("./getInvocation").getInvocationOutput = null as any;
@@ -70,6 +80,11 @@ export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
 utilities.lazyLoad(exports, ["Image"], () => require("./image"));
 
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
 export { InvocationArgs, InvocationState } from "./invocation";
 export type Invocation = import("./invocation").Invocation;
 export const Invocation: typeof import("./invocation").Invocation = null as any;
@@ -91,6 +106,8 @@ const _module = {
                 return new HpcCluster(name, <any>undefined, { urn })
             case "volcenginecc:ecs/image:Image":
                 return new Image(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/instance:Instance":
+                return new Instance(name, <any>undefined, { urn })
             case "volcenginecc:ecs/invocation:Invocation":
                 return new Invocation(name, <any>undefined, { urn })
             case "volcenginecc:ecs/keypair:Keypair":
@@ -103,5 +120,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/command", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/hpcCluster", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/image", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/instance", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/invocation", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/keypair", _module)

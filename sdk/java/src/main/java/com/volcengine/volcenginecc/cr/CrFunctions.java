@@ -10,13 +10,189 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cr.inputs.GetNameSpaceArgs;
+import com.volcengine.volcenginecc.cr.inputs.GetNameSpacePlainArgs;
+import com.volcengine.volcenginecc.cr.inputs.GetRegistryArgs;
+import com.volcengine.volcenginecc.cr.inputs.GetRegistryPlainArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRepositoryArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRepositoryPlainArgs;
+import com.volcengine.volcenginecc.cr.outputs.GetNameSpaceResult;
+import com.volcengine.volcenginecc.cr.outputs.GetNameSpacesResult;
+import com.volcengine.volcenginecc.cr.outputs.GetRegistriesResult;
+import com.volcengine.volcenginecc.cr.outputs.GetRegistryResult;
 import com.volcengine.volcenginecc.cr.outputs.GetRepositoriesResult;
 import com.volcengine.volcenginecc.cr.outputs.GetRepositoryResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CrFunctions {
+    /**
+     * Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpaceResult> getNameSpace(GetNameSpaceArgs args) {
+        return getNameSpace(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static CompletableFuture<GetNameSpaceResult> getNameSpacePlain(GetNameSpacePlainArgs args) {
+        return getNameSpacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpaceResult> getNameSpace(GetNameSpaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getNameSpace:getNameSpace", TypeShape.of(GetNameSpaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpaceResult> getNameSpace(GetNameSpaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getNameSpace:getNameSpace", TypeShape.of(GetNameSpaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static CompletableFuture<GetNameSpaceResult> getNameSpacePlain(GetNameSpacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getNameSpace:getNameSpace", TypeShape.of(GetNameSpaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpacesResult> getNameSpaces() {
+        return getNameSpaces(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static CompletableFuture<GetNameSpacesResult> getNameSpacesPlain() {
+        return getNameSpacesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpacesResult> getNameSpaces(InvokeArgs args) {
+        return getNameSpaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static CompletableFuture<GetNameSpacesResult> getNameSpacesPlain(InvokeArgs args) {
+        return getNameSpacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpacesResult> getNameSpaces(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getNameSpaces:getNameSpaces", TypeShape.of(GetNameSpacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static Output<GetNameSpacesResult> getNameSpaces(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getNameSpaces:getNameSpaces", TypeShape.of(GetNameSpacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::NameSpace
+     * 
+     */
+    public static CompletableFuture<GetNameSpacesResult> getNameSpacesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getNameSpaces:getNameSpaces", TypeShape.of(GetNameSpacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistriesResult> getRegistries() {
+        return getRegistries(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static CompletableFuture<GetRegistriesResult> getRegistriesPlain() {
+        return getRegistriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistriesResult> getRegistries(InvokeArgs args) {
+        return getRegistries(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static CompletableFuture<GetRegistriesResult> getRegistriesPlain(InvokeArgs args) {
+        return getRegistriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistriesResult> getRegistries(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getRegistries:getRegistries", TypeShape.of(GetRegistriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistriesResult> getRegistries(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getRegistries:getRegistries", TypeShape.of(GetRegistriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static CompletableFuture<GetRegistriesResult> getRegistriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getRegistries:getRegistries", TypeShape.of(GetRegistriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args) {
+        return getRegistry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args) {
+        return getRegistryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::Registry
+     * 
+     */
+    public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Plural Data Source schema for Volcengine::CR::Repository
      * 

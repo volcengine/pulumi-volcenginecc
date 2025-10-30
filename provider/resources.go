@@ -45,7 +45,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:           pf.ShimProvider(shim.NewProvider()),
 		Name:        "volcenginecc",
-		Description: "A Pulumi package to safely use randomness in Pulumi programs.",
+		Description: "A Pulumi package to safely use volcengine resource in Pulumi programs.",
 		Keywords:    []string{"volcengine", "volcenginecc", "category/cloud"},
 		License:     "MPL-2.0",
 		Homepage:    "https://github.com/volcengine/pulumi-volcenginecc",
@@ -169,6 +169,11 @@ func Provider() tfbridge.ProviderInfo {
 		return tokens.MakeStandard(volcengeccpkg)(module, name)
 	}
 	prov.MustComputeTokens(token.VolcengineToken("volcenginecc_", makeToken))
+	for k := range prov.Resources {
+		if k == "volcenginecc_waf_domain" {
+			delete(prov.Resources, k)
+		}
+	}
 	prov.MustApplyAutoAliases()
 
 	return prov

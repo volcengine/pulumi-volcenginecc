@@ -7,10 +7,12 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.storageebs.outputs.GetVolumeBaselinePerformance;
 import com.volcengine.volcenginecc.storageebs.outputs.GetVolumeExtraPerformance;
+import com.volcengine.volcenginecc.storageebs.outputs.GetVolumeTag;
 import com.volcengine.volcenginecc.storageebs.outputs.GetVolumeTotalPerformance;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -130,6 +132,11 @@ public final class GetVolumeResult {
      * 
      */
     private String status;
+    /**
+     * @return 云盘的标签信息
+     * 
+     */
+    private List<GetVolumeTag> tags;
     /**
      * @return 总性能。
      * 
@@ -329,6 +336,13 @@ public final class GetVolumeResult {
         return this.status;
     }
     /**
+     * @return 云盘的标签信息
+     * 
+     */
+    public List<GetVolumeTag> tags() {
+        return this.tags;
+    }
+    /**
      * @return 总性能。
      * 
      */
@@ -410,6 +424,7 @@ public final class GetVolumeResult {
         private Double snapshotCount;
         private String sourceSnapshotId;
         private String status;
+        private List<GetVolumeTag> tags;
         private GetVolumeTotalPerformance totalPerformance;
         private Double tradeStatus;
         private String updatedAt;
@@ -443,6 +458,7 @@ public final class GetVolumeResult {
     	      this.snapshotCount = defaults.snapshotCount;
     	      this.sourceSnapshotId = defaults.sourceSnapshotId;
     	      this.status = defaults.status;
+    	      this.tags = defaults.tags;
     	      this.totalPerformance = defaults.totalPerformance;
     	      this.tradeStatus = defaults.tradeStatus;
     	      this.updatedAt = defaults.updatedAt;
@@ -637,6 +653,17 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(List<GetVolumeTag> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(GetVolumeTag... tags) {
+            return tags(List.of(tags));
+        }
+        @CustomType.Setter
         public Builder totalPerformance(GetVolumeTotalPerformance totalPerformance) {
             if (totalPerformance == null) {
               throw new MissingRequiredPropertyException("GetVolumeResult", "totalPerformance");
@@ -717,6 +744,7 @@ public final class GetVolumeResult {
             _resultValue.snapshotCount = snapshotCount;
             _resultValue.sourceSnapshotId = sourceSnapshotId;
             _resultValue.status = status;
+            _resultValue.tags = tags;
             _resultValue.totalPerformance = totalPerformance;
             _resultValue.tradeStatus = tradeStatus;
             _resultValue.updatedAt = updatedAt;

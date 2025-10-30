@@ -94,7 +94,8 @@ type Volume struct {
 	// 源快照。
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// 云盘状态
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringOutput  `pulumi:"status"`
+	Tags   VolumeTagArrayOutput `pulumi:"tags"`
 	// 总性能。
 	TotalPerformance VolumeTotalPerformanceOutput `pulumi:"totalPerformance"`
 	// 交易状态 0：创建中 1：运行中 2：创建失败
@@ -196,7 +197,8 @@ type volumeState struct {
 	// 源快照。
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
 	// 云盘状态
-	Status *string `pulumi:"status"`
+	Status *string     `pulumi:"status"`
+	Tags   []VolumeTag `pulumi:"tags"`
 	// 总性能。
 	TotalPerformance *VolumeTotalPerformance `pulumi:"totalPerformance"`
 	// 交易状态 0：创建中 1：运行中 2：创建失败
@@ -258,6 +260,7 @@ type VolumeState struct {
 	SourceSnapshotId pulumi.StringPtrInput
 	// 云盘状态
 	Status pulumi.StringPtrInput
+	Tags   VolumeTagArrayInput
 	// 总性能。
 	TotalPerformance VolumeTotalPerformancePtrInput
 	// 交易状态 0：创建中 1：运行中 2：创建失败
@@ -298,7 +301,8 @@ type volumeArgs struct {
 	// Size，数据盘容量大小，单位为GiB。不同类型的数据盘容量范围如下：ESSD*PL0：10~65536 GiB；ESSD*FlexPL：10~65536 GiB；TSSD_TL0：40~65536 GiB
 	Size float64 `pulumi:"size"`
 	// 源快照。
-	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
+	SourceSnapshotId *string     `pulumi:"sourceSnapshotId"`
+	Tags             []VolumeTag `pulumi:"tags"`
 	// 云盘显示名称。命名规则如下：首字符仅支持中文、字母或下划线（*）。可包含中文、字母、数字、下划线（*）或中划线（-）。长度限制在1~128字符之间。
 	VolumeName string `pulumi:"volumeName"`
 	// 云盘类型，取值说明如下：ESSD*PL0：极速型SSD云盘，PL0规格。ESSD*FlexPL: 极速型SSD云盘，FlexPL规格。TSSD_TL0: 吞吐型SSD云盘。
@@ -329,6 +333,7 @@ type VolumeArgs struct {
 	Size pulumi.Float64Input
 	// 源快照。
 	SourceSnapshotId pulumi.StringPtrInput
+	Tags             VolumeTagArrayInput
 	// 云盘显示名称。命名规则如下：首字符仅支持中文、字母或下划线（*）。可包含中文、字母、数字、下划线（*）或中划线（-）。长度限制在1~128字符之间。
 	VolumeName pulumi.StringInput
 	// 云盘类型，取值说明如下：ESSD*PL0：极速型SSD云盘，PL0规格。ESSD*FlexPL: 极速型SSD云盘，FlexPL规格。TSSD_TL0: 吞吐型SSD云盘。
@@ -532,6 +537,10 @@ func (o VolumeOutput) SourceSnapshotId() pulumi.StringOutput {
 // 云盘状态
 func (o VolumeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o VolumeOutput) Tags() VolumeTagArrayOutput {
+	return o.ApplyT(func(v *Volume) VolumeTagArrayOutput { return v.Tags }).(VolumeTagArrayOutput)
 }
 
 // 总性能。

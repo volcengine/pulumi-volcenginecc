@@ -25,6 +25,16 @@ __all__ = [
     'EniPrivateIpSet',
     'EniPrivateIpSetAssociatedElasticIp',
     'EniTag',
+    'NetworkAclDefaultEgressAclEntry',
+    'NetworkAclDefaultIngressAclEntry',
+    'NetworkAclEgressAclEntry',
+    'NetworkAclIngressAclEntry',
+    'NetworkAclResource',
+    'NetworkAclTag',
+    'PrefixListAssociationsRouteTable',
+    'PrefixListAssociationsSecurityGroup',
+    'PrefixListPrefixListEntry',
+    'PrefixListTag',
     'RouteTableCustomRouteEntry',
     'RouteTableSystemRouteEntry',
     'RouteTableTag',
@@ -43,6 +53,16 @@ __all__ = [
     'GetEniPrivateIpSetResult',
     'GetEniPrivateIpSetAssociatedElasticIpResult',
     'GetEniTagResult',
+    'GetNetworkAclDefaultEgressAclEntryResult',
+    'GetNetworkAclDefaultIngressAclEntryResult',
+    'GetNetworkAclEgressAclEntryResult',
+    'GetNetworkAclIngressAclEntryResult',
+    'GetNetworkAclResourceResult',
+    'GetNetworkAclTagResult',
+    'GetPrefixListAssociationsRouteTableResult',
+    'GetPrefixListAssociationsSecurityGroupResult',
+    'GetPrefixListPrefixListEntryResult',
+    'GetPrefixListTagResult',
     'GetRouteTableCustomRouteEntryResult',
     'GetRouteTableSystemRouteEntryResult',
     'GetRouteTableTagResult',
@@ -381,6 +401,679 @@ class EniPrivateIpSetAssociatedElasticIp(dict):
 
 @pulumi.output_type
 class EniTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 用户标签的标签键。
+        :param builtins.str value: 用户标签的标签值。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签值。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkAclDefaultEgressAclEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "networkAclEntryId":
+            suggest = "network_acl_entry_id"
+        elif key == "networkAclEntryName":
+            suggest = "network_acl_entry_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclDefaultEgressAclEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclDefaultEgressAclEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclDefaultEgressAclEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_ip: Optional[builtins.str] = None,
+                 description: Optional[builtins.str] = None,
+                 network_acl_entry_id: Optional[builtins.str] = None,
+                 network_acl_entry_name: Optional[builtins.str] = None,
+                 policy: Optional[builtins.str] = None,
+                 port: Optional[builtins.str] = None,
+                 priority: Optional[builtins.int] = None,
+                 protocol: Optional[builtins.str] = None):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_id: 规则的ID。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.int priority: 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if network_acl_entry_id is not None:
+            pulumi.set(__self__, "network_acl_entry_id", network_acl_entry_id)
+        if network_acl_entry_name is not None:
+            pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[builtins.str]:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryId")
+    def network_acl_entry_id(self) -> Optional[builtins.str]:
+        """
+        规则的ID。
+        """
+        return pulumi.get(self, "network_acl_entry_id")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> Optional[builtins.str]:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.str]:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[builtins.int]:
+        """
+        方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class NetworkAclDefaultIngressAclEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "networkAclEntryId":
+            suggest = "network_acl_entry_id"
+        elif key == "networkAclEntryName":
+            suggest = "network_acl_entry_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclDefaultIngressAclEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclDefaultIngressAclEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclDefaultIngressAclEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_ip: Optional[builtins.str] = None,
+                 description: Optional[builtins.str] = None,
+                 network_acl_entry_id: Optional[builtins.str] = None,
+                 network_acl_entry_name: Optional[builtins.str] = None,
+                 policy: Optional[builtins.str] = None,
+                 port: Optional[builtins.str] = None,
+                 priority: Optional[builtins.int] = None,
+                 protocol: Optional[builtins.str] = None):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_id: 规则的ID。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.int priority: 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if network_acl_entry_id is not None:
+            pulumi.set(__self__, "network_acl_entry_id", network_acl_entry_id)
+        if network_acl_entry_name is not None:
+            pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[builtins.str]:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryId")
+    def network_acl_entry_id(self) -> Optional[builtins.str]:
+        """
+        规则的ID。
+        """
+        return pulumi.get(self, "network_acl_entry_id")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> Optional[builtins.str]:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.str]:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[builtins.int]:
+        """
+        方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class NetworkAclEgressAclEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "networkAclEntryName":
+            suggest = "network_acl_entry_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclEgressAclEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclEgressAclEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclEgressAclEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_ip: Optional[builtins.str] = None,
+                 description: Optional[builtins.str] = None,
+                 network_acl_entry_name: Optional[builtins.str] = None,
+                 policy: Optional[builtins.str] = None,
+                 port: Optional[builtins.str] = None,
+                 protocol: Optional[builtins.str] = None):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if network_acl_entry_name is not None:
+            pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[builtins.str]:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> Optional[builtins.str]:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.str]:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class NetworkAclIngressAclEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "networkAclEntryName":
+            suggest = "network_acl_entry_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclIngressAclEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclIngressAclEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclIngressAclEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_ip: Optional[builtins.str] = None,
+                 description: Optional[builtins.str] = None,
+                 network_acl_entry_name: Optional[builtins.str] = None,
+                 policy: Optional[builtins.str] = None,
+                 port: Optional[builtins.str] = None,
+                 protocol: Optional[builtins.str] = None):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if network_acl_entry_name is not None:
+            pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[builtins.str]:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> Optional[builtins.str]:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.str]:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class NetworkAclResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str resource_id: 关联资源的ID。
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[builtins.str]:
+        """
+        关联资源的ID。
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class NetworkAclTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 用户标签的标签键。
+        :param builtins.str value: 用户标签的标签值。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签值。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PrefixListAssociationsRouteTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrefixListAssociationsRouteTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrefixListAssociationsRouteTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrefixListAssociationsRouteTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[builtins.str] = None,
+                 resource_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str resource_id: 关联资源的ID。
+        :param builtins.str resource_type: 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[builtins.str]:
+        """
+        关联资源的ID。
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[builtins.str]:
+        """
+        关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class PrefixListAssociationsSecurityGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrefixListAssociationsSecurityGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrefixListAssociationsSecurityGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrefixListAssociationsSecurityGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[builtins.str] = None,
+                 resource_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str resource_id: 关联资源的ID。
+        :param builtins.str resource_type: 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[builtins.str]:
+        """
+        关联资源的ID。
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[builtins.str]:
+        """
+        关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class PrefixListPrefixListEntry(dict):
+    def __init__(__self__, *,
+                 cidr: Optional[builtins.str] = None,
+                 description: Optional[builtins.str] = None):
+        """
+        :param builtins.str cidr: 前缀列表条目的CIDR。
+        :param builtins.str description: 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[builtins.str]:
+        """
+        前缀列表条目的CIDR。
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class PrefixListTag(dict):
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
@@ -1517,6 +2210,560 @@ class GetEniPrivateIpSetAssociatedElasticIpResult(dict):
 
 @pulumi.output_type
 class GetEniTagResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: 用户标签的标签键。
+        :param builtins.str value: 用户标签的标签值。
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        用户标签的标签键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        用户标签的标签值。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetNetworkAclDefaultEgressAclEntryResult(dict):
+    def __init__(__self__, *,
+                 cidr_ip: builtins.str,
+                 description: builtins.str,
+                 network_acl_entry_id: builtins.str,
+                 network_acl_entry_name: builtins.str,
+                 policy: builtins.str,
+                 port: builtins.str,
+                 priority: builtins.int,
+                 protocol: builtins.str):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_id: 规则的ID。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.int priority: 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        pulumi.set(__self__, "cidr_ip", cidr_ip)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "network_acl_entry_id", network_acl_entry_id)
+        pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> builtins.str:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryId")
+    def network_acl_entry_id(self) -> builtins.str:
+        """
+        规则的ID。
+        """
+        return pulumi.get(self, "network_acl_entry_id")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> builtins.str:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> builtins.str:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.str:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> builtins.int:
+        """
+        方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> builtins.str:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetNetworkAclDefaultIngressAclEntryResult(dict):
+    def __init__(__self__, *,
+                 cidr_ip: builtins.str,
+                 description: builtins.str,
+                 network_acl_entry_id: builtins.str,
+                 network_acl_entry_name: builtins.str,
+                 policy: builtins.str,
+                 port: builtins.str,
+                 priority: builtins.int,
+                 protocol: builtins.str):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_id: 规则的ID。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.int priority: 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        pulumi.set(__self__, "cidr_ip", cidr_ip)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "network_acl_entry_id", network_acl_entry_id)
+        pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> builtins.str:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryId")
+    def network_acl_entry_id(self) -> builtins.str:
+        """
+        规则的ID。
+        """
+        return pulumi.get(self, "network_acl_entry_id")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> builtins.str:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> builtins.str:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.str:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> builtins.int:
+        """
+        方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> builtins.str:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetNetworkAclEgressAclEntryResult(dict):
+    def __init__(__self__, *,
+                 cidr_ip: builtins.str,
+                 description: builtins.str,
+                 network_acl_entry_id: builtins.str,
+                 network_acl_entry_name: builtins.str,
+                 policy: builtins.str,
+                 port: builtins.str,
+                 priority: builtins.int,
+                 protocol: builtins.str):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_id: 规则的ID。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.int priority: 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        pulumi.set(__self__, "cidr_ip", cidr_ip)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "network_acl_entry_id", network_acl_entry_id)
+        pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> builtins.str:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryId")
+    def network_acl_entry_id(self) -> builtins.str:
+        """
+        规则的ID。
+        """
+        return pulumi.get(self, "network_acl_entry_id")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> builtins.str:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> builtins.str:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.str:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> builtins.int:
+        """
+        方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> builtins.str:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetNetworkAclIngressAclEntryResult(dict):
+    def __init__(__self__, *,
+                 cidr_ip: builtins.str,
+                 description: builtins.str,
+                 network_acl_entry_id: builtins.str,
+                 network_acl_entry_name: builtins.str,
+                 policy: builtins.str,
+                 port: builtins.str,
+                 priority: builtins.int,
+                 protocol: builtins.str):
+        """
+        :param builtins.str cidr_ip: 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        :param builtins.str description: 规则的描述信息。
+        :param builtins.str network_acl_entry_id: 规则的ID。
+        :param builtins.str network_acl_entry_name: 规则的名称。
+        :param builtins.str policy: 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        :param builtins.str port: 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        :param builtins.int priority: 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        :param builtins.str protocol: 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        pulumi.set(__self__, "cidr_ip", cidr_ip)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "network_acl_entry_id", network_acl_entry_id)
+        pulumi.set(__self__, "network_acl_entry_name", network_acl_entry_name)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> builtins.str:
+        """
+        入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+        """
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        规则的描述信息。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="networkAclEntryId")
+    def network_acl_entry_id(self) -> builtins.str:
+        """
+        规则的ID。
+        """
+        return pulumi.get(self, "network_acl_entry_id")
+
+    @property
+    @pulumi.getter(name="networkAclEntryName")
+    def network_acl_entry_name(self) -> builtins.str:
+        """
+        规则的名称。
+        """
+        return pulumi.get(self, "network_acl_entry_name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> builtins.str:
+        """
+        授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.str:
+        """
+        规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> builtins.int:
+        """
+        方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> builtins.str:
+        """
+        协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetNetworkAclResourceResult(dict):
+    def __init__(__self__, *,
+                 resource_id: builtins.str,
+                 status: builtins.str):
+        """
+        :param builtins.str resource_id: 关联资源的ID。
+        :param builtins.str status: 网络ACL关联资源的状态。BINDED：已绑定。BINDING：绑定中。UNBINDING：解绑中。
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> builtins.str:
+        """
+        关联资源的ID。
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        网络ACL关联资源的状态。BINDED：已绑定。BINDING：绑定中。UNBINDING：解绑中。
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetNetworkAclTagResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: 用户标签的标签键。
+        :param builtins.str value: 用户标签的标签值。
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        用户标签的标签键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        用户标签的标签值。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetPrefixListAssociationsRouteTableResult(dict):
+    def __init__(__self__, *,
+                 resource_id: builtins.str,
+                 resource_type: builtins.str):
+        """
+        :param builtins.str resource_id: 关联资源的ID。
+        :param builtins.str resource_type: 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> builtins.str:
+        """
+        关联资源的ID。
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> builtins.str:
+        """
+        关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class GetPrefixListAssociationsSecurityGroupResult(dict):
+    def __init__(__self__, *,
+                 resource_id: builtins.str,
+                 resource_type: builtins.str):
+        """
+        :param builtins.str resource_id: 关联资源的ID。
+        :param builtins.str resource_type: 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> builtins.str:
+        """
+        关联资源的ID。
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> builtins.str:
+        """
+        关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class GetPrefixListPrefixListEntryResult(dict):
+    def __init__(__self__, *,
+                 cidr: builtins.str,
+                 description: builtins.str):
+        """
+        :param builtins.str cidr: 前缀列表条目的CIDR。
+        :param builtins.str description: 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+        """
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> builtins.str:
+        """
+        前缀列表条目的CIDR。
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class GetPrefixListTagResult(dict):
     def __init__(__self__, *,
                  key: builtins.str,
                  value: builtins.str):

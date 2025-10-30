@@ -31,9 +31,6 @@ require (
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aws/aws-sdk-go v1.50.36 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.36.3 // indirect
-	github.com/aws/aws-sdk-go-v2/config v1.29.13 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.34 // indirect
 	github.com/aws/smithy-go v1.22.3 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
@@ -161,7 +158,7 @@ require (
 	github.com/ulikunitz/xz v0.5.11 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
-	github.com/volcengine/terraform-provider-volcenginecc v0.0.7 // indirect
+	github.com/volcengine/terraform-provider-volcenginecc v0.0.11 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.23 // indirect
 	github.com/volcengine/volcengine-go-sdk v1.1.18 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect

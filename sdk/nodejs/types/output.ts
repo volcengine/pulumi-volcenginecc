@@ -6,14 +6,947 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export namespace alb {
+    export interface AclAclEntry {
+        /**
+         * IP条目的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
+         */
+        description: string;
+        /**
+         * IP条目的地址段，只支持CIDR地址。
+         */
+        entry: string;
+    }
+
+    export interface AclListener {
+        /**
+         * 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
+         */
+        aclType: string;
+        /**
+         * 监听器的ID
+         */
+        listenerId: string;
+        /**
+         * 监听器的名称
+         */
+        listenerName: string;
+        /**
+         * 监听器的端口
+         */
+        port: number;
+        /**
+         * 监听器的协议
+         */
+        protocol: string;
+    }
+
+    export interface AclTag {
+        /**
+         * 用户标签的标签键。长度限制为1～128个字符。大小写敏感。不能以volc:和sys:的任意大小写组合开头。不能以空格开头或结尾。允许包含各国语言文字、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。长度限制为0～256个字符。大小写敏感。不能以空格开头或结尾。允许包含各国语言文字、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。
+         */
+        value: string;
+    }
+
     export interface CertificateTag {
         key: string;
+        value: string;
+    }
+
+    export interface GetAclAclEntry {
+        /**
+         * IP条目的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
+         */
+        description: string;
+        /**
+         * IP条目的地址段，只支持CIDR地址。
+         */
+        entry: string;
+    }
+
+    export interface GetAclListener {
+        /**
+         * 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
+         */
+        aclType: string;
+        /**
+         * 监听器的ID
+         */
+        listenerId: string;
+        /**
+         * 监听器的名称
+         */
+        listenerName: string;
+        /**
+         * 监听器的端口
+         */
+        port: number;
+        /**
+         * 监听器的协议
+         */
+        protocol: string;
+    }
+
+    export interface GetAclTag {
+        /**
+         * 用户标签的标签键。长度限制为1～128个字符。大小写敏感。不能以volc:和sys:的任意大小写组合开头。不能以空格开头或结尾。允许包含各国语言文字、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。长度限制为0～256个字符。大小写敏感。不能以空格开头或结尾。允许包含各国语言文字、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。
+         */
         value: string;
     }
 
     export interface GetCertificateTag {
         key: string;
         value: string;
+    }
+
+    export interface GetListenerDomainExtension {
+        /**
+         * 域名使用的服务器证书 ID 。当证书来源为 certCenter 时生效。
+         */
+        certCenterCertificateId: string;
+        /**
+         * 域名使用的服务器证书 ID。当证书来源为 alb 时生效。
+         */
+        certificateId: string;
+        /**
+         * 域名使用的服务器证书的来源，取值：alb：表示通过 ALB 上传的证书。cert_center：表示通过火山引擎证书中心购买或上传的 SSL 证书。
+         */
+        certificateSource: string;
+        /**
+         * 域名。通常不能为空，若实例支持自动选择扩展证书，即SniAutoMatch为on，则Domain需传入空字符串。需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含小写字、字、‘.’、‘-‘、‘*’。长度限制为1 ～ 128个字符。泛域名：使用“*”代替1个或多个字符。“*”必须在域名开头或结尾。同一条域名中“*”不能出现两次。“*”前后不能有除了.以外的字符。精确域名：符合域名规范的精确域名。同一HTTPS监听器下的域名不能重复。匹配域名时，对域名的大小写不敏感。
+         */
+        domain: string;
+        /**
+         * 扩展域名 ID 。
+         */
+        domainExtensionId: string;
+        /**
+         * 扩展域名所属的监听器 ID。
+         */
+        listenerId: string;
+        /**
+         * HTTPS监听器关联的私有叶子证书 ID。创建 HTTPS 监听器且证书来源为 pcaLeaf 时必传。
+         */
+        pcaLeafCertificateId: string;
+        /**
+         * 若实例支持自动选择扩展证书，即SniAutoMatch为on时，则Domain是空字符串。San为证书的扩展域名，用英文,分隔多个域名。
+         */
+        san: string;
+    }
+
+    export interface GetListenerServerGroup {
+        /**
+         * 服务器组 ID 。
+         */
+        serverGroupId: string;
+        /**
+         * 服务器组名称。
+         */
+        serverGroupName: string;
+    }
+
+    export interface GetListenerTag {
+        /**
+         * 用户标签的标签键。具体规则如下：长度限制为1～128个字符。大小写敏感。不能以volc:的任意大小写组合开头。不能以空格开头或结尾。允许包含各国语言文字、数字、空格）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。具体规则如下：长度限制为0～256个字符。大小写敏感。不能以空格开头或结尾。允许包含各国语言文字、数字、空格（）、下划线（_）、点号（.）、半角冒（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。
+         */
+        value: string;
+    }
+
+    export interface GetLoadBalancerEipBillingConfig {
+        /**
+         * EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        billingType: number;
+        /**
+         * 公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+    }
+
+    export interface GetLoadBalancerGlobalAccelerator {
+        /**
+         * 绑定的全球加速实例的ID。
+         */
+        acceleratorId: string;
+        /**
+         * 绑定的全球加速监听器的ID。
+         */
+        acceleratorListenerId: string;
+        /**
+         * 绑定的终端节点组的ID。
+         */
+        endpointGroupId: string;
+        /**
+         * 后端服务器的权重，决定流量分发比例。
+         */
+        weight: number;
+    }
+
+    export interface GetLoadBalancerIpv6EipBillingConfig {
+        /**
+         * IPv6 EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        billingType: number;
+        /**
+         * IPv6公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+    }
+
+    export interface GetLoadBalancerTag {
+        /**
+         * 标签的键，用于标识标签的类别。
+         */
+        key: string;
+        /**
+         * 标签的值，用于标识具体的标签内容。
+         */
+        value: string;
+    }
+
+    export interface GetLoadBalancerZoneMapping {
+        /**
+         * 该可用区下负载均衡提供的IP地址列表。
+         */
+        loadBalancerAddresses: outputs.alb.GetLoadBalancerZoneMappingLoadBalancerAddress[];
+        /**
+         * 可用区内提供服务的子网ID。
+         */
+        subnetId: string;
+        /**
+         * 可用区的唯一标识符。
+         */
+        zoneId: string;
+    }
+
+    export interface GetLoadBalancerZoneMappingLoadBalancerAddress {
+        /**
+         * 弹性公网IP（EIP）的详细信息。
+         */
+        eip: outputs.alb.GetLoadBalancerZoneMappingLoadBalancerAddressEip;
+        /**
+         * 绑定的弹性公网IP（EIP）的地址。
+         */
+        eipAddress: string;
+        /**
+         * 绑定的弹性公网IP（EIP）的ID。
+         */
+        eipId: string;
+        /**
+         * 弹性网卡（ENI）上的私网IP地址。
+         */
+        eniAddress: string;
+        /**
+         * IP地址所属的弹性网卡（ENI）的ID。
+         */
+        eniId: string;
+        /**
+         * 弹性网卡（ENI）上的IPv6私网地址。
+         */
+        eniIpv6Address: string;
+        /**
+         * IPv6弹性公网IP的详细信息。
+         */
+        ipv6Eip: outputs.alb.GetLoadBalancerZoneMappingLoadBalancerAddressIpv6Eip;
+        /**
+         * 绑定的IPv6 EIP的ID。
+         */
+        ipv6EipId: string;
+    }
+
+    export interface GetLoadBalancerZoneMappingLoadBalancerAddressEip {
+        /**
+         * EIP的绑定模式，例如Default或Normal。
+         */
+        associationMode: string;
+        /**
+         * EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * 弹性公网IP（EIP）的地址。
+         */
+        eipAddress: string;
+        /**
+         * EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        eipBillingType: number;
+        /**
+         * EIP的类型，例如静态BGP。
+         */
+        eipType: string;
+        /**
+         * 公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+        /**
+         * EIP的接入点位置信息列表。
+         */
+        popLocations: outputs.alb.GetLoadBalancerZoneMappingLoadBalancerAddressEipPopLocation[];
+    }
+
+    export interface GetLoadBalancerZoneMappingLoadBalancerAddressEipPopLocation {
+        /**
+         * 接入点（PoP）的唯一ID。
+         */
+        popId: string;
+        /**
+         * 接入点（PoP）的名称。
+         */
+        popName: string;
+    }
+
+    export interface GetLoadBalancerZoneMappingLoadBalancerAddressIpv6Eip {
+        /**
+         * IPv6 EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        billingType: number;
+        /**
+         * IPv6公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+    }
+
+    export interface GetServerGroupHealthCheck {
+        /**
+         * 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。需至少包含一个‘.’，且不允许以‘.’开头或结尾。域名每一级由字母、数字、‘-’、‘.’字符组成，且‘-’不得出现在每一级的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示负载均衡使用各后端服务器的私网IP地址进行健康检查。
+         */
+        domain: string;
+        /**
+         * 监听器是否开启健康检查功能。取值：on：开启（默认值）。off：不开启。
+         */
+        enabled: string;
+        /**
+         * 健康检查的健康阈值。表示连续执行指定次数的健康检查，结果均为正常的后端服务器将判定为健康检查正常。单位：次，取值：2~10，默认值为 3。
+         */
+        healthyThreshold: number;
+        /**
+         * 健康检查正常的HTTP状态码，多个状态码间用半角逗号分隔。只有 HealthCheck.Protocol 为 HTTP 时才存在该参数。取值如下：http*2xx（默认值）。http*3xx（默认值）。http*4xx 。http*5xx 。
+         */
+        httpCode: string;
+        /**
+         * 健康检查HTTP协议版本，只有 HealthCheck.Protocol 为 HTTP 时才存在该参数。取值：HTTP1.0（使用API时，HTTP协议版本默认值）。HTTP1.1。
+         */
+        httpVersion: string;
+        /**
+         * 开启健康检查后，执行健康检查的时间间隔。 单位：秒，取值：1~300s，默认值为 2。
+         */
+        interval: number;
+        /**
+         * 开启健康检查后，健康检查的方法。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。取值如下：GET：服务器需支持GET方法。HEAD（默认）：服务器仅返回HEAD头部信息，可以降低后端性能消耗，但服务器需要支持HEAD方法。
+         */
+        method: string;
+        /**
+         * 健康检查端口。支持取值：0（默认值）：使用后端服务器端口进行健康检查。1-65535：使用您指定的端口进行健康检查。
+         */
+        port: number;
+        /**
+         * 健康检查协议，当前支持HTTP、TCP。默认值为 HTTP。
+         */
+        protocol: string;
+        /**
+         * 健康检查的响应超时时间。表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查异常。单位：秒，取值：1~60，默认值为 2。
+         */
+        timeout: number;
+        /**
+         * 健康检查的不健康阈值。表示连续执行指定次数的健康检查，结果均为异常的后端服务器将判定为健康检查异常。单位：次，取值：2~10，默认值为 3。
+         */
+        unhealthyThreshold: number;
+        /**
+         * 健康检查的路径，需配置为后端服务器上真实对外提供的路径。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。必须以字符‘/’开头。仅包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’ 字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+         */
+        uri: string;
+    }
+
+    export interface GetServerGroupListener {
+        /**
+         * 监听器的ID。
+         */
+        listenerId: string;
+    }
+
+    export interface GetServerGroupServer {
+        /**
+         * 后端服务器的描述。
+         */
+        description: string;
+        /**
+         * 云服务器实例或网卡的ID。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的私网IP地址。
+         */
+        ip: string;
+        /**
+         * 后端服务器接收请求的端口号。
+         */
+        port: number;
+        /**
+         * 是否开启远端IP功能。当后端服务器实例类型为IP地址，即 Type 取值为 ip 时，此字段有效。取值：on：开启。off（默认值）：不开启。
+         */
+        remoteEnabled: string;
+        /**
+         * 后端服务器ID。
+         */
+        serverId: string;
+        /**
+         * 后端服务器实例类型。ecs：云服务器实例。eni：辅助网卡。ip：IP地址（仅 Ip 类型服务器组有效）。
+         */
+        type: string;
+        /**
+         * 后端服务器的权重。
+         */
+        weight: number;
+    }
+
+    export interface GetServerGroupStickySessionConfig {
+        /**
+         * 服务配置的会话保持 Cookie 名称。仅在开启会话保持功能并选择重写 Cookie 时有效。 具体规则如下：Cookie 名称长度为1~200个字符。名称只能包含 ASCII 英文字母和数字字符，不能包含半角逗号（,）、半角分号（;）或空格，也不能以美元符号（$）开头。当 tickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionConfig.StickySessionType 为 server时，此参数必填。当 StickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionConfig.StickySessionType 为 insert 时，该参数无效。
+         */
+        cookie: string;
+        /**
+         * 会话保持 Cookie 超时时间。仅在开启会话保持功能并选择植入 Cookie 时有效。 单位：秒。具体规则如下：超时时间的取值范围：1～86400。 默认值为：1000。当 StickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionConfig.StickySessionType 为 insert 时，此参数必填。当 StickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionType 为 server 时，此参数无效。
+         */
+        cookieTimeout: number;
+        /**
+         * 是否开启会话保持功能。on：开启；off（默认值）：关闭。
+         */
+        stickySessionEnabled: string;
+        /**
+         * 对 Cookie 的处理方式。当 StickySessionConfig.StickySessionEnabled 值为 on 时，此字段参数必填。取值如下：insert：植入 Cookie；ALB 会记录客户端请求第一次转发到的后端服务器。ALB 在返回请求中植入 Cookie ，后续客户端请求携带此 Cookie，ALB 会将请求转发到之前记录的后端服务器上。server：重写 Cookie；开启重写 Cookie 的会话保持后，在客户端请求第一次转发到后端服务器后，ALB 在返回请求中发现您自定义的 Cookie 时，会对原来的 Cookie 进行重写。后续客户端请求携带改写后的 Cookie，ALB 会将请求转发到之前记录的后端服务器上。
+         */
+        stickySessionType: string;
+    }
+
+    export interface GetServerGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ListenerDomainExtension {
+        /**
+         * 域名使用的服务器证书 ID 。当证书来源为 certCenter 时生效。
+         */
+        certCenterCertificateId: string;
+        /**
+         * 域名使用的服务器证书 ID。当证书来源为 alb 时生效。
+         */
+        certificateId: string;
+        /**
+         * 域名使用的服务器证书的来源，取值：alb：表示通过 ALB 上传的证书。cert_center：表示通过火山引擎证书中心购买或上传的 SSL 证书。
+         */
+        certificateSource: string;
+        /**
+         * 域名。通常不能为空，若实例支持自动选择扩展证书，即SniAutoMatch为on，则Domain需传入空字符串。需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含小写字、字、‘.’、‘-‘、‘*’。长度限制为1 ～ 128个字符。泛域名：使用“*”代替1个或多个字符。“*”必须在域名开头或结尾。同一条域名中“*”不能出现两次。“*”前后不能有除了.以外的字符。精确域名：符合域名规范的精确域名。同一HTTPS监听器下的域名不能重复。匹配域名时，对域名的大小写不敏感。
+         */
+        domain: string;
+        /**
+         * HTTPS监听器关联的私有叶子证书 ID。创建 HTTPS 监听器且证书来源为 pcaLeaf 时必传。
+         */
+        pcaLeafCertificateId: string;
+        /**
+         * 若实例支持自动选择扩展证书，即SniAutoMatch为on时，则Domain是空字符串。San为证书的扩展域名，用英文,分隔多个域名。
+         */
+        san: string;
+    }
+
+    export interface ListenerServerGroup {
+        /**
+         * 服务器组 ID 。
+         */
+        serverGroupId: string;
+        /**
+         * 服务器组名称。
+         */
+        serverGroupName: string;
+    }
+
+    export interface ListenerTag {
+        /**
+         * 用户标签的标签键。具体规则如下：长度限制为1～128个字符。大小写敏感。不能以volc:的任意大小写组合开头。不能以空格开头或结尾。允许包含各国语言文字、数字、空格）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。具体规则如下：长度限制为0～256个字符。大小写敏感。不能以空格开头或结尾。允许包含各国语言文字、数字、空格（）、下划线（_）、点号（.）、半角冒（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。
+         */
+        value: string;
+    }
+
+    export interface LoadBalancerEipBillingConfig {
+        /**
+         * EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        billingType: number;
+        /**
+         * 公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+    }
+
+    export interface LoadBalancerGlobalAccelerator {
+        /**
+         * 绑定的全球加速实例的ID。
+         */
+        acceleratorId: string;
+        /**
+         * 绑定的全球加速监听器的ID。
+         */
+        acceleratorListenerId: string;
+        /**
+         * 绑定的终端节点组的ID。
+         */
+        endpointGroupId: string;
+        /**
+         * 后端服务器的权重，决定流量分发比例。
+         */
+        weight: number;
+    }
+
+    export interface LoadBalancerIpv6EipBillingConfig {
+        /**
+         * IPv6 EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        billingType: number;
+        /**
+         * IPv6公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+    }
+
+    export interface LoadBalancerTag {
+        /**
+         * 标签的键，用于标识标签的类别。
+         */
+        key: string;
+        /**
+         * 标签的值，用于标识具体的标签内容。
+         */
+        value: string;
+    }
+
+    export interface LoadBalancerZoneMapping {
+        loadBalancerAddresses: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddress[];
+        /**
+         * 可用区内提供服务的子网ID。
+         */
+        subnetId: string;
+        /**
+         * 可用区的唯一标识符。
+         */
+        zoneId: string;
+    }
+
+    export interface LoadBalancerZoneMappingLoadBalancerAddress {
+        /**
+         * 弹性公网IP（EIP）的详细信息。
+         */
+        eip: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddressEip;
+        /**
+         * 绑定的弹性公网IP（EIP）的地址。
+         */
+        eipAddress: string;
+        /**
+         * 绑定的弹性公网IP（EIP）的ID。
+         */
+        eipId: string;
+        /**
+         * 弹性网卡（ENI）上的私网IP地址。
+         */
+        eniAddress: string;
+        /**
+         * IP地址所属的弹性网卡（ENI）的ID。
+         */
+        eniId: string;
+        /**
+         * 弹性网卡（ENI）上的IPv6私网地址。
+         */
+        eniIpv6Address: string;
+        /**
+         * IPv6弹性公网IP的详细信息。
+         */
+        ipv6Eip: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip;
+        /**
+         * 绑定的IPv6 EIP的ID。
+         */
+        ipv6EipId: string;
+    }
+
+    export interface LoadBalancerZoneMappingLoadBalancerAddressEip {
+        /**
+         * EIP的绑定模式，例如Default或Normal。
+         */
+        associationMode: string;
+        /**
+         * EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * 弹性公网IP（EIP）的地址。
+         */
+        eipAddress: string;
+        /**
+         * EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        eipBillingType: number;
+        /**
+         * EIP的类型，例如静态BGP。
+         */
+        eipType: string;
+        /**
+         * 公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+        popLocations: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation[];
+    }
+
+    export interface LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation {
+        /**
+         * 接入点（PoP）的唯一ID。
+         */
+        popId: string;
+        /**
+         * 接入点（PoP）的名称。
+         */
+        popName: string;
+    }
+
+    export interface LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip {
+        /**
+         * IPv6 EIP的带宽峰值，单位为Mbps。
+         */
+        bandwidth: number;
+        /**
+         * IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
+         */
+        billingType: number;
+        /**
+         * IPv6公网IP的线路类型，BGP表示多线。
+         */
+        isp: string;
+    }
+
+    export interface ServerGroupHealthCheck {
+        /**
+         * 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。需至少包含一个‘.’，且不允许以‘.’开头或结尾。域名每一级由字母、数字、‘-’、‘.’字符组成，且‘-’不得出现在每一级的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示负载均衡使用各后端服务器的私网IP地址进行健康检查。
+         */
+        domain: string;
+        /**
+         * 监听器是否开启健康检查功能。取值：on：开启（默认值）。off：不开启。
+         */
+        enabled: string;
+        /**
+         * 健康检查的健康阈值。表示连续执行指定次数的健康检查，结果均为正常的后端服务器将判定为健康检查正常。单位：次，取值：2~10，默认值为 3。
+         */
+        healthyThreshold: number;
+        /**
+         * 健康检查正常的HTTP状态码，多个状态码间用半角逗号分隔。只有 HealthCheck.Protocol 为 HTTP 时才存在该参数。取值如下：http*2xx（默认值）。http*3xx（默认值）。http*4xx 。http*5xx 。
+         */
+        httpCode: string;
+        /**
+         * 健康检查HTTP协议版本，只有 HealthCheck.Protocol 为 HTTP 时才存在该参数。取值：HTTP1.0（使用API时，HTTP协议版本默认值）。HTTP1.1。
+         */
+        httpVersion: string;
+        /**
+         * 开启健康检查后，执行健康检查的时间间隔。 单位：秒，取值：1~300s，默认值为 2。
+         */
+        interval: number;
+        /**
+         * 开启健康检查后，健康检查的方法。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。取值如下：GET：服务器需支持GET方法。HEAD（默认）：服务器仅返回HEAD头部信息，可以降低后端性能消耗，但服务器需要支持HEAD方法。
+         */
+        method: string;
+        /**
+         * 健康检查端口。支持取值：0（默认值）：使用后端服务器端口进行健康检查。1-65535：使用您指定的端口进行健康检查。
+         */
+        port: number;
+        /**
+         * 健康检查协议，当前支持HTTP、TCP。默认值为 HTTP。
+         */
+        protocol: string;
+        /**
+         * 健康检查的响应超时时间。表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查异常。单位：秒，取值：1~60，默认值为 2。
+         */
+        timeout: number;
+        /**
+         * 健康检查的不健康阈值。表示连续执行指定次数的健康检查，结果均为异常的后端服务器将判定为健康检查异常。单位：次，取值：2~10，默认值为 3。
+         */
+        unhealthyThreshold: number;
+        /**
+         * 健康检查的路径，需配置为后端服务器上真实对外提供的路径。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。必须以字符‘/’开头。仅包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’ 字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+         */
+        uri: string;
+    }
+
+    export interface ServerGroupListener {
+        /**
+         * 监听器的ID。
+         */
+        listenerId: string;
+    }
+
+    export interface ServerGroupServer {
+        /**
+         * 后端服务器的描述。
+         */
+        description: string;
+        /**
+         * 云服务器实例或网卡的ID。
+         */
+        instanceId: string;
+        /**
+         * 后端服务器的私网IP地址。
+         */
+        ip: string;
+        /**
+         * 后端服务器接收请求的端口号。
+         */
+        port: number;
+        /**
+         * 是否开启远端IP功能。当后端服务器实例类型为IP地址，即 Type 取值为 ip 时，此字段有效。取值：on：开启。off（默认值）：不开启。
+         */
+        remoteEnabled: string;
+        /**
+         * 后端服务器ID。
+         */
+        serverId: string;
+        /**
+         * 后端服务器实例类型。ecs：云服务器实例。eni：辅助网卡。ip：IP地址（仅 Ip 类型服务器组有效）。
+         */
+        type: string;
+        /**
+         * 后端服务器的权重。
+         */
+        weight: number;
+    }
+
+    export interface ServerGroupStickySessionConfig {
+        /**
+         * 服务配置的会话保持 Cookie 名称。仅在开启会话保持功能并选择重写 Cookie 时有效。 具体规则如下：Cookie 名称长度为1~200个字符。名称只能包含 ASCII 英文字母和数字字符，不能包含半角逗号（,）、半角分号（;）或空格，也不能以美元符号（$）开头。当 tickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionConfig.StickySessionType 为 server时，此参数必填。当 StickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionConfig.StickySessionType 为 insert 时，该参数无效。
+         */
+        cookie: string;
+        /**
+         * 会话保持 Cookie 超时时间。仅在开启会话保持功能并选择植入 Cookie 时有效。 单位：秒。具体规则如下：超时时间的取值范围：1～86400。 默认值为：1000。当 StickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionConfig.StickySessionType 为 insert 时，此参数必填。当 StickySessionConfig.StickySessionEnabled 值为 on，且 StickySessionType 为 server 时，此参数无效。
+         */
+        cookieTimeout: number;
+        /**
+         * 是否开启会话保持功能。on：开启；off（默认值）：关闭。
+         */
+        stickySessionEnabled: string;
+        /**
+         * 对 Cookie 的处理方式。当 StickySessionConfig.StickySessionEnabled 值为 on 时，此字段参数必填。取值如下：insert：植入 Cookie；ALB 会记录客户端请求第一次转发到的后端服务器。ALB 在返回请求中植入 Cookie ，后续客户端请求携带此 Cookie，ALB 会将请求转发到之前记录的后端服务器上。server：重写 Cookie；开启重写 Cookie 的会话保持后，在客户端请求第一次转发到后端服务器后，ALB 在返回请求中发现您自定义的 Cookie 时，会对原来的 Cookie 进行重写。后续客户端请求携带改写后的 Cookie，ALB 会将请求转发到之前记录的后端服务器上。
+         */
+        stickySessionType: string;
+    }
+
+    export interface ServerGroupTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace apig {
+    export interface GetUpstreamSourceIngressSettings {
+        /**
+         * 是否启用所有Ingress类。
+         */
+        enableAllIngressClasses: boolean;
+        /**
+         * 是否全部命名空间。
+         */
+        enableAllNamespaces: boolean;
+        /**
+         * 是否开启。
+         */
+        enableIngress: boolean;
+        /**
+         * 是否监听IngressClass为空的资源。
+         */
+        enableIngressWithoutIngressClass: boolean;
+        /**
+         * 指定IngressClass。
+         */
+        ingressClasses: string[];
+        /**
+         * 流量入口切换。开启后，当前集群Ingress中Status的IP地址会被修改为当前网关的IP地址。
+         */
+        updateStatus: boolean;
+        /**
+         * 指定命名空间。
+         */
+        watchNamespaces: string[];
+    }
+
+    export interface GetUpstreamSourceSourceSpec {
+        /**
+         * 容器集群来源。
+         */
+        k8SSource: outputs.apig.GetUpstreamSourceSourceSpecK8SSource;
+        /**
+         * 注册中心来源。
+         */
+        nacosSource: outputs.apig.GetUpstreamSourceSourceSpecNacosSource;
+    }
+
+    export interface GetUpstreamSourceSourceSpecK8SSource {
+        /**
+         * 集群ID。
+         */
+        clusterId: string;
+        /**
+         * 集群类型。
+         */
+        clusterType: string;
+    }
+
+    export interface GetUpstreamSourceSourceSpecNacosSource {
+        /**
+         * 认证配置。
+         */
+        authConfig: outputs.apig.GetUpstreamSourceSourceSpecNacosSourceAuthConfig;
+        /**
+         * Nacos ID。
+         */
+        nacosId: string;
+        /**
+         * Nacos名称。
+         */
+        nacosName: string;
+    }
+
+    export interface GetUpstreamSourceSourceSpecNacosSourceAuthConfig {
+        /**
+         * Basic认证。
+         */
+        basic: outputs.apig.GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasic;
+    }
+
+    export interface GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasic {
+        /**
+         * 密码。
+         */
+        password: string;
+        /**
+         * 用户名。
+         */
+        username: string;
+    }
+
+    export interface UpstreamSourceIngressSettings {
+        /**
+         * 是否启用所有Ingress类。
+         */
+        enableAllIngressClasses: boolean;
+        /**
+         * 是否全部命名空间。
+         */
+        enableAllNamespaces: boolean;
+        /**
+         * 是否开启。
+         */
+        enableIngress: boolean;
+        /**
+         * 是否监听IngressClass为空的资源。
+         */
+        enableIngressWithoutIngressClass: boolean;
+        /**
+         * 指定IngressClass。
+         */
+        ingressClasses: string[];
+        /**
+         * 流量入口切换。开启后，当前集群Ingress中Status的IP地址会被修改为当前网关的IP地址。
+         */
+        updateStatus: boolean;
+        /**
+         * 指定命名空间。
+         */
+        watchNamespaces: string[];
+    }
+
+    export interface UpstreamSourceSourceSpec {
+        /**
+         * 容器集群来源。
+         */
+        k8SSource: outputs.apig.UpstreamSourceSourceSpecK8SSource;
+        /**
+         * 注册中心来源。
+         */
+        nacosSource: outputs.apig.UpstreamSourceSourceSpecNacosSource;
+    }
+
+    export interface UpstreamSourceSourceSpecK8SSource {
+        /**
+         * 集群ID。
+         */
+        clusterId: string;
+        /**
+         * 集群类型。
+         */
+        clusterType: string;
+    }
+
+    export interface UpstreamSourceSourceSpecNacosSource {
+        /**
+         * 认证配置。
+         */
+        authConfig: outputs.apig.UpstreamSourceSourceSpecNacosSourceAuthConfig;
+        /**
+         * Nacos ID。
+         */
+        nacosId: string;
+        /**
+         * Nacos名称。
+         */
+        nacosName: string;
+    }
+
+    export interface UpstreamSourceSourceSpecNacosSourceAuthConfig {
+        /**
+         * Basic认证。
+         */
+        basic: outputs.apig.UpstreamSourceSourceSpecNacosSourceAuthConfigBasic;
+    }
+
+    export interface UpstreamSourceSourceSpecNacosSourceAuthConfigBasic {
+        /**
+         * 密码。
+         */
+        password: string;
+        /**
+         * 用户名。
+         */
+        username: string;
     }
 
 }
@@ -185,7 +1118,172 @@ export namespace ark {
 
 }
 
+export namespace autoscaling {
+    export interface GetScalingConfigurationEip {
+        /**
+         * 公网IP的带宽峰值，默认为1，单位：Mbps。取值：当Eip.BillingType取值为PostPaidByBandwidth时，取值为1 ～ 500。当Eip.BillingType取值为PostPaidByTraffic时，取值为1 ～ 200。
+         */
+        bandwidth: number;
+        /**
+         * 共享带宽包的ID，表示将公网IP加入到共享带宽包。 您可以调用 DescribeBandwidthPackages 接口，查询共享带宽包的ID。 公网IP加入到共享带宽包必须同时满足如下条件：二者的安全防护类型相同。二者的线路类型相同。共享带宽包为IPv4类型。
+         */
+        bandwidthPackageId: string;
+        /**
+         * 公网IP的计费类型，取值：PostPaidByBandwidth（默认）：按量计费-按带宽上限计费。PostPaidByTraffic：按量计费-按实际流量计费。
+         */
+        billingType: string;
+        /**
+         * 线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
+         */
+        isp: string;
+    }
+
+    export interface GetScalingConfigurationInstanceTypeOverride {
+        /**
+         * 指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+         */
+        instanceType: string;
+        /**
+         * 指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+         */
+        priceLimit: number;
+    }
+
+    export interface GetScalingConfigurationTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetScalingConfigurationVolume {
+        /**
+         * 云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+         */
+        deleteWithInstance: boolean;
+        /**
+         * 云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
+         */
+        size: number;
+        /**
+         * 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+         */
+        volumeType: string;
+    }
+
+    export interface ScalingConfigurationEip {
+        /**
+         * 公网IP的带宽峰值，默认为1，单位：Mbps。取值：当Eip.BillingType取值为PostPaidByBandwidth时，取值为1 ～ 500。当Eip.BillingType取值为PostPaidByTraffic时，取值为1 ～ 200。
+         */
+        bandwidth: number;
+        /**
+         * 共享带宽包的ID，表示将公网IP加入到共享带宽包。 您可以调用 DescribeBandwidthPackages 接口，查询共享带宽包的ID。 公网IP加入到共享带宽包必须同时满足如下条件：二者的安全防护类型相同。二者的线路类型相同。共享带宽包为IPv4类型。
+         */
+        bandwidthPackageId: string;
+        /**
+         * 公网IP的计费类型，取值：PostPaidByBandwidth（默认）：按量计费-按带宽上限计费。PostPaidByTraffic：按量计费-按实际流量计费。
+         */
+        billingType: string;
+        /**
+         * 线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
+         */
+        isp: string;
+    }
+
+    export interface ScalingConfigurationInstanceTypeOverride {
+        /**
+         * 指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+         */
+        instanceType: string;
+        /**
+         * 指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+         */
+        priceLimit: number;
+    }
+
+    export interface ScalingConfigurationTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface ScalingConfigurationVolume {
+        /**
+         * 云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+         */
+        deleteWithInstance: boolean;
+        /**
+         * 云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
+         */
+        size: number;
+        /**
+         * 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+         */
+        volumeType: string;
+    }
+
+}
+
 export namespace clb {
+    export interface AclAclEntry {
+        /**
+         * IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+         */
+        description: string;
+        /**
+         * IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+         */
+        entry: string;
+    }
+
+    export interface AclListener {
+        /**
+         * 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+         */
+        aclType: string;
+        /**
+         * 监听器的ID。
+         */
+        listenerId: string;
+        /**
+         * 监听器的名称。
+         */
+        listenerName: string;
+        /**
+         * 监听器的端口。
+         */
+        port: number;
+        /**
+         * 监听器的协议。
+         */
+        protocol: string;
+    }
+
+    export interface AclTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+         */
+        value: string;
+    }
+
+    export interface CertificateTag {
+        key: string;
+        value: string;
+    }
+
     export interface ClbAccessLog {
         /**
          * 存储七层访问日志的对象存储桶的名称
@@ -291,6 +1389,56 @@ export namespace clb {
         value: string;
     }
 
+    export interface GetAclAclEntry {
+        /**
+         * IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+         */
+        description: string;
+        /**
+         * IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+         */
+        entry: string;
+    }
+
+    export interface GetAclListener {
+        /**
+         * 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+         */
+        aclType: string;
+        /**
+         * 监听器的ID。
+         */
+        listenerId: string;
+        /**
+         * 监听器的名称。
+         */
+        listenerName: string;
+        /**
+         * 监听器的端口。
+         */
+        port: number;
+        /**
+         * 监听器的协议。
+         */
+        protocol: string;
+    }
+
+    export interface GetAclTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+         */
+        value: string;
+    }
+
+    export interface GetCertificateTag {
+        key: string;
+        value: string;
+    }
+
     export interface GetClbAccessLog {
         /**
          * 存储七层访问日志的对象存储桶的名称
@@ -392,6 +1540,68 @@ export namespace clb {
         key: string;
         /**
          * 标签值
+         */
+        value: string;
+    }
+
+    export interface GetListenerHealthCheck {
+        /**
+         * 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+         */
+        domain: string;
+        /**
+         * 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+         */
+        enabled: string;
+        /**
+         * 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+         */
+        healthyThreshold: number;
+        /**
+         * 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+         */
+        httpCode: string;
+        /**
+         * 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+         */
+        interval: number;
+        /**
+         * 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+         */
+        method: string;
+        /**
+         * 健康检查的端口，取值范围为1-65535。
+         */
+        port: number;
+        /**
+         * 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+         */
+        timeout: number;
+        /**
+         * 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+         */
+        udpExpect: string;
+        /**
+         * 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+         */
+        udpRequest: string;
+        /**
+         * 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+         */
+        unhealthyThreshold: number;
+        /**
+         * 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+         */
+        uri: string;
+    }
+
+    export interface GetListenerTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
          */
         value: string;
     }
@@ -605,6 +1815,40 @@ export namespace clb {
         zoneId: string;
     }
 
+    export interface GetRuleRedirectConfig {
+        /**
+         * 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+         */
+        host: string;
+        /**
+         * 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+         */
+        path: string;
+        /**
+         * 转发规则重定向的端口，取值范围为 1~65535。
+         */
+        port: string;
+        /**
+         * 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+         */
+        protocol: string;
+        /**
+         * 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+         */
+        statusCode: string;
+    }
+
+    export interface GetRuleTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
     export interface GetServerGroupListener {
         /**
          * 监听器的ID。
@@ -649,6 +1893,68 @@ export namespace clb {
 
     export interface GetServerGroupTag {
         key: string;
+        value: string;
+    }
+
+    export interface ListenerHealthCheck {
+        /**
+         * 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+         */
+        domain: string;
+        /**
+         * 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+         */
+        enabled: string;
+        /**
+         * 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+         */
+        healthyThreshold: number;
+        /**
+         * 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+         */
+        httpCode: string;
+        /**
+         * 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+         */
+        interval: number;
+        /**
+         * 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+         */
+        method: string;
+        /**
+         * 健康检查的端口，取值范围为1-65535。
+         */
+        port: number;
+        /**
+         * 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+         */
+        timeout: number;
+        /**
+         * 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+         */
+        udpExpect: string;
+        /**
+         * 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+         */
+        udpRequest: string;
+        /**
+         * 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+         */
+        unhealthyThreshold: number;
+        /**
+         * 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+         */
+        uri: string;
+    }
+
+    export interface ListenerTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+         */
         value: string;
     }
 
@@ -861,6 +2167,40 @@ export namespace clb {
         zoneId: string;
     }
 
+    export interface RuleRedirectConfig {
+        /**
+         * 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+         */
+        host: string;
+        /**
+         * 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+         */
+        path: string;
+        /**
+         * 转发规则重定向的端口，取值范围为 1~65535。
+         */
+        port: string;
+        /**
+         * 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+         */
+        protocol: string;
+        /**
+         * 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+         */
+        statusCode: string;
+    }
+
+    export interface RuleTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
     export interface ServerGroupListener {
         /**
          * 监听器的ID。
@@ -927,6 +2267,110 @@ export namespace config {
          * Use this to override the default STS service endpoint URL
          */
         sts?: string;
+    }
+
+}
+
+export namespace cr {
+    export interface GetRegistryProxyCache {
+        /**
+         * ProxyCache支持的镜像仓库实例类型，参数值说明如下：DockerHub：dockerhub 镜像仓库。
+         */
+        type: string;
+    }
+
+    export interface GetRegistryStatus {
+        /**
+         * Creating, [ Progressing ] ：创建中。Running, [ Ok ] ：运行中。Running, [ Degraded ] ：运行中。Stopped, [ Balance ] ： 欠费关停。Stopped, [ Released ] ：待回收。Stopped, [ Released, Balance ] ：欠费关停。Starting, [ Progressing ] ：启动中。Deleting, [ Progressing ] ：销毁中。Failed, [ Unknown ] ：异常。
+         */
+        conditions: string[];
+        /**
+         * Creating, [ Progressing ] ：创建中。Running, [ Ok ] ：运行中。Running, [ Degraded ] ：运行中。Stopped, [ Balance ] ： 欠费关停。Stopped, [ Released ] ：待回收。Stopped, [ Released, Balance ] ：欠费关停。Starting, [ Progressing ] ：启动中。Deleting, [ Progressing ] ：销毁中。Failed, [ Unknown ] ：异常。
+         */
+        phase: string;
+    }
+
+    export interface GetRegistryTag {
+        /**
+         * 标签的 Key 值。
+         */
+        key: string;
+        /**
+         * 标签的 Value 值列表。
+         */
+        value: string;
+    }
+
+    export interface RegistryProxyCache {
+        /**
+         * ProxyCache支持的镜像仓库实例类型，参数值说明如下：DockerHub：dockerhub 镜像仓库。
+         */
+        type: string;
+    }
+
+    export interface RegistryStatus {
+        /**
+         * Creating, [ Progressing ] ：创建中。Running, [ Ok ] ：运行中。Running, [ Degraded ] ：运行中。Stopped, [ Balance ] ： 欠费关停。Stopped, [ Released ] ：待回收。Stopped, [ Released, Balance ] ：欠费关停。Starting, [ Progressing ] ：启动中。Deleting, [ Progressing ] ：销毁中。Failed, [ Unknown ] ：异常。
+         */
+        conditions: string[];
+        /**
+         * Creating, [ Progressing ] ：创建中。Running, [ Ok ] ：运行中。Running, [ Degraded ] ：运行中。Stopped, [ Balance ] ： 欠费关停。Stopped, [ Released ] ：待回收。Stopped, [ Released, Balance ] ：欠费关停。Starting, [ Progressing ] ：启动中。Deleting, [ Progressing ] ：销毁中。Failed, [ Unknown ] ：异常。
+         */
+        phase: string;
+    }
+
+    export interface RegistryTag {
+        /**
+         * 标签的 Key 值。
+         */
+        key: string;
+        /**
+         * 标签的 Value 值列表。
+         */
+        value: string;
+    }
+
+}
+
+export namespace directconnect {
+    export interface DirectConnectGatewayAssociateCen {
+    }
+
+    export interface DirectConnectGatewayTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。长度取值范围为0~256字符。
+         */
+        value: string;
+    }
+
+    export interface GetDirectConnectGatewayAssociateCen {
+        /**
+         * CEN的ID。
+         */
+        cenId: string;
+        /**
+         * CEN的用户ID。
+         */
+        cenOwnerId: string;
+        /**
+         * 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+         */
+        cenStatus: string;
+    }
+
+    export interface GetDirectConnectGatewayTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。长度取值范围为0~256字符。
+         */
+        value: string;
     }
 
 }
@@ -1072,6 +2516,261 @@ export namespace ecs {
         key: string;
         /**
          * 镜像标签的值。
+         */
+        value: string;
+    }
+
+    export interface GetInstanceCpuMemory {
+        /**
+         * 实例的核数。
+         */
+        coreCount: number;
+        /**
+         * 实例的CPU数量。
+         */
+        cpuNumber: number;
+        /**
+         * 实例的内存大小，单位MB。
+         */
+        memorySize: number;
+        /**
+         * 实例的每核线程数。
+         */
+        threadsPerCore: number;
+    }
+
+    export interface GetInstanceEipAddress {
+        /**
+         * 实例的分配ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的带宽上限，默认值为1，单位：Mbps。
+         * - `ChargeType`传入`PayByBandwidth`：取值范围1～500。
+         * - `ChargeType`传入`PayByTraffic`：取值范围1～200。
+         */
+        bandwidthMbps: number;
+        /**
+         * 共享带宽包的ID，表示将公网IP加入到共享带宽包。
+         * - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。
+         * - 公网IP加入到共享带宽包必须同时满足如下条件：
+         *   - 二者的安全防护类型相同。
+         *   - 二者的地域相同。
+         *   - 公网IP的计费方式必须是按量计费。
+         *   - 共享带宽包为IPv4类型。
+         */
+        bandwidthPackageId: string;
+        /**
+         * 公网IP的计费方式，取值：
+         * - PayByBandwidth（默认）：按量计费-按带宽上限计费。
+         * - PayByTraffic：按量计费-按实际流量计费。
+         * - PrePaid：包年包月。
+         * :::tip
+         * 实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。
+         * :::
+         */
+        chargeType: string;
+        /**
+         * 实例的IP地址。
+         */
+        ipAddress: string;
+        /**
+         * 公网IP的线路类型，默认为BGP。取值：
+         * - BGP：BGP（多线）。
+         * - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：
+         *   - ChinaMobile：中国移动静态单线。
+         *   - ChinaTelecom：中国电信静态单线。
+         *   - ChinaUnicom：中国联通静态单线。
+         * - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。
+         * - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。
+         */
+        isp: string;
+        /**
+         * 实例是否随实例释放。
+         */
+        releaseWithInstance: boolean;
+    }
+
+    export interface GetInstanceImage {
+        /**
+         * 实例的镜像ID。
+         */
+        imageId: string;
+        /**
+         * 实例的镜像发布版本。
+         */
+        imageReleaseVersion: string;
+        /**
+         * 实例是否保留镜像凭证。
+         */
+        keepImageCredential: boolean;
+        /**
+         * 实例的安全增强策略。Active：开启安全加固，仅对公共镜像生效。InActive：关闭安全加固，对所有镜像生效。
+         */
+        securityEnhancementStrategy: string;
+    }
+
+    export interface GetInstanceKeyPair {
+        /**
+         * 实例的公钥。
+         */
+        keyPairId: string;
+        /**
+         * 实例的密钥对名称。
+         */
+        keyPairName: string;
+    }
+
+    export interface GetInstanceOperationSystem {
+        /**
+         * 实例的操作系统名称。
+         */
+        name: string;
+        /**
+         * 实例的操作系统类型。Linux：Linux系统。Windows：Windows系统。
+         */
+        type: string;
+    }
+
+    export interface GetInstancePlacement {
+        /**
+         * 针对节省停机模式的ECS实例，停止后会释放部分资源，本参数用于查看ECS实例重新启动时是否仍固定部署在原宿主机上。取值：Host：启用节省停机模式的实例重新启动时，仍会部署在原宿主机上。Default（默认）：启用节省停机模式的实例重新启动时，会优先迁移到支持自动部署的宿主机；若支持自动部署的宿主机资源不足，则在原宿主机上进行启动。
+         */
+        affinity: string;
+        /**
+         * 实例的专用主机集群ID。
+         */
+        dedicatedHostClusterId: string;
+        /**
+         * 实例的专用主机ID。
+         */
+        dedicatedHostId: string;
+        /**
+         * 是否在专有宿主机上创建实例，取值：Default（默认）：创建普通云服务器实例。Host：创建专有宿主机实例。若您不指定DedicatedHostId，则由系统自动选择专有宿主机放置实例
+         */
+        tenancy: string;
+    }
+
+    export interface GetInstancePrimaryNetworkInterface {
+        /**
+         * 实例的IPv6地址数量。
+         */
+        ipv6AddressCount: number;
+        /**
+         * 实例的IPv6地址。
+         */
+        ipv6Addresses: string[];
+        /**
+         * 实例的MAC地址。
+         */
+        macAddress: string;
+        /**
+         * 实例的网络接口ID。
+         */
+        networkInterfaceId: string;
+        /**
+         * 实例的主IP地址。
+         */
+        primaryIpAddress: string;
+        /**
+         * 实例的私有IP地址。
+         */
+        privateIpAddresses: string[];
+        /**
+         * 实例的安全组ID。
+         */
+        securityGroupIds: string[];
+        /**
+         * 实例的子网ID。
+         */
+        subnetId: string;
+        /**
+         * 实例的VPC ID。
+         */
+        vpcId: string;
+    }
+
+    export interface GetInstanceSecondaryNetworkInterface {
+        /**
+         * 实例的IPv6地址数量。
+         */
+        ipv6AddressCount: number;
+        /**
+         * 实例的IPv6地址。
+         */
+        ipv6Addresses: string[];
+        /**
+         * 实例的MAC地址。
+         */
+        macAddress: string;
+        /**
+         * 实例的网络接口ID。
+         */
+        networkInterfaceId: string;
+        /**
+         * 实例的主IP地址。
+         */
+        primaryIpAddress: string;
+        /**
+         * 实例的私有IP地址。
+         */
+        privateIpAddresses: string[];
+        /**
+         * 实例的安全组ID。
+         */
+        securityGroupIds: string[];
+        /**
+         * 实例的子网ID。
+         */
+        subnetId: string;
+        /**
+         * 实例的VPC ID。
+         */
+        vpcId: string;
+    }
+
+    export interface GetInstanceSystemVolume {
+        /**
+         * 实例是否随实例删除。
+         */
+        deleteWithInstance: boolean;
+        /**
+         * 实例的额外性能IOPS。
+         */
+        extraPerformanceIops: number;
+        /**
+         * 实例的额外性能吞吐量，单位MB。
+         */
+        extraPerformanceThroughputMb: number;
+        /**
+         * 额外性能的类型，取值如下：Balance：均衡型额外性能。IOPS：IOPS型额外性能。Throughput：吞吐量型额外性能。
+         */
+        extraPerformanceTypeId: string;
+        /**
+         * 实例的大小，单位GiB。
+         */
+        size: number;
+        /**
+         * 实例的快照ID。
+         */
+        snapshotId: string;
+        /**
+         * 实例的卷ID。
+         */
+        volumeId: string;
+        /**
+         * 云盘类型，取值说明如下：PTSSD：性能型SSD。ESSD_PL0：极速型SSD云盘，PL0规格。ESSD_FlexPL: 极速型SSD云盘，FlexPL规格。TSSD_TL0：吞吐型SSD云盘。
+         */
+        volumeType: string;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 实例的键。
+         */
+        key: string;
+        /**
+         * 实例的值。
          */
         value: string;
     }
@@ -1231,6 +2930,249 @@ export namespace ecs {
         key: string;
         /**
          * 镜像标签的值。
+         */
+        value: string;
+    }
+
+    export interface InstanceCpuMemory {
+        /**
+         * 实例的核数。
+         */
+        coreCount: number;
+        /**
+         * 实例的CPU数量。
+         */
+        cpuNumber: number;
+        /**
+         * 实例的内存大小，单位MB。
+         */
+        memorySize: number;
+        /**
+         * 实例的每核线程数。
+         */
+        threadsPerCore: number;
+    }
+
+    export interface InstanceEipAddress {
+        /**
+         * 实例的分配ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的带宽上限，默认值为1，单位：Mbps。
+         * - `ChargeType`传入`PayByBandwidth`：取值范围1～500。
+         * - `ChargeType`传入`PayByTraffic`：取值范围1～200。
+         */
+        bandwidthMbps: number;
+        /**
+         * 共享带宽包的ID，表示将公网IP加入到共享带宽包。
+         * - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。
+         * - 公网IP加入到共享带宽包必须同时满足如下条件：
+         *   - 二者的安全防护类型相同。
+         *   - 二者的地域相同。
+         *   - 公网IP的计费方式必须是按量计费。
+         *   - 共享带宽包为IPv4类型。
+         */
+        bandwidthPackageId: string;
+        /**
+         * 公网IP的计费方式，取值：
+         * - PayByBandwidth（默认）：按量计费-按带宽上限计费。
+         * - PayByTraffic：按量计费-按实际流量计费。
+         * - PrePaid：包年包月。
+         * :::tip
+         * 实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。
+         * :::
+         */
+        chargeType: string;
+        /**
+         * 实例的IP地址。
+         */
+        ipAddress: string;
+        /**
+         * 公网IP的线路类型，默认为BGP。取值：
+         * - BGP：BGP（多线）。
+         * - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：
+         *   - ChinaMobile：中国移动静态单线。
+         *   - ChinaTelecom：中国电信静态单线。
+         *   - ChinaUnicom：中国联通静态单线。
+         * - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。
+         * - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。
+         */
+        isp: string;
+        /**
+         * 实例是否随实例释放。
+         */
+        releaseWithInstance: boolean;
+    }
+
+    export interface InstanceImage {
+        /**
+         * 实例的镜像ID。
+         */
+        imageId: string;
+        /**
+         * 实例的镜像发布版本。
+         */
+        imageReleaseVersion: string;
+        /**
+         * 实例是否保留镜像凭证。
+         */
+        keepImageCredential: boolean;
+        /**
+         * 实例的安全增强策略。Active：开启安全加固，仅对公共镜像生效。InActive：关闭安全加固，对所有镜像生效。
+         */
+        securityEnhancementStrategy: string;
+    }
+
+    export interface InstanceKeyPair {
+        /**
+         * 实例的公钥。
+         */
+        keyPairId: string;
+        /**
+         * 实例的密钥对名称。
+         */
+        keyPairName: string;
+    }
+
+    export interface InstanceOperationSystem {
+        /**
+         * 实例的操作系统名称。
+         */
+        name: string;
+        /**
+         * 实例的操作系统类型。Linux：Linux系统。Windows：Windows系统。
+         */
+        type: string;
+    }
+
+    export interface InstancePlacement {
+        /**
+         * 针对节省停机模式的ECS实例，停止后会释放部分资源，本参数用于查看ECS实例重新启动时是否仍固定部署在原宿主机上。取值：Host：启用节省停机模式的实例重新启动时，仍会部署在原宿主机上。Default（默认）：启用节省停机模式的实例重新启动时，会优先迁移到支持自动部署的宿主机；若支持自动部署的宿主机资源不足，则在原宿主机上进行启动。
+         */
+        affinity: string;
+        /**
+         * 实例的专用主机集群ID。
+         */
+        dedicatedHostClusterId: string;
+        /**
+         * 实例的专用主机ID。
+         */
+        dedicatedHostId: string;
+        /**
+         * 是否在专有宿主机上创建实例，取值：Default（默认）：创建普通云服务器实例。Host：创建专有宿主机实例。若您不指定DedicatedHostId，则由系统自动选择专有宿主机放置实例
+         */
+        tenancy: string;
+    }
+
+    export interface InstancePrimaryNetworkInterface {
+        /**
+         * 实例的IPv6地址数量。
+         */
+        ipv6AddressCount: number;
+        /**
+         * 实例的IPv6地址。
+         */
+        ipv6Addresses: string[];
+        /**
+         * 实例的MAC地址。
+         */
+        macAddress: string;
+        /**
+         * 实例的网络接口ID。
+         */
+        networkInterfaceId: string;
+        /**
+         * 实例的主IP地址。
+         */
+        primaryIpAddress: string;
+        /**
+         * 实例的私有IP地址。
+         */
+        privateIpAddresses: string[];
+        /**
+         * 实例的安全组ID。
+         */
+        securityGroupIds: string[];
+        /**
+         * 实例的子网ID。
+         */
+        subnetId: string;
+        /**
+         * 实例的VPC ID。
+         */
+        vpcId: string;
+    }
+
+    export interface InstanceSecondaryNetworkInterface {
+        /**
+         * 实例的IPv6地址数量。
+         */
+        ipv6AddressCount: number;
+        /**
+         * 实例的主IP地址。
+         */
+        primaryIpAddress: string;
+        /**
+         * 实例的私有IP地址。
+         */
+        privateIpAddresses: string[];
+        /**
+         * 实例的安全组ID。
+         */
+        securityGroupIds: string[];
+        /**
+         * 实例的子网ID。
+         */
+        subnetId: string;
+        /**
+         * 实例的VPC ID。
+         */
+        vpcId: string;
+    }
+
+    export interface InstanceSystemVolume {
+        /**
+         * 实例是否随实例删除。
+         */
+        deleteWithInstance: boolean;
+        /**
+         * 实例的额外性能IOPS。
+         */
+        extraPerformanceIops: number;
+        /**
+         * 实例的额外性能吞吐量，单位MB。
+         */
+        extraPerformanceThroughputMb: number;
+        /**
+         * 额外性能的类型，取值如下：Balance：均衡型额外性能。IOPS：IOPS型额外性能。Throughput：吞吐量型额外性能。
+         */
+        extraPerformanceTypeId: string;
+        /**
+         * 实例的大小，单位GiB。
+         */
+        size: number;
+        /**
+         * 实例的快照ID。
+         */
+        snapshotId: string;
+        /**
+         * 实例的卷ID。
+         */
+        volumeId: string;
+        /**
+         * 云盘类型，取值说明如下：PTSSD：性能型SSD。ESSD_PL0：极速型SSD云盘，PL0规格。ESSD_FlexPL: 极速型SSD云盘，FlexPL规格。TSSD_TL0：吞吐型SSD云盘。
+         */
+        volumeType: string;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 实例的键。
+         */
+        key: string;
+        /**
+         * 实例的值。
          */
         value: string;
     }
@@ -1949,6 +3891,227 @@ export namespace iam {
 
 }
 
+export namespace rdsmysql {
+    export interface DatabaseDatabasePrivilege {
+        /**
+         * 数据库账号名称。
+         */
+        accountName: string;
+        /**
+         * 授予的账号权限类型，取值：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。
+         */
+        accountPrivilege: string;
+        /**
+         * 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
+         */
+        accountPrivilegeDetail: string;
+        /**
+         * 指定的数据库账号可以访问数据库的 IP 地址。默认值为 %。若指定 Host 为 %，允许该账号从任意 IP 地址访问数据库。若指定 Host 为 192.10.10.%，则表示该账号可从 192.10.10.0~192.10.10.255 之间的 IP 地址访问数据库。指定的 Host 需要添加在实例所绑定的白名单中，
+         */
+        host: string;
+    }
+
+    export interface GetDatabaseDatabasePrivilege {
+        /**
+         * 数据库账号名称。
+         */
+        accountName: string;
+        /**
+         * 授予的账号权限类型，取值：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。
+         */
+        accountPrivilege: string;
+        /**
+         * 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
+         */
+        accountPrivilegeDetail: string;
+        /**
+         * 指定的数据库账号可以访问数据库的 IP 地址。默认值为 %。若指定 Host 为 %，允许该账号从任意 IP 地址访问数据库。若指定 Host 为 192.10.10.%，则表示该账号可从 192.10.10.0~192.10.10.255 之间的 IP 地址访问数据库。指定的 Host 需要添加在实例所绑定的白名单中，
+         */
+        host: string;
+    }
+
+}
+
+export namespace redis {
+    export interface GetInstanceCapacity {
+        /**
+         * 当前实例的内存总容量。单位：MiB。
+         */
+        total: number;
+        /**
+         * 当前实例已用容量。单位：MiB。
+         */
+        used: number;
+    }
+
+    export interface GetInstanceConfigureNode {
+        /**
+         * 每个节点所属的可用区。
+         */
+        az: string;
+    }
+
+    export interface GetInstanceInstanceShard {
+        /**
+         * 分片中的节点数量
+         */
+        nodeNumber: number;
+        /**
+         * 分片中所有 Server 节点的详情列表。
+         */
+        serverNodes: outputs.redis.GetInstanceInstanceShardServerNode[];
+        /**
+         * 分片 ID。
+         */
+        shardId: string;
+    }
+
+    export interface GetInstanceInstanceShardServerNode {
+        /**
+         * 节点当前的角色。取值范围如下：PrimaryNode：主节点。SecondaryNode：从节点。
+         */
+        currentRole: string;
+        /**
+         * 节点 ID。
+         */
+        nodeId: string;
+        /**
+         * 节点状态。取值范围如下：deploy：启动中。running：运行中。loading：数据加载中。error：错误。
+         */
+        status: string;
+        /**
+         * 节点所在的可用区。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetInstanceVisitAddr {
+        /**
+         * 连接地址类型，取值范围如下：Private：私网连接地址；Public：公网连接地址；DirectLink：直连地址。
+         */
+        addrType: string;
+        /**
+         * IP 地址或者域名。
+         */
+        address: string;
+        /**
+         * 实例公网地址所绑定的EIP ID。仅当连接地址类型（即AddrType）为Public公网连接地址时，返回该参数。
+         */
+        eipId: string;
+        /**
+         * 端口号。
+         */
+        port: string;
+        /**
+         * 连接地址所对应的 IPv6 地址。
+         */
+        viPv6: string;
+        /**
+         * 连接地址所对应的 IPv4 地址。
+         */
+        vip: string;
+    }
+
+    export interface InstanceCapacity {
+        /**
+         * 当前实例的内存总容量。单位：MiB。
+         */
+        total: number;
+        /**
+         * 当前实例已用容量。单位：MiB。
+         */
+        used: number;
+    }
+
+    export interface InstanceConfigureNode {
+        /**
+         * 每个节点所属的可用区。
+         */
+        az: string;
+    }
+
+    export interface InstanceInstanceShard {
+        /**
+         * 分片中的节点数量
+         */
+        nodeNumber: number;
+        serverNodes: outputs.redis.InstanceInstanceShardServerNode[];
+        /**
+         * 分片 ID。
+         */
+        shardId: string;
+    }
+
+    export interface InstanceInstanceShardServerNode {
+        /**
+         * 节点当前的角色。取值范围如下：PrimaryNode：主节点。SecondaryNode：从节点。
+         */
+        currentRole: string;
+        /**
+         * 节点 ID。
+         */
+        nodeId: string;
+        /**
+         * 节点状态。取值范围如下：deploy：启动中。running：运行中。loading：数据加载中。error：错误。
+         */
+        status: string;
+        /**
+         * 节点所在的可用区。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceVisitAddr {
+        /**
+         * 连接地址类型，取值范围如下：Private：私网连接地址；Public：公网连接地址；DirectLink：直连地址。
+         */
+        addrType: string;
+        /**
+         * IP 地址或者域名。
+         */
+        address: string;
+        /**
+         * 实例公网地址所绑定的EIP ID。仅当连接地址类型（即AddrType）为Public公网连接地址时，返回该参数。
+         */
+        eipId: string;
+        /**
+         * 端口号。
+         */
+        port: string;
+        /**
+         * 连接地址所对应的 IPv6 地址。
+         */
+        viPv6: string;
+        /**
+         * 连接地址所对应的 IPv4 地址。
+         */
+        vip: string;
+    }
+
+}
+
 export namespace storageebs {
     export interface GetVolumeBaselinePerformance {
         /**
@@ -1974,6 +4137,17 @@ export namespace storageebs {
          * 云盘的额外吞吐量。
          */
         throughput: number;
+    }
+
+    export interface GetVolumeTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
     }
 
     export interface GetVolumeTotalPerformance {
@@ -2013,6 +4187,17 @@ export namespace storageebs {
         throughput: number;
     }
 
+    export interface VolumeTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
     export interface VolumeTotalPerformance {
         /**
          * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
@@ -2022,6 +4207,31 @@ export namespace storageebs {
          * 云盘的总吞吐量，即云盘的基准吞吐量和额外吞吐量之和。
          */
         throughput: number;
+    }
+
+}
+
+export namespace tls {
+    export interface GetTopicTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface TopicTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
     }
 
 }
@@ -2498,6 +4708,17 @@ export namespace transitrouter {
         value: string;
     }
 
+    export interface GetTransitRouterRouteTableTag {
+        /**
+         * 标签键
+         */
+        key: string;
+        /**
+         * 标签值
+         */
+        value: string;
+    }
+
     export interface GetTransitRouterTag {
         /**
          * 标签键。
@@ -2600,6 +4821,17 @@ export namespace transitrouter {
         value: string;
     }
 
+    export interface TransitRouterRouteTableTag {
+        /**
+         * 标签键
+         */
+        key: string;
+        /**
+         * 标签值
+         */
+        value: string;
+    }
+
     export interface TransitRouterTag {
         /**
          * 标签键。
@@ -2609,6 +4841,42 @@ export namespace transitrouter {
          * 标签值。
          */
         value: string;
+    }
+
+}
+
+export namespace vke {
+    export interface AddonStatus {
+        conditions: outputs.vke.AddonStatusCondition[];
+        /**
+         * 组件的状态，参数值有：Running, Failed, Creating, Deleting, Updating
+         */
+        phase: string;
+    }
+
+    export interface AddonStatusCondition {
+        /**
+         * 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
+         */
+        type: string;
+    }
+
+    export interface GetAddonStatus {
+        /**
+         * 组件当前主状态下的状态条件。
+         */
+        conditions: outputs.vke.GetAddonStatusCondition[];
+        /**
+         * 组件的状态，参数值有：Running, Failed, Creating, Deleting, Updating
+         */
+        phase: string;
+    }
+
+    export interface GetAddonStatusCondition {
+        /**
+         * 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
+         */
+        type: string;
     }
 
 }
@@ -2989,6 +5257,212 @@ export namespace vpc {
         value: string;
     }
 
+    export interface GetNetworkAclDefaultEgressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的ID。
+         */
+        networkAclEntryId: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface GetNetworkAclDefaultIngressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的ID。
+         */
+        networkAclEntryId: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface GetNetworkAclEgressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的ID。
+         */
+        networkAclEntryId: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface GetNetworkAclIngressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的ID。
+         */
+        networkAclEntryId: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface GetNetworkAclResource {
+        /**
+         * 关联资源的ID。
+         */
+        resourceId: string;
+        /**
+         * 网络ACL关联资源的状态。BINDED：已绑定。BINDING：绑定中。UNBINDING：解绑中。
+         */
+        status: string;
+    }
+
+    export interface GetNetworkAclTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetPrefixListAssociationsRouteTable {
+        /**
+         * 关联资源的ID。
+         */
+        resourceId: string;
+        /**
+         * 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+         */
+        resourceType: string;
+    }
+
+    export interface GetPrefixListAssociationsSecurityGroup {
+        /**
+         * 关联资源的ID。
+         */
+        resourceId: string;
+        /**
+         * 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+         */
+        resourceType: string;
+    }
+
+    export interface GetPrefixListPrefixListEntry {
+        /**
+         * 前缀列表条目的CIDR。
+         */
+        cidr: string;
+        /**
+         * 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+         */
+        description: string;
+    }
+
+    export interface GetPrefixListTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
     export interface GetRouteTableCustomRouteEntry {
         /**
          * 路由条目描述。
@@ -3279,6 +5753,192 @@ export namespace vpc {
         value: string;
     }
 
+    export interface NetworkAclDefaultEgressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的ID。
+         */
+        networkAclEntryId: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface NetworkAclDefaultIngressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的ID。
+         */
+        networkAclEntryId: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+         */
+        priority: number;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface NetworkAclEgressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface NetworkAclIngressAclEntry {
+        /**
+         * 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+         */
+        cidrIp: string;
+        /**
+         * 规则的描述信息。
+         */
+        description: string;
+        /**
+         * 规则的名称。
+         */
+        networkAclEntryName: string;
+        /**
+         * 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+         */
+        policy: string;
+        /**
+         * 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+         */
+        port: string;
+        /**
+         * 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+         */
+        protocol: string;
+    }
+
+    export interface NetworkAclResource {
+        /**
+         * 关联资源的ID。
+         */
+        resourceId: string;
+    }
+
+    export interface NetworkAclTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface PrefixListAssociationsRouteTable {
+        /**
+         * 关联资源的ID。
+         */
+        resourceId: string;
+        /**
+         * 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+         */
+        resourceType: string;
+    }
+
+    export interface PrefixListAssociationsSecurityGroup {
+        /**
+         * 关联资源的ID。
+         */
+        resourceId: string;
+        /**
+         * 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+         */
+        resourceType: string;
+    }
+
+    export interface PrefixListPrefixListEntry {
+        /**
+         * 前缀列表条目的CIDR。
+         */
+        cidr: string;
+        /**
+         * 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+         */
+        description: string;
+    }
+
+    export interface PrefixListTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
     export interface RouteTableCustomRouteEntry {
         /**
          * 路由条目描述。
@@ -3519,6 +6179,116 @@ export namespace vpc {
          * 标签值。
          */
         value: string;
+    }
+
+}
+
+export namespace waf {
+    export interface GetDomainBackendGroup {
+        /**
+         * 接入的端口号。
+         */
+        accessPorts: number[];
+        /**
+         * 源站组详情。
+         */
+        backends: outputs.waf.GetDomainBackendGroupBackend[];
+        /**
+         * 源站组名称。
+         */
+        name: string;
+    }
+
+    export interface GetDomainBackendGroupBackend {
+        /**
+         * 源站 IP 地址。
+         */
+        ip: string;
+        /**
+         * 源站端口。
+         */
+        port: number;
+        /**
+         * 源站协议。
+         */
+        protocol: string;
+        /**
+         * 源站权重。
+         */
+        weight: number;
+    }
+
+    export interface GetDomainCloudAccessConfig {
+        /**
+         * 接入协议类型。
+         */
+        accessProtocol: string;
+        /**
+         * 防护模式。
+         */
+        defenceMode: number;
+        /**
+         * 负载均衡实例 ID。
+         */
+        instanceId: string;
+        /**
+         * 负载均衡实例名称。
+         */
+        instanceName: string;
+        /**
+         * 负载均衡监听器 ID。
+         */
+        listenerId: string;
+        lostAssociationFromAlb: number;
+        /**
+         * 监听器转发规则的端口号。
+         */
+        port: string;
+        /**
+         * 监听器转发规则的协议类型。
+         */
+        protocol: string;
+    }
+
+    export interface GetDomainProtocolPorts {
+        /**
+         * HTTP 协议的端口号。
+         */
+        http: number[];
+        /**
+         * HTTPS 协议的端口号。
+         */
+        https: number[];
+    }
+
+    export interface GetDomainTcpListenerConfig {
+        accessProtocol: string;
+        defenceMode: number;
+        instanceId: string;
+        instanceName: string;
+        listenerId: string;
+        lostAssociationFromAlb: number;
+        port: string;
+        protocol: string;
+    }
+
+    export interface GetDomainTlsFieldsConfig {
+        headersConfig: outputs.waf.GetDomainTlsFieldsConfigHeadersConfig;
+    }
+
+    export interface GetDomainTlsFieldsConfigHeadersConfig {
+        /**
+         * 是否记录全量 header。
+         */
+        enable: number;
+        /**
+         * 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+         */
+        excludedKeyLists: string[];
+        /**
+         * 统计 header 字段，将对应字段用于日志统计分析和告警。
+         */
+        statisticalKeyLists: string[];
     }
 
 }

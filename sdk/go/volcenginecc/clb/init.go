@@ -21,14 +21,22 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:clb/acl:Acl":
+		r = &Acl{}
+	case "volcenginecc:clb/certificate:Certificate":
+		r = &Certificate{}
 	case "volcenginecc:clb/clb:Clb":
 		r = &Clb{}
+	case "volcenginecc:clb/listener:Listener":
+		r = &Listener{}
 	case "volcenginecc:clb/nlb:Nlb":
 		r = &Nlb{}
 	case "volcenginecc:clb/nlbListener:NlbListener":
 		r = &NlbListener{}
 	case "volcenginecc:clb/nlbServerGroup:NlbServerGroup":
 		r = &NlbServerGroup{}
+	case "volcenginecc:clb/rule:Rule":
+		r = &Rule{}
 	case "volcenginecc:clb/serverGroup:ServerGroup":
 		r = &ServerGroup{}
 	default:
@@ -46,7 +54,22 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"clb/acl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"clb/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"clb/clb",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"clb/listener",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -62,6 +85,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"clb/nlbServerGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"clb/rule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -10,29 +10,213 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.clb.inputs.GetAclArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetAclPlainArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetCertificateArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetCertificatePlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetClbArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetClbPlainArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetListenerArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetListenerPlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbListenerArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbListenerPlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbPlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbServerGroupArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbServerGroupPlainArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetRuleArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetRulePlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetServerGroupArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetServerGroupPlainArgs;
+import com.volcengine.volcenginecc.clb.outputs.GetAclResult;
+import com.volcengine.volcenginecc.clb.outputs.GetAclsResult;
+import com.volcengine.volcenginecc.clb.outputs.GetCertificateResult;
+import com.volcengine.volcenginecc.clb.outputs.GetCertificatesResult;
 import com.volcengine.volcenginecc.clb.outputs.GetClbResult;
 import com.volcengine.volcenginecc.clb.outputs.GetClbsResult;
+import com.volcengine.volcenginecc.clb.outputs.GetListenerResult;
+import com.volcengine.volcenginecc.clb.outputs.GetListenersResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbListenerResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbListenersResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbServerGroupResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbServerGroupsResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbsResult;
+import com.volcengine.volcenginecc.clb.outputs.GetRuleResult;
+import com.volcengine.volcenginecc.clb.outputs.GetRulesResult;
 import com.volcengine.volcenginecc.clb.outputs.GetServerGroupResult;
 import com.volcengine.volcenginecc.clb.outputs.GetServerGroupsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class ClbFunctions {
+    /**
+     * Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclResult> getAcl(GetAclArgs args) {
+        return getAcl(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static CompletableFuture<GetAclResult> getAclPlain(GetAclPlainArgs args) {
+        return getAclPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclResult> getAcl(GetAclArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getAcl:getAcl", TypeShape.of(GetAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclResult> getAcl(GetAclArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getAcl:getAcl", TypeShape.of(GetAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static CompletableFuture<GetAclResult> getAclPlain(GetAclPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getAcl:getAcl", TypeShape.of(GetAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclsResult> getAcls() {
+        return getAcls(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static CompletableFuture<GetAclsResult> getAclsPlain() {
+        return getAclsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclsResult> getAcls(InvokeArgs args) {
+        return getAcls(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static CompletableFuture<GetAclsResult> getAclsPlain(InvokeArgs args) {
+        return getAclsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclsResult> getAcls(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getAcls:getAcls", TypeShape.of(GetAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static Output<GetAclsResult> getAcls(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getAcls:getAcls", TypeShape.of(GetAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::ACL
+     * 
+     */
+    public static CompletableFuture<GetAclsResult> getAclsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getAcls:getAcls", TypeShape.of(GetAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
+        return getCertificate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
+        return getCertificatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates() {
+        return getCertificates(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static CompletableFuture<GetCertificatesResult> getCertificatesPlain() {
+        return getCertificatesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates(InvokeArgs args) {
+        return getCertificates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(InvokeArgs args) {
+        return getCertificatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static Output<GetCertificatesResult> getCertificates(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Certificate
+     * 
+     */
+    public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CLB::CLB
      * 
@@ -116,6 +300,90 @@ public final class ClbFunctions {
      */
     public static CompletableFuture<GetClbsResult> getClbsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:clb/getClbs:getClbs", TypeShape.of(GetClbsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenerResult> getListener(GetListenerArgs args) {
+        return getListener(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args) {
+        return getListenerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenersResult> getListeners() {
+        return getListeners(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static CompletableFuture<GetListenersResult> getListenersPlain() {
+        return getListenersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenersResult> getListeners(InvokeArgs args) {
+        return getListeners(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static CompletableFuture<GetListenersResult> getListenersPlain(InvokeArgs args) {
+        return getListenersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenersResult> getListeners(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getListeners:getListeners", TypeShape.of(GetListenersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static Output<GetListenersResult> getListeners(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getListeners:getListeners", TypeShape.of(GetListenersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Listener
+     * 
+     */
+    public static CompletableFuture<GetListenersResult> getListenersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getListeners:getListeners", TypeShape.of(GetListenersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::CLB::NLB
@@ -368,6 +636,90 @@ public final class ClbFunctions {
      */
     public static CompletableFuture<GetNlbsResult> getNlbsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:clb/getNlbs:getNlbs", TypeShape.of(GetNlbsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args) {
+        return getRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
+        return getRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules() {
+        return getRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain() {
+        return getRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args) {
+        return getRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args) {
+        return getRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::CLB::ServerGroup

@@ -21,7 +21,7 @@ def readme():
 setup(name='pulumi_volcenginecc',
       python_requires='>=3.9',
       version=VERSION,
-      description="A Pulumi package to safely use randomness in Pulumi programs.",
+      description="A Pulumi package to safely use volcengine resource in Pulumi programs.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       keywords='volcengine volcenginecc category/cloud',

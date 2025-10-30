@@ -16,6 +16,10 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AclAclEntry',
+    'AclListener',
+    'AclTag',
+    'CertificateTag',
     'ClbAccessLog',
     'ClbEip',
     'ClbEni',
@@ -23,6 +27,8 @@ __all__ = [
     'ClbListener',
     'ClbServerGroup',
     'ClbTag',
+    'ListenerHealthCheck',
+    'ListenerTag',
     'NlbListenerHealth',
     'NlbListenerTag',
     'NlbServerGroupHealthCheck',
@@ -30,9 +36,15 @@ __all__ = [
     'NlbServerGroupTag',
     'NlbTag',
     'NlbZoneMapping',
+    'RuleRedirectConfig',
+    'RuleTag',
     'ServerGroupListener',
     'ServerGroupServer',
     'ServerGroupTag',
+    'GetAclAclEntryResult',
+    'GetAclListenerResult',
+    'GetAclTagResult',
+    'GetCertificateTagResult',
     'GetClbAccessLogResult',
     'GetClbEipResult',
     'GetClbEniResult',
@@ -40,6 +52,8 @@ __all__ = [
     'GetClbListenerResult',
     'GetClbServerGroupResult',
     'GetClbTagResult',
+    'GetListenerHealthCheckResult',
+    'GetListenerTagResult',
     'GetNlbListenerHealthResult',
     'GetNlbListenerTagResult',
     'GetNlbServerGroupHealthCheckResult',
@@ -47,10 +61,183 @@ __all__ = [
     'GetNlbServerGroupTagResult',
     'GetNlbTagResult',
     'GetNlbZoneMappingResult',
+    'GetRuleRedirectConfigResult',
+    'GetRuleTagResult',
     'GetServerGroupListenerResult',
     'GetServerGroupServerResult',
     'GetServerGroupTagResult',
 ]
+
+@pulumi.output_type
+class AclAclEntry(dict):
+    def __init__(__self__, *,
+                 description: Optional[builtins.str] = None,
+                 entry: Optional[builtins.str] = None):
+        """
+        :param builtins.str description: IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+        :param builtins.str entry: IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if entry is not None:
+            pulumi.set(__self__, "entry", entry)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def entry(self) -> Optional[builtins.str]:
+        """
+        IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+        """
+        return pulumi.get(self, "entry")
+
+
+@pulumi.output_type
+class AclListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aclType":
+            suggest = "acl_type"
+        elif key == "listenerId":
+            suggest = "listener_id"
+        elif key == "listenerName":
+            suggest = "listener_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AclListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AclListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AclListener.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acl_type: Optional[builtins.str] = None,
+                 listener_id: Optional[builtins.str] = None,
+                 listener_name: Optional[builtins.str] = None,
+                 port: Optional[builtins.int] = None,
+                 protocol: Optional[builtins.str] = None):
+        """
+        :param builtins.str acl_type: 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+        :param builtins.str listener_id: 监听器的ID。
+        :param builtins.str listener_name: 监听器的名称。
+        :param builtins.int port: 监听器的端口。
+        :param builtins.str protocol: 监听器的协议。
+        """
+        if acl_type is not None:
+            pulumi.set(__self__, "acl_type", acl_type)
+        if listener_id is not None:
+            pulumi.set(__self__, "listener_id", listener_id)
+        if listener_name is not None:
+            pulumi.set(__self__, "listener_name", listener_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="aclType")
+    def acl_type(self) -> Optional[builtins.str]:
+        """
+        监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+        """
+        return pulumi.get(self, "acl_type")
+
+    @property
+    @pulumi.getter(name="listenerId")
+    def listener_id(self) -> Optional[builtins.str]:
+        """
+        监听器的ID。
+        """
+        return pulumi.get(self, "listener_id")
+
+    @property
+    @pulumi.getter(name="listenerName")
+    def listener_name(self) -> Optional[builtins.str]:
+        """
+        监听器的名称。
+        """
+        return pulumi.get(self, "listener_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        监听器的端口。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        监听器的协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class AclTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        :param builtins.str value: 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CertificateTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class ClbAccessLog(dict):
@@ -471,6 +658,213 @@ class ClbTag(dict):
     def value(self) -> Optional[builtins.str]:
         """
         标签值
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ListenerHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthyThreshold":
+            suggest = "healthy_threshold"
+        elif key == "httpCode":
+            suggest = "http_code"
+        elif key == "udpExpect":
+            suggest = "udp_expect"
+        elif key == "udpRequest":
+            suggest = "udp_request"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: Optional[builtins.str] = None,
+                 enabled: Optional[builtins.str] = None,
+                 healthy_threshold: Optional[builtins.int] = None,
+                 http_code: Optional[builtins.str] = None,
+                 interval: Optional[builtins.int] = None,
+                 method: Optional[builtins.str] = None,
+                 port: Optional[builtins.int] = None,
+                 timeout: Optional[builtins.int] = None,
+                 udp_expect: Optional[builtins.str] = None,
+                 udp_request: Optional[builtins.str] = None,
+                 unhealthy_threshold: Optional[builtins.int] = None,
+                 uri: Optional[builtins.str] = None):
+        """
+        :param builtins.str domain: 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+        :param builtins.str enabled: 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+        :param builtins.int healthy_threshold: 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        :param builtins.str http_code: 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+        :param builtins.int interval: 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+        :param builtins.str method: 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+        :param builtins.int port: 健康检查的端口，取值范围为1-65535。
+        :param builtins.int timeout: 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+        :param builtins.str udp_expect: 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        :param builtins.str udp_request: 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        :param builtins.int unhealthy_threshold: 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        :param builtins.str uri: 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if healthy_threshold is not None:
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        if http_code is not None:
+            pulumi.set(__self__, "http_code", http_code)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if udp_expect is not None:
+            pulumi.set(__self__, "udp_expect", udp_expect)
+        if udp_request is not None:
+            pulumi.set(__self__, "udp_request", udp_request)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[builtins.str]:
+        """
+        健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.str]:
+        """
+        监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="healthyThreshold")
+    def healthy_threshold(self) -> Optional[builtins.int]:
+        """
+        健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        """
+        return pulumi.get(self, "healthy_threshold")
+
+    @property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> Optional[builtins.str]:
+        """
+        健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+        """
+        return pulumi.get(self, "http_code")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[builtins.int]:
+        """
+        执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[builtins.str]:
+        """
+        监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        健康检查的端口，取值范围为1-65535。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[builtins.int]:
+        """
+        健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter(name="udpExpect")
+    def udp_expect(self) -> Optional[builtins.str]:
+        """
+        健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        """
+        return pulumi.get(self, "udp_expect")
+
+    @property
+    @pulumi.getter(name="udpRequest")
+    def udp_request(self) -> Optional[builtins.str]:
+        """
+        执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        """
+        return pulumi.get(self, "udp_request")
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> Optional[builtins.int]:
+        """
+        不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[builtins.str]:
+        """
+        健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class ListenerTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        :param builtins.str value: 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
         """
         return pulumi.get(self, "value")
 
@@ -1199,6 +1593,121 @@ class NlbZoneMapping(dict):
 
 
 @pulumi.output_type
+class RuleRedirectConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleRedirectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleRedirectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleRedirectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None,
+                 port: Optional[builtins.str] = None,
+                 protocol: Optional[builtins.str] = None,
+                 status_code: Optional[builtins.str] = None):
+        """
+        :param builtins.str host: 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+        :param builtins.str path: 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+        :param builtins.str port: 转发规则重定向的端口，取值范围为 1~65535。
+        :param builtins.str protocol: 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+        :param builtins.str status_code: 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+        """
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[builtins.str]:
+        """
+        转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.str]:
+        """
+        转发规则重定向的端口，取值范围为 1~65535。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[builtins.str]:
+        """
+        转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[builtins.str]:
+        """
+        转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class RuleTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 标签键。
+        :param builtins.str value: 标签值。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        标签键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        标签值。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ServerGroupListener(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1348,6 +1857,145 @@ class ServerGroupTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAclAclEntryResult(dict):
+    def __init__(__self__, *,
+                 description: builtins.str,
+                 entry: builtins.str):
+        """
+        :param builtins.str description: IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+        :param builtins.str entry: IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "entry", entry)
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def entry(self) -> builtins.str:
+        """
+        IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+        """
+        return pulumi.get(self, "entry")
+
+
+@pulumi.output_type
+class GetAclListenerResult(dict):
+    def __init__(__self__, *,
+                 acl_type: builtins.str,
+                 listener_id: builtins.str,
+                 listener_name: builtins.str,
+                 port: builtins.int,
+                 protocol: builtins.str):
+        """
+        :param builtins.str acl_type: 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+        :param builtins.str listener_id: 监听器的ID。
+        :param builtins.str listener_name: 监听器的名称。
+        :param builtins.int port: 监听器的端口。
+        :param builtins.str protocol: 监听器的协议。
+        """
+        pulumi.set(__self__, "acl_type", acl_type)
+        pulumi.set(__self__, "listener_id", listener_id)
+        pulumi.set(__self__, "listener_name", listener_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="aclType")
+    def acl_type(self) -> builtins.str:
+        """
+        监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+        """
+        return pulumi.get(self, "acl_type")
+
+    @property
+    @pulumi.getter(name="listenerId")
+    def listener_id(self) -> builtins.str:
+        """
+        监听器的ID。
+        """
+        return pulumi.get(self, "listener_id")
+
+    @property
+    @pulumi.getter(name="listenerName")
+    def listener_name(self) -> builtins.str:
+        """
+        监听器的名称。
+        """
+        return pulumi.get(self, "listener_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        监听器的端口。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> builtins.str:
+        """
+        监听器的协议。
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GetAclTagResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        :param builtins.str value: 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetCertificateTagResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
         return pulumi.get(self, "value")
 
 
@@ -1627,6 +2275,174 @@ class GetClbTagResult(dict):
     def value(self) -> builtins.str:
         """
         标签值
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetListenerHealthCheckResult(dict):
+    def __init__(__self__, *,
+                 domain: builtins.str,
+                 enabled: builtins.str,
+                 healthy_threshold: builtins.int,
+                 http_code: builtins.str,
+                 interval: builtins.int,
+                 method: builtins.str,
+                 port: builtins.int,
+                 timeout: builtins.int,
+                 udp_expect: builtins.str,
+                 udp_request: builtins.str,
+                 unhealthy_threshold: builtins.int,
+                 uri: builtins.str):
+        """
+        :param builtins.str domain: 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+        :param builtins.str enabled: 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+        :param builtins.int healthy_threshold: 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        :param builtins.str http_code: 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+        :param builtins.int interval: 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+        :param builtins.str method: 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+        :param builtins.int port: 健康检查的端口，取值范围为1-65535。
+        :param builtins.int timeout: 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+        :param builtins.str udp_expect: 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        :param builtins.str udp_request: 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        :param builtins.int unhealthy_threshold: 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        :param builtins.str uri: 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "http_code", http_code)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "udp_expect", udp_expect)
+        pulumi.set(__self__, "udp_request", udp_request)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> builtins.str:
+        """
+        健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> builtins.str:
+        """
+        监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="healthyThreshold")
+    def healthy_threshold(self) -> builtins.int:
+        """
+        健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        """
+        return pulumi.get(self, "healthy_threshold")
+
+    @property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> builtins.str:
+        """
+        健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+        """
+        return pulumi.get(self, "http_code")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> builtins.int:
+        """
+        执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def method(self) -> builtins.str:
+        """
+        监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        健康检查的端口，取值范围为1-65535。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> builtins.int:
+        """
+        健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter(name="udpExpect")
+    def udp_expect(self) -> builtins.str:
+        """
+        健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        """
+        return pulumi.get(self, "udp_expect")
+
+    @property
+    @pulumi.getter(name="udpRequest")
+    def udp_request(self) -> builtins.str:
+        """
+        执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+        """
+        return pulumi.get(self, "udp_request")
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> builtins.int:
+        """
+        不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> builtins.str:
+        """
+        健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GetListenerTagResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        :param builtins.str value: 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
         """
         return pulumi.get(self, "value")
 
@@ -2195,6 +3011,97 @@ class GetNlbZoneMappingResult(dict):
         NLB实例所属的可用区ID。
         """
         return pulumi.get(self, "zone_id")
+
+
+@pulumi.output_type
+class GetRuleRedirectConfigResult(dict):
+    def __init__(__self__, *,
+                 host: builtins.str,
+                 path: builtins.str,
+                 port: builtins.str,
+                 protocol: builtins.str,
+                 status_code: builtins.str):
+        """
+        :param builtins.str host: 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+        :param builtins.str path: 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+        :param builtins.str port: 转发规则重定向的端口，取值范围为 1~65535。
+        :param builtins.str protocol: 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+        :param builtins.str status_code: 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def host(self) -> builtins.str:
+        """
+        转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.str:
+        """
+        转发规则重定向的端口，取值范围为 1~65535。
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> builtins.str:
+        """
+        转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> builtins.str:
+        """
+        转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class GetRuleTagResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: 标签键。
+        :param builtins.str value: 标签值。
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        标签键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        标签值。
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -5,10 +5,40 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AclArgs, AclState } from "./acl";
+export type Acl = import("./acl").Acl;
+export const Acl: typeof import("./acl").Acl = null as any;
+utilities.lazyLoad(exports, ["Acl"], () => require("./acl"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
 export { ClbArgs, ClbState } from "./clb";
 export type Clb = import("./clb").Clb;
 export const Clb: typeof import("./clb").Clb = null as any;
 utilities.lazyLoad(exports, ["Clb"], () => require("./clb"));
+
+export { GetAclArgs, GetAclResult, GetAclOutputArgs } from "./getAcl";
+export const getAcl: typeof import("./getAcl").getAcl = null as any;
+export const getAclOutput: typeof import("./getAcl").getAclOutput = null as any;
+utilities.lazyLoad(exports, ["getAcl","getAclOutput"], () => require("./getAcl"));
+
+export { GetAclsResult } from "./getAcls";
+export const getAcls: typeof import("./getAcls").getAcls = null as any;
+export const getAclsOutput: typeof import("./getAcls").getAclsOutput = null as any;
+utilities.lazyLoad(exports, ["getAcls","getAclsOutput"], () => require("./getAcls"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetCertificatesResult } from "./getCertificates";
+export const getCertificates: typeof import("./getCertificates").getCertificates = null as any;
+export const getCertificatesOutput: typeof import("./getCertificates").getCertificatesOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificates","getCertificatesOutput"], () => require("./getCertificates"));
 
 export { GetClbArgs, GetClbResult, GetClbOutputArgs } from "./getClb";
 export const getClb: typeof import("./getClb").getClb = null as any;
@@ -19,6 +49,16 @@ export { GetClbsResult } from "./getClbs";
 export const getClbs: typeof import("./getClbs").getClbs = null as any;
 export const getClbsOutput: typeof import("./getClbs").getClbsOutput = null as any;
 utilities.lazyLoad(exports, ["getClbs","getClbsOutput"], () => require("./getClbs"));
+
+export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
+export const getListener: typeof import("./getListener").getListener = null as any;
+export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
+utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
+
+export { GetListenersResult } from "./getListeners";
+export const getListeners: typeof import("./getListeners").getListeners = null as any;
+export const getListenersOutput: typeof import("./getListeners").getListenersOutput = null as any;
+utilities.lazyLoad(exports, ["getListeners","getListenersOutput"], () => require("./getListeners"));
 
 export { GetNlbArgs, GetNlbResult, GetNlbOutputArgs } from "./getNlb";
 export const getNlb: typeof import("./getNlb").getNlb = null as any;
@@ -50,6 +90,16 @@ export const getNlbs: typeof import("./getNlbs").getNlbs = null as any;
 export const getNlbsOutput: typeof import("./getNlbs").getNlbsOutput = null as any;
 utilities.lazyLoad(exports, ["getNlbs","getNlbsOutput"], () => require("./getNlbs"));
 
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+
+export { GetRulesResult } from "./getRules";
+export const getRules: typeof import("./getRules").getRules = null as any;
+export const getRulesOutput: typeof import("./getRules").getRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getRules","getRulesOutput"], () => require("./getRules"));
+
 export { GetServerGroupArgs, GetServerGroupResult, GetServerGroupOutputArgs } from "./getServerGroup";
 export const getServerGroup: typeof import("./getServerGroup").getServerGroup = null as any;
 export const getServerGroupOutput: typeof import("./getServerGroup").getServerGroupOutput = null as any;
@@ -59,6 +109,11 @@ export { GetServerGroupsResult } from "./getServerGroups";
 export const getServerGroups: typeof import("./getServerGroups").getServerGroups = null as any;
 export const getServerGroupsOutput: typeof import("./getServerGroups").getServerGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getServerGroups","getServerGroupsOutput"], () => require("./getServerGroups"));
+
+export { ListenerArgs, ListenerState } from "./listener";
+export type Listener = import("./listener").Listener;
+export const Listener: typeof import("./listener").Listener = null as any;
+utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
 
 export { NlbArgs, NlbState } from "./nlb";
 export type Nlb = import("./nlb").Nlb;
@@ -75,6 +130,11 @@ export type NlbServerGroup = import("./nlbServerGroup").NlbServerGroup;
 export const NlbServerGroup: typeof import("./nlbServerGroup").NlbServerGroup = null as any;
 utilities.lazyLoad(exports, ["NlbServerGroup"], () => require("./nlbServerGroup"));
 
+export { RuleArgs, RuleState } from "./rule";
+export type Rule = import("./rule").Rule;
+export const Rule: typeof import("./rule").Rule = null as any;
+utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+
 export { ServerGroupArgs, ServerGroupState } from "./serverGroup";
 export type ServerGroup = import("./serverGroup").ServerGroup;
 export const ServerGroup: typeof import("./serverGroup").ServerGroup = null as any;
@@ -85,14 +145,22 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:clb/acl:Acl":
+                return new Acl(name, <any>undefined, { urn })
+            case "volcenginecc:clb/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             case "volcenginecc:clb/clb:Clb":
                 return new Clb(name, <any>undefined, { urn })
+            case "volcenginecc:clb/listener:Listener":
+                return new Listener(name, <any>undefined, { urn })
             case "volcenginecc:clb/nlb:Nlb":
                 return new Nlb(name, <any>undefined, { urn })
             case "volcenginecc:clb/nlbListener:NlbListener":
                 return new NlbListener(name, <any>undefined, { urn })
             case "volcenginecc:clb/nlbServerGroup:NlbServerGroup":
                 return new NlbServerGroup(name, <any>undefined, { urn })
+            case "volcenginecc:clb/rule:Rule":
+                return new Rule(name, <any>undefined, { urn })
             case "volcenginecc:clb/serverGroup:ServerGroup":
                 return new ServerGroup(name, <any>undefined, { urn })
             default:
@@ -100,8 +168,12 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "clb/acl", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "clb/certificate", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "clb/clb", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "clb/listener", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "clb/nlb", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "clb/nlbListener", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "clb/nlbServerGroup", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "clb/rule", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "clb/serverGroup", _module)

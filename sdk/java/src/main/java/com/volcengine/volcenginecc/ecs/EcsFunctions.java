@@ -16,6 +16,8 @@ import com.volcengine.volcenginecc.ecs.inputs.GetHpcClusterArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetHpcClusterPlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetImageArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetImagePlainArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetInstanceArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetInvocationArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetInvocationPlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetKeypairArgs;
@@ -26,6 +28,8 @@ import com.volcengine.volcenginecc.ecs.outputs.GetHpcClusterResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetHpcClustersResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetImageResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetImagesResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetInstanceResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetInstancesResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetInvocationResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetInvocationsResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetKeypairResult;
@@ -284,6 +288,90 @@ public final class EcsFunctions {
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
+        return getInstance(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args) {
+        return getInstancePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances() {
+        return getInstances(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
+        return getInstancesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances(InvokeArgs args) {
+        return getInstances(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args) {
+        return getInstancesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::ECS::Invocation

@@ -384,6 +384,112 @@ func (o TransitRouterAttachmentTagArrayOutput) Index(i pulumi.IntInput) TransitR
 	}).(TransitRouterAttachmentTagOutput)
 }
 
+type TransitRouterRouteTableTag struct {
+	// 标签键
+	Key *string `pulumi:"key"`
+	// 标签值
+	Value *string `pulumi:"value"`
+}
+
+// TransitRouterRouteTableTagInput is an input type that accepts TransitRouterRouteTableTagArgs and TransitRouterRouteTableTagOutput values.
+// You can construct a concrete instance of `TransitRouterRouteTableTagInput` via:
+//
+//	TransitRouterRouteTableTagArgs{...}
+type TransitRouterRouteTableTagInput interface {
+	pulumi.Input
+
+	ToTransitRouterRouteTableTagOutput() TransitRouterRouteTableTagOutput
+	ToTransitRouterRouteTableTagOutputWithContext(context.Context) TransitRouterRouteTableTagOutput
+}
+
+type TransitRouterRouteTableTagArgs struct {
+	// 标签键
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 标签值
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TransitRouterRouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (i TransitRouterRouteTableTagArgs) ToTransitRouterRouteTableTagOutput() TransitRouterRouteTableTagOutput {
+	return i.ToTransitRouterRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i TransitRouterRouteTableTagArgs) ToTransitRouterRouteTableTagOutputWithContext(ctx context.Context) TransitRouterRouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitRouterRouteTableTagOutput)
+}
+
+// TransitRouterRouteTableTagArrayInput is an input type that accepts TransitRouterRouteTableTagArray and TransitRouterRouteTableTagArrayOutput values.
+// You can construct a concrete instance of `TransitRouterRouteTableTagArrayInput` via:
+//
+//	TransitRouterRouteTableTagArray{ TransitRouterRouteTableTagArgs{...} }
+type TransitRouterRouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToTransitRouterRouteTableTagArrayOutput() TransitRouterRouteTableTagArrayOutput
+	ToTransitRouterRouteTableTagArrayOutputWithContext(context.Context) TransitRouterRouteTableTagArrayOutput
+}
+
+type TransitRouterRouteTableTagArray []TransitRouterRouteTableTagInput
+
+func (TransitRouterRouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (i TransitRouterRouteTableTagArray) ToTransitRouterRouteTableTagArrayOutput() TransitRouterRouteTableTagArrayOutput {
+	return i.ToTransitRouterRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i TransitRouterRouteTableTagArray) ToTransitRouterRouteTableTagArrayOutputWithContext(ctx context.Context) TransitRouterRouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitRouterRouteTableTagArrayOutput)
+}
+
+type TransitRouterRouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (TransitRouterRouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (o TransitRouterRouteTableTagOutput) ToTransitRouterRouteTableTagOutput() TransitRouterRouteTableTagOutput {
+	return o
+}
+
+func (o TransitRouterRouteTableTagOutput) ToTransitRouterRouteTableTagOutputWithContext(ctx context.Context) TransitRouterRouteTableTagOutput {
+	return o
+}
+
+// 标签键
+func (o TransitRouterRouteTableTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitRouterRouteTableTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 标签值
+func (o TransitRouterRouteTableTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitRouterRouteTableTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TransitRouterRouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitRouterRouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (o TransitRouterRouteTableTagArrayOutput) ToTransitRouterRouteTableTagArrayOutput() TransitRouterRouteTableTagArrayOutput {
+	return o
+}
+
+func (o TransitRouterRouteTableTagArrayOutput) ToTransitRouterRouteTableTagArrayOutputWithContext(ctx context.Context) TransitRouterRouteTableTagArrayOutput {
+	return o
+}
+
+func (o TransitRouterRouteTableTagArrayOutput) Index(i pulumi.IntInput) TransitRouterRouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitRouterRouteTableTag {
+		return vs[0].([]TransitRouterRouteTableTag)[vs[1].(int)]
+	}).(TransitRouterRouteTableTagOutput)
+}
+
 type TransitRouterTag struct {
 	// 标签键。
 	Key *string `pulumi:"key"`
@@ -864,6 +970,112 @@ func (o GetTransitRouterAttachmentTagArrayOutput) Index(i pulumi.IntInput) GetTr
 	}).(GetTransitRouterAttachmentTagOutput)
 }
 
+type GetTransitRouterRouteTableTag struct {
+	// 标签键
+	Key string `pulumi:"key"`
+	// 标签值
+	Value string `pulumi:"value"`
+}
+
+// GetTransitRouterRouteTableTagInput is an input type that accepts GetTransitRouterRouteTableTagArgs and GetTransitRouterRouteTableTagOutput values.
+// You can construct a concrete instance of `GetTransitRouterRouteTableTagInput` via:
+//
+//	GetTransitRouterRouteTableTagArgs{...}
+type GetTransitRouterRouteTableTagInput interface {
+	pulumi.Input
+
+	ToGetTransitRouterRouteTableTagOutput() GetTransitRouterRouteTableTagOutput
+	ToGetTransitRouterRouteTableTagOutputWithContext(context.Context) GetTransitRouterRouteTableTagOutput
+}
+
+type GetTransitRouterRouteTableTagArgs struct {
+	// 标签键
+	Key pulumi.StringInput `pulumi:"key"`
+	// 标签值
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetTransitRouterRouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (i GetTransitRouterRouteTableTagArgs) ToGetTransitRouterRouteTableTagOutput() GetTransitRouterRouteTableTagOutput {
+	return i.ToGetTransitRouterRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i GetTransitRouterRouteTableTagArgs) ToGetTransitRouterRouteTableTagOutputWithContext(ctx context.Context) GetTransitRouterRouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitRouterRouteTableTagOutput)
+}
+
+// GetTransitRouterRouteTableTagArrayInput is an input type that accepts GetTransitRouterRouteTableTagArray and GetTransitRouterRouteTableTagArrayOutput values.
+// You can construct a concrete instance of `GetTransitRouterRouteTableTagArrayInput` via:
+//
+//	GetTransitRouterRouteTableTagArray{ GetTransitRouterRouteTableTagArgs{...} }
+type GetTransitRouterRouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToGetTransitRouterRouteTableTagArrayOutput() GetTransitRouterRouteTableTagArrayOutput
+	ToGetTransitRouterRouteTableTagArrayOutputWithContext(context.Context) GetTransitRouterRouteTableTagArrayOutput
+}
+
+type GetTransitRouterRouteTableTagArray []GetTransitRouterRouteTableTagInput
+
+func (GetTransitRouterRouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (i GetTransitRouterRouteTableTagArray) ToGetTransitRouterRouteTableTagArrayOutput() GetTransitRouterRouteTableTagArrayOutput {
+	return i.ToGetTransitRouterRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetTransitRouterRouteTableTagArray) ToGetTransitRouterRouteTableTagArrayOutputWithContext(ctx context.Context) GetTransitRouterRouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitRouterRouteTableTagArrayOutput)
+}
+
+type GetTransitRouterRouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (GetTransitRouterRouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (o GetTransitRouterRouteTableTagOutput) ToGetTransitRouterRouteTableTagOutput() GetTransitRouterRouteTableTagOutput {
+	return o
+}
+
+func (o GetTransitRouterRouteTableTagOutput) ToGetTransitRouterRouteTableTagOutputWithContext(ctx context.Context) GetTransitRouterRouteTableTagOutput {
+	return o
+}
+
+// 标签键
+func (o GetTransitRouterRouteTableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitRouterRouteTableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 标签值
+func (o GetTransitRouterRouteTableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitRouterRouteTableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetTransitRouterRouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTransitRouterRouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitRouterRouteTableTag)(nil)).Elem()
+}
+
+func (o GetTransitRouterRouteTableTagArrayOutput) ToGetTransitRouterRouteTableTagArrayOutput() GetTransitRouterRouteTableTagArrayOutput {
+	return o
+}
+
+func (o GetTransitRouterRouteTableTagArrayOutput) ToGetTransitRouterRouteTableTagArrayOutputWithContext(ctx context.Context) GetTransitRouterRouteTableTagArrayOutput {
+	return o
+}
+
+func (o GetTransitRouterRouteTableTagArrayOutput) Index(i pulumi.IntInput) GetTransitRouterRouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTransitRouterRouteTableTag {
+		return vs[0].([]GetTransitRouterRouteTableTag)[vs[1].(int)]
+	}).(GetTransitRouterRouteTableTagOutput)
+}
+
 type GetTransitRouterTag struct {
 	// 标签键。
 	Key string `pulumi:"key"`
@@ -975,24 +1187,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterAttachmentArrayInput)(nil)).Elem(), TransitRouterAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterAttachmentTagInput)(nil)).Elem(), TransitRouterAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterAttachmentTagArrayInput)(nil)).Elem(), TransitRouterAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterRouteTableTagInput)(nil)).Elem(), TransitRouterRouteTableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterRouteTableTagArrayInput)(nil)).Elem(), TransitRouterRouteTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterTagInput)(nil)).Elem(), TransitRouterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitRouterTagArrayInput)(nil)).Elem(), TransitRouterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterAttachmentInput)(nil)).Elem(), GetTransitRouterAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterAttachmentArrayInput)(nil)).Elem(), GetTransitRouterAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterAttachmentTagInput)(nil)).Elem(), GetTransitRouterAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterAttachmentTagArrayInput)(nil)).Elem(), GetTransitRouterAttachmentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterRouteTableTagInput)(nil)).Elem(), GetTransitRouterRouteTableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterRouteTableTagArrayInput)(nil)).Elem(), GetTransitRouterRouteTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterTagInput)(nil)).Elem(), GetTransitRouterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitRouterTagArrayInput)(nil)).Elem(), GetTransitRouterTagArray{})
 	pulumi.RegisterOutputType(TransitRouterAttachmentOutput{})
 	pulumi.RegisterOutputType(TransitRouterAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(TransitRouterAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitRouterAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitRouterRouteTableTagOutput{})
+	pulumi.RegisterOutputType(TransitRouterRouteTableTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitRouterTagOutput{})
 	pulumi.RegisterOutputType(TransitRouterTagArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitRouterAttachmentOutput{})
 	pulumi.RegisterOutputType(GetTransitRouterAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitRouterAttachmentTagOutput{})
 	pulumi.RegisterOutputType(GetTransitRouterAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(GetTransitRouterRouteTableTagOutput{})
+	pulumi.RegisterOutputType(GetTransitRouterRouteTableTagArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitRouterTagOutput{})
 	pulumi.RegisterOutputType(GetTransitRouterTagArrayOutput{})
 }

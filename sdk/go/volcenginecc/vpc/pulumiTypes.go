@@ -1030,6 +1030,1237 @@ func (o EniTagArrayOutput) Index(i pulumi.IntInput) EniTagOutput {
 	}).(EniTagOutput)
 }
 
+type NetworkAclDefaultEgressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp *string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description *string `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId *string `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName *string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy *string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port *string `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority *int `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol *string `pulumi:"protocol"`
+}
+
+// NetworkAclDefaultEgressAclEntryInput is an input type that accepts NetworkAclDefaultEgressAclEntryArgs and NetworkAclDefaultEgressAclEntryOutput values.
+// You can construct a concrete instance of `NetworkAclDefaultEgressAclEntryInput` via:
+//
+//	NetworkAclDefaultEgressAclEntryArgs{...}
+type NetworkAclDefaultEgressAclEntryInput interface {
+	pulumi.Input
+
+	ToNetworkAclDefaultEgressAclEntryOutput() NetworkAclDefaultEgressAclEntryOutput
+	ToNetworkAclDefaultEgressAclEntryOutputWithContext(context.Context) NetworkAclDefaultEgressAclEntryOutput
+}
+
+type NetworkAclDefaultEgressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId pulumi.StringPtrInput `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringPtrInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (NetworkAclDefaultEgressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclDefaultEgressAclEntryArgs) ToNetworkAclDefaultEgressAclEntryOutput() NetworkAclDefaultEgressAclEntryOutput {
+	return i.ToNetworkAclDefaultEgressAclEntryOutputWithContext(context.Background())
+}
+
+func (i NetworkAclDefaultEgressAclEntryArgs) ToNetworkAclDefaultEgressAclEntryOutputWithContext(ctx context.Context) NetworkAclDefaultEgressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclDefaultEgressAclEntryOutput)
+}
+
+// NetworkAclDefaultEgressAclEntryArrayInput is an input type that accepts NetworkAclDefaultEgressAclEntryArray and NetworkAclDefaultEgressAclEntryArrayOutput values.
+// You can construct a concrete instance of `NetworkAclDefaultEgressAclEntryArrayInput` via:
+//
+//	NetworkAclDefaultEgressAclEntryArray{ NetworkAclDefaultEgressAclEntryArgs{...} }
+type NetworkAclDefaultEgressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclDefaultEgressAclEntryArrayOutput() NetworkAclDefaultEgressAclEntryArrayOutput
+	ToNetworkAclDefaultEgressAclEntryArrayOutputWithContext(context.Context) NetworkAclDefaultEgressAclEntryArrayOutput
+}
+
+type NetworkAclDefaultEgressAclEntryArray []NetworkAclDefaultEgressAclEntryInput
+
+func (NetworkAclDefaultEgressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclDefaultEgressAclEntryArray) ToNetworkAclDefaultEgressAclEntryArrayOutput() NetworkAclDefaultEgressAclEntryArrayOutput {
+	return i.ToNetworkAclDefaultEgressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclDefaultEgressAclEntryArray) ToNetworkAclDefaultEgressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclDefaultEgressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclDefaultEgressAclEntryArrayOutput)
+}
+
+type NetworkAclDefaultEgressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclDefaultEgressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclDefaultEgressAclEntryOutput) ToNetworkAclDefaultEgressAclEntryOutput() NetworkAclDefaultEgressAclEntryOutput {
+	return o
+}
+
+func (o NetworkAclDefaultEgressAclEntryOutput) ToNetworkAclDefaultEgressAclEntryOutputWithContext(ctx context.Context) NetworkAclDefaultEgressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o NetworkAclDefaultEgressAclEntryOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// 规则的描述信息。
+func (o NetworkAclDefaultEgressAclEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 规则的ID。
+func (o NetworkAclDefaultEgressAclEntryOutput) NetworkAclEntryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.NetworkAclEntryId }).(pulumi.StringPtrOutput)
+}
+
+// 规则的名称。
+func (o NetworkAclDefaultEgressAclEntryOutput) NetworkAclEntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.NetworkAclEntryName }).(pulumi.StringPtrOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o NetworkAclDefaultEgressAclEntryOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o NetworkAclDefaultEgressAclEntryOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+func (o NetworkAclDefaultEgressAclEntryOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o NetworkAclDefaultEgressAclEntryOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultEgressAclEntry) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAclDefaultEgressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclDefaultEgressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclDefaultEgressAclEntryArrayOutput) ToNetworkAclDefaultEgressAclEntryArrayOutput() NetworkAclDefaultEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclDefaultEgressAclEntryArrayOutput) ToNetworkAclDefaultEgressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclDefaultEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclDefaultEgressAclEntryArrayOutput) Index(i pulumi.IntInput) NetworkAclDefaultEgressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclDefaultEgressAclEntry {
+		return vs[0].([]NetworkAclDefaultEgressAclEntry)[vs[1].(int)]
+	}).(NetworkAclDefaultEgressAclEntryOutput)
+}
+
+type NetworkAclDefaultIngressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp *string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description *string `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId *string `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName *string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy *string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port *string `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority *int `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol *string `pulumi:"protocol"`
+}
+
+// NetworkAclDefaultIngressAclEntryInput is an input type that accepts NetworkAclDefaultIngressAclEntryArgs and NetworkAclDefaultIngressAclEntryOutput values.
+// You can construct a concrete instance of `NetworkAclDefaultIngressAclEntryInput` via:
+//
+//	NetworkAclDefaultIngressAclEntryArgs{...}
+type NetworkAclDefaultIngressAclEntryInput interface {
+	pulumi.Input
+
+	ToNetworkAclDefaultIngressAclEntryOutput() NetworkAclDefaultIngressAclEntryOutput
+	ToNetworkAclDefaultIngressAclEntryOutputWithContext(context.Context) NetworkAclDefaultIngressAclEntryOutput
+}
+
+type NetworkAclDefaultIngressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId pulumi.StringPtrInput `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringPtrInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (NetworkAclDefaultIngressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclDefaultIngressAclEntryArgs) ToNetworkAclDefaultIngressAclEntryOutput() NetworkAclDefaultIngressAclEntryOutput {
+	return i.ToNetworkAclDefaultIngressAclEntryOutputWithContext(context.Background())
+}
+
+func (i NetworkAclDefaultIngressAclEntryArgs) ToNetworkAclDefaultIngressAclEntryOutputWithContext(ctx context.Context) NetworkAclDefaultIngressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclDefaultIngressAclEntryOutput)
+}
+
+// NetworkAclDefaultIngressAclEntryArrayInput is an input type that accepts NetworkAclDefaultIngressAclEntryArray and NetworkAclDefaultIngressAclEntryArrayOutput values.
+// You can construct a concrete instance of `NetworkAclDefaultIngressAclEntryArrayInput` via:
+//
+//	NetworkAclDefaultIngressAclEntryArray{ NetworkAclDefaultIngressAclEntryArgs{...} }
+type NetworkAclDefaultIngressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclDefaultIngressAclEntryArrayOutput() NetworkAclDefaultIngressAclEntryArrayOutput
+	ToNetworkAclDefaultIngressAclEntryArrayOutputWithContext(context.Context) NetworkAclDefaultIngressAclEntryArrayOutput
+}
+
+type NetworkAclDefaultIngressAclEntryArray []NetworkAclDefaultIngressAclEntryInput
+
+func (NetworkAclDefaultIngressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclDefaultIngressAclEntryArray) ToNetworkAclDefaultIngressAclEntryArrayOutput() NetworkAclDefaultIngressAclEntryArrayOutput {
+	return i.ToNetworkAclDefaultIngressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclDefaultIngressAclEntryArray) ToNetworkAclDefaultIngressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclDefaultIngressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclDefaultIngressAclEntryArrayOutput)
+}
+
+type NetworkAclDefaultIngressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclDefaultIngressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclDefaultIngressAclEntryOutput) ToNetworkAclDefaultIngressAclEntryOutput() NetworkAclDefaultIngressAclEntryOutput {
+	return o
+}
+
+func (o NetworkAclDefaultIngressAclEntryOutput) ToNetworkAclDefaultIngressAclEntryOutputWithContext(ctx context.Context) NetworkAclDefaultIngressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o NetworkAclDefaultIngressAclEntryOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// 规则的描述信息。
+func (o NetworkAclDefaultIngressAclEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 规则的ID。
+func (o NetworkAclDefaultIngressAclEntryOutput) NetworkAclEntryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.NetworkAclEntryId }).(pulumi.StringPtrOutput)
+}
+
+// 规则的名称。
+func (o NetworkAclDefaultIngressAclEntryOutput) NetworkAclEntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.NetworkAclEntryName }).(pulumi.StringPtrOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o NetworkAclDefaultIngressAclEntryOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o NetworkAclDefaultIngressAclEntryOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+func (o NetworkAclDefaultIngressAclEntryOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o NetworkAclDefaultIngressAclEntryOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclDefaultIngressAclEntry) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAclDefaultIngressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclDefaultIngressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclDefaultIngressAclEntryArrayOutput) ToNetworkAclDefaultIngressAclEntryArrayOutput() NetworkAclDefaultIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclDefaultIngressAclEntryArrayOutput) ToNetworkAclDefaultIngressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclDefaultIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclDefaultIngressAclEntryArrayOutput) Index(i pulumi.IntInput) NetworkAclDefaultIngressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclDefaultIngressAclEntry {
+		return vs[0].([]NetworkAclDefaultIngressAclEntry)[vs[1].(int)]
+	}).(NetworkAclDefaultIngressAclEntryOutput)
+}
+
+type NetworkAclEgressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp *string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description *string `pulumi:"description"`
+	// 规则的名称。
+	NetworkAclEntryName *string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy *string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port *string `pulumi:"port"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol *string `pulumi:"protocol"`
+}
+
+// NetworkAclEgressAclEntryInput is an input type that accepts NetworkAclEgressAclEntryArgs and NetworkAclEgressAclEntryOutput values.
+// You can construct a concrete instance of `NetworkAclEgressAclEntryInput` via:
+//
+//	NetworkAclEgressAclEntryArgs{...}
+type NetworkAclEgressAclEntryInput interface {
+	pulumi.Input
+
+	ToNetworkAclEgressAclEntryOutput() NetworkAclEgressAclEntryOutput
+	ToNetworkAclEgressAclEntryOutputWithContext(context.Context) NetworkAclEgressAclEntryOutput
+}
+
+type NetworkAclEgressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringPtrInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (NetworkAclEgressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclEgressAclEntryArgs) ToNetworkAclEgressAclEntryOutput() NetworkAclEgressAclEntryOutput {
+	return i.ToNetworkAclEgressAclEntryOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEgressAclEntryArgs) ToNetworkAclEgressAclEntryOutputWithContext(ctx context.Context) NetworkAclEgressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEgressAclEntryOutput)
+}
+
+// NetworkAclEgressAclEntryArrayInput is an input type that accepts NetworkAclEgressAclEntryArray and NetworkAclEgressAclEntryArrayOutput values.
+// You can construct a concrete instance of `NetworkAclEgressAclEntryArrayInput` via:
+//
+//	NetworkAclEgressAclEntryArray{ NetworkAclEgressAclEntryArgs{...} }
+type NetworkAclEgressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclEgressAclEntryArrayOutput() NetworkAclEgressAclEntryArrayOutput
+	ToNetworkAclEgressAclEntryArrayOutputWithContext(context.Context) NetworkAclEgressAclEntryArrayOutput
+}
+
+type NetworkAclEgressAclEntryArray []NetworkAclEgressAclEntryInput
+
+func (NetworkAclEgressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclEgressAclEntryArray) ToNetworkAclEgressAclEntryArrayOutput() NetworkAclEgressAclEntryArrayOutput {
+	return i.ToNetworkAclEgressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEgressAclEntryArray) ToNetworkAclEgressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclEgressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEgressAclEntryArrayOutput)
+}
+
+type NetworkAclEgressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEgressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclEgressAclEntryOutput) ToNetworkAclEgressAclEntryOutput() NetworkAclEgressAclEntryOutput {
+	return o
+}
+
+func (o NetworkAclEgressAclEntryOutput) ToNetworkAclEgressAclEntryOutputWithContext(ctx context.Context) NetworkAclEgressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o NetworkAclEgressAclEntryOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclEgressAclEntry) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// 规则的描述信息。
+func (o NetworkAclEgressAclEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclEgressAclEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 规则的名称。
+func (o NetworkAclEgressAclEntryOutput) NetworkAclEntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclEgressAclEntry) *string { return v.NetworkAclEntryName }).(pulumi.StringPtrOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o NetworkAclEgressAclEntryOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclEgressAclEntry) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o NetworkAclEgressAclEntryOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclEgressAclEntry) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o NetworkAclEgressAclEntryOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclEgressAclEntry) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAclEgressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEgressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclEgressAclEntryArrayOutput) ToNetworkAclEgressAclEntryArrayOutput() NetworkAclEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclEgressAclEntryArrayOutput) ToNetworkAclEgressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclEgressAclEntryArrayOutput) Index(i pulumi.IntInput) NetworkAclEgressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclEgressAclEntry {
+		return vs[0].([]NetworkAclEgressAclEntry)[vs[1].(int)]
+	}).(NetworkAclEgressAclEntryOutput)
+}
+
+type NetworkAclIngressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp *string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description *string `pulumi:"description"`
+	// 规则的名称。
+	NetworkAclEntryName *string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy *string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port *string `pulumi:"port"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol *string `pulumi:"protocol"`
+}
+
+// NetworkAclIngressAclEntryInput is an input type that accepts NetworkAclIngressAclEntryArgs and NetworkAclIngressAclEntryOutput values.
+// You can construct a concrete instance of `NetworkAclIngressAclEntryInput` via:
+//
+//	NetworkAclIngressAclEntryArgs{...}
+type NetworkAclIngressAclEntryInput interface {
+	pulumi.Input
+
+	ToNetworkAclIngressAclEntryOutput() NetworkAclIngressAclEntryOutput
+	ToNetworkAclIngressAclEntryOutputWithContext(context.Context) NetworkAclIngressAclEntryOutput
+}
+
+type NetworkAclIngressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringPtrInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (NetworkAclIngressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclIngressAclEntryArgs) ToNetworkAclIngressAclEntryOutput() NetworkAclIngressAclEntryOutput {
+	return i.ToNetworkAclIngressAclEntryOutputWithContext(context.Background())
+}
+
+func (i NetworkAclIngressAclEntryArgs) ToNetworkAclIngressAclEntryOutputWithContext(ctx context.Context) NetworkAclIngressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclIngressAclEntryOutput)
+}
+
+// NetworkAclIngressAclEntryArrayInput is an input type that accepts NetworkAclIngressAclEntryArray and NetworkAclIngressAclEntryArrayOutput values.
+// You can construct a concrete instance of `NetworkAclIngressAclEntryArrayInput` via:
+//
+//	NetworkAclIngressAclEntryArray{ NetworkAclIngressAclEntryArgs{...} }
+type NetworkAclIngressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclIngressAclEntryArrayOutput() NetworkAclIngressAclEntryArrayOutput
+	ToNetworkAclIngressAclEntryArrayOutputWithContext(context.Context) NetworkAclIngressAclEntryArrayOutput
+}
+
+type NetworkAclIngressAclEntryArray []NetworkAclIngressAclEntryInput
+
+func (NetworkAclIngressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (i NetworkAclIngressAclEntryArray) ToNetworkAclIngressAclEntryArrayOutput() NetworkAclIngressAclEntryArrayOutput {
+	return i.ToNetworkAclIngressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclIngressAclEntryArray) ToNetworkAclIngressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclIngressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclIngressAclEntryArrayOutput)
+}
+
+type NetworkAclIngressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclIngressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclIngressAclEntryOutput) ToNetworkAclIngressAclEntryOutput() NetworkAclIngressAclEntryOutput {
+	return o
+}
+
+func (o NetworkAclIngressAclEntryOutput) ToNetworkAclIngressAclEntryOutputWithContext(ctx context.Context) NetworkAclIngressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o NetworkAclIngressAclEntryOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclIngressAclEntry) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// 规则的描述信息。
+func (o NetworkAclIngressAclEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclIngressAclEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// 规则的名称。
+func (o NetworkAclIngressAclEntryOutput) NetworkAclEntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclIngressAclEntry) *string { return v.NetworkAclEntryName }).(pulumi.StringPtrOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o NetworkAclIngressAclEntryOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclIngressAclEntry) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o NetworkAclIngressAclEntryOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclIngressAclEntry) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o NetworkAclIngressAclEntryOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclIngressAclEntry) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAclIngressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclIngressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (o NetworkAclIngressAclEntryArrayOutput) ToNetworkAclIngressAclEntryArrayOutput() NetworkAclIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclIngressAclEntryArrayOutput) ToNetworkAclIngressAclEntryArrayOutputWithContext(ctx context.Context) NetworkAclIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o NetworkAclIngressAclEntryArrayOutput) Index(i pulumi.IntInput) NetworkAclIngressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclIngressAclEntry {
+		return vs[0].([]NetworkAclIngressAclEntry)[vs[1].(int)]
+	}).(NetworkAclIngressAclEntryOutput)
+}
+
+type NetworkAclResource struct {
+	// 关联资源的ID。
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// NetworkAclResourceInput is an input type that accepts NetworkAclResourceArgs and NetworkAclResourceOutput values.
+// You can construct a concrete instance of `NetworkAclResourceInput` via:
+//
+//	NetworkAclResourceArgs{...}
+type NetworkAclResourceInput interface {
+	pulumi.Input
+
+	ToNetworkAclResourceOutput() NetworkAclResourceOutput
+	ToNetworkAclResourceOutputWithContext(context.Context) NetworkAclResourceOutput
+}
+
+type NetworkAclResourceArgs struct {
+	// 关联资源的ID。
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (NetworkAclResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclResource)(nil)).Elem()
+}
+
+func (i NetworkAclResourceArgs) ToNetworkAclResourceOutput() NetworkAclResourceOutput {
+	return i.ToNetworkAclResourceOutputWithContext(context.Background())
+}
+
+func (i NetworkAclResourceArgs) ToNetworkAclResourceOutputWithContext(ctx context.Context) NetworkAclResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclResourceOutput)
+}
+
+// NetworkAclResourceArrayInput is an input type that accepts NetworkAclResourceArray and NetworkAclResourceArrayOutput values.
+// You can construct a concrete instance of `NetworkAclResourceArrayInput` via:
+//
+//	NetworkAclResourceArray{ NetworkAclResourceArgs{...} }
+type NetworkAclResourceArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclResourceArrayOutput() NetworkAclResourceArrayOutput
+	ToNetworkAclResourceArrayOutputWithContext(context.Context) NetworkAclResourceArrayOutput
+}
+
+type NetworkAclResourceArray []NetworkAclResourceInput
+
+func (NetworkAclResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclResource)(nil)).Elem()
+}
+
+func (i NetworkAclResourceArray) ToNetworkAclResourceArrayOutput() NetworkAclResourceArrayOutput {
+	return i.ToNetworkAclResourceArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclResourceArray) ToNetworkAclResourceArrayOutputWithContext(ctx context.Context) NetworkAclResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclResourceArrayOutput)
+}
+
+type NetworkAclResourceOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclResource)(nil)).Elem()
+}
+
+func (o NetworkAclResourceOutput) ToNetworkAclResourceOutput() NetworkAclResourceOutput {
+	return o
+}
+
+func (o NetworkAclResourceOutput) ToNetworkAclResourceOutputWithContext(ctx context.Context) NetworkAclResourceOutput {
+	return o
+}
+
+// 关联资源的ID。
+func (o NetworkAclResourceOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclResource) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAclResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclResource)(nil)).Elem()
+}
+
+func (o NetworkAclResourceArrayOutput) ToNetworkAclResourceArrayOutput() NetworkAclResourceArrayOutput {
+	return o
+}
+
+func (o NetworkAclResourceArrayOutput) ToNetworkAclResourceArrayOutputWithContext(ctx context.Context) NetworkAclResourceArrayOutput {
+	return o
+}
+
+func (o NetworkAclResourceArrayOutput) Index(i pulumi.IntInput) NetworkAclResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclResource {
+		return vs[0].([]NetworkAclResource)[vs[1].(int)]
+	}).(NetworkAclResourceOutput)
+}
+
+type NetworkAclTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// NetworkAclTagInput is an input type that accepts NetworkAclTagArgs and NetworkAclTagOutput values.
+// You can construct a concrete instance of `NetworkAclTagInput` via:
+//
+//	NetworkAclTagArgs{...}
+type NetworkAclTagInput interface {
+	pulumi.Input
+
+	ToNetworkAclTagOutput() NetworkAclTagOutput
+	ToNetworkAclTagOutputWithContext(context.Context) NetworkAclTagOutput
+}
+
+type NetworkAclTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (NetworkAclTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclTag)(nil)).Elem()
+}
+
+func (i NetworkAclTagArgs) ToNetworkAclTagOutput() NetworkAclTagOutput {
+	return i.ToNetworkAclTagOutputWithContext(context.Background())
+}
+
+func (i NetworkAclTagArgs) ToNetworkAclTagOutputWithContext(ctx context.Context) NetworkAclTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclTagOutput)
+}
+
+// NetworkAclTagArrayInput is an input type that accepts NetworkAclTagArray and NetworkAclTagArrayOutput values.
+// You can construct a concrete instance of `NetworkAclTagArrayInput` via:
+//
+//	NetworkAclTagArray{ NetworkAclTagArgs{...} }
+type NetworkAclTagArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclTagArrayOutput() NetworkAclTagArrayOutput
+	ToNetworkAclTagArrayOutputWithContext(context.Context) NetworkAclTagArrayOutput
+}
+
+type NetworkAclTagArray []NetworkAclTagInput
+
+func (NetworkAclTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclTag)(nil)).Elem()
+}
+
+func (i NetworkAclTagArray) ToNetworkAclTagArrayOutput() NetworkAclTagArrayOutput {
+	return i.ToNetworkAclTagArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclTagArray) ToNetworkAclTagArrayOutputWithContext(ctx context.Context) NetworkAclTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclTagArrayOutput)
+}
+
+type NetworkAclTagOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclTag)(nil)).Elem()
+}
+
+func (o NetworkAclTagOutput) ToNetworkAclTagOutput() NetworkAclTagOutput {
+	return o
+}
+
+func (o NetworkAclTagOutput) ToNetworkAclTagOutputWithContext(ctx context.Context) NetworkAclTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o NetworkAclTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o NetworkAclTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAclTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAclTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclTag)(nil)).Elem()
+}
+
+func (o NetworkAclTagArrayOutput) ToNetworkAclTagArrayOutput() NetworkAclTagArrayOutput {
+	return o
+}
+
+func (o NetworkAclTagArrayOutput) ToNetworkAclTagArrayOutputWithContext(ctx context.Context) NetworkAclTagArrayOutput {
+	return o
+}
+
+func (o NetworkAclTagArrayOutput) Index(i pulumi.IntInput) NetworkAclTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclTag {
+		return vs[0].([]NetworkAclTag)[vs[1].(int)]
+	}).(NetworkAclTagOutput)
+}
+
+type PrefixListAssociationsRouteTable struct {
+	// 关联资源的ID。
+	ResourceId *string `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// PrefixListAssociationsRouteTableInput is an input type that accepts PrefixListAssociationsRouteTableArgs and PrefixListAssociationsRouteTableOutput values.
+// You can construct a concrete instance of `PrefixListAssociationsRouteTableInput` via:
+//
+//	PrefixListAssociationsRouteTableArgs{...}
+type PrefixListAssociationsRouteTableInput interface {
+	pulumi.Input
+
+	ToPrefixListAssociationsRouteTableOutput() PrefixListAssociationsRouteTableOutput
+	ToPrefixListAssociationsRouteTableOutputWithContext(context.Context) PrefixListAssociationsRouteTableOutput
+}
+
+type PrefixListAssociationsRouteTableArgs struct {
+	// 关联资源的ID。
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (PrefixListAssociationsRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (i PrefixListAssociationsRouteTableArgs) ToPrefixListAssociationsRouteTableOutput() PrefixListAssociationsRouteTableOutput {
+	return i.ToPrefixListAssociationsRouteTableOutputWithContext(context.Background())
+}
+
+func (i PrefixListAssociationsRouteTableArgs) ToPrefixListAssociationsRouteTableOutputWithContext(ctx context.Context) PrefixListAssociationsRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAssociationsRouteTableOutput)
+}
+
+// PrefixListAssociationsRouteTableArrayInput is an input type that accepts PrefixListAssociationsRouteTableArray and PrefixListAssociationsRouteTableArrayOutput values.
+// You can construct a concrete instance of `PrefixListAssociationsRouteTableArrayInput` via:
+//
+//	PrefixListAssociationsRouteTableArray{ PrefixListAssociationsRouteTableArgs{...} }
+type PrefixListAssociationsRouteTableArrayInput interface {
+	pulumi.Input
+
+	ToPrefixListAssociationsRouteTableArrayOutput() PrefixListAssociationsRouteTableArrayOutput
+	ToPrefixListAssociationsRouteTableArrayOutputWithContext(context.Context) PrefixListAssociationsRouteTableArrayOutput
+}
+
+type PrefixListAssociationsRouteTableArray []PrefixListAssociationsRouteTableInput
+
+func (PrefixListAssociationsRouteTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (i PrefixListAssociationsRouteTableArray) ToPrefixListAssociationsRouteTableArrayOutput() PrefixListAssociationsRouteTableArrayOutput {
+	return i.ToPrefixListAssociationsRouteTableArrayOutputWithContext(context.Background())
+}
+
+func (i PrefixListAssociationsRouteTableArray) ToPrefixListAssociationsRouteTableArrayOutputWithContext(ctx context.Context) PrefixListAssociationsRouteTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAssociationsRouteTableArrayOutput)
+}
+
+type PrefixListAssociationsRouteTableOutput struct{ *pulumi.OutputState }
+
+func (PrefixListAssociationsRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (o PrefixListAssociationsRouteTableOutput) ToPrefixListAssociationsRouteTableOutput() PrefixListAssociationsRouteTableOutput {
+	return o
+}
+
+func (o PrefixListAssociationsRouteTableOutput) ToPrefixListAssociationsRouteTableOutputWithContext(ctx context.Context) PrefixListAssociationsRouteTableOutput {
+	return o
+}
+
+// 关联资源的ID。
+func (o PrefixListAssociationsRouteTableOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListAssociationsRouteTable) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+func (o PrefixListAssociationsRouteTableOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListAssociationsRouteTable) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type PrefixListAssociationsRouteTableArrayOutput struct{ *pulumi.OutputState }
+
+func (PrefixListAssociationsRouteTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (o PrefixListAssociationsRouteTableArrayOutput) ToPrefixListAssociationsRouteTableArrayOutput() PrefixListAssociationsRouteTableArrayOutput {
+	return o
+}
+
+func (o PrefixListAssociationsRouteTableArrayOutput) ToPrefixListAssociationsRouteTableArrayOutputWithContext(ctx context.Context) PrefixListAssociationsRouteTableArrayOutput {
+	return o
+}
+
+func (o PrefixListAssociationsRouteTableArrayOutput) Index(i pulumi.IntInput) PrefixListAssociationsRouteTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListAssociationsRouteTable {
+		return vs[0].([]PrefixListAssociationsRouteTable)[vs[1].(int)]
+	}).(PrefixListAssociationsRouteTableOutput)
+}
+
+type PrefixListAssociationsSecurityGroup struct {
+	// 关联资源的ID。
+	ResourceId *string `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// PrefixListAssociationsSecurityGroupInput is an input type that accepts PrefixListAssociationsSecurityGroupArgs and PrefixListAssociationsSecurityGroupOutput values.
+// You can construct a concrete instance of `PrefixListAssociationsSecurityGroupInput` via:
+//
+//	PrefixListAssociationsSecurityGroupArgs{...}
+type PrefixListAssociationsSecurityGroupInput interface {
+	pulumi.Input
+
+	ToPrefixListAssociationsSecurityGroupOutput() PrefixListAssociationsSecurityGroupOutput
+	ToPrefixListAssociationsSecurityGroupOutputWithContext(context.Context) PrefixListAssociationsSecurityGroupOutput
+}
+
+type PrefixListAssociationsSecurityGroupArgs struct {
+	// 关联资源的ID。
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (PrefixListAssociationsSecurityGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (i PrefixListAssociationsSecurityGroupArgs) ToPrefixListAssociationsSecurityGroupOutput() PrefixListAssociationsSecurityGroupOutput {
+	return i.ToPrefixListAssociationsSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i PrefixListAssociationsSecurityGroupArgs) ToPrefixListAssociationsSecurityGroupOutputWithContext(ctx context.Context) PrefixListAssociationsSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAssociationsSecurityGroupOutput)
+}
+
+// PrefixListAssociationsSecurityGroupArrayInput is an input type that accepts PrefixListAssociationsSecurityGroupArray and PrefixListAssociationsSecurityGroupArrayOutput values.
+// You can construct a concrete instance of `PrefixListAssociationsSecurityGroupArrayInput` via:
+//
+//	PrefixListAssociationsSecurityGroupArray{ PrefixListAssociationsSecurityGroupArgs{...} }
+type PrefixListAssociationsSecurityGroupArrayInput interface {
+	pulumi.Input
+
+	ToPrefixListAssociationsSecurityGroupArrayOutput() PrefixListAssociationsSecurityGroupArrayOutput
+	ToPrefixListAssociationsSecurityGroupArrayOutputWithContext(context.Context) PrefixListAssociationsSecurityGroupArrayOutput
+}
+
+type PrefixListAssociationsSecurityGroupArray []PrefixListAssociationsSecurityGroupInput
+
+func (PrefixListAssociationsSecurityGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (i PrefixListAssociationsSecurityGroupArray) ToPrefixListAssociationsSecurityGroupArrayOutput() PrefixListAssociationsSecurityGroupArrayOutput {
+	return i.ToPrefixListAssociationsSecurityGroupArrayOutputWithContext(context.Background())
+}
+
+func (i PrefixListAssociationsSecurityGroupArray) ToPrefixListAssociationsSecurityGroupArrayOutputWithContext(ctx context.Context) PrefixListAssociationsSecurityGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListAssociationsSecurityGroupArrayOutput)
+}
+
+type PrefixListAssociationsSecurityGroupOutput struct{ *pulumi.OutputState }
+
+func (PrefixListAssociationsSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (o PrefixListAssociationsSecurityGroupOutput) ToPrefixListAssociationsSecurityGroupOutput() PrefixListAssociationsSecurityGroupOutput {
+	return o
+}
+
+func (o PrefixListAssociationsSecurityGroupOutput) ToPrefixListAssociationsSecurityGroupOutputWithContext(ctx context.Context) PrefixListAssociationsSecurityGroupOutput {
+	return o
+}
+
+// 关联资源的ID。
+func (o PrefixListAssociationsSecurityGroupOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListAssociationsSecurityGroup) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+func (o PrefixListAssociationsSecurityGroupOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListAssociationsSecurityGroup) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type PrefixListAssociationsSecurityGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (PrefixListAssociationsSecurityGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (o PrefixListAssociationsSecurityGroupArrayOutput) ToPrefixListAssociationsSecurityGroupArrayOutput() PrefixListAssociationsSecurityGroupArrayOutput {
+	return o
+}
+
+func (o PrefixListAssociationsSecurityGroupArrayOutput) ToPrefixListAssociationsSecurityGroupArrayOutputWithContext(ctx context.Context) PrefixListAssociationsSecurityGroupArrayOutput {
+	return o
+}
+
+func (o PrefixListAssociationsSecurityGroupArrayOutput) Index(i pulumi.IntInput) PrefixListAssociationsSecurityGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListAssociationsSecurityGroup {
+		return vs[0].([]PrefixListAssociationsSecurityGroup)[vs[1].(int)]
+	}).(PrefixListAssociationsSecurityGroupOutput)
+}
+
+type PrefixListPrefixListEntry struct {
+	// 前缀列表条目的CIDR。
+	Cidr *string `pulumi:"cidr"`
+	// 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+	Description *string `pulumi:"description"`
+}
+
+// PrefixListPrefixListEntryInput is an input type that accepts PrefixListPrefixListEntryArgs and PrefixListPrefixListEntryOutput values.
+// You can construct a concrete instance of `PrefixListPrefixListEntryInput` via:
+//
+//	PrefixListPrefixListEntryArgs{...}
+type PrefixListPrefixListEntryInput interface {
+	pulumi.Input
+
+	ToPrefixListPrefixListEntryOutput() PrefixListPrefixListEntryOutput
+	ToPrefixListPrefixListEntryOutputWithContext(context.Context) PrefixListPrefixListEntryOutput
+}
+
+type PrefixListPrefixListEntryArgs struct {
+	// 前缀列表条目的CIDR。
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (PrefixListPrefixListEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (i PrefixListPrefixListEntryArgs) ToPrefixListPrefixListEntryOutput() PrefixListPrefixListEntryOutput {
+	return i.ToPrefixListPrefixListEntryOutputWithContext(context.Background())
+}
+
+func (i PrefixListPrefixListEntryArgs) ToPrefixListPrefixListEntryOutputWithContext(ctx context.Context) PrefixListPrefixListEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListPrefixListEntryOutput)
+}
+
+// PrefixListPrefixListEntryArrayInput is an input type that accepts PrefixListPrefixListEntryArray and PrefixListPrefixListEntryArrayOutput values.
+// You can construct a concrete instance of `PrefixListPrefixListEntryArrayInput` via:
+//
+//	PrefixListPrefixListEntryArray{ PrefixListPrefixListEntryArgs{...} }
+type PrefixListPrefixListEntryArrayInput interface {
+	pulumi.Input
+
+	ToPrefixListPrefixListEntryArrayOutput() PrefixListPrefixListEntryArrayOutput
+	ToPrefixListPrefixListEntryArrayOutputWithContext(context.Context) PrefixListPrefixListEntryArrayOutput
+}
+
+type PrefixListPrefixListEntryArray []PrefixListPrefixListEntryInput
+
+func (PrefixListPrefixListEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (i PrefixListPrefixListEntryArray) ToPrefixListPrefixListEntryArrayOutput() PrefixListPrefixListEntryArrayOutput {
+	return i.ToPrefixListPrefixListEntryArrayOutputWithContext(context.Background())
+}
+
+func (i PrefixListPrefixListEntryArray) ToPrefixListPrefixListEntryArrayOutputWithContext(ctx context.Context) PrefixListPrefixListEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListPrefixListEntryArrayOutput)
+}
+
+type PrefixListPrefixListEntryOutput struct{ *pulumi.OutputState }
+
+func (PrefixListPrefixListEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (o PrefixListPrefixListEntryOutput) ToPrefixListPrefixListEntryOutput() PrefixListPrefixListEntryOutput {
+	return o
+}
+
+func (o PrefixListPrefixListEntryOutput) ToPrefixListPrefixListEntryOutputWithContext(ctx context.Context) PrefixListPrefixListEntryOutput {
+	return o
+}
+
+// 前缀列表条目的CIDR。
+func (o PrefixListPrefixListEntryOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListPrefixListEntry) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+func (o PrefixListPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListPrefixListEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type PrefixListPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (PrefixListPrefixListEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (o PrefixListPrefixListEntryArrayOutput) ToPrefixListPrefixListEntryArrayOutput() PrefixListPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o PrefixListPrefixListEntryArrayOutput) ToPrefixListPrefixListEntryArrayOutputWithContext(ctx context.Context) PrefixListPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o PrefixListPrefixListEntryArrayOutput) Index(i pulumi.IntInput) PrefixListPrefixListEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListPrefixListEntry {
+		return vs[0].([]PrefixListPrefixListEntry)[vs[1].(int)]
+	}).(PrefixListPrefixListEntryOutput)
+}
+
+type PrefixListTag struct {
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value *string `pulumi:"value"`
+}
+
+// PrefixListTagInput is an input type that accepts PrefixListTagArgs and PrefixListTagOutput values.
+// You can construct a concrete instance of `PrefixListTagInput` via:
+//
+//	PrefixListTagArgs{...}
+type PrefixListTagInput interface {
+	pulumi.Input
+
+	ToPrefixListTagOutput() PrefixListTagOutput
+	ToPrefixListTagOutputWithContext(context.Context) PrefixListTagOutput
+}
+
+type PrefixListTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (PrefixListTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListTag)(nil)).Elem()
+}
+
+func (i PrefixListTagArgs) ToPrefixListTagOutput() PrefixListTagOutput {
+	return i.ToPrefixListTagOutputWithContext(context.Background())
+}
+
+func (i PrefixListTagArgs) ToPrefixListTagOutputWithContext(ctx context.Context) PrefixListTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListTagOutput)
+}
+
+// PrefixListTagArrayInput is an input type that accepts PrefixListTagArray and PrefixListTagArrayOutput values.
+// You can construct a concrete instance of `PrefixListTagArrayInput` via:
+//
+//	PrefixListTagArray{ PrefixListTagArgs{...} }
+type PrefixListTagArrayInput interface {
+	pulumi.Input
+
+	ToPrefixListTagArrayOutput() PrefixListTagArrayOutput
+	ToPrefixListTagArrayOutputWithContext(context.Context) PrefixListTagArrayOutput
+}
+
+type PrefixListTagArray []PrefixListTagInput
+
+func (PrefixListTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListTag)(nil)).Elem()
+}
+
+func (i PrefixListTagArray) ToPrefixListTagArrayOutput() PrefixListTagArrayOutput {
+	return i.ToPrefixListTagArrayOutputWithContext(context.Background())
+}
+
+func (i PrefixListTagArray) ToPrefixListTagArrayOutputWithContext(ctx context.Context) PrefixListTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixListTagArrayOutput)
+}
+
+type PrefixListTagOutput struct{ *pulumi.OutputState }
+
+func (PrefixListTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixListTag)(nil)).Elem()
+}
+
+func (o PrefixListTagOutput) ToPrefixListTagOutput() PrefixListTagOutput {
+	return o
+}
+
+func (o PrefixListTagOutput) ToPrefixListTagOutputWithContext(ctx context.Context) PrefixListTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o PrefixListTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。
+func (o PrefixListTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrefixListTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type PrefixListTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PrefixListTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrefixListTag)(nil)).Elem()
+}
+
+func (o PrefixListTagArrayOutput) ToPrefixListTagArrayOutput() PrefixListTagArrayOutput {
+	return o
+}
+
+func (o PrefixListTagArrayOutput) ToPrefixListTagArrayOutputWithContext(ctx context.Context) PrefixListTagArrayOutput {
+	return o
+}
+
+func (o PrefixListTagArrayOutput) Index(i pulumi.IntInput) PrefixListTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListTag {
+		return vs[0].([]PrefixListTag)[vs[1].(int)]
+	}).(PrefixListTagOutput)
+}
+
 type RouteTableCustomRouteEntry struct {
 	// 路由条目描述。
 	Description *string `pulumi:"description"`
@@ -3186,6 +4417,1282 @@ func (o GetEniTagArrayOutput) Index(i pulumi.IntInput) GetEniTagOutput {
 	}).(GetEniTagOutput)
 }
 
+type GetNetworkAclDefaultEgressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description string `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId string `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port string `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority int `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetNetworkAclDefaultEgressAclEntryInput is an input type that accepts GetNetworkAclDefaultEgressAclEntryArgs and GetNetworkAclDefaultEgressAclEntryOutput values.
+// You can construct a concrete instance of `GetNetworkAclDefaultEgressAclEntryInput` via:
+//
+//	GetNetworkAclDefaultEgressAclEntryArgs{...}
+type GetNetworkAclDefaultEgressAclEntryInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclDefaultEgressAclEntryOutput() GetNetworkAclDefaultEgressAclEntryOutput
+	ToGetNetworkAclDefaultEgressAclEntryOutputWithContext(context.Context) GetNetworkAclDefaultEgressAclEntryOutput
+}
+
+type GetNetworkAclDefaultEgressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId pulumi.StringInput `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringInput `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetNetworkAclDefaultEgressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclDefaultEgressAclEntryArgs) ToGetNetworkAclDefaultEgressAclEntryOutput() GetNetworkAclDefaultEgressAclEntryOutput {
+	return i.ToGetNetworkAclDefaultEgressAclEntryOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclDefaultEgressAclEntryArgs) ToGetNetworkAclDefaultEgressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclDefaultEgressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclDefaultEgressAclEntryOutput)
+}
+
+// GetNetworkAclDefaultEgressAclEntryArrayInput is an input type that accepts GetNetworkAclDefaultEgressAclEntryArray and GetNetworkAclDefaultEgressAclEntryArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclDefaultEgressAclEntryArrayInput` via:
+//
+//	GetNetworkAclDefaultEgressAclEntryArray{ GetNetworkAclDefaultEgressAclEntryArgs{...} }
+type GetNetworkAclDefaultEgressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclDefaultEgressAclEntryArrayOutput() GetNetworkAclDefaultEgressAclEntryArrayOutput
+	ToGetNetworkAclDefaultEgressAclEntryArrayOutputWithContext(context.Context) GetNetworkAclDefaultEgressAclEntryArrayOutput
+}
+
+type GetNetworkAclDefaultEgressAclEntryArray []GetNetworkAclDefaultEgressAclEntryInput
+
+func (GetNetworkAclDefaultEgressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclDefaultEgressAclEntryArray) ToGetNetworkAclDefaultEgressAclEntryArrayOutput() GetNetworkAclDefaultEgressAclEntryArrayOutput {
+	return i.ToGetNetworkAclDefaultEgressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclDefaultEgressAclEntryArray) ToGetNetworkAclDefaultEgressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclDefaultEgressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclDefaultEgressAclEntryArrayOutput)
+}
+
+type GetNetworkAclDefaultEgressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclDefaultEgressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclDefaultEgressAclEntryOutput) ToGetNetworkAclDefaultEgressAclEntryOutput() GetNetworkAclDefaultEgressAclEntryOutput {
+	return o
+}
+
+func (o GetNetworkAclDefaultEgressAclEntryOutput) ToGetNetworkAclDefaultEgressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclDefaultEgressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) CidrIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.CidrIp }).(pulumi.StringOutput)
+}
+
+// 规则的描述信息。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 规则的ID。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) NetworkAclEntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.NetworkAclEntryId }).(pulumi.StringOutput)
+}
+
+// 规则的名称。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) NetworkAclEntryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.NetworkAclEntryName }).(pulumi.StringOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o GetNetworkAclDefaultEgressAclEntryOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultEgressAclEntry) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetNetworkAclDefaultEgressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclDefaultEgressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclDefaultEgressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclDefaultEgressAclEntryArrayOutput) ToGetNetworkAclDefaultEgressAclEntryArrayOutput() GetNetworkAclDefaultEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclDefaultEgressAclEntryArrayOutput) ToGetNetworkAclDefaultEgressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclDefaultEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclDefaultEgressAclEntryArrayOutput) Index(i pulumi.IntInput) GetNetworkAclDefaultEgressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAclDefaultEgressAclEntry {
+		return vs[0].([]GetNetworkAclDefaultEgressAclEntry)[vs[1].(int)]
+	}).(GetNetworkAclDefaultEgressAclEntryOutput)
+}
+
+type GetNetworkAclDefaultIngressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description string `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId string `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port string `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority int `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetNetworkAclDefaultIngressAclEntryInput is an input type that accepts GetNetworkAclDefaultIngressAclEntryArgs and GetNetworkAclDefaultIngressAclEntryOutput values.
+// You can construct a concrete instance of `GetNetworkAclDefaultIngressAclEntryInput` via:
+//
+//	GetNetworkAclDefaultIngressAclEntryArgs{...}
+type GetNetworkAclDefaultIngressAclEntryInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclDefaultIngressAclEntryOutput() GetNetworkAclDefaultIngressAclEntryOutput
+	ToGetNetworkAclDefaultIngressAclEntryOutputWithContext(context.Context) GetNetworkAclDefaultIngressAclEntryOutput
+}
+
+type GetNetworkAclDefaultIngressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId pulumi.StringInput `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringInput `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetNetworkAclDefaultIngressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclDefaultIngressAclEntryArgs) ToGetNetworkAclDefaultIngressAclEntryOutput() GetNetworkAclDefaultIngressAclEntryOutput {
+	return i.ToGetNetworkAclDefaultIngressAclEntryOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclDefaultIngressAclEntryArgs) ToGetNetworkAclDefaultIngressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclDefaultIngressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclDefaultIngressAclEntryOutput)
+}
+
+// GetNetworkAclDefaultIngressAclEntryArrayInput is an input type that accepts GetNetworkAclDefaultIngressAclEntryArray and GetNetworkAclDefaultIngressAclEntryArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclDefaultIngressAclEntryArrayInput` via:
+//
+//	GetNetworkAclDefaultIngressAclEntryArray{ GetNetworkAclDefaultIngressAclEntryArgs{...} }
+type GetNetworkAclDefaultIngressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclDefaultIngressAclEntryArrayOutput() GetNetworkAclDefaultIngressAclEntryArrayOutput
+	ToGetNetworkAclDefaultIngressAclEntryArrayOutputWithContext(context.Context) GetNetworkAclDefaultIngressAclEntryArrayOutput
+}
+
+type GetNetworkAclDefaultIngressAclEntryArray []GetNetworkAclDefaultIngressAclEntryInput
+
+func (GetNetworkAclDefaultIngressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclDefaultIngressAclEntryArray) ToGetNetworkAclDefaultIngressAclEntryArrayOutput() GetNetworkAclDefaultIngressAclEntryArrayOutput {
+	return i.ToGetNetworkAclDefaultIngressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclDefaultIngressAclEntryArray) ToGetNetworkAclDefaultIngressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclDefaultIngressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclDefaultIngressAclEntryArrayOutput)
+}
+
+type GetNetworkAclDefaultIngressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclDefaultIngressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclDefaultIngressAclEntryOutput) ToGetNetworkAclDefaultIngressAclEntryOutput() GetNetworkAclDefaultIngressAclEntryOutput {
+	return o
+}
+
+func (o GetNetworkAclDefaultIngressAclEntryOutput) ToGetNetworkAclDefaultIngressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclDefaultIngressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) CidrIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.CidrIp }).(pulumi.StringOutput)
+}
+
+// 规则的描述信息。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 规则的ID。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) NetworkAclEntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.NetworkAclEntryId }).(pulumi.StringOutput)
+}
+
+// 规则的名称。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) NetworkAclEntryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.NetworkAclEntryName }).(pulumi.StringOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o GetNetworkAclDefaultIngressAclEntryOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclDefaultIngressAclEntry) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetNetworkAclDefaultIngressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclDefaultIngressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclDefaultIngressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclDefaultIngressAclEntryArrayOutput) ToGetNetworkAclDefaultIngressAclEntryArrayOutput() GetNetworkAclDefaultIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclDefaultIngressAclEntryArrayOutput) ToGetNetworkAclDefaultIngressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclDefaultIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclDefaultIngressAclEntryArrayOutput) Index(i pulumi.IntInput) GetNetworkAclDefaultIngressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAclDefaultIngressAclEntry {
+		return vs[0].([]GetNetworkAclDefaultIngressAclEntry)[vs[1].(int)]
+	}).(GetNetworkAclDefaultIngressAclEntryOutput)
+}
+
+type GetNetworkAclEgressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description string `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId string `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port string `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority int `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetNetworkAclEgressAclEntryInput is an input type that accepts GetNetworkAclEgressAclEntryArgs and GetNetworkAclEgressAclEntryOutput values.
+// You can construct a concrete instance of `GetNetworkAclEgressAclEntryInput` via:
+//
+//	GetNetworkAclEgressAclEntryArgs{...}
+type GetNetworkAclEgressAclEntryInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclEgressAclEntryOutput() GetNetworkAclEgressAclEntryOutput
+	ToGetNetworkAclEgressAclEntryOutputWithContext(context.Context) GetNetworkAclEgressAclEntryOutput
+}
+
+type GetNetworkAclEgressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId pulumi.StringInput `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringInput `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetNetworkAclEgressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclEgressAclEntryArgs) ToGetNetworkAclEgressAclEntryOutput() GetNetworkAclEgressAclEntryOutput {
+	return i.ToGetNetworkAclEgressAclEntryOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclEgressAclEntryArgs) ToGetNetworkAclEgressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclEgressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclEgressAclEntryOutput)
+}
+
+// GetNetworkAclEgressAclEntryArrayInput is an input type that accepts GetNetworkAclEgressAclEntryArray and GetNetworkAclEgressAclEntryArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclEgressAclEntryArrayInput` via:
+//
+//	GetNetworkAclEgressAclEntryArray{ GetNetworkAclEgressAclEntryArgs{...} }
+type GetNetworkAclEgressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclEgressAclEntryArrayOutput() GetNetworkAclEgressAclEntryArrayOutput
+	ToGetNetworkAclEgressAclEntryArrayOutputWithContext(context.Context) GetNetworkAclEgressAclEntryArrayOutput
+}
+
+type GetNetworkAclEgressAclEntryArray []GetNetworkAclEgressAclEntryInput
+
+func (GetNetworkAclEgressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclEgressAclEntryArray) ToGetNetworkAclEgressAclEntryArrayOutput() GetNetworkAclEgressAclEntryArrayOutput {
+	return i.ToGetNetworkAclEgressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclEgressAclEntryArray) ToGetNetworkAclEgressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclEgressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclEgressAclEntryArrayOutput)
+}
+
+type GetNetworkAclEgressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclEgressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclEgressAclEntryOutput) ToGetNetworkAclEgressAclEntryOutput() GetNetworkAclEgressAclEntryOutput {
+	return o
+}
+
+func (o GetNetworkAclEgressAclEntryOutput) ToGetNetworkAclEgressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclEgressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o GetNetworkAclEgressAclEntryOutput) CidrIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.CidrIp }).(pulumi.StringOutput)
+}
+
+// 规则的描述信息。
+func (o GetNetworkAclEgressAclEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 规则的ID。
+func (o GetNetworkAclEgressAclEntryOutput) NetworkAclEntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.NetworkAclEntryId }).(pulumi.StringOutput)
+}
+
+// 规则的名称。
+func (o GetNetworkAclEgressAclEntryOutput) NetworkAclEntryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.NetworkAclEntryName }).(pulumi.StringOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o GetNetworkAclEgressAclEntryOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o GetNetworkAclEgressAclEntryOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+func (o GetNetworkAclEgressAclEntryOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o GetNetworkAclEgressAclEntryOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclEgressAclEntry) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetNetworkAclEgressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclEgressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclEgressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclEgressAclEntryArrayOutput) ToGetNetworkAclEgressAclEntryArrayOutput() GetNetworkAclEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclEgressAclEntryArrayOutput) ToGetNetworkAclEgressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclEgressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclEgressAclEntryArrayOutput) Index(i pulumi.IntInput) GetNetworkAclEgressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAclEgressAclEntry {
+		return vs[0].([]GetNetworkAclEgressAclEntry)[vs[1].(int)]
+	}).(GetNetworkAclEgressAclEntryOutput)
+}
+
+type GetNetworkAclIngressAclEntry struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp string `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description string `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId string `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName string `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy string `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port string `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority int `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetNetworkAclIngressAclEntryInput is an input type that accepts GetNetworkAclIngressAclEntryArgs and GetNetworkAclIngressAclEntryOutput values.
+// You can construct a concrete instance of `GetNetworkAclIngressAclEntryInput` via:
+//
+//	GetNetworkAclIngressAclEntryArgs{...}
+type GetNetworkAclIngressAclEntryInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclIngressAclEntryOutput() GetNetworkAclIngressAclEntryOutput
+	ToGetNetworkAclIngressAclEntryOutputWithContext(context.Context) GetNetworkAclIngressAclEntryOutput
+}
+
+type GetNetworkAclIngressAclEntryArgs struct {
+	// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+	CidrIp pulumi.StringInput `pulumi:"cidrIp"`
+	// 规则的描述信息。
+	Description pulumi.StringInput `pulumi:"description"`
+	// 规则的ID。
+	NetworkAclEntryId pulumi.StringInput `pulumi:"networkAclEntryId"`
+	// 规则的名称。
+	NetworkAclEntryName pulumi.StringInput `pulumi:"networkAclEntryName"`
+	// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+	Policy pulumi.StringInput `pulumi:"policy"`
+	// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+	Port pulumi.StringInput `pulumi:"port"`
+	// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetNetworkAclIngressAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclIngressAclEntryArgs) ToGetNetworkAclIngressAclEntryOutput() GetNetworkAclIngressAclEntryOutput {
+	return i.ToGetNetworkAclIngressAclEntryOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclIngressAclEntryArgs) ToGetNetworkAclIngressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclIngressAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclIngressAclEntryOutput)
+}
+
+// GetNetworkAclIngressAclEntryArrayInput is an input type that accepts GetNetworkAclIngressAclEntryArray and GetNetworkAclIngressAclEntryArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclIngressAclEntryArrayInput` via:
+//
+//	GetNetworkAclIngressAclEntryArray{ GetNetworkAclIngressAclEntryArgs{...} }
+type GetNetworkAclIngressAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclIngressAclEntryArrayOutput() GetNetworkAclIngressAclEntryArrayOutput
+	ToGetNetworkAclIngressAclEntryArrayOutputWithContext(context.Context) GetNetworkAclIngressAclEntryArrayOutput
+}
+
+type GetNetworkAclIngressAclEntryArray []GetNetworkAclIngressAclEntryInput
+
+func (GetNetworkAclIngressAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (i GetNetworkAclIngressAclEntryArray) ToGetNetworkAclIngressAclEntryArrayOutput() GetNetworkAclIngressAclEntryArrayOutput {
+	return i.ToGetNetworkAclIngressAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclIngressAclEntryArray) ToGetNetworkAclIngressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclIngressAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclIngressAclEntryArrayOutput)
+}
+
+type GetNetworkAclIngressAclEntryOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclIngressAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclIngressAclEntryOutput) ToGetNetworkAclIngressAclEntryOutput() GetNetworkAclIngressAclEntryOutput {
+	return o
+}
+
+func (o GetNetworkAclIngressAclEntryOutput) ToGetNetworkAclIngressAclEntryOutputWithContext(ctx context.Context) GetNetworkAclIngressAclEntryOutput {
+	return o
+}
+
+// 入向规则时为源地址的网段。出向规则时为目标地址的网段。支持CIDR格式和IPv4格式的IP地址范围。默认值：无。
+func (o GetNetworkAclIngressAclEntryOutput) CidrIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.CidrIp }).(pulumi.StringOutput)
+}
+
+// 规则的描述信息。
+func (o GetNetworkAclIngressAclEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// 规则的ID。
+func (o GetNetworkAclIngressAclEntryOutput) NetworkAclEntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.NetworkAclEntryId }).(pulumi.StringOutput)
+}
+
+// 规则的名称。
+func (o GetNetworkAclIngressAclEntryOutput) NetworkAclEntryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.NetworkAclEntryName }).(pulumi.StringOutput)
+}
+
+// 授权策略。accept：允许访问。drop：拒绝访问，不返回拒绝访问的信息，仅表现出发起端请求超时或类似无法建立连接的信息。
+func (o GetNetworkAclIngressAclEntryOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// 规则的目的端口范围。当方向规则的Protocol为all、icmp或gre时，端口范围为-1/-1，表示不限制端口。当方向规则的Protocol为tcp或udp时，端口范围为1~65535，格式为1/200、80/80，表示端口1到端口200、端口80。
+func (o GetNetworkAclIngressAclEntryOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// 方向规则的优先级，数字越小，代表优先级越高。不填默认值：1。
+func (o GetNetworkAclIngressAclEntryOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// 协议类型。tcp：TCP协议。udp：UDP协议。icmp：ICMP协议。icmpv6：ICMPV6协议。gre：GRE协议。all：支持所有协议。
+func (o GetNetworkAclIngressAclEntryOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclIngressAclEntry) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetNetworkAclIngressAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclIngressAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclIngressAclEntry)(nil)).Elem()
+}
+
+func (o GetNetworkAclIngressAclEntryArrayOutput) ToGetNetworkAclIngressAclEntryArrayOutput() GetNetworkAclIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclIngressAclEntryArrayOutput) ToGetNetworkAclIngressAclEntryArrayOutputWithContext(ctx context.Context) GetNetworkAclIngressAclEntryArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclIngressAclEntryArrayOutput) Index(i pulumi.IntInput) GetNetworkAclIngressAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAclIngressAclEntry {
+		return vs[0].([]GetNetworkAclIngressAclEntry)[vs[1].(int)]
+	}).(GetNetworkAclIngressAclEntryOutput)
+}
+
+type GetNetworkAclResource struct {
+	// 关联资源的ID。
+	ResourceId string `pulumi:"resourceId"`
+	// 网络ACL关联资源的状态。BINDED：已绑定。BINDING：绑定中。UNBINDING：解绑中。
+	Status string `pulumi:"status"`
+}
+
+// GetNetworkAclResourceInput is an input type that accepts GetNetworkAclResourceArgs and GetNetworkAclResourceOutput values.
+// You can construct a concrete instance of `GetNetworkAclResourceInput` via:
+//
+//	GetNetworkAclResourceArgs{...}
+type GetNetworkAclResourceInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclResourceOutput() GetNetworkAclResourceOutput
+	ToGetNetworkAclResourceOutputWithContext(context.Context) GetNetworkAclResourceOutput
+}
+
+type GetNetworkAclResourceArgs struct {
+	// 关联资源的ID。
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// 网络ACL关联资源的状态。BINDED：已绑定。BINDING：绑定中。UNBINDING：解绑中。
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetNetworkAclResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclResource)(nil)).Elem()
+}
+
+func (i GetNetworkAclResourceArgs) ToGetNetworkAclResourceOutput() GetNetworkAclResourceOutput {
+	return i.ToGetNetworkAclResourceOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclResourceArgs) ToGetNetworkAclResourceOutputWithContext(ctx context.Context) GetNetworkAclResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclResourceOutput)
+}
+
+// GetNetworkAclResourceArrayInput is an input type that accepts GetNetworkAclResourceArray and GetNetworkAclResourceArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclResourceArrayInput` via:
+//
+//	GetNetworkAclResourceArray{ GetNetworkAclResourceArgs{...} }
+type GetNetworkAclResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclResourceArrayOutput() GetNetworkAclResourceArrayOutput
+	ToGetNetworkAclResourceArrayOutputWithContext(context.Context) GetNetworkAclResourceArrayOutput
+}
+
+type GetNetworkAclResourceArray []GetNetworkAclResourceInput
+
+func (GetNetworkAclResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclResource)(nil)).Elem()
+}
+
+func (i GetNetworkAclResourceArray) ToGetNetworkAclResourceArrayOutput() GetNetworkAclResourceArrayOutput {
+	return i.ToGetNetworkAclResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclResourceArray) ToGetNetworkAclResourceArrayOutputWithContext(ctx context.Context) GetNetworkAclResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclResourceArrayOutput)
+}
+
+type GetNetworkAclResourceOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclResource)(nil)).Elem()
+}
+
+func (o GetNetworkAclResourceOutput) ToGetNetworkAclResourceOutput() GetNetworkAclResourceOutput {
+	return o
+}
+
+func (o GetNetworkAclResourceOutput) ToGetNetworkAclResourceOutputWithContext(ctx context.Context) GetNetworkAclResourceOutput {
+	return o
+}
+
+// 关联资源的ID。
+func (o GetNetworkAclResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// 网络ACL关联资源的状态。BINDED：已绑定。BINDING：绑定中。UNBINDING：解绑中。
+func (o GetNetworkAclResourceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclResource) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetNetworkAclResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclResource)(nil)).Elem()
+}
+
+func (o GetNetworkAclResourceArrayOutput) ToGetNetworkAclResourceArrayOutput() GetNetworkAclResourceArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclResourceArrayOutput) ToGetNetworkAclResourceArrayOutputWithContext(ctx context.Context) GetNetworkAclResourceArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclResourceArrayOutput) Index(i pulumi.IntInput) GetNetworkAclResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAclResource {
+		return vs[0].([]GetNetworkAclResource)[vs[1].(int)]
+	}).(GetNetworkAclResourceOutput)
+}
+
+type GetNetworkAclTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetNetworkAclTagInput is an input type that accepts GetNetworkAclTagArgs and GetNetworkAclTagOutput values.
+// You can construct a concrete instance of `GetNetworkAclTagInput` via:
+//
+//	GetNetworkAclTagArgs{...}
+type GetNetworkAclTagInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclTagOutput() GetNetworkAclTagOutput
+	ToGetNetworkAclTagOutputWithContext(context.Context) GetNetworkAclTagOutput
+}
+
+type GetNetworkAclTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetNetworkAclTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclTag)(nil)).Elem()
+}
+
+func (i GetNetworkAclTagArgs) ToGetNetworkAclTagOutput() GetNetworkAclTagOutput {
+	return i.ToGetNetworkAclTagOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclTagArgs) ToGetNetworkAclTagOutputWithContext(ctx context.Context) GetNetworkAclTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclTagOutput)
+}
+
+// GetNetworkAclTagArrayInput is an input type that accepts GetNetworkAclTagArray and GetNetworkAclTagArrayOutput values.
+// You can construct a concrete instance of `GetNetworkAclTagArrayInput` via:
+//
+//	GetNetworkAclTagArray{ GetNetworkAclTagArgs{...} }
+type GetNetworkAclTagArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkAclTagArrayOutput() GetNetworkAclTagArrayOutput
+	ToGetNetworkAclTagArrayOutputWithContext(context.Context) GetNetworkAclTagArrayOutput
+}
+
+type GetNetworkAclTagArray []GetNetworkAclTagInput
+
+func (GetNetworkAclTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclTag)(nil)).Elem()
+}
+
+func (i GetNetworkAclTagArray) ToGetNetworkAclTagArrayOutput() GetNetworkAclTagArrayOutput {
+	return i.ToGetNetworkAclTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkAclTagArray) ToGetNetworkAclTagArrayOutputWithContext(ctx context.Context) GetNetworkAclTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAclTagArrayOutput)
+}
+
+type GetNetworkAclTagOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkAclTag)(nil)).Elem()
+}
+
+func (o GetNetworkAclTagOutput) ToGetNetworkAclTagOutput() GetNetworkAclTagOutput {
+	return o
+}
+
+func (o GetNetworkAclTagOutput) ToGetNetworkAclTagOutputWithContext(ctx context.Context) GetNetworkAclTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetNetworkAclTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetNetworkAclTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAclTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetNetworkAclTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkAclTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkAclTag)(nil)).Elem()
+}
+
+func (o GetNetworkAclTagArrayOutput) ToGetNetworkAclTagArrayOutput() GetNetworkAclTagArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclTagArrayOutput) ToGetNetworkAclTagArrayOutputWithContext(ctx context.Context) GetNetworkAclTagArrayOutput {
+	return o
+}
+
+func (o GetNetworkAclTagArrayOutput) Index(i pulumi.IntInput) GetNetworkAclTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAclTag {
+		return vs[0].([]GetNetworkAclTag)[vs[1].(int)]
+	}).(GetNetworkAclTagOutput)
+}
+
+type GetPrefixListAssociationsRouteTable struct {
+	// 关联资源的ID。
+	ResourceId string `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetPrefixListAssociationsRouteTableInput is an input type that accepts GetPrefixListAssociationsRouteTableArgs and GetPrefixListAssociationsRouteTableOutput values.
+// You can construct a concrete instance of `GetPrefixListAssociationsRouteTableInput` via:
+//
+//	GetPrefixListAssociationsRouteTableArgs{...}
+type GetPrefixListAssociationsRouteTableInput interface {
+	pulumi.Input
+
+	ToGetPrefixListAssociationsRouteTableOutput() GetPrefixListAssociationsRouteTableOutput
+	ToGetPrefixListAssociationsRouteTableOutputWithContext(context.Context) GetPrefixListAssociationsRouteTableOutput
+}
+
+type GetPrefixListAssociationsRouteTableArgs struct {
+	// 关联资源的ID。
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetPrefixListAssociationsRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (i GetPrefixListAssociationsRouteTableArgs) ToGetPrefixListAssociationsRouteTableOutput() GetPrefixListAssociationsRouteTableOutput {
+	return i.ToGetPrefixListAssociationsRouteTableOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListAssociationsRouteTableArgs) ToGetPrefixListAssociationsRouteTableOutputWithContext(ctx context.Context) GetPrefixListAssociationsRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListAssociationsRouteTableOutput)
+}
+
+// GetPrefixListAssociationsRouteTableArrayInput is an input type that accepts GetPrefixListAssociationsRouteTableArray and GetPrefixListAssociationsRouteTableArrayOutput values.
+// You can construct a concrete instance of `GetPrefixListAssociationsRouteTableArrayInput` via:
+//
+//	GetPrefixListAssociationsRouteTableArray{ GetPrefixListAssociationsRouteTableArgs{...} }
+type GetPrefixListAssociationsRouteTableArrayInput interface {
+	pulumi.Input
+
+	ToGetPrefixListAssociationsRouteTableArrayOutput() GetPrefixListAssociationsRouteTableArrayOutput
+	ToGetPrefixListAssociationsRouteTableArrayOutputWithContext(context.Context) GetPrefixListAssociationsRouteTableArrayOutput
+}
+
+type GetPrefixListAssociationsRouteTableArray []GetPrefixListAssociationsRouteTableInput
+
+func (GetPrefixListAssociationsRouteTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (i GetPrefixListAssociationsRouteTableArray) ToGetPrefixListAssociationsRouteTableArrayOutput() GetPrefixListAssociationsRouteTableArrayOutput {
+	return i.ToGetPrefixListAssociationsRouteTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListAssociationsRouteTableArray) ToGetPrefixListAssociationsRouteTableArrayOutputWithContext(ctx context.Context) GetPrefixListAssociationsRouteTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListAssociationsRouteTableArrayOutput)
+}
+
+type GetPrefixListAssociationsRouteTableOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListAssociationsRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (o GetPrefixListAssociationsRouteTableOutput) ToGetPrefixListAssociationsRouteTableOutput() GetPrefixListAssociationsRouteTableOutput {
+	return o
+}
+
+func (o GetPrefixListAssociationsRouteTableOutput) ToGetPrefixListAssociationsRouteTableOutputWithContext(ctx context.Context) GetPrefixListAssociationsRouteTableOutput {
+	return o
+}
+
+// 关联资源的ID。
+func (o GetPrefixListAssociationsRouteTableOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListAssociationsRouteTable) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+func (o GetPrefixListAssociationsRouteTableOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListAssociationsRouteTable) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetPrefixListAssociationsRouteTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListAssociationsRouteTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListAssociationsRouteTable)(nil)).Elem()
+}
+
+func (o GetPrefixListAssociationsRouteTableArrayOutput) ToGetPrefixListAssociationsRouteTableArrayOutput() GetPrefixListAssociationsRouteTableArrayOutput {
+	return o
+}
+
+func (o GetPrefixListAssociationsRouteTableArrayOutput) ToGetPrefixListAssociationsRouteTableArrayOutputWithContext(ctx context.Context) GetPrefixListAssociationsRouteTableArrayOutput {
+	return o
+}
+
+func (o GetPrefixListAssociationsRouteTableArrayOutput) Index(i pulumi.IntInput) GetPrefixListAssociationsRouteTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrefixListAssociationsRouteTable {
+		return vs[0].([]GetPrefixListAssociationsRouteTable)[vs[1].(int)]
+	}).(GetPrefixListAssociationsRouteTableOutput)
+}
+
+type GetPrefixListAssociationsSecurityGroup struct {
+	// 关联资源的ID。
+	ResourceId string `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetPrefixListAssociationsSecurityGroupInput is an input type that accepts GetPrefixListAssociationsSecurityGroupArgs and GetPrefixListAssociationsSecurityGroupOutput values.
+// You can construct a concrete instance of `GetPrefixListAssociationsSecurityGroupInput` via:
+//
+//	GetPrefixListAssociationsSecurityGroupArgs{...}
+type GetPrefixListAssociationsSecurityGroupInput interface {
+	pulumi.Input
+
+	ToGetPrefixListAssociationsSecurityGroupOutput() GetPrefixListAssociationsSecurityGroupOutput
+	ToGetPrefixListAssociationsSecurityGroupOutputWithContext(context.Context) GetPrefixListAssociationsSecurityGroupOutput
+}
+
+type GetPrefixListAssociationsSecurityGroupArgs struct {
+	// 关联资源的ID。
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetPrefixListAssociationsSecurityGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (i GetPrefixListAssociationsSecurityGroupArgs) ToGetPrefixListAssociationsSecurityGroupOutput() GetPrefixListAssociationsSecurityGroupOutput {
+	return i.ToGetPrefixListAssociationsSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListAssociationsSecurityGroupArgs) ToGetPrefixListAssociationsSecurityGroupOutputWithContext(ctx context.Context) GetPrefixListAssociationsSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListAssociationsSecurityGroupOutput)
+}
+
+// GetPrefixListAssociationsSecurityGroupArrayInput is an input type that accepts GetPrefixListAssociationsSecurityGroupArray and GetPrefixListAssociationsSecurityGroupArrayOutput values.
+// You can construct a concrete instance of `GetPrefixListAssociationsSecurityGroupArrayInput` via:
+//
+//	GetPrefixListAssociationsSecurityGroupArray{ GetPrefixListAssociationsSecurityGroupArgs{...} }
+type GetPrefixListAssociationsSecurityGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetPrefixListAssociationsSecurityGroupArrayOutput() GetPrefixListAssociationsSecurityGroupArrayOutput
+	ToGetPrefixListAssociationsSecurityGroupArrayOutputWithContext(context.Context) GetPrefixListAssociationsSecurityGroupArrayOutput
+}
+
+type GetPrefixListAssociationsSecurityGroupArray []GetPrefixListAssociationsSecurityGroupInput
+
+func (GetPrefixListAssociationsSecurityGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (i GetPrefixListAssociationsSecurityGroupArray) ToGetPrefixListAssociationsSecurityGroupArrayOutput() GetPrefixListAssociationsSecurityGroupArrayOutput {
+	return i.ToGetPrefixListAssociationsSecurityGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListAssociationsSecurityGroupArray) ToGetPrefixListAssociationsSecurityGroupArrayOutputWithContext(ctx context.Context) GetPrefixListAssociationsSecurityGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListAssociationsSecurityGroupArrayOutput)
+}
+
+type GetPrefixListAssociationsSecurityGroupOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListAssociationsSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (o GetPrefixListAssociationsSecurityGroupOutput) ToGetPrefixListAssociationsSecurityGroupOutput() GetPrefixListAssociationsSecurityGroupOutput {
+	return o
+}
+
+func (o GetPrefixListAssociationsSecurityGroupOutput) ToGetPrefixListAssociationsSecurityGroupOutputWithContext(ctx context.Context) GetPrefixListAssociationsSecurityGroupOutput {
+	return o
+}
+
+// 关联资源的ID。
+func (o GetPrefixListAssociationsSecurityGroupOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListAssociationsSecurityGroup) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// 关联资源的类型。VpcRouteTable：路由表；VpcSecurityGroup：安全组。
+func (o GetPrefixListAssociationsSecurityGroupOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListAssociationsSecurityGroup) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetPrefixListAssociationsSecurityGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListAssociationsSecurityGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListAssociationsSecurityGroup)(nil)).Elem()
+}
+
+func (o GetPrefixListAssociationsSecurityGroupArrayOutput) ToGetPrefixListAssociationsSecurityGroupArrayOutput() GetPrefixListAssociationsSecurityGroupArrayOutput {
+	return o
+}
+
+func (o GetPrefixListAssociationsSecurityGroupArrayOutput) ToGetPrefixListAssociationsSecurityGroupArrayOutputWithContext(ctx context.Context) GetPrefixListAssociationsSecurityGroupArrayOutput {
+	return o
+}
+
+func (o GetPrefixListAssociationsSecurityGroupArrayOutput) Index(i pulumi.IntInput) GetPrefixListAssociationsSecurityGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrefixListAssociationsSecurityGroup {
+		return vs[0].([]GetPrefixListAssociationsSecurityGroup)[vs[1].(int)]
+	}).(GetPrefixListAssociationsSecurityGroupOutput)
+}
+
+type GetPrefixListPrefixListEntry struct {
+	// 前缀列表条目的CIDR。
+	Cidr string `pulumi:"cidr"`
+	// 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+	Description string `pulumi:"description"`
+}
+
+// GetPrefixListPrefixListEntryInput is an input type that accepts GetPrefixListPrefixListEntryArgs and GetPrefixListPrefixListEntryOutput values.
+// You can construct a concrete instance of `GetPrefixListPrefixListEntryInput` via:
+//
+//	GetPrefixListPrefixListEntryArgs{...}
+type GetPrefixListPrefixListEntryInput interface {
+	pulumi.Input
+
+	ToGetPrefixListPrefixListEntryOutput() GetPrefixListPrefixListEntryOutput
+	ToGetPrefixListPrefixListEntryOutputWithContext(context.Context) GetPrefixListPrefixListEntryOutput
+}
+
+type GetPrefixListPrefixListEntryArgs struct {
+	// 前缀列表条目的CIDR。
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+	Description pulumi.StringInput `pulumi:"description"`
+}
+
+func (GetPrefixListPrefixListEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (i GetPrefixListPrefixListEntryArgs) ToGetPrefixListPrefixListEntryOutput() GetPrefixListPrefixListEntryOutput {
+	return i.ToGetPrefixListPrefixListEntryOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListPrefixListEntryArgs) ToGetPrefixListPrefixListEntryOutputWithContext(ctx context.Context) GetPrefixListPrefixListEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListPrefixListEntryOutput)
+}
+
+// GetPrefixListPrefixListEntryArrayInput is an input type that accepts GetPrefixListPrefixListEntryArray and GetPrefixListPrefixListEntryArrayOutput values.
+// You can construct a concrete instance of `GetPrefixListPrefixListEntryArrayInput` via:
+//
+//	GetPrefixListPrefixListEntryArray{ GetPrefixListPrefixListEntryArgs{...} }
+type GetPrefixListPrefixListEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetPrefixListPrefixListEntryArrayOutput() GetPrefixListPrefixListEntryArrayOutput
+	ToGetPrefixListPrefixListEntryArrayOutputWithContext(context.Context) GetPrefixListPrefixListEntryArrayOutput
+}
+
+type GetPrefixListPrefixListEntryArray []GetPrefixListPrefixListEntryInput
+
+func (GetPrefixListPrefixListEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (i GetPrefixListPrefixListEntryArray) ToGetPrefixListPrefixListEntryArrayOutput() GetPrefixListPrefixListEntryArrayOutput {
+	return i.ToGetPrefixListPrefixListEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListPrefixListEntryArray) ToGetPrefixListPrefixListEntryArrayOutputWithContext(ctx context.Context) GetPrefixListPrefixListEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListPrefixListEntryArrayOutput)
+}
+
+type GetPrefixListPrefixListEntryOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListPrefixListEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (o GetPrefixListPrefixListEntryOutput) ToGetPrefixListPrefixListEntryOutput() GetPrefixListPrefixListEntryOutput {
+	return o
+}
+
+func (o GetPrefixListPrefixListEntryOutput) ToGetPrefixListPrefixListEntryOutputWithContext(ctx context.Context) GetPrefixListPrefixListEntryOutput {
+	return o
+}
+
+// 前缀列表条目的CIDR。
+func (o GetPrefixListPrefixListEntryOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListPrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// 前缀列表条目的描述。长度限制为0~255个字符，需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。
+func (o GetPrefixListPrefixListEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListPrefixListEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+type GetPrefixListPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListPrefixListEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListPrefixListEntry)(nil)).Elem()
+}
+
+func (o GetPrefixListPrefixListEntryArrayOutput) ToGetPrefixListPrefixListEntryArrayOutput() GetPrefixListPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o GetPrefixListPrefixListEntryArrayOutput) ToGetPrefixListPrefixListEntryArrayOutputWithContext(ctx context.Context) GetPrefixListPrefixListEntryArrayOutput {
+	return o
+}
+
+func (o GetPrefixListPrefixListEntryArrayOutput) Index(i pulumi.IntInput) GetPrefixListPrefixListEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrefixListPrefixListEntry {
+		return vs[0].([]GetPrefixListPrefixListEntry)[vs[1].(int)]
+	}).(GetPrefixListPrefixListEntryOutput)
+}
+
+type GetPrefixListTag struct {
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetPrefixListTagInput is an input type that accepts GetPrefixListTagArgs and GetPrefixListTagOutput values.
+// You can construct a concrete instance of `GetPrefixListTagInput` via:
+//
+//	GetPrefixListTagArgs{...}
+type GetPrefixListTagInput interface {
+	pulumi.Input
+
+	ToGetPrefixListTagOutput() GetPrefixListTagOutput
+	ToGetPrefixListTagOutputWithContext(context.Context) GetPrefixListTagOutput
+}
+
+type GetPrefixListTagArgs struct {
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetPrefixListTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListTag)(nil)).Elem()
+}
+
+func (i GetPrefixListTagArgs) ToGetPrefixListTagOutput() GetPrefixListTagOutput {
+	return i.ToGetPrefixListTagOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListTagArgs) ToGetPrefixListTagOutputWithContext(ctx context.Context) GetPrefixListTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListTagOutput)
+}
+
+// GetPrefixListTagArrayInput is an input type that accepts GetPrefixListTagArray and GetPrefixListTagArrayOutput values.
+// You can construct a concrete instance of `GetPrefixListTagArrayInput` via:
+//
+//	GetPrefixListTagArray{ GetPrefixListTagArgs{...} }
+type GetPrefixListTagArrayInput interface {
+	pulumi.Input
+
+	ToGetPrefixListTagArrayOutput() GetPrefixListTagArrayOutput
+	ToGetPrefixListTagArrayOutputWithContext(context.Context) GetPrefixListTagArrayOutput
+}
+
+type GetPrefixListTagArray []GetPrefixListTagInput
+
+func (GetPrefixListTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListTag)(nil)).Elem()
+}
+
+func (i GetPrefixListTagArray) ToGetPrefixListTagArrayOutput() GetPrefixListTagArrayOutput {
+	return i.ToGetPrefixListTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrefixListTagArray) ToGetPrefixListTagArrayOutputWithContext(ctx context.Context) GetPrefixListTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrefixListTagArrayOutput)
+}
+
+type GetPrefixListTagOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrefixListTag)(nil)).Elem()
+}
+
+func (o GetPrefixListTagOutput) ToGetPrefixListTagOutput() GetPrefixListTagOutput {
+	return o
+}
+
+func (o GetPrefixListTagOutput) ToGetPrefixListTagOutputWithContext(ctx context.Context) GetPrefixListTagOutput {
+	return o
+}
+
+// 用户标签的标签键。
+func (o GetPrefixListTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。
+func (o GetPrefixListTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrefixListTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetPrefixListTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrefixListTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrefixListTag)(nil)).Elem()
+}
+
+func (o GetPrefixListTagArrayOutput) ToGetPrefixListTagArrayOutput() GetPrefixListTagArrayOutput {
+	return o
+}
+
+func (o GetPrefixListTagArrayOutput) ToGetPrefixListTagArrayOutputWithContext(ctx context.Context) GetPrefixListTagArrayOutput {
+	return o
+}
+
+func (o GetPrefixListTagArrayOutput) Index(i pulumi.IntInput) GetPrefixListTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrefixListTag {
+		return vs[0].([]GetPrefixListTag)[vs[1].(int)]
+	}).(GetPrefixListTagOutput)
+}
+
 type GetRouteTableCustomRouteEntry struct {
 	// 路由条目描述。
 	Description string `pulumi:"description"`
@@ -4623,6 +7130,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EniPrivateIpSetAssociatedElasticIpPtrInput)(nil)).Elem(), EniPrivateIpSetAssociatedElasticIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EniTagInput)(nil)).Elem(), EniTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EniTagArrayInput)(nil)).Elem(), EniTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclDefaultEgressAclEntryInput)(nil)).Elem(), NetworkAclDefaultEgressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclDefaultEgressAclEntryArrayInput)(nil)).Elem(), NetworkAclDefaultEgressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclDefaultIngressAclEntryInput)(nil)).Elem(), NetworkAclDefaultIngressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclDefaultIngressAclEntryArrayInput)(nil)).Elem(), NetworkAclDefaultIngressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressAclEntryInput)(nil)).Elem(), NetworkAclEgressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressAclEntryArrayInput)(nil)).Elem(), NetworkAclEgressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclIngressAclEntryInput)(nil)).Elem(), NetworkAclIngressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclIngressAclEntryArrayInput)(nil)).Elem(), NetworkAclIngressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclResourceInput)(nil)).Elem(), NetworkAclResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclResourceArrayInput)(nil)).Elem(), NetworkAclResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclTagInput)(nil)).Elem(), NetworkAclTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclTagArrayInput)(nil)).Elem(), NetworkAclTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAssociationsRouteTableInput)(nil)).Elem(), PrefixListAssociationsRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAssociationsRouteTableArrayInput)(nil)).Elem(), PrefixListAssociationsRouteTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAssociationsSecurityGroupInput)(nil)).Elem(), PrefixListAssociationsSecurityGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAssociationsSecurityGroupArrayInput)(nil)).Elem(), PrefixListAssociationsSecurityGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListPrefixListEntryInput)(nil)).Elem(), PrefixListPrefixListEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListPrefixListEntryArrayInput)(nil)).Elem(), PrefixListPrefixListEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListTagInput)(nil)).Elem(), PrefixListTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListTagArrayInput)(nil)).Elem(), PrefixListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableCustomRouteEntryInput)(nil)).Elem(), RouteTableCustomRouteEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableCustomRouteEntryArrayInput)(nil)).Elem(), RouteTableCustomRouteEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableSystemRouteEntryInput)(nil)).Elem(), RouteTableSystemRouteEntryArgs{})
@@ -4656,6 +7183,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEniPrivateIpSetAssociatedElasticIpInput)(nil)).Elem(), GetEniPrivateIpSetAssociatedElasticIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEniTagInput)(nil)).Elem(), GetEniTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEniTagArrayInput)(nil)).Elem(), GetEniTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclDefaultEgressAclEntryInput)(nil)).Elem(), GetNetworkAclDefaultEgressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclDefaultEgressAclEntryArrayInput)(nil)).Elem(), GetNetworkAclDefaultEgressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclDefaultIngressAclEntryInput)(nil)).Elem(), GetNetworkAclDefaultIngressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclDefaultIngressAclEntryArrayInput)(nil)).Elem(), GetNetworkAclDefaultIngressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclEgressAclEntryInput)(nil)).Elem(), GetNetworkAclEgressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclEgressAclEntryArrayInput)(nil)).Elem(), GetNetworkAclEgressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclIngressAclEntryInput)(nil)).Elem(), GetNetworkAclIngressAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclIngressAclEntryArrayInput)(nil)).Elem(), GetNetworkAclIngressAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclResourceInput)(nil)).Elem(), GetNetworkAclResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclResourceArrayInput)(nil)).Elem(), GetNetworkAclResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclTagInput)(nil)).Elem(), GetNetworkAclTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclTagArrayInput)(nil)).Elem(), GetNetworkAclTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListAssociationsRouteTableInput)(nil)).Elem(), GetPrefixListAssociationsRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListAssociationsRouteTableArrayInput)(nil)).Elem(), GetPrefixListAssociationsRouteTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListAssociationsSecurityGroupInput)(nil)).Elem(), GetPrefixListAssociationsSecurityGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListAssociationsSecurityGroupArrayInput)(nil)).Elem(), GetPrefixListAssociationsSecurityGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListPrefixListEntryInput)(nil)).Elem(), GetPrefixListPrefixListEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListPrefixListEntryArrayInput)(nil)).Elem(), GetPrefixListPrefixListEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListTagInput)(nil)).Elem(), GetPrefixListTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrefixListTagArrayInput)(nil)).Elem(), GetPrefixListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableCustomRouteEntryInput)(nil)).Elem(), GetRouteTableCustomRouteEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableCustomRouteEntryArrayInput)(nil)).Elem(), GetRouteTableCustomRouteEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableSystemRouteEntryInput)(nil)).Elem(), GetRouteTableSystemRouteEntryArgs{})
@@ -4691,6 +7238,26 @@ func init() {
 	pulumi.RegisterOutputType(EniPrivateIpSetAssociatedElasticIpPtrOutput{})
 	pulumi.RegisterOutputType(EniTagOutput{})
 	pulumi.RegisterOutputType(EniTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclDefaultEgressAclEntryOutput{})
+	pulumi.RegisterOutputType(NetworkAclDefaultEgressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclDefaultIngressAclEntryOutput{})
+	pulumi.RegisterOutputType(NetworkAclDefaultIngressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclEgressAclEntryOutput{})
+	pulumi.RegisterOutputType(NetworkAclEgressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclIngressAclEntryOutput{})
+	pulumi.RegisterOutputType(NetworkAclIngressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclResourceOutput{})
+	pulumi.RegisterOutputType(NetworkAclResourceArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclTagOutput{})
+	pulumi.RegisterOutputType(NetworkAclTagArrayOutput{})
+	pulumi.RegisterOutputType(PrefixListAssociationsRouteTableOutput{})
+	pulumi.RegisterOutputType(PrefixListAssociationsRouteTableArrayOutput{})
+	pulumi.RegisterOutputType(PrefixListAssociationsSecurityGroupOutput{})
+	pulumi.RegisterOutputType(PrefixListAssociationsSecurityGroupArrayOutput{})
+	pulumi.RegisterOutputType(PrefixListPrefixListEntryOutput{})
+	pulumi.RegisterOutputType(PrefixListPrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(PrefixListTagOutput{})
+	pulumi.RegisterOutputType(PrefixListTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteTableCustomRouteEntryOutput{})
 	pulumi.RegisterOutputType(RouteTableCustomRouteEntryArrayOutput{})
 	pulumi.RegisterOutputType(RouteTableSystemRouteEntryOutput{})
@@ -4724,6 +7291,26 @@ func init() {
 	pulumi.RegisterOutputType(GetEniPrivateIpSetAssociatedElasticIpOutput{})
 	pulumi.RegisterOutputType(GetEniTagOutput{})
 	pulumi.RegisterOutputType(GetEniTagArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclDefaultEgressAclEntryOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclDefaultEgressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclDefaultIngressAclEntryOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclDefaultIngressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclEgressAclEntryOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclEgressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclIngressAclEntryOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclIngressAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclResourceOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclTagOutput{})
+	pulumi.RegisterOutputType(GetNetworkAclTagArrayOutput{})
+	pulumi.RegisterOutputType(GetPrefixListAssociationsRouteTableOutput{})
+	pulumi.RegisterOutputType(GetPrefixListAssociationsRouteTableArrayOutput{})
+	pulumi.RegisterOutputType(GetPrefixListAssociationsSecurityGroupOutput{})
+	pulumi.RegisterOutputType(GetPrefixListAssociationsSecurityGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetPrefixListPrefixListEntryOutput{})
+	pulumi.RegisterOutputType(GetPrefixListPrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetPrefixListTagOutput{})
+	pulumi.RegisterOutputType(GetPrefixListTagArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableCustomRouteEntryOutput{})
 	pulumi.RegisterOutputType(GetRouteTableCustomRouteEntryArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableSystemRouteEntryOutput{})

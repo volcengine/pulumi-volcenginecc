@@ -4,7 +4,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Volcengine</Authors>
     <Company>Volcengine</Company>
-    <Description>A Pulumi package to safely use randomness in Pulumi programs.</Description>
+    <Description>A Pulumi package to safely use volcengine resource in Pulumi programs.</Description>
     <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/volcengine/pulumi-volcenginecc</PackageProjectUrl>
     <RepositoryUrl>https://github.com/volcengine/pulumi-volcenginecc</RepositoryUrl>
