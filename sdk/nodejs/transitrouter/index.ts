@@ -10,6 +10,26 @@ export const getTransitRouter: typeof import("./getTransitRouter").getTransitRou
 export const getTransitRouterOutput: typeof import("./getTransitRouter").getTransitRouterOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitRouter","getTransitRouterOutput"], () => require("./getTransitRouter"));
 
+export { GetTransitRouterRouteEntriesResult } from "./getTransitRouterRouteEntries";
+export const getTransitRouterRouteEntries: typeof import("./getTransitRouterRouteEntries").getTransitRouterRouteEntries = null as any;
+export const getTransitRouterRouteEntriesOutput: typeof import("./getTransitRouterRouteEntries").getTransitRouterRouteEntriesOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitRouterRouteEntries","getTransitRouterRouteEntriesOutput"], () => require("./getTransitRouterRouteEntries"));
+
+export { GetTransitRouterRouteEntryArgs, GetTransitRouterRouteEntryResult, GetTransitRouterRouteEntryOutputArgs } from "./getTransitRouterRouteEntry";
+export const getTransitRouterRouteEntry: typeof import("./getTransitRouterRouteEntry").getTransitRouterRouteEntry = null as any;
+export const getTransitRouterRouteEntryOutput: typeof import("./getTransitRouterRouteEntry").getTransitRouterRouteEntryOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitRouterRouteEntry","getTransitRouterRouteEntryOutput"], () => require("./getTransitRouterRouteEntry"));
+
+export { GetTransitRouterRouteTableArgs, GetTransitRouterRouteTableResult, GetTransitRouterRouteTableOutputArgs } from "./getTransitRouterRouteTable";
+export const getTransitRouterRouteTable: typeof import("./getTransitRouterRouteTable").getTransitRouterRouteTable = null as any;
+export const getTransitRouterRouteTableOutput: typeof import("./getTransitRouterRouteTable").getTransitRouterRouteTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitRouterRouteTable","getTransitRouterRouteTableOutput"], () => require("./getTransitRouterRouteTable"));
+
+export { GetTransitRouterRouteTablesResult } from "./getTransitRouterRouteTables";
+export const getTransitRouterRouteTables: typeof import("./getTransitRouterRouteTables").getTransitRouterRouteTables = null as any;
+export const getTransitRouterRouteTablesOutput: typeof import("./getTransitRouterRouteTables").getTransitRouterRouteTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitRouterRouteTables","getTransitRouterRouteTablesOutput"], () => require("./getTransitRouterRouteTables"));
+
 export { GetTransitRoutersResult } from "./getTransitRouters";
 export const getTransitRouters: typeof import("./getTransitRouters").getTransitRouters = null as any;
 export const getTransitRoutersOutput: typeof import("./getTransitRouters").getTransitRoutersOutput = null as any;
@@ -20,6 +40,16 @@ export type TransitRouter = import("./transitRouter").TransitRouter;
 export const TransitRouter: typeof import("./transitRouter").TransitRouter = null as any;
 utilities.lazyLoad(exports, ["TransitRouter"], () => require("./transitRouter"));
 
+export { TransitRouterRouteEntryArgs, TransitRouterRouteEntryState } from "./transitRouterRouteEntry";
+export type TransitRouterRouteEntry = import("./transitRouterRouteEntry").TransitRouterRouteEntry;
+export const TransitRouterRouteEntry: typeof import("./transitRouterRouteEntry").TransitRouterRouteEntry = null as any;
+utilities.lazyLoad(exports, ["TransitRouterRouteEntry"], () => require("./transitRouterRouteEntry"));
+
+export { TransitRouterRouteTableArgs, TransitRouterRouteTableState } from "./transitRouterRouteTable";
+export type TransitRouterRouteTable = import("./transitRouterRouteTable").TransitRouterRouteTable;
+export const TransitRouterRouteTable: typeof import("./transitRouterRouteTable").TransitRouterRouteTable = null as any;
+utilities.lazyLoad(exports, ["TransitRouterRouteTable"], () => require("./transitRouterRouteTable"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +57,15 @@ const _module = {
         switch (type) {
             case "volcenginecc:transitrouter/transitRouter:TransitRouter":
                 return new TransitRouter(name, <any>undefined, { urn })
+            case "volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry":
+                return new TransitRouterRouteEntry(name, <any>undefined, { urn })
+            case "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable":
+                return new TransitRouterRouteTable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "transitrouter/transitRouter", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "transitrouter/transitRouterRouteEntry", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "transitrouter/transitRouterRouteTable", _module)

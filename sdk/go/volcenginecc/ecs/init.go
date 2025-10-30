@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HpcCluster{}
 	case "volcenginecc:ecs/image:Image":
 		r = &Image{}
+	case "volcenginecc:ecs/instance:Instance":
+		r = &Instance{}
 	case "volcenginecc:ecs/invocation:Invocation":
 		r = &Invocation{}
 	case "volcenginecc:ecs/keypair:Keypair":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"ecs/image",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/instance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

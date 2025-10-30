@@ -123,6 +123,10 @@ export interface GetVolumeResult {
      */
     readonly status: string;
     /**
+     * 云盘的标签信息
+     */
+    readonly tags: outputs.storageebs.GetVolumeTag[];
+    /**
      * 总性能。
      */
     readonly totalPerformance: outputs.storageebs.GetVolumeTotalPerformance;

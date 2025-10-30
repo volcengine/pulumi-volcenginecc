@@ -7,10 +7,12 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.storageebs.inputs.VolumeBaselinePerformanceArgs;
 import com.volcengine.volcenginecc.storageebs.inputs.VolumeExtraPerformanceArgs;
+import com.volcengine.volcenginecc.storageebs.inputs.VolumeTagArgs;
 import com.volcengine.volcenginecc.storageebs.inputs.VolumeTotalPerformanceArgs;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -350,6 +352,13 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.status);
     }
 
+    @Import(name="tags")
+    private @Nullable Output<List<VolumeTagArgs>> tags;
+
+    public Optional<Output<List<VolumeTagArgs>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     /**
      * 总性能。
      * 
@@ -480,6 +489,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         this.snapshotCount = $.snapshotCount;
         this.sourceSnapshotId = $.sourceSnapshotId;
         this.status = $.status;
+        this.tags = $.tags;
         this.totalPerformance = $.totalPerformance;
         this.tradeStatus = $.tradeStatus;
         this.updatedAt = $.updatedAt;
@@ -967,6 +977,19 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        public Builder tags(@Nullable Output<List<VolumeTagArgs>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(List<VolumeTagArgs> tags) {
+            return tags(Output.of(tags));
+        }
+
+        public Builder tags(VolumeTagArgs... tags) {
+            return tags(List.of(tags));
         }
 
         /**

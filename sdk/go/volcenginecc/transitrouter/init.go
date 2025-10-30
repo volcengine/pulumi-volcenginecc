@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:transitrouter/transitRouter:TransitRouter":
 		r = &TransitRouter{}
+	case "volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry":
+		r = &TransitRouterRouteEntry{}
+	case "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable":
+		r = &TransitRouterRouteTable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +43,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"transitrouter/transitRouter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/transitRouterRouteEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/transitRouterRouteTable",
 		&module{version},
 	)
 }

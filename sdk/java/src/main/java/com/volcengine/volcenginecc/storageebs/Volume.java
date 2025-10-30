@@ -12,10 +12,12 @@ import com.volcengine.volcenginecc.storageebs.VolumeArgs;
 import com.volcengine.volcenginecc.storageebs.inputs.VolumeState;
 import com.volcengine.volcenginecc.storageebs.outputs.VolumeBaselinePerformance;
 import com.volcengine.volcenginecc.storageebs.outputs.VolumeExtraPerformance;
+import com.volcengine.volcenginecc.storageebs.outputs.VolumeTag;
 import com.volcengine.volcenginecc.storageebs.outputs.VolumeTotalPerformance;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -375,6 +377,12 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<String> status() {
         return this.status;
+    }
+    @Export(name="tags", refs={List.class,VolumeTag.class}, tree="[0,1]")
+    private Output<List<VolumeTag>> tags;
+
+    public Output<List<VolumeTag>> tags() {
+        return this.tags;
     }
     /**
      * 总性能。

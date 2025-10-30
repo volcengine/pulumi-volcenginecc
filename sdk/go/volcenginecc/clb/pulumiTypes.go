@@ -13,6 +13,451 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AclAclEntry struct {
+	// IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+	Description *string `pulumi:"description"`
+	// IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+	Entry *string `pulumi:"entry"`
+}
+
+// AclAclEntryInput is an input type that accepts AclAclEntryArgs and AclAclEntryOutput values.
+// You can construct a concrete instance of `AclAclEntryInput` via:
+//
+//	AclAclEntryArgs{...}
+type AclAclEntryInput interface {
+	pulumi.Input
+
+	ToAclAclEntryOutput() AclAclEntryOutput
+	ToAclAclEntryOutputWithContext(context.Context) AclAclEntryOutput
+}
+
+type AclAclEntryArgs struct {
+	// IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+	Entry pulumi.StringPtrInput `pulumi:"entry"`
+}
+
+func (AclAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclAclEntry)(nil)).Elem()
+}
+
+func (i AclAclEntryArgs) ToAclAclEntryOutput() AclAclEntryOutput {
+	return i.ToAclAclEntryOutputWithContext(context.Background())
+}
+
+func (i AclAclEntryArgs) ToAclAclEntryOutputWithContext(ctx context.Context) AclAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclAclEntryOutput)
+}
+
+// AclAclEntryArrayInput is an input type that accepts AclAclEntryArray and AclAclEntryArrayOutput values.
+// You can construct a concrete instance of `AclAclEntryArrayInput` via:
+//
+//	AclAclEntryArray{ AclAclEntryArgs{...} }
+type AclAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToAclAclEntryArrayOutput() AclAclEntryArrayOutput
+	ToAclAclEntryArrayOutputWithContext(context.Context) AclAclEntryArrayOutput
+}
+
+type AclAclEntryArray []AclAclEntryInput
+
+func (AclAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclAclEntry)(nil)).Elem()
+}
+
+func (i AclAclEntryArray) ToAclAclEntryArrayOutput() AclAclEntryArrayOutput {
+	return i.ToAclAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i AclAclEntryArray) ToAclAclEntryArrayOutputWithContext(ctx context.Context) AclAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclAclEntryArrayOutput)
+}
+
+type AclAclEntryOutput struct{ *pulumi.OutputState }
+
+func (AclAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclAclEntry)(nil)).Elem()
+}
+
+func (o AclAclEntryOutput) ToAclAclEntryOutput() AclAclEntryOutput {
+	return o
+}
+
+func (o AclAclEntryOutput) ToAclAclEntryOutputWithContext(ctx context.Context) AclAclEntryOutput {
+	return o
+}
+
+// IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+func (o AclAclEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclAclEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+func (o AclAclEntryOutput) Entry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclAclEntry) *string { return v.Entry }).(pulumi.StringPtrOutput)
+}
+
+type AclAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (AclAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclAclEntry)(nil)).Elem()
+}
+
+func (o AclAclEntryArrayOutput) ToAclAclEntryArrayOutput() AclAclEntryArrayOutput {
+	return o
+}
+
+func (o AclAclEntryArrayOutput) ToAclAclEntryArrayOutputWithContext(ctx context.Context) AclAclEntryArrayOutput {
+	return o
+}
+
+func (o AclAclEntryArrayOutput) Index(i pulumi.IntInput) AclAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AclAclEntry {
+		return vs[0].([]AclAclEntry)[vs[1].(int)]
+	}).(AclAclEntryOutput)
+}
+
+type AclListener struct {
+	// 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+	AclType *string `pulumi:"aclType"`
+	// 监听器的ID。
+	ListenerId *string `pulumi:"listenerId"`
+	// 监听器的名称。
+	ListenerName *string `pulumi:"listenerName"`
+	// 监听器的端口。
+	Port *int `pulumi:"port"`
+	// 监听器的协议。
+	Protocol *string `pulumi:"protocol"`
+}
+
+// AclListenerInput is an input type that accepts AclListenerArgs and AclListenerOutput values.
+// You can construct a concrete instance of `AclListenerInput` via:
+//
+//	AclListenerArgs{...}
+type AclListenerInput interface {
+	pulumi.Input
+
+	ToAclListenerOutput() AclListenerOutput
+	ToAclListenerOutputWithContext(context.Context) AclListenerOutput
+}
+
+type AclListenerArgs struct {
+	// 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+	AclType pulumi.StringPtrInput `pulumi:"aclType"`
+	// 监听器的ID。
+	ListenerId pulumi.StringPtrInput `pulumi:"listenerId"`
+	// 监听器的名称。
+	ListenerName pulumi.StringPtrInput `pulumi:"listenerName"`
+	// 监听器的端口。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// 监听器的协议。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (AclListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclListener)(nil)).Elem()
+}
+
+func (i AclListenerArgs) ToAclListenerOutput() AclListenerOutput {
+	return i.ToAclListenerOutputWithContext(context.Background())
+}
+
+func (i AclListenerArgs) ToAclListenerOutputWithContext(ctx context.Context) AclListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclListenerOutput)
+}
+
+// AclListenerArrayInput is an input type that accepts AclListenerArray and AclListenerArrayOutput values.
+// You can construct a concrete instance of `AclListenerArrayInput` via:
+//
+//	AclListenerArray{ AclListenerArgs{...} }
+type AclListenerArrayInput interface {
+	pulumi.Input
+
+	ToAclListenerArrayOutput() AclListenerArrayOutput
+	ToAclListenerArrayOutputWithContext(context.Context) AclListenerArrayOutput
+}
+
+type AclListenerArray []AclListenerInput
+
+func (AclListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclListener)(nil)).Elem()
+}
+
+func (i AclListenerArray) ToAclListenerArrayOutput() AclListenerArrayOutput {
+	return i.ToAclListenerArrayOutputWithContext(context.Background())
+}
+
+func (i AclListenerArray) ToAclListenerArrayOutputWithContext(ctx context.Context) AclListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclListenerArrayOutput)
+}
+
+type AclListenerOutput struct{ *pulumi.OutputState }
+
+func (AclListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclListener)(nil)).Elem()
+}
+
+func (o AclListenerOutput) ToAclListenerOutput() AclListenerOutput {
+	return o
+}
+
+func (o AclListenerOutput) ToAclListenerOutputWithContext(ctx context.Context) AclListenerOutput {
+	return o
+}
+
+// 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+func (o AclListenerOutput) AclType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclListener) *string { return v.AclType }).(pulumi.StringPtrOutput)
+}
+
+// 监听器的ID。
+func (o AclListenerOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclListener) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
+}
+
+// 监听器的名称。
+func (o AclListenerOutput) ListenerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclListener) *string { return v.ListenerName }).(pulumi.StringPtrOutput)
+}
+
+// 监听器的端口。
+func (o AclListenerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AclListener) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// 监听器的协议。
+func (o AclListenerOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclListener) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type AclListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (AclListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclListener)(nil)).Elem()
+}
+
+func (o AclListenerArrayOutput) ToAclListenerArrayOutput() AclListenerArrayOutput {
+	return o
+}
+
+func (o AclListenerArrayOutput) ToAclListenerArrayOutputWithContext(ctx context.Context) AclListenerArrayOutput {
+	return o
+}
+
+func (o AclListenerArrayOutput) Index(i pulumi.IntInput) AclListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AclListener {
+		return vs[0].([]AclListener)[vs[1].(int)]
+	}).(AclListenerOutput)
+}
+
+type AclTag struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value *string `pulumi:"value"`
+}
+
+// AclTagInput is an input type that accepts AclTagArgs and AclTagOutput values.
+// You can construct a concrete instance of `AclTagInput` via:
+//
+//	AclTagArgs{...}
+type AclTagInput interface {
+	pulumi.Input
+
+	ToAclTagOutput() AclTagOutput
+	ToAclTagOutputWithContext(context.Context) AclTagOutput
+}
+
+type AclTagArgs struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AclTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclTag)(nil)).Elem()
+}
+
+func (i AclTagArgs) ToAclTagOutput() AclTagOutput {
+	return i.ToAclTagOutputWithContext(context.Background())
+}
+
+func (i AclTagArgs) ToAclTagOutputWithContext(ctx context.Context) AclTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclTagOutput)
+}
+
+// AclTagArrayInput is an input type that accepts AclTagArray and AclTagArrayOutput values.
+// You can construct a concrete instance of `AclTagArrayInput` via:
+//
+//	AclTagArray{ AclTagArgs{...} }
+type AclTagArrayInput interface {
+	pulumi.Input
+
+	ToAclTagArrayOutput() AclTagArrayOutput
+	ToAclTagArrayOutputWithContext(context.Context) AclTagArrayOutput
+}
+
+type AclTagArray []AclTagInput
+
+func (AclTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclTag)(nil)).Elem()
+}
+
+func (i AclTagArray) ToAclTagArrayOutput() AclTagArrayOutput {
+	return i.ToAclTagArrayOutputWithContext(context.Background())
+}
+
+func (i AclTagArray) ToAclTagArrayOutputWithContext(ctx context.Context) AclTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AclTagArrayOutput)
+}
+
+type AclTagOutput struct{ *pulumi.OutputState }
+
+func (AclTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AclTag)(nil)).Elem()
+}
+
+func (o AclTagOutput) ToAclTagOutput() AclTagOutput {
+	return o
+}
+
+func (o AclTagOutput) ToAclTagOutputWithContext(ctx context.Context) AclTagOutput {
+	return o
+}
+
+// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+func (o AclTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+func (o AclTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AclTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AclTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AclTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AclTag)(nil)).Elem()
+}
+
+func (o AclTagArrayOutput) ToAclTagArrayOutput() AclTagArrayOutput {
+	return o
+}
+
+func (o AclTagArrayOutput) ToAclTagArrayOutputWithContext(ctx context.Context) AclTagArrayOutput {
+	return o
+}
+
+func (o AclTagArrayOutput) Index(i pulumi.IntInput) AclTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AclTag {
+		return vs[0].([]AclTag)[vs[1].(int)]
+	}).(AclTagOutput)
+}
+
+type CertificateTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
+// You can construct a concrete instance of `CertificateTagInput` via:
+//
+//	CertificateTagArgs{...}
+type CertificateTagInput interface {
+	pulumi.Input
+
+	ToCertificateTagOutput() CertificateTagOutput
+	ToCertificateTagOutputWithContext(context.Context) CertificateTagOutput
+}
+
+type CertificateTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
+}
+
+func (i CertificateTagArgs) ToCertificateTagOutput() CertificateTagOutput {
+	return i.ToCertificateTagOutputWithContext(context.Background())
+}
+
+func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
+}
+
+// CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
+// You can construct a concrete instance of `CertificateTagArrayInput` via:
+//
+//	CertificateTagArray{ CertificateTagArgs{...} }
+type CertificateTagArrayInput interface {
+	pulumi.Input
+
+	ToCertificateTagArrayOutput() CertificateTagArrayOutput
+	ToCertificateTagArrayOutputWithContext(context.Context) CertificateTagArrayOutput
+}
+
+type CertificateTagArray []CertificateTagInput
+
+func (CertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
+}
+
+func (i CertificateTagArray) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
+	return i.ToCertificateTagArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
+}
+
+type CertificateTagOutput struct{ *pulumi.OutputState }
+
+func (CertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
+}
+
+func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
+	return o
+}
+
+func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
+	return o
+}
+
+func (o CertificateTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CertificateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
+}
+
+func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
+	return o
+}
+
+func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
+	return o
+}
+
+func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateTag {
+		return vs[0].([]CertificateTag)[vs[1].(int)]
+	}).(CertificateTagOutput)
+}
+
 type ClbAccessLog struct {
 	// 存储七层访问日志的对象存储桶的名称
 	BucketName *string `pulumi:"bucketName"`
@@ -1086,6 +1531,458 @@ func (o ClbTagArrayOutput) Index(i pulumi.IntInput) ClbTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClbTag {
 		return vs[0].([]ClbTag)[vs[1].(int)]
 	}).(ClbTagOutput)
+}
+
+type ListenerHealthCheck struct {
+	// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+	Domain *string `pulumi:"domain"`
+	// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+	Enabled *string `pulumi:"enabled"`
+	// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	HealthyThreshold *int `pulumi:"healthyThreshold"`
+	// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+	HttpCode *string `pulumi:"httpCode"`
+	// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+	Interval *int `pulumi:"interval"`
+	// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+	Method *string `pulumi:"method"`
+	// 健康检查的端口，取值范围为1-65535。
+	Port *int `pulumi:"port"`
+	// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+	Timeout *int `pulumi:"timeout"`
+	// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpExpect *string `pulumi:"udpExpect"`
+	// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpRequest *string `pulumi:"udpRequest"`
+	// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
+	// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+	Uri *string `pulumi:"uri"`
+}
+
+// ListenerHealthCheckInput is an input type that accepts ListenerHealthCheckArgs and ListenerHealthCheckOutput values.
+// You can construct a concrete instance of `ListenerHealthCheckInput` via:
+//
+//	ListenerHealthCheckArgs{...}
+type ListenerHealthCheckInput interface {
+	pulumi.Input
+
+	ToListenerHealthCheckOutput() ListenerHealthCheckOutput
+	ToListenerHealthCheckOutputWithContext(context.Context) ListenerHealthCheckOutput
+}
+
+type ListenerHealthCheckArgs struct {
+	// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+	Enabled pulumi.StringPtrInput `pulumi:"enabled"`
+	// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
+	// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+	HttpCode pulumi.StringPtrInput `pulumi:"httpCode"`
+	// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// 健康检查的端口，取值范围为1-65535。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpExpect pulumi.StringPtrInput `pulumi:"udpExpect"`
+	// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpRequest pulumi.StringPtrInput `pulumi:"udpRequest"`
+	// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
+	// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ListenerHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerHealthCheck)(nil)).Elem()
+}
+
+func (i ListenerHealthCheckArgs) ToListenerHealthCheckOutput() ListenerHealthCheckOutput {
+	return i.ToListenerHealthCheckOutputWithContext(context.Background())
+}
+
+func (i ListenerHealthCheckArgs) ToListenerHealthCheckOutputWithContext(ctx context.Context) ListenerHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerHealthCheckOutput)
+}
+
+func (i ListenerHealthCheckArgs) ToListenerHealthCheckPtrOutput() ListenerHealthCheckPtrOutput {
+	return i.ToListenerHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerHealthCheckArgs) ToListenerHealthCheckPtrOutputWithContext(ctx context.Context) ListenerHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerHealthCheckOutput).ToListenerHealthCheckPtrOutputWithContext(ctx)
+}
+
+// ListenerHealthCheckPtrInput is an input type that accepts ListenerHealthCheckArgs, ListenerHealthCheckPtr and ListenerHealthCheckPtrOutput values.
+// You can construct a concrete instance of `ListenerHealthCheckPtrInput` via:
+//
+//	        ListenerHealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToListenerHealthCheckPtrOutput() ListenerHealthCheckPtrOutput
+	ToListenerHealthCheckPtrOutputWithContext(context.Context) ListenerHealthCheckPtrOutput
+}
+
+type listenerHealthCheckPtrType ListenerHealthCheckArgs
+
+func ListenerHealthCheckPtr(v *ListenerHealthCheckArgs) ListenerHealthCheckPtrInput {
+	return (*listenerHealthCheckPtrType)(v)
+}
+
+func (*listenerHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerHealthCheck)(nil)).Elem()
+}
+
+func (i *listenerHealthCheckPtrType) ToListenerHealthCheckPtrOutput() ListenerHealthCheckPtrOutput {
+	return i.ToListenerHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerHealthCheckPtrType) ToListenerHealthCheckPtrOutputWithContext(ctx context.Context) ListenerHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerHealthCheckPtrOutput)
+}
+
+type ListenerHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (ListenerHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerHealthCheck)(nil)).Elem()
+}
+
+func (o ListenerHealthCheckOutput) ToListenerHealthCheckOutput() ListenerHealthCheckOutput {
+	return o
+}
+
+func (o ListenerHealthCheckOutput) ToListenerHealthCheckOutputWithContext(ctx context.Context) ListenerHealthCheckOutput {
+	return o
+}
+
+func (o ListenerHealthCheckOutput) ToListenerHealthCheckPtrOutput() ListenerHealthCheckPtrOutput {
+	return o.ToListenerHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerHealthCheckOutput) ToListenerHealthCheckPtrOutputWithContext(ctx context.Context) ListenerHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerHealthCheck) *ListenerHealthCheck {
+		return &v
+	}).(ListenerHealthCheckPtrOutput)
+}
+
+// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+func (o ListenerHealthCheckOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+func (o ListenerHealthCheckOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.Enabled }).(pulumi.StringPtrOutput)
+}
+
+// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+func (o ListenerHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+func (o ListenerHealthCheckOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.HttpCode }).(pulumi.StringPtrOutput)
+}
+
+// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+func (o ListenerHealthCheckOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+func (o ListenerHealthCheckOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// 健康检查的端口，取值范围为1-65535。
+func (o ListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+func (o ListenerHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+func (o ListenerHealthCheckOutput) UdpExpect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.UdpExpect }).(pulumi.StringPtrOutput)
+}
+
+// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+func (o ListenerHealthCheckOutput) UdpRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.UdpRequest }).(pulumi.StringPtrOutput)
+}
+
+// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+func (o ListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+func (o ListenerHealthCheckOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerHealthCheck) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ListenerHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerHealthCheck)(nil)).Elem()
+}
+
+func (o ListenerHealthCheckPtrOutput) ToListenerHealthCheckPtrOutput() ListenerHealthCheckPtrOutput {
+	return o
+}
+
+func (o ListenerHealthCheckPtrOutput) ToListenerHealthCheckPtrOutputWithContext(ctx context.Context) ListenerHealthCheckPtrOutput {
+	return o
+}
+
+func (o ListenerHealthCheckPtrOutput) Elem() ListenerHealthCheckOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) ListenerHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerHealthCheck
+		return ret
+	}).(ListenerHealthCheckOutput)
+}
+
+// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+func (o ListenerHealthCheckPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+func (o ListenerHealthCheckPtrOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.StringPtrOutput)
+}
+
+// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+func (o ListenerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+func (o ListenerHealthCheckPtrOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+func (o ListenerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+func (o ListenerHealthCheckPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// 健康检查的端口，取值范围为1-65535。
+func (o ListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+func (o ListenerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+func (o ListenerHealthCheckPtrOutput) UdpExpect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UdpExpect
+	}).(pulumi.StringPtrOutput)
+}
+
+// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+func (o ListenerHealthCheckPtrOutput) UdpRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UdpRequest
+	}).(pulumi.StringPtrOutput)
+}
+
+// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+func (o ListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+func (o ListenerHealthCheckPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type ListenerTag struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value *string `pulumi:"value"`
+}
+
+// ListenerTagInput is an input type that accepts ListenerTagArgs and ListenerTagOutput values.
+// You can construct a concrete instance of `ListenerTagInput` via:
+//
+//	ListenerTagArgs{...}
+type ListenerTagInput interface {
+	pulumi.Input
+
+	ToListenerTagOutput() ListenerTagOutput
+	ToListenerTagOutputWithContext(context.Context) ListenerTagOutput
+}
+
+type ListenerTagArgs struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ListenerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerTag)(nil)).Elem()
+}
+
+func (i ListenerTagArgs) ToListenerTagOutput() ListenerTagOutput {
+	return i.ToListenerTagOutputWithContext(context.Background())
+}
+
+func (i ListenerTagArgs) ToListenerTagOutputWithContext(ctx context.Context) ListenerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerTagOutput)
+}
+
+// ListenerTagArrayInput is an input type that accepts ListenerTagArray and ListenerTagArrayOutput values.
+// You can construct a concrete instance of `ListenerTagArrayInput` via:
+//
+//	ListenerTagArray{ ListenerTagArgs{...} }
+type ListenerTagArrayInput interface {
+	pulumi.Input
+
+	ToListenerTagArrayOutput() ListenerTagArrayOutput
+	ToListenerTagArrayOutputWithContext(context.Context) ListenerTagArrayOutput
+}
+
+type ListenerTagArray []ListenerTagInput
+
+func (ListenerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerTag)(nil)).Elem()
+}
+
+func (i ListenerTagArray) ToListenerTagArrayOutput() ListenerTagArrayOutput {
+	return i.ToListenerTagArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerTagArray) ToListenerTagArrayOutputWithContext(ctx context.Context) ListenerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerTagArrayOutput)
+}
+
+type ListenerTagOutput struct{ *pulumi.OutputState }
+
+func (ListenerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerTag)(nil)).Elem()
+}
+
+func (o ListenerTagOutput) ToListenerTagOutput() ListenerTagOutput {
+	return o
+}
+
+func (o ListenerTagOutput) ToListenerTagOutputWithContext(ctx context.Context) ListenerTagOutput {
+	return o
+}
+
+// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+func (o ListenerTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+func (o ListenerTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ListenerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerTag)(nil)).Elem()
+}
+
+func (o ListenerTagArrayOutput) ToListenerTagArrayOutput() ListenerTagArrayOutput {
+	return o
+}
+
+func (o ListenerTagArrayOutput) ToListenerTagArrayOutputWithContext(ctx context.Context) ListenerTagArrayOutput {
+	return o
+}
+
+func (o ListenerTagArrayOutput) Index(i pulumi.IntInput) ListenerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerTag {
+		return vs[0].([]ListenerTag)[vs[1].(int)]
+	}).(ListenerTagOutput)
 }
 
 type NlbListenerHealth struct {
@@ -2287,6 +3184,325 @@ func (o NlbZoneMappingArrayOutput) Index(i pulumi.IntInput) NlbZoneMappingOutput
 	}).(NlbZoneMappingOutput)
 }
 
+type RuleRedirectConfig struct {
+	// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+	Host *string `pulumi:"host"`
+	// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+	Path *string `pulumi:"path"`
+	// 转发规则重定向的端口，取值范围为 1~65535。
+	Port *string `pulumi:"port"`
+	// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+	Protocol *string `pulumi:"protocol"`
+	// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+	StatusCode *string `pulumi:"statusCode"`
+}
+
+// RuleRedirectConfigInput is an input type that accepts RuleRedirectConfigArgs and RuleRedirectConfigOutput values.
+// You can construct a concrete instance of `RuleRedirectConfigInput` via:
+//
+//	RuleRedirectConfigArgs{...}
+type RuleRedirectConfigInput interface {
+	pulumi.Input
+
+	ToRuleRedirectConfigOutput() RuleRedirectConfigOutput
+	ToRuleRedirectConfigOutputWithContext(context.Context) RuleRedirectConfigOutput
+}
+
+type RuleRedirectConfigArgs struct {
+	// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// 转发规则重定向的端口，取值范围为 1~65535。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+}
+
+func (RuleRedirectConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleRedirectConfig)(nil)).Elem()
+}
+
+func (i RuleRedirectConfigArgs) ToRuleRedirectConfigOutput() RuleRedirectConfigOutput {
+	return i.ToRuleRedirectConfigOutputWithContext(context.Background())
+}
+
+func (i RuleRedirectConfigArgs) ToRuleRedirectConfigOutputWithContext(ctx context.Context) RuleRedirectConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRedirectConfigOutput)
+}
+
+func (i RuleRedirectConfigArgs) ToRuleRedirectConfigPtrOutput() RuleRedirectConfigPtrOutput {
+	return i.ToRuleRedirectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleRedirectConfigArgs) ToRuleRedirectConfigPtrOutputWithContext(ctx context.Context) RuleRedirectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRedirectConfigOutput).ToRuleRedirectConfigPtrOutputWithContext(ctx)
+}
+
+// RuleRedirectConfigPtrInput is an input type that accepts RuleRedirectConfigArgs, RuleRedirectConfigPtr and RuleRedirectConfigPtrOutput values.
+// You can construct a concrete instance of `RuleRedirectConfigPtrInput` via:
+//
+//	        RuleRedirectConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleRedirectConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleRedirectConfigPtrOutput() RuleRedirectConfigPtrOutput
+	ToRuleRedirectConfigPtrOutputWithContext(context.Context) RuleRedirectConfigPtrOutput
+}
+
+type ruleRedirectConfigPtrType RuleRedirectConfigArgs
+
+func RuleRedirectConfigPtr(v *RuleRedirectConfigArgs) RuleRedirectConfigPtrInput {
+	return (*ruleRedirectConfigPtrType)(v)
+}
+
+func (*ruleRedirectConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleRedirectConfig)(nil)).Elem()
+}
+
+func (i *ruleRedirectConfigPtrType) ToRuleRedirectConfigPtrOutput() RuleRedirectConfigPtrOutput {
+	return i.ToRuleRedirectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleRedirectConfigPtrType) ToRuleRedirectConfigPtrOutputWithContext(ctx context.Context) RuleRedirectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleRedirectConfigPtrOutput)
+}
+
+type RuleRedirectConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleRedirectConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleRedirectConfig)(nil)).Elem()
+}
+
+func (o RuleRedirectConfigOutput) ToRuleRedirectConfigOutput() RuleRedirectConfigOutput {
+	return o
+}
+
+func (o RuleRedirectConfigOutput) ToRuleRedirectConfigOutputWithContext(ctx context.Context) RuleRedirectConfigOutput {
+	return o
+}
+
+func (o RuleRedirectConfigOutput) ToRuleRedirectConfigPtrOutput() RuleRedirectConfigPtrOutput {
+	return o.ToRuleRedirectConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleRedirectConfigOutput) ToRuleRedirectConfigPtrOutputWithContext(ctx context.Context) RuleRedirectConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleRedirectConfig) *RuleRedirectConfig {
+		return &v
+	}).(RuleRedirectConfigPtrOutput)
+}
+
+// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+func (o RuleRedirectConfigOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedirectConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+func (o RuleRedirectConfigOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedirectConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的端口，取值范围为 1~65535。
+func (o RuleRedirectConfigOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedirectConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+func (o RuleRedirectConfigOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedirectConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+func (o RuleRedirectConfigOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleRedirectConfig) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+type RuleRedirectConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleRedirectConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleRedirectConfig)(nil)).Elem()
+}
+
+func (o RuleRedirectConfigPtrOutput) ToRuleRedirectConfigPtrOutput() RuleRedirectConfigPtrOutput {
+	return o
+}
+
+func (o RuleRedirectConfigPtrOutput) ToRuleRedirectConfigPtrOutputWithContext(ctx context.Context) RuleRedirectConfigPtrOutput {
+	return o
+}
+
+func (o RuleRedirectConfigPtrOutput) Elem() RuleRedirectConfigOutput {
+	return o.ApplyT(func(v *RuleRedirectConfig) RuleRedirectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleRedirectConfig
+		return ret
+	}).(RuleRedirectConfigOutput)
+}
+
+// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+func (o RuleRedirectConfigPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedirectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+func (o RuleRedirectConfigPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedirectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的端口，取值范围为 1~65535。
+func (o RuleRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedirectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+func (o RuleRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedirectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+func (o RuleRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleRedirectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleTag struct {
+	// 标签键。
+	Key *string `pulumi:"key"`
+	// 标签值。
+	Value *string `pulumi:"value"`
+}
+
+// RuleTagInput is an input type that accepts RuleTagArgs and RuleTagOutput values.
+// You can construct a concrete instance of `RuleTagInput` via:
+//
+//	RuleTagArgs{...}
+type RuleTagInput interface {
+	pulumi.Input
+
+	ToRuleTagOutput() RuleTagOutput
+	ToRuleTagOutputWithContext(context.Context) RuleTagOutput
+}
+
+type RuleTagArgs struct {
+	// 标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTag)(nil)).Elem()
+}
+
+func (i RuleTagArgs) ToRuleTagOutput() RuleTagOutput {
+	return i.ToRuleTagOutputWithContext(context.Background())
+}
+
+func (i RuleTagArgs) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTagOutput)
+}
+
+// RuleTagArrayInput is an input type that accepts RuleTagArray and RuleTagArrayOutput values.
+// You can construct a concrete instance of `RuleTagArrayInput` via:
+//
+//	RuleTagArray{ RuleTagArgs{...} }
+type RuleTagArrayInput interface {
+	pulumi.Input
+
+	ToRuleTagArrayOutput() RuleTagArrayOutput
+	ToRuleTagArrayOutputWithContext(context.Context) RuleTagArrayOutput
+}
+
+type RuleTagArray []RuleTagInput
+
+func (RuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleTag)(nil)).Elem()
+}
+
+func (i RuleTagArray) ToRuleTagArrayOutput() RuleTagArrayOutput {
+	return i.ToRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i RuleTagArray) ToRuleTagArrayOutputWithContext(ctx context.Context) RuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTagArrayOutput)
+}
+
+type RuleTagOutput struct{ *pulumi.OutputState }
+
+func (RuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTag)(nil)).Elem()
+}
+
+func (o RuleTagOutput) ToRuleTagOutput() RuleTagOutput {
+	return o
+}
+
+func (o RuleTagOutput) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutput {
+	return o
+}
+
+// 标签键。
+func (o RuleTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 标签值。
+func (o RuleTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleTag)(nil)).Elem()
+}
+
+func (o RuleTagArrayOutput) ToRuleTagArrayOutput() RuleTagArrayOutput {
+	return o
+}
+
+func (o RuleTagArrayOutput) ToRuleTagArrayOutputWithContext(ctx context.Context) RuleTagArrayOutput {
+	return o
+}
+
+func (o RuleTagArrayOutput) Index(i pulumi.IntInput) RuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleTag {
+		return vs[0].([]RuleTag)[vs[1].(int)]
+	}).(RuleTagOutput)
+}
+
 type ServerGroupListener struct {
 	// 监听器的ID。
 	ListenerId *string `pulumi:"listenerId"`
@@ -2624,6 +3840,451 @@ func (o ServerGroupTagArrayOutput) Index(i pulumi.IntInput) ServerGroupTagOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerGroupTag {
 		return vs[0].([]ServerGroupTag)[vs[1].(int)]
 	}).(ServerGroupTagOutput)
+}
+
+type GetAclAclEntry struct {
+	// IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+	Description string `pulumi:"description"`
+	// IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+	Entry string `pulumi:"entry"`
+}
+
+// GetAclAclEntryInput is an input type that accepts GetAclAclEntryArgs and GetAclAclEntryOutput values.
+// You can construct a concrete instance of `GetAclAclEntryInput` via:
+//
+//	GetAclAclEntryArgs{...}
+type GetAclAclEntryInput interface {
+	pulumi.Input
+
+	ToGetAclAclEntryOutput() GetAclAclEntryOutput
+	ToGetAclAclEntryOutputWithContext(context.Context) GetAclAclEntryOutput
+}
+
+type GetAclAclEntryArgs struct {
+	// IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+	Description pulumi.StringInput `pulumi:"description"`
+	// IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+	Entry pulumi.StringInput `pulumi:"entry"`
+}
+
+func (GetAclAclEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAclAclEntry)(nil)).Elem()
+}
+
+func (i GetAclAclEntryArgs) ToGetAclAclEntryOutput() GetAclAclEntryOutput {
+	return i.ToGetAclAclEntryOutputWithContext(context.Background())
+}
+
+func (i GetAclAclEntryArgs) ToGetAclAclEntryOutputWithContext(ctx context.Context) GetAclAclEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAclAclEntryOutput)
+}
+
+// GetAclAclEntryArrayInput is an input type that accepts GetAclAclEntryArray and GetAclAclEntryArrayOutput values.
+// You can construct a concrete instance of `GetAclAclEntryArrayInput` via:
+//
+//	GetAclAclEntryArray{ GetAclAclEntryArgs{...} }
+type GetAclAclEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetAclAclEntryArrayOutput() GetAclAclEntryArrayOutput
+	ToGetAclAclEntryArrayOutputWithContext(context.Context) GetAclAclEntryArrayOutput
+}
+
+type GetAclAclEntryArray []GetAclAclEntryInput
+
+func (GetAclAclEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAclAclEntry)(nil)).Elem()
+}
+
+func (i GetAclAclEntryArray) ToGetAclAclEntryArrayOutput() GetAclAclEntryArrayOutput {
+	return i.ToGetAclAclEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetAclAclEntryArray) ToGetAclAclEntryArrayOutputWithContext(ctx context.Context) GetAclAclEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAclAclEntryArrayOutput)
+}
+
+type GetAclAclEntryOutput struct{ *pulumi.OutputState }
+
+func (GetAclAclEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAclAclEntry)(nil)).Elem()
+}
+
+func (o GetAclAclEntryOutput) ToGetAclAclEntryOutput() GetAclAclEntryOutput {
+	return o
+}
+
+func (o GetAclAclEntryOutput) ToGetAclAclEntryOutputWithContext(ctx context.Context) GetAclAclEntryOutput {
+	return o
+}
+
+// IP条目的描述，默认值为空字符串。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255个字符。
+func (o GetAclAclEntryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclAclEntry) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// IP条目的地址段，只支持CIDR地址。支持同时传入IPv4和IPv6条目。
+func (o GetAclAclEntryOutput) Entry() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclAclEntry) string { return v.Entry }).(pulumi.StringOutput)
+}
+
+type GetAclAclEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAclAclEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAclAclEntry)(nil)).Elem()
+}
+
+func (o GetAclAclEntryArrayOutput) ToGetAclAclEntryArrayOutput() GetAclAclEntryArrayOutput {
+	return o
+}
+
+func (o GetAclAclEntryArrayOutput) ToGetAclAclEntryArrayOutputWithContext(ctx context.Context) GetAclAclEntryArrayOutput {
+	return o
+}
+
+func (o GetAclAclEntryArrayOutput) Index(i pulumi.IntInput) GetAclAclEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAclAclEntry {
+		return vs[0].([]GetAclAclEntry)[vs[1].(int)]
+	}).(GetAclAclEntryOutput)
+}
+
+type GetAclListener struct {
+	// 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+	AclType string `pulumi:"aclType"`
+	// 监听器的ID。
+	ListenerId string `pulumi:"listenerId"`
+	// 监听器的名称。
+	ListenerName string `pulumi:"listenerName"`
+	// 监听器的端口。
+	Port int `pulumi:"port"`
+	// 监听器的协议。
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetAclListenerInput is an input type that accepts GetAclListenerArgs and GetAclListenerOutput values.
+// You can construct a concrete instance of `GetAclListenerInput` via:
+//
+//	GetAclListenerArgs{...}
+type GetAclListenerInput interface {
+	pulumi.Input
+
+	ToGetAclListenerOutput() GetAclListenerOutput
+	ToGetAclListenerOutputWithContext(context.Context) GetAclListenerOutput
+}
+
+type GetAclListenerArgs struct {
+	// 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+	AclType pulumi.StringInput `pulumi:"aclType"`
+	// 监听器的ID。
+	ListenerId pulumi.StringInput `pulumi:"listenerId"`
+	// 监听器的名称。
+	ListenerName pulumi.StringInput `pulumi:"listenerName"`
+	// 监听器的端口。
+	Port pulumi.IntInput `pulumi:"port"`
+	// 监听器的协议。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetAclListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAclListener)(nil)).Elem()
+}
+
+func (i GetAclListenerArgs) ToGetAclListenerOutput() GetAclListenerOutput {
+	return i.ToGetAclListenerOutputWithContext(context.Background())
+}
+
+func (i GetAclListenerArgs) ToGetAclListenerOutputWithContext(ctx context.Context) GetAclListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAclListenerOutput)
+}
+
+// GetAclListenerArrayInput is an input type that accepts GetAclListenerArray and GetAclListenerArrayOutput values.
+// You can construct a concrete instance of `GetAclListenerArrayInput` via:
+//
+//	GetAclListenerArray{ GetAclListenerArgs{...} }
+type GetAclListenerArrayInput interface {
+	pulumi.Input
+
+	ToGetAclListenerArrayOutput() GetAclListenerArrayOutput
+	ToGetAclListenerArrayOutputWithContext(context.Context) GetAclListenerArrayOutput
+}
+
+type GetAclListenerArray []GetAclListenerInput
+
+func (GetAclListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAclListener)(nil)).Elem()
+}
+
+func (i GetAclListenerArray) ToGetAclListenerArrayOutput() GetAclListenerArrayOutput {
+	return i.ToGetAclListenerArrayOutputWithContext(context.Background())
+}
+
+func (i GetAclListenerArray) ToGetAclListenerArrayOutputWithContext(ctx context.Context) GetAclListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAclListenerArrayOutput)
+}
+
+type GetAclListenerOutput struct{ *pulumi.OutputState }
+
+func (GetAclListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAclListener)(nil)).Elem()
+}
+
+func (o GetAclListenerOutput) ToGetAclListenerOutput() GetAclListenerOutput {
+	return o
+}
+
+func (o GetAclListenerOutput) ToGetAclListenerOutputWithContext(ctx context.Context) GetAclListenerOutput {
+	return o
+}
+
+// 监听器对本访问控制策略组的控制方式。white：白名单。监听器监听CLB的流量时，CLB仅转发其白名单关联访问控制策略组中IP地址的请求。black：黑名单。监听器监听CLB的流量时，对于黑名单关联访问控制策略组中IP地址的请求，CLB拒绝转发。
+func (o GetAclListenerOutput) AclType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclListener) string { return v.AclType }).(pulumi.StringOutput)
+}
+
+// 监听器的ID。
+func (o GetAclListenerOutput) ListenerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclListener) string { return v.ListenerId }).(pulumi.StringOutput)
+}
+
+// 监听器的名称。
+func (o GetAclListenerOutput) ListenerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclListener) string { return v.ListenerName }).(pulumi.StringOutput)
+}
+
+// 监听器的端口。
+func (o GetAclListenerOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAclListener) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// 监听器的协议。
+func (o GetAclListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclListener) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetAclListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAclListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAclListener)(nil)).Elem()
+}
+
+func (o GetAclListenerArrayOutput) ToGetAclListenerArrayOutput() GetAclListenerArrayOutput {
+	return o
+}
+
+func (o GetAclListenerArrayOutput) ToGetAclListenerArrayOutputWithContext(ctx context.Context) GetAclListenerArrayOutput {
+	return o
+}
+
+func (o GetAclListenerArrayOutput) Index(i pulumi.IntInput) GetAclListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAclListener {
+		return vs[0].([]GetAclListener)[vs[1].(int)]
+	}).(GetAclListenerOutput)
+}
+
+type GetAclTag struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value string `pulumi:"value"`
+}
+
+// GetAclTagInput is an input type that accepts GetAclTagArgs and GetAclTagOutput values.
+// You can construct a concrete instance of `GetAclTagInput` via:
+//
+//	GetAclTagArgs{...}
+type GetAclTagInput interface {
+	pulumi.Input
+
+	ToGetAclTagOutput() GetAclTagOutput
+	ToGetAclTagOutputWithContext(context.Context) GetAclTagOutput
+}
+
+type GetAclTagArgs struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAclTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAclTag)(nil)).Elem()
+}
+
+func (i GetAclTagArgs) ToGetAclTagOutput() GetAclTagOutput {
+	return i.ToGetAclTagOutputWithContext(context.Background())
+}
+
+func (i GetAclTagArgs) ToGetAclTagOutputWithContext(ctx context.Context) GetAclTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAclTagOutput)
+}
+
+// GetAclTagArrayInput is an input type that accepts GetAclTagArray and GetAclTagArrayOutput values.
+// You can construct a concrete instance of `GetAclTagArrayInput` via:
+//
+//	GetAclTagArray{ GetAclTagArgs{...} }
+type GetAclTagArrayInput interface {
+	pulumi.Input
+
+	ToGetAclTagArrayOutput() GetAclTagArrayOutput
+	ToGetAclTagArrayOutputWithContext(context.Context) GetAclTagArrayOutput
+}
+
+type GetAclTagArray []GetAclTagInput
+
+func (GetAclTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAclTag)(nil)).Elem()
+}
+
+func (i GetAclTagArray) ToGetAclTagArrayOutput() GetAclTagArrayOutput {
+	return i.ToGetAclTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetAclTagArray) ToGetAclTagArrayOutputWithContext(ctx context.Context) GetAclTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAclTagArrayOutput)
+}
+
+type GetAclTagOutput struct{ *pulumi.OutputState }
+
+func (GetAclTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAclTag)(nil)).Elem()
+}
+
+func (o GetAclTagOutput) ToGetAclTagOutput() GetAclTagOutput {
+	return o
+}
+
+func (o GetAclTagOutput) ToGetAclTagOutputWithContext(ctx context.Context) GetAclTagOutput {
+	return o
+}
+
+// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+func (o GetAclTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+func (o GetAclTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAclTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAclTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAclTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAclTag)(nil)).Elem()
+}
+
+func (o GetAclTagArrayOutput) ToGetAclTagArrayOutput() GetAclTagArrayOutput {
+	return o
+}
+
+func (o GetAclTagArrayOutput) ToGetAclTagArrayOutputWithContext(ctx context.Context) GetAclTagArrayOutput {
+	return o
+}
+
+func (o GetAclTagArrayOutput) Index(i pulumi.IntInput) GetAclTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAclTag {
+		return vs[0].([]GetAclTag)[vs[1].(int)]
+	}).(GetAclTagOutput)
+}
+
+type GetCertificateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GetCertificateTagInput is an input type that accepts GetCertificateTagArgs and GetCertificateTagOutput values.
+// You can construct a concrete instance of `GetCertificateTagInput` via:
+//
+//	GetCertificateTagArgs{...}
+type GetCertificateTagInput interface {
+	pulumi.Input
+
+	ToGetCertificateTagOutput() GetCertificateTagOutput
+	ToGetCertificateTagOutputWithContext(context.Context) GetCertificateTagOutput
+}
+
+type GetCertificateTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateTag)(nil)).Elem()
+}
+
+func (i GetCertificateTagArgs) ToGetCertificateTagOutput() GetCertificateTagOutput {
+	return i.ToGetCertificateTagOutputWithContext(context.Background())
+}
+
+func (i GetCertificateTagArgs) ToGetCertificateTagOutputWithContext(ctx context.Context) GetCertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateTagOutput)
+}
+
+// GetCertificateTagArrayInput is an input type that accepts GetCertificateTagArray and GetCertificateTagArrayOutput values.
+// You can construct a concrete instance of `GetCertificateTagArrayInput` via:
+//
+//	GetCertificateTagArray{ GetCertificateTagArgs{...} }
+type GetCertificateTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateTagArrayOutput() GetCertificateTagArrayOutput
+	ToGetCertificateTagArrayOutputWithContext(context.Context) GetCertificateTagArrayOutput
+}
+
+type GetCertificateTagArray []GetCertificateTagInput
+
+func (GetCertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateTag)(nil)).Elem()
+}
+
+func (i GetCertificateTagArray) ToGetCertificateTagArrayOutput() GetCertificateTagArrayOutput {
+	return i.ToGetCertificateTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateTagArray) ToGetCertificateTagArrayOutputWithContext(ctx context.Context) GetCertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateTagArrayOutput)
+}
+
+type GetCertificateTagOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateTag)(nil)).Elem()
+}
+
+func (o GetCertificateTagOutput) ToGetCertificateTagOutput() GetCertificateTagOutput {
+	return o
+}
+
+func (o GetCertificateTagOutput) ToGetCertificateTagOutputWithContext(ctx context.Context) GetCertificateTagOutput {
+	return o
+}
+
+func (o GetCertificateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetCertificateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCertificateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateTag)(nil)).Elem()
+}
+
+func (o GetCertificateTagArrayOutput) ToGetCertificateTagArrayOutput() GetCertificateTagArrayOutput {
+	return o
+}
+
+func (o GetCertificateTagArrayOutput) ToGetCertificateTagArrayOutputWithContext(ctx context.Context) GetCertificateTagArrayOutput {
+	return o
+}
+
+func (o GetCertificateTagArrayOutput) Index(i pulumi.IntInput) GetCertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateTag {
+		return vs[0].([]GetCertificateTag)[vs[1].(int)]
+	}).(GetCertificateTagOutput)
 }
 
 type GetClbAccessLog struct {
@@ -3249,6 +4910,263 @@ func (o GetClbTagArrayOutput) Index(i pulumi.IntInput) GetClbTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClbTag {
 		return vs[0].([]GetClbTag)[vs[1].(int)]
 	}).(GetClbTagOutput)
+}
+
+type GetListenerHealthCheck struct {
+	// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+	Domain string `pulumi:"domain"`
+	// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+	Enabled string `pulumi:"enabled"`
+	// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	HealthyThreshold int `pulumi:"healthyThreshold"`
+	// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+	HttpCode string `pulumi:"httpCode"`
+	// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+	Interval int `pulumi:"interval"`
+	// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+	Method string `pulumi:"method"`
+	// 健康检查的端口，取值范围为1-65535。
+	Port int `pulumi:"port"`
+	// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+	Timeout int `pulumi:"timeout"`
+	// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpExpect string `pulumi:"udpExpect"`
+	// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpRequest string `pulumi:"udpRequest"`
+	// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+	// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+	Uri string `pulumi:"uri"`
+}
+
+// GetListenerHealthCheckInput is an input type that accepts GetListenerHealthCheckArgs and GetListenerHealthCheckOutput values.
+// You can construct a concrete instance of `GetListenerHealthCheckInput` via:
+//
+//	GetListenerHealthCheckArgs{...}
+type GetListenerHealthCheckInput interface {
+	pulumi.Input
+
+	ToGetListenerHealthCheckOutput() GetListenerHealthCheckOutput
+	ToGetListenerHealthCheckOutputWithContext(context.Context) GetListenerHealthCheckOutput
+}
+
+type GetListenerHealthCheckArgs struct {
+	// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+	Enabled pulumi.StringInput `pulumi:"enabled"`
+	// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
+	// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+	HttpCode pulumi.StringInput `pulumi:"httpCode"`
+	// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+	Method pulumi.StringInput `pulumi:"method"`
+	// 健康检查的端口，取值范围为1-65535。
+	Port pulumi.IntInput `pulumi:"port"`
+	// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpExpect pulumi.StringInput `pulumi:"udpExpect"`
+	// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+	UdpRequest pulumi.StringInput `pulumi:"udpRequest"`
+	// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+	// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetListenerHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerHealthCheck)(nil)).Elem()
+}
+
+func (i GetListenerHealthCheckArgs) ToGetListenerHealthCheckOutput() GetListenerHealthCheckOutput {
+	return i.ToGetListenerHealthCheckOutputWithContext(context.Background())
+}
+
+func (i GetListenerHealthCheckArgs) ToGetListenerHealthCheckOutputWithContext(ctx context.Context) GetListenerHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerHealthCheckOutput)
+}
+
+type GetListenerHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (GetListenerHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerHealthCheck)(nil)).Elem()
+}
+
+func (o GetListenerHealthCheckOutput) ToGetListenerHealthCheckOutput() GetListenerHealthCheckOutput {
+	return o
+}
+
+func (o GetListenerHealthCheckOutput) ToGetListenerHealthCheckOutputWithContext(ctx context.Context) GetListenerHealthCheckOutput {
+	return o
+}
+
+// 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。需至少包含一个点号（.），且不允许以点号（.）开头或结尾。单个字符串由母、数字、中划线（-）、点号（.）字符组成，中划线（-）不得出现在字符串的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示CLB使用各后端服务器的私网IP地址进行健康检查。
+func (o GetListenerHealthCheckOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// 监听器是否开启健康检查功能。on（默认值）：开启。off：不开启。
+func (o GetListenerHealthCheckOutput) Enabled() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.Enabled }).(pulumi.StringOutput)
+}
+
+// 健康阈值，即连续健康检查成功的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+func (o GetListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+}
+
+// 健康检查正常的HTTP状态码。当参数Protocol取HTTP或HTTPS，且HealthCheck.Enabled取on时，参数生效。取值如下：http*2xx （默认值）、http*3xx、http*4xx、http*5xx。多个状态码间用半角逗号“,”分隔。
+func (o GetListenerHealthCheckOutput) HttpCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.HttpCode }).(pulumi.StringOutput)
+}
+
+// 执行健康检查的时间间隔，取值范围为1 ～ 300 ，默认值为2，单位为秒。
+func (o GetListenerHealthCheckOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// 监听器健康检查的方法。GET：服务器需支持GET方法。HEAD：服务器仅返回HEAD头部信息，可以降低后端开销，但要求服务器支持HEAD方法。
+func (o GetListenerHealthCheckOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// 健康检查的端口，取值范围为1-65535。
+func (o GetListenerHealthCheckOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// 健康检查的响应超时时间，表示如果后端服务器在指定的时间内没有正确响应，则判定为健康检查“异常”。取值范围为1 ～ 60，默认值为2，单位为秒。
+func (o GetListenerHealthCheckOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// 健康检查的预期响应字符串。只允许包含字母和数字，最大长度限制为64个字符。当参数Protocol配置UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+func (o GetListenerHealthCheckOutput) UdpExpect() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.UdpExpect }).(pulumi.StringOutput)
+}
+
+// 执行健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字。当参数Protocol配置为UDP，且参数HealthCheck.Enabled配置为on时，该参数生效。参数HealthCheck.UdpRequest和HealthCheck.UdpExpect的取值只能同时为空或同时不为空。
+func (o GetListenerHealthCheckOutput) UdpRequest() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.UdpRequest }).(pulumi.StringOutput)
+}
+
+// 不健康阈值，即连续健康检查失败的次数。取值范围为2 ～ 10，默认值为3，单位为次。
+func (o GetListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+}
+
+// 健康检查的路径，需配置为后端服务器上真实对外提供服务的地址。当参数Protocol取HTTP或HTTPS，HealthCheck.Enabled取on时，本参数生效。必须以字符‘/’开头。仅包含字母、数字、中划线（-）、下划线（_）、斜线/）、点号（.）、百分号（%）、英文问号（?）、#、&、等号（＝）字符。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为“/”。
+func (o GetListenerHealthCheckOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerHealthCheck) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetListenerTag struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value string `pulumi:"value"`
+}
+
+// GetListenerTagInput is an input type that accepts GetListenerTagArgs and GetListenerTagOutput values.
+// You can construct a concrete instance of `GetListenerTagInput` via:
+//
+//	GetListenerTagArgs{...}
+type GetListenerTagInput interface {
+	pulumi.Input
+
+	ToGetListenerTagOutput() GetListenerTagOutput
+	ToGetListenerTagOutputWithContext(context.Context) GetListenerTagOutput
+}
+
+type GetListenerTagArgs struct {
+	// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetListenerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerTag)(nil)).Elem()
+}
+
+func (i GetListenerTagArgs) ToGetListenerTagOutput() GetListenerTagOutput {
+	return i.ToGetListenerTagOutputWithContext(context.Background())
+}
+
+func (i GetListenerTagArgs) ToGetListenerTagOutputWithContext(ctx context.Context) GetListenerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerTagOutput)
+}
+
+// GetListenerTagArrayInput is an input type that accepts GetListenerTagArray and GetListenerTagArrayOutput values.
+// You can construct a concrete instance of `GetListenerTagArrayInput` via:
+//
+//	GetListenerTagArray{ GetListenerTagArgs{...} }
+type GetListenerTagArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerTagArrayOutput() GetListenerTagArrayOutput
+	ToGetListenerTagArrayOutputWithContext(context.Context) GetListenerTagArrayOutput
+}
+
+type GetListenerTagArray []GetListenerTagInput
+
+func (GetListenerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerTag)(nil)).Elem()
+}
+
+func (i GetListenerTagArray) ToGetListenerTagArrayOutput() GetListenerTagArrayOutput {
+	return i.ToGetListenerTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerTagArray) ToGetListenerTagArrayOutputWithContext(ctx context.Context) GetListenerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerTagArrayOutput)
+}
+
+type GetListenerTagOutput struct{ *pulumi.OutputState }
+
+func (GetListenerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerTag)(nil)).Elem()
+}
+
+func (o GetListenerTagOutput) ToGetListenerTagOutput() GetListenerTagOutput {
+	return o
+}
+
+func (o GetListenerTagOutput) ToGetListenerTagOutputWithContext(ctx context.Context) GetListenerTagOutput {
+	return o
+}
+
+// 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+func (o GetListenerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
+func (o GetListenerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetListenerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerTag)(nil)).Elem()
+}
+
+func (o GetListenerTagArrayOutput) ToGetListenerTagArrayOutput() GetListenerTagArrayOutput {
+	return o
+}
+
+func (o GetListenerTagArrayOutput) ToGetListenerTagArrayOutputWithContext(ctx context.Context) GetListenerTagArrayOutput {
+	return o
+}
+
+func (o GetListenerTagArrayOutput) Index(i pulumi.IntInput) GetListenerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerTag {
+		return vs[0].([]GetListenerTag)[vs[1].(int)]
+	}).(GetListenerTagOutput)
 }
 
 type GetNlbListenerHealth struct {
@@ -4245,6 +6163,200 @@ func (o GetNlbZoneMappingArrayOutput) Index(i pulumi.IntInput) GetNlbZoneMapping
 	}).(GetNlbZoneMappingOutput)
 }
 
+type GetRuleRedirectConfig struct {
+	// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+	Host string `pulumi:"host"`
+	// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+	Path string `pulumi:"path"`
+	// 转发规则重定向的端口，取值范围为 1~65535。
+	Port string `pulumi:"port"`
+	// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+	Protocol string `pulumi:"protocol"`
+	// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// GetRuleRedirectConfigInput is an input type that accepts GetRuleRedirectConfigArgs and GetRuleRedirectConfigOutput values.
+// You can construct a concrete instance of `GetRuleRedirectConfigInput` via:
+//
+//	GetRuleRedirectConfigArgs{...}
+type GetRuleRedirectConfigInput interface {
+	pulumi.Input
+
+	ToGetRuleRedirectConfigOutput() GetRuleRedirectConfigOutput
+	ToGetRuleRedirectConfigOutputWithContext(context.Context) GetRuleRedirectConfigOutput
+}
+
+type GetRuleRedirectConfigArgs struct {
+	// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+	Host pulumi.StringInput `pulumi:"host"`
+	// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+	Path pulumi.StringInput `pulumi:"path"`
+	// 转发规则重定向的端口，取值范围为 1~65535。
+	Port pulumi.StringInput `pulumi:"port"`
+	// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (GetRuleRedirectConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleRedirectConfig)(nil)).Elem()
+}
+
+func (i GetRuleRedirectConfigArgs) ToGetRuleRedirectConfigOutput() GetRuleRedirectConfigOutput {
+	return i.ToGetRuleRedirectConfigOutputWithContext(context.Background())
+}
+
+func (i GetRuleRedirectConfigArgs) ToGetRuleRedirectConfigOutputWithContext(ctx context.Context) GetRuleRedirectConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleRedirectConfigOutput)
+}
+
+type GetRuleRedirectConfigOutput struct{ *pulumi.OutputState }
+
+func (GetRuleRedirectConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleRedirectConfig)(nil)).Elem()
+}
+
+func (o GetRuleRedirectConfigOutput) ToGetRuleRedirectConfigOutput() GetRuleRedirectConfigOutput {
+	return o
+}
+
+func (o GetRuleRedirectConfigOutput) ToGetRuleRedirectConfigOutputWithContext(ctx context.Context) GetRuleRedirectConfigOutput {
+	return o
+}
+
+// 转发规则重定向的域名，当前仅支持精确域名。规范如下：需至少包含一个‘.’，且不允许以‘.’开头或结尾。仅允许包含字母、数字、‘.’、‘-‘。长度限制为1 ～ 128个字符。符合域名规范的精确域名，例如：www.test.com。
+func (o GetRuleRedirectConfigOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleRedirectConfig) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// 转发规则重定向的路径。规范如下：必须以正斜线“/”开头，字符‘/’不能连续出现。仅允许包含字母、数字、‘-’、‘_’、‘/’、‘.’、‘%’、‘?’、‘#’、‘&’、‘＝’等字符。长度限制为1 ～ 128个字符。
+func (o GetRuleRedirectConfigOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleRedirectConfig) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// 转发规则重定向的端口，取值范围为 1~65535。
+func (o GetRuleRedirectConfigOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleRedirectConfig) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// 转发规则重定向的协议。取值如下：HTTP。HTTPS（默认值）。
+func (o GetRuleRedirectConfigOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleRedirectConfig) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// 转发规则重定向的状态码。取值如下：301（默认）：表示请求的资源已被永久移动到新的 URL，客户端应该使用新的 URL 进行后续请求。302：表示请求的资源被临时移动到新的 URL，但未来可能会再次更改，客户端应该使用新的 URL 进行后续请求。307：与 302 类似，但在重定向时要求客户端保持请求方法不变。例如，原来是 GET 请求，则重定向后仍然是 GET 请求。308：与 301 类似，但在重定向时要求客户端保持请求方法不变。
+func (o GetRuleRedirectConfigOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleRedirectConfig) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type GetRuleTag struct {
+	// 标签键。
+	Key string `pulumi:"key"`
+	// 标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetRuleTagInput is an input type that accepts GetRuleTagArgs and GetRuleTagOutput values.
+// You can construct a concrete instance of `GetRuleTagInput` via:
+//
+//	GetRuleTagArgs{...}
+type GetRuleTagInput interface {
+	pulumi.Input
+
+	ToGetRuleTagOutput() GetRuleTagOutput
+	ToGetRuleTagOutputWithContext(context.Context) GetRuleTagOutput
+}
+
+type GetRuleTagArgs struct {
+	// 标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetRuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleTag)(nil)).Elem()
+}
+
+func (i GetRuleTagArgs) ToGetRuleTagOutput() GetRuleTagOutput {
+	return i.ToGetRuleTagOutputWithContext(context.Background())
+}
+
+func (i GetRuleTagArgs) ToGetRuleTagOutputWithContext(ctx context.Context) GetRuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleTagOutput)
+}
+
+// GetRuleTagArrayInput is an input type that accepts GetRuleTagArray and GetRuleTagArrayOutput values.
+// You can construct a concrete instance of `GetRuleTagArrayInput` via:
+//
+//	GetRuleTagArray{ GetRuleTagArgs{...} }
+type GetRuleTagArrayInput interface {
+	pulumi.Input
+
+	ToGetRuleTagArrayOutput() GetRuleTagArrayOutput
+	ToGetRuleTagArrayOutputWithContext(context.Context) GetRuleTagArrayOutput
+}
+
+type GetRuleTagArray []GetRuleTagInput
+
+func (GetRuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuleTag)(nil)).Elem()
+}
+
+func (i GetRuleTagArray) ToGetRuleTagArrayOutput() GetRuleTagArrayOutput {
+	return i.ToGetRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetRuleTagArray) ToGetRuleTagArrayOutputWithContext(ctx context.Context) GetRuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuleTagArrayOutput)
+}
+
+type GetRuleTagOutput struct{ *pulumi.OutputState }
+
+func (GetRuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuleTag)(nil)).Elem()
+}
+
+func (o GetRuleTagOutput) ToGetRuleTagOutput() GetRuleTagOutput {
+	return o
+}
+
+func (o GetRuleTagOutput) ToGetRuleTagOutputWithContext(ctx context.Context) GetRuleTagOutput {
+	return o
+}
+
+// 标签键。
+func (o GetRuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 标签值。
+func (o GetRuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetRuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuleTag)(nil)).Elem()
+}
+
+func (o GetRuleTagArrayOutput) ToGetRuleTagArrayOutput() GetRuleTagArrayOutput {
+	return o
+}
+
+func (o GetRuleTagArrayOutput) ToGetRuleTagArrayOutputWithContext(ctx context.Context) GetRuleTagArrayOutput {
+	return o
+}
+
+func (o GetRuleTagArrayOutput) Index(i pulumi.IntInput) GetRuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRuleTag {
+		return vs[0].([]GetRuleTag)[vs[1].(int)]
+	}).(GetRuleTagOutput)
+}
+
 type GetServerGroupListener struct {
 	// 监听器的ID。
 	ListenerId string `pulumi:"listenerId"`
@@ -4603,6 +6715,14 @@ func (o GetServerGroupTagArrayOutput) Index(i pulumi.IntInput) GetServerGroupTag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AclAclEntryInput)(nil)).Elem(), AclAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclAclEntryArrayInput)(nil)).Elem(), AclAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclListenerInput)(nil)).Elem(), AclListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclListenerArrayInput)(nil)).Elem(), AclListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclTagInput)(nil)).Elem(), AclTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AclTagArrayInput)(nil)).Elem(), AclTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClbAccessLogInput)(nil)).Elem(), ClbAccessLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClbAccessLogPtrInput)(nil)).Elem(), ClbAccessLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClbEipInput)(nil)).Elem(), ClbEipArgs{})
@@ -4617,6 +6737,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClbServerGroupArrayInput)(nil)).Elem(), ClbServerGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClbTagInput)(nil)).Elem(), ClbTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClbTagArrayInput)(nil)).Elem(), ClbTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerHealthCheckInput)(nil)).Elem(), ListenerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerHealthCheckPtrInput)(nil)).Elem(), ListenerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTagInput)(nil)).Elem(), ListenerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTagArrayInput)(nil)).Elem(), ListenerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NlbListenerHealthInput)(nil)).Elem(), NlbListenerHealthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NlbListenerHealthArrayInput)(nil)).Elem(), NlbListenerHealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NlbListenerTagInput)(nil)).Elem(), NlbListenerTagArgs{})
@@ -4631,12 +6755,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NlbTagArrayInput)(nil)).Elem(), NlbTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NlbZoneMappingInput)(nil)).Elem(), NlbZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NlbZoneMappingArrayInput)(nil)).Elem(), NlbZoneMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleRedirectConfigInput)(nil)).Elem(), RuleRedirectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleRedirectConfigPtrInput)(nil)).Elem(), RuleRedirectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTagInput)(nil)).Elem(), RuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTagArrayInput)(nil)).Elem(), RuleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupListenerInput)(nil)).Elem(), ServerGroupListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupListenerArrayInput)(nil)).Elem(), ServerGroupListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupServerInput)(nil)).Elem(), ServerGroupServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupServerArrayInput)(nil)).Elem(), ServerGroupServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupTagInput)(nil)).Elem(), ServerGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupTagArrayInput)(nil)).Elem(), ServerGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAclAclEntryInput)(nil)).Elem(), GetAclAclEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAclAclEntryArrayInput)(nil)).Elem(), GetAclAclEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAclListenerInput)(nil)).Elem(), GetAclListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAclListenerArrayInput)(nil)).Elem(), GetAclListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAclTagInput)(nil)).Elem(), GetAclTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAclTagArrayInput)(nil)).Elem(), GetAclTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateTagInput)(nil)).Elem(), GetCertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateTagArrayInput)(nil)).Elem(), GetCertificateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClbAccessLogInput)(nil)).Elem(), GetClbAccessLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClbEipInput)(nil)).Elem(), GetClbEipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClbEniInput)(nil)).Elem(), GetClbEniArgs{})
@@ -4647,6 +6783,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClbServerGroupArrayInput)(nil)).Elem(), GetClbServerGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClbTagInput)(nil)).Elem(), GetClbTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClbTagArrayInput)(nil)).Elem(), GetClbTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerHealthCheckInput)(nil)).Elem(), GetListenerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerTagInput)(nil)).Elem(), GetListenerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerTagArrayInput)(nil)).Elem(), GetListenerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNlbListenerHealthInput)(nil)).Elem(), GetNlbListenerHealthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNlbListenerHealthArrayInput)(nil)).Elem(), GetNlbListenerHealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNlbListenerTagInput)(nil)).Elem(), GetNlbListenerTagArgs{})
@@ -4660,12 +6799,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNlbTagArrayInput)(nil)).Elem(), GetNlbTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNlbZoneMappingInput)(nil)).Elem(), GetNlbZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNlbZoneMappingArrayInput)(nil)).Elem(), GetNlbZoneMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleRedirectConfigInput)(nil)).Elem(), GetRuleRedirectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleTagInput)(nil)).Elem(), GetRuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuleTagArrayInput)(nil)).Elem(), GetRuleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerGroupListenerInput)(nil)).Elem(), GetServerGroupListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerGroupListenerArrayInput)(nil)).Elem(), GetServerGroupListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerGroupServerInput)(nil)).Elem(), GetServerGroupServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerGroupServerArrayInput)(nil)).Elem(), GetServerGroupServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerGroupTagInput)(nil)).Elem(), GetServerGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerGroupTagArrayInput)(nil)).Elem(), GetServerGroupTagArray{})
+	pulumi.RegisterOutputType(AclAclEntryOutput{})
+	pulumi.RegisterOutputType(AclAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(AclListenerOutput{})
+	pulumi.RegisterOutputType(AclListenerArrayOutput{})
+	pulumi.RegisterOutputType(AclTagOutput{})
+	pulumi.RegisterOutputType(AclTagArrayOutput{})
+	pulumi.RegisterOutputType(CertificateTagOutput{})
+	pulumi.RegisterOutputType(CertificateTagArrayOutput{})
 	pulumi.RegisterOutputType(ClbAccessLogOutput{})
 	pulumi.RegisterOutputType(ClbAccessLogPtrOutput{})
 	pulumi.RegisterOutputType(ClbEipOutput{})
@@ -4680,6 +6830,10 @@ func init() {
 	pulumi.RegisterOutputType(ClbServerGroupArrayOutput{})
 	pulumi.RegisterOutputType(ClbTagOutput{})
 	pulumi.RegisterOutputType(ClbTagArrayOutput{})
+	pulumi.RegisterOutputType(ListenerHealthCheckOutput{})
+	pulumi.RegisterOutputType(ListenerHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(ListenerTagOutput{})
+	pulumi.RegisterOutputType(ListenerTagArrayOutput{})
 	pulumi.RegisterOutputType(NlbListenerHealthOutput{})
 	pulumi.RegisterOutputType(NlbListenerHealthArrayOutput{})
 	pulumi.RegisterOutputType(NlbListenerTagOutput{})
@@ -4694,12 +6848,24 @@ func init() {
 	pulumi.RegisterOutputType(NlbTagArrayOutput{})
 	pulumi.RegisterOutputType(NlbZoneMappingOutput{})
 	pulumi.RegisterOutputType(NlbZoneMappingArrayOutput{})
+	pulumi.RegisterOutputType(RuleRedirectConfigOutput{})
+	pulumi.RegisterOutputType(RuleRedirectConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleTagOutput{})
+	pulumi.RegisterOutputType(RuleTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerGroupListenerOutput{})
 	pulumi.RegisterOutputType(ServerGroupListenerArrayOutput{})
 	pulumi.RegisterOutputType(ServerGroupServerOutput{})
 	pulumi.RegisterOutputType(ServerGroupServerArrayOutput{})
 	pulumi.RegisterOutputType(ServerGroupTagOutput{})
 	pulumi.RegisterOutputType(ServerGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(GetAclAclEntryOutput{})
+	pulumi.RegisterOutputType(GetAclAclEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetAclListenerOutput{})
+	pulumi.RegisterOutputType(GetAclListenerArrayOutput{})
+	pulumi.RegisterOutputType(GetAclTagOutput{})
+	pulumi.RegisterOutputType(GetAclTagArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateTagOutput{})
+	pulumi.RegisterOutputType(GetCertificateTagArrayOutput{})
 	pulumi.RegisterOutputType(GetClbAccessLogOutput{})
 	pulumi.RegisterOutputType(GetClbEipOutput{})
 	pulumi.RegisterOutputType(GetClbEniOutput{})
@@ -4710,6 +6876,9 @@ func init() {
 	pulumi.RegisterOutputType(GetClbServerGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetClbTagOutput{})
 	pulumi.RegisterOutputType(GetClbTagArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetListenerTagOutput{})
+	pulumi.RegisterOutputType(GetListenerTagArrayOutput{})
 	pulumi.RegisterOutputType(GetNlbListenerHealthOutput{})
 	pulumi.RegisterOutputType(GetNlbListenerHealthArrayOutput{})
 	pulumi.RegisterOutputType(GetNlbListenerTagOutput{})
@@ -4723,6 +6892,9 @@ func init() {
 	pulumi.RegisterOutputType(GetNlbTagArrayOutput{})
 	pulumi.RegisterOutputType(GetNlbZoneMappingOutput{})
 	pulumi.RegisterOutputType(GetNlbZoneMappingArrayOutput{})
+	pulumi.RegisterOutputType(GetRuleRedirectConfigOutput{})
+	pulumi.RegisterOutputType(GetRuleTagOutput{})
+	pulumi.RegisterOutputType(GetRuleTagArrayOutput{})
 	pulumi.RegisterOutputType(GetServerGroupListenerOutput{})
 	pulumi.RegisterOutputType(GetServerGroupListenerArrayOutput{})
 	pulumi.RegisterOutputType(GetServerGroupServerOutput{})

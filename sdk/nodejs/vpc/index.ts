@@ -50,6 +50,26 @@ export const getEnis: typeof import("./getEnis").getEnis = null as any;
 export const getEnisOutput: typeof import("./getEnis").getEnisOutput = null as any;
 utilities.lazyLoad(exports, ["getEnis","getEnisOutput"], () => require("./getEnis"));
 
+export { GetNetworkAclArgs, GetNetworkAclResult, GetNetworkAclOutputArgs } from "./getNetworkAcl";
+export const getNetworkAcl: typeof import("./getNetworkAcl").getNetworkAcl = null as any;
+export const getNetworkAclOutput: typeof import("./getNetworkAcl").getNetworkAclOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkAcl","getNetworkAclOutput"], () => require("./getNetworkAcl"));
+
+export { GetNetworkAclsResult } from "./getNetworkAcls";
+export const getNetworkAcls: typeof import("./getNetworkAcls").getNetworkAcls = null as any;
+export const getNetworkAclsOutput: typeof import("./getNetworkAcls").getNetworkAclsOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkAcls","getNetworkAclsOutput"], () => require("./getNetworkAcls"));
+
+export { GetPrefixListArgs, GetPrefixListResult, GetPrefixListOutputArgs } from "./getPrefixList";
+export const getPrefixList: typeof import("./getPrefixList").getPrefixList = null as any;
+export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
+utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
+
+export { GetPrefixListsResult } from "./getPrefixLists";
+export const getPrefixLists: typeof import("./getPrefixLists").getPrefixLists = null as any;
+export const getPrefixListsOutput: typeof import("./getPrefixLists").getPrefixListsOutput = null as any;
+utilities.lazyLoad(exports, ["getPrefixLists","getPrefixListsOutput"], () => require("./getPrefixLists"));
+
 export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
@@ -90,6 +110,16 @@ export const getVpcs: typeof import("./getVpcs").getVpcs = null as any;
 export const getVpcsOutput: typeof import("./getVpcs").getVpcsOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));
 
+export { NetworkAclArgs, NetworkAclState } from "./networkAcl";
+export type NetworkAcl = import("./networkAcl").NetworkAcl;
+export const NetworkAcl: typeof import("./networkAcl").NetworkAcl = null as any;
+utilities.lazyLoad(exports, ["NetworkAcl"], () => require("./networkAcl"));
+
+export { PrefixListArgs, PrefixListState } from "./prefixList";
+export type PrefixList = import("./prefixList").PrefixList;
+export const PrefixList: typeof import("./prefixList").PrefixList = null as any;
+utilities.lazyLoad(exports, ["PrefixList"], () => require("./prefixList"));
+
 export { RouteTableArgs, RouteTableState } from "./routeTable";
 export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
@@ -121,6 +151,10 @@ const _module = {
                 return new Eip(name, <any>undefined, { urn })
             case "volcenginecc:vpc/eni:Eni":
                 return new Eni(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/networkAcl:NetworkAcl":
+                return new NetworkAcl(name, <any>undefined, { urn })
+            case "volcenginecc:vpc/prefixList:PrefixList":
+                return new PrefixList(name, <any>undefined, { urn })
             case "volcenginecc:vpc/routeTable:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
             case "volcenginecc:vpc/securityGroup:SecurityGroup":
@@ -137,6 +171,8 @@ const _module = {
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/bandwidthPackage", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/eip", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/eni", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/networkAcl", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vpc/prefixList", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/routeTable", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/securityGroup", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vpc/subnet", _module)

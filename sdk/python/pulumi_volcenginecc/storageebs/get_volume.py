@@ -28,7 +28,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance=None, id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None):
+    def __init__(__self__, auto_snapshot_policy_id=None, auto_snapshot_policy_name=None, baseline_performance=None, created_at=None, delete_with_instance=None, description=None, device_name=None, error_detail=None, expired_time=None, extra_performance=None, id=None, image_id=None, instance_id=None, kind=None, overdue_reclaim_time=None, overdue_time=None, pay_type=None, project_name=None, renew_type=None, size=None, snapshot_count=None, source_snapshot_id=None, status=None, tags=None, total_performance=None, trade_status=None, updated_at=None, volume_id=None, volume_name=None, volume_type=None, zone_id=None):
         if auto_snapshot_policy_id and not isinstance(auto_snapshot_policy_id, str):
             raise TypeError("Expected argument 'auto_snapshot_policy_id' to be a str")
         pulumi.set(__self__, "auto_snapshot_policy_id", auto_snapshot_policy_id)
@@ -98,6 +98,9 @@ class GetVolumeResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if total_performance and not isinstance(total_performance, dict):
             raise TypeError("Expected argument 'total_performance' to be a dict")
         pulumi.set(__self__, "total_performance", total_performance)
@@ -305,6 +308,14 @@ class GetVolumeResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetVolumeTagResult']:
+        """
+        云盘的标签信息
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="totalPerformance")
     def total_performance(self) -> 'outputs.GetVolumeTotalPerformanceResult':
         """
@@ -390,6 +401,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             snapshot_count=self.snapshot_count,
             source_snapshot_id=self.source_snapshot_id,
             status=self.status,
+            tags=self.tags,
             total_performance=self.total_performance,
             trade_status=self.trade_status,
             updated_at=self.updated_at,
@@ -436,6 +448,7 @@ def get_volume(id: Optional[builtins.str] = None,
         snapshot_count=pulumi.get(__ret__, 'snapshot_count'),
         source_snapshot_id=pulumi.get(__ret__, 'source_snapshot_id'),
         status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
         total_performance=pulumi.get(__ret__, 'total_performance'),
         trade_status=pulumi.get(__ret__, 'trade_status'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
@@ -479,6 +492,7 @@ def get_volume_output(id: Optional[pulumi.Input[builtins.str]] = None,
         snapshot_count=pulumi.get(__response__, 'snapshot_count'),
         source_snapshot_id=pulumi.get(__response__, 'source_snapshot_id'),
         status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
         total_performance=pulumi.get(__response__, 'total_performance'),
         trade_status=pulumi.get(__response__, 'trade_status'),
         updated_at=pulumi.get(__response__, 'updated_at'),

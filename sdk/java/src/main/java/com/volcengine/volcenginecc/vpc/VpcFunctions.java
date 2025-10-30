@@ -16,6 +16,10 @@ import com.volcengine.volcenginecc.vpc.inputs.GetEipArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetEipPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetEniArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetEniPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetNetworkAclArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetNetworkAclPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetPrefixListArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetPrefixListPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetRouteTableArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetRouteTablePlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetSecurityGroupArgs;
@@ -30,6 +34,10 @@ import com.volcengine.volcenginecc.vpc.outputs.GetEipResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetEipsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetEniResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetEnisResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetNetworkAclResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetNetworkAclsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetPrefixListResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetPrefixListsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetRouteTableResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetRouteTablesResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetSecurityGroupResult;
@@ -292,6 +300,174 @@ public final class VpcFunctions {
      */
     public static CompletableFuture<GetEnisResult> getEnisPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getEnis:getEnis", TypeShape.of(GetEnisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclResult> getNetworkAcl(GetNetworkAclArgs args) {
+        return getNetworkAcl(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static CompletableFuture<GetNetworkAclResult> getNetworkAclPlain(GetNetworkAclPlainArgs args) {
+        return getNetworkAclPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclResult> getNetworkAcl(GetNetworkAclArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getNetworkAcl:getNetworkAcl", TypeShape.of(GetNetworkAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclResult> getNetworkAcl(GetNetworkAclArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getNetworkAcl:getNetworkAcl", TypeShape.of(GetNetworkAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static CompletableFuture<GetNetworkAclResult> getNetworkAclPlain(GetNetworkAclPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getNetworkAcl:getNetworkAcl", TypeShape.of(GetNetworkAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclsResult> getNetworkAcls() {
+        return getNetworkAcls(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain() {
+        return getNetworkAclsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclsResult> getNetworkAcls(InvokeArgs args) {
+        return getNetworkAcls(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain(InvokeArgs args) {
+        return getNetworkAclsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclsResult> getNetworkAcls(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getNetworkAcls:getNetworkAcls", TypeShape.of(GetNetworkAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static Output<GetNetworkAclsResult> getNetworkAcls(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getNetworkAcls:getNetworkAcls", TypeShape.of(GetNetworkAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::NetworkAcl
+     * 
+     */
+    public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getNetworkAcls:getNetworkAcls", TypeShape.of(GetNetworkAclsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListResult> getPrefixList(GetPrefixListArgs args) {
+        return getPrefixList(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static CompletableFuture<GetPrefixListResult> getPrefixListPlain(GetPrefixListPlainArgs args) {
+        return getPrefixListPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListResult> getPrefixList(GetPrefixListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListResult> getPrefixList(GetPrefixListArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static CompletableFuture<GetPrefixListResult> getPrefixListPlain(GetPrefixListPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListsResult> getPrefixLists() {
+        return getPrefixLists(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static CompletableFuture<GetPrefixListsResult> getPrefixListsPlain() {
+        return getPrefixListsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListsResult> getPrefixLists(InvokeArgs args) {
+        return getPrefixLists(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static CompletableFuture<GetPrefixListsResult> getPrefixListsPlain(InvokeArgs args) {
+        return getPrefixListsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListsResult> getPrefixLists(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getPrefixLists:getPrefixLists", TypeShape.of(GetPrefixListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static Output<GetPrefixListsResult> getPrefixLists(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getPrefixLists:getPrefixLists", TypeShape.of(GetPrefixListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::PrefixList
+     * 
+     */
+    public static CompletableFuture<GetPrefixListsResult> getPrefixListsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getPrefixLists:getPrefixLists", TypeShape.of(GetPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VPC::RouteTable

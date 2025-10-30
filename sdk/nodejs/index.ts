@@ -11,35 +11,51 @@ import { Provider } from "./provider";
 
 // Export sub-modules:
 import * as alb from "./alb";
+import * as apig from "./apig";
 import * as ark from "./ark";
+import * as autoscaling from "./autoscaling";
 import * as clb from "./clb";
 import * as config from "./config";
 import * as cr from "./cr";
+import * as directconnect from "./directconnect";
 import * as ecs from "./ecs";
 import * as filenas from "./filenas";
 import * as iam from "./iam";
+import * as rdsmysql from "./rdsmysql";
+import * as redis from "./redis";
 import * as storageebs from "./storageebs";
+import * as tls from "./tls";
 import * as tos from "./tos";
 import * as transitrouter from "./transitrouter";
 import * as types from "./types";
+import * as vke from "./vke";
 import * as vmp from "./vmp";
 import * as vpc from "./vpc";
+import * as waf from "./waf";
 
 export {
     alb,
+    apig,
     ark,
+    autoscaling,
     clb,
     config,
     cr,
+    directconnect,
     ecs,
     filenas,
     iam,
+    rdsmysql,
+    redis,
     storageebs,
+    tls,
     tos,
     transitrouter,
     types,
+    vke,
     vmp,
     vpc,
+    waf,
 };
 pulumi.runtime.registerResourcePackage("volcenginecc", {
     version: utilities.getVersion(),

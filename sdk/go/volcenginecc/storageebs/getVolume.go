@@ -76,6 +76,8 @@ type LookupVolumeResult struct {
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
 	// 云盘状态
 	Status string `pulumi:"status"`
+	// 云盘的标签信息
+	Tags []GetVolumeTag `pulumi:"tags"`
 	// 总性能。
 	TotalPerformance GetVolumeTotalPerformance `pulumi:"totalPerformance"`
 	// 交易状态 0：创建中 1：运行中 2：创建失败
@@ -239,6 +241,11 @@ func (o LookupVolumeResultOutput) SourceSnapshotId() pulumi.StringOutput {
 // 云盘状态
 func (o LookupVolumeResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// 云盘的标签信息
+func (o LookupVolumeResultOutput) Tags() GetVolumeTagArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeTag { return v.Tags }).(GetVolumeTagArrayOutput)
 }
 
 // 总性能。

@@ -7,9 +7,11 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.storageebs.inputs.VolumeExtraPerformanceArgs;
+import com.volcengine.volcenginecc.storageebs.inputs.VolumeTagArgs;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -169,6 +171,13 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sourceSnapshotId);
     }
 
+    @Import(name="tags")
+    private @Nullable Output<List<VolumeTagArgs>> tags;
+
+    public Optional<Output<List<VolumeTagArgs>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     /**
      * 云盘显示名称。命名规则如下：首字符仅支持中文、字母或下划线（*）。可包含中文、字母、数字、下划线（*）或中划线（-）。长度限制在1~128字符之间。
      * 
@@ -227,6 +236,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.projectName = $.projectName;
         this.size = $.size;
         this.sourceSnapshotId = $.sourceSnapshotId;
+        this.tags = $.tags;
         this.volumeName = $.volumeName;
         this.volumeType = $.volumeType;
         this.zoneId = $.zoneId;
@@ -458,6 +468,19 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sourceSnapshotId(String sourceSnapshotId) {
             return sourceSnapshotId(Output.of(sourceSnapshotId));
+        }
+
+        public Builder tags(@Nullable Output<List<VolumeTagArgs>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(List<VolumeTagArgs> tags) {
+            return tags(Output.of(tags));
+        }
+
+        public Builder tags(VolumeTagArgs... tags) {
+            return tags(List.of(tags));
         }
 
         /**

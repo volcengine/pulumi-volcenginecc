@@ -34,7 +34,8 @@ class VolumeArgs:
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  pay_type: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
-                 source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None):
+                 source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[builtins.float] size: Size，数据盘容量大小，单位为GiB。不同类型的数据盘容量范围如下：ESSD*PL0：10~65536 GiB；ESSD*FlexPL：10~65536 GiB；TSSD_TL0：40~65536 GiB
@@ -73,6 +74,8 @@ class VolumeArgs:
             pulumi.set(__self__, "project_name", project_name)
         if source_snapshot_id is not None:
             pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -230,6 +233,15 @@ class VolumeArgs:
     def source_snapshot_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "source_snapshot_id", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _VolumeState:
@@ -256,6 +268,7 @@ class _VolumeState:
                  snapshot_count: Optional[pulumi.Input[builtins.float]] = None,
                  source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
                  total_performance: Optional[pulumi.Input['VolumeTotalPerformanceArgs']] = None,
                  trade_status: Optional[pulumi.Input[builtins.float]] = None,
                  updated_at: Optional[pulumi.Input[builtins.str]] = None,
@@ -339,6 +352,8 @@ class _VolumeState:
             pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if total_performance is not None:
             pulumi.set(__self__, "total_performance", total_performance)
         if trade_status is not None:
@@ -619,6 +634,15 @@ class _VolumeState:
         pulumi.set(self, "status", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="totalPerformance")
     def total_performance(self) -> Optional[pulumi.Input['VolumeTotalPerformanceArgs']]:
         """
@@ -719,6 +743,7 @@ class Volume(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.float]] = None,
                  source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagArgs', 'VolumeTagArgsDict']]]]] = None,
                  volume_name: Optional[pulumi.Input[builtins.str]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -814,6 +839,7 @@ class Volume(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.float]] = None,
                  source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagArgs', 'VolumeTagArgsDict']]]]] = None,
                  volume_name: Optional[pulumi.Input[builtins.str]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -838,6 +864,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
             __props__.__dict__["source_snapshot_id"] = source_snapshot_id
+            __props__.__dict__["tags"] = tags
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
@@ -895,6 +922,7 @@ class Volume(pulumi.CustomResource):
             snapshot_count: Optional[pulumi.Input[builtins.float]] = None,
             source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagArgs', 'VolumeTagArgsDict']]]]] = None,
             total_performance: Optional[pulumi.Input[Union['VolumeTotalPerformanceArgs', 'VolumeTotalPerformanceArgsDict']]] = None,
             trade_status: Optional[pulumi.Input[builtins.float]] = None,
             updated_at: Optional[pulumi.Input[builtins.str]] = None,
@@ -965,6 +993,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["snapshot_count"] = snapshot_count
         __props__.__dict__["source_snapshot_id"] = source_snapshot_id
         __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["total_performance"] = total_performance
         __props__.__dict__["trade_status"] = trade_status
         __props__.__dict__["updated_at"] = updated_at
@@ -1149,6 +1178,11 @@ class Volume(pulumi.CustomResource):
         云盘状态
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Sequence['outputs.VolumeTag']]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="totalPerformance")

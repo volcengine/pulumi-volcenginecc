@@ -17,7 +17,7 @@ PULUMI_MISSING_DOCS_ERROR := false
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
-PROVIDER_VERSION ?= 0.0.2
+PROVIDER_VERSION ?= 0.0.3
 
 # Check version doesn't start with a "v" - this is a common mistake
 ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)
@@ -39,6 +39,7 @@ LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(
 
 # Ensure all directories exist before evaluating targets to avoid issues with `touch` creating directories.
 _ := $(shell mkdir -p .make bin .pulumi/bin)
+export PULUMI_SKIP_MISSING_MAPPING_ERROR=1
 
 # Build the provider and all SDKs and install ready for testing
 build: install_plugins provider build_sdks install_sdks
@@ -106,7 +107,7 @@ build_dotnet: .make/build_dotnet
 		echo "$(PROVIDER_VERSION)" >version.txt
 	@touch $@
 .make/build_dotnet: .make/generate_dotnet
-	cd sdk/dotnet/ && dotnet build
+	cd sdk/dotnet/ && dotnet build -p:Version=$(PROVIDER_VERSION)
 	@touch $@
 .PHONY: generate_dotnet build_dotnet
 
@@ -252,6 +253,9 @@ tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 .make/schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 .make/schema: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
+.make/schema: export PULUMI_SKIP_MISSING_MAPPING_ERROR = 1
+
+
 .make/schema: bin/$(CODEGEN) .make/install_plugins .make/upstream
 	$(WORKING_DIR)/bin/$(CODEGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(PROVIDER_VERSION) go generate cmd/$(PROVIDER)/main.go)

@@ -1,2 +1,2 @@
-// A Pulumi package to safely use randomness in Pulumi programs.
+// A Pulumi package to safely use volcengine resource in Pulumi programs.
 package volcenginecc

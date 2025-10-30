@@ -157,6 +157,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// 云盘的标签信息
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVolumeTagResult> Tags;
+        /// <summary>
         /// 总性能。
         /// </summary>
         public readonly Outputs.GetVolumeTotalPerformanceResult TotalPerformance;
@@ -233,6 +237,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
 
             string status,
 
+            ImmutableArray<Outputs.GetVolumeTagResult> tags,
+
             Outputs.GetVolumeTotalPerformanceResult totalPerformance,
 
             double tradeStatus,
@@ -270,6 +276,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
             SnapshotCount = snapshotCount;
             SourceSnapshotId = sourceSnapshotId;
             Status = status;
+            Tags = tags;
             TotalPerformance = totalPerformance;
             TradeStatus = tradeStatus;
             UpdatedAt = updatedAt;

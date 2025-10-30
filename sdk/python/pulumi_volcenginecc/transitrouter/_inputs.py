@@ -20,6 +20,8 @@ __all__ = [
     'TransitRouterAttachmentArgsDict',
     'TransitRouterAttachmentTagArgs',
     'TransitRouterAttachmentTagArgsDict',
+    'TransitRouterRouteTableTagArgs',
+    'TransitRouterRouteTableTagArgsDict',
     'TransitRouterTagArgs',
     'TransitRouterTagArgsDict',
 ]
@@ -475,6 +477,58 @@ class TransitRouterAttachmentTagArgs:
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         标签值。
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TransitRouterRouteTableTagArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        标签键
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        标签值
+        """
+elif False:
+    TransitRouterRouteTableTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TransitRouterRouteTableTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: 标签键
+        :param pulumi.Input[builtins.str] value: 标签值
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        标签键
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        标签值
         """
         return pulumi.get(self, "value")
 

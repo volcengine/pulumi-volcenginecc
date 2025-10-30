@@ -13,54 +13,118 @@ from ._inputs import *
 if typing.TYPE_CHECKING:
     import pulumi_volcenginecc.alb as __alb
     alb = __alb
+    import pulumi_volcenginecc.apig as __apig
+    apig = __apig
     import pulumi_volcenginecc.ark as __ark
     ark = __ark
+    import pulumi_volcenginecc.autoscaling as __autoscaling
+    autoscaling = __autoscaling
     import pulumi_volcenginecc.clb as __clb
     clb = __clb
     import pulumi_volcenginecc.config as __config
     config = __config
     import pulumi_volcenginecc.cr as __cr
     cr = __cr
+    import pulumi_volcenginecc.directconnect as __directconnect
+    directconnect = __directconnect
     import pulumi_volcenginecc.ecs as __ecs
     ecs = __ecs
     import pulumi_volcenginecc.filenas as __filenas
     filenas = __filenas
     import pulumi_volcenginecc.iam as __iam
     iam = __iam
+    import pulumi_volcenginecc.rdsmysql as __rdsmysql
+    rdsmysql = __rdsmysql
+    import pulumi_volcenginecc.redis as __redis
+    redis = __redis
     import pulumi_volcenginecc.storageebs as __storageebs
     storageebs = __storageebs
+    import pulumi_volcenginecc.tls as __tls
+    tls = __tls
     import pulumi_volcenginecc.tos as __tos
     tos = __tos
     import pulumi_volcenginecc.transitrouter as __transitrouter
     transitrouter = __transitrouter
+    import pulumi_volcenginecc.vke as __vke
+    vke = __vke
     import pulumi_volcenginecc.vmp as __vmp
     vmp = __vmp
     import pulumi_volcenginecc.vpc as __vpc
     vpc = __vpc
+    import pulumi_volcenginecc.waf as __waf
+    waf = __waf
 else:
     alb = _utilities.lazy_import('pulumi_volcenginecc.alb')
+    apig = _utilities.lazy_import('pulumi_volcenginecc.apig')
     ark = _utilities.lazy_import('pulumi_volcenginecc.ark')
+    autoscaling = _utilities.lazy_import('pulumi_volcenginecc.autoscaling')
     clb = _utilities.lazy_import('pulumi_volcenginecc.clb')
     config = _utilities.lazy_import('pulumi_volcenginecc.config')
     cr = _utilities.lazy_import('pulumi_volcenginecc.cr')
+    directconnect = _utilities.lazy_import('pulumi_volcenginecc.directconnect')
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
+    rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
+    redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
     storageebs = _utilities.lazy_import('pulumi_volcenginecc.storageebs')
+    tls = _utilities.lazy_import('pulumi_volcenginecc.tls')
     tos = _utilities.lazy_import('pulumi_volcenginecc.tos')
     transitrouter = _utilities.lazy_import('pulumi_volcenginecc.transitrouter')
+    vke = _utilities.lazy_import('pulumi_volcenginecc.vke')
     vmp = _utilities.lazy_import('pulumi_volcenginecc.vmp')
     vpc = _utilities.lazy_import('pulumi_volcenginecc.vpc')
+    waf = _utilities.lazy_import('pulumi_volcenginecc.waf')
 
 _utilities.register(
     resource_modules="""
 [
  {
   "pkg": "volcenginecc",
+  "mod": "alb/acl",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/acl:Acl": "Acl"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "alb/certificate",
   "fqn": "pulumi_volcenginecc.alb",
   "classes": {
    "volcenginecc:alb/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "alb/listener",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/listener:Listener": "Listener"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "alb/loadBalancer",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/loadBalancer:LoadBalancer": "LoadBalancer"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "alb/serverGroup",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/serverGroup:ServerGroup": "ServerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "apig/upstreamSource",
+  "fqn": "pulumi_volcenginecc.apig",
+  "classes": {
+   "volcenginecc:apig/upstreamSource:UpstreamSource": "UpstreamSource"
   }
  },
  {
@@ -73,10 +137,42 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "autoscaling/scalingConfiguration",
+  "fqn": "pulumi_volcenginecc.autoscaling",
+  "classes": {
+   "volcenginecc:autoscaling/scalingConfiguration:ScalingConfiguration": "ScalingConfiguration"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "clb/acl",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/acl:Acl": "Acl"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "clb/certificate",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/clb",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
    "volcenginecc:clb/clb:Clb": "Clb"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "clb/listener",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/listener:Listener": "Listener"
   }
  },
  {
@@ -105,6 +201,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "clb/rule",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/serverGroup",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
@@ -113,10 +217,34 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cr/nameSpace",
+  "fqn": "pulumi_volcenginecc.cr",
+  "classes": {
+   "volcenginecc:cr/nameSpace:NameSpace": "NameSpace"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cr/registry",
+  "fqn": "pulumi_volcenginecc.cr",
+  "classes": {
+   "volcenginecc:cr/registry:Registry": "Registry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cr/repository",
   "fqn": "pulumi_volcenginecc.cr",
   "classes": {
    "volcenginecc:cr/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "directconnect/directConnectGateway",
+  "fqn": "pulumi_volcenginecc.directconnect",
+  "classes": {
+   "volcenginecc:directconnect/directConnectGateway:DirectConnectGateway": "DirectConnectGateway"
   }
  },
  {
@@ -141,6 +269,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.ecs",
   "classes": {
    "volcenginecc:ecs/image:Image": "Image"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "ecs/instance",
+  "fqn": "pulumi_volcenginecc.ecs",
+  "classes": {
+   "volcenginecc:ecs/instance:Instance": "Instance"
   }
  },
  {
@@ -209,10 +345,34 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdsmysql/database",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/database:Database": "Database"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "redis/instance",
+  "fqn": "pulumi_volcenginecc.redis",
+  "classes": {
+   "volcenginecc:redis/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "storageebs/volume",
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/topic",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/topic:Topic": "Topic"
   }
  },
  {
@@ -229,6 +389,30 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/transitRouter:TransitRouter": "TransitRouter"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterRouteEntry",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry": "TransitRouterRouteEntry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterRouteTable",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable": "TransitRouterRouteTable"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/addon",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/addon:Addon": "Addon"
   }
  },
  {
@@ -261,6 +445,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpc",
   "classes": {
    "volcenginecc:vpc/eni:Eni": "Eni"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/networkAcl",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/networkAcl:NetworkAcl": "NetworkAcl"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/prefixList",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/prefixList:PrefixList": "PrefixList"
   }
  },
  {

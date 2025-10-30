@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Eip{}
 	case "volcenginecc:vpc/eni:Eni":
 		r = &Eni{}
+	case "volcenginecc:vpc/networkAcl:NetworkAcl":
+		r = &NetworkAcl{}
+	case "volcenginecc:vpc/prefixList:PrefixList":
+		r = &PrefixList{}
 	case "volcenginecc:vpc/routeTable:RouteTable":
 		r = &RouteTable{}
 	case "volcenginecc:vpc/securityGroup:SecurityGroup":
@@ -61,6 +65,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vpc/eni",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/networkAcl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/prefixList",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

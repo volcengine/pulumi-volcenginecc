@@ -344,6 +344,112 @@ func (o VolumeExtraPerformancePtrOutput) Throughput() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type VolumeTag struct {
+	// 标签键。
+	Key *string `pulumi:"key"`
+	// 标签值。
+	Value *string `pulumi:"value"`
+}
+
+// VolumeTagInput is an input type that accepts VolumeTagArgs and VolumeTagOutput values.
+// You can construct a concrete instance of `VolumeTagInput` via:
+//
+//	VolumeTagArgs{...}
+type VolumeTagInput interface {
+	pulumi.Input
+
+	ToVolumeTagOutput() VolumeTagOutput
+	ToVolumeTagOutputWithContext(context.Context) VolumeTagOutput
+}
+
+type VolumeTagArgs struct {
+	// 标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 标签值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (VolumeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
+}
+
+func (i VolumeTagArgs) ToVolumeTagOutput() VolumeTagOutput {
+	return i.ToVolumeTagOutputWithContext(context.Background())
+}
+
+func (i VolumeTagArgs) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagOutput)
+}
+
+// VolumeTagArrayInput is an input type that accepts VolumeTagArray and VolumeTagArrayOutput values.
+// You can construct a concrete instance of `VolumeTagArrayInput` via:
+//
+//	VolumeTagArray{ VolumeTagArgs{...} }
+type VolumeTagArrayInput interface {
+	pulumi.Input
+
+	ToVolumeTagArrayOutput() VolumeTagArrayOutput
+	ToVolumeTagArrayOutputWithContext(context.Context) VolumeTagArrayOutput
+}
+
+type VolumeTagArray []VolumeTagInput
+
+func (VolumeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
+}
+
+func (i VolumeTagArray) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
+	return i.ToVolumeTagArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeTagArray) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagArrayOutput)
+}
+
+type VolumeTagOutput struct{ *pulumi.OutputState }
+
+func (VolumeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
+}
+
+func (o VolumeTagOutput) ToVolumeTagOutput() VolumeTagOutput {
+	return o
+}
+
+func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
+	return o
+}
+
+// 标签键。
+func (o VolumeTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 标签值。
+func (o VolumeTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type VolumeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
+}
+
+func (o VolumeTagArrayOutput) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
+	return o
+}
+
+func (o VolumeTagArrayOutput) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
+	return o
+}
+
+func (o VolumeTagArrayOutput) Index(i pulumi.IntInput) VolumeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeTag {
+		return vs[0].([]VolumeTag)[vs[1].(int)]
+	}).(VolumeTagOutput)
+}
+
 type VolumeTotalPerformance struct {
 	// 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
 	Iops *float64 `pulumi:"iops"`
@@ -631,6 +737,112 @@ func (o GetVolumeExtraPerformanceOutput) Throughput() pulumi.Float64Output {
 	return o.ApplyT(func(v GetVolumeExtraPerformance) float64 { return v.Throughput }).(pulumi.Float64Output)
 }
 
+type GetVolumeTag struct {
+	// 标签键。
+	Key string `pulumi:"key"`
+	// 标签值。
+	Value string `pulumi:"value"`
+}
+
+// GetVolumeTagInput is an input type that accepts GetVolumeTagArgs and GetVolumeTagOutput values.
+// You can construct a concrete instance of `GetVolumeTagInput` via:
+//
+//	GetVolumeTagArgs{...}
+type GetVolumeTagInput interface {
+	pulumi.Input
+
+	ToGetVolumeTagOutput() GetVolumeTagOutput
+	ToGetVolumeTagOutputWithContext(context.Context) GetVolumeTagOutput
+}
+
+type GetVolumeTagArgs struct {
+	// 标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 标签值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetVolumeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeTag)(nil)).Elem()
+}
+
+func (i GetVolumeTagArgs) ToGetVolumeTagOutput() GetVolumeTagOutput {
+	return i.ToGetVolumeTagOutputWithContext(context.Background())
+}
+
+func (i GetVolumeTagArgs) ToGetVolumeTagOutputWithContext(ctx context.Context) GetVolumeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeTagOutput)
+}
+
+// GetVolumeTagArrayInput is an input type that accepts GetVolumeTagArray and GetVolumeTagArrayOutput values.
+// You can construct a concrete instance of `GetVolumeTagArrayInput` via:
+//
+//	GetVolumeTagArray{ GetVolumeTagArgs{...} }
+type GetVolumeTagArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeTagArrayOutput() GetVolumeTagArrayOutput
+	ToGetVolumeTagArrayOutputWithContext(context.Context) GetVolumeTagArrayOutput
+}
+
+type GetVolumeTagArray []GetVolumeTagInput
+
+func (GetVolumeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeTag)(nil)).Elem()
+}
+
+func (i GetVolumeTagArray) ToGetVolumeTagArrayOutput() GetVolumeTagArrayOutput {
+	return i.ToGetVolumeTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeTagArray) ToGetVolumeTagArrayOutputWithContext(ctx context.Context) GetVolumeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeTagArrayOutput)
+}
+
+type GetVolumeTagOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeTag)(nil)).Elem()
+}
+
+func (o GetVolumeTagOutput) ToGetVolumeTagOutput() GetVolumeTagOutput {
+	return o
+}
+
+func (o GetVolumeTagOutput) ToGetVolumeTagOutputWithContext(ctx context.Context) GetVolumeTagOutput {
+	return o
+}
+
+// 标签键。
+func (o GetVolumeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 标签值。
+func (o GetVolumeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetVolumeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeTag)(nil)).Elem()
+}
+
+func (o GetVolumeTagArrayOutput) ToGetVolumeTagArrayOutput() GetVolumeTagArrayOutput {
+	return o
+}
+
+func (o GetVolumeTagArrayOutput) ToGetVolumeTagArrayOutputWithContext(ctx context.Context) GetVolumeTagArrayOutput {
+	return o
+}
+
+func (o GetVolumeTagArrayOutput) Index(i pulumi.IntInput) GetVolumeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeTag {
+		return vs[0].([]GetVolumeTag)[vs[1].(int)]
+	}).(GetVolumeTagOutput)
+}
+
 type GetVolumeTotalPerformance struct {
 	// 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
 	Iops float64 `pulumi:"iops"`
@@ -697,18 +909,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBaselinePerformancePtrInput)(nil)).Elem(), VolumeBaselinePerformanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExtraPerformanceInput)(nil)).Elem(), VolumeExtraPerformanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExtraPerformancePtrInput)(nil)).Elem(), VolumeExtraPerformanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagInput)(nil)).Elem(), VolumeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagArrayInput)(nil)).Elem(), VolumeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTotalPerformanceInput)(nil)).Elem(), VolumeTotalPerformanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTotalPerformancePtrInput)(nil)).Elem(), VolumeTotalPerformanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBaselinePerformanceInput)(nil)).Elem(), GetVolumeBaselinePerformanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeExtraPerformanceInput)(nil)).Elem(), GetVolumeExtraPerformanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeTagInput)(nil)).Elem(), GetVolumeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeTagArrayInput)(nil)).Elem(), GetVolumeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeTotalPerformanceInput)(nil)).Elem(), GetVolumeTotalPerformanceArgs{})
 	pulumi.RegisterOutputType(VolumeBaselinePerformanceOutput{})
 	pulumi.RegisterOutputType(VolumeBaselinePerformancePtrOutput{})
 	pulumi.RegisterOutputType(VolumeExtraPerformanceOutput{})
 	pulumi.RegisterOutputType(VolumeExtraPerformancePtrOutput{})
+	pulumi.RegisterOutputType(VolumeTagOutput{})
+	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
 	pulumi.RegisterOutputType(VolumeTotalPerformanceOutput{})
 	pulumi.RegisterOutputType(VolumeTotalPerformancePtrOutput{})
 	pulumi.RegisterOutputType(GetVolumeBaselinePerformanceOutput{})
 	pulumi.RegisterOutputType(GetVolumeExtraPerformanceOutput{})
+	pulumi.RegisterOutputType(GetVolumeTagOutput{})
+	pulumi.RegisterOutputType(GetVolumeTagArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeTotalPerformanceOutput{})
 }

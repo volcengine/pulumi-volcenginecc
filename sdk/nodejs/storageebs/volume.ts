@@ -145,6 +145,7 @@ export class Volume extends pulumi.CustomResource {
      * 云盘状态
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.storageebs.VolumeTag[]>;
     /**
      * 总性能。
      */
@@ -209,6 +210,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["snapshotCount"] = state ? state.snapshotCount : undefined;
             resourceInputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["totalPerformance"] = state ? state.totalPerformance : undefined;
             resourceInputs["tradeStatus"] = state ? state.tradeStatus : undefined;
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
@@ -240,6 +242,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["zoneId"] = args ? args.zoneId : undefined;
@@ -357,6 +360,7 @@ export interface VolumeState {
      * 云盘状态
      */
     status?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.storageebs.VolumeTag>[]>;
     /**
      * 总性能。
      */
@@ -431,6 +435,7 @@ export interface VolumeArgs {
      * 源快照。
      */
     sourceSnapshotId?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.storageebs.VolumeTag>[]>;
     /**
      * 云盘显示名称。命名规则如下：首字符仅支持中文、字母或下划线（*）。可包含中文、字母、数字、下划线（*）或中划线（-）。长度限制在1~128字符之间。
      */

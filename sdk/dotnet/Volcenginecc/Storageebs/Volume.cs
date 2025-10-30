@@ -175,6 +175,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.VolumeTag>> Tags { get; private set; } = null!;
+
         /// <summary>
         /// 总性能。
         /// </summary>
@@ -323,6 +326,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
         /// </summary>
         [Input("sourceSnapshotId")]
         public Input<string>? SourceSnapshotId { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.VolumeTagArgs>? _tags;
+        public InputList<Inputs.VolumeTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.VolumeTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// 云盘显示名称。命名规则如下：首字符仅支持中文、字母或下划线（*）。可包含中文、字母、数字、下划线（*）或中划线（-）。长度限制在1~128字符之间。
@@ -481,6 +492,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.VolumeTagGetArgs>? _tags;
+        public InputList<Inputs.VolumeTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.VolumeTagGetArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// 总性能。
