@@ -17,12 +17,20 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'GatewayServiceAuthSpec',
+    'GatewayServiceCustomDomain',
+    'GatewayServiceDomain',
+    'GatewayServiceDomainSpec',
     'UpstreamSourceIngressSettings',
     'UpstreamSourceSourceSpec',
     'UpstreamSourceSourceSpecK8SSource',
     'UpstreamSourceSourceSpecNacosSource',
     'UpstreamSourceSourceSpecNacosSourceAuthConfig',
     'UpstreamSourceSourceSpecNacosSourceAuthConfigBasic',
+    'GetGatewayServiceAuthSpecResult',
+    'GetGatewayServiceCustomDomainResult',
+    'GetGatewayServiceDomainResult',
+    'GetGatewayServiceDomainSpecResult',
     'GetUpstreamSourceIngressSettingsResult',
     'GetUpstreamSourceSourceSpecResult',
     'GetUpstreamSourceSourceSpecK8SSourceResult',
@@ -30,6 +38,140 @@ __all__ = [
     'GetUpstreamSourceSourceSpecNacosSourceAuthConfigResult',
     'GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicResult',
 ]
+
+@pulumi.output_type
+class GatewayServiceAuthSpec(dict):
+    def __init__(__self__, *,
+                 enable: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enable: 是否开启认证。
+        """
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[builtins.bool]:
+        """
+        是否开启认证。
+        """
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class GatewayServiceCustomDomain(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainId":
+            suggest = "domain_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayServiceCustomDomain. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayServiceCustomDomain.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayServiceCustomDomain.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: Optional[builtins.str] = None,
+                 domain_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str domain: 自定义域名。
+        :param builtins.str domain_id: 自定义域名ID。
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_id is not None:
+            pulumi.set(__self__, "domain_id", domain_id)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[builtins.str]:
+        """
+        自定义域名。
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[builtins.str]:
+        """
+        自定义域名ID。
+        """
+        return pulumi.get(self, "domain_id")
+
+
+@pulumi.output_type
+class GatewayServiceDomain(dict):
+    def __init__(__self__, *,
+                 domain: Optional[builtins.str] = None,
+                 type: Optional[builtins.str] = None):
+        """
+        :param builtins.str domain: 域名。
+        :param builtins.str type: 域名类型。取值：public：公网。private：私网。
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[builtins.str]:
+        """
+        域名。
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        域名类型。取值：public：公网。private：私网。
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GatewayServiceDomainSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enablePublicResolution":
+            suggest = "enable_public_resolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayServiceDomainSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayServiceDomainSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayServiceDomainSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_public_resolution: Optional[builtins.bool] = None):
+        """
+        :param builtins.bool enable_public_resolution: 开启私网域名公网解析。
+        """
+        if enable_public_resolution is not None:
+            pulumi.set(__self__, "enable_public_resolution", enable_public_resolution)
+
+    @property
+    @pulumi.getter(name="enablePublicResolution")
+    def enable_public_resolution(self) -> Optional[builtins.bool]:
+        """
+        开启私网域名公网解析。
+        """
+        return pulumi.get(self, "enable_public_resolution")
+
 
 @pulumi.output_type
 class UpstreamSourceIngressSettings(dict):
@@ -363,6 +505,100 @@ class UpstreamSourceSourceSpecNacosSourceAuthConfigBasic(dict):
         用户名。
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetGatewayServiceAuthSpecResult(dict):
+    def __init__(__self__, *,
+                 enable: builtins.bool):
+        """
+        :param builtins.bool enable: 是否开启认证。
+        """
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> builtins.bool:
+        """
+        是否开启认证。
+        """
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class GetGatewayServiceCustomDomainResult(dict):
+    def __init__(__self__, *,
+                 domain: builtins.str,
+                 domain_id: builtins.str):
+        """
+        :param builtins.str domain: 自定义域名。
+        :param builtins.str domain_id: 自定义域名ID。
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "domain_id", domain_id)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> builtins.str:
+        """
+        自定义域名。
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> builtins.str:
+        """
+        自定义域名ID。
+        """
+        return pulumi.get(self, "domain_id")
+
+
+@pulumi.output_type
+class GetGatewayServiceDomainResult(dict):
+    def __init__(__self__, *,
+                 domain: builtins.str,
+                 type: builtins.str):
+        """
+        :param builtins.str domain: 域名。
+        :param builtins.str type: 域名类型。取值：public：公网。private：私网。
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> builtins.str:
+        """
+        域名。
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        域名类型。取值：public：公网。private：私网。
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetGatewayServiceDomainSpecResult(dict):
+    def __init__(__self__, *,
+                 enable_public_resolution: builtins.bool):
+        """
+        :param builtins.bool enable_public_resolution: 开启私网域名公网解析。
+        """
+        pulumi.set(__self__, "enable_public_resolution", enable_public_resolution)
+
+    @property
+    @pulumi.getter(name="enablePublicResolution")
+    def enable_public_resolution(self) -> builtins.bool:
+        """
+        开启私网域名公网解析。
+        """
+        return pulumi.get(self, "enable_public_resolution")
 
 
 @pulumi.output_type

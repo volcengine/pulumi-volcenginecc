@@ -16,6 +16,14 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'GatewayServiceAuthSpecArgs',
+    'GatewayServiceAuthSpecArgsDict',
+    'GatewayServiceCustomDomainArgs',
+    'GatewayServiceCustomDomainArgsDict',
+    'GatewayServiceDomainArgs',
+    'GatewayServiceDomainArgsDict',
+    'GatewayServiceDomainSpecArgs',
+    'GatewayServiceDomainSpecArgsDict',
     'UpstreamSourceIngressSettingsArgs',
     'UpstreamSourceIngressSettingsArgsDict',
     'UpstreamSourceSourceSpecArgs',
@@ -31,6 +39,174 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class GatewayServiceAuthSpecArgsDict(TypedDict):
+        enable: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        是否开启认证。
+        """
+elif False:
+    GatewayServiceAuthSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayServiceAuthSpecArgs:
+    def __init__(__self__, *,
+                 enable: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enable: 是否开启认证。
+        """
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        是否开启认证。
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable", value)
+
+
+if not MYPY:
+    class GatewayServiceCustomDomainArgsDict(TypedDict):
+        domain: NotRequired[pulumi.Input[builtins.str]]
+        """
+        自定义域名。
+        """
+        domain_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        自定义域名ID。
+        """
+elif False:
+    GatewayServiceCustomDomainArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayServiceCustomDomainArgs:
+    def __init__(__self__, *,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
+                 domain_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] domain: 自定义域名。
+        :param pulumi.Input[builtins.str] domain_id: 自定义域名ID。
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_id is not None:
+            pulumi.set(__self__, "domain_id", domain_id)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        自定义域名。
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="domainId")
+    def domain_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        自定义域名ID。
+        """
+        return pulumi.get(self, "domain_id")
+
+    @domain_id.setter
+    def domain_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain_id", value)
+
+
+if not MYPY:
+    class GatewayServiceDomainArgsDict(TypedDict):
+        domain: NotRequired[pulumi.Input[builtins.str]]
+        """
+        域名。
+        """
+        type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        域名类型。取值：public：公网。private：私网。
+        """
+elif False:
+    GatewayServiceDomainArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayServiceDomainArgs:
+    def __init__(__self__, *,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
+                 type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] domain: 域名。
+        :param pulumi.Input[builtins.str] type: 域名类型。取值：public：公网。private：私网。
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        域名。
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        域名类型。取值：public：公网。private：私网。
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class GatewayServiceDomainSpecArgsDict(TypedDict):
+        enable_public_resolution: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        开启私网域名公网解析。
+        """
+elif False:
+    GatewayServiceDomainSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayServiceDomainSpecArgs:
+    def __init__(__self__, *,
+                 enable_public_resolution: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enable_public_resolution: 开启私网域名公网解析。
+        """
+        if enable_public_resolution is not None:
+            pulumi.set(__self__, "enable_public_resolution", enable_public_resolution)
+
+    @property
+    @pulumi.getter(name="enablePublicResolution")
+    def enable_public_resolution(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        开启私网域名公网解析。
+        """
+        return pulumi.get(self, "enable_public_resolution")
+
+    @enable_public_resolution.setter
+    def enable_public_resolution(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_public_resolution", value)
+
 
 if not MYPY:
     class UpstreamSourceIngressSettingsArgsDict(TypedDict):

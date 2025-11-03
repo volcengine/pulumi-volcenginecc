@@ -28,6 +28,7 @@ import * as tls from "./tls";
 import * as tos from "./tos";
 import * as transitrouter from "./transitrouter";
 import * as types from "./types";
+import * as vefaas from "./vefaas";
 import * as vke from "./vke";
 import * as vmp from "./vmp";
 import * as vpc from "./vpc";
@@ -52,6 +53,7 @@ export {
     tos,
     transitrouter,
     types,
+    vefaas,
     vke,
     vmp,
     vpc,

@@ -13,6 +13,34 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     /// <summary>
     /// 中转路由器转发流量的依据，具有关联转发、静态路由、路由学习、路由同步等能力。每个TR实例下可以创建多个TR路由表，分别用于转发具有不同访问需求的网络实例的流量。多条网络实例连接可以关联同一个TR路由表。
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var transitRouterTransitRouterRouteTableDemo = new Volcenginecc.Transitrouter.TransitRouterRouteTable("TransitRouterTransitRouterRouteTableDemo", new()
+    ///     {
+    ///         TransitRouterId = "tr-mj7mc0paq******",
+    ///         Description = "TransitRouterTransitRouterRouteTableDemo-Description",
+    ///         TransitRouterRouteTableName = "TransitRouterTransitRouterRouteTableDemo",
+    ///         Tags = new[]
+    ///         {
+    ///             new Volcenginecc.Transitrouter.Inputs.TransitRouterRouteTableTagArgs
+    ///             {
+    ///                 Key = "env",
+    ///                 Value = "test",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

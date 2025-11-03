@@ -777,6 +777,78 @@ export namespace alb {
 }
 
 export namespace apig {
+    export interface GatewayServiceAuthSpec {
+        /**
+         * 是否开启认证。
+         */
+        enable: boolean;
+    }
+
+    export interface GatewayServiceCustomDomain {
+        /**
+         * 自定义域名。
+         */
+        domain: string;
+        /**
+         * 自定义域名ID。
+         */
+        domainId: string;
+    }
+
+    export interface GatewayServiceDomain {
+        /**
+         * 域名。
+         */
+        domain: string;
+        /**
+         * 域名类型。取值：public：公网。private：私网。
+         */
+        type: string;
+    }
+
+    export interface GatewayServiceDomainSpec {
+        /**
+         * 开启私网域名公网解析。
+         */
+        enablePublicResolution: boolean;
+    }
+
+    export interface GetGatewayServiceAuthSpec {
+        /**
+         * 是否开启认证。
+         */
+        enable: boolean;
+    }
+
+    export interface GetGatewayServiceCustomDomain {
+        /**
+         * 自定义域名。
+         */
+        domain: string;
+        /**
+         * 自定义域名ID。
+         */
+        domainId: string;
+    }
+
+    export interface GetGatewayServiceDomain {
+        /**
+         * 域名。
+         */
+        domain: string;
+        /**
+         * 域名类型。取值：public：公网。private：私网。
+         */
+        type: string;
+    }
+
+    export interface GetGatewayServiceDomainSpec {
+        /**
+         * 开启私网域名公网解析。
+         */
+        enablePublicResolution: boolean;
+    }
+
     export interface GetUpstreamSourceIngressSettings {
         /**
          * 是否启用所有Ingress类。
@@ -4833,6 +4905,162 @@ export namespace transitrouter {
     }
 
     export interface TransitRouterTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace vefaas {
+    export interface GetKafkaTriggerKafkaCredentials {
+        /**
+         * Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。
+         */
+        mechanism: string;
+        /**
+         * 创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。
+         */
+        password: string;
+        /**
+         * 创建 Kafka 实例时设置的 SASL/PLAIN 用户名称。
+         */
+        username: string;
+    }
+
+    export interface GetSandboxEnv {
+        /**
+         * 环境变量键。
+         */
+        key: string;
+        /**
+         * 环境变量值。
+         */
+        value: string;
+    }
+
+    export interface GetSandboxInstanceImageInfo {
+        /**
+         * 沙箱实例程序的启动命令。如需指定脚本文件，请使用绝对路径，并确保脚本具有相应的可执行权限。
+         */
+        command: string;
+        /**
+         * 沙箱实例使用的已预热镜像地址。
+         */
+        image: string;
+        /**
+         * 沙箱实例使用的已预热镜像 ID。
+         */
+        imageId: string;
+        /**
+         * 沙箱实例镜像监听端口。
+         */
+        port: number;
+    }
+
+    export interface GetSandboxInstanceTosMountConfig {
+        /**
+         * 沙箱实例是否启用了实例级别的 TOS 挂载，参数值说明：true：是，false：否。
+         */
+        enable: boolean;
+        /**
+         * 启用了实例级别 TOS 挂载的沙箱实例具体 TOS 挂载目录信息。
+         */
+        tosMountPoints: outputs.vefaas.GetSandboxInstanceTosMountConfigTosMountPoint[];
+    }
+
+    export interface GetSandboxInstanceTosMountConfigTosMountPoint {
+        /**
+         * 沙箱实例挂载的 TOS 远端目录。
+         */
+        bucketPath: string;
+        /**
+         * 沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。
+         */
+        localMountPath: string;
+    }
+
+    export interface GetSandboxMetadata {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface KafkaTriggerKafkaCredentials {
+        /**
+         * Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。
+         */
+        mechanism: string;
+        /**
+         * 创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。
+         */
+        password: string;
+        /**
+         * 创建 Kafka 实例时设置的 SASL/PLAIN 用户名称。
+         */
+        username: string;
+    }
+
+    export interface SandboxEnv {
+        /**
+         * 环境变量键。
+         */
+        key: string;
+        /**
+         * 环境变量值。
+         */
+        value: string;
+    }
+
+    export interface SandboxInstanceImageInfo {
+        /**
+         * 沙箱实例程序的启动命令。如需指定脚本文件，请使用绝对路径，并确保脚本具有相应的可执行权限。
+         */
+        command: string;
+        /**
+         * 沙箱实例使用的已预热镜像地址。
+         */
+        image: string;
+        /**
+         * 沙箱实例使用的已预热镜像 ID。
+         */
+        imageId: string;
+        /**
+         * 沙箱实例镜像监听端口。
+         */
+        port: number;
+    }
+
+    export interface SandboxInstanceTosMountConfig {
+        /**
+         * 沙箱实例是否启用了实例级别的 TOS 挂载，参数值说明：true：是，false：否。
+         */
+        enable: boolean;
+        tosMountPoints: outputs.vefaas.SandboxInstanceTosMountConfigTosMountPoint[];
+    }
+
+    export interface SandboxInstanceTosMountConfigTosMountPoint {
+        /**
+         * 沙箱实例挂载的 TOS 远端目录。
+         */
+        bucketPath: string;
+        /**
+         * 沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。
+         */
+        localMountPath: string;
+    }
+
+    export interface SandboxMetadata {
         /**
          * 标签键。
          */

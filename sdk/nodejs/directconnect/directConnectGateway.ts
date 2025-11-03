@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 /**
  * 专线网关是本地数据中心访问云上的入口，用于连接私有网络（VPC）与物理专线，实现云下数据中心（IDC）和云上私有网络（VPC）互访。
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
+ *
+ * const directConnectDirectConnectGatewayDemo = new volcenginecc.directconnect.DirectConnectGateway("DirectConnectDirectConnectGatewayDemo", {
+ *     description: "DirectConnectDirectConnectGatewayDemo-Description",
+ *     directConnectGatewayName: "DirectConnectDirectConnectGatewayDemo",
+ *     enableIpv6: false,
+ *     projectName: "default",
+ *     tags: [{
+ *         key: "env",
+ *         value: "test",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

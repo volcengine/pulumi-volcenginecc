@@ -410,6 +410,42 @@ export namespace alb {
 }
 
 export namespace apig {
+    export interface GatewayServiceAuthSpec {
+        /**
+         * 是否开启认证。
+         */
+        enable?: pulumi.Input<boolean>;
+    }
+
+    export interface GatewayServiceCustomDomain {
+        /**
+         * 自定义域名。
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * 自定义域名ID。
+         */
+        domainId?: pulumi.Input<string>;
+    }
+
+    export interface GatewayServiceDomain {
+        /**
+         * 域名。
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * 域名类型。取值：public：公网。private：私网。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface GatewayServiceDomainSpec {
+        /**
+         * 开启私网域名公网解析。
+         */
+        enablePublicResolution?: pulumi.Input<boolean>;
+    }
+
     export interface UpstreamSourceIngressSettings {
         /**
          * 是否启用所有Ingress类。
@@ -2344,6 +2380,83 @@ export namespace transitrouter {
     }
 
     export interface TransitRouterTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace vefaas {
+    export interface KafkaTriggerKafkaCredentials {
+        /**
+         * Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。
+         */
+        mechanism: pulumi.Input<string>;
+        /**
+         * 创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。
+         */
+        password: pulumi.Input<string>;
+        /**
+         * 创建 Kafka 实例时设置的 SASL/PLAIN 用户名称。
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface SandboxEnv {
+        /**
+         * 环境变量键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 环境变量值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface SandboxInstanceImageInfo {
+        /**
+         * 沙箱实例程序的启动命令。如需指定脚本文件，请使用绝对路径，并确保脚本具有相应的可执行权限。
+         */
+        command?: pulumi.Input<string>;
+        /**
+         * 沙箱实例使用的已预热镜像地址。
+         */
+        image?: pulumi.Input<string>;
+        /**
+         * 沙箱实例使用的已预热镜像 ID。
+         */
+        imageId?: pulumi.Input<string>;
+        /**
+         * 沙箱实例镜像监听端口。
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface SandboxInstanceTosMountConfig {
+        /**
+         * 沙箱实例是否启用了实例级别的 TOS 挂载，参数值说明：true：是，false：否。
+         */
+        enable?: pulumi.Input<boolean>;
+        tosMountPoints?: pulumi.Input<pulumi.Input<inputs.vefaas.SandboxInstanceTosMountConfigTosMountPoint>[]>;
+    }
+
+    export interface SandboxInstanceTosMountConfigTosMountPoint {
+        /**
+         * 沙箱实例挂载的 TOS 远端目录。
+         */
+        bucketPath?: pulumi.Input<string>;
+        /**
+         * 沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。
+         */
+        localMountPath?: pulumi.Input<string>;
+    }
+
+    export interface SandboxMetadata {
         /**
          * 标签键。
          */

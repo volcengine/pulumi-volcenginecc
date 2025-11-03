@@ -45,6 +45,8 @@ if typing.TYPE_CHECKING:
     tos = __tos
     import pulumi_volcenginecc.transitrouter as __transitrouter
     transitrouter = __transitrouter
+    import pulumi_volcenginecc.vefaas as __vefaas
+    vefaas = __vefaas
     import pulumi_volcenginecc.vke as __vke
     vke = __vke
     import pulumi_volcenginecc.vmp as __vmp
@@ -71,6 +73,7 @@ else:
     tls = _utilities.lazy_import('pulumi_volcenginecc.tls')
     tos = _utilities.lazy_import('pulumi_volcenginecc.tos')
     transitrouter = _utilities.lazy_import('pulumi_volcenginecc.transitrouter')
+    vefaas = _utilities.lazy_import('pulumi_volcenginecc.vefaas')
     vke = _utilities.lazy_import('pulumi_volcenginecc.vke')
     vmp = _utilities.lazy_import('pulumi_volcenginecc.vmp')
     vpc = _utilities.lazy_import('pulumi_volcenginecc.vpc')
@@ -117,6 +120,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.alb",
   "classes": {
    "volcenginecc:alb/serverGroup:ServerGroup": "ServerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "apig/gatewayService",
+  "fqn": "pulumi_volcenginecc.apig",
+  "classes": {
+   "volcenginecc:apig/gatewayService:GatewayService": "GatewayService"
   }
  },
  {
@@ -405,6 +416,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable": "TransitRouterRouteTable"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vefaas/kafkaTrigger",
+  "fqn": "pulumi_volcenginecc.vefaas",
+  "classes": {
+   "volcenginecc:vefaas/kafkaTrigger:KafkaTrigger": "KafkaTrigger"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vefaas/sandbox",
+  "fqn": "pulumi_volcenginecc.vefaas",
+  "classes": {
+   "volcenginecc:vefaas/sandbox:Sandbox": "Sandbox"
   }
  },
  {

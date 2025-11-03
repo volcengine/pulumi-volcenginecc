@@ -13,6 +13,37 @@ import (
 
 // 查询符合条件的已安装组件详情列表。
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vke"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := vke.NewAddon(ctx, "VKEAddonDemo", &vke.AddonArgs{
+//				ClusterId:      pulumi.String("cd35mtki***"),
+//				DeployMode:     pulumi.String("Unmanaged"),
+//				DeployNodeType: pulumi.String("Node"),
+//				Name:           pulumi.String("csi-nas"),
+//				Version:        pulumi.String("v1.2.7"),
+//				Config:         pulumi.String("{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

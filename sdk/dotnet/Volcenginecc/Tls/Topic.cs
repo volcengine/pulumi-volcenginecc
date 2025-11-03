@@ -11,6 +11,45 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Tls
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tlsTopicDemo = new Volcenginecc.Tls.Topic("TlsTopicDemo", new()
+    ///     {
+    ///         Ttl = 187,
+    ///         HotTtl = 8,
+    ///         ColdTtl = 79,
+    ///         ArchiveTtl = 100,
+    ///         ShardCount = 2,
+    ///         AutoSplit = true,
+    ///         MaxSplitShard = 256,
+    ///         Tags = new[]
+    ///         {
+    ///             new Volcenginecc.Tls.Inputs.TopicTagArgs
+    ///             {
+    ///                 Key = "env",
+    ///                 Value = "test",
+    ///             },
+    ///         },
+    ///         TimeKey = "time",
+    ///         TimeFormat = "%Y-%m-%d %H:%M:%S",
+    ///         LogPublicIp = false,
+    ///         TopicName = "test",
+    ///         Description = "test",
+    ///         ProjectId = "44a425f0-a6ef-4a****",
+    ///         EnableHotTtl = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
 /**
  * 查询符合条件的已安装组件详情列表。
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
+ *
+ * const vKEAddonDemo = new volcenginecc.vke.Addon("VKEAddonDemo", {
+ *     clusterId: "cd35mtki***",
+ *     deployMode: "Unmanaged",
+ *     deployNodeType: "Node",
+ *     name: "csi-nas",
+ *     version: "v1.2.7",
+ *     config: "{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

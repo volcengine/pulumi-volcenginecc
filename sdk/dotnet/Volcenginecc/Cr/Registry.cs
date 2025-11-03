@@ -13,6 +13,34 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
     /// <summary>
     /// 镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cRRegistryDemo = new Volcenginecc.Cr.Registry("CRRegistryDemo", new()
+    ///     {
+    ///         Project = "default",
+    ///         Name = "test",
+    ///         Type = "Enterprise",
+    ///         Tags = new[]
+    ///         {
+    ///             new Volcenginecc.Cr.Inputs.RegistryTagArgs
+    ///             {
+    ///                 Key = "env",
+    ///                 Value = "test",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

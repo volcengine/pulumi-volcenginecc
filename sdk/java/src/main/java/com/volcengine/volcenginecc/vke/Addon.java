@@ -17,6 +17,46 @@ import javax.annotation.Nullable;
 /**
  * 查询符合条件的已安装组件详情列表。
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.vke.Addon;
+ * import com.volcengine.volcenginecc.vke.AddonArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var vKEAddonDemo = new Addon("vKEAddonDemo", AddonArgs.builder()
+ *             .clusterId("cd35mtki***")
+ *             .deployMode("Unmanaged")
+ *             .deployNodeType("Node")
+ *             .name("csi-nas")
+ *             .version("v1.2.7")
+ *             .config("{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * ```sh

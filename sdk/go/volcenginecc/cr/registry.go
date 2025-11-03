@@ -14,6 +14,40 @@ import (
 
 // 镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/cr"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cr.NewRegistry(ctx, "CRRegistryDemo", &cr.RegistryArgs{
+//				Project: pulumi.String("default"),
+//				Name:    pulumi.String("test"),
+//				Type:    pulumi.String("Enterprise"),
+//				Tags: cr.RegistryTagArray{
+//					&cr.RegistryTagArgs{
+//						Key:   pulumi.String("env"),
+//						Value: pulumi.String("test"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

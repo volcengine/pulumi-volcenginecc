@@ -13,6 +13,35 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
     /// <summary>
     /// 专线网关是本地数据中心访问云上的入口，用于连接私有网络（VPC）与物理专线，实现云下数据中心（IDC）和云上私有网络（VPC）互访。
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var directConnectDirectConnectGatewayDemo = new Volcenginecc.Directconnect.DirectConnectGateway("DirectConnectDirectConnectGatewayDemo", new()
+    ///     {
+    ///         Description = "DirectConnectDirectConnectGatewayDemo-Description",
+    ///         DirectConnectGatewayName = "DirectConnectDirectConnectGatewayDemo",
+    ///         EnableIpv6 = false,
+    ///         ProjectName = "default",
+    ///         Tags = new[]
+    ///         {
+    ///             new Volcenginecc.Directconnect.Inputs.DirectConnectGatewayTagArgs
+    ///             {
+    ///                 Key = "env",
+    ///                 Value = "test",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

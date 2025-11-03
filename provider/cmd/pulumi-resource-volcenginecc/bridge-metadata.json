@@ -86,6 +86,20 @@
                     }
                 }
             },
+            "volcenginecc_apig_gateway_service": {
+                "current": "volcenginecc:apig/gatewayService:GatewayService",
+                "fields": {
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "domains": {
+                        "maxItemsOne": false
+                    },
+                    "protocol": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_apig_upstream_source": {
                 "current": "volcenginecc:apig/upstreamSource:UpstreamSource",
                 "fields": {
@@ -606,6 +620,27 @@
                     }
                 }
             },
+            "volcenginecc_vefaas_kafka_trigger": {
+                "current": "volcenginecc:vefaas/kafkaTrigger:KafkaTrigger"
+            },
+            "volcenginecc_vefaas_sandbox": {
+                "current": "volcenginecc:vefaas/sandbox:Sandbox",
+                "fields": {
+                    "envs": {
+                        "maxItemsOne": false
+                    },
+                    "instance_tos_mount_config": {
+                        "fields": {
+                            "tos_mount_points": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "metadata": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_vke_addon": {
                 "current": "volcenginecc:vke/addon:Addon",
                 "fields": {
@@ -914,6 +949,28 @@
             },
             "volcenginecc_alb_server_groups": {
                 "current": "volcenginecc:alb/getServerGroups:getServerGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_apig_gateway_service": {
+                "current": "volcenginecc:apig/getGatewayService:getGatewayService",
+                "fields": {
+                    "custom_domains": {
+                        "maxItemsOne": false
+                    },
+                    "domains": {
+                        "maxItemsOne": false
+                    },
+                    "protocol": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_apig_gateway_services": {
+                "current": "volcenginecc:apig/getGatewayServices:getGatewayServices",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -1725,6 +1782,43 @@
             },
             "volcenginecc_transitrouter_transit_routers": {
                 "current": "volcenginecc:transitrouter/getTransitRouters:getTransitRouters",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vefaas_kafka_trigger": {
+                "current": "volcenginecc:vefaas/getKafkaTrigger:getKafkaTrigger"
+            },
+            "volcenginecc_vefaas_kafka_triggers": {
+                "current": "volcenginecc:vefaas/getKafkaTriggers:getKafkaTriggers",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vefaas_sandbox": {
+                "current": "volcenginecc:vefaas/getSandbox:getSandbox",
+                "fields": {
+                    "envs": {
+                        "maxItemsOne": false
+                    },
+                    "instance_tos_mount_config": {
+                        "fields": {
+                            "tos_mount_points": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "metadata": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vefaas_sandboxes": {
+                "current": "volcenginecc:vefaas/getSandboxes:getSandboxes",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
