@@ -13,6 +13,41 @@ import (
 
 // 专线网关是本地数据中心访问云上的入口，用于连接私有网络（VPC）与物理专线，实现云下数据中心（IDC）和云上私有网络（VPC）互访。
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/directconnect"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewDirectConnectGateway(ctx, "DirectConnectDirectConnectGatewayDemo", &directconnect.DirectConnectGatewayArgs{
+//				Description:              pulumi.String("DirectConnectDirectConnectGatewayDemo-Description"),
+//				DirectConnectGatewayName: pulumi.String("DirectConnectDirectConnectGatewayDemo"),
+//				EnableIpv6:               pulumi.Bool(false),
+//				ProjectName:              pulumi.String("default"),
+//				Tags: directconnect.DirectConnectGatewayTagArray{
+//					&directconnect.DirectConnectGatewayTagArgs{
+//						Key:   pulumi.String("env"),
+//						Value: pulumi.String("test"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

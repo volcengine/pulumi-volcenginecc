@@ -18,6 +18,48 @@ import javax.annotation.Nullable;
 /**
  * 中转路由器转发流量的依据，具有关联转发、静态路由、路由学习、路由同步等能力。每个TR实例下可以创建多个TR路由表，分别用于转发具有不同访问需求的网络实例的流量。多条网络实例连接可以关联同一个TR路由表。
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.transitrouter.TransitRouterRouteTable;
+ * import com.volcengine.volcenginecc.transitrouter.TransitRouterRouteTableArgs;
+ * import com.pulumi.volcenginecc.transitrouter.inputs.TransitRouterRouteTableTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var transitRouterTransitRouterRouteTableDemo = new TransitRouterRouteTable("transitRouterTransitRouterRouteTableDemo", TransitRouterRouteTableArgs.builder()
+ *             .transitRouterId("tr-mj7mc0paq******")
+ *             .description("TransitRouterTransitRouterRouteTableDemo-Description")
+ *             .transitRouterRouteTableName("TransitRouterTransitRouterRouteTableDemo")
+ *             .tags(TransitRouterRouteTableTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * ```sh

@@ -1446,6 +1446,80 @@
                 }
             }
         },
+        "volcenginecc:apig/GatewayServiceAuthSpec:GatewayServiceAuthSpec": {
+            "properties": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "是否开启认证。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enable"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/GatewayServiceCustomDomain:GatewayServiceCustomDomain": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "自定义域名。\n"
+                },
+                "domainId": {
+                    "type": "string",
+                    "description": "自定义域名ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "domain",
+                        "domainId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/GatewayServiceDomain:GatewayServiceDomain": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "域名。\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "域名类型。取值：public：公网。private：私网。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "domain",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/GatewayServiceDomainSpec:GatewayServiceDomainSpec": {
+            "properties": {
+                "enablePublicResolution": {
+                    "type": "boolean",
+                    "description": "开启私网域名公网解析。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enablePublicResolution"
+                    ]
+                }
+            }
+        },
         "volcenginecc:apig/UpstreamSourceIngressSettings:UpstreamSourceIngressSettings": {
             "properties": {
                 "enableAllIngressClasses": {
@@ -1600,6 +1674,84 @@
                         "password",
                         "username"
                     ]
+                }
+            }
+        },
+        "volcenginecc:apig/getGatewayServiceAuthSpec:getGatewayServiceAuthSpec": {
+            "properties": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "是否开启认证。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enable"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getGatewayServiceCustomDomain:getGatewayServiceCustomDomain": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "自定义域名。\n"
+                },
+                "domainId": {
+                    "type": "string",
+                    "description": "自定义域名ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "domainId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getGatewayServiceDomain:getGatewayServiceDomain": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "域名。\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "域名类型。取值：public：公网。private：私网。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getGatewayServiceDomainSpec:getGatewayServiceDomainSpec": {
+            "properties": {
+                "enablePublicResolution": {
+                    "type": "boolean",
+                    "description": "开启私网域名公网解析。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enablePublicResolution"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
                 }
             }
         },
@@ -8476,6 +8628,295 @@
                 }
             }
         },
+        "volcenginecc:vefaas/KafkaTriggerKafkaCredentials:KafkaTriggerKafkaCredentials": {
+            "properties": {
+                "mechanism": {
+                    "type": "string",
+                    "description": "Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "创建 Kafka 实例时设置的 SASL/PLAIN 用户名称。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mechanism",
+                "password",
+                "username"
+            ]
+        },
+        "volcenginecc:vefaas/SandboxEnv:SandboxEnv": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "环境变量键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "环境变量值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vefaas/SandboxInstanceImageInfo:SandboxInstanceImageInfo": {
+            "properties": {
+                "command": {
+                    "type": "string",
+                    "description": "沙箱实例程序的启动命令。如需指定脚本文件，请使用绝对路径，并确保脚本具有相应的可执行权限。\n"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "沙箱实例使用的已预热镜像地址。\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "沙箱实例使用的已预热镜像 ID。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "沙箱实例镜像监听端口。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "command",
+                        "image",
+                        "imageId",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vefaas/SandboxInstanceTosMountConfig:SandboxInstanceTosMountConfig": {
+            "properties": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "沙箱实例是否启用了实例级别的 TOS 挂载，参数值说明：true：是，false：否。\n"
+                },
+                "tosMountPoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceTosMountConfigTosMountPoint:SandboxInstanceTosMountConfigTosMountPoint"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enable",
+                        "tosMountPoints"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vefaas/SandboxInstanceTosMountConfigTosMountPoint:SandboxInstanceTosMountConfigTosMountPoint": {
+            "properties": {
+                "bucketPath": {
+                    "type": "string",
+                    "description": "沙箱实例挂载的 TOS 远端目录。\n"
+                },
+                "localMountPath": {
+                    "type": "string",
+                    "description": "沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "bucketPath",
+                        "localMountPath"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vefaas/SandboxMetadata:SandboxMetadata": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vefaas/getKafkaTriggerKafkaCredentials:getKafkaTriggerKafkaCredentials": {
+            "properties": {
+                "mechanism": {
+                    "type": "string",
+                    "description": "Kafka 认证机制。取值：PLAIN，SCRAM-SHA-256。\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "创建 Kafka 实例时设置的 SASL/PLAIN 用户密码。\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "创建 Kafka 实例时设置的 SASL/PLAIN 用户名称。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mechanism",
+                "password",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vefaas/getSandboxEnv:getSandboxEnv": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "环境变量键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "环境变量值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vefaas/getSandboxInstanceImageInfo:getSandboxInstanceImageInfo": {
+            "properties": {
+                "command": {
+                    "type": "string",
+                    "description": "沙箱实例程序的启动命令。如需指定脚本文件，请使用绝对路径，并确保脚本具有相应的可执行权限。\n"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "沙箱实例使用的已预热镜像地址。\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "沙箱实例使用的已预热镜像 ID。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "沙箱实例镜像监听端口。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "command",
+                "image",
+                "imageId",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vefaas/getSandboxInstanceTosMountConfig:getSandboxInstanceTosMountConfig": {
+            "properties": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "沙箱实例是否启用了实例级别的 TOS 挂载，参数值说明：true：是，false：否。\n"
+                },
+                "tosMountPoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vefaas/getSandboxInstanceTosMountConfigTosMountPoint:getSandboxInstanceTosMountConfigTosMountPoint"
+                    },
+                    "description": "启用了实例级别 TOS 挂载的沙箱实例具体 TOS 挂载目录信息。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enable",
+                "tosMountPoints"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vefaas/getSandboxInstanceTosMountConfigTosMountPoint:getSandboxInstanceTosMountConfigTosMountPoint": {
+            "properties": {
+                "bucketPath": {
+                    "type": "string",
+                    "description": "沙箱实例挂载的 TOS 远端目录。\n"
+                },
+                "localMountPath": {
+                    "type": "string",
+                    "description": "沙箱实例挂载的 TOS 存储桶本地目录。该目录为沙箱应用已配置的 TOS 存储挂载的本地目录时，系统根据指定的本地目录，修改与之对应的 TOS BucketPath。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketPath",
+                "localMountPath"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vefaas/getSandboxMetadata:getSandboxMetadata": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "volcenginecc:vke/AddonStatus:AddonStatus": {
             "properties": {
                 "conditions": {
@@ -12410,8 +12851,183 @@
                 "type": "object"
             }
         },
+        "volcenginecc:apig/gatewayService:GatewayService": {
+            "description": "服务是一组路由对外暴露的入口，用于区分流量的来源和协议，实现业务、环境、逻辑租户隔离。服务可以绑定独立的访问域名，以域名维度访问业务。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst apigGatewayServiceDemo = new volcenginecc.apig.GatewayService(\"ApigGatewayServiceDemo\", {\n    serviceName: \"ApigGatewayServiceDemo\",\n    gatewayId: \"gd3vehjs7npja181xxxxx\",\n    protocols: [\n        \"HTTP\",\n        \"HTTPS\",\n    ],\n    authSpec: {\n        enable: false,\n    },\n    comments: \"ApigGatewayServiceDemo-test\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\napig_gateway_service_demo = volcenginecc.apig.GatewayService(\"ApigGatewayServiceDemo\",\n    service_name=\"ApigGatewayServiceDemo\",\n    gateway_id=\"gd3vehjs7npja181xxxxx\",\n    protocols=[\n        \"HTTP\",\n        \"HTTPS\",\n    ],\n    auth_spec={\n        \"enable\": False,\n    },\n    comments=\"ApigGatewayServiceDemo-test\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var apigGatewayServiceDemo = new Volcenginecc.Apig.GatewayService(\"ApigGatewayServiceDemo\", new()\n    {\n        ServiceName = \"ApigGatewayServiceDemo\",\n        GatewayId = \"gd3vehjs7npja181xxxxx\",\n        Protocols = new[]\n        {\n            \"HTTP\",\n            \"HTTPS\",\n        },\n        AuthSpec = new Volcenginecc.Apig.Inputs.GatewayServiceAuthSpecArgs\n        {\n            Enable = false,\n        },\n        Comments = \"ApigGatewayServiceDemo-test\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/apig\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := apig.NewGatewayService(ctx, \"ApigGatewayServiceDemo\", \u0026apig.GatewayServiceArgs{\n\t\t\tServiceName: pulumi.String(\"ApigGatewayServiceDemo\"),\n\t\t\tGatewayId:   pulumi.String(\"gd3vehjs7npja181xxxxx\"),\n\t\t\tProtocols: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"HTTP\"),\n\t\t\t\tpulumi.String(\"HTTPS\"),\n\t\t\t},\n\t\t\tAuthSpec: \u0026apig.GatewayServiceAuthSpecArgs{\n\t\t\t\tEnable: pulumi.Bool(false),\n\t\t\t},\n\t\t\tComments: pulumi.String(\"ApigGatewayServiceDemo-test\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.apig.GatewayService;\nimport com.volcengine.volcenginecc.apig.GatewayServiceArgs;\nimport com.pulumi.volcenginecc.apig.inputs.GatewayServiceAuthSpecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var apigGatewayServiceDemo = new GatewayService(\"apigGatewayServiceDemo\", GatewayServiceArgs.builder()\n            .serviceName(\"ApigGatewayServiceDemo\")\n            .gatewayId(\"gd3vehjs7npja181xxxxx\")\n            .protocols(            \n                \"HTTP\",\n                \"HTTPS\")\n            .authSpec(GatewayServiceAuthSpecArgs.builder()\n                .enable(false)\n                .build())\n            .comments(\"ApigGatewayServiceDemo-test\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  apigGatewayServiceDemo:\n    type: volcenginecc:apig:GatewayService\n    name: ApigGatewayServiceDemo\n    properties:\n      serviceName: ApigGatewayServiceDemo\n      gatewayId: gd3vehjs7npja181xxxxx\n      protocols:\n        - HTTP\n        - HTTPS\n      authSpec:\n        enable: false\n      comments: ApigGatewayServiceDemo-test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:apig/gatewayService:GatewayService example \"service_id\"\n```\n\n",
+            "properties": {
+                "authSpec": {
+                    "$ref": "#/types/volcenginecc:apig/GatewayServiceAuthSpec:GatewayServiceAuthSpec",
+                    "description": "认证配置。\n"
+                },
+                "comments": {
+                    "type": "string",
+                    "description": "备注，长度限制为0~253个字符。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "创建时间。\n"
+                },
+                "customDomains": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/GatewayServiceCustomDomain:GatewayServiceCustomDomain"
+                    }
+                },
+                "domainSpec": {
+                    "$ref": "#/types/volcenginecc:apig/GatewayServiceDomainSpec:GatewayServiceDomainSpec",
+                    "description": "域名详情。\n"
+                },
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/GatewayServiceDomain:GatewayServiceDomain"
+                    }
+                },
+                "gatewayId": {
+                    "type": "string",
+                    "description": "网关ID。\n"
+                },
+                "gatewayName": {
+                    "type": "string",
+                    "description": "网关名称。\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "服务创建失败、删除失败或异常时的错误信息。\n"
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "服务支持的协议。取值：HTTP：HTTP。HTTPS：HTTPS。\n"
+                },
+                "serviceId": {
+                    "type": "string",
+                    "description": "服务ID。\n"
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "服务名称。支持大小写字母、数字和中划线（-），长度限制为2~128个字符。不能以中划线（-）开头。。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Creating：创建中。CreatedFailed：创建失败。Running：运行中。Deleting：删除中。DeletedFailed：删除失败。Abnormal：异常。\n"
+                }
+            },
+            "required": [
+                "authSpec",
+                "comments",
+                "createdTime",
+                "customDomains",
+                "domainSpec",
+                "domains",
+                "gatewayId",
+                "gatewayName",
+                "message",
+                "protocols",
+                "serviceId",
+                "serviceName",
+                "status"
+            ],
+            "inputProperties": {
+                "authSpec": {
+                    "$ref": "#/types/volcenginecc:apig/GatewayServiceAuthSpec:GatewayServiceAuthSpec",
+                    "description": "认证配置。\n"
+                },
+                "comments": {
+                    "type": "string",
+                    "description": "备注，长度限制为0~253个字符。\n"
+                },
+                "gatewayId": {
+                    "type": "string",
+                    "description": "网关ID。\n"
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "服务支持的协议。取值：HTTP：HTTP。HTTPS：HTTPS。\n"
+                },
+                "serviceName": {
+                    "type": "string",
+                    "description": "服务名称。支持大小写字母、数字和中划线（-），长度限制为2~128个字符。不能以中划线（-）开头。。\n"
+                }
+            },
+            "requiredInputs": [
+                "authSpec",
+                "gatewayId",
+                "protocols",
+                "serviceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GatewayService resources.\n",
+                "properties": {
+                    "authSpec": {
+                        "$ref": "#/types/volcenginecc:apig/GatewayServiceAuthSpec:GatewayServiceAuthSpec",
+                        "description": "认证配置。\n"
+                    },
+                    "comments": {
+                        "type": "string",
+                        "description": "备注，长度限制为0~253个字符。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "创建时间。\n"
+                    },
+                    "customDomains": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/GatewayServiceCustomDomain:GatewayServiceCustomDomain"
+                        }
+                    },
+                    "domainSpec": {
+                        "$ref": "#/types/volcenginecc:apig/GatewayServiceDomainSpec:GatewayServiceDomainSpec",
+                        "description": "域名详情。\n"
+                    },
+                    "domains": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/GatewayServiceDomain:GatewayServiceDomain"
+                        }
+                    },
+                    "gatewayId": {
+                        "type": "string",
+                        "description": "网关ID。\n"
+                    },
+                    "gatewayName": {
+                        "type": "string",
+                        "description": "网关名称。\n"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "服务创建失败、删除失败或异常时的错误信息。\n"
+                    },
+                    "protocols": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "服务支持的协议。取值：HTTP：HTTP。HTTPS：HTTPS。\n"
+                    },
+                    "serviceId": {
+                        "type": "string",
+                        "description": "服务ID。\n"
+                    },
+                    "serviceName": {
+                        "type": "string",
+                        "description": "服务名称。支持大小写字母、数字和中划线（-），长度限制为2~128个字符。不能以中划线（-）开头。。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Creating：创建中。CreatedFailed：创建失败。Running：运行中。Deleting：删除中。DeletedFailed：删除失败。Abnormal：异常。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:apig/upstreamSource:UpstreamSource": {
-            "description": "API 网关支持基于容器服务（VKE）集和容器服务的注册集群功能，将集群导入到 API 网关实例，将其作为网关的 Upstream 来源，以便网关获取集群中的 Service 列表。\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:apig/upstreamSource:UpstreamSource example \"upstream_source_id\"\n```\n\n",
+            "description": "API 网关支持基于容器服务（VKE）集和容器服务的注册集群功能，将集群导入到 API 网关实例，将其作为网关的 Upstream 来源，以便网关获取集群中的 Service 列表。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  upstreamSourceNacosDemo:\n    type: volcenginecc:apig:UpstreamSource\n    name: UpstreamSourceNacosDemo\n    properties:\n      gatewayId: gd3s9vbk7npja181xxxxx\n      comments: upstreamSourceNacosDemo\n      sourceType: Nacos\n      sourceSpec:\n        nacos_source:\n          nacosId: nd3thmnjdl46p917xxxxx\n          authConfig:\n            basic:\n              username: nacos\n              password: '******'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:apig/upstreamSource:UpstreamSource example \"upstream_source_id\"\n```\n\n",
             "properties": {
                 "comments": {
                     "type": "string",
@@ -16008,7 +16624,7 @@
             }
         },
         "volcenginecc:cr/registry:Registry": {
-            "description": "镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:cr/registry:Registry example \"name\"\n```\n\n",
+            "description": "镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst cRRegistryDemo = new volcenginecc.cr.Registry(\"CRRegistryDemo\", {\n    project: \"default\",\n    name: \"test\",\n    type: \"Enterprise\",\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nc_r_registry_demo = volcenginecc.cr.Registry(\"CRRegistryDemo\",\n    project=\"default\",\n    name=\"test\",\n    type=\"Enterprise\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var cRRegistryDemo = new Volcenginecc.Cr.Registry(\"CRRegistryDemo\", new()\n    {\n        Project = \"default\",\n        Name = \"test\",\n        Type = \"Enterprise\",\n        Tags = new[]\n        {\n            new Volcenginecc.Cr.Inputs.RegistryTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/cr\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := cr.NewRegistry(ctx, \"CRRegistryDemo\", \u0026cr.RegistryArgs{\n\t\t\tProject: pulumi.String(\"default\"),\n\t\t\tName:    pulumi.String(\"test\"),\n\t\t\tType:    pulumi.String(\"Enterprise\"),\n\t\t\tTags: cr.RegistryTagArray{\n\t\t\t\t\u0026cr.RegistryTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.cr.Registry;\nimport com.volcengine.volcenginecc.cr.RegistryArgs;\nimport com.pulumi.volcenginecc.cr.inputs.RegistryTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var cRRegistryDemo = new Registry(\"cRRegistryDemo\", RegistryArgs.builder()\n            .project(\"default\")\n            .name(\"test\")\n            .type(\"Enterprise\")\n            .tags(RegistryTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  cRRegistryDemo:\n    type: volcenginecc:cr:Registry\n    name: CRRegistryDemo\n    properties:\n      project: default\n      name: test\n      type: Enterprise\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:cr/registry:Registry example \"name\"\n```\n\n",
             "properties": {
                 "chargeType": {
                     "type": "string",
@@ -16250,7 +16866,7 @@
             }
         },
         "volcenginecc:directconnect/directConnectGateway:DirectConnectGateway": {
-            "description": "专线网关是本地数据中心访问云上的入口，用于连接私有网络（VPC）与物理专线，实现云下数据中心（IDC）和云上私有网络（VPC）互访。\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:directconnect/directConnectGateway:DirectConnectGateway example \"direct_connect_gateway_id\"\n```\n\n",
+            "description": "专线网关是本地数据中心访问云上的入口，用于连接私有网络（VPC）与物理专线，实现云下数据中心（IDC）和云上私有网络（VPC）互访。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst directConnectDirectConnectGatewayDemo = new volcenginecc.directconnect.DirectConnectGateway(\"DirectConnectDirectConnectGatewayDemo\", {\n    description: \"DirectConnectDirectConnectGatewayDemo-Description\",\n    directConnectGatewayName: \"DirectConnectDirectConnectGatewayDemo\",\n    enableIpv6: false,\n    projectName: \"default\",\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\ndirect_connect_direct_connect_gateway_demo = volcenginecc.directconnect.DirectConnectGateway(\"DirectConnectDirectConnectGatewayDemo\",\n    description=\"DirectConnectDirectConnectGatewayDemo-Description\",\n    direct_connect_gateway_name=\"DirectConnectDirectConnectGatewayDemo\",\n    enable_ipv6=False,\n    project_name=\"default\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var directConnectDirectConnectGatewayDemo = new Volcenginecc.Directconnect.DirectConnectGateway(\"DirectConnectDirectConnectGatewayDemo\", new()\n    {\n        Description = \"DirectConnectDirectConnectGatewayDemo-Description\",\n        DirectConnectGatewayName = \"DirectConnectDirectConnectGatewayDemo\",\n        EnableIpv6 = false,\n        ProjectName = \"default\",\n        Tags = new[]\n        {\n            new Volcenginecc.Directconnect.Inputs.DirectConnectGatewayTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/directconnect\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := directconnect.NewDirectConnectGateway(ctx, \"DirectConnectDirectConnectGatewayDemo\", \u0026directconnect.DirectConnectGatewayArgs{\n\t\t\tDescription:              pulumi.String(\"DirectConnectDirectConnectGatewayDemo-Description\"),\n\t\t\tDirectConnectGatewayName: pulumi.String(\"DirectConnectDirectConnectGatewayDemo\"),\n\t\t\tEnableIpv6:               pulumi.Bool(false),\n\t\t\tProjectName:              pulumi.String(\"default\"),\n\t\t\tTags: directconnect.DirectConnectGatewayTagArray{\n\t\t\t\t\u0026directconnect.DirectConnectGatewayTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.directconnect.DirectConnectGateway;\nimport com.volcengine.volcenginecc.directconnect.DirectConnectGatewayArgs;\nimport com.pulumi.volcenginecc.directconnect.inputs.DirectConnectGatewayTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var directConnectDirectConnectGatewayDemo = new DirectConnectGateway(\"directConnectDirectConnectGatewayDemo\", DirectConnectGatewayArgs.builder()\n            .description(\"DirectConnectDirectConnectGatewayDemo-Description\")\n            .directConnectGatewayName(\"DirectConnectDirectConnectGatewayDemo\")\n            .enableIpv6(false)\n            .projectName(\"default\")\n            .tags(DirectConnectGatewayTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  directConnectDirectConnectGatewayDemo:\n    type: volcenginecc:directconnect:DirectConnectGateway\n    name: DirectConnectDirectConnectGatewayDemo\n    properties:\n      description: DirectConnectDirectConnectGatewayDemo-Description\n      directConnectGatewayName: DirectConnectDirectConnectGatewayDemo\n      enableIpv6: false\n      projectName: default\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:directconnect/directConnectGateway:DirectConnectGateway example \"direct_connect_gateway_id\"\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "string",
@@ -20204,7 +20820,7 @@
             }
         },
         "volcenginecc:tls/topic:Topic": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:tls/topic:Topic example \"topic_id\"\n```\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst tlsTopicDemo = new volcenginecc.tls.Topic(\"TlsTopicDemo\", {\n    ttl: 187,\n    hotTtl: 8,\n    coldTtl: 79,\n    archiveTtl: 100,\n    shardCount: 2,\n    autoSplit: true,\n    maxSplitShard: 256,\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n    timeKey: \"time\",\n    timeFormat: \"%Y-%m-%d %H:%M:%S\",\n    logPublicIp: false,\n    topicName: \"test\",\n    description: \"test\",\n    projectId: \"44a425f0-a6ef-4a****\",\n    enableHotTtl: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\ntls_topic_demo = volcenginecc.tls.Topic(\"TlsTopicDemo\",\n    ttl=187,\n    hot_ttl=8,\n    cold_ttl=79,\n    archive_ttl=100,\n    shard_count=2,\n    auto_split=True,\n    max_split_shard=256,\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }],\n    time_key=\"time\",\n    time_format=\"%Y-%m-%d %H:%M:%S\",\n    log_public_ip=False,\n    topic_name=\"test\",\n    description=\"test\",\n    project_id=\"44a425f0-a6ef-4a****\",\n    enable_hot_ttl=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var tlsTopicDemo = new Volcenginecc.Tls.Topic(\"TlsTopicDemo\", new()\n    {\n        Ttl = 187,\n        HotTtl = 8,\n        ColdTtl = 79,\n        ArchiveTtl = 100,\n        ShardCount = 2,\n        AutoSplit = true,\n        MaxSplitShard = 256,\n        Tags = new[]\n        {\n            new Volcenginecc.Tls.Inputs.TopicTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n        TimeKey = \"time\",\n        TimeFormat = \"%Y-%m-%d %H:%M:%S\",\n        LogPublicIp = false,\n        TopicName = \"test\",\n        Description = \"test\",\n        ProjectId = \"44a425f0-a6ef-4a****\",\n        EnableHotTtl = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/tls\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := tls.NewTopic(ctx, \"TlsTopicDemo\", \u0026tls.TopicArgs{\n\t\t\tTtl:           pulumi.Int(187),\n\t\t\tHotTtl:        pulumi.Int(8),\n\t\t\tColdTtl:       pulumi.Int(79),\n\t\t\tArchiveTtl:    pulumi.Int(100),\n\t\t\tShardCount:    pulumi.Int(2),\n\t\t\tAutoSplit:     pulumi.Bool(true),\n\t\t\tMaxSplitShard: pulumi.Int(256),\n\t\t\tTags: tls.TopicTagArray{\n\t\t\t\t\u0026tls.TopicTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTimeKey:      pulumi.String(\"time\"),\n\t\t\tTimeFormat:   pulumi.String(\"%Y-%m-%d %H:%M:%S\"),\n\t\t\tLogPublicIp:  pulumi.Bool(false),\n\t\t\tTopicName:    pulumi.String(\"test\"),\n\t\t\tDescription:  pulumi.String(\"test\"),\n\t\t\tProjectId:    pulumi.String(\"44a425f0-a6ef-4a****\"),\n\t\t\tEnableHotTtl: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.tls.Topic;\nimport com.volcengine.volcenginecc.tls.TopicArgs;\nimport com.pulumi.volcenginecc.tls.inputs.TopicTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var tlsTopicDemo = new Topic(\"tlsTopicDemo\", TopicArgs.builder()\n            .ttl(187)\n            .hotTtl(8)\n            .coldTtl(79)\n            .archiveTtl(100)\n            .shardCount(2)\n            .autoSplit(true)\n            .maxSplitShard(256)\n            .tags(TopicTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .timeKey(\"time\")\n            .timeFormat(\"%Y-%m-%d %H:%M:%S\")\n            .logPublicIp(false)\n            .topicName(\"test\")\n            .description(\"test\")\n            .projectId(\"44a425f0-a6ef-4a****\")\n            .enableHotTtl(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  tlsTopicDemo:\n    type: volcenginecc:tls:Topic\n    name: TlsTopicDemo\n    properties:\n      ttl: 187\n      hotTtl: 8\n      coldTtl: 79\n      archiveTtl: 100\n      shardCount: 2\n      autoSplit: true\n      maxSplitShard: 256\n      tags:\n        - key: env\n          value: test\n      timeKey: time\n      timeFormat: '%Y-%m-%d %H:%M:%S'\n      logPublicIp: false\n      topicName: test\n      description: test\n      projectId: 44a425f0-a6ef-4a****\n      enableHotTtl: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:tls/topic:Topic example \"topic_id\"\n```\n\n",
             "properties": {
                 "archiveTtl": {
                     "type": "integer",
@@ -21004,7 +21620,7 @@
             }
         },
         "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable": {
-            "description": "中转路由器转发流量的依据，具有关联转发、静态路由、路由学习、路由同步等能力。每个TR实例下可以创建多个TR路由表，分别用于转发具有不同访问需求的网络实例的流量。多条网络实例连接可以关联同一个TR路由表。\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable example \"transit_router_id|transit_router_route_table_id\"\n```\n\n",
+            "description": "中转路由器转发流量的依据，具有关联转发、静态路由、路由学习、路由同步等能力。每个TR实例下可以创建多个TR路由表，分别用于转发具有不同访问需求的网络实例的流量。多条网络实例连接可以关联同一个TR路由表。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst transitRouterTransitRouterRouteTableDemo = new volcenginecc.transitrouter.TransitRouterRouteTable(\"TransitRouterTransitRouterRouteTableDemo\", {\n    transitRouterId: \"tr-mj7mc0paq******\",\n    description: \"TransitRouterTransitRouterRouteTableDemo-Description\",\n    transitRouterRouteTableName: \"TransitRouterTransitRouterRouteTableDemo\",\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\ntransit_router_transit_router_route_table_demo = volcenginecc.transitrouter.TransitRouterRouteTable(\"TransitRouterTransitRouterRouteTableDemo\",\n    transit_router_id=\"tr-mj7mc0paq******\",\n    description=\"TransitRouterTransitRouterRouteTableDemo-Description\",\n    transit_router_route_table_name=\"TransitRouterTransitRouterRouteTableDemo\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var transitRouterTransitRouterRouteTableDemo = new Volcenginecc.Transitrouter.TransitRouterRouteTable(\"TransitRouterTransitRouterRouteTableDemo\", new()\n    {\n        TransitRouterId = \"tr-mj7mc0paq******\",\n        Description = \"TransitRouterTransitRouterRouteTableDemo-Description\",\n        TransitRouterRouteTableName = \"TransitRouterTransitRouterRouteTableDemo\",\n        Tags = new[]\n        {\n            new Volcenginecc.Transitrouter.Inputs.TransitRouterRouteTableTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/transitrouter\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := transitrouter.NewTransitRouterRouteTable(ctx, \"TransitRouterTransitRouterRouteTableDemo\", \u0026transitrouter.TransitRouterRouteTableArgs{\n\t\t\tTransitRouterId:             pulumi.String(\"tr-mj7mc0paq******\"),\n\t\t\tDescription:                 pulumi.String(\"TransitRouterTransitRouterRouteTableDemo-Description\"),\n\t\t\tTransitRouterRouteTableName: pulumi.String(\"TransitRouterTransitRouterRouteTableDemo\"),\n\t\t\tTags: transitrouter.TransitRouterRouteTableTagArray{\n\t\t\t\t\u0026transitrouter.TransitRouterRouteTableTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.transitrouter.TransitRouterRouteTable;\nimport com.volcengine.volcenginecc.transitrouter.TransitRouterRouteTableArgs;\nimport com.pulumi.volcenginecc.transitrouter.inputs.TransitRouterRouteTableTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var transitRouterTransitRouterRouteTableDemo = new TransitRouterRouteTable(\"transitRouterTransitRouterRouteTableDemo\", TransitRouterRouteTableArgs.builder()\n            .transitRouterId(\"tr-mj7mc0paq******\")\n            .description(\"TransitRouterTransitRouterRouteTableDemo-Description\")\n            .transitRouterRouteTableName(\"TransitRouterTransitRouterRouteTableDemo\")\n            .tags(TransitRouterRouteTableTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  transitRouterTransitRouterRouteTableDemo:\n    type: volcenginecc:transitrouter:TransitRouterRouteTable\n    name: TransitRouterTransitRouterRouteTableDemo\n    properties:\n      transitRouterId: tr-mj7mc0paq******\n      description: TransitRouterTransitRouterRouteTableDemo-Description\n      transitRouterRouteTableName: TransitRouterTransitRouterRouteTableDemo\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable example \"transit_router_id|transit_router_route_table_id\"\n```\n\n",
             "properties": {
                 "creationTime": {
                     "type": "string",
@@ -21142,8 +21758,468 @@
                 "type": "object"
             }
         },
+        "volcenginecc:vefaas/kafkaTrigger:KafkaTrigger": {
+            "description": "函数服务支持对接消息队列 Kafka 版。通过创建 Kafka 触发器，函数服务将作为消费者消费 Kafka 中的消息，并将消息传递给用户函数，触发函数代码逻辑。您无需关心函数服务消费消息的细节，只需编写处理消息的函数。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst vefaasTriggerDemo = new volcenginecc.vefaas.KafkaTrigger(\"VefaasTriggerDemo\", {\n    functionId: \"djb27tnr****\",\n    name: \"VefaasTriggerDemo\",\n    maximumRetryAttempts: 74,\n    startingPosition: \"Earliest\",\n    enabled: false,\n    kafkaCredentials: {\n        mechanism: \"PLAIN\",\n        username: \"VefaasTriggerDemo\",\n        password: \"*****\",\n    },\n    mqInstanceId: \"kafka-cnng8cm4q2fncrvs****\",\n    topicName: \"VefaasTriggerDemo\",\n    description: \"VefaasTriggerDemo description\",\n    batchFlushDurationMilliseconds: 8637,\n    batchSize: 709,\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nvefaas_trigger_demo = volcenginecc.vefaas.KafkaTrigger(\"VefaasTriggerDemo\",\n    function_id=\"djb27tnr****\",\n    name=\"VefaasTriggerDemo\",\n    maximum_retry_attempts=74,\n    starting_position=\"Earliest\",\n    enabled=False,\n    kafka_credentials={\n        \"mechanism\": \"PLAIN\",\n        \"username\": \"VefaasTriggerDemo\",\n        \"password\": \"*****\",\n    },\n    mq_instance_id=\"kafka-cnng8cm4q2fncrvs****\",\n    topic_name=\"VefaasTriggerDemo\",\n    description=\"VefaasTriggerDemo description\",\n    batch_flush_duration_milliseconds=8637,\n    batch_size=709)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var vefaasTriggerDemo = new Volcenginecc.Vefaas.KafkaTrigger(\"VefaasTriggerDemo\", new()\n    {\n        FunctionId = \"djb27tnr****\",\n        Name = \"VefaasTriggerDemo\",\n        MaximumRetryAttempts = 74,\n        StartingPosition = \"Earliest\",\n        Enabled = false,\n        KafkaCredentials = new Volcenginecc.Vefaas.Inputs.KafkaTriggerKafkaCredentialsArgs\n        {\n            Mechanism = \"PLAIN\",\n            Username = \"VefaasTriggerDemo\",\n            Password = \"*****\",\n        },\n        MqInstanceId = \"kafka-cnng8cm4q2fncrvs****\",\n        TopicName = \"VefaasTriggerDemo\",\n        Description = \"VefaasTriggerDemo description\",\n        BatchFlushDurationMilliseconds = 8637,\n        BatchSize = 709,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vefaas\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := vefaas.NewKafkaTrigger(ctx, \"VefaasTriggerDemo\", \u0026vefaas.KafkaTriggerArgs{\n\t\t\tFunctionId:           pulumi.String(\"djb27tnr****\"),\n\t\t\tName:                 pulumi.String(\"VefaasTriggerDemo\"),\n\t\t\tMaximumRetryAttempts: pulumi.Int(74),\n\t\t\tStartingPosition:     pulumi.String(\"Earliest\"),\n\t\t\tEnabled:              pulumi.Bool(false),\n\t\t\tKafkaCredentials: \u0026vefaas.KafkaTriggerKafkaCredentialsArgs{\n\t\t\t\tMechanism: pulumi.String(\"PLAIN\"),\n\t\t\t\tUsername:  pulumi.String(\"VefaasTriggerDemo\"),\n\t\t\t\tPassword:  pulumi.String(\"*****\"),\n\t\t\t},\n\t\t\tMqInstanceId:                   pulumi.String(\"kafka-cnng8cm4q2fncrvs****\"),\n\t\t\tTopicName:                      pulumi.String(\"VefaasTriggerDemo\"),\n\t\t\tDescription:                    pulumi.String(\"VefaasTriggerDemo description\"),\n\t\t\tBatchFlushDurationMilliseconds: pulumi.Int(8637),\n\t\t\tBatchSize:                      pulumi.Int(709),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.vefaas.KafkaTrigger;\nimport com.volcengine.volcenginecc.vefaas.KafkaTriggerArgs;\nimport com.pulumi.volcenginecc.vefaas.inputs.KafkaTriggerKafkaCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var vefaasTriggerDemo = new KafkaTrigger(\"vefaasTriggerDemo\", KafkaTriggerArgs.builder()\n            .functionId(\"djb27tnr****\")\n            .name(\"VefaasTriggerDemo\")\n            .maximumRetryAttempts(74)\n            .startingPosition(\"Earliest\")\n            .enabled(false)\n            .kafkaCredentials(KafkaTriggerKafkaCredentialsArgs.builder()\n                .mechanism(\"PLAIN\")\n                .username(\"VefaasTriggerDemo\")\n                .password(\"*****\")\n                .build())\n            .mqInstanceId(\"kafka-cnng8cm4q2fncrvs****\")\n            .topicName(\"VefaasTriggerDemo\")\n            .description(\"VefaasTriggerDemo description\")\n            .batchFlushDurationMilliseconds(8637)\n            .batchSize(709)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  vefaasTriggerDemo:\n    type: volcenginecc:vefaas:KafkaTrigger\n    name: VefaasTriggerDemo\n    properties:\n      functionId: djb27tnr****\n      name: VefaasTriggerDemo\n      maximumRetryAttempts: 74\n      startingPosition: Earliest\n      enabled: false\n      kafkaCredentials:\n        mechanism: PLAIN\n        username: VefaasTriggerDemo\n        password: '*****'\n      mqInstanceId: kafka-cnng8cm4q2fncrvs****\n      topicName: VefaasTriggerDemo\n      description: VefaasTriggerDemo description\n      batchFlushDurationMilliseconds: 8637\n      batchSize: 709\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vefaas/kafkaTrigger:KafkaTrigger example \"function_id|kafka_trigger_id\"\n```\n\n",
+            "properties": {
+                "batchFlushDurationMilliseconds": {
+                    "type": "integer",
+                    "description": "触发器批量消费的最长等待时间。单位为毫秒（ms），取值范围为 1000 ~ 60000 ms，默认值为 1000 ms。\n"
+                },
+                "batchSize": {
+                    "type": "integer",
+                    "description": "触发器批量消费的每批次消息数。\n"
+                },
+                "consumerGroup": {
+                    "type": "string",
+                    "description": "消息队列 Kafka 实例的消费组名字。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "Kafka 触发器创建时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Kafka 触发器描述。长度限制为 200 个字符以内。\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "是否在创建触发器的同时启用触发器。取值：true：启用。false：关闭。\n"
+                },
+                "functionId": {
+                    "type": "string",
+                    "description": "函数 ID。\n"
+                },
+                "kafkaCredentials": {
+                    "$ref": "#/types/volcenginecc:vefaas/KafkaTriggerKafkaCredentials:KafkaTriggerKafkaCredentials",
+                    "description": "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。\n"
+                },
+                "kafkaTriggerId": {
+                    "type": "string",
+                    "description": "Kafka 触发器 ID。\n"
+                },
+                "maximumRetryAttempts": {
+                    "type": "integer",
+                    "description": "函数发生运行错误（包括用户代码错误和 Runtime 错误）时的最大重试次数。取值范围为 0～100 的正整数。\n"
+                },
+                "mqInstanceId": {
+                    "type": "string",
+                    "description": "消息队列 Kafka 实例 ID。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。\n"
+                },
+                "startingPosition": {
+                    "type": "string",
+                    "description": "指定开始消费 Topic 中消息的位置。取值：Latest：只消费订阅 Topic 后产生的消息。Earliest：从 Topic 中生产的第一条消息开始消费。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Kafka 触发器状态。参数值说明：ready：运行，failed：失败，pending：启动中\n"
+                },
+                "topicName": {
+                    "type": "string",
+                    "description": "消息队列 Kafka 实例的 Topic 名称。\n"
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "Kafka 触发器最近一次更新时间。\n"
+                }
+            },
+            "required": [
+                "batchFlushDurationMilliseconds",
+                "batchSize",
+                "consumerGroup",
+                "createdTime",
+                "description",
+                "enabled",
+                "functionId",
+                "kafkaCredentials",
+                "kafkaTriggerId",
+                "maximumRetryAttempts",
+                "mqInstanceId",
+                "name",
+                "startingPosition",
+                "status",
+                "topicName",
+                "updatedTime"
+            ],
+            "inputProperties": {
+                "batchFlushDurationMilliseconds": {
+                    "type": "integer",
+                    "description": "触发器批量消费的最长等待时间。单位为毫秒（ms），取值范围为 1000 ~ 60000 ms，默认值为 1000 ms。\n"
+                },
+                "batchSize": {
+                    "type": "integer",
+                    "description": "触发器批量消费的每批次消息数。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Kafka 触发器描述。长度限制为 200 个字符以内。\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "是否在创建触发器的同时启用触发器。取值：true：启用。false：关闭。\n"
+                },
+                "functionId": {
+                    "type": "string",
+                    "description": "函数 ID。\n"
+                },
+                "kafkaCredentials": {
+                    "$ref": "#/types/volcenginecc:vefaas/KafkaTriggerKafkaCredentials:KafkaTriggerKafkaCredentials",
+                    "description": "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。\n"
+                },
+                "maximumRetryAttempts": {
+                    "type": "integer",
+                    "description": "函数发生运行错误（包括用户代码错误和 Runtime 错误）时的最大重试次数。取值范围为 0～100 的正整数。\n"
+                },
+                "mqInstanceId": {
+                    "type": "string",
+                    "description": "消息队列 Kafka 实例 ID。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。\n"
+                },
+                "startingPosition": {
+                    "type": "string",
+                    "description": "指定开始消费 Topic 中消息的位置。取值：Latest：只消费订阅 Topic 后产生的消息。Earliest：从 Topic 中生产的第一条消息开始消费。\n"
+                },
+                "topicName": {
+                    "type": "string",
+                    "description": "消息队列 Kafka 实例的 Topic 名称。\n"
+                }
+            },
+            "requiredInputs": [
+                "functionId",
+                "kafkaCredentials",
+                "mqInstanceId",
+                "name",
+                "topicName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KafkaTrigger resources.\n",
+                "properties": {
+                    "batchFlushDurationMilliseconds": {
+                        "type": "integer",
+                        "description": "触发器批量消费的最长等待时间。单位为毫秒（ms），取值范围为 1000 ~ 60000 ms，默认值为 1000 ms。\n"
+                    },
+                    "batchSize": {
+                        "type": "integer",
+                        "description": "触发器批量消费的每批次消息数。\n"
+                    },
+                    "consumerGroup": {
+                        "type": "string",
+                        "description": "消息队列 Kafka 实例的消费组名字。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "Kafka 触发器创建时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Kafka 触发器描述。长度限制为 200 个字符以内。\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "是否在创建触发器的同时启用触发器。取值：true：启用。false：关闭。\n"
+                    },
+                    "functionId": {
+                        "type": "string",
+                        "description": "函数 ID。\n"
+                    },
+                    "kafkaCredentials": {
+                        "$ref": "#/types/volcenginecc:vefaas/KafkaTriggerKafkaCredentials:KafkaTriggerKafkaCredentials",
+                        "description": "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。\n"
+                    },
+                    "kafkaTriggerId": {
+                        "type": "string",
+                        "description": "Kafka 触发器 ID。\n"
+                    },
+                    "maximumRetryAttempts": {
+                        "type": "integer",
+                        "description": "函数发生运行错误（包括用户代码错误和 Runtime 错误）时的最大重试次数。取值范围为 0～100 的正整数。\n"
+                    },
+                    "mqInstanceId": {
+                        "type": "string",
+                        "description": "消息队列 Kafka 实例 ID。\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。\n"
+                    },
+                    "startingPosition": {
+                        "type": "string",
+                        "description": "指定开始消费 Topic 中消息的位置。取值：Latest：只消费订阅 Topic 后产生的消息。Earliest：从 Topic 中生产的第一条消息开始消费。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Kafka 触发器状态。参数值说明：ready：运行，failed：失败，pending：启动中\n"
+                    },
+                    "topicName": {
+                        "type": "string",
+                        "description": "消息队列 Kafka 实例的 Topic 名称。\n"
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "Kafka 触发器最近一次更新时间。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:vefaas/sandbox:Sandbox": {
+            "description": "沙箱实例是云沙箱中实际执行沙箱镜像的安全且隔离的容器运行环境。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  vefaasSandboxDemo:\n    type: volcenginecc:vefaas:Sandbox\n    name: VefaasSandboxDemo\n    properties:\n      functionId: n5hcs3y5****\n      timeout: 50\n      memoryMb: 2048\n      cpuMilli: 1000\n      requestTimeout: 30\n      maxConcurrency: 100\n      metadatas:\n        - key: env\n          value: test\n      instanceImageInfo:\n        image: enterprise-public-cn-beijing.cr.volces.com/xxxxxx/all-in-one-sandbox:xxxxxx\n        command: /opt/gem/run.sh\n        port: 8080\n        image_id: 3ewzg8x5h1***\n      instanceTosMountConfig:\n        enable: true\n        tos_mount_points:\n          - bucketPath: /mnt/tos\n            localMountPath: /mnt/tos\n      envs:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vefaas/sandbox:Sandbox example \"function_id|sandbox_id\"\n```\n\n",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "沙箱实例所在可用区 ID。\n"
+                },
+                "cpuMilli": {
+                    "type": "integer",
+                    "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "沙箱实例创建时间。\n"
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxEnv:SandboxEnv"
+                    }
+                },
+                "errorCode": {
+                    "type": "string",
+                    "description": "沙箱实例启动失败错误码。参数值说明：internal*load*request*error：系统内部错误，function*initialize*failed：业务进程初始化错误，function*health*check*failed：健康检查错误，route_terminating：路由删除中，正常启动沙箱实例时，该字段为空。\n"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "沙箱实例启动失败的错误码详情。正常启动沙箱实例时，该字段为空。\n"
+                },
+                "expireAt": {
+                    "type": "string",
+                    "description": "沙箱实例存活时长。\n"
+                },
+                "functionId": {
+                    "type": "string",
+                    "description": "沙箱实例所属的沙箱应用 ID。\n"
+                },
+                "instanceImageInfo": {
+                    "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceImageInfo:SandboxInstanceImageInfo",
+                    "description": "沙箱实例镜像信息，包括镜像地址、启动命令、监听端口。\n"
+                },
+                "instanceTosMountConfig": {
+                    "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceTosMountConfig:SandboxInstanceTosMountConfig",
+                    "description": "沙箱实例级别对象存储（TOS）存储挂载配置。\n"
+                },
+                "instanceType": {
+                    "type": "string",
+                    "description": "沙箱实例类型 。参数值说明：elastic：弹性实例，frozen：冻结实例，activated：激活实例，reserved：预留实例。\n"
+                },
+                "maxConcurrency": {
+                    "type": "integer",
+                    "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。\n"
+                },
+                "memoryMb": {
+                    "type": "integer",
+                    "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048\n"
+                },
+                "metadatas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxMetadata:SandboxMetadata"
+                    }
+                },
+                "pending": {
+                    "type": "boolean",
+                    "description": "沙箱实例是否处于 Pending 状态。参数值说明：true：是，false：否。\n"
+                },
+                "requestTimeout": {
+                    "type": "integer",
+                    "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。\n"
+                },
+                "revisionNumber": {
+                    "type": "integer",
+                    "description": "函数实例版本编号。\n"
+                },
+                "sandboxId": {
+                    "type": "string",
+                    "description": "沙箱实例 ID。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "沙箱实例状态。 参数值说明：Starting：开始启动，Ready：启动完成，Failed：启动失败，Terminating：终止中。\n"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。\n"
+                }
+            },
+            "required": [
+                "availabilityZone",
+                "cpuMilli",
+                "createdTime",
+                "envs",
+                "errorCode",
+                "errorMessage",
+                "expireAt",
+                "functionId",
+                "instanceImageInfo",
+                "instanceTosMountConfig",
+                "instanceType",
+                "maxConcurrency",
+                "memoryMb",
+                "metadatas",
+                "pending",
+                "requestTimeout",
+                "revisionNumber",
+                "sandboxId",
+                "status",
+                "timeout"
+            ],
+            "inputProperties": {
+                "cpuMilli": {
+                    "type": "integer",
+                    "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。\n"
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxEnv:SandboxEnv"
+                    }
+                },
+                "functionId": {
+                    "type": "string",
+                    "description": "沙箱实例所属的沙箱应用 ID。\n"
+                },
+                "instanceImageInfo": {
+                    "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceImageInfo:SandboxInstanceImageInfo",
+                    "description": "沙箱实例镜像信息，包括镜像地址、启动命令、监听端口。\n"
+                },
+                "instanceTosMountConfig": {
+                    "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceTosMountConfig:SandboxInstanceTosMountConfig",
+                    "description": "沙箱实例级别对象存储（TOS）存储挂载配置。\n"
+                },
+                "maxConcurrency": {
+                    "type": "integer",
+                    "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。\n"
+                },
+                "memoryMb": {
+                    "type": "integer",
+                    "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048\n"
+                },
+                "metadatas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxMetadata:SandboxMetadata"
+                    }
+                },
+                "requestTimeout": {
+                    "type": "integer",
+                    "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。\n"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。\n"
+                }
+            },
+            "requiredInputs": [
+                "functionId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Sandbox resources.\n",
+                "properties": {
+                    "availabilityZone": {
+                        "type": "string",
+                        "description": "沙箱实例所在可用区 ID。\n"
+                    },
+                    "cpuMilli": {
+                        "type": "integer",
+                        "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "沙箱实例创建时间。\n"
+                    },
+                    "envs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vefaas/SandboxEnv:SandboxEnv"
+                        }
+                    },
+                    "errorCode": {
+                        "type": "string",
+                        "description": "沙箱实例启动失败错误码。参数值说明：internal*load*request*error：系统内部错误，function*initialize*failed：业务进程初始化错误，function*health*check*failed：健康检查错误，route_terminating：路由删除中，正常启动沙箱实例时，该字段为空。\n"
+                    },
+                    "errorMessage": {
+                        "type": "string",
+                        "description": "沙箱实例启动失败的错误码详情。正常启动沙箱实例时，该字段为空。\n"
+                    },
+                    "expireAt": {
+                        "type": "string",
+                        "description": "沙箱实例存活时长。\n"
+                    },
+                    "functionId": {
+                        "type": "string",
+                        "description": "沙箱实例所属的沙箱应用 ID。\n"
+                    },
+                    "instanceImageInfo": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceImageInfo:SandboxInstanceImageInfo",
+                        "description": "沙箱实例镜像信息，包括镜像地址、启动命令、监听端口。\n"
+                    },
+                    "instanceTosMountConfig": {
+                        "$ref": "#/types/volcenginecc:vefaas/SandboxInstanceTosMountConfig:SandboxInstanceTosMountConfig",
+                        "description": "沙箱实例级别对象存储（TOS）存储挂载配置。\n"
+                    },
+                    "instanceType": {
+                        "type": "string",
+                        "description": "沙箱实例类型 。参数值说明：elastic：弹性实例，frozen：冻结实例，activated：激活实例，reserved：预留实例。\n"
+                    },
+                    "maxConcurrency": {
+                        "type": "integer",
+                        "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。\n"
+                    },
+                    "memoryMb": {
+                        "type": "integer",
+                        "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048\n"
+                    },
+                    "metadatas": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vefaas/SandboxMetadata:SandboxMetadata"
+                        }
+                    },
+                    "pending": {
+                        "type": "boolean",
+                        "description": "沙箱实例是否处于 Pending 状态。参数值说明：true：是，false：否。\n"
+                    },
+                    "requestTimeout": {
+                        "type": "integer",
+                        "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。\n"
+                    },
+                    "revisionNumber": {
+                        "type": "integer",
+                        "description": "函数实例版本编号。\n"
+                    },
+                    "sandboxId": {
+                        "type": "string",
+                        "description": "沙箱实例 ID。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "沙箱实例状态。 参数值说明：Starting：开始启动，Ready：启动完成，Failed：启动失败，Terminating：终止中。\n"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:vke/addon:Addon": {
-            "description": "查询符合条件的已安装组件详情列表。\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vke/addon:Addon example \"cluster_id|name\"\n```\n\n",
+            "description": "查询符合条件的已安装组件详情列表。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst vKEAddonDemo = new volcenginecc.vke.Addon(\"VKEAddonDemo\", {\n    clusterId: \"cd35mtki***\",\n    deployMode: \"Unmanaged\",\n    deployNodeType: \"Node\",\n    name: \"csi-nas\",\n    version: \"v1.2.7\",\n    config: \"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nv_ke_addon_demo = volcenginecc.vke.Addon(\"VKEAddonDemo\",\n    cluster_id=\"cd35mtki***\",\n    deploy_mode=\"Unmanaged\",\n    deploy_node_type=\"Node\",\n    name=\"csi-nas\",\n    version=\"v1.2.7\",\n    config=\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var vKEAddonDemo = new Volcenginecc.Vke.Addon(\"VKEAddonDemo\", new()\n    {\n        ClusterId = \"cd35mtki***\",\n        DeployMode = \"Unmanaged\",\n        DeployNodeType = \"Node\",\n        Name = \"csi-nas\",\n        Version = \"v1.2.7\",\n        Config = \"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vke\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := vke.NewAddon(ctx, \"VKEAddonDemo\", \u0026vke.AddonArgs{\n\t\t\tClusterId:      pulumi.String(\"cd35mtki***\"),\n\t\t\tDeployMode:     pulumi.String(\"Unmanaged\"),\n\t\t\tDeployNodeType: pulumi.String(\"Node\"),\n\t\t\tName:           pulumi.String(\"csi-nas\"),\n\t\t\tVersion:        pulumi.String(\"v1.2.7\"),\n\t\t\tConfig:         pulumi.String(\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.vke.Addon;\nimport com.volcengine.volcenginecc.vke.AddonArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var vKEAddonDemo = new Addon(\"vKEAddonDemo\", AddonArgs.builder()\n            .clusterId(\"cd35mtki***\")\n            .deployMode(\"Unmanaged\")\n            .deployNodeType(\"Node\")\n            .name(\"csi-nas\")\n            .version(\"v1.2.7\")\n            .config(\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  vKEAddonDemo:\n    type: volcenginecc:vke:Addon\n    name: VKEAddonDemo\n    properties:\n      clusterId: cd35mtki***\n      deployMode: Unmanaged\n      deployNodeType: Node\n      name: csi-nas\n      version: v1.2.7\n      config: '{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vke/addon:Addon example \"cluster_id|name\"\n```\n\n",
             "properties": {
                 "clusterId": {
                     "type": "string",
@@ -22519,7 +23595,7 @@
             }
         },
         "volcenginecc:vpc/networkAcl:NetworkAcl": {
-            "description": "网络ACL用于控制子网的出入流量，其基于白名单原理设计，出入子网的流量必须被网络ACL规则允许才能放通。\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vpc/networkAcl:NetworkAcl example \"network_acl_id\"\n```\n\n",
+            "description": "网络ACL用于控制子网的出入流量，其基于白名单原理设计，出入子网的流量必须被网络ACL规则允许才能放通。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  networkAclDemo:\n    type: volcenginecc:vpc:NetworkAcl\n    name: NetworkAclDemo\n    properties:\n      vpcId: vpc-rrco37ovjq4gv0x58xxxxxx\n      networkAclName: NetworkAclDemo\n      description: NetworkAclDemo-Description\n      projectName: default\n      ingressAclEntries:\n        - cidr_ip: 10.0.1.0/24\n          description: 默认规则\n          network_acl_entry_name: test-entries\n          policy: drop\n          port: 80/80\n          protocol: tcp\n      egressAclEntries:\n        - cidr_ip: 0.0.0.0/0\n          description: 默认规则\n          network_acl_entry_name: \"\"\n          policy: accept\n          port: -1/-1\n          protocol: all\n      resources:\n        - resource_id: subnet-3nrjlvvxo4gsg931ebxxxxxx\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vpc/networkAcl:NetworkAcl example \"network_acl_id\"\n```\n\n",
             "properties": {
                 "createdTime": {
                     "type": "string",
@@ -24748,6 +25824,133 @@
             "description": "Plural Data Source schema for Volcengine::ALB::ServerGroup\n",
             "outputs": {
                 "description": "A collection of values returned by getServerGroups.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:apig/getGatewayService:getGatewayService": {
+            "description": "Data Source schema for Volcengine::APIG::GatewayService\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getGatewayService.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGatewayService.\n",
+                "properties": {
+                    "authSpec": {
+                        "$ref": "#/types/volcenginecc:apig/getGatewayServiceAuthSpec:getGatewayServiceAuthSpec",
+                        "description": "认证配置。\n"
+                    },
+                    "comments": {
+                        "description": "备注，长度限制为0~253个字符。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "创建时间。\n",
+                        "type": "string"
+                    },
+                    "customDomains": {
+                        "description": "自定义域名列表。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/getGatewayServiceCustomDomain:getGatewayServiceCustomDomain"
+                        },
+                        "type": "array"
+                    },
+                    "domainSpec": {
+                        "$ref": "#/types/volcenginecc:apig/getGatewayServiceDomainSpec:getGatewayServiceDomainSpec",
+                        "description": "域名详情。\n"
+                    },
+                    "domains": {
+                        "description": "默认域名。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/getGatewayServiceDomain:getGatewayServiceDomain"
+                        },
+                        "type": "array"
+                    },
+                    "gatewayId": {
+                        "description": "网关ID。\n",
+                        "type": "string"
+                    },
+                    "gatewayName": {
+                        "description": "网关名称。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "message": {
+                        "description": "服务创建失败、删除失败或异常时的错误信息。\n",
+                        "type": "string"
+                    },
+                    "protocols": {
+                        "description": "服务支持的协议。取值：HTTP：HTTP。HTTPS：HTTPS。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "serviceId": {
+                        "description": "服务ID。\n",
+                        "type": "string"
+                    },
+                    "serviceName": {
+                        "description": "服务名称。支持大小写字母、数字和中划线（-），长度限制为2~128个字符。不能以中划线（-）开头。。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Creating：创建中。CreatedFailed：创建失败。Running：运行中。Deleting：删除中。DeletedFailed：删除失败。Abnormal：异常。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "authSpec",
+                    "comments",
+                    "createdTime",
+                    "customDomains",
+                    "domainSpec",
+                    "domains",
+                    "gatewayId",
+                    "gatewayName",
+                    "id",
+                    "message",
+                    "protocols",
+                    "serviceId",
+                    "serviceName",
+                    "status"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:apig/getGatewayServices:getGatewayServices": {
+            "description": "Plural Data Source schema for Volcengine::APIG::GatewayService\n",
+            "outputs": {
+                "description": "A collection of values returned by getGatewayServices.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -30116,6 +31319,298 @@
             "description": "Plural Data Source schema for Volcengine::TransitRouter::TransitRouter\n",
             "outputs": {
                 "description": "A collection of values returned by getTransitRouters.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vefaas/getKafkaTrigger:getKafkaTrigger": {
+            "description": "Data Source schema for Volcengine::VEFAAS::KafkaTrigger\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getKafkaTrigger.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getKafkaTrigger.\n",
+                "properties": {
+                    "batchFlushDurationMilliseconds": {
+                        "description": "触发器批量消费的最长等待时间。单位为毫秒（ms），取值范围为 1000 ~ 60000 ms，默认值为 1000 ms。\n",
+                        "type": "integer"
+                    },
+                    "batchSize": {
+                        "description": "触发器批量消费的每批次消息数。\n",
+                        "type": "integer"
+                    },
+                    "consumerGroup": {
+                        "description": "消息队列 Kafka 实例的消费组名字。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "Kafka 触发器创建时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Kafka 触发器描述。长度限制为 200 个字符以内。\n",
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "description": "是否在创建触发器的同时启用触发器。取值：true：启用。false：关闭。\n",
+                        "type": "boolean"
+                    },
+                    "functionId": {
+                        "description": "函数 ID。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "kafkaCredentials": {
+                        "$ref": "#/types/volcenginecc:vefaas/getKafkaTriggerKafkaCredentials:getKafkaTriggerKafkaCredentials",
+                        "description": "Kafka 身份认证。函数服务将通过 Kafka ACL 权限策略，对 PLAIN 和 SCRAM-SHA-256 两种类型的 SASL 用户进行消息消费鉴权。\n"
+                    },
+                    "kafkaTriggerId": {
+                        "description": "Kafka 触发器 ID。\n",
+                        "type": "string"
+                    },
+                    "maximumRetryAttempts": {
+                        "description": "函数发生运行错误（包括用户代码错误和 Runtime 错误）时的最大重试次数。取值范围为 0～100 的正整数。\n",
+                        "type": "integer"
+                    },
+                    "mqInstanceId": {
+                        "description": "消息队列 Kafka 实例 ID。\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Kafka 触发器名字。同一函数下，触发器名称不可重复。只能包含大小写字母、数字、下划线，并且以字母开头，长度限制为 4~63 个字符。\n",
+                        "type": "string"
+                    },
+                    "startingPosition": {
+                        "description": "指定开始消费 Topic 中消息的位置。取值：Latest：只消费订阅 Topic 后产生的消息。Earliest：从 Topic 中生产的第一条消息开始消费。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Kafka 触发器状态。参数值说明：ready：运行，failed：失败，pending：启动中\n",
+                        "type": "string"
+                    },
+                    "topicName": {
+                        "description": "消息队列 Kafka 实例的 Topic 名称。\n",
+                        "type": "string"
+                    },
+                    "updatedTime": {
+                        "description": "Kafka 触发器最近一次更新时间。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "batchFlushDurationMilliseconds",
+                    "batchSize",
+                    "consumerGroup",
+                    "createdTime",
+                    "description",
+                    "enabled",
+                    "functionId",
+                    "id",
+                    "kafkaCredentials",
+                    "kafkaTriggerId",
+                    "maximumRetryAttempts",
+                    "mqInstanceId",
+                    "name",
+                    "startingPosition",
+                    "status",
+                    "topicName",
+                    "updatedTime"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vefaas/getKafkaTriggers:getKafkaTriggers": {
+            "description": "Plural Data Source schema for Volcengine::VEFAAS::KafkaTrigger\n",
+            "outputs": {
+                "description": "A collection of values returned by getKafkaTriggers.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vefaas/getSandbox:getSandbox": {
+            "description": "Data Source schema for Volcengine::VEFAAS::Sandbox\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSandbox.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSandbox.\n",
+                "properties": {
+                    "availabilityZone": {
+                        "description": "沙箱实例所在可用区 ID。\n",
+                        "type": "string"
+                    },
+                    "cpuMilli": {
+                        "description": "沙箱实例 CPU 规格：单位：milli cpu取值范围：250~16000,默认值：1000。\n",
+                        "type": "integer"
+                    },
+                    "createdTime": {
+                        "description": "沙箱实例创建时间。\n",
+                        "type": "string"
+                    },
+                    "envs": {
+                        "description": "沙箱实例环境变量。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vefaas/getSandboxEnv:getSandboxEnv"
+                        },
+                        "type": "array"
+                    },
+                    "errorCode": {
+                        "description": "沙箱实例启动失败错误码。参数值说明：internal*load*request*error：系统内部错误，function*initialize*failed：业务进程初始化错误，function*health*check*failed：健康检查错误，route_terminating：路由删除中，正常启动沙箱实例时，该字段为空。\n",
+                        "type": "string"
+                    },
+                    "errorMessage": {
+                        "description": "沙箱实例启动失败的错误码详情。正常启动沙箱实例时，该字段为空。\n",
+                        "type": "string"
+                    },
+                    "expireAt": {
+                        "description": "沙箱实例存活时长。\n",
+                        "type": "string"
+                    },
+                    "functionId": {
+                        "description": "沙箱实例所属的沙箱应用 ID。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "instanceImageInfo": {
+                        "$ref": "#/types/volcenginecc:vefaas/getSandboxInstanceImageInfo:getSandboxInstanceImageInfo",
+                        "description": "沙箱实例镜像信息，包括镜像地址、启动命令、监听端口。\n"
+                    },
+                    "instanceTosMountConfig": {
+                        "$ref": "#/types/volcenginecc:vefaas/getSandboxInstanceTosMountConfig:getSandboxInstanceTosMountConfig",
+                        "description": "沙箱实例级别对象存储（TOS）存储挂载配置。\n"
+                    },
+                    "instanceType": {
+                        "description": "沙箱实例类型 。参数值说明：elastic：弹性实例，frozen：冻结实例，activated：激活实例，reserved：预留实例。\n",
+                        "type": "string"
+                    },
+                    "maxConcurrency": {
+                        "description": "单实例请求最大并发数：取值范围：10~1000,默认值：100。\n",
+                        "type": "integer"
+                    },
+                    "memoryMb": {
+                        "description": "沙箱实例内存规格：单位：MiB，取值范围：512~131072，默认值：2048\n",
+                        "type": "integer"
+                    },
+                    "metadatas": {
+                        "description": "沙箱实例标签（Label）元信息，用于标记、筛选实例。格式为\u003c\"key\":\"value\"\u003e。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vefaas/getSandboxMetadata:getSandboxMetadata"
+                        },
+                        "type": "array"
+                    },
+                    "pending": {
+                        "description": "沙箱实例是否处于 Pending 状态。参数值说明：true：是，false：否。\n",
+                        "type": "boolean"
+                    },
+                    "requestTimeout": {
+                        "description": "请求超时时间：单位：秒，取值范围：1~900，正整数。默认值：30。\n",
+                        "type": "integer"
+                    },
+                    "revisionNumber": {
+                        "description": "函数实例版本编号。\n",
+                        "type": "integer"
+                    },
+                    "sandboxId": {
+                        "description": "沙箱实例 ID。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "沙箱实例状态。 参数值说明：Starting：开始启动，Ready：启动完成，Failed：启动失败，Terminating：终止中。\n",
+                        "type": "string"
+                    },
+                    "timeout": {
+                        "description": "沙箱实例存活时长：单位：分钟，取值范围：3～1440，默认值：60。\n",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "availabilityZone",
+                    "cpuMilli",
+                    "createdTime",
+                    "envs",
+                    "errorCode",
+                    "errorMessage",
+                    "expireAt",
+                    "functionId",
+                    "id",
+                    "instanceImageInfo",
+                    "instanceTosMountConfig",
+                    "instanceType",
+                    "maxConcurrency",
+                    "memoryMb",
+                    "metadatas",
+                    "pending",
+                    "requestTimeout",
+                    "revisionNumber",
+                    "sandboxId",
+                    "status",
+                    "timeout"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vefaas/getSandboxes:getSandboxes": {
+            "description": "Plural Data Source schema for Volcengine::VEFAAS::Sandbox\n",
+            "outputs": {
+                "description": "A collection of values returned by getSandboxes.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",

@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GatewayServiceArgs, GatewayServiceState } from "./gatewayService";
+export type GatewayService = import("./gatewayService").GatewayService;
+export const GatewayService: typeof import("./gatewayService").GatewayService = null as any;
+utilities.lazyLoad(exports, ["GatewayService"], () => require("./gatewayService"));
+
+export { GetGatewayServiceArgs, GetGatewayServiceResult, GetGatewayServiceOutputArgs } from "./getGatewayService";
+export const getGatewayService: typeof import("./getGatewayService").getGatewayService = null as any;
+export const getGatewayServiceOutput: typeof import("./getGatewayService").getGatewayServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayService","getGatewayServiceOutput"], () => require("./getGatewayService"));
+
+export { GetGatewayServicesResult } from "./getGatewayServices";
+export const getGatewayServices: typeof import("./getGatewayServices").getGatewayServices = null as any;
+export const getGatewayServicesOutput: typeof import("./getGatewayServices").getGatewayServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayServices","getGatewayServicesOutput"], () => require("./getGatewayServices"));
+
 export { GetUpstreamSourceArgs, GetUpstreamSourceResult, GetUpstreamSourceOutputArgs } from "./getUpstreamSource";
 export const getUpstreamSource: typeof import("./getUpstreamSource").getUpstreamSource = null as any;
 export const getUpstreamSourceOutput: typeof import("./getUpstreamSource").getUpstreamSourceOutput = null as any;
@@ -25,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:apig/gatewayService:GatewayService":
+                return new GatewayService(name, <any>undefined, { urn })
             case "volcenginecc:apig/upstreamSource:UpstreamSource":
                 return new UpstreamSource(name, <any>undefined, { urn })
             default:
@@ -32,4 +49,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "apig/gatewayService", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/upstreamSource", _module)

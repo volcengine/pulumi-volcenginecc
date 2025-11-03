@@ -12,6 +12,51 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/tls"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := tls.NewTopic(ctx, "TlsTopicDemo", &tls.TopicArgs{
+//				Ttl:           pulumi.Int(187),
+//				HotTtl:        pulumi.Int(8),
+//				ColdTtl:       pulumi.Int(79),
+//				ArchiveTtl:    pulumi.Int(100),
+//				ShardCount:    pulumi.Int(2),
+//				AutoSplit:     pulumi.Bool(true),
+//				MaxSplitShard: pulumi.Int(256),
+//				Tags: tls.TopicTagArray{
+//					&tls.TopicTagArgs{
+//						Key:   pulumi.String("env"),
+//						Value: pulumi.String("test"),
+//					},
+//				},
+//				TimeKey:      pulumi.String("time"),
+//				TimeFormat:   pulumi.String("%Y-%m-%d %H:%M:%S"),
+//				LogPublicIp:  pulumi.Bool(false),
+//				TopicName:    pulumi.String("test"),
+//				Description:  pulumi.String("test"),
+//				ProjectId:    pulumi.String("44a425f0-a6ef-4a****"),
+//				EnableHotTtl: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -280,6 +280,22 @@ class Registry(pulumi.CustomResource):
         """
         镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_volcenginecc as volcenginecc
+
+        c_r_registry_demo = volcenginecc.cr.Registry("CRRegistryDemo",
+            project="default",
+            name="test",
+            type="Enterprise",
+            tags=[{
+                "key": "env",
+                "value": "test",
+            }])
+        ```
+
         ## Import
 
         ```sh
@@ -300,6 +316,22 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_volcenginecc as volcenginecc
+
+        c_r_registry_demo = volcenginecc.cr.Registry("CRRegistryDemo",
+            project="default",
+            name="test",
+            type="Enterprise",
+            tags=[{
+                "key": "env",
+                "value": "test",
+            }])
+        ```
 
         ## Import
 

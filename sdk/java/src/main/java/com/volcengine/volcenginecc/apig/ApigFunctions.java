@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.apig.inputs.GetGatewayServiceArgs;
+import com.volcengine.volcenginecc.apig.inputs.GetGatewayServicePlainArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamSourceArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamSourcePlainArgs;
+import com.volcengine.volcenginecc.apig.outputs.GetGatewayServiceResult;
+import com.volcengine.volcenginecc.apig.outputs.GetGatewayServicesResult;
 import com.volcengine.volcenginecc.apig.outputs.GetUpstreamSourceResult;
 import com.volcengine.volcenginecc.apig.outputs.GetUpstreamSourcesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApigFunctions {
+    /**
+     * Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServiceResult> getGatewayService(GetGatewayServiceArgs args) {
+        return getGatewayService(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static CompletableFuture<GetGatewayServiceResult> getGatewayServicePlain(GetGatewayServicePlainArgs args) {
+        return getGatewayServicePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServiceResult> getGatewayService(GetGatewayServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getGatewayService:getGatewayService", TypeShape.of(GetGatewayServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServiceResult> getGatewayService(GetGatewayServiceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getGatewayService:getGatewayService", TypeShape.of(GetGatewayServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static CompletableFuture<GetGatewayServiceResult> getGatewayServicePlain(GetGatewayServicePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:apig/getGatewayService:getGatewayService", TypeShape.of(GetGatewayServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServicesResult> getGatewayServices() {
+        return getGatewayServices(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static CompletableFuture<GetGatewayServicesResult> getGatewayServicesPlain() {
+        return getGatewayServicesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServicesResult> getGatewayServices(InvokeArgs args) {
+        return getGatewayServices(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static CompletableFuture<GetGatewayServicesResult> getGatewayServicesPlain(InvokeArgs args) {
+        return getGatewayServicesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServicesResult> getGatewayServices(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getGatewayServices:getGatewayServices", TypeShape.of(GetGatewayServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static Output<GetGatewayServicesResult> getGatewayServices(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getGatewayServices:getGatewayServices", TypeShape.of(GetGatewayServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::GatewayService
+     * 
+     */
+    public static CompletableFuture<GetGatewayServicesResult> getGatewayServicesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:apig/getGatewayServices:getGatewayServices", TypeShape.of(GetGatewayServicesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::APIG::UpstreamSource
      * 

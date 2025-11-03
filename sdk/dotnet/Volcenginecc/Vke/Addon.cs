@@ -13,6 +13,29 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
     /// <summary>
     /// 查询符合条件的已安装组件详情列表。
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vKEAddonDemo = new Volcenginecc.Vke.Addon("VKEAddonDemo", new()
+    ///     {
+    ///         ClusterId = "cd35mtki***",
+    ///         DeployMode = "Unmanaged",
+    ///         DeployNodeType = "Node",
+    ///         Name = "csi-nas",
+    ///         Version = "v1.2.7",
+    ///         Config = "{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

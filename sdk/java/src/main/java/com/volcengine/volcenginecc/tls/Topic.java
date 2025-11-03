@@ -18,6 +18,59 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tls.Topic;
+ * import com.volcengine.volcenginecc.tls.TopicArgs;
+ * import com.pulumi.volcenginecc.tls.inputs.TopicTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tlsTopicDemo = new Topic("tlsTopicDemo", TopicArgs.builder()
+ *             .ttl(187)
+ *             .hotTtl(8)
+ *             .coldTtl(79)
+ *             .archiveTtl(100)
+ *             .shardCount(2)
+ *             .autoSplit(true)
+ *             .maxSplitShard(256)
+ *             .tags(TopicTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .timeKey("time")
+ *             .timeFormat("%Y-%m-%d %H:%M:%S")
+ *             .logPublicIp(false)
+ *             .topicName("test")
+ *             .description("test")
+ *             .projectId("44a425f0-a6ef-4a****")
+ *             .enableHotTtl(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * ```sh

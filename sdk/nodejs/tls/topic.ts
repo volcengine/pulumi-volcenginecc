@@ -7,6 +7,34 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
+ *
+ * const tlsTopicDemo = new volcenginecc.tls.Topic("TlsTopicDemo", {
+ *     ttl: 187,
+ *     hotTtl: 8,
+ *     coldTtl: 79,
+ *     archiveTtl: 100,
+ *     shardCount: 2,
+ *     autoSplit: true,
+ *     maxSplitShard: 256,
+ *     tags: [{
+ *         key: "env",
+ *         value: "test",
+ *     }],
+ *     timeKey: "time",
+ *     timeFormat: "%Y-%m-%d %H:%M:%S",
+ *     logPublicIp: false,
+ *     topicName: "test",
+ *     description: "test",
+ *     projectId: "44a425f0-a6ef-4a****",
+ *     enableHotTtl: false,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

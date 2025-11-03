@@ -13,6 +13,492 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GatewayServiceAuthSpec struct {
+	// 是否开启认证。
+	Enable *bool `pulumi:"enable"`
+}
+
+// GatewayServiceAuthSpecInput is an input type that accepts GatewayServiceAuthSpecArgs and GatewayServiceAuthSpecOutput values.
+// You can construct a concrete instance of `GatewayServiceAuthSpecInput` via:
+//
+//	GatewayServiceAuthSpecArgs{...}
+type GatewayServiceAuthSpecInput interface {
+	pulumi.Input
+
+	ToGatewayServiceAuthSpecOutput() GatewayServiceAuthSpecOutput
+	ToGatewayServiceAuthSpecOutputWithContext(context.Context) GatewayServiceAuthSpecOutput
+}
+
+type GatewayServiceAuthSpecArgs struct {
+	// 是否开启认证。
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+}
+
+func (GatewayServiceAuthSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceAuthSpec)(nil)).Elem()
+}
+
+func (i GatewayServiceAuthSpecArgs) ToGatewayServiceAuthSpecOutput() GatewayServiceAuthSpecOutput {
+	return i.ToGatewayServiceAuthSpecOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceAuthSpecArgs) ToGatewayServiceAuthSpecOutputWithContext(ctx context.Context) GatewayServiceAuthSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceAuthSpecOutput)
+}
+
+func (i GatewayServiceAuthSpecArgs) ToGatewayServiceAuthSpecPtrOutput() GatewayServiceAuthSpecPtrOutput {
+	return i.ToGatewayServiceAuthSpecPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceAuthSpecArgs) ToGatewayServiceAuthSpecPtrOutputWithContext(ctx context.Context) GatewayServiceAuthSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceAuthSpecOutput).ToGatewayServiceAuthSpecPtrOutputWithContext(ctx)
+}
+
+// GatewayServiceAuthSpecPtrInput is an input type that accepts GatewayServiceAuthSpecArgs, GatewayServiceAuthSpecPtr and GatewayServiceAuthSpecPtrOutput values.
+// You can construct a concrete instance of `GatewayServiceAuthSpecPtrInput` via:
+//
+//	        GatewayServiceAuthSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayServiceAuthSpecPtrInput interface {
+	pulumi.Input
+
+	ToGatewayServiceAuthSpecPtrOutput() GatewayServiceAuthSpecPtrOutput
+	ToGatewayServiceAuthSpecPtrOutputWithContext(context.Context) GatewayServiceAuthSpecPtrOutput
+}
+
+type gatewayServiceAuthSpecPtrType GatewayServiceAuthSpecArgs
+
+func GatewayServiceAuthSpecPtr(v *GatewayServiceAuthSpecArgs) GatewayServiceAuthSpecPtrInput {
+	return (*gatewayServiceAuthSpecPtrType)(v)
+}
+
+func (*gatewayServiceAuthSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayServiceAuthSpec)(nil)).Elem()
+}
+
+func (i *gatewayServiceAuthSpecPtrType) ToGatewayServiceAuthSpecPtrOutput() GatewayServiceAuthSpecPtrOutput {
+	return i.ToGatewayServiceAuthSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayServiceAuthSpecPtrType) ToGatewayServiceAuthSpecPtrOutputWithContext(ctx context.Context) GatewayServiceAuthSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceAuthSpecPtrOutput)
+}
+
+type GatewayServiceAuthSpecOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceAuthSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceAuthSpec)(nil)).Elem()
+}
+
+func (o GatewayServiceAuthSpecOutput) ToGatewayServiceAuthSpecOutput() GatewayServiceAuthSpecOutput {
+	return o
+}
+
+func (o GatewayServiceAuthSpecOutput) ToGatewayServiceAuthSpecOutputWithContext(ctx context.Context) GatewayServiceAuthSpecOutput {
+	return o
+}
+
+func (o GatewayServiceAuthSpecOutput) ToGatewayServiceAuthSpecPtrOutput() GatewayServiceAuthSpecPtrOutput {
+	return o.ToGatewayServiceAuthSpecPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayServiceAuthSpecOutput) ToGatewayServiceAuthSpecPtrOutputWithContext(ctx context.Context) GatewayServiceAuthSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayServiceAuthSpec) *GatewayServiceAuthSpec {
+		return &v
+	}).(GatewayServiceAuthSpecPtrOutput)
+}
+
+// 是否开启认证。
+func (o GatewayServiceAuthSpecOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GatewayServiceAuthSpec) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+type GatewayServiceAuthSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceAuthSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayServiceAuthSpec)(nil)).Elem()
+}
+
+func (o GatewayServiceAuthSpecPtrOutput) ToGatewayServiceAuthSpecPtrOutput() GatewayServiceAuthSpecPtrOutput {
+	return o
+}
+
+func (o GatewayServiceAuthSpecPtrOutput) ToGatewayServiceAuthSpecPtrOutputWithContext(ctx context.Context) GatewayServiceAuthSpecPtrOutput {
+	return o
+}
+
+func (o GatewayServiceAuthSpecPtrOutput) Elem() GatewayServiceAuthSpecOutput {
+	return o.ApplyT(func(v *GatewayServiceAuthSpec) GatewayServiceAuthSpec {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayServiceAuthSpec
+		return ret
+	}).(GatewayServiceAuthSpecOutput)
+}
+
+// 是否开启认证。
+func (o GatewayServiceAuthSpecPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayServiceAuthSpec) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GatewayServiceCustomDomain struct {
+	// 自定义域名。
+	Domain *string `pulumi:"domain"`
+	// 自定义域名ID。
+	DomainId *string `pulumi:"domainId"`
+}
+
+// GatewayServiceCustomDomainInput is an input type that accepts GatewayServiceCustomDomainArgs and GatewayServiceCustomDomainOutput values.
+// You can construct a concrete instance of `GatewayServiceCustomDomainInput` via:
+//
+//	GatewayServiceCustomDomainArgs{...}
+type GatewayServiceCustomDomainInput interface {
+	pulumi.Input
+
+	ToGatewayServiceCustomDomainOutput() GatewayServiceCustomDomainOutput
+	ToGatewayServiceCustomDomainOutputWithContext(context.Context) GatewayServiceCustomDomainOutput
+}
+
+type GatewayServiceCustomDomainArgs struct {
+	// 自定义域名。
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// 自定义域名ID。
+	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
+}
+
+func (GatewayServiceCustomDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (i GatewayServiceCustomDomainArgs) ToGatewayServiceCustomDomainOutput() GatewayServiceCustomDomainOutput {
+	return i.ToGatewayServiceCustomDomainOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceCustomDomainArgs) ToGatewayServiceCustomDomainOutputWithContext(ctx context.Context) GatewayServiceCustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceCustomDomainOutput)
+}
+
+// GatewayServiceCustomDomainArrayInput is an input type that accepts GatewayServiceCustomDomainArray and GatewayServiceCustomDomainArrayOutput values.
+// You can construct a concrete instance of `GatewayServiceCustomDomainArrayInput` via:
+//
+//	GatewayServiceCustomDomainArray{ GatewayServiceCustomDomainArgs{...} }
+type GatewayServiceCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToGatewayServiceCustomDomainArrayOutput() GatewayServiceCustomDomainArrayOutput
+	ToGatewayServiceCustomDomainArrayOutputWithContext(context.Context) GatewayServiceCustomDomainArrayOutput
+}
+
+type GatewayServiceCustomDomainArray []GatewayServiceCustomDomainInput
+
+func (GatewayServiceCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (i GatewayServiceCustomDomainArray) ToGatewayServiceCustomDomainArrayOutput() GatewayServiceCustomDomainArrayOutput {
+	return i.ToGatewayServiceCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceCustomDomainArray) ToGatewayServiceCustomDomainArrayOutputWithContext(ctx context.Context) GatewayServiceCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceCustomDomainArrayOutput)
+}
+
+type GatewayServiceCustomDomainOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceCustomDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (o GatewayServiceCustomDomainOutput) ToGatewayServiceCustomDomainOutput() GatewayServiceCustomDomainOutput {
+	return o
+}
+
+func (o GatewayServiceCustomDomainOutput) ToGatewayServiceCustomDomainOutputWithContext(ctx context.Context) GatewayServiceCustomDomainOutput {
+	return o
+}
+
+// 自定义域名。
+func (o GatewayServiceCustomDomainOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayServiceCustomDomain) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// 自定义域名ID。
+func (o GatewayServiceCustomDomainOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayServiceCustomDomain) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+type GatewayServiceCustomDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (o GatewayServiceCustomDomainArrayOutput) ToGatewayServiceCustomDomainArrayOutput() GatewayServiceCustomDomainArrayOutput {
+	return o
+}
+
+func (o GatewayServiceCustomDomainArrayOutput) ToGatewayServiceCustomDomainArrayOutputWithContext(ctx context.Context) GatewayServiceCustomDomainArrayOutput {
+	return o
+}
+
+func (o GatewayServiceCustomDomainArrayOutput) Index(i pulumi.IntInput) GatewayServiceCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayServiceCustomDomain {
+		return vs[0].([]GatewayServiceCustomDomain)[vs[1].(int)]
+	}).(GatewayServiceCustomDomainOutput)
+}
+
+type GatewayServiceDomain struct {
+	// 域名。
+	Domain *string `pulumi:"domain"`
+	// 域名类型。取值：public：公网。private：私网。
+	Type *string `pulumi:"type"`
+}
+
+// GatewayServiceDomainInput is an input type that accepts GatewayServiceDomainArgs and GatewayServiceDomainOutput values.
+// You can construct a concrete instance of `GatewayServiceDomainInput` via:
+//
+//	GatewayServiceDomainArgs{...}
+type GatewayServiceDomainInput interface {
+	pulumi.Input
+
+	ToGatewayServiceDomainOutput() GatewayServiceDomainOutput
+	ToGatewayServiceDomainOutputWithContext(context.Context) GatewayServiceDomainOutput
+}
+
+type GatewayServiceDomainArgs struct {
+	// 域名。
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// 域名类型。取值：public：公网。private：私网。
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (GatewayServiceDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceDomain)(nil)).Elem()
+}
+
+func (i GatewayServiceDomainArgs) ToGatewayServiceDomainOutput() GatewayServiceDomainOutput {
+	return i.ToGatewayServiceDomainOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceDomainArgs) ToGatewayServiceDomainOutputWithContext(ctx context.Context) GatewayServiceDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceDomainOutput)
+}
+
+// GatewayServiceDomainArrayInput is an input type that accepts GatewayServiceDomainArray and GatewayServiceDomainArrayOutput values.
+// You can construct a concrete instance of `GatewayServiceDomainArrayInput` via:
+//
+//	GatewayServiceDomainArray{ GatewayServiceDomainArgs{...} }
+type GatewayServiceDomainArrayInput interface {
+	pulumi.Input
+
+	ToGatewayServiceDomainArrayOutput() GatewayServiceDomainArrayOutput
+	ToGatewayServiceDomainArrayOutputWithContext(context.Context) GatewayServiceDomainArrayOutput
+}
+
+type GatewayServiceDomainArray []GatewayServiceDomainInput
+
+func (GatewayServiceDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayServiceDomain)(nil)).Elem()
+}
+
+func (i GatewayServiceDomainArray) ToGatewayServiceDomainArrayOutput() GatewayServiceDomainArrayOutput {
+	return i.ToGatewayServiceDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceDomainArray) ToGatewayServiceDomainArrayOutputWithContext(ctx context.Context) GatewayServiceDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceDomainArrayOutput)
+}
+
+type GatewayServiceDomainOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceDomain)(nil)).Elem()
+}
+
+func (o GatewayServiceDomainOutput) ToGatewayServiceDomainOutput() GatewayServiceDomainOutput {
+	return o
+}
+
+func (o GatewayServiceDomainOutput) ToGatewayServiceDomainOutputWithContext(ctx context.Context) GatewayServiceDomainOutput {
+	return o
+}
+
+// 域名。
+func (o GatewayServiceDomainOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayServiceDomain) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// 域名类型。取值：public：公网。private：私网。
+func (o GatewayServiceDomainOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayServiceDomain) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GatewayServiceDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayServiceDomain)(nil)).Elem()
+}
+
+func (o GatewayServiceDomainArrayOutput) ToGatewayServiceDomainArrayOutput() GatewayServiceDomainArrayOutput {
+	return o
+}
+
+func (o GatewayServiceDomainArrayOutput) ToGatewayServiceDomainArrayOutputWithContext(ctx context.Context) GatewayServiceDomainArrayOutput {
+	return o
+}
+
+func (o GatewayServiceDomainArrayOutput) Index(i pulumi.IntInput) GatewayServiceDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayServiceDomain {
+		return vs[0].([]GatewayServiceDomain)[vs[1].(int)]
+	}).(GatewayServiceDomainOutput)
+}
+
+type GatewayServiceDomainSpec struct {
+	// 开启私网域名公网解析。
+	EnablePublicResolution *bool `pulumi:"enablePublicResolution"`
+}
+
+// GatewayServiceDomainSpecInput is an input type that accepts GatewayServiceDomainSpecArgs and GatewayServiceDomainSpecOutput values.
+// You can construct a concrete instance of `GatewayServiceDomainSpecInput` via:
+//
+//	GatewayServiceDomainSpecArgs{...}
+type GatewayServiceDomainSpecInput interface {
+	pulumi.Input
+
+	ToGatewayServiceDomainSpecOutput() GatewayServiceDomainSpecOutput
+	ToGatewayServiceDomainSpecOutputWithContext(context.Context) GatewayServiceDomainSpecOutput
+}
+
+type GatewayServiceDomainSpecArgs struct {
+	// 开启私网域名公网解析。
+	EnablePublicResolution pulumi.BoolPtrInput `pulumi:"enablePublicResolution"`
+}
+
+func (GatewayServiceDomainSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceDomainSpec)(nil)).Elem()
+}
+
+func (i GatewayServiceDomainSpecArgs) ToGatewayServiceDomainSpecOutput() GatewayServiceDomainSpecOutput {
+	return i.ToGatewayServiceDomainSpecOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceDomainSpecArgs) ToGatewayServiceDomainSpecOutputWithContext(ctx context.Context) GatewayServiceDomainSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceDomainSpecOutput)
+}
+
+func (i GatewayServiceDomainSpecArgs) ToGatewayServiceDomainSpecPtrOutput() GatewayServiceDomainSpecPtrOutput {
+	return i.ToGatewayServiceDomainSpecPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayServiceDomainSpecArgs) ToGatewayServiceDomainSpecPtrOutputWithContext(ctx context.Context) GatewayServiceDomainSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceDomainSpecOutput).ToGatewayServiceDomainSpecPtrOutputWithContext(ctx)
+}
+
+// GatewayServiceDomainSpecPtrInput is an input type that accepts GatewayServiceDomainSpecArgs, GatewayServiceDomainSpecPtr and GatewayServiceDomainSpecPtrOutput values.
+// You can construct a concrete instance of `GatewayServiceDomainSpecPtrInput` via:
+//
+//	        GatewayServiceDomainSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayServiceDomainSpecPtrInput interface {
+	pulumi.Input
+
+	ToGatewayServiceDomainSpecPtrOutput() GatewayServiceDomainSpecPtrOutput
+	ToGatewayServiceDomainSpecPtrOutputWithContext(context.Context) GatewayServiceDomainSpecPtrOutput
+}
+
+type gatewayServiceDomainSpecPtrType GatewayServiceDomainSpecArgs
+
+func GatewayServiceDomainSpecPtr(v *GatewayServiceDomainSpecArgs) GatewayServiceDomainSpecPtrInput {
+	return (*gatewayServiceDomainSpecPtrType)(v)
+}
+
+func (*gatewayServiceDomainSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayServiceDomainSpec)(nil)).Elem()
+}
+
+func (i *gatewayServiceDomainSpecPtrType) ToGatewayServiceDomainSpecPtrOutput() GatewayServiceDomainSpecPtrOutput {
+	return i.ToGatewayServiceDomainSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayServiceDomainSpecPtrType) ToGatewayServiceDomainSpecPtrOutputWithContext(ctx context.Context) GatewayServiceDomainSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayServiceDomainSpecPtrOutput)
+}
+
+type GatewayServiceDomainSpecOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceDomainSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayServiceDomainSpec)(nil)).Elem()
+}
+
+func (o GatewayServiceDomainSpecOutput) ToGatewayServiceDomainSpecOutput() GatewayServiceDomainSpecOutput {
+	return o
+}
+
+func (o GatewayServiceDomainSpecOutput) ToGatewayServiceDomainSpecOutputWithContext(ctx context.Context) GatewayServiceDomainSpecOutput {
+	return o
+}
+
+func (o GatewayServiceDomainSpecOutput) ToGatewayServiceDomainSpecPtrOutput() GatewayServiceDomainSpecPtrOutput {
+	return o.ToGatewayServiceDomainSpecPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayServiceDomainSpecOutput) ToGatewayServiceDomainSpecPtrOutputWithContext(ctx context.Context) GatewayServiceDomainSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayServiceDomainSpec) *GatewayServiceDomainSpec {
+		return &v
+	}).(GatewayServiceDomainSpecPtrOutput)
+}
+
+// 开启私网域名公网解析。
+func (o GatewayServiceDomainSpecOutput) EnablePublicResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GatewayServiceDomainSpec) *bool { return v.EnablePublicResolution }).(pulumi.BoolPtrOutput)
+}
+
+type GatewayServiceDomainSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayServiceDomainSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayServiceDomainSpec)(nil)).Elem()
+}
+
+func (o GatewayServiceDomainSpecPtrOutput) ToGatewayServiceDomainSpecPtrOutput() GatewayServiceDomainSpecPtrOutput {
+	return o
+}
+
+func (o GatewayServiceDomainSpecPtrOutput) ToGatewayServiceDomainSpecPtrOutputWithContext(ctx context.Context) GatewayServiceDomainSpecPtrOutput {
+	return o
+}
+
+func (o GatewayServiceDomainSpecPtrOutput) Elem() GatewayServiceDomainSpecOutput {
+	return o.ApplyT(func(v *GatewayServiceDomainSpec) GatewayServiceDomainSpec {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayServiceDomainSpec
+		return ret
+	}).(GatewayServiceDomainSpecOutput)
+}
+
+// 开启私网域名公网解析。
+func (o GatewayServiceDomainSpecPtrOutput) EnablePublicResolution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayServiceDomainSpec) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePublicResolution
+	}).(pulumi.BoolPtrOutput)
+}
+
 type UpstreamSourceIngressSettings struct {
 	// 是否启用所有Ingress类。
 	EnableAllIngressClasses *bool `pulumi:"enableAllIngressClasses"`
@@ -1048,6 +1534,322 @@ func (o UpstreamSourceSourceSpecNacosSourceAuthConfigBasicPtrOutput) Username() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetGatewayServiceAuthSpec struct {
+	// 是否开启认证。
+	Enable bool `pulumi:"enable"`
+}
+
+// GetGatewayServiceAuthSpecInput is an input type that accepts GetGatewayServiceAuthSpecArgs and GetGatewayServiceAuthSpecOutput values.
+// You can construct a concrete instance of `GetGatewayServiceAuthSpecInput` via:
+//
+//	GetGatewayServiceAuthSpecArgs{...}
+type GetGatewayServiceAuthSpecInput interface {
+	pulumi.Input
+
+	ToGetGatewayServiceAuthSpecOutput() GetGatewayServiceAuthSpecOutput
+	ToGetGatewayServiceAuthSpecOutputWithContext(context.Context) GetGatewayServiceAuthSpecOutput
+}
+
+type GetGatewayServiceAuthSpecArgs struct {
+	// 是否开启认证。
+	Enable pulumi.BoolInput `pulumi:"enable"`
+}
+
+func (GetGatewayServiceAuthSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceAuthSpec)(nil)).Elem()
+}
+
+func (i GetGatewayServiceAuthSpecArgs) ToGetGatewayServiceAuthSpecOutput() GetGatewayServiceAuthSpecOutput {
+	return i.ToGetGatewayServiceAuthSpecOutputWithContext(context.Background())
+}
+
+func (i GetGatewayServiceAuthSpecArgs) ToGetGatewayServiceAuthSpecOutputWithContext(ctx context.Context) GetGatewayServiceAuthSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayServiceAuthSpecOutput)
+}
+
+type GetGatewayServiceAuthSpecOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayServiceAuthSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceAuthSpec)(nil)).Elem()
+}
+
+func (o GetGatewayServiceAuthSpecOutput) ToGetGatewayServiceAuthSpecOutput() GetGatewayServiceAuthSpecOutput {
+	return o
+}
+
+func (o GetGatewayServiceAuthSpecOutput) ToGetGatewayServiceAuthSpecOutputWithContext(ctx context.Context) GetGatewayServiceAuthSpecOutput {
+	return o
+}
+
+// 是否开启认证。
+func (o GetGatewayServiceAuthSpecOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayServiceAuthSpec) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+type GetGatewayServiceCustomDomain struct {
+	// 自定义域名。
+	Domain string `pulumi:"domain"`
+	// 自定义域名ID。
+	DomainId string `pulumi:"domainId"`
+}
+
+// GetGatewayServiceCustomDomainInput is an input type that accepts GetGatewayServiceCustomDomainArgs and GetGatewayServiceCustomDomainOutput values.
+// You can construct a concrete instance of `GetGatewayServiceCustomDomainInput` via:
+//
+//	GetGatewayServiceCustomDomainArgs{...}
+type GetGatewayServiceCustomDomainInput interface {
+	pulumi.Input
+
+	ToGetGatewayServiceCustomDomainOutput() GetGatewayServiceCustomDomainOutput
+	ToGetGatewayServiceCustomDomainOutputWithContext(context.Context) GetGatewayServiceCustomDomainOutput
+}
+
+type GetGatewayServiceCustomDomainArgs struct {
+	// 自定义域名。
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// 自定义域名ID。
+	DomainId pulumi.StringInput `pulumi:"domainId"`
+}
+
+func (GetGatewayServiceCustomDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (i GetGatewayServiceCustomDomainArgs) ToGetGatewayServiceCustomDomainOutput() GetGatewayServiceCustomDomainOutput {
+	return i.ToGetGatewayServiceCustomDomainOutputWithContext(context.Background())
+}
+
+func (i GetGatewayServiceCustomDomainArgs) ToGetGatewayServiceCustomDomainOutputWithContext(ctx context.Context) GetGatewayServiceCustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayServiceCustomDomainOutput)
+}
+
+// GetGatewayServiceCustomDomainArrayInput is an input type that accepts GetGatewayServiceCustomDomainArray and GetGatewayServiceCustomDomainArrayOutput values.
+// You can construct a concrete instance of `GetGatewayServiceCustomDomainArrayInput` via:
+//
+//	GetGatewayServiceCustomDomainArray{ GetGatewayServiceCustomDomainArgs{...} }
+type GetGatewayServiceCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayServiceCustomDomainArrayOutput() GetGatewayServiceCustomDomainArrayOutput
+	ToGetGatewayServiceCustomDomainArrayOutputWithContext(context.Context) GetGatewayServiceCustomDomainArrayOutput
+}
+
+type GetGatewayServiceCustomDomainArray []GetGatewayServiceCustomDomainInput
+
+func (GetGatewayServiceCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (i GetGatewayServiceCustomDomainArray) ToGetGatewayServiceCustomDomainArrayOutput() GetGatewayServiceCustomDomainArrayOutput {
+	return i.ToGetGatewayServiceCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayServiceCustomDomainArray) ToGetGatewayServiceCustomDomainArrayOutputWithContext(ctx context.Context) GetGatewayServiceCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayServiceCustomDomainArrayOutput)
+}
+
+type GetGatewayServiceCustomDomainOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayServiceCustomDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (o GetGatewayServiceCustomDomainOutput) ToGetGatewayServiceCustomDomainOutput() GetGatewayServiceCustomDomainOutput {
+	return o
+}
+
+func (o GetGatewayServiceCustomDomainOutput) ToGetGatewayServiceCustomDomainOutputWithContext(ctx context.Context) GetGatewayServiceCustomDomainOutput {
+	return o
+}
+
+// 自定义域名。
+func (o GetGatewayServiceCustomDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayServiceCustomDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// 自定义域名ID。
+func (o GetGatewayServiceCustomDomainOutput) DomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayServiceCustomDomain) string { return v.DomainId }).(pulumi.StringOutput)
+}
+
+type GetGatewayServiceCustomDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayServiceCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayServiceCustomDomain)(nil)).Elem()
+}
+
+func (o GetGatewayServiceCustomDomainArrayOutput) ToGetGatewayServiceCustomDomainArrayOutput() GetGatewayServiceCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetGatewayServiceCustomDomainArrayOutput) ToGetGatewayServiceCustomDomainArrayOutputWithContext(ctx context.Context) GetGatewayServiceCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetGatewayServiceCustomDomainArrayOutput) Index(i pulumi.IntInput) GetGatewayServiceCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayServiceCustomDomain {
+		return vs[0].([]GetGatewayServiceCustomDomain)[vs[1].(int)]
+	}).(GetGatewayServiceCustomDomainOutput)
+}
+
+type GetGatewayServiceDomain struct {
+	// 域名。
+	Domain string `pulumi:"domain"`
+	// 域名类型。取值：public：公网。private：私网。
+	Type string `pulumi:"type"`
+}
+
+// GetGatewayServiceDomainInput is an input type that accepts GetGatewayServiceDomainArgs and GetGatewayServiceDomainOutput values.
+// You can construct a concrete instance of `GetGatewayServiceDomainInput` via:
+//
+//	GetGatewayServiceDomainArgs{...}
+type GetGatewayServiceDomainInput interface {
+	pulumi.Input
+
+	ToGetGatewayServiceDomainOutput() GetGatewayServiceDomainOutput
+	ToGetGatewayServiceDomainOutputWithContext(context.Context) GetGatewayServiceDomainOutput
+}
+
+type GetGatewayServiceDomainArgs struct {
+	// 域名。
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// 域名类型。取值：public：公网。private：私网。
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetGatewayServiceDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceDomain)(nil)).Elem()
+}
+
+func (i GetGatewayServiceDomainArgs) ToGetGatewayServiceDomainOutput() GetGatewayServiceDomainOutput {
+	return i.ToGetGatewayServiceDomainOutputWithContext(context.Background())
+}
+
+func (i GetGatewayServiceDomainArgs) ToGetGatewayServiceDomainOutputWithContext(ctx context.Context) GetGatewayServiceDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayServiceDomainOutput)
+}
+
+// GetGatewayServiceDomainArrayInput is an input type that accepts GetGatewayServiceDomainArray and GetGatewayServiceDomainArrayOutput values.
+// You can construct a concrete instance of `GetGatewayServiceDomainArrayInput` via:
+//
+//	GetGatewayServiceDomainArray{ GetGatewayServiceDomainArgs{...} }
+type GetGatewayServiceDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayServiceDomainArrayOutput() GetGatewayServiceDomainArrayOutput
+	ToGetGatewayServiceDomainArrayOutputWithContext(context.Context) GetGatewayServiceDomainArrayOutput
+}
+
+type GetGatewayServiceDomainArray []GetGatewayServiceDomainInput
+
+func (GetGatewayServiceDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayServiceDomain)(nil)).Elem()
+}
+
+func (i GetGatewayServiceDomainArray) ToGetGatewayServiceDomainArrayOutput() GetGatewayServiceDomainArrayOutput {
+	return i.ToGetGatewayServiceDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayServiceDomainArray) ToGetGatewayServiceDomainArrayOutputWithContext(ctx context.Context) GetGatewayServiceDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayServiceDomainArrayOutput)
+}
+
+type GetGatewayServiceDomainOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayServiceDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceDomain)(nil)).Elem()
+}
+
+func (o GetGatewayServiceDomainOutput) ToGetGatewayServiceDomainOutput() GetGatewayServiceDomainOutput {
+	return o
+}
+
+func (o GetGatewayServiceDomainOutput) ToGetGatewayServiceDomainOutputWithContext(ctx context.Context) GetGatewayServiceDomainOutput {
+	return o
+}
+
+// 域名。
+func (o GetGatewayServiceDomainOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayServiceDomain) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// 域名类型。取值：public：公网。private：私网。
+func (o GetGatewayServiceDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayServiceDomain) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetGatewayServiceDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayServiceDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayServiceDomain)(nil)).Elem()
+}
+
+func (o GetGatewayServiceDomainArrayOutput) ToGetGatewayServiceDomainArrayOutput() GetGatewayServiceDomainArrayOutput {
+	return o
+}
+
+func (o GetGatewayServiceDomainArrayOutput) ToGetGatewayServiceDomainArrayOutputWithContext(ctx context.Context) GetGatewayServiceDomainArrayOutput {
+	return o
+}
+
+func (o GetGatewayServiceDomainArrayOutput) Index(i pulumi.IntInput) GetGatewayServiceDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayServiceDomain {
+		return vs[0].([]GetGatewayServiceDomain)[vs[1].(int)]
+	}).(GetGatewayServiceDomainOutput)
+}
+
+type GetGatewayServiceDomainSpec struct {
+	// 开启私网域名公网解析。
+	EnablePublicResolution bool `pulumi:"enablePublicResolution"`
+}
+
+// GetGatewayServiceDomainSpecInput is an input type that accepts GetGatewayServiceDomainSpecArgs and GetGatewayServiceDomainSpecOutput values.
+// You can construct a concrete instance of `GetGatewayServiceDomainSpecInput` via:
+//
+//	GetGatewayServiceDomainSpecArgs{...}
+type GetGatewayServiceDomainSpecInput interface {
+	pulumi.Input
+
+	ToGetGatewayServiceDomainSpecOutput() GetGatewayServiceDomainSpecOutput
+	ToGetGatewayServiceDomainSpecOutputWithContext(context.Context) GetGatewayServiceDomainSpecOutput
+}
+
+type GetGatewayServiceDomainSpecArgs struct {
+	// 开启私网域名公网解析。
+	EnablePublicResolution pulumi.BoolInput `pulumi:"enablePublicResolution"`
+}
+
+func (GetGatewayServiceDomainSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceDomainSpec)(nil)).Elem()
+}
+
+func (i GetGatewayServiceDomainSpecArgs) ToGetGatewayServiceDomainSpecOutput() GetGatewayServiceDomainSpecOutput {
+	return i.ToGetGatewayServiceDomainSpecOutputWithContext(context.Background())
+}
+
+func (i GetGatewayServiceDomainSpecArgs) ToGetGatewayServiceDomainSpecOutputWithContext(ctx context.Context) GetGatewayServiceDomainSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayServiceDomainSpecOutput)
+}
+
+type GetGatewayServiceDomainSpecOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayServiceDomainSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayServiceDomainSpec)(nil)).Elem()
+}
+
+func (o GetGatewayServiceDomainSpecOutput) ToGetGatewayServiceDomainSpecOutput() GetGatewayServiceDomainSpecOutput {
+	return o
+}
+
+func (o GetGatewayServiceDomainSpecOutput) ToGetGatewayServiceDomainSpecOutputWithContext(ctx context.Context) GetGatewayServiceDomainSpecOutput {
+	return o
+}
+
+// 开启私网域名公网解析。
+func (o GetGatewayServiceDomainSpecOutput) EnablePublicResolution() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayServiceDomainSpec) bool { return v.EnablePublicResolution }).(pulumi.BoolOutput)
+}
+
 type GetUpstreamSourceIngressSettings struct {
 	// 是否启用所有Ingress类。
 	EnableAllIngressClasses bool `pulumi:"enableAllIngressClasses"`
@@ -1464,6 +2266,14 @@ func (o GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicOutput) Username() 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceAuthSpecInput)(nil)).Elem(), GatewayServiceAuthSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceAuthSpecPtrInput)(nil)).Elem(), GatewayServiceAuthSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceCustomDomainInput)(nil)).Elem(), GatewayServiceCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceCustomDomainArrayInput)(nil)).Elem(), GatewayServiceCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainInput)(nil)).Elem(), GatewayServiceDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainArrayInput)(nil)).Elem(), GatewayServiceDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainSpecInput)(nil)).Elem(), GatewayServiceDomainSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainSpecPtrInput)(nil)).Elem(), GatewayServiceDomainSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceIngressSettingsInput)(nil)).Elem(), UpstreamSourceIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceIngressSettingsPtrInput)(nil)).Elem(), UpstreamSourceIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecInput)(nil)).Elem(), UpstreamSourceSourceSpecArgs{})
@@ -1476,12 +2286,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecNacosSourceAuthConfigPtrInput)(nil)).Elem(), UpstreamSourceSourceSpecNacosSourceAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecNacosSourceAuthConfigBasicInput)(nil)).Elem(), UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecNacosSourceAuthConfigBasicPtrInput)(nil)).Elem(), UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceAuthSpecInput)(nil)).Elem(), GetGatewayServiceAuthSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceCustomDomainInput)(nil)).Elem(), GetGatewayServiceCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceCustomDomainArrayInput)(nil)).Elem(), GetGatewayServiceCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceDomainInput)(nil)).Elem(), GetGatewayServiceDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceDomainArrayInput)(nil)).Elem(), GetGatewayServiceDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceDomainSpecInput)(nil)).Elem(), GetGatewayServiceDomainSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceIngressSettingsInput)(nil)).Elem(), GetUpstreamSourceIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecInput)(nil)).Elem(), GetUpstreamSourceSourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecK8SSourceInput)(nil)).Elem(), GetUpstreamSourceSourceSpecK8SSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecNacosSourceInput)(nil)).Elem(), GetUpstreamSourceSourceSpecNacosSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecNacosSourceAuthConfigInput)(nil)).Elem(), GetUpstreamSourceSourceSpecNacosSourceAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicInput)(nil)).Elem(), GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs{})
+	pulumi.RegisterOutputType(GatewayServiceAuthSpecOutput{})
+	pulumi.RegisterOutputType(GatewayServiceAuthSpecPtrOutput{})
+	pulumi.RegisterOutputType(GatewayServiceCustomDomainOutput{})
+	pulumi.RegisterOutputType(GatewayServiceCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(GatewayServiceDomainOutput{})
+	pulumi.RegisterOutputType(GatewayServiceDomainArrayOutput{})
+	pulumi.RegisterOutputType(GatewayServiceDomainSpecOutput{})
+	pulumi.RegisterOutputType(GatewayServiceDomainSpecPtrOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceIngressSettingsOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceIngressSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecOutput{})
@@ -1494,6 +2318,12 @@ func init() {
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecNacosSourceAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecNacosSourceAuthConfigBasicOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecNacosSourceAuthConfigBasicPtrOutput{})
+	pulumi.RegisterOutputType(GetGatewayServiceAuthSpecOutput{})
+	pulumi.RegisterOutputType(GetGatewayServiceCustomDomainOutput{})
+	pulumi.RegisterOutputType(GetGatewayServiceCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayServiceDomainOutput{})
+	pulumi.RegisterOutputType(GetGatewayServiceDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayServiceDomainSpecOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceIngressSettingsOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecK8SSourceOutput{})

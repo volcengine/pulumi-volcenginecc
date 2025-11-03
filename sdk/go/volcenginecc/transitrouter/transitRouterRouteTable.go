@@ -14,6 +14,40 @@ import (
 
 // 中转路由器转发流量的依据，具有关联转发、静态路由、路由学习、路由同步等能力。每个TR实例下可以创建多个TR路由表，分别用于转发具有不同访问需求的网络实例的流量。多条网络实例连接可以关联同一个TR路由表。
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/transitrouter"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transitrouter.NewTransitRouterRouteTable(ctx, "TransitRouterTransitRouterRouteTableDemo", &transitrouter.TransitRouterRouteTableArgs{
+//				TransitRouterId:             pulumi.String("tr-mj7mc0paq******"),
+//				Description:                 pulumi.String("TransitRouterTransitRouterRouteTableDemo-Description"),
+//				TransitRouterRouteTableName: pulumi.String("TransitRouterTransitRouterRouteTableDemo"),
+//				Tags: transitrouter.TransitRouterRouteTableTagArray{
+//					&transitrouter.TransitRouterRouteTableTagArgs{
+//						Key:   pulumi.String("env"),
+//						Value: pulumi.String("test"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -20,6 +20,49 @@ import javax.annotation.Nullable;
 /**
  * 专线网关是本地数据中心访问云上的入口，用于连接私有网络（VPC）与物理专线，实现云下数据中心（IDC）和云上私有网络（VPC）互访。
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.directconnect.DirectConnectGateway;
+ * import com.volcengine.volcenginecc.directconnect.DirectConnectGatewayArgs;
+ * import com.pulumi.volcenginecc.directconnect.inputs.DirectConnectGatewayTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var directConnectDirectConnectGatewayDemo = new DirectConnectGateway("directConnectDirectConnectGatewayDemo", DirectConnectGatewayArgs.builder()
+ *             .description("DirectConnectDirectConnectGatewayDemo-Description")
+ *             .directConnectGatewayName("DirectConnectDirectConnectGatewayDemo")
+ *             .enableIpv6(false)
+ *             .projectName("default")
+ *             .tags(DirectConnectGatewayTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * ```sh

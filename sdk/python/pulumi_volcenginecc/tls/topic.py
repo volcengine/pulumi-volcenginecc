@@ -608,6 +608,33 @@ class Topic(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_volcenginecc as volcenginecc
+
+        tls_topic_demo = volcenginecc.tls.Topic("TlsTopicDemo",
+            ttl=187,
+            hot_ttl=8,
+            cold_ttl=79,
+            archive_ttl=100,
+            shard_count=2,
+            auto_split=True,
+            max_split_shard=256,
+            tags=[{
+                "key": "env",
+                "value": "test",
+            }],
+            time_key="time",
+            time_format="%Y-%m-%d %H:%M:%S",
+            log_public_ip=False,
+            topic_name="test",
+            description="test",
+            project_id="44a425f0-a6ef-4a****",
+            enable_hot_ttl=False)
+        ```
+
         ## Import
 
         ```sh
@@ -639,6 +666,33 @@ class Topic(pulumi.CustomResource):
                  args: TopicArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_volcenginecc as volcenginecc
+
+        tls_topic_demo = volcenginecc.tls.Topic("TlsTopicDemo",
+            ttl=187,
+            hot_ttl=8,
+            cold_ttl=79,
+            archive_ttl=100,
+            shard_count=2,
+            auto_split=True,
+            max_split_shard=256,
+            tags=[{
+                "key": "env",
+                "value": "test",
+            }],
+            time_key="time",
+            time_format="%Y-%m-%d %H:%M:%S",
+            log_public_ip=False,
+            topic_name="test",
+            description="test",
+            project_id="44a425f0-a6ef-4a****",
+            enable_hot_ttl=False)
+        ```
+
         ## Import
 
         ```sh

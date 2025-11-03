@@ -9,6 +9,23 @@ import * as utilities from "../utilities";
 /**
  * 镜像仓库（Container Registry，CR）提供安全高可用的容器镜像、Helm Chart 等符合 OCI 标准的云原生制品托管服务，方便企业用户管理容器镜像和 Helm Chart 的全生命周期。
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
+ *
+ * const cRRegistryDemo = new volcenginecc.cr.Registry("CRRegistryDemo", {
+ *     project: "default",
+ *     name: "test",
+ *     type: "Enterprise",
+ *     tags: [{
+ *         key: "env",
+ *         value: "test",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
