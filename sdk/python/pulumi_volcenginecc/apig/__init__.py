@@ -9,8 +9,11 @@ import typing
 from .gateway_service import *
 from .get_gateway_service import *
 from .get_gateway_services import *
+from .get_upstream import *
 from .get_upstream_source import *
 from .get_upstream_sources import *
+from .get_upstreams import *
+from .upstream import *
 from .upstream_source import *
 from ._inputs import *
 from . import outputs

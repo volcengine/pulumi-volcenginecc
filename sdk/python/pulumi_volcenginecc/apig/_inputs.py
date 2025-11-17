@@ -24,6 +24,16 @@ __all__ = [
     'GatewayServiceDomainArgsDict',
     'GatewayServiceDomainSpecArgs',
     'GatewayServiceDomainSpecArgsDict',
+    'UpstreamBackendTargetArgs',
+    'UpstreamBackendTargetArgsDict',
+    'UpstreamCircuitBreakingSettingsArgs',
+    'UpstreamCircuitBreakingSettingsArgsDict',
+    'UpstreamLoadBalancerSettingsArgs',
+    'UpstreamLoadBalancerSettingsArgsDict',
+    'UpstreamLoadBalancerSettingsConsistentHashLbArgs',
+    'UpstreamLoadBalancerSettingsConsistentHashLbArgsDict',
+    'UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs',
+    'UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgsDict',
     'UpstreamSourceIngressSettingsArgs',
     'UpstreamSourceIngressSettingsArgsDict',
     'UpstreamSourceSourceSpecArgs',
@@ -36,6 +46,26 @@ __all__ = [
     'UpstreamSourceSourceSpecNacosSourceAuthConfigArgsDict',
     'UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs',
     'UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgsDict',
+    'UpstreamTlsSettingsArgs',
+    'UpstreamTlsSettingsArgsDict',
+    'UpstreamUpstreamSpecArgs',
+    'UpstreamUpstreamSpecArgsDict',
+    'UpstreamUpstreamSpecAiProviderArgs',
+    'UpstreamUpstreamSpecAiProviderArgsDict',
+    'UpstreamUpstreamSpecAiProviderCustomModelServiceArgs',
+    'UpstreamUpstreamSpecAiProviderCustomModelServiceArgsDict',
+    'UpstreamUpstreamSpecEcsInstanceArgs',
+    'UpstreamUpstreamSpecEcsInstanceArgsDict',
+    'UpstreamUpstreamSpecK8SServiceArgs',
+    'UpstreamUpstreamSpecK8SServiceArgsDict',
+    'UpstreamUpstreamSpecNacosServiceArgs',
+    'UpstreamUpstreamSpecNacosServiceArgsDict',
+    'UpstreamUpstreamSpecVeFaasArgs',
+    'UpstreamUpstreamSpecVeFaasArgsDict',
+    'UpstreamVersionDetailArgs',
+    'UpstreamVersionDetailArgsDict',
+    'UpstreamVersionDetailLabelArgs',
+    'UpstreamVersionDetailLabelArgsDict',
 ]
 
 MYPY = False
@@ -206,6 +236,486 @@ class GatewayServiceDomainSpecArgs:
     @enable_public_resolution.setter
     def enable_public_resolution(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_public_resolution", value)
+
+
+if not MYPY:
+    class UpstreamBackendTargetArgsDict(TypedDict):
+        health_status: NotRequired[pulumi.Input[builtins.str]]
+        """
+        健康检查状态。
+        """
+        ip: NotRequired[pulumi.Input[builtins.str]]
+        """
+        后端节点IP。
+        """
+        port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        后端节点端口。
+        """
+elif False:
+    UpstreamBackendTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamBackendTargetArgs:
+    def __init__(__self__, *,
+                 health_status: Optional[pulumi.Input[builtins.str]] = None,
+                 ip: Optional[pulumi.Input[builtins.str]] = None,
+                 port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] health_status: 健康检查状态。
+        :param pulumi.Input[builtins.str] ip: 后端节点IP。
+        :param pulumi.Input[builtins.int] port: 后端节点端口。
+        """
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        健康检查状态。
+        """
+        return pulumi.get(self, "health_status")
+
+    @health_status.setter
+    def health_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        后端节点IP。
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        后端节点端口。
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class UpstreamCircuitBreakingSettingsArgsDict(TypedDict):
+        base_ejection_time: NotRequired[pulumi.Input[builtins.int]]
+        """
+        最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        """
+        consecutive_errors: NotRequired[pulumi.Input[builtins.int]]
+        """
+        连续失败次数。取值限制为1~100。默认值为5。
+        """
+        enable: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        开启。
+        """
+        interval: NotRequired[pulumi.Input[builtins.int]]
+        """
+        计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        """
+        max_ejection_percent: NotRequired[pulumi.Input[builtins.int]]
+        """
+        最大熔断比例。取值限制为1~100。默认值为20%。
+        """
+        min_health_percent: NotRequired[pulumi.Input[builtins.int]]
+        """
+        最小健康比例。取值限制为0~100。默认值为60%。
+        """
+elif False:
+    UpstreamCircuitBreakingSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamCircuitBreakingSettingsArgs:
+    def __init__(__self__, *,
+                 base_ejection_time: Optional[pulumi.Input[builtins.int]] = None,
+                 consecutive_errors: Optional[pulumi.Input[builtins.int]] = None,
+                 enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 interval: Optional[pulumi.Input[builtins.int]] = None,
+                 max_ejection_percent: Optional[pulumi.Input[builtins.int]] = None,
+                 min_health_percent: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] base_ejection_time: 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        :param pulumi.Input[builtins.int] consecutive_errors: 连续失败次数。取值限制为1~100。默认值为5。
+        :param pulumi.Input[builtins.bool] enable: 开启。
+        :param pulumi.Input[builtins.int] interval: 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        :param pulumi.Input[builtins.int] max_ejection_percent: 最大熔断比例。取值限制为1~100。默认值为20%。
+        :param pulumi.Input[builtins.int] min_health_percent: 最小健康比例。取值限制为0~100。默认值为60%。
+        """
+        if base_ejection_time is not None:
+            pulumi.set(__self__, "base_ejection_time", base_ejection_time)
+        if consecutive_errors is not None:
+            pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if max_ejection_percent is not None:
+            pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        if min_health_percent is not None:
+            pulumi.set(__self__, "min_health_percent", min_health_percent)
+
+    @property
+    @pulumi.getter(name="baseEjectionTime")
+    def base_ejection_time(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        """
+        return pulumi.get(self, "base_ejection_time")
+
+    @base_ejection_time.setter
+    def base_ejection_time(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "base_ejection_time", value)
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        连续失败次数。取值限制为1~100。默认值为5。
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @consecutive_errors.setter
+    def consecutive_errors(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "consecutive_errors", value)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        开启。
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        最大熔断比例。取值限制为1~100。默认值为20%。
+        """
+        return pulumi.get(self, "max_ejection_percent")
+
+    @max_ejection_percent.setter
+    def max_ejection_percent(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_ejection_percent", value)
+
+    @property
+    @pulumi.getter(name="minHealthPercent")
+    def min_health_percent(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        最小健康比例。取值限制为0~100。默认值为60%。
+        """
+        return pulumi.get(self, "min_health_percent")
+
+    @min_health_percent.setter
+    def min_health_percent(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_health_percent", value)
+
+
+if not MYPY:
+    class UpstreamLoadBalancerSettingsArgsDict(TypedDict):
+        consistent_hash_lb: NotRequired[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbArgsDict']]
+        """
+        一致性哈希负载均衡。
+        """
+        lb_policy: NotRequired[pulumi.Input[builtins.str]]
+        """
+        负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        """
+        simple_lb: NotRequired[pulumi.Input[builtins.str]]
+        """
+        简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        """
+        warmup_duration: NotRequired[pulumi.Input[builtins.int]]
+        """
+        预热时间。单位为秒。
+        """
+elif False:
+    UpstreamLoadBalancerSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamLoadBalancerSettingsArgs:
+    def __init__(__self__, *,
+                 consistent_hash_lb: Optional[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbArgs']] = None,
+                 lb_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 simple_lb: Optional[pulumi.Input[builtins.str]] = None,
+                 warmup_duration: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbArgs'] consistent_hash_lb: 一致性哈希负载均衡。
+        :param pulumi.Input[builtins.str] lb_policy: 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        :param pulumi.Input[builtins.str] simple_lb: 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        :param pulumi.Input[builtins.int] warmup_duration: 预热时间。单位为秒。
+        """
+        if consistent_hash_lb is not None:
+            pulumi.set(__self__, "consistent_hash_lb", consistent_hash_lb)
+        if lb_policy is not None:
+            pulumi.set(__self__, "lb_policy", lb_policy)
+        if simple_lb is not None:
+            pulumi.set(__self__, "simple_lb", simple_lb)
+        if warmup_duration is not None:
+            pulumi.set(__self__, "warmup_duration", warmup_duration)
+
+    @property
+    @pulumi.getter(name="consistentHashLb")
+    def consistent_hash_lb(self) -> Optional[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbArgs']]:
+        """
+        一致性哈希负载均衡。
+        """
+        return pulumi.get(self, "consistent_hash_lb")
+
+    @consistent_hash_lb.setter
+    def consistent_hash_lb(self, value: Optional[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbArgs']]):
+        pulumi.set(self, "consistent_hash_lb", value)
+
+    @property
+    @pulumi.getter(name="lbPolicy")
+    def lb_policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        """
+        return pulumi.get(self, "lb_policy")
+
+    @lb_policy.setter
+    def lb_policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "lb_policy", value)
+
+    @property
+    @pulumi.getter(name="simpleLb")
+    def simple_lb(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        """
+        return pulumi.get(self, "simple_lb")
+
+    @simple_lb.setter
+    def simple_lb(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "simple_lb", value)
+
+    @property
+    @pulumi.getter(name="warmupDuration")
+    def warmup_duration(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        预热时间。单位为秒。
+        """
+        return pulumi.get(self, "warmup_duration")
+
+    @warmup_duration.setter
+    def warmup_duration(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "warmup_duration", value)
+
+
+if not MYPY:
+    class UpstreamLoadBalancerSettingsConsistentHashLbArgsDict(TypedDict):
+        hash_key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        """
+        http_cookie: NotRequired[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgsDict']]
+        """
+        Cookie。
+        """
+        http_header_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        http_query_parameter_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        use_source_ip: NotRequired[pulumi.Input[builtins.str]]
+        """
+        源IP地址。
+        """
+elif False:
+    UpstreamLoadBalancerSettingsConsistentHashLbArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamLoadBalancerSettingsConsistentHashLbArgs:
+    def __init__(__self__, *,
+                 hash_key: Optional[pulumi.Input[builtins.str]] = None,
+                 http_cookie: Optional[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs']] = None,
+                 http_header_name: Optional[pulumi.Input[builtins.str]] = None,
+                 http_query_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
+                 use_source_ip: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] hash_key: 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        :param pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs'] http_cookie: Cookie。
+        :param pulumi.Input[builtins.str] http_header_name: 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param pulumi.Input[builtins.str] http_query_parameter_name: 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param pulumi.Input[builtins.str] use_source_ip: 源IP地址。
+        """
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if http_cookie is not None:
+            pulumi.set(__self__, "http_cookie", http_cookie)
+        if http_header_name is not None:
+            pulumi.set(__self__, "http_header_name", http_header_name)
+        if http_query_parameter_name is not None:
+            pulumi.set(__self__, "http_query_parameter_name", http_query_parameter_name)
+        if use_source_ip is not None:
+            pulumi.set(__self__, "use_source_ip", use_source_ip)
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        """
+        return pulumi.get(self, "hash_key")
+
+    @hash_key.setter
+    def hash_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "hash_key", value)
+
+    @property
+    @pulumi.getter(name="httpCookie")
+    def http_cookie(self) -> Optional[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs']]:
+        """
+        Cookie。
+        """
+        return pulumi.get(self, "http_cookie")
+
+    @http_cookie.setter
+    def http_cookie(self, value: Optional[pulumi.Input['UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs']]):
+        pulumi.set(self, "http_cookie", value)
+
+    @property
+    @pulumi.getter(name="httpHeaderName")
+    def http_header_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "http_header_name")
+
+    @http_header_name.setter
+    def http_header_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "http_header_name", value)
+
+    @property
+    @pulumi.getter(name="httpQueryParameterName")
+    def http_query_parameter_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "http_query_parameter_name")
+
+    @http_query_parameter_name.setter
+    def http_query_parameter_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "http_query_parameter_name", value)
+
+    @property
+    @pulumi.getter(name="useSourceIp")
+    def use_source_ip(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        源IP地址。
+        """
+        return pulumi.get(self, "use_source_ip")
+
+    @use_source_ip.setter
+    def use_source_ip(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "use_source_ip", value)
+
+
+if not MYPY:
+    class UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        ttl: NotRequired[pulumi.Input[builtins.int]]
+        """
+        有效期。单位为秒。
+        """
+elif False:
+    UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 ttl: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        :param pulumi.Input[builtins.str] path: 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param pulumi.Input[builtins.int] ttl: 有效期。单位为秒。
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        有效期。单位为秒。
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "ttl", value)
 
 
 if not MYPY:
@@ -618,5 +1128,731 @@ class UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class UpstreamTlsSettingsArgsDict(TypedDict):
+        sni: NotRequired[pulumi.Input[builtins.str]]
+        """
+        SNI。留空时会将访问网关的域名透传到upstream。
+        """
+        tls_mode: NotRequired[pulumi.Input[builtins.str]]
+        """
+        TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+elif False:
+    UpstreamTlsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamTlsSettingsArgs:
+    def __init__(__self__, *,
+                 sni: Optional[pulumi.Input[builtins.str]] = None,
+                 tls_mode: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] sni: SNI。留空时会将访问网关的域名透传到upstream。
+        :param pulumi.Input[builtins.str] tls_mode: TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+        if sni is not None:
+            pulumi.set(__self__, "sni", sni)
+        if tls_mode is not None:
+            pulumi.set(__self__, "tls_mode", tls_mode)
+
+    @property
+    @pulumi.getter
+    def sni(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        SNI。留空时会将访问网关的域名透传到upstream。
+        """
+        return pulumi.get(self, "sni")
+
+    @sni.setter
+    def sni(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "sni", value)
+
+    @property
+    @pulumi.getter(name="tlsMode")
+    def tls_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+        return pulumi.get(self, "tls_mode")
+
+    @tls_mode.setter
+    def tls_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tls_mode", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecArgsDict(TypedDict):
+        ai_provider: NotRequired[pulumi.Input['UpstreamUpstreamSpecAiProviderArgsDict']]
+        """
+        AI模型代理。
+        """
+        ecs_instances: NotRequired[pulumi.Input[Sequence[pulumi.Input['UpstreamUpstreamSpecEcsInstanceArgsDict']]]]
+        k8_s_service: NotRequired[pulumi.Input['UpstreamUpstreamSpecK8SServiceArgsDict']]
+        """
+        容器服务。
+        """
+        nacos_service: NotRequired[pulumi.Input['UpstreamUpstreamSpecNacosServiceArgsDict']]
+        """
+        注册中心。
+        """
+        ve_faas: NotRequired[pulumi.Input['UpstreamUpstreamSpecVeFaasArgsDict']]
+        """
+        函数服务。
+        """
+elif False:
+    UpstreamUpstreamSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecArgs:
+    def __init__(__self__, *,
+                 ai_provider: Optional[pulumi.Input['UpstreamUpstreamSpecAiProviderArgs']] = None,
+                 ecs_instances: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamUpstreamSpecEcsInstanceArgs']]]] = None,
+                 k8_s_service: Optional[pulumi.Input['UpstreamUpstreamSpecK8SServiceArgs']] = None,
+                 nacos_service: Optional[pulumi.Input['UpstreamUpstreamSpecNacosServiceArgs']] = None,
+                 ve_faas: Optional[pulumi.Input['UpstreamUpstreamSpecVeFaasArgs']] = None):
+        """
+        :param pulumi.Input['UpstreamUpstreamSpecAiProviderArgs'] ai_provider: AI模型代理。
+        :param pulumi.Input['UpstreamUpstreamSpecK8SServiceArgs'] k8_s_service: 容器服务。
+        :param pulumi.Input['UpstreamUpstreamSpecNacosServiceArgs'] nacos_service: 注册中心。
+        :param pulumi.Input['UpstreamUpstreamSpecVeFaasArgs'] ve_faas: 函数服务。
+        """
+        if ai_provider is not None:
+            pulumi.set(__self__, "ai_provider", ai_provider)
+        if ecs_instances is not None:
+            pulumi.set(__self__, "ecs_instances", ecs_instances)
+        if k8_s_service is not None:
+            pulumi.set(__self__, "k8_s_service", k8_s_service)
+        if nacos_service is not None:
+            pulumi.set(__self__, "nacos_service", nacos_service)
+        if ve_faas is not None:
+            pulumi.set(__self__, "ve_faas", ve_faas)
+
+    @property
+    @pulumi.getter(name="aiProvider")
+    def ai_provider(self) -> Optional[pulumi.Input['UpstreamUpstreamSpecAiProviderArgs']]:
+        """
+        AI模型代理。
+        """
+        return pulumi.get(self, "ai_provider")
+
+    @ai_provider.setter
+    def ai_provider(self, value: Optional[pulumi.Input['UpstreamUpstreamSpecAiProviderArgs']]):
+        pulumi.set(self, "ai_provider", value)
+
+    @property
+    @pulumi.getter(name="ecsInstances")
+    def ecs_instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamUpstreamSpecEcsInstanceArgs']]]]:
+        return pulumi.get(self, "ecs_instances")
+
+    @ecs_instances.setter
+    def ecs_instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamUpstreamSpecEcsInstanceArgs']]]]):
+        pulumi.set(self, "ecs_instances", value)
+
+    @property
+    @pulumi.getter(name="k8SService")
+    def k8_s_service(self) -> Optional[pulumi.Input['UpstreamUpstreamSpecK8SServiceArgs']]:
+        """
+        容器服务。
+        """
+        return pulumi.get(self, "k8_s_service")
+
+    @k8_s_service.setter
+    def k8_s_service(self, value: Optional[pulumi.Input['UpstreamUpstreamSpecK8SServiceArgs']]):
+        pulumi.set(self, "k8_s_service", value)
+
+    @property
+    @pulumi.getter(name="nacosService")
+    def nacos_service(self) -> Optional[pulumi.Input['UpstreamUpstreamSpecNacosServiceArgs']]:
+        """
+        注册中心。
+        """
+        return pulumi.get(self, "nacos_service")
+
+    @nacos_service.setter
+    def nacos_service(self, value: Optional[pulumi.Input['UpstreamUpstreamSpecNacosServiceArgs']]):
+        pulumi.set(self, "nacos_service", value)
+
+    @property
+    @pulumi.getter(name="veFaas")
+    def ve_faas(self) -> Optional[pulumi.Input['UpstreamUpstreamSpecVeFaasArgs']]:
+        """
+        函数服务。
+        """
+        return pulumi.get(self, "ve_faas")
+
+    @ve_faas.setter
+    def ve_faas(self, value: Optional[pulumi.Input['UpstreamUpstreamSpecVeFaasArgs']]):
+        pulumi.set(self, "ve_faas", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecAiProviderArgsDict(TypedDict):
+        base_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        模型地址。
+        """
+        custom_model_service: NotRequired[pulumi.Input['UpstreamUpstreamSpecAiProviderCustomModelServiceArgsDict']]
+        """
+        火山自部署模型服务。
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        模型服务商名称。
+        """
+        token: NotRequired[pulumi.Input[builtins.str]]
+        """
+        模型API key。
+        """
+elif False:
+    UpstreamUpstreamSpecAiProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecAiProviderArgs:
+    def __init__(__self__, *,
+                 base_url: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_model_service: Optional[pulumi.Input['UpstreamUpstreamSpecAiProviderCustomModelServiceArgs']] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 token: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] base_url: 模型地址。
+        :param pulumi.Input['UpstreamUpstreamSpecAiProviderCustomModelServiceArgs'] custom_model_service: 火山自部署模型服务。
+        :param pulumi.Input[builtins.str] name: 模型服务商名称。
+        :param pulumi.Input[builtins.str] token: 模型API key。
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if custom_model_service is not None:
+            pulumi.set(__self__, "custom_model_service", custom_model_service)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        模型地址。
+        """
+        return pulumi.get(self, "base_url")
+
+    @base_url.setter
+    def base_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "base_url", value)
+
+    @property
+    @pulumi.getter(name="customModelService")
+    def custom_model_service(self) -> Optional[pulumi.Input['UpstreamUpstreamSpecAiProviderCustomModelServiceArgs']]:
+        """
+        火山自部署模型服务。
+        """
+        return pulumi.get(self, "custom_model_service")
+
+    @custom_model_service.setter
+    def custom_model_service(self, value: Optional[pulumi.Input['UpstreamUpstreamSpecAiProviderCustomModelServiceArgs']]):
+        pulumi.set(self, "custom_model_service", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        模型服务商名称。
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        模型API key。
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "token", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecAiProviderCustomModelServiceArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        模型服务名称。
+        """
+        namespace: NotRequired[pulumi.Input[builtins.str]]
+        """
+        命名空间。
+        """
+        port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        端口。
+        """
+elif False:
+    UpstreamUpstreamSpecAiProviderCustomModelServiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecAiProviderCustomModelServiceArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: 模型服务名称。
+        :param pulumi.Input[builtins.str] namespace: 命名空间。
+        :param pulumi.Input[builtins.int] port: 端口。
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        模型服务名称。
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        命名空间。
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecEcsInstanceArgsDict(TypedDict):
+        ecs_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        云服务器ID。
+        """
+        ip: NotRequired[pulumi.Input[builtins.str]]
+        """
+        IP地址。
+        """
+        port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        端口。
+        """
+elif False:
+    UpstreamUpstreamSpecEcsInstanceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecEcsInstanceArgs:
+    def __init__(__self__, *,
+                 ecs_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ip: Optional[pulumi.Input[builtins.str]] = None,
+                 port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] ecs_id: 云服务器ID。
+        :param pulumi.Input[builtins.str] ip: IP地址。
+        :param pulumi.Input[builtins.int] port: 端口。
+        """
+        if ecs_id is not None:
+            pulumi.set(__self__, "ecs_id", ecs_id)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ecsId")
+    def ecs_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        云服务器ID。
+        """
+        return pulumi.get(self, "ecs_id")
+
+    @ecs_id.setter
+    def ecs_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ecs_id", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IP地址。
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecK8SServiceArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        容器服务名称。长度限制为2~63个字符。
+        """
+        namespace: NotRequired[pulumi.Input[builtins.str]]
+        """
+        命名空间。长度限制为2~63个字符。
+        """
+        port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        端口。
+        """
+elif False:
+    UpstreamUpstreamSpecK8SServiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecK8SServiceArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: 容器服务名称。长度限制为2~63个字符。
+        :param pulumi.Input[builtins.str] namespace: 命名空间。长度限制为2~63个字符。
+        :param pulumi.Input[builtins.int] port: 端口。
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        容器服务名称。长度限制为2~63个字符。
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        命名空间。长度限制为2~63个字符。
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecNacosServiceArgsDict(TypedDict):
+        group: NotRequired[pulumi.Input[builtins.str]]
+        """
+        分组。
+        """
+        namespace: NotRequired[pulumi.Input[builtins.str]]
+        """
+        命名空间。
+        """
+        namespace_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        命名空间ID。
+        """
+        service: NotRequired[pulumi.Input[builtins.str]]
+        """
+        服务。
+        """
+        upstream_source_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Upstream来源ID。
+        """
+elif False:
+    UpstreamUpstreamSpecNacosServiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecNacosServiceArgs:
+    def __init__(__self__, *,
+                 group: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 namespace_id: Optional[pulumi.Input[builtins.str]] = None,
+                 service: Optional[pulumi.Input[builtins.str]] = None,
+                 upstream_source_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] group: 分组。
+        :param pulumi.Input[builtins.str] namespace: 命名空间。
+        :param pulumi.Input[builtins.str] namespace_id: 命名空间ID。
+        :param pulumi.Input[builtins.str] service: 服务。
+        :param pulumi.Input[builtins.str] upstream_source_id: Upstream来源ID。
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if namespace_id is not None:
+            pulumi.set(__self__, "namespace_id", namespace_id)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if upstream_source_id is not None:
+            pulumi.set(__self__, "upstream_source_id", upstream_source_id)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        分组。
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        命名空间。
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        命名空间ID。
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "namespace_id", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        服务。
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="upstreamSourceId")
+    def upstream_source_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Upstream来源ID。
+        """
+        return pulumi.get(self, "upstream_source_id")
+
+    @upstream_source_id.setter
+    def upstream_source_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upstream_source_id", value)
+
+
+if not MYPY:
+    class UpstreamUpstreamSpecVeFaasArgsDict(TypedDict):
+        function_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        函数ID。
+        """
+elif False:
+    UpstreamUpstreamSpecVeFaasArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamUpstreamSpecVeFaasArgs:
+    def __init__(__self__, *,
+                 function_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] function_id: 函数ID。
+        """
+        if function_id is not None:
+            pulumi.set(__self__, "function_id", function_id)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        函数ID。
+        """
+        return pulumi.get(self, "function_id")
+
+    @function_id.setter
+    def function_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "function_id", value)
+
+
+if not MYPY:
+    class UpstreamVersionDetailArgsDict(TypedDict):
+        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['UpstreamVersionDetailLabelArgsDict']]]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        """
+        update_time: NotRequired[pulumi.Input[builtins.str]]
+        """
+        更新时间。
+        """
+elif False:
+    UpstreamVersionDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamVersionDetailArgs:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamVersionDetailLabelArgs']]]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 update_time: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        :param pulumi.Input[builtins.str] update_time: 更新时间。
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if update_time is not None:
+            pulumi.set(__self__, "update_time", update_time)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamVersionDetailLabelArgs']]]]:
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamVersionDetailLabelArgs']]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="updateTime")
+    def update_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        更新时间。
+        """
+        return pulumi.get(self, "update_time")
+
+    @update_time.setter
+    def update_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "update_time", value)
+
+
+if not MYPY:
+    class UpstreamVersionDetailLabelArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        键。
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        值。
+        """
+elif False:
+    UpstreamVersionDetailLabelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpstreamVersionDetailLabelArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: 键。
+        :param pulumi.Input[builtins.str] value: 值。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        键。
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        值。
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
 
 

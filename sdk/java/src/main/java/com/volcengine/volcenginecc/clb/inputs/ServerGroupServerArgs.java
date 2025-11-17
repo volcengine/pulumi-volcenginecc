@@ -62,14 +62,14 @@ public final class ServerGroupServerArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * 后端服务器接收请求的端口号。取值范围为1～65535。
+     * 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return 后端服务器接收请求的端口号。取值范围为1～65535。
+     * @return 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -199,7 +199,7 @@ public final class ServerGroupServerArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port 后端服务器接收请求的端口号。取值范围为1～65535。
+         * @param port 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ServerGroupServerArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port 后端服务器接收请求的端口号。取值范围为1～65535。
+         * @param port 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
          * 
          * @return builder
          * 

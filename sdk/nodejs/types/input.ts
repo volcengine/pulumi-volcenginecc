@@ -446,6 +446,105 @@ export namespace apig {
         enablePublicResolution?: pulumi.Input<boolean>;
     }
 
+    export interface UpstreamBackendTarget {
+        /**
+         * 健康检查状态。
+         */
+        healthStatus?: pulumi.Input<string>;
+        /**
+         * 后端节点IP。
+         */
+        ip?: pulumi.Input<string>;
+        /**
+         * 后端节点端口。
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface UpstreamCircuitBreakingSettings {
+        /**
+         * 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+         */
+        baseEjectionTime?: pulumi.Input<number>;
+        /**
+         * 连续失败次数。取值限制为1~100。默认值为5。
+         */
+        consecutiveErrors?: pulumi.Input<number>;
+        /**
+         * 开启。
+         */
+        enable?: pulumi.Input<boolean>;
+        /**
+         * 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * 最大熔断比例。取值限制为1~100。默认值为20%。
+         */
+        maxEjectionPercent?: pulumi.Input<number>;
+        /**
+         * 最小健康比例。取值限制为0~100。默认值为60%。
+         */
+        minHealthPercent?: pulumi.Input<number>;
+    }
+
+    export interface UpstreamLoadBalancerSettings {
+        /**
+         * 一致性哈希负载均衡。
+         */
+        consistentHashLb?: pulumi.Input<inputs.apig.UpstreamLoadBalancerSettingsConsistentHashLb>;
+        /**
+         * 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+         */
+        lbPolicy?: pulumi.Input<string>;
+        /**
+         * 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+         */
+        simpleLb?: pulumi.Input<string>;
+        /**
+         * 预热时间。单位为秒。
+         */
+        warmupDuration?: pulumi.Input<number>;
+    }
+
+    export interface UpstreamLoadBalancerSettingsConsistentHashLb {
+        /**
+         * 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+         */
+        hashKey?: pulumi.Input<string>;
+        /**
+         * Cookie。
+         */
+        httpCookie?: pulumi.Input<inputs.apig.UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie>;
+        /**
+         * 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        httpHeaderName?: pulumi.Input<string>;
+        /**
+         * 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        httpQueryParameterName?: pulumi.Input<string>;
+        /**
+         * 源IP地址。
+         */
+        useSourceIp?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+        /**
+         * 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * 有效期。单位为秒。
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
     export interface UpstreamSourceIngressSettings {
         /**
          * 是否启用所有Ingress类。
@@ -530,6 +629,154 @@ export namespace apig {
          * 用户名。
          */
         username?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamTlsSettings {
+        /**
+         * SNI。留空时会将访问网关的域名透传到upstream。
+         */
+        sni?: pulumi.Input<string>;
+        /**
+         * TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+         */
+        tlsMode?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamUpstreamSpec {
+        /**
+         * AI模型代理。
+         */
+        aiProvider?: pulumi.Input<inputs.apig.UpstreamUpstreamSpecAiProvider>;
+        ecsInstances?: pulumi.Input<pulumi.Input<inputs.apig.UpstreamUpstreamSpecEcsInstance>[]>;
+        /**
+         * 容器服务。
+         */
+        k8SService?: pulumi.Input<inputs.apig.UpstreamUpstreamSpecK8SService>;
+        /**
+         * 注册中心。
+         */
+        nacosService?: pulumi.Input<inputs.apig.UpstreamUpstreamSpecNacosService>;
+        /**
+         * 函数服务。
+         */
+        veFaas?: pulumi.Input<inputs.apig.UpstreamUpstreamSpecVeFaas>;
+    }
+
+    export interface UpstreamUpstreamSpecAiProvider {
+        /**
+         * 模型地址。
+         */
+        baseUrl?: pulumi.Input<string>;
+        /**
+         * 火山自部署模型服务。
+         */
+        customModelService?: pulumi.Input<inputs.apig.UpstreamUpstreamSpecAiProviderCustomModelService>;
+        /**
+         * 模型服务商名称。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 模型API key。
+         */
+        token?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamUpstreamSpecAiProviderCustomModelService {
+        /**
+         * 模型服务名称。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 命名空间。
+         */
+        namespace?: pulumi.Input<string>;
+        /**
+         * 端口。
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface UpstreamUpstreamSpecEcsInstance {
+        /**
+         * 云服务器ID。
+         */
+        ecsId?: pulumi.Input<string>;
+        /**
+         * IP地址。
+         */
+        ip?: pulumi.Input<string>;
+        /**
+         * 端口。
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface UpstreamUpstreamSpecK8SService {
+        /**
+         * 容器服务名称。长度限制为2~63个字符。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 命名空间。长度限制为2~63个字符。
+         */
+        namespace?: pulumi.Input<string>;
+        /**
+         * 端口。
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface UpstreamUpstreamSpecNacosService {
+        /**
+         * 分组。
+         */
+        group?: pulumi.Input<string>;
+        /**
+         * 命名空间。
+         */
+        namespace?: pulumi.Input<string>;
+        /**
+         * 命名空间ID。
+         */
+        namespaceId?: pulumi.Input<string>;
+        /**
+         * 服务。
+         */
+        service?: pulumi.Input<string>;
+        /**
+         * Upstream来源ID。
+         */
+        upstreamSourceId?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamUpstreamSpecVeFaas {
+        /**
+         * 函数ID。
+         */
+        functionId?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamVersionDetail {
+        labels?: pulumi.Input<pulumi.Input<inputs.apig.UpstreamVersionDetailLabel>[]>;
+        /**
+         * 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 更新时间。
+         */
+        updateTime?: pulumi.Input<string>;
+    }
+
+    export interface UpstreamVersionDetailLabel {
+        /**
+         * 键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 值。
+         */
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -673,6 +920,84 @@ export namespace autoscaling {
          * 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
          */
         volumeType?: pulumi.Input<string>;
+    }
+}
+
+export namespace cdn {
+    export interface ShareConfigAllowIpAccessRule {
+        /**
+         * 表示一个条目列表。列表中的每个条目是一个 IP 地址或 CIDR 网段。IP 地址和网段可以是 IPv4 和 IPv6 格式。列表的额度如下：对于 AddSharedConfig，列表中条目的数量不能超过 30,000 个。
+         */
+        rules?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ShareConfigAllowRefererAccessRule {
+        /**
+         * 表示是否不允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。false：表示允许。该参数的默认值是 false。
+         */
+        allowEmpty?: pulumi.Input<boolean>;
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType?: pulumi.Input<inputs.cdn.ShareConfigAllowRefererAccessRuleCommonType>;
+    }
+
+    export interface ShareConfigAllowRefererAccessRuleCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ShareConfigCommonMatchs {
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType?: pulumi.Input<inputs.cdn.ShareConfigCommonMatchsCommonType>;
+    }
+
+    export interface ShareConfigCommonMatchsCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ShareConfigDenyIpAccessRule {
+        /**
+         * 表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access_rule。
+         */
+        rules?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ShareConfigDenyRefererAccessRule {
+        /**
+         * 表示是否允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示允许。false：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。该参数的默认值是 true。
+         */
+        allowEmpty?: pulumi.Input<boolean>;
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType?: pulumi.Input<inputs.cdn.ShareConfigDenyRefererAccessRuleCommonType>;
+    }
+
+    export interface ShareConfigDenyRefererAccessRuleCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -1158,7 +1483,7 @@ export namespace clb {
          */
         ip?: pulumi.Input<string>;
         /**
-         * 后端服务器接收请求的端口号。取值范围为1～65535。
+         * 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
          */
         port?: pulumi.Input<number>;
         /**
@@ -1172,7 +1497,13 @@ export namespace clb {
     }
 
     export interface ServerGroupTag {
+        /**
+         * 绑定的标签键信息。
+         */
         key?: pulumi.Input<string>;
+        /**
+         * 绑定的标签值信息。
+         */
         value?: pulumi.Input<string>;
     }
 }
@@ -1915,6 +2246,142 @@ export namespace iam {
          * 标签值。
          */
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace kafka {
+    export interface TopicAccessPolicy {
+        /**
+         * SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。
+         */
+        accessPolicy?: pulumi.Input<string>;
+        /**
+         * SASL 用户名称。
+         */
+        userName?: pulumi.Input<string>;
+    }
+
+    export interface TopicTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace natgateway {
+    export interface NgwEipAddress {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId?: pulumi.Input<string>;
+        /**
+         * 公网IP的地址。
+         */
+        eipAddress?: pulumi.Input<string>;
+        /**
+         * 公网IP的使用状态。Idle：未使用。UsedBySnat：被SNAT规则使用。UsedByDnat：被DNAT规则使用。UsedByNat：被SNAT/DNAT规则同时使用。
+         */
+        usingStatus?: pulumi.Input<string>;
+    }
+
+    export interface NgwNatIpAddress {
+        /**
+         * 中转Ip地址。
+         */
+        natIpAddress?: pulumi.Input<string>;
+        /**
+         * 中转Ip id。
+         */
+        natIpId?: pulumi.Input<string>;
+    }
+
+    export interface NgwTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace privatezone {
+    export interface ResolverEndpointIpConfig {
+        /**
+         * 终端节点 IP 地址所在的可用区。为了保证高可用，建议您至少添加 2 个可用区。
+         */
+        azId?: pulumi.Input<string>;
+        /**
+         * 终端节点的 IPv4 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。
+         */
+        ip?: pulumi.Input<string>;
+        /**
+         * 终端节点的 IPv6 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。
+         */
+        ipv6?: pulumi.Input<string>;
+        /**
+         * 终端节点 IP 地址所在的子网 ID。
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    export interface ResolverEndpointTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ResolverRuleForwardIP {
+        /**
+         * VPC 外部的 DNS 服务器的 IP 地址。
+         */
+        ip?: pulumi.Input<string>;
+        /**
+         * VPC 外部的 DNS 服务器的端口。
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface ResolverRuleTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ResolverRuleVpC {
+        /**
+         * 创建该 VPC 的火山引擎账号 ID。
+         */
+        accountId?: pulumi.Input<string>;
+        /**
+         * VPC 的地域。
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * VPC 的地域的名称。
+         */
+        regionName?: pulumi.Input<string>;
+        /**
+         * VPC 的 ID。
+         */
+        vpcId?: pulumi.Input<string>;
     }
 }
 

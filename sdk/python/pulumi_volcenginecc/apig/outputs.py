@@ -21,22 +21,52 @@ __all__ = [
     'GatewayServiceCustomDomain',
     'GatewayServiceDomain',
     'GatewayServiceDomainSpec',
+    'UpstreamBackendTarget',
+    'UpstreamCircuitBreakingSettings',
+    'UpstreamLoadBalancerSettings',
+    'UpstreamLoadBalancerSettingsConsistentHashLb',
+    'UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie',
     'UpstreamSourceIngressSettings',
     'UpstreamSourceSourceSpec',
     'UpstreamSourceSourceSpecK8SSource',
     'UpstreamSourceSourceSpecNacosSource',
     'UpstreamSourceSourceSpecNacosSourceAuthConfig',
     'UpstreamSourceSourceSpecNacosSourceAuthConfigBasic',
+    'UpstreamTlsSettings',
+    'UpstreamUpstreamSpec',
+    'UpstreamUpstreamSpecAiProvider',
+    'UpstreamUpstreamSpecAiProviderCustomModelService',
+    'UpstreamUpstreamSpecEcsInstance',
+    'UpstreamUpstreamSpecK8SService',
+    'UpstreamUpstreamSpecNacosService',
+    'UpstreamUpstreamSpecVeFaas',
+    'UpstreamVersionDetail',
+    'UpstreamVersionDetailLabel',
     'GetGatewayServiceAuthSpecResult',
     'GetGatewayServiceCustomDomainResult',
     'GetGatewayServiceDomainResult',
     'GetGatewayServiceDomainSpecResult',
+    'GetUpstreamBackendTargetResult',
+    'GetUpstreamCircuitBreakingSettingsResult',
+    'GetUpstreamLoadBalancerSettingsResult',
+    'GetUpstreamLoadBalancerSettingsConsistentHashLbResult',
+    'GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieResult',
     'GetUpstreamSourceIngressSettingsResult',
     'GetUpstreamSourceSourceSpecResult',
     'GetUpstreamSourceSourceSpecK8SSourceResult',
     'GetUpstreamSourceSourceSpecNacosSourceResult',
     'GetUpstreamSourceSourceSpecNacosSourceAuthConfigResult',
     'GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicResult',
+    'GetUpstreamTlsSettingsResult',
+    'GetUpstreamUpstreamSpecResult',
+    'GetUpstreamUpstreamSpecAiProviderResult',
+    'GetUpstreamUpstreamSpecAiProviderCustomModelServiceResult',
+    'GetUpstreamUpstreamSpecEcsInstanceResult',
+    'GetUpstreamUpstreamSpecK8SServiceResult',
+    'GetUpstreamUpstreamSpecNacosServiceResult',
+    'GetUpstreamUpstreamSpecVeFaasResult',
+    'GetUpstreamVersionDetailResult',
+    'GetUpstreamVersionDetailLabelResult',
 ]
 
 @pulumi.output_type
@@ -171,6 +201,381 @@ class GatewayServiceDomainSpec(dict):
         开启私网域名公网解析。
         """
         return pulumi.get(self, "enable_public_resolution")
+
+
+@pulumi.output_type
+class UpstreamBackendTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthStatus":
+            suggest = "health_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamBackendTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamBackendTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamBackendTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_status: Optional[builtins.str] = None,
+                 ip: Optional[builtins.str] = None,
+                 port: Optional[builtins.int] = None):
+        """
+        :param builtins.str health_status: 健康检查状态。
+        :param builtins.str ip: 后端节点IP。
+        :param builtins.int port: 后端节点端口。
+        """
+        if health_status is not None:
+            pulumi.set(__self__, "health_status", health_status)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> Optional[builtins.str]:
+        """
+        健康检查状态。
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[builtins.str]:
+        """
+        后端节点IP。
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        后端节点端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class UpstreamCircuitBreakingSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseEjectionTime":
+            suggest = "base_ejection_time"
+        elif key == "consecutiveErrors":
+            suggest = "consecutive_errors"
+        elif key == "maxEjectionPercent":
+            suggest = "max_ejection_percent"
+        elif key == "minHealthPercent":
+            suggest = "min_health_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamCircuitBreakingSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamCircuitBreakingSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamCircuitBreakingSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_ejection_time: Optional[builtins.int] = None,
+                 consecutive_errors: Optional[builtins.int] = None,
+                 enable: Optional[builtins.bool] = None,
+                 interval: Optional[builtins.int] = None,
+                 max_ejection_percent: Optional[builtins.int] = None,
+                 min_health_percent: Optional[builtins.int] = None):
+        """
+        :param builtins.int base_ejection_time: 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        :param builtins.int consecutive_errors: 连续失败次数。取值限制为1~100。默认值为5。
+        :param builtins.bool enable: 开启。
+        :param builtins.int interval: 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        :param builtins.int max_ejection_percent: 最大熔断比例。取值限制为1~100。默认值为20%。
+        :param builtins.int min_health_percent: 最小健康比例。取值限制为0~100。默认值为60%。
+        """
+        if base_ejection_time is not None:
+            pulumi.set(__self__, "base_ejection_time", base_ejection_time)
+        if consecutive_errors is not None:
+            pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if max_ejection_percent is not None:
+            pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        if min_health_percent is not None:
+            pulumi.set(__self__, "min_health_percent", min_health_percent)
+
+    @property
+    @pulumi.getter(name="baseEjectionTime")
+    def base_ejection_time(self) -> Optional[builtins.int]:
+        """
+        最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        """
+        return pulumi.get(self, "base_ejection_time")
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> Optional[builtins.int]:
+        """
+        连续失败次数。取值限制为1~100。默认值为5。
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> Optional[builtins.bool]:
+        """
+        开启。
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[builtins.int]:
+        """
+        计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> Optional[builtins.int]:
+        """
+        最大熔断比例。取值限制为1~100。默认值为20%。
+        """
+        return pulumi.get(self, "max_ejection_percent")
+
+    @property
+    @pulumi.getter(name="minHealthPercent")
+    def min_health_percent(self) -> Optional[builtins.int]:
+        """
+        最小健康比例。取值限制为0~100。默认值为60%。
+        """
+        return pulumi.get(self, "min_health_percent")
+
+
+@pulumi.output_type
+class UpstreamLoadBalancerSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consistentHashLb":
+            suggest = "consistent_hash_lb"
+        elif key == "lbPolicy":
+            suggest = "lb_policy"
+        elif key == "simpleLb":
+            suggest = "simple_lb"
+        elif key == "warmupDuration":
+            suggest = "warmup_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamLoadBalancerSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamLoadBalancerSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamLoadBalancerSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consistent_hash_lb: Optional['outputs.UpstreamLoadBalancerSettingsConsistentHashLb'] = None,
+                 lb_policy: Optional[builtins.str] = None,
+                 simple_lb: Optional[builtins.str] = None,
+                 warmup_duration: Optional[builtins.int] = None):
+        """
+        :param 'UpstreamLoadBalancerSettingsConsistentHashLbArgs' consistent_hash_lb: 一致性哈希负载均衡。
+        :param builtins.str lb_policy: 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        :param builtins.str simple_lb: 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        :param builtins.int warmup_duration: 预热时间。单位为秒。
+        """
+        if consistent_hash_lb is not None:
+            pulumi.set(__self__, "consistent_hash_lb", consistent_hash_lb)
+        if lb_policy is not None:
+            pulumi.set(__self__, "lb_policy", lb_policy)
+        if simple_lb is not None:
+            pulumi.set(__self__, "simple_lb", simple_lb)
+        if warmup_duration is not None:
+            pulumi.set(__self__, "warmup_duration", warmup_duration)
+
+    @property
+    @pulumi.getter(name="consistentHashLb")
+    def consistent_hash_lb(self) -> Optional['outputs.UpstreamLoadBalancerSettingsConsistentHashLb']:
+        """
+        一致性哈希负载均衡。
+        """
+        return pulumi.get(self, "consistent_hash_lb")
+
+    @property
+    @pulumi.getter(name="lbPolicy")
+    def lb_policy(self) -> Optional[builtins.str]:
+        """
+        负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        """
+        return pulumi.get(self, "lb_policy")
+
+    @property
+    @pulumi.getter(name="simpleLb")
+    def simple_lb(self) -> Optional[builtins.str]:
+        """
+        简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        """
+        return pulumi.get(self, "simple_lb")
+
+    @property
+    @pulumi.getter(name="warmupDuration")
+    def warmup_duration(self) -> Optional[builtins.int]:
+        """
+        预热时间。单位为秒。
+        """
+        return pulumi.get(self, "warmup_duration")
+
+
+@pulumi.output_type
+class UpstreamLoadBalancerSettingsConsistentHashLb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hashKey":
+            suggest = "hash_key"
+        elif key == "httpCookie":
+            suggest = "http_cookie"
+        elif key == "httpHeaderName":
+            suggest = "http_header_name"
+        elif key == "httpQueryParameterName":
+            suggest = "http_query_parameter_name"
+        elif key == "useSourceIp":
+            suggest = "use_source_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamLoadBalancerSettingsConsistentHashLb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamLoadBalancerSettingsConsistentHashLb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamLoadBalancerSettingsConsistentHashLb.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hash_key: Optional[builtins.str] = None,
+                 http_cookie: Optional['outputs.UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie'] = None,
+                 http_header_name: Optional[builtins.str] = None,
+                 http_query_parameter_name: Optional[builtins.str] = None,
+                 use_source_ip: Optional[builtins.str] = None):
+        """
+        :param builtins.str hash_key: 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        :param 'UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs' http_cookie: Cookie。
+        :param builtins.str http_header_name: 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param builtins.str http_query_parameter_name: 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param builtins.str use_source_ip: 源IP地址。
+        """
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if http_cookie is not None:
+            pulumi.set(__self__, "http_cookie", http_cookie)
+        if http_header_name is not None:
+            pulumi.set(__self__, "http_header_name", http_header_name)
+        if http_query_parameter_name is not None:
+            pulumi.set(__self__, "http_query_parameter_name", http_query_parameter_name)
+        if use_source_ip is not None:
+            pulumi.set(__self__, "use_source_ip", use_source_ip)
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> Optional[builtins.str]:
+        """
+        一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        """
+        return pulumi.get(self, "hash_key")
+
+    @property
+    @pulumi.getter(name="httpCookie")
+    def http_cookie(self) -> Optional['outputs.UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie']:
+        """
+        Cookie。
+        """
+        return pulumi.get(self, "http_cookie")
+
+    @property
+    @pulumi.getter(name="httpHeaderName")
+    def http_header_name(self) -> Optional[builtins.str]:
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "http_header_name")
+
+    @property
+    @pulumi.getter(name="httpQueryParameterName")
+    def http_query_parameter_name(self) -> Optional[builtins.str]:
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "http_query_parameter_name")
+
+    @property
+    @pulumi.getter(name="useSourceIp")
+    def use_source_ip(self) -> Optional[builtins.str]:
+        """
+        源IP地址。
+        """
+        return pulumi.get(self, "use_source_ip")
+
+
+@pulumi.output_type
+class UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None,
+                 ttl: Optional[builtins.int] = None):
+        """
+        :param builtins.str name: 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        :param builtins.str path: 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param builtins.int ttl: 有效期。单位为秒。
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[builtins.int]:
+        """
+        有效期。单位为秒。
+        """
+        return pulumi.get(self, "ttl")
 
 
 @pulumi.output_type
@@ -508,6 +913,571 @@ class UpstreamSourceSourceSpecNacosSourceAuthConfigBasic(dict):
 
 
 @pulumi.output_type
+class UpstreamTlsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsMode":
+            suggest = "tls_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamTlsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamTlsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamTlsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sni: Optional[builtins.str] = None,
+                 tls_mode: Optional[builtins.str] = None):
+        """
+        :param builtins.str sni: SNI。留空时会将访问网关的域名透传到upstream。
+        :param builtins.str tls_mode: TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+        if sni is not None:
+            pulumi.set(__self__, "sni", sni)
+        if tls_mode is not None:
+            pulumi.set(__self__, "tls_mode", tls_mode)
+
+    @property
+    @pulumi.getter
+    def sni(self) -> Optional[builtins.str]:
+        """
+        SNI。留空时会将访问网关的域名透传到upstream。
+        """
+        return pulumi.get(self, "sni")
+
+    @property
+    @pulumi.getter(name="tlsMode")
+    def tls_mode(self) -> Optional[builtins.str]:
+        """
+        TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+        return pulumi.get(self, "tls_mode")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aiProvider":
+            suggest = "ai_provider"
+        elif key == "ecsInstances":
+            suggest = "ecs_instances"
+        elif key == "k8SService":
+            suggest = "k8_s_service"
+        elif key == "nacosService":
+            suggest = "nacos_service"
+        elif key == "veFaas":
+            suggest = "ve_faas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamUpstreamSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamUpstreamSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamUpstreamSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ai_provider: Optional['outputs.UpstreamUpstreamSpecAiProvider'] = None,
+                 ecs_instances: Optional[Sequence['outputs.UpstreamUpstreamSpecEcsInstance']] = None,
+                 k8_s_service: Optional['outputs.UpstreamUpstreamSpecK8SService'] = None,
+                 nacos_service: Optional['outputs.UpstreamUpstreamSpecNacosService'] = None,
+                 ve_faas: Optional['outputs.UpstreamUpstreamSpecVeFaas'] = None):
+        """
+        :param 'UpstreamUpstreamSpecAiProviderArgs' ai_provider: AI模型代理。
+        :param 'UpstreamUpstreamSpecK8SServiceArgs' k8_s_service: 容器服务。
+        :param 'UpstreamUpstreamSpecNacosServiceArgs' nacos_service: 注册中心。
+        :param 'UpstreamUpstreamSpecVeFaasArgs' ve_faas: 函数服务。
+        """
+        if ai_provider is not None:
+            pulumi.set(__self__, "ai_provider", ai_provider)
+        if ecs_instances is not None:
+            pulumi.set(__self__, "ecs_instances", ecs_instances)
+        if k8_s_service is not None:
+            pulumi.set(__self__, "k8_s_service", k8_s_service)
+        if nacos_service is not None:
+            pulumi.set(__self__, "nacos_service", nacos_service)
+        if ve_faas is not None:
+            pulumi.set(__self__, "ve_faas", ve_faas)
+
+    @property
+    @pulumi.getter(name="aiProvider")
+    def ai_provider(self) -> Optional['outputs.UpstreamUpstreamSpecAiProvider']:
+        """
+        AI模型代理。
+        """
+        return pulumi.get(self, "ai_provider")
+
+    @property
+    @pulumi.getter(name="ecsInstances")
+    def ecs_instances(self) -> Optional[Sequence['outputs.UpstreamUpstreamSpecEcsInstance']]:
+        return pulumi.get(self, "ecs_instances")
+
+    @property
+    @pulumi.getter(name="k8SService")
+    def k8_s_service(self) -> Optional['outputs.UpstreamUpstreamSpecK8SService']:
+        """
+        容器服务。
+        """
+        return pulumi.get(self, "k8_s_service")
+
+    @property
+    @pulumi.getter(name="nacosService")
+    def nacos_service(self) -> Optional['outputs.UpstreamUpstreamSpecNacosService']:
+        """
+        注册中心。
+        """
+        return pulumi.get(self, "nacos_service")
+
+    @property
+    @pulumi.getter(name="veFaas")
+    def ve_faas(self) -> Optional['outputs.UpstreamUpstreamSpecVeFaas']:
+        """
+        函数服务。
+        """
+        return pulumi.get(self, "ve_faas")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpecAiProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseUrl":
+            suggest = "base_url"
+        elif key == "customModelService":
+            suggest = "custom_model_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamUpstreamSpecAiProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamUpstreamSpecAiProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamUpstreamSpecAiProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_url: Optional[builtins.str] = None,
+                 custom_model_service: Optional['outputs.UpstreamUpstreamSpecAiProviderCustomModelService'] = None,
+                 name: Optional[builtins.str] = None,
+                 token: Optional[builtins.str] = None):
+        """
+        :param builtins.str base_url: 模型地址。
+        :param 'UpstreamUpstreamSpecAiProviderCustomModelServiceArgs' custom_model_service: 火山自部署模型服务。
+        :param builtins.str name: 模型服务商名称。
+        :param builtins.str token: 模型API key。
+        """
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if custom_model_service is not None:
+            pulumi.set(__self__, "custom_model_service", custom_model_service)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[builtins.str]:
+        """
+        模型地址。
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter(name="customModelService")
+    def custom_model_service(self) -> Optional['outputs.UpstreamUpstreamSpecAiProviderCustomModelService']:
+        """
+        火山自部署模型服务。
+        """
+        return pulumi.get(self, "custom_model_service")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        模型服务商名称。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[builtins.str]:
+        """
+        模型API key。
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpecAiProviderCustomModelService(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 port: Optional[builtins.int] = None):
+        """
+        :param builtins.str name: 模型服务名称。
+        :param builtins.str namespace: 命名空间。
+        :param builtins.int port: 端口。
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        模型服务名称。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        命名空间。
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpecEcsInstance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ecsId":
+            suggest = "ecs_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamUpstreamSpecEcsInstance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamUpstreamSpecEcsInstance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamUpstreamSpecEcsInstance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ecs_id: Optional[builtins.str] = None,
+                 ip: Optional[builtins.str] = None,
+                 port: Optional[builtins.int] = None):
+        """
+        :param builtins.str ecs_id: 云服务器ID。
+        :param builtins.str ip: IP地址。
+        :param builtins.int port: 端口。
+        """
+        if ecs_id is not None:
+            pulumi.set(__self__, "ecs_id", ecs_id)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ecsId")
+    def ecs_id(self) -> Optional[builtins.str]:
+        """
+        云服务器ID。
+        """
+        return pulumi.get(self, "ecs_id")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[builtins.str]:
+        """
+        IP地址。
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpecK8SService(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 port: Optional[builtins.int] = None):
+        """
+        :param builtins.str name: 容器服务名称。长度限制为2~63个字符。
+        :param builtins.str namespace: 命名空间。长度限制为2~63个字符。
+        :param builtins.int port: 端口。
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        容器服务名称。长度限制为2~63个字符。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        命名空间。长度限制为2~63个字符。
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpecNacosService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namespaceId":
+            suggest = "namespace_id"
+        elif key == "upstreamSourceId":
+            suggest = "upstream_source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamUpstreamSpecNacosService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamUpstreamSpecNacosService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamUpstreamSpecNacosService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group: Optional[builtins.str] = None,
+                 namespace: Optional[builtins.str] = None,
+                 namespace_id: Optional[builtins.str] = None,
+                 service: Optional[builtins.str] = None,
+                 upstream_source_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str group: 分组。
+        :param builtins.str namespace: 命名空间。
+        :param builtins.str namespace_id: 命名空间ID。
+        :param builtins.str service: 服务。
+        :param builtins.str upstream_source_id: Upstream来源ID。
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if namespace_id is not None:
+            pulumi.set(__self__, "namespace_id", namespace_id)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if upstream_source_id is not None:
+            pulumi.set(__self__, "upstream_source_id", upstream_source_id)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[builtins.str]:
+        """
+        分组。
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[builtins.str]:
+        """
+        命名空间。
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[builtins.str]:
+        """
+        命名空间ID。
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[builtins.str]:
+        """
+        服务。
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="upstreamSourceId")
+    def upstream_source_id(self) -> Optional[builtins.str]:
+        """
+        Upstream来源ID。
+        """
+        return pulumi.get(self, "upstream_source_id")
+
+
+@pulumi.output_type
+class UpstreamUpstreamSpecVeFaas(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionId":
+            suggest = "function_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamUpstreamSpecVeFaas. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamUpstreamSpecVeFaas.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamUpstreamSpecVeFaas.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str function_id: 函数ID。
+        """
+        if function_id is not None:
+            pulumi.set(__self__, "function_id", function_id)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> Optional[builtins.str]:
+        """
+        函数ID。
+        """
+        return pulumi.get(self, "function_id")
+
+
+@pulumi.output_type
+class UpstreamVersionDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updateTime":
+            suggest = "update_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpstreamVersionDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpstreamVersionDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpstreamVersionDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 labels: Optional[Sequence['outputs.UpstreamVersionDetailLabel']] = None,
+                 name: Optional[builtins.str] = None,
+                 update_time: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        :param builtins.str update_time: 更新时间。
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if update_time is not None:
+            pulumi.set(__self__, "update_time", update_time)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence['outputs.UpstreamVersionDetailLabel']]:
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updateTime")
+    def update_time(self) -> Optional[builtins.str]:
+        """
+        更新时间。
+        """
+        return pulumi.get(self, "update_time")
+
+
+@pulumi.output_type
+class UpstreamVersionDetailLabel(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 键。
+        :param builtins.str value: 值。
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        值。
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetGatewayServiceAuthSpecResult(dict):
     def __init__(__self__, *,
                  enable: builtins.bool):
@@ -599,6 +1569,272 @@ class GetGatewayServiceDomainSpecResult(dict):
         开启私网域名公网解析。
         """
         return pulumi.get(self, "enable_public_resolution")
+
+
+@pulumi.output_type
+class GetUpstreamBackendTargetResult(dict):
+    def __init__(__self__, *,
+                 health_status: builtins.str,
+                 ip: builtins.str,
+                 port: builtins.int):
+        """
+        :param builtins.str health_status: 健康检查状态。
+        :param builtins.str ip: 后端节点IP。
+        :param builtins.int port: 后端节点端口。
+        """
+        pulumi.set(__self__, "health_status", health_status)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> builtins.str:
+        """
+        健康检查状态。
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> builtins.str:
+        """
+        后端节点IP。
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        后端节点端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetUpstreamCircuitBreakingSettingsResult(dict):
+    def __init__(__self__, *,
+                 base_ejection_time: builtins.int,
+                 consecutive_errors: builtins.int,
+                 enable: builtins.bool,
+                 interval: builtins.int,
+                 max_ejection_percent: builtins.int,
+                 min_health_percent: builtins.int):
+        """
+        :param builtins.int base_ejection_time: 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        :param builtins.int consecutive_errors: 连续失败次数。取值限制为1~100。默认值为5。
+        :param builtins.bool enable: 开启。
+        :param builtins.int interval: 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        :param builtins.int max_ejection_percent: 最大熔断比例。取值限制为1~100。默认值为20%。
+        :param builtins.int min_health_percent: 最小健康比例。取值限制为0~100。默认值为60%。
+        """
+        pulumi.set(__self__, "base_ejection_time", base_ejection_time)
+        pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        pulumi.set(__self__, "min_health_percent", min_health_percent)
+
+    @property
+    @pulumi.getter(name="baseEjectionTime")
+    def base_ejection_time(self) -> builtins.int:
+        """
+        最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+        """
+        return pulumi.get(self, "base_ejection_time")
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> builtins.int:
+        """
+        连续失败次数。取值限制为1~100。默认值为5。
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @property
+    @pulumi.getter
+    def enable(self) -> builtins.bool:
+        """
+        开启。
+        """
+        return pulumi.get(self, "enable")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> builtins.int:
+        """
+        计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> builtins.int:
+        """
+        最大熔断比例。取值限制为1~100。默认值为20%。
+        """
+        return pulumi.get(self, "max_ejection_percent")
+
+    @property
+    @pulumi.getter(name="minHealthPercent")
+    def min_health_percent(self) -> builtins.int:
+        """
+        最小健康比例。取值限制为0~100。默认值为60%。
+        """
+        return pulumi.get(self, "min_health_percent")
+
+
+@pulumi.output_type
+class GetUpstreamLoadBalancerSettingsResult(dict):
+    def __init__(__self__, *,
+                 consistent_hash_lb: 'outputs.GetUpstreamLoadBalancerSettingsConsistentHashLbResult',
+                 lb_policy: builtins.str,
+                 simple_lb: builtins.str,
+                 warmup_duration: builtins.int):
+        """
+        :param 'GetUpstreamLoadBalancerSettingsConsistentHashLbArgs' consistent_hash_lb: 一致性哈希负载均衡。
+        :param builtins.str lb_policy: 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        :param builtins.str simple_lb: 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        :param builtins.int warmup_duration: 预热时间。单位为秒。
+        """
+        pulumi.set(__self__, "consistent_hash_lb", consistent_hash_lb)
+        pulumi.set(__self__, "lb_policy", lb_policy)
+        pulumi.set(__self__, "simple_lb", simple_lb)
+        pulumi.set(__self__, "warmup_duration", warmup_duration)
+
+    @property
+    @pulumi.getter(name="consistentHashLb")
+    def consistent_hash_lb(self) -> 'outputs.GetUpstreamLoadBalancerSettingsConsistentHashLbResult':
+        """
+        一致性哈希负载均衡。
+        """
+        return pulumi.get(self, "consistent_hash_lb")
+
+    @property
+    @pulumi.getter(name="lbPolicy")
+    def lb_policy(self) -> builtins.str:
+        """
+        负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+        """
+        return pulumi.get(self, "lb_policy")
+
+    @property
+    @pulumi.getter(name="simpleLb")
+    def simple_lb(self) -> builtins.str:
+        """
+        简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+        """
+        return pulumi.get(self, "simple_lb")
+
+    @property
+    @pulumi.getter(name="warmupDuration")
+    def warmup_duration(self) -> builtins.int:
+        """
+        预热时间。单位为秒。
+        """
+        return pulumi.get(self, "warmup_duration")
+
+
+@pulumi.output_type
+class GetUpstreamLoadBalancerSettingsConsistentHashLbResult(dict):
+    def __init__(__self__, *,
+                 hash_key: builtins.str,
+                 http_cookie: 'outputs.GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieResult',
+                 http_header_name: builtins.str,
+                 http_query_parameter_name: builtins.str,
+                 use_source_ip: builtins.str):
+        """
+        :param builtins.str hash_key: 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        :param 'GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs' http_cookie: Cookie。
+        :param builtins.str http_header_name: 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param builtins.str http_query_parameter_name: 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param builtins.str use_source_ip: 源IP地址。
+        """
+        pulumi.set(__self__, "hash_key", hash_key)
+        pulumi.set(__self__, "http_cookie", http_cookie)
+        pulumi.set(__self__, "http_header_name", http_header_name)
+        pulumi.set(__self__, "http_query_parameter_name", http_query_parameter_name)
+        pulumi.set(__self__, "use_source_ip", use_source_ip)
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> builtins.str:
+        """
+        一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+        """
+        return pulumi.get(self, "hash_key")
+
+    @property
+    @pulumi.getter(name="httpCookie")
+    def http_cookie(self) -> 'outputs.GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieResult':
+        """
+        Cookie。
+        """
+        return pulumi.get(self, "http_cookie")
+
+    @property
+    @pulumi.getter(name="httpHeaderName")
+    def http_header_name(self) -> builtins.str:
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "http_header_name")
+
+    @property
+    @pulumi.getter(name="httpQueryParameterName")
+    def http_query_parameter_name(self) -> builtins.str:
+        """
+        参数。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "http_query_parameter_name")
+
+    @property
+    @pulumi.getter(name="useSourceIp")
+    def use_source_ip(self) -> builtins.str:
+        """
+        源IP地址。
+        """
+        return pulumi.get(self, "use_source_ip")
+
+
+@pulumi.output_type
+class GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieResult(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 path: builtins.str,
+                 ttl: builtins.int):
+        """
+        :param builtins.str name: 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        :param builtins.str path: 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        :param builtins.int ttl: 有效期。单位为秒。
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        名称。支持ASCII可打印字符，长度限制为0~256个字符。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        路径。支持ASCII可打印字符，长度限制为1~256个字符。
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> builtins.int:
+        """
+        有效期。单位为秒。
+        """
+        return pulumi.get(self, "ttl")
 
 
 @pulumi.output_type
@@ -828,5 +2064,416 @@ class GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicResult(dict):
         用户名。
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetUpstreamTlsSettingsResult(dict):
+    def __init__(__self__, *,
+                 sni: builtins.str,
+                 tls_mode: builtins.str):
+        """
+        :param builtins.str sni: SNI。留空时会将访问网关的域名透传到upstream。
+        :param builtins.str tls_mode: TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+        pulumi.set(__self__, "sni", sni)
+        pulumi.set(__self__, "tls_mode", tls_mode)
+
+    @property
+    @pulumi.getter
+    def sni(self) -> builtins.str:
+        """
+        SNI。留空时会将访问网关的域名透传到upstream。
+        """
+        return pulumi.get(self, "sni")
+
+    @property
+    @pulumi.getter(name="tlsMode")
+    def tls_mode(self) -> builtins.str:
+        """
+        TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+        """
+        return pulumi.get(self, "tls_mode")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecResult(dict):
+    def __init__(__self__, *,
+                 ai_provider: 'outputs.GetUpstreamUpstreamSpecAiProviderResult',
+                 ecs_instances: Sequence['outputs.GetUpstreamUpstreamSpecEcsInstanceResult'],
+                 k8_s_service: 'outputs.GetUpstreamUpstreamSpecK8SServiceResult',
+                 nacos_service: 'outputs.GetUpstreamUpstreamSpecNacosServiceResult',
+                 ve_faas: 'outputs.GetUpstreamUpstreamSpecVeFaasResult'):
+        """
+        :param 'GetUpstreamUpstreamSpecAiProviderArgs' ai_provider: AI模型代理。
+        :param Sequence['GetUpstreamUpstreamSpecEcsInstanceArgs'] ecs_instances: 云服务器。
+        :param 'GetUpstreamUpstreamSpecK8SServiceArgs' k8_s_service: 容器服务。
+        :param 'GetUpstreamUpstreamSpecNacosServiceArgs' nacos_service: 注册中心。
+        :param 'GetUpstreamUpstreamSpecVeFaasArgs' ve_faas: 函数服务。
+        """
+        pulumi.set(__self__, "ai_provider", ai_provider)
+        pulumi.set(__self__, "ecs_instances", ecs_instances)
+        pulumi.set(__self__, "k8_s_service", k8_s_service)
+        pulumi.set(__self__, "nacos_service", nacos_service)
+        pulumi.set(__self__, "ve_faas", ve_faas)
+
+    @property
+    @pulumi.getter(name="aiProvider")
+    def ai_provider(self) -> 'outputs.GetUpstreamUpstreamSpecAiProviderResult':
+        """
+        AI模型代理。
+        """
+        return pulumi.get(self, "ai_provider")
+
+    @property
+    @pulumi.getter(name="ecsInstances")
+    def ecs_instances(self) -> Sequence['outputs.GetUpstreamUpstreamSpecEcsInstanceResult']:
+        """
+        云服务器。
+        """
+        return pulumi.get(self, "ecs_instances")
+
+    @property
+    @pulumi.getter(name="k8SService")
+    def k8_s_service(self) -> 'outputs.GetUpstreamUpstreamSpecK8SServiceResult':
+        """
+        容器服务。
+        """
+        return pulumi.get(self, "k8_s_service")
+
+    @property
+    @pulumi.getter(name="nacosService")
+    def nacos_service(self) -> 'outputs.GetUpstreamUpstreamSpecNacosServiceResult':
+        """
+        注册中心。
+        """
+        return pulumi.get(self, "nacos_service")
+
+    @property
+    @pulumi.getter(name="veFaas")
+    def ve_faas(self) -> 'outputs.GetUpstreamUpstreamSpecVeFaasResult':
+        """
+        函数服务。
+        """
+        return pulumi.get(self, "ve_faas")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecAiProviderResult(dict):
+    def __init__(__self__, *,
+                 base_url: builtins.str,
+                 custom_model_service: 'outputs.GetUpstreamUpstreamSpecAiProviderCustomModelServiceResult',
+                 name: builtins.str,
+                 token: builtins.str):
+        """
+        :param builtins.str base_url: 模型地址。
+        :param 'GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs' custom_model_service: 火山自部署模型服务。
+        :param builtins.str name: 模型服务商名称。
+        :param builtins.str token: 模型API key。
+        """
+        pulumi.set(__self__, "base_url", base_url)
+        pulumi.set(__self__, "custom_model_service", custom_model_service)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> builtins.str:
+        """
+        模型地址。
+        """
+        return pulumi.get(self, "base_url")
+
+    @property
+    @pulumi.getter(name="customModelService")
+    def custom_model_service(self) -> 'outputs.GetUpstreamUpstreamSpecAiProviderCustomModelServiceResult':
+        """
+        火山自部署模型服务。
+        """
+        return pulumi.get(self, "custom_model_service")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        模型服务商名称。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def token(self) -> builtins.str:
+        """
+        模型API key。
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecAiProviderCustomModelServiceResult(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 namespace: builtins.str,
+                 port: builtins.int):
+        """
+        :param builtins.str name: 模型服务名称。
+        :param builtins.str namespace: 命名空间。
+        :param builtins.int port: 端口。
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        模型服务名称。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> builtins.str:
+        """
+        命名空间。
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecEcsInstanceResult(dict):
+    def __init__(__self__, *,
+                 ecs_id: builtins.str,
+                 ip: builtins.str,
+                 port: builtins.int):
+        """
+        :param builtins.str ecs_id: 云服务器ID。
+        :param builtins.str ip: IP地址。
+        :param builtins.int port: 端口。
+        """
+        pulumi.set(__self__, "ecs_id", ecs_id)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ecsId")
+    def ecs_id(self) -> builtins.str:
+        """
+        云服务器ID。
+        """
+        return pulumi.get(self, "ecs_id")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> builtins.str:
+        """
+        IP地址。
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecK8SServiceResult(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 namespace: builtins.str,
+                 port: builtins.int):
+        """
+        :param builtins.str name: 容器服务名称。长度限制为2~63个字符。
+        :param builtins.str namespace: 命名空间。长度限制为2~63个字符。
+        :param builtins.int port: 端口。
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        容器服务名称。长度限制为2~63个字符。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> builtins.str:
+        """
+        命名空间。长度限制为2~63个字符。
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        端口。
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecNacosServiceResult(dict):
+    def __init__(__self__, *,
+                 group: builtins.str,
+                 namespace: builtins.str,
+                 namespace_id: builtins.str,
+                 service: builtins.str,
+                 upstream_source_id: builtins.str):
+        """
+        :param builtins.str group: 分组。
+        :param builtins.str namespace: 命名空间。
+        :param builtins.str namespace_id: 命名空间ID。
+        :param builtins.str service: 服务。
+        :param builtins.str upstream_source_id: Upstream来源ID。
+        """
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "namespace_id", namespace_id)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "upstream_source_id", upstream_source_id)
+
+    @property
+    @pulumi.getter
+    def group(self) -> builtins.str:
+        """
+        分组。
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> builtins.str:
+        """
+        命名空间。
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> builtins.str:
+        """
+        命名空间ID。
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @property
+    @pulumi.getter
+    def service(self) -> builtins.str:
+        """
+        服务。
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="upstreamSourceId")
+    def upstream_source_id(self) -> builtins.str:
+        """
+        Upstream来源ID。
+        """
+        return pulumi.get(self, "upstream_source_id")
+
+
+@pulumi.output_type
+class GetUpstreamUpstreamSpecVeFaasResult(dict):
+    def __init__(__self__, *,
+                 function_id: builtins.str):
+        """
+        :param builtins.str function_id: 函数ID。
+        """
+        pulumi.set(__self__, "function_id", function_id)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> builtins.str:
+        """
+        函数ID。
+        """
+        return pulumi.get(self, "function_id")
+
+
+@pulumi.output_type
+class GetUpstreamVersionDetailResult(dict):
+    def __init__(__self__, *,
+                 labels: Sequence['outputs.GetUpstreamVersionDetailLabelResult'],
+                 name: builtins.str,
+                 update_time: builtins.str):
+        """
+        :param Sequence['GetUpstreamVersionDetailLabelArgs'] labels: 标签。
+        :param builtins.str name: 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        :param builtins.str update_time: 更新时间。
+        """
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "update_time", update_time)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Sequence['outputs.GetUpstreamVersionDetailLabelResult']:
+        """
+        标签。
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="updateTime")
+    def update_time(self) -> builtins.str:
+        """
+        更新时间。
+        """
+        return pulumi.get(self, "update_time")
+
+
+@pulumi.output_type
+class GetUpstreamVersionDetailLabelResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: 键。
+        :param builtins.str value: 值。
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        键。
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        值。
+        """
+        return pulumi.get(self, "value")
 
 

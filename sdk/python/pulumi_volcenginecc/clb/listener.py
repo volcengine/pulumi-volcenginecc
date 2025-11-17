@@ -65,7 +65,7 @@ class ListenerArgs:
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input[builtins.str] load_balancer_id: CLB实例的ID。
         :param pulumi.Input[builtins.int] port: 监听器接收请求使用的端口。取值范围为 0～65535。参数Protocol为“TCP”或“UDP”时，支持传入0，表示用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听器的协议。
+        :param pulumi.Input[builtins.str] protocol: 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         :param pulumi.Input[builtins.str] server_group_id: 监听器关联的后端服务器组 ID。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] acl_ids: 监听器绑定的访问控制策略组ID。仅AclStatus参数为on时返回。
         :param pulumi.Input[builtins.str] acl_status: 是否开启访问控制功能。取值如下：on：开启。off（默认值）：不开启。
@@ -205,7 +205,7 @@ class ListenerArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[builtins.str]:
         """
-        监听器的协议。
+        监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 
@@ -722,7 +722,7 @@ class _ListenerState:
         :param pulumi.Input[builtins.int] persistence_timeout: 会话保持的超时时间，单位为秒。取值范围根据参数PersistenceType取值有所不同。PersistenceType置为source_ip时，取值范围为1～3600。PersistenceType配置为insert时，取值范围为1～86400。
         :param pulumi.Input[builtins.str] persistence_type: 会话保持的类型。取值如下：off（默认值）：不启用会话保持。source_ip：源地址IP，仅参数ProtocolTCP或UDP时，本取值有效。insert：植入Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。server：重写Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。。
         :param pulumi.Input[builtins.int] port: 监听器接收请求使用的端口。取值范围为 0～65535。参数Protocol为“TCP”或“UDP”时，支持传入0，表示用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听器的协议。
+        :param pulumi.Input[builtins.str] protocol: 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         :param pulumi.Input[builtins.int] proxy_connect_timeout: CLB与后端服务器之间的连接建立超时时间。建议大于健康检查超时时间。取值范围为 4-120秒，默认为4。仅参数Protocol取HTTP或HTTPS时，本参数有效。
         :param pulumi.Input[builtins.str] proxy_protocol_type: 是否启用Proxy-Protocol协议。仅参数Protocol取TCP或UDP时，本参数有效。取值如下：off（默认值）：关闭。standard：开启。
         :param pulumi.Input[builtins.int] proxy_read_timeout: CLB从后端服务器读取响应的超时时间。此超时时间仅针对两个连续的读操作之间设置，而非整个响应的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
@@ -1189,7 +1189,7 @@ class _ListenerState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        监听器的协议。
+        监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 
@@ -1436,7 +1436,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] persistence_timeout: 会话保持的超时时间，单位为秒。取值范围根据参数PersistenceType取值有所不同。PersistenceType置为source_ip时，取值范围为1～3600。PersistenceType配置为insert时，取值范围为1～86400。
         :param pulumi.Input[builtins.str] persistence_type: 会话保持的类型。取值如下：off（默认值）：不启用会话保持。source_ip：源地址IP，仅参数ProtocolTCP或UDP时，本取值有效。insert：植入Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。server：重写Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。。
         :param pulumi.Input[builtins.int] port: 监听器接收请求使用的端口。取值范围为 0～65535。参数Protocol为“TCP”或“UDP”时，支持传入0，表示用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听器的协议。
+        :param pulumi.Input[builtins.str] protocol: 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         :param pulumi.Input[builtins.int] proxy_connect_timeout: CLB与后端服务器之间的连接建立超时时间。建议大于健康检查超时时间。取值范围为 4-120秒，默认为4。仅参数Protocol取HTTP或HTTPS时，本参数有效。
         :param pulumi.Input[builtins.str] proxy_protocol_type: 是否启用Proxy-Protocol协议。仅参数Protocol取TCP或UDP时，本参数有效。取值如下：off（默认值）：关闭。standard：开启。
         :param pulumi.Input[builtins.int] proxy_read_timeout: CLB从后端服务器读取响应的超时时间。此超时时间仅针对两个连续的读操作之间设置，而非整个响应的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
@@ -1668,7 +1668,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] persistence_timeout: 会话保持的超时时间，单位为秒。取值范围根据参数PersistenceType取值有所不同。PersistenceType置为source_ip时，取值范围为1～3600。PersistenceType配置为insert时，取值范围为1～86400。
         :param pulumi.Input[builtins.str] persistence_type: 会话保持的类型。取值如下：off（默认值）：不启用会话保持。source_ip：源地址IP，仅参数ProtocolTCP或UDP时，本取值有效。insert：植入Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。server：重写Cookie，仅参数Protocol取HTTP或HTTPS且Scheduler取wrr时，本取值生效。。
         :param pulumi.Input[builtins.int] port: 监听器接收请求使用的端口。取值范围为 0～65535。参数Protocol为“TCP”或“UDP”时，支持传入0，表示用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听器的协议。
+        :param pulumi.Input[builtins.str] protocol: 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         :param pulumi.Input[builtins.int] proxy_connect_timeout: CLB与后端服务器之间的连接建立超时时间。建议大于健康检查超时时间。取值范围为 4-120秒，默认为4。仅参数Protocol取HTTP或HTTPS时，本参数有效。
         :param pulumi.Input[builtins.str] proxy_protocol_type: 是否启用Proxy-Protocol协议。仅参数Protocol取TCP或UDP时，本参数有效。取值如下：off（默认值）：关闭。standard：开启。
         :param pulumi.Input[builtins.int] proxy_read_timeout: CLB从后端服务器读取响应的超时时间。此超时时间仅针对两个连续的读操作之间设置，而非整个响应的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
@@ -1976,7 +1976,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[builtins.str]:
         """
-        监听器的协议。
+        监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 

@@ -12,12 +12,16 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.apig.inputs.GetGatewayServiceArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetGatewayServicePlainArgs;
+import com.volcengine.volcenginecc.apig.inputs.GetUpstreamArgs;
+import com.volcengine.volcenginecc.apig.inputs.GetUpstreamPlainArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamSourceArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamSourcePlainArgs;
 import com.volcengine.volcenginecc.apig.outputs.GetGatewayServiceResult;
 import com.volcengine.volcenginecc.apig.outputs.GetGatewayServicesResult;
+import com.volcengine.volcenginecc.apig.outputs.GetUpstreamResult;
 import com.volcengine.volcenginecc.apig.outputs.GetUpstreamSourceResult;
 import com.volcengine.volcenginecc.apig.outputs.GetUpstreamSourcesResult;
+import com.volcengine.volcenginecc.apig.outputs.GetUpstreamsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApigFunctions {
@@ -106,6 +110,41 @@ public final class ApigFunctions {
         return Deployment.getInstance().invokeAsync("volcenginecc:apig/getGatewayServices:getGatewayServices", TypeShape.of(GetGatewayServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamResult> getUpstream(GetUpstreamArgs args) {
+        return getUpstream(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static CompletableFuture<GetUpstreamResult> getUpstreamPlain(GetUpstreamPlainArgs args) {
+        return getUpstreamPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamResult> getUpstream(GetUpstreamArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getUpstream:getUpstream", TypeShape.of(GetUpstreamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamResult> getUpstream(GetUpstreamArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getUpstream:getUpstream", TypeShape.of(GetUpstreamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static CompletableFuture<GetUpstreamResult> getUpstreamPlain(GetUpstreamPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:apig/getUpstream:getUpstream", TypeShape.of(GetUpstreamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Data Source schema for Volcengine::APIG::UpstreamSource
      * 
      */
@@ -188,5 +227,54 @@ public final class ApigFunctions {
      */
     public static CompletableFuture<GetUpstreamSourcesResult> getUpstreamSourcesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:apig/getUpstreamSources:getUpstreamSources", TypeShape.of(GetUpstreamSourcesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamsResult> getUpstreams() {
+        return getUpstreams(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static CompletableFuture<GetUpstreamsResult> getUpstreamsPlain() {
+        return getUpstreamsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamsResult> getUpstreams(InvokeArgs args) {
+        return getUpstreams(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static CompletableFuture<GetUpstreamsResult> getUpstreamsPlain(InvokeArgs args) {
+        return getUpstreamsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamsResult> getUpstreams(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getUpstreams:getUpstreams", TypeShape.of(GetUpstreamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static Output<GetUpstreamsResult> getUpstreams(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getUpstreams:getUpstreams", TypeShape.of(GetUpstreamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::Upstream
+     * 
+     */
+    public static CompletableFuture<GetUpstreamsResult> getUpstreamsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:apig/getUpstreams:getUpstreams", TypeShape.of(GetUpstreamsResult.class), args, Utilities.withVersion(options));
     }
 }

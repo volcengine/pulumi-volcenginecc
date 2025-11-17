@@ -19,6 +19,8 @@ if typing.TYPE_CHECKING:
     ark = __ark
     import pulumi_volcenginecc.autoscaling as __autoscaling
     autoscaling = __autoscaling
+    import pulumi_volcenginecc.cdn as __cdn
+    cdn = __cdn
     import pulumi_volcenginecc.clb as __clb
     clb = __clb
     import pulumi_volcenginecc.config as __config
@@ -33,6 +35,12 @@ if typing.TYPE_CHECKING:
     filenas = __filenas
     import pulumi_volcenginecc.iam as __iam
     iam = __iam
+    import pulumi_volcenginecc.kafka as __kafka
+    kafka = __kafka
+    import pulumi_volcenginecc.natgateway as __natgateway
+    natgateway = __natgateway
+    import pulumi_volcenginecc.privatezone as __privatezone
+    privatezone = __privatezone
     import pulumi_volcenginecc.rdsmysql as __rdsmysql
     rdsmysql = __rdsmysql
     import pulumi_volcenginecc.redis as __redis
@@ -60,6 +68,7 @@ else:
     apig = _utilities.lazy_import('pulumi_volcenginecc.apig')
     ark = _utilities.lazy_import('pulumi_volcenginecc.ark')
     autoscaling = _utilities.lazy_import('pulumi_volcenginecc.autoscaling')
+    cdn = _utilities.lazy_import('pulumi_volcenginecc.cdn')
     clb = _utilities.lazy_import('pulumi_volcenginecc.clb')
     config = _utilities.lazy_import('pulumi_volcenginecc.config')
     cr = _utilities.lazy_import('pulumi_volcenginecc.cr')
@@ -67,6 +76,9 @@ else:
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
+    kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
+    natgateway = _utilities.lazy_import('pulumi_volcenginecc.natgateway')
+    privatezone = _utilities.lazy_import('pulumi_volcenginecc.privatezone')
     rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
     redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
     storageebs = _utilities.lazy_import('pulumi_volcenginecc.storageebs')
@@ -132,6 +144,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "apig/upstream",
+  "fqn": "pulumi_volcenginecc.apig",
+  "classes": {
+   "volcenginecc:apig/upstream:Upstream": "Upstream"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "apig/upstreamSource",
   "fqn": "pulumi_volcenginecc.apig",
   "classes": {
@@ -152,6 +172,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.autoscaling",
   "classes": {
    "volcenginecc:autoscaling/scalingConfiguration:ScalingConfiguration": "ScalingConfiguration"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cdn/shareConfig",
+  "fqn": "pulumi_volcenginecc.cdn",
+  "classes": {
+   "volcenginecc:cdn/shareConfig:ShareConfig": "ShareConfig"
   }
  },
  {
@@ -356,6 +384,38 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "kafka/topic",
+  "fqn": "pulumi_volcenginecc.kafka",
+  "classes": {
+   "volcenginecc:kafka/topic:Topic": "Topic"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "natgateway/ngw",
+  "fqn": "pulumi_volcenginecc.natgateway",
+  "classes": {
+   "volcenginecc:natgateway/ngw:Ngw": "Ngw"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "privatezone/resolverEndpoint",
+  "fqn": "pulumi_volcenginecc.privatezone",
+  "classes": {
+   "volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint": "ResolverEndpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "privatezone/resolverRule",
+  "fqn": "pulumi_volcenginecc.privatezone",
+  "classes": {
+   "volcenginecc:privatezone/resolverRule:ResolverRule": "ResolverRule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdsmysql/database",
   "fqn": "pulumi_volcenginecc.rdsmysql",
   "classes": {
@@ -440,6 +500,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
    "volcenginecc:vke/addon:Addon": "Addon"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/permission",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/permission:Permission": "Permission"
   }
  },
  {

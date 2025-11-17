@@ -14,7 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     [OutputType]
     public sealed class ServerGroupTag
     {
+        /// <summary>
+        /// 绑定的标签键信息。
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// 绑定的标签值信息。
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

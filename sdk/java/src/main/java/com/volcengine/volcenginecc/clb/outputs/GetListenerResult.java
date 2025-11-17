@@ -170,7 +170,7 @@ public final class GetListenerResult {
      */
     private Integer port;
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      * 
      */
     private String protocol;
@@ -459,7 +459,7 @@ public final class GetListenerResult {
         return this.port;
     }
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      * 
      */
     public String protocol() {

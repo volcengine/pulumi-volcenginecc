@@ -203,7 +203,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// 监听器的协议。
+        /// 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -505,7 +505,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// 监听器的协议。
+        /// 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -767,7 +767,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// 监听器的协议。
+        /// 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
