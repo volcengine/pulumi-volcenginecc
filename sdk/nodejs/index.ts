@@ -14,6 +14,7 @@ import * as alb from "./alb";
 import * as apig from "./apig";
 import * as ark from "./ark";
 import * as autoscaling from "./autoscaling";
+import * as cdn from "./cdn";
 import * as clb from "./clb";
 import * as config from "./config";
 import * as cr from "./cr";
@@ -21,6 +22,9 @@ import * as directconnect from "./directconnect";
 import * as ecs from "./ecs";
 import * as filenas from "./filenas";
 import * as iam from "./iam";
+import * as kafka from "./kafka";
+import * as natgateway from "./natgateway";
+import * as privatezone from "./privatezone";
 import * as rdsmysql from "./rdsmysql";
 import * as redis from "./redis";
 import * as storageebs from "./storageebs";
@@ -39,6 +43,7 @@ export {
     apig,
     ark,
     autoscaling,
+    cdn,
     clb,
     config,
     cr,
@@ -46,6 +51,9 @@ export {
     ecs,
     filenas,
     iam,
+    kafka,
+    natgateway,
+    privatezone,
     rdsmysql,
     redis,
     storageebs,

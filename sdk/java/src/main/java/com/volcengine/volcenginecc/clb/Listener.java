@@ -455,14 +455,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * 监听器的协议。
+     * 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      * 
      */
     public Output<String> protocol() {

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:apig/gatewayService:GatewayService":
 		r = &GatewayService{}
+	case "volcenginecc:apig/upstream:Upstream":
+		r = &Upstream{}
 	case "volcenginecc:apig/upstreamSource:UpstreamSource":
 		r = &UpstreamSource{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"apig/gatewayService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"apig/upstream",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

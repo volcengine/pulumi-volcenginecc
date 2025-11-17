@@ -1520,6 +1520,166 @@
                 }
             }
         },
+        "volcenginecc:apig/UpstreamBackendTarget:UpstreamBackendTarget": {
+            "properties": {
+                "healthStatus": {
+                    "type": "string",
+                    "description": "健康检查状态。\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "后端节点IP。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "后端节点端口。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "healthStatus",
+                        "ip",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamCircuitBreakingSettings:UpstreamCircuitBreakingSettings": {
+            "properties": {
+                "baseEjectionTime": {
+                    "type": "integer",
+                    "description": "最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。\n"
+                },
+                "consecutiveErrors": {
+                    "type": "integer",
+                    "description": "连续失败次数。取值限制为1~100。默认值为5。\n"
+                },
+                "enable": {
+                    "type": "boolean",
+                    "description": "开启。\n"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。\n"
+                },
+                "maxEjectionPercent": {
+                    "type": "integer",
+                    "description": "最大熔断比例。取值限制为1~100。默认值为20%。\n"
+                },
+                "minHealthPercent": {
+                    "type": "integer",
+                    "description": "最小健康比例。取值限制为0~100。默认值为60%。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "baseEjectionTime",
+                        "consecutiveErrors",
+                        "enable",
+                        "interval",
+                        "maxEjectionPercent",
+                        "minHealthPercent"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamLoadBalancerSettings:UpstreamLoadBalancerSettings": {
+            "properties": {
+                "consistentHashLb": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamLoadBalancerSettingsConsistentHashLb:UpstreamLoadBalancerSettingsConsistentHashLb",
+                    "description": "一致性哈希负载均衡。\n"
+                },
+                "lbPolicy": {
+                    "type": "string",
+                    "description": "负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。\n"
+                },
+                "simpleLb": {
+                    "type": "string",
+                    "description": "简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。\n"
+                },
+                "warmupDuration": {
+                    "type": "integer",
+                    "description": "预热时间。单位为秒。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "consistentHashLb",
+                        "lbPolicy",
+                        "simpleLb",
+                        "warmupDuration"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamLoadBalancerSettingsConsistentHashLb:UpstreamLoadBalancerSettingsConsistentHashLb": {
+            "properties": {
+                "hashKey": {
+                    "type": "string",
+                    "description": "一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。\n"
+                },
+                "httpCookie": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie:UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie",
+                    "description": "Cookie。\n"
+                },
+                "httpHeaderName": {
+                    "type": "string",
+                    "description": "参数。支持ASCII可打印字符，长度限制为1~256个字符。\n"
+                },
+                "httpQueryParameterName": {
+                    "type": "string",
+                    "description": "参数。支持ASCII可打印字符，长度限制为1~256个字符。\n"
+                },
+                "useSourceIp": {
+                    "type": "string",
+                    "description": "源IP地址。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "hashKey",
+                        "httpCookie",
+                        "httpHeaderName",
+                        "httpQueryParameterName",
+                        "useSourceIp"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie:UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "名称。支持ASCII可打印字符，长度限制为0~256个字符。\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "路径。支持ASCII可打印字符，长度限制为1~256个字符。\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "有效期。单位为秒。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "path",
+                        "ttl"
+                    ]
+                }
+            }
+        },
         "volcenginecc:apig/UpstreamSourceIngressSettings:UpstreamSourceIngressSettings": {
             "properties": {
                 "enableAllIngressClasses": {
@@ -1677,6 +1837,275 @@
                 }
             }
         },
+        "volcenginecc:apig/UpstreamTlsSettings:UpstreamTlsSettings": {
+            "properties": {
+                "sni": {
+                    "type": "string",
+                    "description": "SNI。留空时会将访问网关的域名透传到upstream。\n"
+                },
+                "tlsMode": {
+                    "type": "string",
+                    "description": "TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "sni",
+                        "tlsMode"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpec:UpstreamUpstreamSpec": {
+            "properties": {
+                "aiProvider": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpecAiProvider:UpstreamUpstreamSpecAiProvider",
+                    "description": "AI模型代理。\n"
+                },
+                "ecsInstances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpecEcsInstance:UpstreamUpstreamSpecEcsInstance"
+                    }
+                },
+                "k8SService": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpecK8SService:UpstreamUpstreamSpecK8SService",
+                    "description": "容器服务。\n"
+                },
+                "nacosService": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpecNacosService:UpstreamUpstreamSpecNacosService",
+                    "description": "注册中心。\n"
+                },
+                "veFaas": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpecVeFaas:UpstreamUpstreamSpecVeFaas",
+                    "description": "函数服务。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "aiProvider",
+                        "ecsInstances",
+                        "k8SService",
+                        "nacosService",
+                        "veFaas"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpecAiProvider:UpstreamUpstreamSpecAiProvider": {
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "description": "模型地址。\n"
+                },
+                "customModelService": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpecAiProviderCustomModelService:UpstreamUpstreamSpecAiProviderCustomModelService",
+                    "description": "火山自部署模型服务。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "模型服务商名称。\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "模型API key。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "baseUrl",
+                        "customModelService",
+                        "name",
+                        "token"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpecAiProviderCustomModelService:UpstreamUpstreamSpecAiProviderCustomModelService": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "模型服务名称。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "命名空间。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "端口。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "namespace",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpecEcsInstance:UpstreamUpstreamSpecEcsInstance": {
+            "properties": {
+                "ecsId": {
+                    "type": "string",
+                    "description": "云服务器ID。\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "IP地址。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "端口。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ecsId",
+                        "ip",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpecK8SService:UpstreamUpstreamSpecK8SService": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "容器服务名称。长度限制为2~63个字符。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "命名空间。长度限制为2~63个字符。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "端口。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "name",
+                        "namespace",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpecNacosService:UpstreamUpstreamSpecNacosService": {
+            "properties": {
+                "group": {
+                    "type": "string",
+                    "description": "分组。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "命名空间。\n"
+                },
+                "namespaceId": {
+                    "type": "string",
+                    "description": "命名空间ID。\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "服务。\n"
+                },
+                "upstreamSourceId": {
+                    "type": "string",
+                    "description": "Upstream来源ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "group",
+                        "namespace",
+                        "namespaceId",
+                        "service",
+                        "upstreamSourceId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamUpstreamSpecVeFaas:UpstreamUpstreamSpecVeFaas": {
+            "properties": {
+                "functionId": {
+                    "type": "string",
+                    "description": "函数ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "functionId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamVersionDetail:UpstreamVersionDetail": {
+            "properties": {
+                "labels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamVersionDetailLabel:UpstreamVersionDetailLabel"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。\n"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "更新时间。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "labels",
+                        "name",
+                        "updateTime"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:apig/UpstreamVersionDetailLabel:UpstreamVersionDetailLabel": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
         "volcenginecc:apig/getGatewayServiceAuthSpec:getGatewayServiceAuthSpec": {
             "properties": {
                 "enable": {
@@ -1748,6 +2177,171 @@
             "type": "object",
             "required": [
                 "enablePublicResolution"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamBackendTarget:getUpstreamBackendTarget": {
+            "properties": {
+                "healthStatus": {
+                    "type": "string",
+                    "description": "健康检查状态。\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "后端节点IP。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "后端节点端口。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "healthStatus",
+                "ip",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamCircuitBreakingSettings:getUpstreamCircuitBreakingSettings": {
+            "properties": {
+                "baseEjectionTime": {
+                    "type": "integer",
+                    "description": "最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。\n"
+                },
+                "consecutiveErrors": {
+                    "type": "integer",
+                    "description": "连续失败次数。取值限制为1~100。默认值为5。\n"
+                },
+                "enable": {
+                    "type": "boolean",
+                    "description": "开启。\n"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。\n"
+                },
+                "maxEjectionPercent": {
+                    "type": "integer",
+                    "description": "最大熔断比例。取值限制为1~100。默认值为20%。\n"
+                },
+                "minHealthPercent": {
+                    "type": "integer",
+                    "description": "最小健康比例。取值限制为0~100。默认值为60%。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "baseEjectionTime",
+                "consecutiveErrors",
+                "enable",
+                "interval",
+                "maxEjectionPercent",
+                "minHealthPercent"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamLoadBalancerSettings:getUpstreamLoadBalancerSettings": {
+            "properties": {
+                "consistentHashLb": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamLoadBalancerSettingsConsistentHashLb:getUpstreamLoadBalancerSettingsConsistentHashLb",
+                    "description": "一致性哈希负载均衡。\n"
+                },
+                "lbPolicy": {
+                    "type": "string",
+                    "description": "负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。\n"
+                },
+                "simpleLb": {
+                    "type": "string",
+                    "description": "简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。\n"
+                },
+                "warmupDuration": {
+                    "type": "integer",
+                    "description": "预热时间。单位为秒。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "consistentHashLb",
+                "lbPolicy",
+                "simpleLb",
+                "warmupDuration"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamLoadBalancerSettingsConsistentHashLb:getUpstreamLoadBalancerSettingsConsistentHashLb": {
+            "properties": {
+                "hashKey": {
+                    "type": "string",
+                    "description": "一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。\n"
+                },
+                "httpCookie": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie:getUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie",
+                    "description": "Cookie。\n"
+                },
+                "httpHeaderName": {
+                    "type": "string",
+                    "description": "参数。支持ASCII可打印字符，长度限制为1~256个字符。\n"
+                },
+                "httpQueryParameterName": {
+                    "type": "string",
+                    "description": "参数。支持ASCII可打印字符，长度限制为1~256个字符。\n"
+                },
+                "useSourceIp": {
+                    "type": "string",
+                    "description": "源IP地址。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "hashKey",
+                "httpCookie",
+                "httpHeaderName",
+                "httpQueryParameterName",
+                "useSourceIp"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie:getUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "名称。支持ASCII可打印字符，长度限制为0~256个字符。\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "路径。支持ASCII可打印字符，长度限制为1~256个字符。\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "有效期。单位为秒。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "path",
+                "ttl"
             ],
             "language": {
                 "nodejs": {
@@ -1911,6 +2505,287 @@
             "required": [
                 "password",
                 "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamTlsSettings:getUpstreamTlsSettings": {
+            "properties": {
+                "sni": {
+                    "type": "string",
+                    "description": "SNI。留空时会将访问网关的域名透传到upstream。\n"
+                },
+                "tlsMode": {
+                    "type": "string",
+                    "description": "TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "sni",
+                "tlsMode"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpec:getUpstreamUpstreamSpec": {
+            "properties": {
+                "aiProvider": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpecAiProvider:getUpstreamUpstreamSpecAiProvider",
+                    "description": "AI模型代理。\n"
+                },
+                "ecsInstances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpecEcsInstance:getUpstreamUpstreamSpecEcsInstance"
+                    },
+                    "description": "云服务器。\n"
+                },
+                "k8SService": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpecK8SService:getUpstreamUpstreamSpecK8SService",
+                    "description": "容器服务。\n"
+                },
+                "nacosService": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpecNacosService:getUpstreamUpstreamSpecNacosService",
+                    "description": "注册中心。\n"
+                },
+                "veFaas": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpecVeFaas:getUpstreamUpstreamSpecVeFaas",
+                    "description": "函数服务。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "aiProvider",
+                "ecsInstances",
+                "k8SService",
+                "nacosService",
+                "veFaas"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpecAiProvider:getUpstreamUpstreamSpecAiProvider": {
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "description": "模型地址。\n"
+                },
+                "customModelService": {
+                    "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpecAiProviderCustomModelService:getUpstreamUpstreamSpecAiProviderCustomModelService",
+                    "description": "火山自部署模型服务。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "模型服务商名称。\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "模型API key。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "baseUrl",
+                "customModelService",
+                "name",
+                "token"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpecAiProviderCustomModelService:getUpstreamUpstreamSpecAiProviderCustomModelService": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "模型服务名称。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "命名空间。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "端口。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "namespace",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpecEcsInstance:getUpstreamUpstreamSpecEcsInstance": {
+            "properties": {
+                "ecsId": {
+                    "type": "string",
+                    "description": "云服务器ID。\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "IP地址。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "端口。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ecsId",
+                "ip",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpecK8SService:getUpstreamUpstreamSpecK8SService": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "容器服务名称。长度限制为2~63个字符。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "命名空间。长度限制为2~63个字符。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "端口。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "namespace",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpecNacosService:getUpstreamUpstreamSpecNacosService": {
+            "properties": {
+                "group": {
+                    "type": "string",
+                    "description": "分组。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "命名空间。\n"
+                },
+                "namespaceId": {
+                    "type": "string",
+                    "description": "命名空间ID。\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "服务。\n"
+                },
+                "upstreamSourceId": {
+                    "type": "string",
+                    "description": "Upstream来源ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "group",
+                "namespace",
+                "namespaceId",
+                "service",
+                "upstreamSourceId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamUpstreamSpecVeFaas:getUpstreamUpstreamSpecVeFaas": {
+            "properties": {
+                "functionId": {
+                    "type": "string",
+                    "description": "函数ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "functionId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamVersionDetail:getUpstreamVersionDetail": {
+            "properties": {
+                "labels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/getUpstreamVersionDetailLabel:getUpstreamVersionDetailLabel"
+                    },
+                    "description": "标签。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。\n"
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "更新时间。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "labels",
+                "name",
+                "updateTime"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:apig/getUpstreamVersionDetailLabel:getUpstreamVersionDetailLabel": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
             ],
             "language": {
                 "nodejs": {
@@ -2411,6 +3286,350 @@
                 "deleteWithInstance",
                 "size",
                 "volumeType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigAllowIpAccessRule:ShareConfigAllowIpAccessRule": {
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表。列表中的每个条目是一个 IP 地址或 CIDR 网段。IP 地址和网段可以是 IPv4 和 IPv6 格式。列表的额度如下：对于 AddSharedConfig，列表中条目的数量不能超过 30,000 个。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "rules"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule": {
+            "properties": {
+                "allowEmpty": {
+                    "type": "boolean",
+                    "description": "表示是否不允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。false：表示允许。该参数的默认值是 false。\n"
+                },
+                "commonType": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRuleCommonType:ShareConfigAllowRefererAccessRuleCommonType",
+                    "description": "表示该通用列表的内容。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "allowEmpty",
+                        "commonType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigAllowRefererAccessRuleCommonType:ShareConfigAllowRefererAccessRuleCommonType": {
+            "properties": {
+                "ignoreCase": {
+                    "type": "boolean",
+                    "description": "表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ignoreCase",
+                        "rules"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs": {
+            "properties": {
+                "commonType": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchsCommonType:ShareConfigCommonMatchsCommonType",
+                    "description": "表示该通用列表的内容。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "commonType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigCommonMatchsCommonType:ShareConfigCommonMatchsCommonType": {
+            "properties": {
+                "ignoreCase": {
+                    "type": "boolean",
+                    "description": "表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ignoreCase",
+                        "rules"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigDenyIpAccessRule:ShareConfigDenyIpAccessRule": {
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access_rule。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "rules"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigDenyRefererAccessRule:ShareConfigDenyRefererAccessRule": {
+            "properties": {
+                "allowEmpty": {
+                    "type": "boolean",
+                    "description": "表示是否允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示允许。false：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。该参数的默认值是 true。\n"
+                },
+                "commonType": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyRefererAccessRuleCommonType:ShareConfigDenyRefererAccessRuleCommonType",
+                    "description": "表示该通用列表的内容。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "allowEmpty",
+                        "commonType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/ShareConfigDenyRefererAccessRuleCommonType:ShareConfigDenyRefererAccessRuleCommonType": {
+            "properties": {
+                "ignoreCase": {
+                    "type": "boolean",
+                    "description": "表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ignoreCase",
+                        "rules"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigAllowIpAccessRule:getShareConfigAllowIpAccessRule": {
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表。列表中的每个条目是一个 IP 地址或 CIDR 网段。IP 地址和网段可以是 IPv4 和 IPv6 格式。列表的额度如下：对于 AddSharedConfig，列表中条目的数量不能超过 30,000 个。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rules"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigAllowRefererAccessRule:getShareConfigAllowRefererAccessRule": {
+            "properties": {
+                "allowEmpty": {
+                    "type": "boolean",
+                    "description": "表示是否不允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。false：表示允许。该参数的默认值是 false。\n"
+                },
+                "commonType": {
+                    "$ref": "#/types/volcenginecc:cdn/getShareConfigAllowRefererAccessRuleCommonType:getShareConfigAllowRefererAccessRuleCommonType",
+                    "description": "表示该通用列表的内容。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowEmpty",
+                "commonType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigAllowRefererAccessRuleCommonType:getShareConfigAllowRefererAccessRuleCommonType": {
+            "properties": {
+                "ignoreCase": {
+                    "type": "boolean",
+                    "description": "表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ignoreCase",
+                "rules"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigCommonMatchs:getShareConfigCommonMatchs": {
+            "properties": {
+                "commonType": {
+                    "$ref": "#/types/volcenginecc:cdn/getShareConfigCommonMatchsCommonType:getShareConfigCommonMatchsCommonType",
+                    "description": "表示该通用列表的内容。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "commonType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigCommonMatchsCommonType:getShareConfigCommonMatchsCommonType": {
+            "properties": {
+                "ignoreCase": {
+                    "type": "boolean",
+                    "description": "表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ignoreCase",
+                "rules"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigDenyIpAccessRule:getShareConfigDenyIpAccessRule": {
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access_rule。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rules"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigDenyRefererAccessRule:getShareConfigDenyRefererAccessRule": {
+            "properties": {
+                "allowEmpty": {
+                    "type": "boolean",
+                    "description": "表示是否允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示允许。false：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。该参数的默认值是 true。\n"
+                },
+                "commonType": {
+                    "$ref": "#/types/volcenginecc:cdn/getShareConfigDenyRefererAccessRuleCommonType:getShareConfigDenyRefererAccessRuleCommonType",
+                    "description": "表示该通用列表的内容。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowEmpty",
+                "commonType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cdn/getShareConfigDenyRefererAccessRuleCommonType:getShareConfigDenyRefererAccessRuleCommonType": {
+            "properties": {
+                "ignoreCase": {
+                    "type": "boolean",
+                    "description": "表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。\n"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ignoreCase",
+                "rules"
             ],
             "language": {
                 "nodejs": {
@@ -3199,7 +4418,7 @@
                 },
                 "port": {
                     "type": "integer",
-                    "description": "后端服务器接收请求的端口号。取值范围为1～65535。\n"
+                    "description": "后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。\n"
                 },
                 "type": {
                     "type": "string",
@@ -3227,10 +4446,12 @@
         "volcenginecc:clb/ServerGroupTag:ServerGroupTag": {
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "绑定的标签键信息。\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "绑定的标签值信息。\n"
                 }
             },
             "type": "object",
@@ -4051,7 +5272,7 @@
                 },
                 "port": {
                     "type": "integer",
-                    "description": "后端服务器接收请求的端口号。取值范围为1～65535。\n"
+                    "description": "后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。\n"
                 },
                 "serverId": {
                     "type": "string",
@@ -4086,10 +5307,12 @@
         "volcenginecc:clb/getServerGroupTag:getServerGroupTag": {
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "绑定的标签键信息。\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "绑定的标签值信息。\n"
                 }
             },
             "type": "object",
@@ -6902,6 +8125,486 @@
                 }
             },
             "type": "object"
+        },
+        "volcenginecc:kafka/TopicAccessPolicy:TopicAccessPolicy": {
+            "properties": {
+                "accessPolicy": {
+                    "type": "string",
+                    "description": "SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "SASL 用户名称。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accessPolicy",
+                        "userName"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:kafka/TopicTag:TopicTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:kafka/getTopicAccessPolicy:getTopicAccessPolicy": {
+            "properties": {
+                "accessPolicy": {
+                    "type": "string",
+                    "description": "SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "SASL 用户名称。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessPolicy",
+                "userName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:kafka/getTopicTag:getTopicTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:natgateway/NgwEipAddress:NgwEipAddress": {
+            "properties": {
+                "allocationId": {
+                    "type": "string",
+                    "description": "公网IP的ID。\n"
+                },
+                "eipAddress": {
+                    "type": "string",
+                    "description": "公网IP的地址。\n"
+                },
+                "usingStatus": {
+                    "type": "string",
+                    "description": "公网IP的使用状态。Idle：未使用。UsedBySnat：被SNAT规则使用。UsedByDnat：被DNAT规则使用。UsedByNat：被SNAT/DNAT规则同时使用。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "allocationId",
+                        "eipAddress",
+                        "usingStatus"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:natgateway/NgwNatIpAddress:NgwNatIpAddress": {
+            "properties": {
+                "natIpAddress": {
+                    "type": "string",
+                    "description": "中转Ip地址。\n"
+                },
+                "natIpId": {
+                    "type": "string",
+                    "description": "中转Ip id。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "natIpAddress",
+                        "natIpId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:natgateway/NgwTag:NgwTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:natgateway/getNgwEipAddress:getNgwEipAddress": {
+            "properties": {
+                "allocationId": {
+                    "type": "string",
+                    "description": "公网IP的ID。\n"
+                },
+                "eipAddress": {
+                    "type": "string",
+                    "description": "公网IP的地址。\n"
+                },
+                "usingStatus": {
+                    "type": "string",
+                    "description": "公网IP的使用状态。Idle：未使用。UsedBySnat：被SNAT规则使用。UsedByDnat：被DNAT规则使用。UsedByNat：被SNAT/DNAT规则同时使用。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allocationId",
+                "eipAddress",
+                "usingStatus"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:natgateway/getNgwNatIpAddress:getNgwNatIpAddress": {
+            "properties": {
+                "natIpAddress": {
+                    "type": "string",
+                    "description": "中转Ip地址。\n"
+                },
+                "natIpId": {
+                    "type": "string",
+                    "description": "中转Ip id。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "natIpAddress",
+                "natIpId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:natgateway/getNgwTag:getNgwTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:privatezone/ResolverEndpointIpConfig:ResolverEndpointIpConfig": {
+            "properties": {
+                "azId": {
+                    "type": "string",
+                    "description": "终端节点 IP 地址所在的可用区。为了保证高可用，建议您至少添加 2 个可用区。\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "终端节点的 IPv4 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。\n"
+                },
+                "ipv6": {
+                    "type": "string",
+                    "description": "终端节点的 IPv6 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "终端节点 IP 地址所在的子网 ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "azId",
+                        "ip",
+                        "ipv6",
+                        "subnetId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:privatezone/ResolverEndpointTag:ResolverEndpointTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:privatezone/ResolverRuleForwardIP:ResolverRuleForwardIP": {
+            "properties": {
+                "ip": {
+                    "type": "string",
+                    "description": "VPC 外部的 DNS 服务器的 IP 地址。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "VPC 外部的 DNS 服务器的端口。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ip",
+                        "port"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:privatezone/ResolverRuleTag:ResolverRuleTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:privatezone/ResolverRuleVpC:ResolverRuleVpC": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "创建该 VPC 的火山引擎账号 ID。\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "VPC 的地域。\n"
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "VPC 的地域的名称。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPC 的 ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountId",
+                        "region",
+                        "regionName",
+                        "vpcId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:privatezone/getResolverEndpointIpConfig:getResolverEndpointIpConfig": {
+            "properties": {
+                "azId": {
+                    "type": "string",
+                    "description": "终端节点 IP 地址所在的可用区。为了保证高可用，建议您至少添加 2 个可用区。\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "终端节点的 IPv4 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。\n"
+                },
+                "ipv6": {
+                    "type": "string",
+                    "description": "终端节点的 IPv6 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "终端节点 IP 地址所在的子网 ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "azId",
+                "ip",
+                "ipv6",
+                "subnetId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:privatezone/getResolverEndpointTag:getResolverEndpointTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:privatezone/getResolverRuleForwardIP:getResolverRuleForwardIP": {
+            "properties": {
+                "ip": {
+                    "type": "string",
+                    "description": "VPC 外部的 DNS 服务器的 IP 地址。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "VPC 外部的 DNS 服务器的端口。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ip",
+                "port"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:privatezone/getResolverRuleTag:getResolverRuleTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:privatezone/getResolverRuleVpC:getResolverRuleVpC": {
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "创建该 VPC 的火山引擎账号 ID。\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "VPC 的地域。\n"
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "VPC 的地域的名称。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPC 的 ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountId",
+                "region",
+                "regionName",
+                "vpcId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "volcenginecc:rdsmysql/DatabaseDatabasePrivilege:DatabaseDatabasePrivilege": {
             "properties": {
@@ -13026,6 +14729,197 @@
                 "type": "object"
             }
         },
+        "volcenginecc:apig/upstream:Upstream": {
+            "description": "Upstream 是对 API 网关实例后端的抽象。您可以将具有相同功能的后端应用抽象为一个 Upstream，实现路由和后端应用解耦，更灵活地支持后端应用的灰度发布、多版本管理等场景。本文为您介绍 Upstream 的概念及作用。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  aPIGUpstreamAIProviderDemo:\n    type: volcenginecc:apig:Upstream\n    name: APIGUpstreamAIProviderDemo\n    properties:\n      name: APIGUpstreamAIProviderDemo\n      gatewayId: gd45elb819ma6giexxxxx\n      comments: APIGUpstreamAIProviderDemo\n      protocol: HTTP\n      sourceType: K8S\n      upstreamSpec:\n        k8_s_service:\n          namespace: namespace\n          name: server\n          port: 2001\n      loadBalancerSettings:\n        lb_policy: SimpleLB\n        simple_lb: RANDOM\n      circuitBreakingSettings:\n        enable: true\n        consecutive_errors: 5\n        interval: 10000\n        base_ejection_time: 30000\n        max_ejection_percent: 20\n        min_health_percent: 60\n      tlsSettings:\n        tls_mode: DISABLE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:apig/upstream:Upstream example \"upstream_id\"\n```\n\n",
+            "properties": {
+                "backendTargets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamBackendTarget:UpstreamBackendTarget"
+                    }
+                },
+                "circuitBreakingSettings": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamCircuitBreakingSettings:UpstreamCircuitBreakingSettings",
+                    "description": "服务熔断配置。\n"
+                },
+                "comments": {
+                    "type": "string",
+                    "description": "备注。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "Upstream创建时间。\n"
+                },
+                "gatewayId": {
+                    "type": "string",
+                    "description": "网关实例ID。\n"
+                },
+                "loadBalancerSettings": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamLoadBalancerSettings:UpstreamLoadBalancerSettings",
+                    "description": "负载均衡配置。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Upstream名称。\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "协议，取值：HTTP：HTTP/1.1。HTTP2：HTTP/2。GRPC：GRPC。\n"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "Upstream来源类型，取值：VeFaas：函数服务。ECS：云服务器。K8S：容器服务。Nacos：注册中心。AIProvider：AI模型代理。\n"
+                },
+                "tlsSettings": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamTlsSettings:UpstreamTlsSettings",
+                    "description": "TLS配置。\n"
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "Upstream更新时间。\n"
+                },
+                "upstreamId": {
+                    "type": "string",
+                    "description": "Upstream ID。\n"
+                },
+                "upstreamSpec": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpec:UpstreamUpstreamSpec",
+                    "description": "Upstream配置。\n"
+                },
+                "versionDetails": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamVersionDetail:UpstreamVersionDetail"
+                    }
+                }
+            },
+            "required": [
+                "backendTargets",
+                "circuitBreakingSettings",
+                "comments",
+                "createdTime",
+                "gatewayId",
+                "loadBalancerSettings",
+                "name",
+                "protocol",
+                "sourceType",
+                "tlsSettings",
+                "updatedTime",
+                "upstreamId",
+                "upstreamSpec",
+                "versionDetails"
+            ],
+            "inputProperties": {
+                "circuitBreakingSettings": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamCircuitBreakingSettings:UpstreamCircuitBreakingSettings",
+                    "description": "服务熔断配置。\n"
+                },
+                "comments": {
+                    "type": "string",
+                    "description": "备注。\n"
+                },
+                "gatewayId": {
+                    "type": "string",
+                    "description": "网关实例ID。\n"
+                },
+                "loadBalancerSettings": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamLoadBalancerSettings:UpstreamLoadBalancerSettings",
+                    "description": "负载均衡配置。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Upstream名称。\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "协议，取值：HTTP：HTTP/1.1。HTTP2：HTTP/2。GRPC：GRPC。\n"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "Upstream来源类型，取值：VeFaas：函数服务。ECS：云服务器。K8S：容器服务。Nacos：注册中心。AIProvider：AI模型代理。\n"
+                },
+                "tlsSettings": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamTlsSettings:UpstreamTlsSettings",
+                    "description": "TLS配置。\n"
+                },
+                "upstreamSpec": {
+                    "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpec:UpstreamUpstreamSpec",
+                    "description": "Upstream配置。\n"
+                }
+            },
+            "requiredInputs": [
+                "gatewayId",
+                "name",
+                "sourceType",
+                "upstreamSpec"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Upstream resources.\n",
+                "properties": {
+                    "backendTargets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/UpstreamBackendTarget:UpstreamBackendTarget"
+                        }
+                    },
+                    "circuitBreakingSettings": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamCircuitBreakingSettings:UpstreamCircuitBreakingSettings",
+                        "description": "服务熔断配置。\n"
+                    },
+                    "comments": {
+                        "type": "string",
+                        "description": "备注。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "Upstream创建时间。\n"
+                    },
+                    "gatewayId": {
+                        "type": "string",
+                        "description": "网关实例ID。\n"
+                    },
+                    "loadBalancerSettings": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamLoadBalancerSettings:UpstreamLoadBalancerSettings",
+                        "description": "负载均衡配置。\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Upstream名称。\n"
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "协议，取值：HTTP：HTTP/1.1。HTTP2：HTTP/2。GRPC：GRPC。\n"
+                    },
+                    "sourceType": {
+                        "type": "string",
+                        "description": "Upstream来源类型，取值：VeFaas：函数服务。ECS：云服务器。K8S：容器服务。Nacos：注册中心。AIProvider：AI模型代理。\n"
+                    },
+                    "tlsSettings": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamTlsSettings:UpstreamTlsSettings",
+                        "description": "TLS配置。\n"
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "Upstream更新时间。\n"
+                    },
+                    "upstreamId": {
+                        "type": "string",
+                        "description": "Upstream ID。\n"
+                    },
+                    "upstreamSpec": {
+                        "$ref": "#/types/volcenginecc:apig/UpstreamUpstreamSpec:UpstreamUpstreamSpec",
+                        "description": "Upstream配置。\n"
+                    },
+                    "versionDetails": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/UpstreamVersionDetail:UpstreamVersionDetail"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:apig/upstreamSource:UpstreamSource": {
             "description": "API 网关支持基于容器服务（VKE）集和容器服务的注册集群功能，将集群导入到 API 网关实例，将其作为网关的 Upstream 来源，以便网关获取集群中的 Service 列表。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  upstreamSourceNacosDemo:\n    type: volcenginecc:apig:UpstreamSource\n    name: UpstreamSourceNacosDemo\n    properties:\n      gatewayId: gd3s9vbk7npja181xxxxx\n      comments: upstreamSourceNacosDemo\n      sourceType: Nacos\n      sourceSpec:\n        nacos_source:\n          nacosId: nd3thmnjdl46p917xxxxx\n          authConfig:\n            basic:\n              username: nacos\n              password: '******'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:apig/upstreamSource:UpstreamSource example \"upstream_source_id\"\n```\n\n",
             "properties": {
@@ -13776,6 +15670,152 @@
                     "zoneId": {
                         "type": "string",
                         "description": "伸缩配置可用区ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:cdn/shareConfig:ShareConfig": {
+            "description": "全局配置扩展了域名的配置能力，具有以下优点：提升了黑白名单的容量。例如，IP 黑名单可以包含高达 30,000 个条目。提升了域名配置的效率。一个全局配置可与多个域名关联。提供了通用列表类型，可以在额外的域名配置中被使用。一个全局配置的修改可立刻应用于其关联的所有域名。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  cDNShareConfigDemo:\n    type: volcenginecc:cdn:ShareConfig\n    name: CDNShareConfigDemo\n    properties:\n      configName: CDNShareConfigDemo\n      configType: allow_referer_access_rule\n      project: default\n      allowRefererAccessRule:\n        allow_empty: true\n        common_type:\n          ignoreCase: true\n          rules:\n            - 139.x.x.1\n            - 139.x.x.2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:cdn/shareConfig:ShareConfig example \"config_name\"\n```\n\n",
+            "properties": {
+                "allowIpAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowIpAccessRule:ShareConfigAllowIpAccessRule",
+                    "description": "表示一个 IP 白名单的配置，对应 ConfigType 是 allow*ip*access*rule。\n"
+                },
+                "allowRefererAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule",
+                    "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
+                },
+                "commonMatchs": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs",
+                    "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
+                },
+                "configName": {
+                    "type": "string",
+                    "description": "表示全局配置的名称。名称有以下要求：名称可以包含汉字、字母、数字、下划线（_），长度在 3-45 个字符之间。一个汉字占 3 个字符。名称不能与主账号下某个已有的全局配置的名称相同。\n"
+                },
+                "configType": {
+                    "type": "string",
+                    "description": "表示该全局配置的类型。该参数有以下取值：deny*ip*access*rule：表示 IP 黑名单。allow*ip*access*rule：表示 IP 白名单。deny*referer*access*rule：表示 Referer 黑名单。allow*referer*access*rule：表示 Referer 白名单。common*match*list：表示通用列表。\n"
+                },
+                "denyIpAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyIpAccessRule:ShareConfigDenyIpAccessRule",
+                    "description": "表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access*rule。\n"
+                },
+                "denyRefererAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyRefererAccessRule:ShareConfigDenyRefererAccessRule",
+                    "description": "表示一个 Referer 黑名单的配置，对应 ConfigType 是 deny*referer*access*rule。\n"
+                },
+                "domainCount": {
+                    "type": "integer",
+                    "description": "表示与该全局配置关联的加速域名的数量。\n"
+                },
+                "project": {
+                    "type": "string",
+                    "description": "表示该全局配置所归属的项目名称。\n"
+                },
+                "ruleContent": {
+                    "type": "string",
+                    "description": "表示该自定义错误页面的 HTML 代码。\n"
+                },
+                "updatedTime": {
+                    "type": "integer",
+                    "description": "表示该全局配置的最近修改时间，单位是 Unix 时间戳。\n"
+                }
+            },
+            "required": [
+                "allowIpAccessRule",
+                "allowRefererAccessRule",
+                "commonMatchs",
+                "configName",
+                "configType",
+                "denyIpAccessRule",
+                "denyRefererAccessRule",
+                "domainCount",
+                "project",
+                "ruleContent",
+                "updatedTime"
+            ],
+            "inputProperties": {
+                "allowIpAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowIpAccessRule:ShareConfigAllowIpAccessRule",
+                    "description": "表示一个 IP 白名单的配置，对应 ConfigType 是 allow*ip*access*rule。\n"
+                },
+                "allowRefererAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule",
+                    "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
+                },
+                "commonMatchs": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs",
+                    "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
+                },
+                "configName": {
+                    "type": "string",
+                    "description": "表示全局配置的名称。名称有以下要求：名称可以包含汉字、字母、数字、下划线（_），长度在 3-45 个字符之间。一个汉字占 3 个字符。名称不能与主账号下某个已有的全局配置的名称相同。\n"
+                },
+                "configType": {
+                    "type": "string",
+                    "description": "表示该全局配置的类型。该参数有以下取值：deny*ip*access*rule：表示 IP 黑名单。allow*ip*access*rule：表示 IP 白名单。deny*referer*access*rule：表示 Referer 黑名单。allow*referer*access*rule：表示 Referer 白名单。common*match*list：表示通用列表。\n"
+                },
+                "denyIpAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyIpAccessRule:ShareConfigDenyIpAccessRule",
+                    "description": "表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access*rule。\n"
+                },
+                "denyRefererAccessRule": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyRefererAccessRule:ShareConfigDenyRefererAccessRule",
+                    "description": "表示一个 Referer 黑名单的配置，对应 ConfigType 是 deny*referer*access*rule。\n"
+                },
+                "project": {
+                    "type": "string",
+                    "description": "表示该全局配置所归属的项目名称。\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ShareConfig resources.\n",
+                "properties": {
+                    "allowIpAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowIpAccessRule:ShareConfigAllowIpAccessRule",
+                        "description": "表示一个 IP 白名单的配置，对应 ConfigType 是 allow*ip*access*rule。\n"
+                    },
+                    "allowRefererAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule",
+                        "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
+                    },
+                    "commonMatchs": {
+                        "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs",
+                        "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
+                    },
+                    "configName": {
+                        "type": "string",
+                        "description": "表示全局配置的名称。名称有以下要求：名称可以包含汉字、字母、数字、下划线（_），长度在 3-45 个字符之间。一个汉字占 3 个字符。名称不能与主账号下某个已有的全局配置的名称相同。\n"
+                    },
+                    "configType": {
+                        "type": "string",
+                        "description": "表示该全局配置的类型。该参数有以下取值：deny*ip*access*rule：表示 IP 黑名单。allow*ip*access*rule：表示 IP 白名单。deny*referer*access*rule：表示 Referer 黑名单。allow*referer*access*rule：表示 Referer 白名单。common*match*list：表示通用列表。\n"
+                    },
+                    "denyIpAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyIpAccessRule:ShareConfigDenyIpAccessRule",
+                        "description": "表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access*rule。\n"
+                    },
+                    "denyRefererAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/ShareConfigDenyRefererAccessRule:ShareConfigDenyRefererAccessRule",
+                        "description": "表示一个 Referer 黑名单的配置，对应 ConfigType 是 deny*referer*access*rule。\n"
+                    },
+                    "domainCount": {
+                        "type": "integer",
+                        "description": "表示与该全局配置关联的加速域名的数量。\n"
+                    },
+                    "project": {
+                        "type": "string",
+                        "description": "表示该全局配置所归属的项目名称。\n"
+                    },
+                    "ruleContent": {
+                        "type": "string",
+                        "description": "表示该自定义错误页面的 HTML 代码。\n"
+                    },
+                    "updatedTime": {
+                        "type": "integer",
+                        "description": "表示该全局配置的最近修改时间，单位是 Unix 时间戳。\n"
                     }
                 },
                 "type": "object"
@@ -14826,7 +16866,7 @@
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "监听器的协议。\n"
+                    "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。\n"
                 },
                 "proxyConnectTimeout": {
                     "type": "integer",
@@ -15047,7 +17087,7 @@
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "监听器的协议。\n"
+                    "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。\n"
                 },
                 "proxyConnectTimeout": {
                     "type": "integer",
@@ -15226,7 +17266,7 @@
                     },
                     "protocol": {
                         "type": "string",
-                        "description": "监听器的协议。\n"
+                        "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。\n"
                     },
                     "proxyConnectTimeout": {
                         "type": "integer",
@@ -19829,6 +21869,998 @@
                 "type": "object"
             }
         },
+        "volcenginecc:kafka/topic:Topic": {
+            "description": "Topic即消息的主题，用于分类消息。支持 Topic 级别的资源管理，即 Topic 的创建、查看与删除等操作。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  kafkaTopicDemo:\n    type: volcenginecc:kafka:Topic\n    name: KafkaTopicDemo\n    properties:\n      accessPolicies:\n        - user_name: KafkaTopicDemo-A\n          access_policy: Pub\n        - user_name: KafkaTopicDemo-B\n          access_policy: Sub\n        - user_name: KafkaTopicDemo-C\n          access_policy: PubSub\n      allAuthority: true\n      cleanupPolicies:\n        - delete\n        - compact\n      description: KafkaTopicDemo\n      instanceId: kafka-c****f\n      parameters: '{\"LogRetentionHours\":\"3\",\"MessageMaxByte\":\"2\",\"MinInsyncReplicaNumber\":\"1\"}'\n      partitionNumber: 1\n      replicaNumber: 1\n      topicName: KafkaTopicDemo\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:kafka/topic:Topic example \"instance_id|topic_name\"\n```\n\n",
+            "properties": {
+                "accessPolicies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:kafka/TopicAccessPolicy:TopicAccessPolicy"
+                    }
+                },
+                "allAuthority": {
+                    "type": "boolean",
+                    "description": "待创建的Topic默认是否对所有用户都开启读写权限。true：（默认）所有用户都具备此 Topic 的读写权限。false：并非所有用户都具备此 Topic 的读写权限。默认情况下，用户对于此 Topic 的权限沿用用户的默认权限，如果默认权限不满足需求，您也可以通过 AccessPolicies 指定某个用户对于此 Topic 的自定义权限。\n"
+                },
+                "cleanupPolicies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "Topic 的创建时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Topic 的描述信息。长度不超过 128 个字符。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例 ID。\n"
+                },
+                "logRetentionHours": {
+                    "type": "integer",
+                    "description": "消息保留时长，单位小时。\n"
+                },
+                "parameters": {
+                    "type": "string",
+                    "description": "Topic 级别的参数配置。Parameters 参数说明 MinInsyncReplicaNumber:2：最小同步副本个数。当同步副本个数小于配置值时，消息将无法写入对应 Topic。配置值越大，数据可靠性增加，但是可用性将会降低。默认值为副本数减 1。考虑到 Topic 的可用性，建议设置为副本数减 1。MessageMaxByte:12：最大消息大小。单位为 MB，取值范围为 1～12。默认沿用实例的最大消息大小设置。LogRetentionHours:72：消息保留时长。单位为小时，取值范围为 0～2160，即消息最久保留 90 天。默认沿用实例的消息保留时长设置。\n"
+                },
+                "partitionNumber": {
+                    "type": "integer",
+                    "description": "Topic 分区数。取值范围为 1~300，如果实例中已创建了其他 Topic，则所有 Topic 的分区数之和不超过该实例的分区数上限。如果分区数无法满足业务需求，您可以购买更多分区，提升实例的分区数量上限。\n"
+                },
+                "replicaNumber": {
+                    "type": "integer",
+                    "description": "Topic 副本个数。可设置为为 2 或 3，默认值为 3。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Topic 的状态。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:kafka/TopicTag:TopicTag"
+                    }
+                },
+                "topicName": {
+                    "type": "string",
+                    "description": "待创建的 Topic 名称。3～64 个字符。必须以英文或数字开头。支持的字符包括英文、数字、连字符（-）、下划线（_）和英文句号（.）。\n"
+                },
+                "usedStoragePercentageInInstance": {
+                    "type": "number",
+                    "description": "当前 Topic 总数据量占实例总存储空间的比例，控制台页面显示为保留两位小数的百分数。\n"
+                },
+                "usedStorageSpaceInBytes": {
+                    "type": "integer",
+                    "description": "当前 Topic 已使用的总存储空间大小。\n"
+                }
+            },
+            "required": [
+                "accessPolicies",
+                "allAuthority",
+                "cleanupPolicies",
+                "createdTime",
+                "description",
+                "instanceId",
+                "logRetentionHours",
+                "parameters",
+                "partitionNumber",
+                "replicaNumber",
+                "status",
+                "tags",
+                "topicName",
+                "usedStoragePercentageInInstance",
+                "usedStorageSpaceInBytes"
+            ],
+            "inputProperties": {
+                "accessPolicies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:kafka/TopicAccessPolicy:TopicAccessPolicy"
+                    }
+                },
+                "allAuthority": {
+                    "type": "boolean",
+                    "description": "待创建的Topic默认是否对所有用户都开启读写权限。true：（默认）所有用户都具备此 Topic 的读写权限。false：并非所有用户都具备此 Topic 的读写权限。默认情况下，用户对于此 Topic 的权限沿用用户的默认权限，如果默认权限不满足需求，您也可以通过 AccessPolicies 指定某个用户对于此 Topic 的自定义权限。\n"
+                },
+                "cleanupPolicies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Topic 的描述信息。长度不超过 128 个字符。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例 ID。\n"
+                },
+                "parameters": {
+                    "type": "string",
+                    "description": "Topic 级别的参数配置。Parameters 参数说明 MinInsyncReplicaNumber:2：最小同步副本个数。当同步副本个数小于配置值时，消息将无法写入对应 Topic。配置值越大，数据可靠性增加，但是可用性将会降低。默认值为副本数减 1。考虑到 Topic 的可用性，建议设置为副本数减 1。MessageMaxByte:12：最大消息大小。单位为 MB，取值范围为 1～12。默认沿用实例的最大消息大小设置。LogRetentionHours:72：消息保留时长。单位为小时，取值范围为 0～2160，即消息最久保留 90 天。默认沿用实例的消息保留时长设置。\n"
+                },
+                "partitionNumber": {
+                    "type": "integer",
+                    "description": "Topic 分区数。取值范围为 1~300，如果实例中已创建了其他 Topic，则所有 Topic 的分区数之和不超过该实例的分区数上限。如果分区数无法满足业务需求，您可以购买更多分区，提升实例的分区数量上限。\n"
+                },
+                "replicaNumber": {
+                    "type": "integer",
+                    "description": "Topic 副本个数。可设置为为 2 或 3，默认值为 3。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:kafka/TopicTag:TopicTag"
+                    }
+                },
+                "topicName": {
+                    "type": "string",
+                    "description": "待创建的 Topic 名称。3～64 个字符。必须以英文或数字开头。支持的字符包括英文、数字、连字符（-）、下划线（_）和英文句号（.）。\n"
+                }
+            },
+            "requiredInputs": [
+                "instanceId",
+                "partitionNumber",
+                "topicName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Topic resources.\n",
+                "properties": {
+                    "accessPolicies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:kafka/TopicAccessPolicy:TopicAccessPolicy"
+                        }
+                    },
+                    "allAuthority": {
+                        "type": "boolean",
+                        "description": "待创建的Topic默认是否对所有用户都开启读写权限。true：（默认）所有用户都具备此 Topic 的读写权限。false：并非所有用户都具备此 Topic 的读写权限。默认情况下，用户对于此 Topic 的权限沿用用户的默认权限，如果默认权限不满足需求，您也可以通过 AccessPolicies 指定某个用户对于此 Topic 的自定义权限。\n"
+                    },
+                    "cleanupPolicies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "Topic 的创建时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Topic 的描述信息。长度不超过 128 个字符。\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "实例 ID。\n"
+                    },
+                    "logRetentionHours": {
+                        "type": "integer",
+                        "description": "消息保留时长，单位小时。\n"
+                    },
+                    "parameters": {
+                        "type": "string",
+                        "description": "Topic 级别的参数配置。Parameters 参数说明 MinInsyncReplicaNumber:2：最小同步副本个数。当同步副本个数小于配置值时，消息将无法写入对应 Topic。配置值越大，数据可靠性增加，但是可用性将会降低。默认值为副本数减 1。考虑到 Topic 的可用性，建议设置为副本数减 1。MessageMaxByte:12：最大消息大小。单位为 MB，取值范围为 1～12。默认沿用实例的最大消息大小设置。LogRetentionHours:72：消息保留时长。单位为小时，取值范围为 0～2160，即消息最久保留 90 天。默认沿用实例的消息保留时长设置。\n"
+                    },
+                    "partitionNumber": {
+                        "type": "integer",
+                        "description": "Topic 分区数。取值范围为 1~300，如果实例中已创建了其他 Topic，则所有 Topic 的分区数之和不超过该实例的分区数上限。如果分区数无法满足业务需求，您可以购买更多分区，提升实例的分区数量上限。\n"
+                    },
+                    "replicaNumber": {
+                        "type": "integer",
+                        "description": "Topic 副本个数。可设置为为 2 或 3，默认值为 3。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Topic 的状态。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:kafka/TopicTag:TopicTag"
+                        }
+                    },
+                    "topicName": {
+                        "type": "string",
+                        "description": "待创建的 Topic 名称。3～64 个字符。必须以英文或数字开头。支持的字符包括英文、数字、连字符（-）、下划线（_）和英文句号（.）。\n"
+                    },
+                    "usedStoragePercentageInInstance": {
+                        "type": "number",
+                        "description": "当前 Topic 总数据量占实例总存储空间的比例，控制台页面显示为保留两位小数的百分数。\n"
+                    },
+                    "usedStorageSpaceInBytes": {
+                        "type": "integer",
+                        "description": "当前 Topic 已使用的总存储空间大小。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/ngw:Ngw": {
+            "description": "NAT网关为私有网络内的云服务器提供网络地址转换服务。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst natGatewayNGWDemo = new volcenginecc.natgateway.Ngw(\"NatGatewayNGWDemo\", {\n    spec: \"Small\",\n    vpcId: \"vpc-2f8kicbjkot8g4f4pzyyxxxxx\",\n    subnetId: \"subnet-3hicda1321wqo3nkipk4xxxxx\",\n    natGatewayName: \"NatGatewayNGWDemo\",\n    billingType: 2,\n    projectName: \"default\",\n    networkType: \"internet\",\n    description: \"NatGatewayNGWDemo\",\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nnat_gateway_ngw_demo = volcenginecc.natgateway.Ngw(\"NatGatewayNGWDemo\",\n    spec=\"Small\",\n    vpc_id=\"vpc-2f8kicbjkot8g4f4pzyyxxxxx\",\n    subnet_id=\"subnet-3hicda1321wqo3nkipk4xxxxx\",\n    nat_gateway_name=\"NatGatewayNGWDemo\",\n    billing_type=2,\n    project_name=\"default\",\n    network_type=\"internet\",\n    description=\"NatGatewayNGWDemo\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var natGatewayNGWDemo = new Volcenginecc.Natgateway.Ngw(\"NatGatewayNGWDemo\", new()\n    {\n        Spec = \"Small\",\n        VpcId = \"vpc-2f8kicbjkot8g4f4pzyyxxxxx\",\n        SubnetId = \"subnet-3hicda1321wqo3nkipk4xxxxx\",\n        NatGatewayName = \"NatGatewayNGWDemo\",\n        BillingType = 2,\n        ProjectName = \"default\",\n        NetworkType = \"internet\",\n        Description = \"NatGatewayNGWDemo\",\n        Tags = new[]\n        {\n            new Volcenginecc.Natgateway.Inputs.NgwTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/natgateway\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := natgateway.NewNgw(ctx, \"NatGatewayNGWDemo\", \u0026natgateway.NgwArgs{\n\t\t\tSpec:           pulumi.String(\"Small\"),\n\t\t\tVpcId:          pulumi.String(\"vpc-2f8kicbjkot8g4f4pzyyxxxxx\"),\n\t\t\tSubnetId:       pulumi.String(\"subnet-3hicda1321wqo3nkipk4xxxxx\"),\n\t\t\tNatGatewayName: pulumi.String(\"NatGatewayNGWDemo\"),\n\t\t\tBillingType:    pulumi.Int(2),\n\t\t\tProjectName:    pulumi.String(\"default\"),\n\t\t\tNetworkType:    pulumi.String(\"internet\"),\n\t\t\tDescription:    pulumi.String(\"NatGatewayNGWDemo\"),\n\t\t\tTags: natgateway.NgwTagArray{\n\t\t\t\t\u0026natgateway.NgwTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.natgateway.Ngw;\nimport com.volcengine.volcenginecc.natgateway.NgwArgs;\nimport com.pulumi.volcenginecc.natgateway.inputs.NgwTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var natGatewayNGWDemo = new Ngw(\"natGatewayNGWDemo\", NgwArgs.builder()\n            .spec(\"Small\")\n            .vpcId(\"vpc-2f8kicbjkot8g4f4pzyyxxxxx\")\n            .subnetId(\"subnet-3hicda1321wqo3nkipk4xxxxx\")\n            .natGatewayName(\"NatGatewayNGWDemo\")\n            .billingType(2)\n            .projectName(\"default\")\n            .networkType(\"internet\")\n            .description(\"NatGatewayNGWDemo\")\n            .tags(NgwTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  natGatewayNGWDemo:\n    type: volcenginecc:natgateway:Ngw\n    name: NatGatewayNGWDemo\n    properties:\n      spec: Small\n      vpcId: vpc-2f8kicbjkot8g4f4pzyyxxxxx\n      subnetId: subnet-3hicda1321wqo3nkipk4xxxxx\n      natGatewayName: NatGatewayNGWDemo\n      billingType: 2\n      projectName: default\n      networkType: internet\n      description: NatGatewayNGWDemo\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:natgateway/ngw:Ngw example \"nat_gateway_id\"\n```\n\n",
+            "properties": {
+                "billingType": {
+                    "type": "integer",
+                    "description": "NAT网关的计费方式。取值如下：1 ：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。当NetworkType传入intranet时，本参数仅支持且必须传入3。\n"
+                },
+                "businessStatus": {
+                    "type": "string",
+                    "description": "NAT网关是否被锁定。空值：正常未被锁定。Normal：正常未被锁定。FinancialLocked：因欠费被锁定。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "创建时间\n"
+                },
+                "deletedTime": {
+                    "type": "string",
+                    "description": "删除时间\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。\n"
+                },
+                "directMode": {
+                    "type": "boolean",
+                    "description": "标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。\n"
+                },
+                "dnatEntryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "DNAT规则ID列表。\n"
+                },
+                "eipAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:natgateway/NgwEipAddress:NgwEipAddress"
+                    }
+                },
+                "expiredTime": {
+                    "type": "string",
+                    "description": "包年包月NAT网关到期时间。仅包年包月计费类型的NAT网关会返回此参数。\n"
+                },
+                "lockReason": {
+                    "type": "string",
+                    "description": "NAT被锁定的原因。financial：因欠费被锁定。security：因安全原因被锁定。\n"
+                },
+                "natGatewayId": {
+                    "type": "string",
+                    "description": "NAT网关ID。\n"
+                },
+                "natGatewayName": {
+                    "type": "string",
+                    "description": "NAT网关的名称。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短划线（-）。长度限制为1 ~ 128个字符。不填默认是NAT网关实例的ID。\n"
+                },
+                "natIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:natgateway/NgwNatIpAddress:NgwNatIpAddress"
+                    }
+                },
+                "networkInterfaceId": {
+                    "type": "string",
+                    "description": "NAT网关占用的网卡ID。\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "NAT网关类型。internet：公网NAT网关。intranet：私网NAT网关。\n"
+                },
+                "overdueTime": {
+                    "type": "string",
+                    "description": "资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "购买包年包月NAT网关的时长，默认1。当PeriodUnit传入Month，Period取值范围：1 ~ 9、12、24、36。当PeriodUnit传入Year，Period取值范围：1 ~ 3。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "购买包年包月NAT网关时长的单位，默认Month。Month ：月。Year ：年。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "NAT网关所属项目的名称。不填默认加入default项目。\n"
+                },
+                "smartScheduleEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启智能调度。\n"
+                },
+                "smartScheduleRule": {
+                    "type": "string",
+                    "description": "智能调度策略规则。ChinaMobile：中国移动。ChinaUnicom：中国联通。ChinaTelecom：中国电信。BGP：BGP多线。\n"
+                },
+                "snatEntryIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "SNAT规则ID列表。\n"
+                },
+                "spec": {
+                    "type": "string",
+                    "description": "NAT网关的规格。Small（默认）：小型。Medium：中型。Large：大型。Extra*Large*1：超大型-1。Extra*Large*2：超大型-2。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "NAT网关的状态。Available：可用。Creating：创建中。Pending：操作中。Deleting：删除中。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "NAT网关所在子网的ID。传入的子网，必须是VpcId传入的私有网络的子网。子网内至少有一个可用的私网IP。系统自动生成的NAT网关网卡将占用该子网一个私网IP。子网所在的可用区需要已部署NAT网关资源。子网所在可用区将作为NAT网关的主可用区，并自动关联备可用区。当主可用区发生故障时，NAT网关自动切换到备可用区。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:natgateway/NgwTag:NgwTag"
+                    }
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "NAT网关的最后操作时间。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "NAT网关所在私有网络的ID。\n"
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "NAT网关所属主可用区的ID。\n"
+                }
+            },
+            "required": [
+                "billingType",
+                "businessStatus",
+                "createdTime",
+                "deletedTime",
+                "description",
+                "directMode",
+                "dnatEntryIds",
+                "eipAddresses",
+                "expiredTime",
+                "lockReason",
+                "natGatewayId",
+                "natGatewayName",
+                "natIpAddresses",
+                "networkInterfaceId",
+                "networkType",
+                "overdueTime",
+                "period",
+                "periodUnit",
+                "projectName",
+                "smartScheduleEnabled",
+                "smartScheduleRule",
+                "snatEntryIds",
+                "spec",
+                "status",
+                "subnetId",
+                "tags",
+                "updatedTime",
+                "vpcId",
+                "zoneId"
+            ],
+            "inputProperties": {
+                "billingType": {
+                    "type": "integer",
+                    "description": "NAT网关的计费方式。取值如下：1 ：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。当NetworkType传入intranet时，本参数仅支持且必须传入3。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。\n"
+                },
+                "natGatewayName": {
+                    "type": "string",
+                    "description": "NAT网关的名称。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短划线（-）。长度限制为1 ~ 128个字符。不填默认是NAT网关实例的ID。\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "NAT网关类型。internet：公网NAT网关。intranet：私网NAT网关。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "购买包年包月NAT网关的时长，默认1。当PeriodUnit传入Month，Period取值范围：1 ~ 9、12、24、36。当PeriodUnit传入Year，Period取值范围：1 ~ 3。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "购买包年包月NAT网关时长的单位，默认Month。Month ：月。Year ：年。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "NAT网关所属项目的名称。不填默认加入default项目。\n"
+                },
+                "smartScheduleEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启智能调度。\n"
+                },
+                "smartScheduleRule": {
+                    "type": "string",
+                    "description": "智能调度策略规则。ChinaMobile：中国移动。ChinaUnicom：中国联通。ChinaTelecom：中国电信。BGP：BGP多线。\n"
+                },
+                "spec": {
+                    "type": "string",
+                    "description": "NAT网关的规格。Small（默认）：小型。Medium：中型。Large：大型。Extra*Large*1：超大型-1。Extra*Large*2：超大型-2。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "NAT网关所在子网的ID。传入的子网，必须是VpcId传入的私有网络的子网。子网内至少有一个可用的私网IP。系统自动生成的NAT网关网卡将占用该子网一个私网IP。子网所在的可用区需要已部署NAT网关资源。子网所在可用区将作为NAT网关的主可用区，并自动关联备可用区。当主可用区发生故障时，NAT网关自动切换到备可用区。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:natgateway/NgwTag:NgwTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "NAT网关所在私有网络的ID。\n"
+                }
+            },
+            "requiredInputs": [
+                "vpcId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Ngw resources.\n",
+                "properties": {
+                    "billingType": {
+                        "type": "integer",
+                        "description": "NAT网关的计费方式。取值如下：1 ：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。当NetworkType传入intranet时，本参数仅支持且必须传入3。\n"
+                    },
+                    "businessStatus": {
+                        "type": "string",
+                        "description": "NAT网关是否被锁定。空值：正常未被锁定。Normal：正常未被锁定。FinancialLocked：因欠费被锁定。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "创建时间\n"
+                    },
+                    "deletedTime": {
+                        "type": "string",
+                        "description": "删除时间\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。\n"
+                    },
+                    "directMode": {
+                        "type": "boolean",
+                        "description": "标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。\n"
+                    },
+                    "dnatEntryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "DNAT规则ID列表。\n"
+                    },
+                    "eipAddresses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:natgateway/NgwEipAddress:NgwEipAddress"
+                        }
+                    },
+                    "expiredTime": {
+                        "type": "string",
+                        "description": "包年包月NAT网关到期时间。仅包年包月计费类型的NAT网关会返回此参数。\n"
+                    },
+                    "lockReason": {
+                        "type": "string",
+                        "description": "NAT被锁定的原因。financial：因欠费被锁定。security：因安全原因被锁定。\n"
+                    },
+                    "natGatewayId": {
+                        "type": "string",
+                        "description": "NAT网关ID。\n"
+                    },
+                    "natGatewayName": {
+                        "type": "string",
+                        "description": "NAT网关的名称。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短划线（-）。长度限制为1 ~ 128个字符。不填默认是NAT网关实例的ID。\n"
+                    },
+                    "natIpAddresses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:natgateway/NgwNatIpAddress:NgwNatIpAddress"
+                        }
+                    },
+                    "networkInterfaceId": {
+                        "type": "string",
+                        "description": "NAT网关占用的网卡ID。\n"
+                    },
+                    "networkType": {
+                        "type": "string",
+                        "description": "NAT网关类型。internet：公网NAT网关。intranet：私网NAT网关。\n"
+                    },
+                    "overdueTime": {
+                        "type": "string",
+                        "description": "资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。\n"
+                    },
+                    "period": {
+                        "type": "integer",
+                        "description": "购买包年包月NAT网关的时长，默认1。当PeriodUnit传入Month，Period取值范围：1 ~ 9、12、24、36。当PeriodUnit传入Year，Period取值范围：1 ~ 3。\n"
+                    },
+                    "periodUnit": {
+                        "type": "string",
+                        "description": "购买包年包月NAT网关时长的单位，默认Month。Month ：月。Year ：年。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "NAT网关所属项目的名称。不填默认加入default项目。\n"
+                    },
+                    "smartScheduleEnabled": {
+                        "type": "boolean",
+                        "description": "是否开启智能调度。\n"
+                    },
+                    "smartScheduleRule": {
+                        "type": "string",
+                        "description": "智能调度策略规则。ChinaMobile：中国移动。ChinaUnicom：中国联通。ChinaTelecom：中国电信。BGP：BGP多线。\n"
+                    },
+                    "snatEntryIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "SNAT规则ID列表。\n"
+                    },
+                    "spec": {
+                        "type": "string",
+                        "description": "NAT网关的规格。Small（默认）：小型。Medium：中型。Large：大型。Extra*Large*1：超大型-1。Extra*Large*2：超大型-2。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "NAT网关的状态。Available：可用。Creating：创建中。Pending：操作中。Deleting：删除中。\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "NAT网关所在子网的ID。传入的子网，必须是VpcId传入的私有网络的子网。子网内至少有一个可用的私网IP。系统自动生成的NAT网关网卡将占用该子网一个私网IP。子网所在的可用区需要已部署NAT网关资源。子网所在可用区将作为NAT网关的主可用区，并自动关联备可用区。当主可用区发生故障时，NAT网关自动切换到备可用区。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:natgateway/NgwTag:NgwTag"
+                        }
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "NAT网关的最后操作时间。\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "NAT网关所在私有网络的ID。\n"
+                    },
+                    "zoneId": {
+                        "type": "string",
+                        "description": "NAT网关所属主可用区的ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint": {
+            "description": "在把外部的 DNS 查询请求转发到解析器的场景中，您需要创建终端节点。收到解析器转发的 DNS 查询请求后，终端节点出站终端节点会把 DNS 查询请求转发到外部的 DNS 服务器。收到来自外部的 DNS 查询请求后，入站终端节点会把 DNS 查询请求转发到解析器。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  privateZoneResolverEndpointDemo:\n    type: volcenginecc:privatezone:ResolverEndpoint\n    name: PrivateZoneResolverEndpointDemo\n    properties:\n      name: PrivateZoneResolverEndpointDemo\n      vpcId: vpc-3nrh1tqschwcg931eaqxxxxx\n      endpointType: IPv4\n      ipConfigs:\n        - az_id: cn-beijing-a\n          subnet_id: subnet-bt50na0bf6kg5h0b2u1xxxxx\n          ip: 192.168.xx.44\n        - az_id: cn-beijing-b\n          subnet_id: subnet-1a14u8n59jdvk8nvepjyxxxxx\n          ip: 192.168.xx.154\n      projectName: default\n      tags:\n        - key: env\n          value: test\n      vpcRegion: cn-beijing\n      direction: OUTBOUND\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint example \"endpoint_id\"\n```\n\n",
+            "properties": {
+                "createdTime": {
+                    "type": "string",
+                    "description": "创建时间\n"
+                },
+                "direction": {
+                    "type": "string",
+                    "description": "终端节点的 DNS 请求转发方向。OUTBOUND：（默认）出站终端节点，把来自 VPC 内的 DNS 查询请求转发到外部的 DNS 服务器。INBOUND：入站终端节点，把来自外部的 DNS 查询请求转发到解析器。\n"
+                },
+                "endpointId": {
+                    "type": "string",
+                    "description": "终端节点的 ID。\n"
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "终端节点类型。IPv4：IPv4 节点。DualStack：双栈节点。\n"
+                },
+                "ipConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverEndpointIpConfig:ResolverEndpointIpConfig"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "终端节点的名称。支持 UTF-8 格式。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "终端节点所属的项目名称。默认为 default。\n"
+                },
+                "securityGroupId": {
+                    "type": "string",
+                    "description": "适用于终端节点 IP 地址的安全组 ID。终端节点默认会使用预设安全组：对于出站终端节点：入方向拒绝流量通行；出方向放通 0.0.0.0/0 的 TCP 53 端口和 UDP 53 端口。对于入站终端节点：入方向放通 0.0.0.0/0 的 TCP 53 端口和 UDP 53 端口；出方向拒绝流量通行。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "终端节点的状态。Creating：创建中。Running：运行中。Updating：更新中。Error：运行异常。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverEndpointTag:ResolverEndpointTag"
+                    }
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "更新时间\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "终端节点所在的 VPC 的 ID。\n"
+                },
+                "vpcRegion": {
+                    "type": "string",
+                    "description": "终端节点所在的 VPC 的地域。\n"
+                }
+            },
+            "required": [
+                "createdTime",
+                "direction",
+                "endpointId",
+                "endpointType",
+                "ipConfigs",
+                "name",
+                "projectName",
+                "securityGroupId",
+                "status",
+                "tags",
+                "updatedTime",
+                "vpcId",
+                "vpcRegion"
+            ],
+            "inputProperties": {
+                "direction": {
+                    "type": "string",
+                    "description": "终端节点的 DNS 请求转发方向。OUTBOUND：（默认）出站终端节点，把来自 VPC 内的 DNS 查询请求转发到外部的 DNS 服务器。INBOUND：入站终端节点，把来自外部的 DNS 查询请求转发到解析器。\n"
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "终端节点类型。IPv4：IPv4 节点。DualStack：双栈节点。\n"
+                },
+                "ipConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverEndpointIpConfig:ResolverEndpointIpConfig"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "终端节点的名称。支持 UTF-8 格式。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "终端节点所属的项目名称。默认为 default。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverEndpointTag:ResolverEndpointTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "终端节点所在的 VPC 的 ID。\n"
+                },
+                "vpcRegion": {
+                    "type": "string",
+                    "description": "终端节点所在的 VPC 的地域。\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "vpcId",
+                "vpcRegion"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ResolverEndpoint resources.\n",
+                "properties": {
+                    "createdTime": {
+                        "type": "string",
+                        "description": "创建时间\n"
+                    },
+                    "direction": {
+                        "type": "string",
+                        "description": "终端节点的 DNS 请求转发方向。OUTBOUND：（默认）出站终端节点，把来自 VPC 内的 DNS 查询请求转发到外部的 DNS 服务器。INBOUND：入站终端节点，把来自外部的 DNS 查询请求转发到解析器。\n"
+                    },
+                    "endpointId": {
+                        "type": "string",
+                        "description": "终端节点的 ID。\n"
+                    },
+                    "endpointType": {
+                        "type": "string",
+                        "description": "终端节点类型。IPv4：IPv4 节点。DualStack：双栈节点。\n"
+                    },
+                    "ipConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/ResolverEndpointIpConfig:ResolverEndpointIpConfig"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "终端节点的名称。支持 UTF-8 格式。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "终端节点所属的项目名称。默认为 default。\n"
+                    },
+                    "securityGroupId": {
+                        "type": "string",
+                        "description": "适用于终端节点 IP 地址的安全组 ID。终端节点默认会使用预设安全组：对于出站终端节点：入方向拒绝流量通行；出方向放通 0.0.0.0/0 的 TCP 53 端口和 UDP 53 端口。对于入站终端节点：入方向放通 0.0.0.0/0 的 TCP 53 端口和 UDP 53 端口；出方向拒绝流量通行。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "终端节点的状态。Creating：创建中。Running：运行中。Updating：更新中。Error：运行异常。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/ResolverEndpointTag:ResolverEndpointTag"
+                        }
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "更新时间\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "终端节点所在的 VPC 的 ID。\n"
+                    },
+                    "vpcRegion": {
+                        "type": "string",
+                        "description": "终端节点所在的 VPC 的地域。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:privatezone/resolverRule:ResolverRule": {
+            "description": "转发规则详细信息\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  privateZoneResolverRuleDemo:\n    type: volcenginecc:privatezone:ResolverRule\n    name: PrivateZoneResolverRuleDemo\n    properties:\n      line: 电信\n      name: PrivateZoneResolverRuleDemo\n      tags:\n        - key: env\n          value: test\n      type: LINE\n      vpCs:\n        - region: cn-beijing\n          vpc_id: vpc-3nqt4kq87xn28931eclihh90****\n        - region: cn-beijing\n          vpc_id: vpc-1a10aeq5vr2tc8nvepkauwljx****\n      vpcTrns:\n        - trn:vpc:cn-beijing:********:vpc/vpc-3nqt4kq87xn2893xxxxx\n        - trn:vpc:cn-beijing:********:vpc/vpc-1a10aeq5vr2tc8nvepxxxxx\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:privatezone/resolverRule:ResolverRule example \"rule_id\"\n```\n\n",
+            "properties": {
+                "createdTime": {
+                    "type": "string",
+                    "description": "转发规则的创建时间\n"
+                },
+                "enable": {
+                    "type": "boolean",
+                    "description": "转发规则是否被启用。true：启用。false：禁用。\n"
+                },
+                "endpointId": {
+                    "type": "integer",
+                    "description": "终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。\n"
+                },
+                "endpointTrn": {
+                    "type": "string",
+                    "description": "终端节点的 TRN。\n"
+                },
+                "forwardIPs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverRuleForwardIP:ResolverRuleForwardIP"
+                    }
+                },
+                "lastOperator": {
+                    "type": "string",
+                    "description": "最近一次更新转发规则的火山引擎账号的 ID\n"
+                },
+                "line": {
+                    "type": "string",
+                    "description": "递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "转发规则的名称。支持 UTF-8 格式。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "转发规则所属的项目名称。默认为 default。\n"
+                },
+                "ruleId": {
+                    "type": "string",
+                    "description": "转发规则的 ID。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverRuleTag:ResolverRuleTag"
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。\n"
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "转发规则的更新时间\n"
+                },
+                "vpCs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverRuleVpC:ResolverRuleVpC"
+                    }
+                },
+                "vpcTrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "域名所关联的一个或多个 VPC 的 TRN。\n"
+                },
+                "zoneName": {
+                    "type": "string",
+                    "description": "转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。\n"
+                }
+            },
+            "required": [
+                "createdTime",
+                "enable",
+                "endpointId",
+                "endpointTrn",
+                "forwardIPs",
+                "lastOperator",
+                "line",
+                "name",
+                "projectName",
+                "ruleId",
+                "tags",
+                "type",
+                "updatedTime",
+                "vpCs",
+                "vpcTrns",
+                "zoneName"
+            ],
+            "inputProperties": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "转发规则是否被启用。true：启用。false：禁用。\n"
+                },
+                "endpointId": {
+                    "type": "integer",
+                    "description": "终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。\n"
+                },
+                "endpointTrn": {
+                    "type": "string",
+                    "description": "终端节点的 TRN。\n"
+                },
+                "forwardIPs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverRuleForwardIP:ResolverRuleForwardIP"
+                    }
+                },
+                "line": {
+                    "type": "string",
+                    "description": "递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "转发规则的名称。支持 UTF-8 格式。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "转发规则所属的项目名称。默认为 default。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverRuleTag:ResolverRuleTag"
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。\n"
+                },
+                "vpCs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:privatezone/ResolverRuleVpC:ResolverRuleVpC"
+                    }
+                },
+                "vpcTrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "域名所关联的一个或多个 VPC 的 TRN。\n"
+                },
+                "zoneName": {
+                    "type": "string",
+                    "description": "转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ResolverRule resources.\n",
+                "properties": {
+                    "createdTime": {
+                        "type": "string",
+                        "description": "转发规则的创建时间\n"
+                    },
+                    "enable": {
+                        "type": "boolean",
+                        "description": "转发规则是否被启用。true：启用。false：禁用。\n"
+                    },
+                    "endpointId": {
+                        "type": "integer",
+                        "description": "终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。\n"
+                    },
+                    "endpointTrn": {
+                        "type": "string",
+                        "description": "终端节点的 TRN。\n"
+                    },
+                    "forwardIPs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/ResolverRuleForwardIP:ResolverRuleForwardIP"
+                        }
+                    },
+                    "lastOperator": {
+                        "type": "string",
+                        "description": "最近一次更新转发规则的火山引擎账号的 ID\n"
+                    },
+                    "line": {
+                        "type": "string",
+                        "description": "递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "转发规则的名称。支持 UTF-8 格式。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "转发规则所属的项目名称。默认为 default。\n"
+                    },
+                    "ruleId": {
+                        "type": "string",
+                        "description": "转发规则的 ID。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/ResolverRuleTag:ResolverRuleTag"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。\n"
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "转发规则的更新时间\n"
+                    },
+                    "vpCs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/ResolverRuleVpC:ResolverRuleVpC"
+                        }
+                    },
+                    "vpcTrns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "域名所关联的一个或多个 VPC 的 TRN。\n"
+                    },
+                    "zoneName": {
+                        "type": "string",
+                        "description": "转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:rdsmysql/database:Database": {
             "description": "数据库\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  databaseDemo:\n    type: volcenginecc:rdsmysql:Database\n    name: DatabaseDemo\n    properties:\n      characterSetName: utf8\n      databasePrivileges:\n        - account_name: a***\n          account_privilege: ReadOnly\n          host: '%'\n      description: Demo Example\n      instanceId: mysql-779***\n      name: rdstest\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:rdsmysql/database:Database example \"instance_id|name\"\n```\n\n",
             "properties": {
@@ -22333,6 +25365,219 @@
                     "version": {
                         "type": "string",
                         "description": "组件版本。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:vke/permission:Permission": {
+            "description": "容器服务提供集群 RBAC 授权功能，为 IAM 用户或角色授予 RBAC 访问权限，包括可访问的资源、权限的作用范围、预置的角色类型等，从而更好地管理集群的安全访问控制，满足企业用户细粒度的资源访问权限控制需求。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst vKEPermissionDemo = new volcenginecc.vke.Permission(\"VKEPermissionDemo\", {\n    roleDomain: \"namespace\",\n    clusterId: \"cd48m3cb1b2ba7l6ebgp0xxxxx\",\n    namespace: \"kube-public\",\n    roleName: \"vke:visitor\",\n    isCustomRole: false,\n    granteeId: 59433888,\n    granteeType: \"User\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nv_ke_permission_demo = volcenginecc.vke.Permission(\"VKEPermissionDemo\",\n    role_domain=\"namespace\",\n    cluster_id=\"cd48m3cb1b2ba7l6ebgp0xxxxx\",\n    namespace=\"kube-public\",\n    role_name=\"vke:visitor\",\n    is_custom_role=False,\n    grantee_id=59433888,\n    grantee_type=\"User\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var vKEPermissionDemo = new Volcenginecc.Vke.Permission(\"VKEPermissionDemo\", new()\n    {\n        RoleDomain = \"namespace\",\n        ClusterId = \"cd48m3cb1b2ba7l6ebgp0xxxxx\",\n        Namespace = \"kube-public\",\n        RoleName = \"vke:visitor\",\n        IsCustomRole = false,\n        GranteeId = 59433888,\n        GranteeType = \"User\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vke\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := vke.NewPermission(ctx, \"VKEPermissionDemo\", \u0026vke.PermissionArgs{\n\t\t\tRoleDomain:   pulumi.String(\"namespace\"),\n\t\t\tClusterId:    pulumi.String(\"cd48m3cb1b2ba7l6ebgp0xxxxx\"),\n\t\t\tNamespace:    pulumi.String(\"kube-public\"),\n\t\t\tRoleName:     pulumi.String(\"vke:visitor\"),\n\t\t\tIsCustomRole: pulumi.Bool(false),\n\t\t\tGranteeId:    pulumi.Int(59433888),\n\t\t\tGranteeType:  pulumi.String(\"User\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.vke.Permission;\nimport com.volcengine.volcenginecc.vke.PermissionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var vKEPermissionDemo = new Permission(\"vKEPermissionDemo\", PermissionArgs.builder()\n            .roleDomain(\"namespace\")\n            .clusterId(\"cd48m3cb1b2ba7l6ebgp0xxxxx\")\n            .namespace(\"kube-public\")\n            .roleName(\"vke:visitor\")\n            .isCustomRole(false)\n            .granteeId(59433888)\n            .granteeType(\"User\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  vKEPermissionDemo:\n    type: volcenginecc:vke:Permission\n    name: VKEPermissionDemo\n    properties:\n      roleDomain: namespace\n      clusterId: cd48m3cb1b2ba7l6ebgp0xxxxx\n      namespace: kube-public\n      roleName: vke:visitor\n      isCustomRole: false\n      granteeId: 5.9433888e+07\n      granteeType: User\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vke/permission:Permission example \"permission_id\"\n```\n\n",
+            "properties": {
+                "authorizedAt": {
+                    "type": "string",
+                    "description": "RBAC 权限策略资源被授权的时间。\n"
+                },
+                "authorizerId": {
+                    "type": "integer",
+                    "description": "授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n"
+                },
+                "authorizerName": {
+                    "type": "string",
+                    "description": "授权者名称\n"
+                },
+                "authorizerType": {
+                    "type": "string",
+                    "description": "授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n"
+                },
+                "clusterId": {
+                    "type": "string",
+                    "description": "需要授权给 IAM 用户或角色的集群 ID。roleDomain为namespace或cluster时必须填写该参数值。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "RBAC 权限策略资源创建的时间。\n"
+                },
+                "granteeId": {
+                    "type": "integer",
+                    "description": "被授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n"
+                },
+                "granteeType": {
+                    "type": "string",
+                    "description": "被授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n"
+                },
+                "isCustomRole": {
+                    "type": "boolean",
+                    "description": "给被授权者授予的 RBAC 角色是否为自定义角色，取值如下：true：自定义角色。false：（默认值）系统预置的角色。\n"
+                },
+                "kubeRoleBindingName": {
+                    "type": "string",
+                    "description": "RBAC 权限策略资源在 Kubernetes 中的对象名称。\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "授权详细消息。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "需要授权给 IAM 用户或角色的名空间名称。roleDomain等于namespace时必须填写该参数值。roleDomain不等于namespace时，填写该参数值不生效。\n"
+                },
+                "permissionId": {
+                    "type": "string",
+                    "description": "RBAC 权限策略资源 ID。\n"
+                },
+                "projectSelector": {
+                    "type": "string",
+                    "description": "项目选择器\n"
+                },
+                "revokedAt": {
+                    "type": "string",
+                    "description": "撤销授权的时间。\n"
+                },
+                "roleDomain": {
+                    "type": "string",
+                    "description": "为 IAM 用户或角色授予的权限类型，取值如下：namespace：授予命名空间级别的权限。cluster：授予集群级别的权限。all_clusters：授予当前账号下全部集群级别的权限。\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "给被授权者授予的 RBAC 角色名称。目前必须填写该参数。当roleDomain为all_clusters时，不可以自定义角色名称。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "RBAC 权限访问策略资源的状态，取值如下：Success：授权成功。Failed：授权失败。Pending：授权中。PartialSuccess：部分授权成功。\n"
+                }
+            },
+            "required": [
+                "authorizedAt",
+                "authorizerId",
+                "authorizerName",
+                "authorizerType",
+                "clusterId",
+                "createdTime",
+                "granteeId",
+                "granteeType",
+                "isCustomRole",
+                "kubeRoleBindingName",
+                "message",
+                "namespace",
+                "permissionId",
+                "projectSelector",
+                "revokedAt",
+                "roleDomain",
+                "roleName",
+                "status"
+            ],
+            "inputProperties": {
+                "authorizerId": {
+                    "type": "integer",
+                    "description": "授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n"
+                },
+                "authorizerType": {
+                    "type": "string",
+                    "description": "授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n"
+                },
+                "clusterId": {
+                    "type": "string",
+                    "description": "需要授权给 IAM 用户或角色的集群 ID。roleDomain为namespace或cluster时必须填写该参数值。\n"
+                },
+                "granteeId": {
+                    "type": "integer",
+                    "description": "被授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n"
+                },
+                "granteeType": {
+                    "type": "string",
+                    "description": "被授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n"
+                },
+                "isCustomRole": {
+                    "type": "boolean",
+                    "description": "给被授权者授予的 RBAC 角色是否为自定义角色，取值如下：true：自定义角色。false：（默认值）系统预置的角色。\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "需要授权给 IAM 用户或角色的名空间名称。roleDomain等于namespace时必须填写该参数值。roleDomain不等于namespace时，填写该参数值不生效。\n"
+                },
+                "roleDomain": {
+                    "type": "string",
+                    "description": "为 IAM 用户或角色授予的权限类型，取值如下：namespace：授予命名空间级别的权限。cluster：授予集群级别的权限。all_clusters：授予当前账号下全部集群级别的权限。\n"
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "给被授权者授予的 RBAC 角色名称。目前必须填写该参数。当roleDomain为all_clusters时，不可以自定义角色名称。\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Permission resources.\n",
+                "properties": {
+                    "authorizedAt": {
+                        "type": "string",
+                        "description": "RBAC 权限策略资源被授权的时间。\n"
+                    },
+                    "authorizerId": {
+                        "type": "integer",
+                        "description": "授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n"
+                    },
+                    "authorizerName": {
+                        "type": "string",
+                        "description": "授权者名称\n"
+                    },
+                    "authorizerType": {
+                        "type": "string",
+                        "description": "授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n"
+                    },
+                    "clusterId": {
+                        "type": "string",
+                        "description": "需要授权给 IAM 用户或角色的集群 ID。roleDomain为namespace或cluster时必须填写该参数值。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "RBAC 权限策略资源创建的时间。\n"
+                    },
+                    "granteeId": {
+                        "type": "integer",
+                        "description": "被授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n"
+                    },
+                    "granteeType": {
+                        "type": "string",
+                        "description": "被授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n"
+                    },
+                    "isCustomRole": {
+                        "type": "boolean",
+                        "description": "给被授权者授予的 RBAC 角色是否为自定义角色，取值如下：true：自定义角色。false：（默认值）系统预置的角色。\n"
+                    },
+                    "kubeRoleBindingName": {
+                        "type": "string",
+                        "description": "RBAC 权限策略资源在 Kubernetes 中的对象名称。\n"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "授权详细消息。\n"
+                    },
+                    "namespace": {
+                        "type": "string",
+                        "description": "需要授权给 IAM 用户或角色的名空间名称。roleDomain等于namespace时必须填写该参数值。roleDomain不等于namespace时，填写该参数值不生效。\n"
+                    },
+                    "permissionId": {
+                        "type": "string",
+                        "description": "RBAC 权限策略资源 ID。\n"
+                    },
+                    "projectSelector": {
+                        "type": "string",
+                        "description": "项目选择器\n"
+                    },
+                    "revokedAt": {
+                        "type": "string",
+                        "description": "撤销授权的时间。\n"
+                    },
+                    "roleDomain": {
+                        "type": "string",
+                        "description": "为 IAM 用户或角色授予的权限类型，取值如下：namespace：授予命名空间级别的权限。cluster：授予集群级别的权限。all_clusters：授予当前账号下全部集群级别的权限。\n"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "description": "给被授权者授予的 RBAC 角色名称。目前必须填写该参数。当roleDomain为all_clusters时，不可以自定义角色名称。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "RBAC 权限访问策略资源的状态，取值如下：Success：授权成功。Failed：授权失败。Pending：授权中。PartialSuccess：部分授权成功。\n"
                     }
                 },
                 "type": "object"
@@ -25971,6 +29216,111 @@
                 "type": "object"
             }
         },
+        "volcenginecc:apig/getUpstream:getUpstream": {
+            "description": "Data Source schema for Volcengine::APIG::Upstream\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUpstream.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUpstream.\n",
+                "properties": {
+                    "backendTargets": {
+                        "description": "后端节点，Upstream来源类型为VeFaas时无效。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/getUpstreamBackendTarget:getUpstreamBackendTarget"
+                        },
+                        "type": "array"
+                    },
+                    "circuitBreakingSettings": {
+                        "$ref": "#/types/volcenginecc:apig/getUpstreamCircuitBreakingSettings:getUpstreamCircuitBreakingSettings",
+                        "description": "服务熔断配置。\n"
+                    },
+                    "comments": {
+                        "description": "备注。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "Upstream创建时间。\n",
+                        "type": "string"
+                    },
+                    "gatewayId": {
+                        "description": "网关实例ID。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "loadBalancerSettings": {
+                        "$ref": "#/types/volcenginecc:apig/getUpstreamLoadBalancerSettings:getUpstreamLoadBalancerSettings",
+                        "description": "负载均衡配置。\n"
+                    },
+                    "name": {
+                        "description": "Upstream名称。\n",
+                        "type": "string"
+                    },
+                    "protocol": {
+                        "description": "协议，取值：HTTP：HTTP/1.1。HTTP2：HTTP/2。GRPC：GRPC。\n",
+                        "type": "string"
+                    },
+                    "sourceType": {
+                        "description": "Upstream来源类型，取值：VeFaas：函数服务。ECS：云服务器。K8S：容器服务。Nacos：注册中心。AIProvider：AI模型代理。\n",
+                        "type": "string"
+                    },
+                    "tlsSettings": {
+                        "$ref": "#/types/volcenginecc:apig/getUpstreamTlsSettings:getUpstreamTlsSettings",
+                        "description": "TLS配置。\n"
+                    },
+                    "updatedTime": {
+                        "description": "Upstream更新时间。\n",
+                        "type": "string"
+                    },
+                    "upstreamId": {
+                        "description": "Upstream ID。\n",
+                        "type": "string"
+                    },
+                    "upstreamSpec": {
+                        "$ref": "#/types/volcenginecc:apig/getUpstreamUpstreamSpec:getUpstreamUpstreamSpec",
+                        "description": "Upstream配置。\n"
+                    },
+                    "versionDetails": {
+                        "description": "Upstream版本，仅在Upstream来源类型为K8S时有效。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:apig/getUpstreamVersionDetail:getUpstreamVersionDetail"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "backendTargets",
+                    "circuitBreakingSettings",
+                    "comments",
+                    "createdTime",
+                    "gatewayId",
+                    "id",
+                    "loadBalancerSettings",
+                    "name",
+                    "protocol",
+                    "sourceType",
+                    "tlsSettings",
+                    "updatedTime",
+                    "upstreamId",
+                    "upstreamSpec",
+                    "versionDetails"
+                ],
+                "type": "object"
+            }
+        },
         "volcenginecc:apig/getUpstreamSource:getUpstreamSource": {
             "description": "Data Source schema for Volcengine::APIG::UpstreamSource\n",
             "inputs": {
@@ -26062,6 +29412,30 @@
             "description": "Plural Data Source schema for Volcengine::APIG::UpstreamSource\n",
             "outputs": {
                 "description": "A collection of values returned by getUpstreamSources.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:apig/getUpstreams:getUpstreams": {
+            "description": "Plural Data Source schema for Volcengine::APIG::Upstream\n",
+            "outputs": {
+                "description": "A collection of values returned by getUpstreams.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -26415,6 +29789,114 @@
             "description": "Plural Data Source schema for Volcengine::AutoScaling::ScalingConfiguration\n",
             "outputs": {
                 "description": "A collection of values returned by getScalingConfigurations.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:cdn/getShareConfig:getShareConfig": {
+            "description": "Data Source schema for Volcengine::CDN::ShareConfig\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getShareConfig.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getShareConfig.\n",
+                "properties": {
+                    "allowIpAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/getShareConfigAllowIpAccessRule:getShareConfigAllowIpAccessRule",
+                        "description": "表示一个 IP 白名单的配置，对应 ConfigType 是 allow*ip*access*rule。\n"
+                    },
+                    "allowRefererAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/getShareConfigAllowRefererAccessRule:getShareConfigAllowRefererAccessRule",
+                        "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
+                    },
+                    "commonMatchs": {
+                        "$ref": "#/types/volcenginecc:cdn/getShareConfigCommonMatchs:getShareConfigCommonMatchs",
+                        "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
+                    },
+                    "configName": {
+                        "description": "表示全局配置的名称。名称有以下要求：名称可以包含汉字、字母、数字、下划线（_），长度在 3-45 个字符之间。一个汉字占 3 个字符。名称不能与主账号下某个已有的全局配置的名称相同。\n",
+                        "type": "string"
+                    },
+                    "configType": {
+                        "description": "表示该全局配置的类型。该参数有以下取值：deny*ip*access*rule：表示 IP 黑名单。allow*ip*access*rule：表示 IP 白名单。deny*referer*access*rule：表示 Referer 黑名单。allow*referer*access*rule：表示 Referer 白名单。common*match*list：表示通用列表。\n",
+                        "type": "string"
+                    },
+                    "denyIpAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/getShareConfigDenyIpAccessRule:getShareConfigDenyIpAccessRule",
+                        "description": "表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access*rule。\n"
+                    },
+                    "denyRefererAccessRule": {
+                        "$ref": "#/types/volcenginecc:cdn/getShareConfigDenyRefererAccessRule:getShareConfigDenyRefererAccessRule",
+                        "description": "表示一个 Referer 黑名单的配置，对应 ConfigType 是 deny*referer*access*rule。\n"
+                    },
+                    "domainCount": {
+                        "description": "表示与该全局配置关联的加速域名的数量。\n",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "project": {
+                        "description": "表示该全局配置所归属的项目名称。\n",
+                        "type": "string"
+                    },
+                    "ruleContent": {
+                        "description": "表示该自定义错误页面的 HTML 代码。\n",
+                        "type": "string"
+                    },
+                    "updatedTime": {
+                        "description": "表示该全局配置的最近修改时间，单位是 Unix 时间戳。\n",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "allowIpAccessRule",
+                    "allowRefererAccessRule",
+                    "commonMatchs",
+                    "configName",
+                    "configType",
+                    "denyIpAccessRule",
+                    "denyRefererAccessRule",
+                    "domainCount",
+                    "id",
+                    "project",
+                    "ruleContent",
+                    "updatedTime"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:cdn/getShareConfigs:getShareConfigs": {
+            "description": "Plural Data Source schema for Volcengine::CDN::ShareConfig\n",
+            "outputs": {
+                "description": "A collection of values returned by getShareConfigs.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -27125,7 +30607,7 @@
                         "type": "integer"
                     },
                     "protocol": {
-                        "description": "监听器的协议。\n",
+                        "description": "监听器的协议。包括：TCP、UDP、HTTP、HTTPS。\n",
                         "type": "string"
                     },
                     "proxyConnectTimeout": {
@@ -30124,6 +33606,625 @@
                 "type": "object"
             }
         },
+        "volcenginecc:kafka/getTopic:getTopic": {
+            "description": "Data Source schema for Volcengine::Kafka::Topic\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getTopic.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTopic.\n",
+                "properties": {
+                    "accessPolicies": {
+                        "description": "自定义权限配置，即为某些用户设置对于此 Topic 的自定义权限。仅在 AllAuthority 为 False 时需要设置。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:kafka/getTopicAccessPolicy:getTopicAccessPolicy"
+                        },
+                        "type": "array"
+                    },
+                    "allAuthority": {
+                        "description": "待创建的Topic默认是否对所有用户都开启读写权限。true：（默认）所有用户都具备此 Topic 的读写权限。false：并非所有用户都具备此 Topic 的读写权限。默认情况下，用户对于此 Topic 的权限沿用用户的默认权限，如果默认权限不满足需求，您也可以通过 AccessPolicies 指定某个用户对于此 Topic 的自定义权限。\n",
+                        "type": "boolean"
+                    },
+                    "cleanupPolicies": {
+                        "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "createdTime": {
+                        "description": "Topic 的创建时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Topic 的描述信息。长度不超过 128 个字符。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "description": "实例 ID。\n",
+                        "type": "string"
+                    },
+                    "logRetentionHours": {
+                        "description": "消息保留时长，单位小时。\n",
+                        "type": "integer"
+                    },
+                    "parameters": {
+                        "description": "Topic 级别的参数配置。Parameters 参数说明 MinInsyncReplicaNumber:2：最小同步副本个数。当同步副本个数小于配置值时，消息将无法写入对应 Topic。配置值越大，数据可靠性增加，但是可用性将会降低。默认值为副本数减 1。考虑到 Topic 的可用性，建议设置为副本数减 1。MessageMaxByte:12：最大消息大小。单位为 MB，取值范围为 1～12。默认沿用实例的最大消息大小设置。LogRetentionHours:72：消息保留时长。单位为小时，取值范围为 0～2160，即消息最久保留 90 天。默认沿用实例的消息保留时长设置。\n",
+                        "type": "string"
+                    },
+                    "partitionNumber": {
+                        "description": "Topic 分区数。取值范围为 1~300，如果实例中已创建了其他 Topic，则所有 Topic 的分区数之和不超过该实例的分区数上限。如果分区数无法满足业务需求，您可以购买更多分区，提升实例的分区数量上限。\n",
+                        "type": "integer"
+                    },
+                    "replicaNumber": {
+                        "description": "Topic 副本个数。可设置为为 2 或 3，默认值为 3。\n",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Topic 的状态。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "公网IP的标签信息\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:kafka/getTopicTag:getTopicTag"
+                        },
+                        "type": "array"
+                    },
+                    "topicName": {
+                        "description": "待创建的 Topic 名称。3～64 个字符。必须以英文或数字开头。支持的字符包括英文、数字、连字符（-）、下划线（_）和英文句号（.）。\n",
+                        "type": "string"
+                    },
+                    "usedStoragePercentageInInstance": {
+                        "description": "当前 Topic 总数据量占实例总存储空间的比例，控制台页面显示为保留两位小数的百分数。\n",
+                        "type": "number"
+                    },
+                    "usedStorageSpaceInBytes": {
+                        "description": "当前 Topic 已使用的总存储空间大小。\n",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "accessPolicies",
+                    "allAuthority",
+                    "cleanupPolicies",
+                    "createdTime",
+                    "description",
+                    "id",
+                    "instanceId",
+                    "logRetentionHours",
+                    "parameters",
+                    "partitionNumber",
+                    "replicaNumber",
+                    "status",
+                    "tags",
+                    "topicName",
+                    "usedStoragePercentageInInstance",
+                    "usedStorageSpaceInBytes"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:kafka/getTopics:getTopics": {
+            "description": "Plural Data Source schema for Volcengine::Kafka::Topic\n",
+            "outputs": {
+                "description": "A collection of values returned by getTopics.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getNgw:getNgw": {
+            "description": "Data Source schema for Volcengine::NatGateway::NGW\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNgw.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNgw.\n",
+                "properties": {
+                    "billingType": {
+                        "description": "NAT网关的计费方式。取值如下：1 ：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。当NetworkType传入intranet时，本参数仅支持且必须传入3。\n",
+                        "type": "integer"
+                    },
+                    "businessStatus": {
+                        "description": "NAT网关是否被锁定。空值：正常未被锁定。Normal：正常未被锁定。FinancialLocked：因欠费被锁定。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "创建时间\n",
+                        "type": "string"
+                    },
+                    "deletedTime": {
+                        "description": "删除时间\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。\n",
+                        "type": "string"
+                    },
+                    "directMode": {
+                        "description": "标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。\n",
+                        "type": "boolean"
+                    },
+                    "dnatEntryIds": {
+                        "description": "DNAT规则ID列表。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "eipAddresses": {
+                        "description": "NAT网关绑定公网IP的信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:natgateway/getNgwEipAddress:getNgwEipAddress"
+                        },
+                        "type": "array"
+                    },
+                    "expiredTime": {
+                        "description": "包年包月NAT网关到期时间。仅包年包月计费类型的NAT网关会返回此参数。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "lockReason": {
+                        "description": "NAT被锁定的原因。financial：因欠费被锁定。security：因安全原因被锁定。\n",
+                        "type": "string"
+                    },
+                    "natGatewayId": {
+                        "description": "NAT网关ID。\n",
+                        "type": "string"
+                    },
+                    "natGatewayName": {
+                        "description": "NAT网关的名称。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短划线（-）。长度限制为1 ~ 128个字符。不填默认是NAT网关实例的ID。\n",
+                        "type": "string"
+                    },
+                    "natIpAddresses": {
+                        "description": "私网NAT实例的中转IP列表。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:natgateway/getNgwNatIpAddress:getNgwNatIpAddress"
+                        },
+                        "type": "array"
+                    },
+                    "networkInterfaceId": {
+                        "description": "NAT网关占用的网卡ID。\n",
+                        "type": "string"
+                    },
+                    "networkType": {
+                        "description": "NAT网关类型。internet：公网NAT网关。intranet：私网NAT网关。\n",
+                        "type": "string"
+                    },
+                    "overdueTime": {
+                        "description": "资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。\n",
+                        "type": "string"
+                    },
+                    "period": {
+                        "description": "购买包年包月NAT网关的时长，默认1。当PeriodUnit传入Month，Period取值范围：1 ~ 9、12、24、36。当PeriodUnit传入Year，Period取值范围：1 ~ 3。\n",
+                        "type": "integer"
+                    },
+                    "periodUnit": {
+                        "description": "购买包年包月NAT网关时长的单位，默认Month。Month ：月。Year ：年。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "NAT网关所属项目的名称。不填默认加入default项目。\n",
+                        "type": "string"
+                    },
+                    "smartScheduleEnabled": {
+                        "description": "是否开启智能调度。\n",
+                        "type": "boolean"
+                    },
+                    "smartScheduleRule": {
+                        "description": "智能调度策略规则。ChinaMobile：中国移动。ChinaUnicom：中国联通。ChinaTelecom：中国电信。BGP：BGP多线。\n",
+                        "type": "string"
+                    },
+                    "snatEntryIds": {
+                        "description": "SNAT规则ID列表。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "spec": {
+                        "description": "NAT网关的规格。Small（默认）：小型。Medium：中型。Large：大型。Extra*Large*1：超大型-1。Extra*Large*2：超大型-2。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "NAT网关的状态。Available：可用。Creating：创建中。Pending：操作中。Deleting：删除中。\n",
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "description": "NAT网关所在子网的ID。传入的子网，必须是VpcId传入的私有网络的子网。子网内至少有一个可用的私网IP。系统自动生成的NAT网关网卡将占用该子网一个私网IP。子网所在的可用区需要已部署NAT网关资源。子网所在可用区将作为NAT网关的主可用区，并自动关联备可用区。当主可用区发生故障时，NAT网关自动切换到备可用区。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "标签列表。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:natgateway/getNgwTag:getNgwTag"
+                        },
+                        "type": "array"
+                    },
+                    "updatedTime": {
+                        "description": "NAT网关的最后操作时间。\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "NAT网关所在私有网络的ID。\n",
+                        "type": "string"
+                    },
+                    "zoneId": {
+                        "description": "NAT网关所属主可用区的ID。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "billingType",
+                    "businessStatus",
+                    "createdTime",
+                    "deletedTime",
+                    "description",
+                    "directMode",
+                    "dnatEntryIds",
+                    "eipAddresses",
+                    "expiredTime",
+                    "id",
+                    "lockReason",
+                    "natGatewayId",
+                    "natGatewayName",
+                    "natIpAddresses",
+                    "networkInterfaceId",
+                    "networkType",
+                    "overdueTime",
+                    "period",
+                    "periodUnit",
+                    "projectName",
+                    "smartScheduleEnabled",
+                    "smartScheduleRule",
+                    "snatEntryIds",
+                    "spec",
+                    "status",
+                    "subnetId",
+                    "tags",
+                    "updatedTime",
+                    "vpcId",
+                    "zoneId"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getNgws:getNgws": {
+            "description": "Plural Data Source schema for Volcengine::NatGateway::NGW\n",
+            "outputs": {
+                "description": "A collection of values returned by getNgws.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:privatezone/getResolverEndpoint:getResolverEndpoint": {
+            "description": "Data Source schema for Volcengine::PrivateZone::ResolverEndpoint\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getResolverEndpoint.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getResolverEndpoint.\n",
+                "properties": {
+                    "createdTime": {
+                        "description": "创建时间\n",
+                        "type": "string"
+                    },
+                    "direction": {
+                        "description": "终端节点的 DNS 请求转发方向。OUTBOUND：（默认）出站终端节点，把来自 VPC 内的 DNS 查询请求转发到外部的 DNS 服务器。INBOUND：入站终端节点，把来自外部的 DNS 查询请求转发到解析器。\n",
+                        "type": "string"
+                    },
+                    "endpointId": {
+                        "description": "终端节点的 ID。\n",
+                        "type": "string"
+                    },
+                    "endpointType": {
+                        "description": "终端节点类型。IPv4：IPv4 节点。DualStack：双栈节点。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "ipConfigs": {
+                        "description": "终端节点的可用区、子网和 IP 配置。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/getResolverEndpointIpConfig:getResolverEndpointIpConfig"
+                        },
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "终端节点的名称。支持 UTF-8 格式。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "终端节点所属的项目名称。默认为 default。\n",
+                        "type": "string"
+                    },
+                    "securityGroupId": {
+                        "description": "适用于终端节点 IP 地址的安全组 ID。终端节点默认会使用预设安全组：对于出站终端节点：入方向拒绝流量通行；出方向放通 0.0.0.0/0 的 TCP 53 端口和 UDP 53 端口。对于入站终端节点：入方向放通 0.0.0.0/0 的 TCP 53 端口和 UDP 53 端口；出方向拒绝流量通行。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "终端节点的状态。Creating：创建中。Running：运行中。Updating：更新中。Error：运行异常。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "标签列表。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/getResolverEndpointTag:getResolverEndpointTag"
+                        },
+                        "type": "array"
+                    },
+                    "updatedTime": {
+                        "description": "更新时间\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "终端节点所在的 VPC 的 ID。\n",
+                        "type": "string"
+                    },
+                    "vpcRegion": {
+                        "description": "终端节点所在的 VPC 的地域。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdTime",
+                    "direction",
+                    "endpointId",
+                    "endpointType",
+                    "id",
+                    "ipConfigs",
+                    "name",
+                    "projectName",
+                    "securityGroupId",
+                    "status",
+                    "tags",
+                    "updatedTime",
+                    "vpcId",
+                    "vpcRegion"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:privatezone/getResolverEndpoints:getResolverEndpoints": {
+            "description": "Plural Data Source schema for Volcengine::PrivateZone::ResolverEndpoint\n",
+            "outputs": {
+                "description": "A collection of values returned by getResolverEndpoints.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:privatezone/getResolverRule:getResolverRule": {
+            "description": "Data Source schema for Volcengine::PrivateZone::ResolverRule\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getResolverRule.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getResolverRule.\n",
+                "properties": {
+                    "createdTime": {
+                        "description": "转发规则的创建时间\n",
+                        "type": "string"
+                    },
+                    "enable": {
+                        "description": "转发规则是否被启用。true：启用。false：禁用。\n",
+                        "type": "boolean"
+                    },
+                    "endpointId": {
+                        "description": "终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。\n",
+                        "type": "integer"
+                    },
+                    "endpointTrn": {
+                        "description": "终端节点的 TRN。\n",
+                        "type": "string"
+                    },
+                    "forwardIPs": {
+                        "description": "外部的 DNS 服务器的 IP 地址和端口。您最多只能添加 10 个 IP 地址。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/getResolverRuleForwardIP:getResolverRuleForwardIP"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "lastOperator": {
+                        "description": "最近一次更新转发规则的火山引擎账号的 ID\n",
+                        "type": "string"
+                    },
+                    "line": {
+                        "description": "递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "转发规则的名称。支持 UTF-8 格式。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "转发规则所属的项目名称。默认为 default。\n",
+                        "type": "string"
+                    },
+                    "ruleId": {
+                        "description": "转发规则的 ID。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "转发规则所属的一个或多个标签\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/getResolverRuleTag:getResolverRuleTag"
+                        },
+                        "type": "array"
+                    },
+                    "type": {
+                        "description": "转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。\n",
+                        "type": "string"
+                    },
+                    "updatedTime": {
+                        "description": "转发规则的更新时间\n",
+                        "type": "string"
+                    },
+                    "vpCs": {
+                        "description": "转发规则所关联的 VPC。转发规则在关联的 VPC 中生效。Type 参数是 OUTBOUND 时，VPC 的地域必须和终端节点所在的地域相同。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:privatezone/getResolverRuleVpC:getResolverRuleVpC"
+                        },
+                        "type": "array"
+                    },
+                    "vpcTrns": {
+                        "description": "域名所关联的一个或多个 VPC 的 TRN。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "zoneName": {
+                        "description": "转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdTime",
+                    "enable",
+                    "endpointId",
+                    "endpointTrn",
+                    "forwardIPs",
+                    "id",
+                    "lastOperator",
+                    "line",
+                    "name",
+                    "projectName",
+                    "ruleId",
+                    "tags",
+                    "type",
+                    "updatedTime",
+                    "vpCs",
+                    "vpcTrns",
+                    "zoneName"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:privatezone/getResolverRules:getResolverRules": {
+            "description": "Plural Data Source schema for Volcengine::PrivateZone::ResolverRule\n",
+            "outputs": {
+                "description": "A collection of values returned by getResolverRules.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
         "volcenginecc:rdsmysql/getDatabase:getDatabase": {
             "description": "Data Source schema for Volcengine::RDSMySQL::Database\n",
             "inputs": {
@@ -31709,6 +35810,149 @@
             "description": "Plural Data Source schema for Volcengine::VKE::Addon\n",
             "outputs": {
                 "description": "A collection of values returned by getAddons.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vke/getPermission:getPermission": {
+            "description": "Data Source schema for Volcengine::VKE::Permission\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPermission.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPermission.\n",
+                "properties": {
+                    "authorizedAt": {
+                        "description": "RBAC 权限策略资源被授权的时间。\n",
+                        "type": "string"
+                    },
+                    "authorizerId": {
+                        "description": "授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n",
+                        "type": "integer"
+                    },
+                    "authorizerName": {
+                        "description": "授权者名称\n",
+                        "type": "string"
+                    },
+                    "authorizerType": {
+                        "description": "授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n",
+                        "type": "string"
+                    },
+                    "clusterId": {
+                        "description": "需要授权给 IAM 用户或角色的集群 ID。roleDomain为namespace或cluster时必须填写该参数值。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "RBAC 权限策略资源创建的时间。\n",
+                        "type": "string"
+                    },
+                    "granteeId": {
+                        "description": "被授权者的 ID。可以是 IAM 用户 ID，也可以是 IAM 角色 ID。\n",
+                        "type": "integer"
+                    },
+                    "granteeType": {
+                        "description": "被授权者的类型，取值如下：User：IAM 用户。Role：IAM 角色。Account：账号。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "isCustomRole": {
+                        "description": "给被授权者授予的 RBAC 角色是否为自定义角色，取值如下：true：自定义角色。false：（默认值）系统预置的角色。\n",
+                        "type": "boolean"
+                    },
+                    "kubeRoleBindingName": {
+                        "description": "RBAC 权限策略资源在 Kubernetes 中的对象名称。\n",
+                        "type": "string"
+                    },
+                    "message": {
+                        "description": "授权详细消息。\n",
+                        "type": "string"
+                    },
+                    "namespace": {
+                        "description": "需要授权给 IAM 用户或角色的名空间名称。roleDomain等于namespace时必须填写该参数值。roleDomain不等于namespace时，填写该参数值不生效。\n",
+                        "type": "string"
+                    },
+                    "permissionId": {
+                        "description": "RBAC 权限策略资源 ID。\n",
+                        "type": "string"
+                    },
+                    "projectSelector": {
+                        "description": "项目选择器\n",
+                        "type": "string"
+                    },
+                    "revokedAt": {
+                        "description": "撤销授权的时间。\n",
+                        "type": "string"
+                    },
+                    "roleDomain": {
+                        "description": "为 IAM 用户或角色授予的权限类型，取值如下：namespace：授予命名空间级别的权限。cluster：授予集群级别的权限。all_clusters：授予当前账号下全部集群级别的权限。\n",
+                        "type": "string"
+                    },
+                    "roleName": {
+                        "description": "给被授权者授予的 RBAC 角色名称。目前必须填写该参数。当roleDomain为all_clusters时，不可以自定义角色名称。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "RBAC 权限访问策略资源的状态，取值如下：Success：授权成功。Failed：授权失败。Pending：授权中。PartialSuccess：部分授权成功。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "authorizedAt",
+                    "authorizerId",
+                    "authorizerName",
+                    "authorizerType",
+                    "clusterId",
+                    "createdTime",
+                    "granteeId",
+                    "granteeType",
+                    "id",
+                    "isCustomRole",
+                    "kubeRoleBindingName",
+                    "message",
+                    "namespace",
+                    "permissionId",
+                    "projectSelector",
+                    "revokedAt",
+                    "roleDomain",
+                    "roleName",
+                    "status"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vke/getPermissions:getPermissions": {
+            "description": "Plural Data Source schema for Volcengine::VKE::Permission\n",
+            "outputs": {
+                "description": "A collection of values returned by getPermissions.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",

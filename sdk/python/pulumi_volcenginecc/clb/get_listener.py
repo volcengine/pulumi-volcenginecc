@@ -417,7 +417,7 @@ class GetListenerResult:
     @pulumi.getter
     def protocol(self) -> builtins.str:
         """
-        监听器的协议。
+        监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 

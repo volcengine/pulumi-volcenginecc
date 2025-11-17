@@ -13,9 +13,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
 
     public sealed class ServerGroupTagGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// 绑定的标签键信息。
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// 绑定的标签值信息。
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

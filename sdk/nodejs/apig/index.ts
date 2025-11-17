@@ -20,6 +20,11 @@ export const getGatewayServices: typeof import("./getGatewayServices").getGatewa
 export const getGatewayServicesOutput: typeof import("./getGatewayServices").getGatewayServicesOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayServices","getGatewayServicesOutput"], () => require("./getGatewayServices"));
 
+export { GetUpstreamArgs, GetUpstreamResult, GetUpstreamOutputArgs } from "./getUpstream";
+export const getUpstream: typeof import("./getUpstream").getUpstream = null as any;
+export const getUpstreamOutput: typeof import("./getUpstream").getUpstreamOutput = null as any;
+utilities.lazyLoad(exports, ["getUpstream","getUpstreamOutput"], () => require("./getUpstream"));
+
 export { GetUpstreamSourceArgs, GetUpstreamSourceResult, GetUpstreamSourceOutputArgs } from "./getUpstreamSource";
 export const getUpstreamSource: typeof import("./getUpstreamSource").getUpstreamSource = null as any;
 export const getUpstreamSourceOutput: typeof import("./getUpstreamSource").getUpstreamSourceOutput = null as any;
@@ -29,6 +34,16 @@ export { GetUpstreamSourcesResult } from "./getUpstreamSources";
 export const getUpstreamSources: typeof import("./getUpstreamSources").getUpstreamSources = null as any;
 export const getUpstreamSourcesOutput: typeof import("./getUpstreamSources").getUpstreamSourcesOutput = null as any;
 utilities.lazyLoad(exports, ["getUpstreamSources","getUpstreamSourcesOutput"], () => require("./getUpstreamSources"));
+
+export { GetUpstreamsResult } from "./getUpstreams";
+export const getUpstreams: typeof import("./getUpstreams").getUpstreams = null as any;
+export const getUpstreamsOutput: typeof import("./getUpstreams").getUpstreamsOutput = null as any;
+utilities.lazyLoad(exports, ["getUpstreams","getUpstreamsOutput"], () => require("./getUpstreams"));
+
+export { UpstreamArgs, UpstreamState } from "./upstream";
+export type Upstream = import("./upstream").Upstream;
+export const Upstream: typeof import("./upstream").Upstream = null as any;
+utilities.lazyLoad(exports, ["Upstream"], () => require("./upstream"));
 
 export { UpstreamSourceArgs, UpstreamSourceState } from "./upstreamSource";
 export type UpstreamSource = import("./upstreamSource").UpstreamSource;
@@ -42,6 +57,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:apig/gatewayService:GatewayService":
                 return new GatewayService(name, <any>undefined, { urn })
+            case "volcenginecc:apig/upstream:Upstream":
+                return new Upstream(name, <any>undefined, { urn })
             case "volcenginecc:apig/upstreamSource:UpstreamSource":
                 return new UpstreamSource(name, <any>undefined, { urn })
             default:
@@ -50,4 +67,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/gatewayService", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "apig/upstream", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/upstreamSource", _module)

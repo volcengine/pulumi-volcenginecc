@@ -499,6 +499,939 @@ func (o GatewayServiceDomainSpecPtrOutput) EnablePublicResolution() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+type UpstreamBackendTarget struct {
+	// 健康检查状态。
+	HealthStatus *string `pulumi:"healthStatus"`
+	// 后端节点IP。
+	Ip *string `pulumi:"ip"`
+	// 后端节点端口。
+	Port *int `pulumi:"port"`
+}
+
+// UpstreamBackendTargetInput is an input type that accepts UpstreamBackendTargetArgs and UpstreamBackendTargetOutput values.
+// You can construct a concrete instance of `UpstreamBackendTargetInput` via:
+//
+//	UpstreamBackendTargetArgs{...}
+type UpstreamBackendTargetInput interface {
+	pulumi.Input
+
+	ToUpstreamBackendTargetOutput() UpstreamBackendTargetOutput
+	ToUpstreamBackendTargetOutputWithContext(context.Context) UpstreamBackendTargetOutput
+}
+
+type UpstreamBackendTargetArgs struct {
+	// 健康检查状态。
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// 后端节点IP。
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// 后端节点端口。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (UpstreamBackendTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamBackendTarget)(nil)).Elem()
+}
+
+func (i UpstreamBackendTargetArgs) ToUpstreamBackendTargetOutput() UpstreamBackendTargetOutput {
+	return i.ToUpstreamBackendTargetOutputWithContext(context.Background())
+}
+
+func (i UpstreamBackendTargetArgs) ToUpstreamBackendTargetOutputWithContext(ctx context.Context) UpstreamBackendTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamBackendTargetOutput)
+}
+
+// UpstreamBackendTargetArrayInput is an input type that accepts UpstreamBackendTargetArray and UpstreamBackendTargetArrayOutput values.
+// You can construct a concrete instance of `UpstreamBackendTargetArrayInput` via:
+//
+//	UpstreamBackendTargetArray{ UpstreamBackendTargetArgs{...} }
+type UpstreamBackendTargetArrayInput interface {
+	pulumi.Input
+
+	ToUpstreamBackendTargetArrayOutput() UpstreamBackendTargetArrayOutput
+	ToUpstreamBackendTargetArrayOutputWithContext(context.Context) UpstreamBackendTargetArrayOutput
+}
+
+type UpstreamBackendTargetArray []UpstreamBackendTargetInput
+
+func (UpstreamBackendTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamBackendTarget)(nil)).Elem()
+}
+
+func (i UpstreamBackendTargetArray) ToUpstreamBackendTargetArrayOutput() UpstreamBackendTargetArrayOutput {
+	return i.ToUpstreamBackendTargetArrayOutputWithContext(context.Background())
+}
+
+func (i UpstreamBackendTargetArray) ToUpstreamBackendTargetArrayOutputWithContext(ctx context.Context) UpstreamBackendTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamBackendTargetArrayOutput)
+}
+
+type UpstreamBackendTargetOutput struct{ *pulumi.OutputState }
+
+func (UpstreamBackendTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamBackendTarget)(nil)).Elem()
+}
+
+func (o UpstreamBackendTargetOutput) ToUpstreamBackendTargetOutput() UpstreamBackendTargetOutput {
+	return o
+}
+
+func (o UpstreamBackendTargetOutput) ToUpstreamBackendTargetOutputWithContext(ctx context.Context) UpstreamBackendTargetOutput {
+	return o
+}
+
+// 健康检查状态。
+func (o UpstreamBackendTargetOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamBackendTarget) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// 后端节点IP。
+func (o UpstreamBackendTargetOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamBackendTarget) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// 后端节点端口。
+func (o UpstreamBackendTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamBackendTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamBackendTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (UpstreamBackendTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamBackendTarget)(nil)).Elem()
+}
+
+func (o UpstreamBackendTargetArrayOutput) ToUpstreamBackendTargetArrayOutput() UpstreamBackendTargetArrayOutput {
+	return o
+}
+
+func (o UpstreamBackendTargetArrayOutput) ToUpstreamBackendTargetArrayOutputWithContext(ctx context.Context) UpstreamBackendTargetArrayOutput {
+	return o
+}
+
+func (o UpstreamBackendTargetArrayOutput) Index(i pulumi.IntInput) UpstreamBackendTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UpstreamBackendTarget {
+		return vs[0].([]UpstreamBackendTarget)[vs[1].(int)]
+	}).(UpstreamBackendTargetOutput)
+}
+
+type UpstreamCircuitBreakingSettings struct {
+	// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+	BaseEjectionTime *int `pulumi:"baseEjectionTime"`
+	// 连续失败次数。取值限制为1~100。默认值为5。
+	ConsecutiveErrors *int `pulumi:"consecutiveErrors"`
+	// 开启。
+	Enable *bool `pulumi:"enable"`
+	// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+	Interval *int `pulumi:"interval"`
+	// 最大熔断比例。取值限制为1~100。默认值为20%。
+	MaxEjectionPercent *int `pulumi:"maxEjectionPercent"`
+	// 最小健康比例。取值限制为0~100。默认值为60%。
+	MinHealthPercent *int `pulumi:"minHealthPercent"`
+}
+
+// UpstreamCircuitBreakingSettingsInput is an input type that accepts UpstreamCircuitBreakingSettingsArgs and UpstreamCircuitBreakingSettingsOutput values.
+// You can construct a concrete instance of `UpstreamCircuitBreakingSettingsInput` via:
+//
+//	UpstreamCircuitBreakingSettingsArgs{...}
+type UpstreamCircuitBreakingSettingsInput interface {
+	pulumi.Input
+
+	ToUpstreamCircuitBreakingSettingsOutput() UpstreamCircuitBreakingSettingsOutput
+	ToUpstreamCircuitBreakingSettingsOutputWithContext(context.Context) UpstreamCircuitBreakingSettingsOutput
+}
+
+type UpstreamCircuitBreakingSettingsArgs struct {
+	// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+	BaseEjectionTime pulumi.IntPtrInput `pulumi:"baseEjectionTime"`
+	// 连续失败次数。取值限制为1~100。默认值为5。
+	ConsecutiveErrors pulumi.IntPtrInput `pulumi:"consecutiveErrors"`
+	// 开启。
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// 最大熔断比例。取值限制为1~100。默认值为20%。
+	MaxEjectionPercent pulumi.IntPtrInput `pulumi:"maxEjectionPercent"`
+	// 最小健康比例。取值限制为0~100。默认值为60%。
+	MinHealthPercent pulumi.IntPtrInput `pulumi:"minHealthPercent"`
+}
+
+func (UpstreamCircuitBreakingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamCircuitBreakingSettings)(nil)).Elem()
+}
+
+func (i UpstreamCircuitBreakingSettingsArgs) ToUpstreamCircuitBreakingSettingsOutput() UpstreamCircuitBreakingSettingsOutput {
+	return i.ToUpstreamCircuitBreakingSettingsOutputWithContext(context.Background())
+}
+
+func (i UpstreamCircuitBreakingSettingsArgs) ToUpstreamCircuitBreakingSettingsOutputWithContext(ctx context.Context) UpstreamCircuitBreakingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamCircuitBreakingSettingsOutput)
+}
+
+func (i UpstreamCircuitBreakingSettingsArgs) ToUpstreamCircuitBreakingSettingsPtrOutput() UpstreamCircuitBreakingSettingsPtrOutput {
+	return i.ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamCircuitBreakingSettingsArgs) ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(ctx context.Context) UpstreamCircuitBreakingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamCircuitBreakingSettingsOutput).ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(ctx)
+}
+
+// UpstreamCircuitBreakingSettingsPtrInput is an input type that accepts UpstreamCircuitBreakingSettingsArgs, UpstreamCircuitBreakingSettingsPtr and UpstreamCircuitBreakingSettingsPtrOutput values.
+// You can construct a concrete instance of `UpstreamCircuitBreakingSettingsPtrInput` via:
+//
+//	        UpstreamCircuitBreakingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamCircuitBreakingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamCircuitBreakingSettingsPtrOutput() UpstreamCircuitBreakingSettingsPtrOutput
+	ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(context.Context) UpstreamCircuitBreakingSettingsPtrOutput
+}
+
+type upstreamCircuitBreakingSettingsPtrType UpstreamCircuitBreakingSettingsArgs
+
+func UpstreamCircuitBreakingSettingsPtr(v *UpstreamCircuitBreakingSettingsArgs) UpstreamCircuitBreakingSettingsPtrInput {
+	return (*upstreamCircuitBreakingSettingsPtrType)(v)
+}
+
+func (*upstreamCircuitBreakingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamCircuitBreakingSettings)(nil)).Elem()
+}
+
+func (i *upstreamCircuitBreakingSettingsPtrType) ToUpstreamCircuitBreakingSettingsPtrOutput() UpstreamCircuitBreakingSettingsPtrOutput {
+	return i.ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamCircuitBreakingSettingsPtrType) ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(ctx context.Context) UpstreamCircuitBreakingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamCircuitBreakingSettingsPtrOutput)
+}
+
+type UpstreamCircuitBreakingSettingsOutput struct{ *pulumi.OutputState }
+
+func (UpstreamCircuitBreakingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamCircuitBreakingSettings)(nil)).Elem()
+}
+
+func (o UpstreamCircuitBreakingSettingsOutput) ToUpstreamCircuitBreakingSettingsOutput() UpstreamCircuitBreakingSettingsOutput {
+	return o
+}
+
+func (o UpstreamCircuitBreakingSettingsOutput) ToUpstreamCircuitBreakingSettingsOutputWithContext(ctx context.Context) UpstreamCircuitBreakingSettingsOutput {
+	return o
+}
+
+func (o UpstreamCircuitBreakingSettingsOutput) ToUpstreamCircuitBreakingSettingsPtrOutput() UpstreamCircuitBreakingSettingsPtrOutput {
+	return o.ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamCircuitBreakingSettingsOutput) ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(ctx context.Context) UpstreamCircuitBreakingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamCircuitBreakingSettings) *UpstreamCircuitBreakingSettings {
+		return &v
+	}).(UpstreamCircuitBreakingSettingsPtrOutput)
+}
+
+// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+func (o UpstreamCircuitBreakingSettingsOutput) BaseEjectionTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamCircuitBreakingSettings) *int { return v.BaseEjectionTime }).(pulumi.IntPtrOutput)
+}
+
+// 连续失败次数。取值限制为1~100。默认值为5。
+func (o UpstreamCircuitBreakingSettingsOutput) ConsecutiveErrors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamCircuitBreakingSettings) *int { return v.ConsecutiveErrors }).(pulumi.IntPtrOutput)
+}
+
+// 开启。
+func (o UpstreamCircuitBreakingSettingsOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UpstreamCircuitBreakingSettings) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+func (o UpstreamCircuitBreakingSettingsOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamCircuitBreakingSettings) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// 最大熔断比例。取值限制为1~100。默认值为20%。
+func (o UpstreamCircuitBreakingSettingsOutput) MaxEjectionPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamCircuitBreakingSettings) *int { return v.MaxEjectionPercent }).(pulumi.IntPtrOutput)
+}
+
+// 最小健康比例。取值限制为0~100。默认值为60%。
+func (o UpstreamCircuitBreakingSettingsOutput) MinHealthPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamCircuitBreakingSettings) *int { return v.MinHealthPercent }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamCircuitBreakingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamCircuitBreakingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamCircuitBreakingSettings)(nil)).Elem()
+}
+
+func (o UpstreamCircuitBreakingSettingsPtrOutput) ToUpstreamCircuitBreakingSettingsPtrOutput() UpstreamCircuitBreakingSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamCircuitBreakingSettingsPtrOutput) ToUpstreamCircuitBreakingSettingsPtrOutputWithContext(ctx context.Context) UpstreamCircuitBreakingSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamCircuitBreakingSettingsPtrOutput) Elem() UpstreamCircuitBreakingSettingsOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) UpstreamCircuitBreakingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamCircuitBreakingSettings
+		return ret
+	}).(UpstreamCircuitBreakingSettingsOutput)
+}
+
+// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+func (o UpstreamCircuitBreakingSettingsPtrOutput) BaseEjectionTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BaseEjectionTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// 连续失败次数。取值限制为1~100。默认值为5。
+func (o UpstreamCircuitBreakingSettingsPtrOutput) ConsecutiveErrors() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConsecutiveErrors
+	}).(pulumi.IntPtrOutput)
+}
+
+// 开启。
+func (o UpstreamCircuitBreakingSettingsPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+func (o UpstreamCircuitBreakingSettingsPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// 最大熔断比例。取值限制为1~100。默认值为20%。
+func (o UpstreamCircuitBreakingSettingsPtrOutput) MaxEjectionPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEjectionPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// 最小健康比例。取值限制为0~100。默认值为60%。
+func (o UpstreamCircuitBreakingSettingsPtrOutput) MinHealthPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamCircuitBreakingSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinHealthPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+type UpstreamLoadBalancerSettings struct {
+	// 一致性哈希负载均衡。
+	ConsistentHashLb *UpstreamLoadBalancerSettingsConsistentHashLb `pulumi:"consistentHashLb"`
+	// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+	LbPolicy *string `pulumi:"lbPolicy"`
+	// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+	SimpleLb *string `pulumi:"simpleLb"`
+	// 预热时间。单位为秒。
+	WarmupDuration *int `pulumi:"warmupDuration"`
+}
+
+// UpstreamLoadBalancerSettingsInput is an input type that accepts UpstreamLoadBalancerSettingsArgs and UpstreamLoadBalancerSettingsOutput values.
+// You can construct a concrete instance of `UpstreamLoadBalancerSettingsInput` via:
+//
+//	UpstreamLoadBalancerSettingsArgs{...}
+type UpstreamLoadBalancerSettingsInput interface {
+	pulumi.Input
+
+	ToUpstreamLoadBalancerSettingsOutput() UpstreamLoadBalancerSettingsOutput
+	ToUpstreamLoadBalancerSettingsOutputWithContext(context.Context) UpstreamLoadBalancerSettingsOutput
+}
+
+type UpstreamLoadBalancerSettingsArgs struct {
+	// 一致性哈希负载均衡。
+	ConsistentHashLb UpstreamLoadBalancerSettingsConsistentHashLbPtrInput `pulumi:"consistentHashLb"`
+	// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+	LbPolicy pulumi.StringPtrInput `pulumi:"lbPolicy"`
+	// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+	SimpleLb pulumi.StringPtrInput `pulumi:"simpleLb"`
+	// 预热时间。单位为秒。
+	WarmupDuration pulumi.IntPtrInput `pulumi:"warmupDuration"`
+}
+
+func (UpstreamLoadBalancerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamLoadBalancerSettings)(nil)).Elem()
+}
+
+func (i UpstreamLoadBalancerSettingsArgs) ToUpstreamLoadBalancerSettingsOutput() UpstreamLoadBalancerSettingsOutput {
+	return i.ToUpstreamLoadBalancerSettingsOutputWithContext(context.Background())
+}
+
+func (i UpstreamLoadBalancerSettingsArgs) ToUpstreamLoadBalancerSettingsOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsOutput)
+}
+
+func (i UpstreamLoadBalancerSettingsArgs) ToUpstreamLoadBalancerSettingsPtrOutput() UpstreamLoadBalancerSettingsPtrOutput {
+	return i.ToUpstreamLoadBalancerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamLoadBalancerSettingsArgs) ToUpstreamLoadBalancerSettingsPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsOutput).ToUpstreamLoadBalancerSettingsPtrOutputWithContext(ctx)
+}
+
+// UpstreamLoadBalancerSettingsPtrInput is an input type that accepts UpstreamLoadBalancerSettingsArgs, UpstreamLoadBalancerSettingsPtr and UpstreamLoadBalancerSettingsPtrOutput values.
+// You can construct a concrete instance of `UpstreamLoadBalancerSettingsPtrInput` via:
+//
+//	        UpstreamLoadBalancerSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamLoadBalancerSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamLoadBalancerSettingsPtrOutput() UpstreamLoadBalancerSettingsPtrOutput
+	ToUpstreamLoadBalancerSettingsPtrOutputWithContext(context.Context) UpstreamLoadBalancerSettingsPtrOutput
+}
+
+type upstreamLoadBalancerSettingsPtrType UpstreamLoadBalancerSettingsArgs
+
+func UpstreamLoadBalancerSettingsPtr(v *UpstreamLoadBalancerSettingsArgs) UpstreamLoadBalancerSettingsPtrInput {
+	return (*upstreamLoadBalancerSettingsPtrType)(v)
+}
+
+func (*upstreamLoadBalancerSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamLoadBalancerSettings)(nil)).Elem()
+}
+
+func (i *upstreamLoadBalancerSettingsPtrType) ToUpstreamLoadBalancerSettingsPtrOutput() UpstreamLoadBalancerSettingsPtrOutput {
+	return i.ToUpstreamLoadBalancerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamLoadBalancerSettingsPtrType) ToUpstreamLoadBalancerSettingsPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsOutput struct{ *pulumi.OutputState }
+
+func (UpstreamLoadBalancerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamLoadBalancerSettings)(nil)).Elem()
+}
+
+func (o UpstreamLoadBalancerSettingsOutput) ToUpstreamLoadBalancerSettingsOutput() UpstreamLoadBalancerSettingsOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsOutput) ToUpstreamLoadBalancerSettingsOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsOutput) ToUpstreamLoadBalancerSettingsPtrOutput() UpstreamLoadBalancerSettingsPtrOutput {
+	return o.ToUpstreamLoadBalancerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamLoadBalancerSettingsOutput) ToUpstreamLoadBalancerSettingsPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamLoadBalancerSettings) *UpstreamLoadBalancerSettings {
+		return &v
+	}).(UpstreamLoadBalancerSettingsPtrOutput)
+}
+
+// 一致性哈希负载均衡。
+func (o UpstreamLoadBalancerSettingsOutput) ConsistentHashLb() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettings) *UpstreamLoadBalancerSettingsConsistentHashLb {
+		return v.ConsistentHashLb
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput)
+}
+
+// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+func (o UpstreamLoadBalancerSettingsOutput) LbPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettings) *string { return v.LbPolicy }).(pulumi.StringPtrOutput)
+}
+
+// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+func (o UpstreamLoadBalancerSettingsOutput) SimpleLb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettings) *string { return v.SimpleLb }).(pulumi.StringPtrOutput)
+}
+
+// 预热时间。单位为秒。
+func (o UpstreamLoadBalancerSettingsOutput) WarmupDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettings) *int { return v.WarmupDuration }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamLoadBalancerSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamLoadBalancerSettings)(nil)).Elem()
+}
+
+func (o UpstreamLoadBalancerSettingsPtrOutput) ToUpstreamLoadBalancerSettingsPtrOutput() UpstreamLoadBalancerSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsPtrOutput) ToUpstreamLoadBalancerSettingsPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsPtrOutput) Elem() UpstreamLoadBalancerSettingsOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettings) UpstreamLoadBalancerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamLoadBalancerSettings
+		return ret
+	}).(UpstreamLoadBalancerSettingsOutput)
+}
+
+// 一致性哈希负载均衡。
+func (o UpstreamLoadBalancerSettingsPtrOutput) ConsistentHashLb() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettings) *UpstreamLoadBalancerSettingsConsistentHashLb {
+		if v == nil {
+			return nil
+		}
+		return v.ConsistentHashLb
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput)
+}
+
+// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+func (o UpstreamLoadBalancerSettingsPtrOutput) LbPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LbPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+func (o UpstreamLoadBalancerSettingsPtrOutput) SimpleLb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SimpleLb
+	}).(pulumi.StringPtrOutput)
+}
+
+// 预热时间。单位为秒。
+func (o UpstreamLoadBalancerSettingsPtrOutput) WarmupDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarmupDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLb struct {
+	// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+	HashKey *string `pulumi:"hashKey"`
+	// Cookie。
+	HttpCookie *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie `pulumi:"httpCookie"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpHeaderName *string `pulumi:"httpHeaderName"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpQueryParameterName *string `pulumi:"httpQueryParameterName"`
+	// 源IP地址。
+	UseSourceIp *string `pulumi:"useSourceIp"`
+}
+
+// UpstreamLoadBalancerSettingsConsistentHashLbInput is an input type that accepts UpstreamLoadBalancerSettingsConsistentHashLbArgs and UpstreamLoadBalancerSettingsConsistentHashLbOutput values.
+// You can construct a concrete instance of `UpstreamLoadBalancerSettingsConsistentHashLbInput` via:
+//
+//	UpstreamLoadBalancerSettingsConsistentHashLbArgs{...}
+type UpstreamLoadBalancerSettingsConsistentHashLbInput interface {
+	pulumi.Input
+
+	ToUpstreamLoadBalancerSettingsConsistentHashLbOutput() UpstreamLoadBalancerSettingsConsistentHashLbOutput
+	ToUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(context.Context) UpstreamLoadBalancerSettingsConsistentHashLbOutput
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbArgs struct {
+	// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+	HashKey pulumi.StringPtrInput `pulumi:"hashKey"`
+	// Cookie。
+	HttpCookie UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrInput `pulumi:"httpCookie"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpHeaderName pulumi.StringPtrInput `pulumi:"httpHeaderName"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpQueryParameterName pulumi.StringPtrInput `pulumi:"httpQueryParameterName"`
+	// 源IP地址。
+	UseSourceIp pulumi.StringPtrInput `pulumi:"useSourceIp"`
+}
+
+func (UpstreamLoadBalancerSettingsConsistentHashLbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLb)(nil)).Elem()
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbOutput() UpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return i.ToUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(context.Background())
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsConsistentHashLbOutput)
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return i.ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsConsistentHashLbOutput).ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(ctx)
+}
+
+// UpstreamLoadBalancerSettingsConsistentHashLbPtrInput is an input type that accepts UpstreamLoadBalancerSettingsConsistentHashLbArgs, UpstreamLoadBalancerSettingsConsistentHashLbPtr and UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput values.
+// You can construct a concrete instance of `UpstreamLoadBalancerSettingsConsistentHashLbPtrInput` via:
+//
+//	        UpstreamLoadBalancerSettingsConsistentHashLbArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamLoadBalancerSettingsConsistentHashLbPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput
+	ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(context.Context) UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput
+}
+
+type upstreamLoadBalancerSettingsConsistentHashLbPtrType UpstreamLoadBalancerSettingsConsistentHashLbArgs
+
+func UpstreamLoadBalancerSettingsConsistentHashLbPtr(v *UpstreamLoadBalancerSettingsConsistentHashLbArgs) UpstreamLoadBalancerSettingsConsistentHashLbPtrInput {
+	return (*upstreamLoadBalancerSettingsConsistentHashLbPtrType)(v)
+}
+
+func (*upstreamLoadBalancerSettingsConsistentHashLbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamLoadBalancerSettingsConsistentHashLb)(nil)).Elem()
+}
+
+func (i *upstreamLoadBalancerSettingsConsistentHashLbPtrType) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return i.ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamLoadBalancerSettingsConsistentHashLbPtrType) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbOutput struct{ *pulumi.OutputState }
+
+func (UpstreamLoadBalancerSettingsConsistentHashLbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLb)(nil)).Elem()
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbOutput() UpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return o.ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamLoadBalancerSettingsConsistentHashLb) *UpstreamLoadBalancerSettingsConsistentHashLb {
+		return &v
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput)
+}
+
+// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) HashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLb) *string { return v.HashKey }).(pulumi.StringPtrOutput)
+}
+
+// Cookie。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) HttpCookie() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLb) *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+		return v.HttpCookie
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput)
+}
+
+// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) HttpHeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLb) *string { return v.HttpHeaderName }).(pulumi.StringPtrOutput)
+}
+
+// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) HttpQueryParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLb) *string { return v.HttpQueryParameterName }).(pulumi.StringPtrOutput)
+}
+
+// 源IP地址。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbOutput) UseSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLb) *string { return v.UseSourceIp }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamLoadBalancerSettingsConsistentHashLb)(nil)).Elem()
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbPtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) Elem() UpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLb) UpstreamLoadBalancerSettingsConsistentHashLb {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamLoadBalancerSettingsConsistentHashLb
+		return ret
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbOutput)
+}
+
+// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) HashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HashKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cookie。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) HttpCookie() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLb) *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+		if v == nil {
+			return nil
+		}
+		return v.HttpCookie
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput)
+}
+
+// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) HttpHeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpHeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) HttpQueryParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpQueryParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// 源IP地址。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput) UseSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UseSourceIp
+	}).(pulumi.StringPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie struct {
+	// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+	Name *string `pulumi:"name"`
+	// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+	Path *string `pulumi:"path"`
+	// 有效期。单位为秒。
+	Ttl *int `pulumi:"ttl"`
+}
+
+// UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput is an input type that accepts UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs and UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput values.
+// You can construct a concrete instance of `UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput` via:
+//
+//	UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs{...}
+type UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput interface {
+	pulumi.Input
+
+	ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput
+	ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs struct {
+	// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// 有效期。单位为秒。
+	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+}
+
+func (UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie)(nil)).Elem()
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return i.ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(context.Background())
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput)
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return i.ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput).ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(ctx)
+}
+
+// UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrInput is an input type that accepts UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs, UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtr and UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput values.
+// You can construct a concrete instance of `UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrInput` via:
+//
+//	        UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrInput interface {
+	pulumi.Input
+
+	ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput
+	ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput
+}
+
+type upstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrType UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs
+
+func UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtr(v *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrInput {
+	return (*upstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrType)(v)
+}
+
+func (*upstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie)(nil)).Elem()
+}
+
+func (i *upstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrType) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return i.ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrType) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput struct{ *pulumi.OutputState }
+
+func (UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie)(nil)).Elem()
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return o.ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+		return &v
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput)
+}
+
+// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// 有效期。单位为秒。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie)(nil)).Elem()
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) ToUpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutputWithContext(ctx context.Context) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput {
+	return o
+}
+
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) Elem() UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie
+		return ret
+	}).(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput)
+}
+
+// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// 有效期。单位为秒。
+func (o UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Ttl
+	}).(pulumi.IntPtrOutput)
+}
+
 type UpstreamSourceIngressSettings struct {
 	// 是否启用所有Ingress类。
 	EnableAllIngressClasses *bool `pulumi:"enableAllIngressClasses"`
@@ -1534,6 +2467,1600 @@ func (o UpstreamSourceSourceSpecNacosSourceAuthConfigBasicPtrOutput) Username() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type UpstreamTlsSettings struct {
+	// SNI。留空时会将访问网关的域名透传到upstream。
+	Sni *string `pulumi:"sni"`
+	// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+	TlsMode *string `pulumi:"tlsMode"`
+}
+
+// UpstreamTlsSettingsInput is an input type that accepts UpstreamTlsSettingsArgs and UpstreamTlsSettingsOutput values.
+// You can construct a concrete instance of `UpstreamTlsSettingsInput` via:
+//
+//	UpstreamTlsSettingsArgs{...}
+type UpstreamTlsSettingsInput interface {
+	pulumi.Input
+
+	ToUpstreamTlsSettingsOutput() UpstreamTlsSettingsOutput
+	ToUpstreamTlsSettingsOutputWithContext(context.Context) UpstreamTlsSettingsOutput
+}
+
+type UpstreamTlsSettingsArgs struct {
+	// SNI。留空时会将访问网关的域名透传到upstream。
+	Sni pulumi.StringPtrInput `pulumi:"sni"`
+	// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+	TlsMode pulumi.StringPtrInput `pulumi:"tlsMode"`
+}
+
+func (UpstreamTlsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamTlsSettings)(nil)).Elem()
+}
+
+func (i UpstreamTlsSettingsArgs) ToUpstreamTlsSettingsOutput() UpstreamTlsSettingsOutput {
+	return i.ToUpstreamTlsSettingsOutputWithContext(context.Background())
+}
+
+func (i UpstreamTlsSettingsArgs) ToUpstreamTlsSettingsOutputWithContext(ctx context.Context) UpstreamTlsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamTlsSettingsOutput)
+}
+
+func (i UpstreamTlsSettingsArgs) ToUpstreamTlsSettingsPtrOutput() UpstreamTlsSettingsPtrOutput {
+	return i.ToUpstreamTlsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamTlsSettingsArgs) ToUpstreamTlsSettingsPtrOutputWithContext(ctx context.Context) UpstreamTlsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamTlsSettingsOutput).ToUpstreamTlsSettingsPtrOutputWithContext(ctx)
+}
+
+// UpstreamTlsSettingsPtrInput is an input type that accepts UpstreamTlsSettingsArgs, UpstreamTlsSettingsPtr and UpstreamTlsSettingsPtrOutput values.
+// You can construct a concrete instance of `UpstreamTlsSettingsPtrInput` via:
+//
+//	        UpstreamTlsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamTlsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamTlsSettingsPtrOutput() UpstreamTlsSettingsPtrOutput
+	ToUpstreamTlsSettingsPtrOutputWithContext(context.Context) UpstreamTlsSettingsPtrOutput
+}
+
+type upstreamTlsSettingsPtrType UpstreamTlsSettingsArgs
+
+func UpstreamTlsSettingsPtr(v *UpstreamTlsSettingsArgs) UpstreamTlsSettingsPtrInput {
+	return (*upstreamTlsSettingsPtrType)(v)
+}
+
+func (*upstreamTlsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamTlsSettings)(nil)).Elem()
+}
+
+func (i *upstreamTlsSettingsPtrType) ToUpstreamTlsSettingsPtrOutput() UpstreamTlsSettingsPtrOutput {
+	return i.ToUpstreamTlsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamTlsSettingsPtrType) ToUpstreamTlsSettingsPtrOutputWithContext(ctx context.Context) UpstreamTlsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamTlsSettingsPtrOutput)
+}
+
+type UpstreamTlsSettingsOutput struct{ *pulumi.OutputState }
+
+func (UpstreamTlsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamTlsSettings)(nil)).Elem()
+}
+
+func (o UpstreamTlsSettingsOutput) ToUpstreamTlsSettingsOutput() UpstreamTlsSettingsOutput {
+	return o
+}
+
+func (o UpstreamTlsSettingsOutput) ToUpstreamTlsSettingsOutputWithContext(ctx context.Context) UpstreamTlsSettingsOutput {
+	return o
+}
+
+func (o UpstreamTlsSettingsOutput) ToUpstreamTlsSettingsPtrOutput() UpstreamTlsSettingsPtrOutput {
+	return o.ToUpstreamTlsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamTlsSettingsOutput) ToUpstreamTlsSettingsPtrOutputWithContext(ctx context.Context) UpstreamTlsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamTlsSettings) *UpstreamTlsSettings {
+		return &v
+	}).(UpstreamTlsSettingsPtrOutput)
+}
+
+// SNI。留空时会将访问网关的域名透传到upstream。
+func (o UpstreamTlsSettingsOutput) Sni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamTlsSettings) *string { return v.Sni }).(pulumi.StringPtrOutput)
+}
+
+// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+func (o UpstreamTlsSettingsOutput) TlsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamTlsSettings) *string { return v.TlsMode }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamTlsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamTlsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamTlsSettings)(nil)).Elem()
+}
+
+func (o UpstreamTlsSettingsPtrOutput) ToUpstreamTlsSettingsPtrOutput() UpstreamTlsSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamTlsSettingsPtrOutput) ToUpstreamTlsSettingsPtrOutputWithContext(ctx context.Context) UpstreamTlsSettingsPtrOutput {
+	return o
+}
+
+func (o UpstreamTlsSettingsPtrOutput) Elem() UpstreamTlsSettingsOutput {
+	return o.ApplyT(func(v *UpstreamTlsSettings) UpstreamTlsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamTlsSettings
+		return ret
+	}).(UpstreamTlsSettingsOutput)
+}
+
+// SNI。留空时会将访问网关的域名透传到upstream。
+func (o UpstreamTlsSettingsPtrOutput) Sni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamTlsSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sni
+	}).(pulumi.StringPtrOutput)
+}
+
+// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+func (o UpstreamTlsSettingsPtrOutput) TlsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamTlsSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type UpstreamUpstreamSpec struct {
+	// AI模型代理。
+	AiProvider   *UpstreamUpstreamSpecAiProvider   `pulumi:"aiProvider"`
+	EcsInstances []UpstreamUpstreamSpecEcsInstance `pulumi:"ecsInstances"`
+	// 容器服务。
+	K8SService *UpstreamUpstreamSpecK8SService `pulumi:"k8SService"`
+	// 注册中心。
+	NacosService *UpstreamUpstreamSpecNacosService `pulumi:"nacosService"`
+	// 函数服务。
+	VeFaas *UpstreamUpstreamSpecVeFaas `pulumi:"veFaas"`
+}
+
+// UpstreamUpstreamSpecInput is an input type that accepts UpstreamUpstreamSpecArgs and UpstreamUpstreamSpecOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecInput` via:
+//
+//	UpstreamUpstreamSpecArgs{...}
+type UpstreamUpstreamSpecInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecOutput() UpstreamUpstreamSpecOutput
+	ToUpstreamUpstreamSpecOutputWithContext(context.Context) UpstreamUpstreamSpecOutput
+}
+
+type UpstreamUpstreamSpecArgs struct {
+	// AI模型代理。
+	AiProvider   UpstreamUpstreamSpecAiProviderPtrInput    `pulumi:"aiProvider"`
+	EcsInstances UpstreamUpstreamSpecEcsInstanceArrayInput `pulumi:"ecsInstances"`
+	// 容器服务。
+	K8SService UpstreamUpstreamSpecK8SServicePtrInput `pulumi:"k8SService"`
+	// 注册中心。
+	NacosService UpstreamUpstreamSpecNacosServicePtrInput `pulumi:"nacosService"`
+	// 函数服务。
+	VeFaas UpstreamUpstreamSpecVeFaasPtrInput `pulumi:"veFaas"`
+}
+
+func (UpstreamUpstreamSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpec)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecArgs) ToUpstreamUpstreamSpecOutput() UpstreamUpstreamSpecOutput {
+	return i.ToUpstreamUpstreamSpecOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecArgs) ToUpstreamUpstreamSpecOutputWithContext(ctx context.Context) UpstreamUpstreamSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecOutput)
+}
+
+func (i UpstreamUpstreamSpecArgs) ToUpstreamUpstreamSpecPtrOutput() UpstreamUpstreamSpecPtrOutput {
+	return i.ToUpstreamUpstreamSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecArgs) ToUpstreamUpstreamSpecPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecOutput).ToUpstreamUpstreamSpecPtrOutputWithContext(ctx)
+}
+
+// UpstreamUpstreamSpecPtrInput is an input type that accepts UpstreamUpstreamSpecArgs, UpstreamUpstreamSpecPtr and UpstreamUpstreamSpecPtrOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecPtrInput` via:
+//
+//	        UpstreamUpstreamSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamUpstreamSpecPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecPtrOutput() UpstreamUpstreamSpecPtrOutput
+	ToUpstreamUpstreamSpecPtrOutputWithContext(context.Context) UpstreamUpstreamSpecPtrOutput
+}
+
+type upstreamUpstreamSpecPtrType UpstreamUpstreamSpecArgs
+
+func UpstreamUpstreamSpecPtr(v *UpstreamUpstreamSpecArgs) UpstreamUpstreamSpecPtrInput {
+	return (*upstreamUpstreamSpecPtrType)(v)
+}
+
+func (*upstreamUpstreamSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpec)(nil)).Elem()
+}
+
+func (i *upstreamUpstreamSpecPtrType) ToUpstreamUpstreamSpecPtrOutput() UpstreamUpstreamSpecPtrOutput {
+	return i.ToUpstreamUpstreamSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamUpstreamSpecPtrType) ToUpstreamUpstreamSpecPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecPtrOutput)
+}
+
+type UpstreamUpstreamSpecOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpec)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecOutput) ToUpstreamUpstreamSpecOutput() UpstreamUpstreamSpecOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecOutput) ToUpstreamUpstreamSpecOutputWithContext(ctx context.Context) UpstreamUpstreamSpecOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecOutput) ToUpstreamUpstreamSpecPtrOutput() UpstreamUpstreamSpecPtrOutput {
+	return o.ToUpstreamUpstreamSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamUpstreamSpecOutput) ToUpstreamUpstreamSpecPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamUpstreamSpec) *UpstreamUpstreamSpec {
+		return &v
+	}).(UpstreamUpstreamSpecPtrOutput)
+}
+
+// AI模型代理。
+func (o UpstreamUpstreamSpecOutput) AiProvider() UpstreamUpstreamSpecAiProviderPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpec) *UpstreamUpstreamSpecAiProvider { return v.AiProvider }).(UpstreamUpstreamSpecAiProviderPtrOutput)
+}
+
+func (o UpstreamUpstreamSpecOutput) EcsInstances() UpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpec) []UpstreamUpstreamSpecEcsInstance { return v.EcsInstances }).(UpstreamUpstreamSpecEcsInstanceArrayOutput)
+}
+
+// 容器服务。
+func (o UpstreamUpstreamSpecOutput) K8SService() UpstreamUpstreamSpecK8SServicePtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpec) *UpstreamUpstreamSpecK8SService { return v.K8SService }).(UpstreamUpstreamSpecK8SServicePtrOutput)
+}
+
+// 注册中心。
+func (o UpstreamUpstreamSpecOutput) NacosService() UpstreamUpstreamSpecNacosServicePtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpec) *UpstreamUpstreamSpecNacosService { return v.NacosService }).(UpstreamUpstreamSpecNacosServicePtrOutput)
+}
+
+// 函数服务。
+func (o UpstreamUpstreamSpecOutput) VeFaas() UpstreamUpstreamSpecVeFaasPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpec) *UpstreamUpstreamSpecVeFaas { return v.VeFaas }).(UpstreamUpstreamSpecVeFaasPtrOutput)
+}
+
+type UpstreamUpstreamSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpec)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecPtrOutput) ToUpstreamUpstreamSpecPtrOutput() UpstreamUpstreamSpecPtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecPtrOutput) ToUpstreamUpstreamSpecPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecPtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecPtrOutput) Elem() UpstreamUpstreamSpecOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpec) UpstreamUpstreamSpec {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamUpstreamSpec
+		return ret
+	}).(UpstreamUpstreamSpecOutput)
+}
+
+// AI模型代理。
+func (o UpstreamUpstreamSpecPtrOutput) AiProvider() UpstreamUpstreamSpecAiProviderPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpec) *UpstreamUpstreamSpecAiProvider {
+		if v == nil {
+			return nil
+		}
+		return v.AiProvider
+	}).(UpstreamUpstreamSpecAiProviderPtrOutput)
+}
+
+func (o UpstreamUpstreamSpecPtrOutput) EcsInstances() UpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpec) []UpstreamUpstreamSpecEcsInstance {
+		if v == nil {
+			return nil
+		}
+		return v.EcsInstances
+	}).(UpstreamUpstreamSpecEcsInstanceArrayOutput)
+}
+
+// 容器服务。
+func (o UpstreamUpstreamSpecPtrOutput) K8SService() UpstreamUpstreamSpecK8SServicePtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpec) *UpstreamUpstreamSpecK8SService {
+		if v == nil {
+			return nil
+		}
+		return v.K8SService
+	}).(UpstreamUpstreamSpecK8SServicePtrOutput)
+}
+
+// 注册中心。
+func (o UpstreamUpstreamSpecPtrOutput) NacosService() UpstreamUpstreamSpecNacosServicePtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpec) *UpstreamUpstreamSpecNacosService {
+		if v == nil {
+			return nil
+		}
+		return v.NacosService
+	}).(UpstreamUpstreamSpecNacosServicePtrOutput)
+}
+
+// 函数服务。
+func (o UpstreamUpstreamSpecPtrOutput) VeFaas() UpstreamUpstreamSpecVeFaasPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpec) *UpstreamUpstreamSpecVeFaas {
+		if v == nil {
+			return nil
+		}
+		return v.VeFaas
+	}).(UpstreamUpstreamSpecVeFaasPtrOutput)
+}
+
+type UpstreamUpstreamSpecAiProvider struct {
+	// 模型地址。
+	BaseUrl *string `pulumi:"baseUrl"`
+	// 火山自部署模型服务。
+	CustomModelService *UpstreamUpstreamSpecAiProviderCustomModelService `pulumi:"customModelService"`
+	// 模型服务商名称。
+	Name *string `pulumi:"name"`
+	// 模型API key。
+	Token *string `pulumi:"token"`
+}
+
+// UpstreamUpstreamSpecAiProviderInput is an input type that accepts UpstreamUpstreamSpecAiProviderArgs and UpstreamUpstreamSpecAiProviderOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecAiProviderInput` via:
+//
+//	UpstreamUpstreamSpecAiProviderArgs{...}
+type UpstreamUpstreamSpecAiProviderInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecAiProviderOutput() UpstreamUpstreamSpecAiProviderOutput
+	ToUpstreamUpstreamSpecAiProviderOutputWithContext(context.Context) UpstreamUpstreamSpecAiProviderOutput
+}
+
+type UpstreamUpstreamSpecAiProviderArgs struct {
+	// 模型地址。
+	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
+	// 火山自部署模型服务。
+	CustomModelService UpstreamUpstreamSpecAiProviderCustomModelServicePtrInput `pulumi:"customModelService"`
+	// 模型服务商名称。
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// 模型API key。
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (UpstreamUpstreamSpecAiProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecAiProvider)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecAiProviderArgs) ToUpstreamUpstreamSpecAiProviderOutput() UpstreamUpstreamSpecAiProviderOutput {
+	return i.ToUpstreamUpstreamSpecAiProviderOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecAiProviderArgs) ToUpstreamUpstreamSpecAiProviderOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecAiProviderOutput)
+}
+
+func (i UpstreamUpstreamSpecAiProviderArgs) ToUpstreamUpstreamSpecAiProviderPtrOutput() UpstreamUpstreamSpecAiProviderPtrOutput {
+	return i.ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecAiProviderArgs) ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecAiProviderOutput).ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(ctx)
+}
+
+// UpstreamUpstreamSpecAiProviderPtrInput is an input type that accepts UpstreamUpstreamSpecAiProviderArgs, UpstreamUpstreamSpecAiProviderPtr and UpstreamUpstreamSpecAiProviderPtrOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecAiProviderPtrInput` via:
+//
+//	        UpstreamUpstreamSpecAiProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamUpstreamSpecAiProviderPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecAiProviderPtrOutput() UpstreamUpstreamSpecAiProviderPtrOutput
+	ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(context.Context) UpstreamUpstreamSpecAiProviderPtrOutput
+}
+
+type upstreamUpstreamSpecAiProviderPtrType UpstreamUpstreamSpecAiProviderArgs
+
+func UpstreamUpstreamSpecAiProviderPtr(v *UpstreamUpstreamSpecAiProviderArgs) UpstreamUpstreamSpecAiProviderPtrInput {
+	return (*upstreamUpstreamSpecAiProviderPtrType)(v)
+}
+
+func (*upstreamUpstreamSpecAiProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecAiProvider)(nil)).Elem()
+}
+
+func (i *upstreamUpstreamSpecAiProviderPtrType) ToUpstreamUpstreamSpecAiProviderPtrOutput() UpstreamUpstreamSpecAiProviderPtrOutput {
+	return i.ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamUpstreamSpecAiProviderPtrType) ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecAiProviderPtrOutput)
+}
+
+type UpstreamUpstreamSpecAiProviderOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecAiProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecAiProvider)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecAiProviderOutput) ToUpstreamUpstreamSpecAiProviderOutput() UpstreamUpstreamSpecAiProviderOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderOutput) ToUpstreamUpstreamSpecAiProviderOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderOutput) ToUpstreamUpstreamSpecAiProviderPtrOutput() UpstreamUpstreamSpecAiProviderPtrOutput {
+	return o.ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamUpstreamSpecAiProviderOutput) ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamUpstreamSpecAiProvider) *UpstreamUpstreamSpecAiProvider {
+		return &v
+	}).(UpstreamUpstreamSpecAiProviderPtrOutput)
+}
+
+// 模型地址。
+func (o UpstreamUpstreamSpecAiProviderOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProvider) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// 火山自部署模型服务。
+func (o UpstreamUpstreamSpecAiProviderOutput) CustomModelService() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProvider) *UpstreamUpstreamSpecAiProviderCustomModelService {
+		return v.CustomModelService
+	}).(UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput)
+}
+
+// 模型服务商名称。
+func (o UpstreamUpstreamSpecAiProviderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProvider) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// 模型API key。
+func (o UpstreamUpstreamSpecAiProviderOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProvider) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamUpstreamSpecAiProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecAiProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecAiProvider)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) ToUpstreamUpstreamSpecAiProviderPtrOutput() UpstreamUpstreamSpecAiProviderPtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) ToUpstreamUpstreamSpecAiProviderPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderPtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) Elem() UpstreamUpstreamSpecAiProviderOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProvider) UpstreamUpstreamSpecAiProvider {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamUpstreamSpecAiProvider
+		return ret
+	}).(UpstreamUpstreamSpecAiProviderOutput)
+}
+
+// 模型地址。
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// 火山自部署模型服务。
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) CustomModelService() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProvider) *UpstreamUpstreamSpecAiProviderCustomModelService {
+		if v == nil {
+			return nil
+		}
+		return v.CustomModelService
+	}).(UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput)
+}
+
+// 模型服务商名称。
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// 模型API key。
+func (o UpstreamUpstreamSpecAiProviderPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type UpstreamUpstreamSpecAiProviderCustomModelService struct {
+	// 模型服务名称。
+	Name *string `pulumi:"name"`
+	// 命名空间。
+	Namespace *string `pulumi:"namespace"`
+	// 端口。
+	Port *int `pulumi:"port"`
+}
+
+// UpstreamUpstreamSpecAiProviderCustomModelServiceInput is an input type that accepts UpstreamUpstreamSpecAiProviderCustomModelServiceArgs and UpstreamUpstreamSpecAiProviderCustomModelServiceOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecAiProviderCustomModelServiceInput` via:
+//
+//	UpstreamUpstreamSpecAiProviderCustomModelServiceArgs{...}
+type UpstreamUpstreamSpecAiProviderCustomModelServiceInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutput() UpstreamUpstreamSpecAiProviderCustomModelServiceOutput
+	ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(context.Context) UpstreamUpstreamSpecAiProviderCustomModelServiceOutput
+}
+
+type UpstreamUpstreamSpecAiProviderCustomModelServiceArgs struct {
+	// 模型服务名称。
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// 命名空间。
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// 端口。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (UpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecAiProviderCustomModelService)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutput() UpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return i.ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecAiProviderCustomModelServiceOutput)
+}
+
+func (i UpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return i.ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecAiProviderCustomModelServiceOutput).ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(ctx)
+}
+
+// UpstreamUpstreamSpecAiProviderCustomModelServicePtrInput is an input type that accepts UpstreamUpstreamSpecAiProviderCustomModelServiceArgs, UpstreamUpstreamSpecAiProviderCustomModelServicePtr and UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecAiProviderCustomModelServicePtrInput` via:
+//
+//	        UpstreamUpstreamSpecAiProviderCustomModelServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamUpstreamSpecAiProviderCustomModelServicePtrInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput
+	ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(context.Context) UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput
+}
+
+type upstreamUpstreamSpecAiProviderCustomModelServicePtrType UpstreamUpstreamSpecAiProviderCustomModelServiceArgs
+
+func UpstreamUpstreamSpecAiProviderCustomModelServicePtr(v *UpstreamUpstreamSpecAiProviderCustomModelServiceArgs) UpstreamUpstreamSpecAiProviderCustomModelServicePtrInput {
+	return (*upstreamUpstreamSpecAiProviderCustomModelServicePtrType)(v)
+}
+
+func (*upstreamUpstreamSpecAiProviderCustomModelServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecAiProviderCustomModelService)(nil)).Elem()
+}
+
+func (i *upstreamUpstreamSpecAiProviderCustomModelServicePtrType) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return i.ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamUpstreamSpecAiProviderCustomModelServicePtrType) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput)
+}
+
+type UpstreamUpstreamSpecAiProviderCustomModelServiceOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecAiProviderCustomModelService)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutput() UpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ToUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return o.ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamUpstreamSpecAiProviderCustomModelService) *UpstreamUpstreamSpecAiProviderCustomModelService {
+		return &v
+	}).(UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput)
+}
+
+// 模型服务名称。
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProviderCustomModelService) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// 命名空间。
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProviderCustomModelService) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// 端口。
+func (o UpstreamUpstreamSpecAiProviderCustomModelServiceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecAiProviderCustomModelService) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecAiProviderCustomModelService)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput() UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) ToUpstreamUpstreamSpecAiProviderCustomModelServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) Elem() UpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProviderCustomModelService) UpstreamUpstreamSpecAiProviderCustomModelService {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamUpstreamSpecAiProviderCustomModelService
+		return ret
+	}).(UpstreamUpstreamSpecAiProviderCustomModelServiceOutput)
+}
+
+// 模型服务名称。
+func (o UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProviderCustomModelService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// 命名空间。
+func (o UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProviderCustomModelService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// 端口。
+func (o UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecAiProviderCustomModelService) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type UpstreamUpstreamSpecEcsInstance struct {
+	// 云服务器ID。
+	EcsId *string `pulumi:"ecsId"`
+	// IP地址。
+	Ip *string `pulumi:"ip"`
+	// 端口。
+	Port *int `pulumi:"port"`
+}
+
+// UpstreamUpstreamSpecEcsInstanceInput is an input type that accepts UpstreamUpstreamSpecEcsInstanceArgs and UpstreamUpstreamSpecEcsInstanceOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecEcsInstanceInput` via:
+//
+//	UpstreamUpstreamSpecEcsInstanceArgs{...}
+type UpstreamUpstreamSpecEcsInstanceInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecEcsInstanceOutput() UpstreamUpstreamSpecEcsInstanceOutput
+	ToUpstreamUpstreamSpecEcsInstanceOutputWithContext(context.Context) UpstreamUpstreamSpecEcsInstanceOutput
+}
+
+type UpstreamUpstreamSpecEcsInstanceArgs struct {
+	// 云服务器ID。
+	EcsId pulumi.StringPtrInput `pulumi:"ecsId"`
+	// IP地址。
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// 端口。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (UpstreamUpstreamSpecEcsInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecEcsInstanceArgs) ToUpstreamUpstreamSpecEcsInstanceOutput() UpstreamUpstreamSpecEcsInstanceOutput {
+	return i.ToUpstreamUpstreamSpecEcsInstanceOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecEcsInstanceArgs) ToUpstreamUpstreamSpecEcsInstanceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecEcsInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecEcsInstanceOutput)
+}
+
+// UpstreamUpstreamSpecEcsInstanceArrayInput is an input type that accepts UpstreamUpstreamSpecEcsInstanceArray and UpstreamUpstreamSpecEcsInstanceArrayOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecEcsInstanceArrayInput` via:
+//
+//	UpstreamUpstreamSpecEcsInstanceArray{ UpstreamUpstreamSpecEcsInstanceArgs{...} }
+type UpstreamUpstreamSpecEcsInstanceArrayInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecEcsInstanceArrayOutput() UpstreamUpstreamSpecEcsInstanceArrayOutput
+	ToUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(context.Context) UpstreamUpstreamSpecEcsInstanceArrayOutput
+}
+
+type UpstreamUpstreamSpecEcsInstanceArray []UpstreamUpstreamSpecEcsInstanceInput
+
+func (UpstreamUpstreamSpecEcsInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecEcsInstanceArray) ToUpstreamUpstreamSpecEcsInstanceArrayOutput() UpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return i.ToUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecEcsInstanceArray) ToUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(ctx context.Context) UpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecEcsInstanceArrayOutput)
+}
+
+type UpstreamUpstreamSpecEcsInstanceOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecEcsInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecEcsInstanceOutput) ToUpstreamUpstreamSpecEcsInstanceOutput() UpstreamUpstreamSpecEcsInstanceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecEcsInstanceOutput) ToUpstreamUpstreamSpecEcsInstanceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecEcsInstanceOutput {
+	return o
+}
+
+// 云服务器ID。
+func (o UpstreamUpstreamSpecEcsInstanceOutput) EcsId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecEcsInstance) *string { return v.EcsId }).(pulumi.StringPtrOutput)
+}
+
+// IP地址。
+func (o UpstreamUpstreamSpecEcsInstanceOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecEcsInstance) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// 端口。
+func (o UpstreamUpstreamSpecEcsInstanceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecEcsInstance) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamUpstreamSpecEcsInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecEcsInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecEcsInstanceArrayOutput) ToUpstreamUpstreamSpecEcsInstanceArrayOutput() UpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecEcsInstanceArrayOutput) ToUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(ctx context.Context) UpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecEcsInstanceArrayOutput) Index(i pulumi.IntInput) UpstreamUpstreamSpecEcsInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UpstreamUpstreamSpecEcsInstance {
+		return vs[0].([]UpstreamUpstreamSpecEcsInstance)[vs[1].(int)]
+	}).(UpstreamUpstreamSpecEcsInstanceOutput)
+}
+
+type UpstreamUpstreamSpecK8SService struct {
+	// 容器服务名称。长度限制为2~63个字符。
+	Name *string `pulumi:"name"`
+	// 命名空间。长度限制为2~63个字符。
+	Namespace *string `pulumi:"namespace"`
+	// 端口。
+	Port *int `pulumi:"port"`
+}
+
+// UpstreamUpstreamSpecK8SServiceInput is an input type that accepts UpstreamUpstreamSpecK8SServiceArgs and UpstreamUpstreamSpecK8SServiceOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecK8SServiceInput` via:
+//
+//	UpstreamUpstreamSpecK8SServiceArgs{...}
+type UpstreamUpstreamSpecK8SServiceInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecK8SServiceOutput() UpstreamUpstreamSpecK8SServiceOutput
+	ToUpstreamUpstreamSpecK8SServiceOutputWithContext(context.Context) UpstreamUpstreamSpecK8SServiceOutput
+}
+
+type UpstreamUpstreamSpecK8SServiceArgs struct {
+	// 容器服务名称。长度限制为2~63个字符。
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// 命名空间。长度限制为2~63个字符。
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// 端口。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (UpstreamUpstreamSpecK8SServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecK8SService)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecK8SServiceArgs) ToUpstreamUpstreamSpecK8SServiceOutput() UpstreamUpstreamSpecK8SServiceOutput {
+	return i.ToUpstreamUpstreamSpecK8SServiceOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecK8SServiceArgs) ToUpstreamUpstreamSpecK8SServiceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecK8SServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecK8SServiceOutput)
+}
+
+func (i UpstreamUpstreamSpecK8SServiceArgs) ToUpstreamUpstreamSpecK8SServicePtrOutput() UpstreamUpstreamSpecK8SServicePtrOutput {
+	return i.ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecK8SServiceArgs) ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecK8SServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecK8SServiceOutput).ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(ctx)
+}
+
+// UpstreamUpstreamSpecK8SServicePtrInput is an input type that accepts UpstreamUpstreamSpecK8SServiceArgs, UpstreamUpstreamSpecK8SServicePtr and UpstreamUpstreamSpecK8SServicePtrOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecK8SServicePtrInput` via:
+//
+//	        UpstreamUpstreamSpecK8SServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamUpstreamSpecK8SServicePtrInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecK8SServicePtrOutput() UpstreamUpstreamSpecK8SServicePtrOutput
+	ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(context.Context) UpstreamUpstreamSpecK8SServicePtrOutput
+}
+
+type upstreamUpstreamSpecK8SServicePtrType UpstreamUpstreamSpecK8SServiceArgs
+
+func UpstreamUpstreamSpecK8SServicePtr(v *UpstreamUpstreamSpecK8SServiceArgs) UpstreamUpstreamSpecK8SServicePtrInput {
+	return (*upstreamUpstreamSpecK8SServicePtrType)(v)
+}
+
+func (*upstreamUpstreamSpecK8SServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecK8SService)(nil)).Elem()
+}
+
+func (i *upstreamUpstreamSpecK8SServicePtrType) ToUpstreamUpstreamSpecK8SServicePtrOutput() UpstreamUpstreamSpecK8SServicePtrOutput {
+	return i.ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamUpstreamSpecK8SServicePtrType) ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecK8SServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecK8SServicePtrOutput)
+}
+
+type UpstreamUpstreamSpecK8SServiceOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecK8SServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecK8SService)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecK8SServiceOutput) ToUpstreamUpstreamSpecK8SServiceOutput() UpstreamUpstreamSpecK8SServiceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecK8SServiceOutput) ToUpstreamUpstreamSpecK8SServiceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecK8SServiceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecK8SServiceOutput) ToUpstreamUpstreamSpecK8SServicePtrOutput() UpstreamUpstreamSpecK8SServicePtrOutput {
+	return o.ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamUpstreamSpecK8SServiceOutput) ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecK8SServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamUpstreamSpecK8SService) *UpstreamUpstreamSpecK8SService {
+		return &v
+	}).(UpstreamUpstreamSpecK8SServicePtrOutput)
+}
+
+// 容器服务名称。长度限制为2~63个字符。
+func (o UpstreamUpstreamSpecK8SServiceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecK8SService) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// 命名空间。长度限制为2~63个字符。
+func (o UpstreamUpstreamSpecK8SServiceOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecK8SService) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// 端口。
+func (o UpstreamUpstreamSpecK8SServiceOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecK8SService) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type UpstreamUpstreamSpecK8SServicePtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecK8SServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecK8SService)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecK8SServicePtrOutput) ToUpstreamUpstreamSpecK8SServicePtrOutput() UpstreamUpstreamSpecK8SServicePtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecK8SServicePtrOutput) ToUpstreamUpstreamSpecK8SServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecK8SServicePtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecK8SServicePtrOutput) Elem() UpstreamUpstreamSpecK8SServiceOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecK8SService) UpstreamUpstreamSpecK8SService {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamUpstreamSpecK8SService
+		return ret
+	}).(UpstreamUpstreamSpecK8SServiceOutput)
+}
+
+// 容器服务名称。长度限制为2~63个字符。
+func (o UpstreamUpstreamSpecK8SServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecK8SService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// 命名空间。长度限制为2~63个字符。
+func (o UpstreamUpstreamSpecK8SServicePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecK8SService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// 端口。
+func (o UpstreamUpstreamSpecK8SServicePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecK8SService) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type UpstreamUpstreamSpecNacosService struct {
+	// 分组。
+	Group *string `pulumi:"group"`
+	// 命名空间。
+	Namespace *string `pulumi:"namespace"`
+	// 命名空间ID。
+	NamespaceId *string `pulumi:"namespaceId"`
+	// 服务。
+	Service *string `pulumi:"service"`
+	// Upstream来源ID。
+	UpstreamSourceId *string `pulumi:"upstreamSourceId"`
+}
+
+// UpstreamUpstreamSpecNacosServiceInput is an input type that accepts UpstreamUpstreamSpecNacosServiceArgs and UpstreamUpstreamSpecNacosServiceOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecNacosServiceInput` via:
+//
+//	UpstreamUpstreamSpecNacosServiceArgs{...}
+type UpstreamUpstreamSpecNacosServiceInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecNacosServiceOutput() UpstreamUpstreamSpecNacosServiceOutput
+	ToUpstreamUpstreamSpecNacosServiceOutputWithContext(context.Context) UpstreamUpstreamSpecNacosServiceOutput
+}
+
+type UpstreamUpstreamSpecNacosServiceArgs struct {
+	// 分组。
+	Group pulumi.StringPtrInput `pulumi:"group"`
+	// 命名空间。
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// 命名空间ID。
+	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
+	// 服务。
+	Service pulumi.StringPtrInput `pulumi:"service"`
+	// Upstream来源ID。
+	UpstreamSourceId pulumi.StringPtrInput `pulumi:"upstreamSourceId"`
+}
+
+func (UpstreamUpstreamSpecNacosServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecNacosService)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecNacosServiceArgs) ToUpstreamUpstreamSpecNacosServiceOutput() UpstreamUpstreamSpecNacosServiceOutput {
+	return i.ToUpstreamUpstreamSpecNacosServiceOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecNacosServiceArgs) ToUpstreamUpstreamSpecNacosServiceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecNacosServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecNacosServiceOutput)
+}
+
+func (i UpstreamUpstreamSpecNacosServiceArgs) ToUpstreamUpstreamSpecNacosServicePtrOutput() UpstreamUpstreamSpecNacosServicePtrOutput {
+	return i.ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecNacosServiceArgs) ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecNacosServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecNacosServiceOutput).ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(ctx)
+}
+
+// UpstreamUpstreamSpecNacosServicePtrInput is an input type that accepts UpstreamUpstreamSpecNacosServiceArgs, UpstreamUpstreamSpecNacosServicePtr and UpstreamUpstreamSpecNacosServicePtrOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecNacosServicePtrInput` via:
+//
+//	        UpstreamUpstreamSpecNacosServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamUpstreamSpecNacosServicePtrInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecNacosServicePtrOutput() UpstreamUpstreamSpecNacosServicePtrOutput
+	ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(context.Context) UpstreamUpstreamSpecNacosServicePtrOutput
+}
+
+type upstreamUpstreamSpecNacosServicePtrType UpstreamUpstreamSpecNacosServiceArgs
+
+func UpstreamUpstreamSpecNacosServicePtr(v *UpstreamUpstreamSpecNacosServiceArgs) UpstreamUpstreamSpecNacosServicePtrInput {
+	return (*upstreamUpstreamSpecNacosServicePtrType)(v)
+}
+
+func (*upstreamUpstreamSpecNacosServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecNacosService)(nil)).Elem()
+}
+
+func (i *upstreamUpstreamSpecNacosServicePtrType) ToUpstreamUpstreamSpecNacosServicePtrOutput() UpstreamUpstreamSpecNacosServicePtrOutput {
+	return i.ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamUpstreamSpecNacosServicePtrType) ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecNacosServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecNacosServicePtrOutput)
+}
+
+type UpstreamUpstreamSpecNacosServiceOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecNacosServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecNacosService)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecNacosServiceOutput) ToUpstreamUpstreamSpecNacosServiceOutput() UpstreamUpstreamSpecNacosServiceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecNacosServiceOutput) ToUpstreamUpstreamSpecNacosServiceOutputWithContext(ctx context.Context) UpstreamUpstreamSpecNacosServiceOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecNacosServiceOutput) ToUpstreamUpstreamSpecNacosServicePtrOutput() UpstreamUpstreamSpecNacosServicePtrOutput {
+	return o.ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamUpstreamSpecNacosServiceOutput) ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecNacosServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamUpstreamSpecNacosService) *UpstreamUpstreamSpecNacosService {
+		return &v
+	}).(UpstreamUpstreamSpecNacosServicePtrOutput)
+}
+
+// 分组。
+func (o UpstreamUpstreamSpecNacosServiceOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecNacosService) *string { return v.Group }).(pulumi.StringPtrOutput)
+}
+
+// 命名空间。
+func (o UpstreamUpstreamSpecNacosServiceOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecNacosService) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// 命名空间ID。
+func (o UpstreamUpstreamSpecNacosServiceOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecNacosService) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
+}
+
+// 服务。
+func (o UpstreamUpstreamSpecNacosServiceOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecNacosService) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// Upstream来源ID。
+func (o UpstreamUpstreamSpecNacosServiceOutput) UpstreamSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecNacosService) *string { return v.UpstreamSourceId }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamUpstreamSpecNacosServicePtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecNacosServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecNacosService)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) ToUpstreamUpstreamSpecNacosServicePtrOutput() UpstreamUpstreamSpecNacosServicePtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) ToUpstreamUpstreamSpecNacosServicePtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecNacosServicePtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) Elem() UpstreamUpstreamSpecNacosServiceOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecNacosService) UpstreamUpstreamSpecNacosService {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamUpstreamSpecNacosService
+		return ret
+	}).(UpstreamUpstreamSpecNacosServiceOutput)
+}
+
+// 分组。
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) Group() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecNacosService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Group
+	}).(pulumi.StringPtrOutput)
+}
+
+// 命名空间。
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecNacosService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// 命名空间ID。
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) NamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecNacosService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// 服务。
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecNacosService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// Upstream来源ID。
+func (o UpstreamUpstreamSpecNacosServicePtrOutput) UpstreamSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecNacosService) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpstreamSourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type UpstreamUpstreamSpecVeFaas struct {
+	// 函数ID。
+	FunctionId *string `pulumi:"functionId"`
+}
+
+// UpstreamUpstreamSpecVeFaasInput is an input type that accepts UpstreamUpstreamSpecVeFaasArgs and UpstreamUpstreamSpecVeFaasOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecVeFaasInput` via:
+//
+//	UpstreamUpstreamSpecVeFaasArgs{...}
+type UpstreamUpstreamSpecVeFaasInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecVeFaasOutput() UpstreamUpstreamSpecVeFaasOutput
+	ToUpstreamUpstreamSpecVeFaasOutputWithContext(context.Context) UpstreamUpstreamSpecVeFaasOutput
+}
+
+type UpstreamUpstreamSpecVeFaasArgs struct {
+	// 函数ID。
+	FunctionId pulumi.StringPtrInput `pulumi:"functionId"`
+}
+
+func (UpstreamUpstreamSpecVeFaasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecVeFaas)(nil)).Elem()
+}
+
+func (i UpstreamUpstreamSpecVeFaasArgs) ToUpstreamUpstreamSpecVeFaasOutput() UpstreamUpstreamSpecVeFaasOutput {
+	return i.ToUpstreamUpstreamSpecVeFaasOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecVeFaasArgs) ToUpstreamUpstreamSpecVeFaasOutputWithContext(ctx context.Context) UpstreamUpstreamSpecVeFaasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecVeFaasOutput)
+}
+
+func (i UpstreamUpstreamSpecVeFaasArgs) ToUpstreamUpstreamSpecVeFaasPtrOutput() UpstreamUpstreamSpecVeFaasPtrOutput {
+	return i.ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(context.Background())
+}
+
+func (i UpstreamUpstreamSpecVeFaasArgs) ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecVeFaasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecVeFaasOutput).ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(ctx)
+}
+
+// UpstreamUpstreamSpecVeFaasPtrInput is an input type that accepts UpstreamUpstreamSpecVeFaasArgs, UpstreamUpstreamSpecVeFaasPtr and UpstreamUpstreamSpecVeFaasPtrOutput values.
+// You can construct a concrete instance of `UpstreamUpstreamSpecVeFaasPtrInput` via:
+//
+//	        UpstreamUpstreamSpecVeFaasArgs{...}
+//
+//	or:
+//
+//	        nil
+type UpstreamUpstreamSpecVeFaasPtrInput interface {
+	pulumi.Input
+
+	ToUpstreamUpstreamSpecVeFaasPtrOutput() UpstreamUpstreamSpecVeFaasPtrOutput
+	ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(context.Context) UpstreamUpstreamSpecVeFaasPtrOutput
+}
+
+type upstreamUpstreamSpecVeFaasPtrType UpstreamUpstreamSpecVeFaasArgs
+
+func UpstreamUpstreamSpecVeFaasPtr(v *UpstreamUpstreamSpecVeFaasArgs) UpstreamUpstreamSpecVeFaasPtrInput {
+	return (*upstreamUpstreamSpecVeFaasPtrType)(v)
+}
+
+func (*upstreamUpstreamSpecVeFaasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecVeFaas)(nil)).Elem()
+}
+
+func (i *upstreamUpstreamSpecVeFaasPtrType) ToUpstreamUpstreamSpecVeFaasPtrOutput() UpstreamUpstreamSpecVeFaasPtrOutput {
+	return i.ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(context.Background())
+}
+
+func (i *upstreamUpstreamSpecVeFaasPtrType) ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecVeFaasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamUpstreamSpecVeFaasPtrOutput)
+}
+
+type UpstreamUpstreamSpecVeFaasOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecVeFaasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamUpstreamSpecVeFaas)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecVeFaasOutput) ToUpstreamUpstreamSpecVeFaasOutput() UpstreamUpstreamSpecVeFaasOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecVeFaasOutput) ToUpstreamUpstreamSpecVeFaasOutputWithContext(ctx context.Context) UpstreamUpstreamSpecVeFaasOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecVeFaasOutput) ToUpstreamUpstreamSpecVeFaasPtrOutput() UpstreamUpstreamSpecVeFaasPtrOutput {
+	return o.ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(context.Background())
+}
+
+func (o UpstreamUpstreamSpecVeFaasOutput) ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecVeFaasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamUpstreamSpecVeFaas) *UpstreamUpstreamSpecVeFaas {
+		return &v
+	}).(UpstreamUpstreamSpecVeFaasPtrOutput)
+}
+
+// 函数ID。
+func (o UpstreamUpstreamSpecVeFaasOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamUpstreamSpecVeFaas) *string { return v.FunctionId }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamUpstreamSpecVeFaasPtrOutput struct{ *pulumi.OutputState }
+
+func (UpstreamUpstreamSpecVeFaasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpstreamUpstreamSpecVeFaas)(nil)).Elem()
+}
+
+func (o UpstreamUpstreamSpecVeFaasPtrOutput) ToUpstreamUpstreamSpecVeFaasPtrOutput() UpstreamUpstreamSpecVeFaasPtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecVeFaasPtrOutput) ToUpstreamUpstreamSpecVeFaasPtrOutputWithContext(ctx context.Context) UpstreamUpstreamSpecVeFaasPtrOutput {
+	return o
+}
+
+func (o UpstreamUpstreamSpecVeFaasPtrOutput) Elem() UpstreamUpstreamSpecVeFaasOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecVeFaas) UpstreamUpstreamSpecVeFaas {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamUpstreamSpecVeFaas
+		return ret
+	}).(UpstreamUpstreamSpecVeFaasOutput)
+}
+
+// 函数ID。
+func (o UpstreamUpstreamSpecVeFaasPtrOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpstreamUpstreamSpecVeFaas) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type UpstreamVersionDetail struct {
+	Labels []UpstreamVersionDetailLabel `pulumi:"labels"`
+	// 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+	Name *string `pulumi:"name"`
+	// 更新时间。
+	UpdateTime *string `pulumi:"updateTime"`
+}
+
+// UpstreamVersionDetailInput is an input type that accepts UpstreamVersionDetailArgs and UpstreamVersionDetailOutput values.
+// You can construct a concrete instance of `UpstreamVersionDetailInput` via:
+//
+//	UpstreamVersionDetailArgs{...}
+type UpstreamVersionDetailInput interface {
+	pulumi.Input
+
+	ToUpstreamVersionDetailOutput() UpstreamVersionDetailOutput
+	ToUpstreamVersionDetailOutputWithContext(context.Context) UpstreamVersionDetailOutput
+}
+
+type UpstreamVersionDetailArgs struct {
+	Labels UpstreamVersionDetailLabelArrayInput `pulumi:"labels"`
+	// 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// 更新时间。
+	UpdateTime pulumi.StringPtrInput `pulumi:"updateTime"`
+}
+
+func (UpstreamVersionDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamVersionDetail)(nil)).Elem()
+}
+
+func (i UpstreamVersionDetailArgs) ToUpstreamVersionDetailOutput() UpstreamVersionDetailOutput {
+	return i.ToUpstreamVersionDetailOutputWithContext(context.Background())
+}
+
+func (i UpstreamVersionDetailArgs) ToUpstreamVersionDetailOutputWithContext(ctx context.Context) UpstreamVersionDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamVersionDetailOutput)
+}
+
+// UpstreamVersionDetailArrayInput is an input type that accepts UpstreamVersionDetailArray and UpstreamVersionDetailArrayOutput values.
+// You can construct a concrete instance of `UpstreamVersionDetailArrayInput` via:
+//
+//	UpstreamVersionDetailArray{ UpstreamVersionDetailArgs{...} }
+type UpstreamVersionDetailArrayInput interface {
+	pulumi.Input
+
+	ToUpstreamVersionDetailArrayOutput() UpstreamVersionDetailArrayOutput
+	ToUpstreamVersionDetailArrayOutputWithContext(context.Context) UpstreamVersionDetailArrayOutput
+}
+
+type UpstreamVersionDetailArray []UpstreamVersionDetailInput
+
+func (UpstreamVersionDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamVersionDetail)(nil)).Elem()
+}
+
+func (i UpstreamVersionDetailArray) ToUpstreamVersionDetailArrayOutput() UpstreamVersionDetailArrayOutput {
+	return i.ToUpstreamVersionDetailArrayOutputWithContext(context.Background())
+}
+
+func (i UpstreamVersionDetailArray) ToUpstreamVersionDetailArrayOutputWithContext(ctx context.Context) UpstreamVersionDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamVersionDetailArrayOutput)
+}
+
+type UpstreamVersionDetailOutput struct{ *pulumi.OutputState }
+
+func (UpstreamVersionDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamVersionDetail)(nil)).Elem()
+}
+
+func (o UpstreamVersionDetailOutput) ToUpstreamVersionDetailOutput() UpstreamVersionDetailOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailOutput) ToUpstreamVersionDetailOutputWithContext(ctx context.Context) UpstreamVersionDetailOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailOutput) Labels() UpstreamVersionDetailLabelArrayOutput {
+	return o.ApplyT(func(v UpstreamVersionDetail) []UpstreamVersionDetailLabel { return v.Labels }).(UpstreamVersionDetailLabelArrayOutput)
+}
+
+// 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+func (o UpstreamVersionDetailOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamVersionDetail) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// 更新时间。
+func (o UpstreamVersionDetailOutput) UpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamVersionDetail) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamVersionDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (UpstreamVersionDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamVersionDetail)(nil)).Elem()
+}
+
+func (o UpstreamVersionDetailArrayOutput) ToUpstreamVersionDetailArrayOutput() UpstreamVersionDetailArrayOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailArrayOutput) ToUpstreamVersionDetailArrayOutputWithContext(ctx context.Context) UpstreamVersionDetailArrayOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailArrayOutput) Index(i pulumi.IntInput) UpstreamVersionDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UpstreamVersionDetail {
+		return vs[0].([]UpstreamVersionDetail)[vs[1].(int)]
+	}).(UpstreamVersionDetailOutput)
+}
+
+type UpstreamVersionDetailLabel struct {
+	// 键。
+	Key *string `pulumi:"key"`
+	// 值。
+	Value *string `pulumi:"value"`
+}
+
+// UpstreamVersionDetailLabelInput is an input type that accepts UpstreamVersionDetailLabelArgs and UpstreamVersionDetailLabelOutput values.
+// You can construct a concrete instance of `UpstreamVersionDetailLabelInput` via:
+//
+//	UpstreamVersionDetailLabelArgs{...}
+type UpstreamVersionDetailLabelInput interface {
+	pulumi.Input
+
+	ToUpstreamVersionDetailLabelOutput() UpstreamVersionDetailLabelOutput
+	ToUpstreamVersionDetailLabelOutputWithContext(context.Context) UpstreamVersionDetailLabelOutput
+}
+
+type UpstreamVersionDetailLabelArgs struct {
+	// 键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UpstreamVersionDetailLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (i UpstreamVersionDetailLabelArgs) ToUpstreamVersionDetailLabelOutput() UpstreamVersionDetailLabelOutput {
+	return i.ToUpstreamVersionDetailLabelOutputWithContext(context.Background())
+}
+
+func (i UpstreamVersionDetailLabelArgs) ToUpstreamVersionDetailLabelOutputWithContext(ctx context.Context) UpstreamVersionDetailLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamVersionDetailLabelOutput)
+}
+
+// UpstreamVersionDetailLabelArrayInput is an input type that accepts UpstreamVersionDetailLabelArray and UpstreamVersionDetailLabelArrayOutput values.
+// You can construct a concrete instance of `UpstreamVersionDetailLabelArrayInput` via:
+//
+//	UpstreamVersionDetailLabelArray{ UpstreamVersionDetailLabelArgs{...} }
+type UpstreamVersionDetailLabelArrayInput interface {
+	pulumi.Input
+
+	ToUpstreamVersionDetailLabelArrayOutput() UpstreamVersionDetailLabelArrayOutput
+	ToUpstreamVersionDetailLabelArrayOutputWithContext(context.Context) UpstreamVersionDetailLabelArrayOutput
+}
+
+type UpstreamVersionDetailLabelArray []UpstreamVersionDetailLabelInput
+
+func (UpstreamVersionDetailLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (i UpstreamVersionDetailLabelArray) ToUpstreamVersionDetailLabelArrayOutput() UpstreamVersionDetailLabelArrayOutput {
+	return i.ToUpstreamVersionDetailLabelArrayOutputWithContext(context.Background())
+}
+
+func (i UpstreamVersionDetailLabelArray) ToUpstreamVersionDetailLabelArrayOutputWithContext(ctx context.Context) UpstreamVersionDetailLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamVersionDetailLabelArrayOutput)
+}
+
+type UpstreamVersionDetailLabelOutput struct{ *pulumi.OutputState }
+
+func (UpstreamVersionDetailLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (o UpstreamVersionDetailLabelOutput) ToUpstreamVersionDetailLabelOutput() UpstreamVersionDetailLabelOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailLabelOutput) ToUpstreamVersionDetailLabelOutputWithContext(ctx context.Context) UpstreamVersionDetailLabelOutput {
+	return o
+}
+
+// 键。
+func (o UpstreamVersionDetailLabelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamVersionDetailLabel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 值。
+func (o UpstreamVersionDetailLabelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamVersionDetailLabel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UpstreamVersionDetailLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (UpstreamVersionDetailLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (o UpstreamVersionDetailLabelArrayOutput) ToUpstreamVersionDetailLabelArrayOutput() UpstreamVersionDetailLabelArrayOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailLabelArrayOutput) ToUpstreamVersionDetailLabelArrayOutputWithContext(ctx context.Context) UpstreamVersionDetailLabelArrayOutput {
+	return o
+}
+
+func (o UpstreamVersionDetailLabelArrayOutput) Index(i pulumi.IntInput) UpstreamVersionDetailLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UpstreamVersionDetailLabel {
+		return vs[0].([]UpstreamVersionDetailLabel)[vs[1].(int)]
+	}).(UpstreamVersionDetailLabelOutput)
+}
+
 type GetGatewayServiceAuthSpec struct {
 	// 是否开启认证。
 	Enable bool `pulumi:"enable"`
@@ -1848,6 +4375,459 @@ func (o GetGatewayServiceDomainSpecOutput) ToGetGatewayServiceDomainSpecOutputWi
 // 开启私网域名公网解析。
 func (o GetGatewayServiceDomainSpecOutput) EnablePublicResolution() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGatewayServiceDomainSpec) bool { return v.EnablePublicResolution }).(pulumi.BoolOutput)
+}
+
+type GetUpstreamBackendTarget struct {
+	// 健康检查状态。
+	HealthStatus string `pulumi:"healthStatus"`
+	// 后端节点IP。
+	Ip string `pulumi:"ip"`
+	// 后端节点端口。
+	Port int `pulumi:"port"`
+}
+
+// GetUpstreamBackendTargetInput is an input type that accepts GetUpstreamBackendTargetArgs and GetUpstreamBackendTargetOutput values.
+// You can construct a concrete instance of `GetUpstreamBackendTargetInput` via:
+//
+//	GetUpstreamBackendTargetArgs{...}
+type GetUpstreamBackendTargetInput interface {
+	pulumi.Input
+
+	ToGetUpstreamBackendTargetOutput() GetUpstreamBackendTargetOutput
+	ToGetUpstreamBackendTargetOutputWithContext(context.Context) GetUpstreamBackendTargetOutput
+}
+
+type GetUpstreamBackendTargetArgs struct {
+	// 健康检查状态。
+	HealthStatus pulumi.StringInput `pulumi:"healthStatus"`
+	// 后端节点IP。
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// 后端节点端口。
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetUpstreamBackendTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamBackendTarget)(nil)).Elem()
+}
+
+func (i GetUpstreamBackendTargetArgs) ToGetUpstreamBackendTargetOutput() GetUpstreamBackendTargetOutput {
+	return i.ToGetUpstreamBackendTargetOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamBackendTargetArgs) ToGetUpstreamBackendTargetOutputWithContext(ctx context.Context) GetUpstreamBackendTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamBackendTargetOutput)
+}
+
+// GetUpstreamBackendTargetArrayInput is an input type that accepts GetUpstreamBackendTargetArray and GetUpstreamBackendTargetArrayOutput values.
+// You can construct a concrete instance of `GetUpstreamBackendTargetArrayInput` via:
+//
+//	GetUpstreamBackendTargetArray{ GetUpstreamBackendTargetArgs{...} }
+type GetUpstreamBackendTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetUpstreamBackendTargetArrayOutput() GetUpstreamBackendTargetArrayOutput
+	ToGetUpstreamBackendTargetArrayOutputWithContext(context.Context) GetUpstreamBackendTargetArrayOutput
+}
+
+type GetUpstreamBackendTargetArray []GetUpstreamBackendTargetInput
+
+func (GetUpstreamBackendTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamBackendTarget)(nil)).Elem()
+}
+
+func (i GetUpstreamBackendTargetArray) ToGetUpstreamBackendTargetArrayOutput() GetUpstreamBackendTargetArrayOutput {
+	return i.ToGetUpstreamBackendTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamBackendTargetArray) ToGetUpstreamBackendTargetArrayOutputWithContext(ctx context.Context) GetUpstreamBackendTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamBackendTargetArrayOutput)
+}
+
+type GetUpstreamBackendTargetOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamBackendTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamBackendTarget)(nil)).Elem()
+}
+
+func (o GetUpstreamBackendTargetOutput) ToGetUpstreamBackendTargetOutput() GetUpstreamBackendTargetOutput {
+	return o
+}
+
+func (o GetUpstreamBackendTargetOutput) ToGetUpstreamBackendTargetOutputWithContext(ctx context.Context) GetUpstreamBackendTargetOutput {
+	return o
+}
+
+// 健康检查状态。
+func (o GetUpstreamBackendTargetOutput) HealthStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamBackendTarget) string { return v.HealthStatus }).(pulumi.StringOutput)
+}
+
+// 后端节点IP。
+func (o GetUpstreamBackendTargetOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamBackendTarget) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// 后端节点端口。
+func (o GetUpstreamBackendTargetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamBackendTarget) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetUpstreamBackendTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamBackendTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamBackendTarget)(nil)).Elem()
+}
+
+func (o GetUpstreamBackendTargetArrayOutput) ToGetUpstreamBackendTargetArrayOutput() GetUpstreamBackendTargetArrayOutput {
+	return o
+}
+
+func (o GetUpstreamBackendTargetArrayOutput) ToGetUpstreamBackendTargetArrayOutputWithContext(ctx context.Context) GetUpstreamBackendTargetArrayOutput {
+	return o
+}
+
+func (o GetUpstreamBackendTargetArrayOutput) Index(i pulumi.IntInput) GetUpstreamBackendTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUpstreamBackendTarget {
+		return vs[0].([]GetUpstreamBackendTarget)[vs[1].(int)]
+	}).(GetUpstreamBackendTargetOutput)
+}
+
+type GetUpstreamCircuitBreakingSettings struct {
+	// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+	BaseEjectionTime int `pulumi:"baseEjectionTime"`
+	// 连续失败次数。取值限制为1~100。默认值为5。
+	ConsecutiveErrors int `pulumi:"consecutiveErrors"`
+	// 开启。
+	Enable bool `pulumi:"enable"`
+	// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+	Interval int `pulumi:"interval"`
+	// 最大熔断比例。取值限制为1~100。默认值为20%。
+	MaxEjectionPercent int `pulumi:"maxEjectionPercent"`
+	// 最小健康比例。取值限制为0~100。默认值为60%。
+	MinHealthPercent int `pulumi:"minHealthPercent"`
+}
+
+// GetUpstreamCircuitBreakingSettingsInput is an input type that accepts GetUpstreamCircuitBreakingSettingsArgs and GetUpstreamCircuitBreakingSettingsOutput values.
+// You can construct a concrete instance of `GetUpstreamCircuitBreakingSettingsInput` via:
+//
+//	GetUpstreamCircuitBreakingSettingsArgs{...}
+type GetUpstreamCircuitBreakingSettingsInput interface {
+	pulumi.Input
+
+	ToGetUpstreamCircuitBreakingSettingsOutput() GetUpstreamCircuitBreakingSettingsOutput
+	ToGetUpstreamCircuitBreakingSettingsOutputWithContext(context.Context) GetUpstreamCircuitBreakingSettingsOutput
+}
+
+type GetUpstreamCircuitBreakingSettingsArgs struct {
+	// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+	BaseEjectionTime pulumi.IntInput `pulumi:"baseEjectionTime"`
+	// 连续失败次数。取值限制为1~100。默认值为5。
+	ConsecutiveErrors pulumi.IntInput `pulumi:"consecutiveErrors"`
+	// 开启。
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// 最大熔断比例。取值限制为1~100。默认值为20%。
+	MaxEjectionPercent pulumi.IntInput `pulumi:"maxEjectionPercent"`
+	// 最小健康比例。取值限制为0~100。默认值为60%。
+	MinHealthPercent pulumi.IntInput `pulumi:"minHealthPercent"`
+}
+
+func (GetUpstreamCircuitBreakingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamCircuitBreakingSettings)(nil)).Elem()
+}
+
+func (i GetUpstreamCircuitBreakingSettingsArgs) ToGetUpstreamCircuitBreakingSettingsOutput() GetUpstreamCircuitBreakingSettingsOutput {
+	return i.ToGetUpstreamCircuitBreakingSettingsOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamCircuitBreakingSettingsArgs) ToGetUpstreamCircuitBreakingSettingsOutputWithContext(ctx context.Context) GetUpstreamCircuitBreakingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamCircuitBreakingSettingsOutput)
+}
+
+type GetUpstreamCircuitBreakingSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamCircuitBreakingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamCircuitBreakingSettings)(nil)).Elem()
+}
+
+func (o GetUpstreamCircuitBreakingSettingsOutput) ToGetUpstreamCircuitBreakingSettingsOutput() GetUpstreamCircuitBreakingSettingsOutput {
+	return o
+}
+
+func (o GetUpstreamCircuitBreakingSettingsOutput) ToGetUpstreamCircuitBreakingSettingsOutputWithContext(ctx context.Context) GetUpstreamCircuitBreakingSettingsOutput {
+	return o
+}
+
+// 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+func (o GetUpstreamCircuitBreakingSettingsOutput) BaseEjectionTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamCircuitBreakingSettings) int { return v.BaseEjectionTime }).(pulumi.IntOutput)
+}
+
+// 连续失败次数。取值限制为1~100。默认值为5。
+func (o GetUpstreamCircuitBreakingSettingsOutput) ConsecutiveErrors() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamCircuitBreakingSettings) int { return v.ConsecutiveErrors }).(pulumi.IntOutput)
+}
+
+// 开启。
+func (o GetUpstreamCircuitBreakingSettingsOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUpstreamCircuitBreakingSettings) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+func (o GetUpstreamCircuitBreakingSettingsOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamCircuitBreakingSettings) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// 最大熔断比例。取值限制为1~100。默认值为20%。
+func (o GetUpstreamCircuitBreakingSettingsOutput) MaxEjectionPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamCircuitBreakingSettings) int { return v.MaxEjectionPercent }).(pulumi.IntOutput)
+}
+
+// 最小健康比例。取值限制为0~100。默认值为60%。
+func (o GetUpstreamCircuitBreakingSettingsOutput) MinHealthPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamCircuitBreakingSettings) int { return v.MinHealthPercent }).(pulumi.IntOutput)
+}
+
+type GetUpstreamLoadBalancerSettings struct {
+	// 一致性哈希负载均衡。
+	ConsistentHashLb GetUpstreamLoadBalancerSettingsConsistentHashLb `pulumi:"consistentHashLb"`
+	// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+	LbPolicy string `pulumi:"lbPolicy"`
+	// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+	SimpleLb string `pulumi:"simpleLb"`
+	// 预热时间。单位为秒。
+	WarmupDuration int `pulumi:"warmupDuration"`
+}
+
+// GetUpstreamLoadBalancerSettingsInput is an input type that accepts GetUpstreamLoadBalancerSettingsArgs and GetUpstreamLoadBalancerSettingsOutput values.
+// You can construct a concrete instance of `GetUpstreamLoadBalancerSettingsInput` via:
+//
+//	GetUpstreamLoadBalancerSettingsArgs{...}
+type GetUpstreamLoadBalancerSettingsInput interface {
+	pulumi.Input
+
+	ToGetUpstreamLoadBalancerSettingsOutput() GetUpstreamLoadBalancerSettingsOutput
+	ToGetUpstreamLoadBalancerSettingsOutputWithContext(context.Context) GetUpstreamLoadBalancerSettingsOutput
+}
+
+type GetUpstreamLoadBalancerSettingsArgs struct {
+	// 一致性哈希负载均衡。
+	ConsistentHashLb GetUpstreamLoadBalancerSettingsConsistentHashLbInput `pulumi:"consistentHashLb"`
+	// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+	LbPolicy pulumi.StringInput `pulumi:"lbPolicy"`
+	// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+	SimpleLb pulumi.StringInput `pulumi:"simpleLb"`
+	// 预热时间。单位为秒。
+	WarmupDuration pulumi.IntInput `pulumi:"warmupDuration"`
+}
+
+func (GetUpstreamLoadBalancerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamLoadBalancerSettings)(nil)).Elem()
+}
+
+func (i GetUpstreamLoadBalancerSettingsArgs) ToGetUpstreamLoadBalancerSettingsOutput() GetUpstreamLoadBalancerSettingsOutput {
+	return i.ToGetUpstreamLoadBalancerSettingsOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamLoadBalancerSettingsArgs) ToGetUpstreamLoadBalancerSettingsOutputWithContext(ctx context.Context) GetUpstreamLoadBalancerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamLoadBalancerSettingsOutput)
+}
+
+type GetUpstreamLoadBalancerSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamLoadBalancerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamLoadBalancerSettings)(nil)).Elem()
+}
+
+func (o GetUpstreamLoadBalancerSettingsOutput) ToGetUpstreamLoadBalancerSettingsOutput() GetUpstreamLoadBalancerSettingsOutput {
+	return o
+}
+
+func (o GetUpstreamLoadBalancerSettingsOutput) ToGetUpstreamLoadBalancerSettingsOutputWithContext(ctx context.Context) GetUpstreamLoadBalancerSettingsOutput {
+	return o
+}
+
+// 一致性哈希负载均衡。
+func (o GetUpstreamLoadBalancerSettingsOutput) ConsistentHashLb() GetUpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettings) GetUpstreamLoadBalancerSettingsConsistentHashLb {
+		return v.ConsistentHashLb
+	}).(GetUpstreamLoadBalancerSettingsConsistentHashLbOutput)
+}
+
+// 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+func (o GetUpstreamLoadBalancerSettingsOutput) LbPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettings) string { return v.LbPolicy }).(pulumi.StringOutput)
+}
+
+// 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+func (o GetUpstreamLoadBalancerSettingsOutput) SimpleLb() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettings) string { return v.SimpleLb }).(pulumi.StringOutput)
+}
+
+// 预热时间。单位为秒。
+func (o GetUpstreamLoadBalancerSettingsOutput) WarmupDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettings) int { return v.WarmupDuration }).(pulumi.IntOutput)
+}
+
+type GetUpstreamLoadBalancerSettingsConsistentHashLb struct {
+	// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+	HashKey string `pulumi:"hashKey"`
+	// Cookie。
+	HttpCookie GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie `pulumi:"httpCookie"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpHeaderName string `pulumi:"httpHeaderName"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpQueryParameterName string `pulumi:"httpQueryParameterName"`
+	// 源IP地址。
+	UseSourceIp string `pulumi:"useSourceIp"`
+}
+
+// GetUpstreamLoadBalancerSettingsConsistentHashLbInput is an input type that accepts GetUpstreamLoadBalancerSettingsConsistentHashLbArgs and GetUpstreamLoadBalancerSettingsConsistentHashLbOutput values.
+// You can construct a concrete instance of `GetUpstreamLoadBalancerSettingsConsistentHashLbInput` via:
+//
+//	GetUpstreamLoadBalancerSettingsConsistentHashLbArgs{...}
+type GetUpstreamLoadBalancerSettingsConsistentHashLbInput interface {
+	pulumi.Input
+
+	ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutput() GetUpstreamLoadBalancerSettingsConsistentHashLbOutput
+	ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(context.Context) GetUpstreamLoadBalancerSettingsConsistentHashLbOutput
+}
+
+type GetUpstreamLoadBalancerSettingsConsistentHashLbArgs struct {
+	// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+	HashKey pulumi.StringInput `pulumi:"hashKey"`
+	// Cookie。
+	HttpCookie GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput `pulumi:"httpCookie"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpHeaderName pulumi.StringInput `pulumi:"httpHeaderName"`
+	// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+	HttpQueryParameterName pulumi.StringInput `pulumi:"httpQueryParameterName"`
+	// 源IP地址。
+	UseSourceIp pulumi.StringInput `pulumi:"useSourceIp"`
+}
+
+func (GetUpstreamLoadBalancerSettingsConsistentHashLbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamLoadBalancerSettingsConsistentHashLb)(nil)).Elem()
+}
+
+func (i GetUpstreamLoadBalancerSettingsConsistentHashLbArgs) ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutput() GetUpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return i.ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamLoadBalancerSettingsConsistentHashLbArgs) ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(ctx context.Context) GetUpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamLoadBalancerSettingsConsistentHashLbOutput)
+}
+
+type GetUpstreamLoadBalancerSettingsConsistentHashLbOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamLoadBalancerSettingsConsistentHashLb)(nil)).Elem()
+}
+
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutput() GetUpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return o
+}
+
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) ToGetUpstreamLoadBalancerSettingsConsistentHashLbOutputWithContext(ctx context.Context) GetUpstreamLoadBalancerSettingsConsistentHashLbOutput {
+	return o
+}
+
+// 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) HashKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLb) string { return v.HashKey }).(pulumi.StringOutput)
+}
+
+// Cookie。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) HttpCookie() GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLb) GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+		return v.HttpCookie
+	}).(GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput)
+}
+
+// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) HttpHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLb) string { return v.HttpHeaderName }).(pulumi.StringOutput)
+}
+
+// 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) HttpQueryParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLb) string { return v.HttpQueryParameterName }).(pulumi.StringOutput)
+}
+
+// 源IP地址。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbOutput) UseSourceIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLb) string { return v.UseSourceIp }).(pulumi.StringOutput)
+}
+
+type GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie struct {
+	// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+	Name string `pulumi:"name"`
+	// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+	Path string `pulumi:"path"`
+	// 有效期。单位为秒。
+	Ttl int `pulumi:"ttl"`
+}
+
+// GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput is an input type that accepts GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs and GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput values.
+// You can construct a concrete instance of `GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput` via:
+//
+//	GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs{...}
+type GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput interface {
+	pulumi.Input
+
+	ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput() GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput
+	ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(context.Context) GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput
+}
+
+type GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs struct {
+	// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+	Path pulumi.StringInput `pulumi:"path"`
+	// 有效期。单位为秒。
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+}
+
+func (GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie)(nil)).Elem()
+}
+
+func (i GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput() GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return i.ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs) ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(ctx context.Context) GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput)
+}
+
+type GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie)(nil)).Elem()
+}
+
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput() GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return o
+}
+
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) ToGetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutputWithContext(ctx context.Context) GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput {
+	return o
+}
+
+// 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// 有效期。单位为秒。
+func (o GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie) int { return v.Ttl }).(pulumi.IntOutput)
 }
 
 type GetUpstreamSourceIngressSettings struct {
@@ -2265,6 +5245,852 @@ func (o GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicOutput) Username() 
 	return o.ApplyT(func(v GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasic) string { return v.Username }).(pulumi.StringOutput)
 }
 
+type GetUpstreamTlsSettings struct {
+	// SNI。留空时会将访问网关的域名透传到upstream。
+	Sni string `pulumi:"sni"`
+	// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+	TlsMode string `pulumi:"tlsMode"`
+}
+
+// GetUpstreamTlsSettingsInput is an input type that accepts GetUpstreamTlsSettingsArgs and GetUpstreamTlsSettingsOutput values.
+// You can construct a concrete instance of `GetUpstreamTlsSettingsInput` via:
+//
+//	GetUpstreamTlsSettingsArgs{...}
+type GetUpstreamTlsSettingsInput interface {
+	pulumi.Input
+
+	ToGetUpstreamTlsSettingsOutput() GetUpstreamTlsSettingsOutput
+	ToGetUpstreamTlsSettingsOutputWithContext(context.Context) GetUpstreamTlsSettingsOutput
+}
+
+type GetUpstreamTlsSettingsArgs struct {
+	// SNI。留空时会将访问网关的域名透传到upstream。
+	Sni pulumi.StringInput `pulumi:"sni"`
+	// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+	TlsMode pulumi.StringInput `pulumi:"tlsMode"`
+}
+
+func (GetUpstreamTlsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamTlsSettings)(nil)).Elem()
+}
+
+func (i GetUpstreamTlsSettingsArgs) ToGetUpstreamTlsSettingsOutput() GetUpstreamTlsSettingsOutput {
+	return i.ToGetUpstreamTlsSettingsOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamTlsSettingsArgs) ToGetUpstreamTlsSettingsOutputWithContext(ctx context.Context) GetUpstreamTlsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamTlsSettingsOutput)
+}
+
+type GetUpstreamTlsSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamTlsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamTlsSettings)(nil)).Elem()
+}
+
+func (o GetUpstreamTlsSettingsOutput) ToGetUpstreamTlsSettingsOutput() GetUpstreamTlsSettingsOutput {
+	return o
+}
+
+func (o GetUpstreamTlsSettingsOutput) ToGetUpstreamTlsSettingsOutputWithContext(ctx context.Context) GetUpstreamTlsSettingsOutput {
+	return o
+}
+
+// SNI。留空时会将访问网关的域名透传到upstream。
+func (o GetUpstreamTlsSettingsOutput) Sni() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamTlsSettings) string { return v.Sni }).(pulumi.StringOutput)
+}
+
+// TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+func (o GetUpstreamTlsSettingsOutput) TlsMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamTlsSettings) string { return v.TlsMode }).(pulumi.StringOutput)
+}
+
+type GetUpstreamUpstreamSpec struct {
+	// AI模型代理。
+	AiProvider GetUpstreamUpstreamSpecAiProvider `pulumi:"aiProvider"`
+	// 云服务器。
+	EcsInstances []GetUpstreamUpstreamSpecEcsInstance `pulumi:"ecsInstances"`
+	// 容器服务。
+	K8SService GetUpstreamUpstreamSpecK8SService `pulumi:"k8SService"`
+	// 注册中心。
+	NacosService GetUpstreamUpstreamSpecNacosService `pulumi:"nacosService"`
+	// 函数服务。
+	VeFaas GetUpstreamUpstreamSpecVeFaas `pulumi:"veFaas"`
+}
+
+// GetUpstreamUpstreamSpecInput is an input type that accepts GetUpstreamUpstreamSpecArgs and GetUpstreamUpstreamSpecOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecInput` via:
+//
+//	GetUpstreamUpstreamSpecArgs{...}
+type GetUpstreamUpstreamSpecInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecOutput() GetUpstreamUpstreamSpecOutput
+	ToGetUpstreamUpstreamSpecOutputWithContext(context.Context) GetUpstreamUpstreamSpecOutput
+}
+
+type GetUpstreamUpstreamSpecArgs struct {
+	// AI模型代理。
+	AiProvider GetUpstreamUpstreamSpecAiProviderInput `pulumi:"aiProvider"`
+	// 云服务器。
+	EcsInstances GetUpstreamUpstreamSpecEcsInstanceArrayInput `pulumi:"ecsInstances"`
+	// 容器服务。
+	K8SService GetUpstreamUpstreamSpecK8SServiceInput `pulumi:"k8SService"`
+	// 注册中心。
+	NacosService GetUpstreamUpstreamSpecNacosServiceInput `pulumi:"nacosService"`
+	// 函数服务。
+	VeFaas GetUpstreamUpstreamSpecVeFaasInput `pulumi:"veFaas"`
+}
+
+func (GetUpstreamUpstreamSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpec)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecArgs) ToGetUpstreamUpstreamSpecOutput() GetUpstreamUpstreamSpecOutput {
+	return i.ToGetUpstreamUpstreamSpecOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecArgs) ToGetUpstreamUpstreamSpecOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecOutput)
+}
+
+type GetUpstreamUpstreamSpecOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpec)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecOutput) ToGetUpstreamUpstreamSpecOutput() GetUpstreamUpstreamSpecOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecOutput) ToGetUpstreamUpstreamSpecOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecOutput {
+	return o
+}
+
+// AI模型代理。
+func (o GetUpstreamUpstreamSpecOutput) AiProvider() GetUpstreamUpstreamSpecAiProviderOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpec) GetUpstreamUpstreamSpecAiProvider { return v.AiProvider }).(GetUpstreamUpstreamSpecAiProviderOutput)
+}
+
+// 云服务器。
+func (o GetUpstreamUpstreamSpecOutput) EcsInstances() GetUpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpec) []GetUpstreamUpstreamSpecEcsInstance { return v.EcsInstances }).(GetUpstreamUpstreamSpecEcsInstanceArrayOutput)
+}
+
+// 容器服务。
+func (o GetUpstreamUpstreamSpecOutput) K8SService() GetUpstreamUpstreamSpecK8SServiceOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpec) GetUpstreamUpstreamSpecK8SService { return v.K8SService }).(GetUpstreamUpstreamSpecK8SServiceOutput)
+}
+
+// 注册中心。
+func (o GetUpstreamUpstreamSpecOutput) NacosService() GetUpstreamUpstreamSpecNacosServiceOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpec) GetUpstreamUpstreamSpecNacosService { return v.NacosService }).(GetUpstreamUpstreamSpecNacosServiceOutput)
+}
+
+// 函数服务。
+func (o GetUpstreamUpstreamSpecOutput) VeFaas() GetUpstreamUpstreamSpecVeFaasOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpec) GetUpstreamUpstreamSpecVeFaas { return v.VeFaas }).(GetUpstreamUpstreamSpecVeFaasOutput)
+}
+
+type GetUpstreamUpstreamSpecAiProvider struct {
+	// 模型地址。
+	BaseUrl string `pulumi:"baseUrl"`
+	// 火山自部署模型服务。
+	CustomModelService GetUpstreamUpstreamSpecAiProviderCustomModelService `pulumi:"customModelService"`
+	// 模型服务商名称。
+	Name string `pulumi:"name"`
+	// 模型API key。
+	Token string `pulumi:"token"`
+}
+
+// GetUpstreamUpstreamSpecAiProviderInput is an input type that accepts GetUpstreamUpstreamSpecAiProviderArgs and GetUpstreamUpstreamSpecAiProviderOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecAiProviderInput` via:
+//
+//	GetUpstreamUpstreamSpecAiProviderArgs{...}
+type GetUpstreamUpstreamSpecAiProviderInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecAiProviderOutput() GetUpstreamUpstreamSpecAiProviderOutput
+	ToGetUpstreamUpstreamSpecAiProviderOutputWithContext(context.Context) GetUpstreamUpstreamSpecAiProviderOutput
+}
+
+type GetUpstreamUpstreamSpecAiProviderArgs struct {
+	// 模型地址。
+	BaseUrl pulumi.StringInput `pulumi:"baseUrl"`
+	// 火山自部署模型服务。
+	CustomModelService GetUpstreamUpstreamSpecAiProviderCustomModelServiceInput `pulumi:"customModelService"`
+	// 模型服务商名称。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 模型API key。
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (GetUpstreamUpstreamSpecAiProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecAiProvider)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecAiProviderArgs) ToGetUpstreamUpstreamSpecAiProviderOutput() GetUpstreamUpstreamSpecAiProviderOutput {
+	return i.ToGetUpstreamUpstreamSpecAiProviderOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecAiProviderArgs) ToGetUpstreamUpstreamSpecAiProviderOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecAiProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecAiProviderOutput)
+}
+
+type GetUpstreamUpstreamSpecAiProviderOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecAiProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecAiProvider)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecAiProviderOutput) ToGetUpstreamUpstreamSpecAiProviderOutput() GetUpstreamUpstreamSpecAiProviderOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecAiProviderOutput) ToGetUpstreamUpstreamSpecAiProviderOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecAiProviderOutput {
+	return o
+}
+
+// 模型地址。
+func (o GetUpstreamUpstreamSpecAiProviderOutput) BaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProvider) string { return v.BaseUrl }).(pulumi.StringOutput)
+}
+
+// 火山自部署模型服务。
+func (o GetUpstreamUpstreamSpecAiProviderOutput) CustomModelService() GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProvider) GetUpstreamUpstreamSpecAiProviderCustomModelService {
+		return v.CustomModelService
+	}).(GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput)
+}
+
+// 模型服务商名称。
+func (o GetUpstreamUpstreamSpecAiProviderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProvider) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 模型API key。
+func (o GetUpstreamUpstreamSpecAiProviderOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProvider) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type GetUpstreamUpstreamSpecAiProviderCustomModelService struct {
+	// 模型服务名称。
+	Name string `pulumi:"name"`
+	// 命名空间。
+	Namespace string `pulumi:"namespace"`
+	// 端口。
+	Port int `pulumi:"port"`
+}
+
+// GetUpstreamUpstreamSpecAiProviderCustomModelServiceInput is an input type that accepts GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs and GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecAiProviderCustomModelServiceInput` via:
+//
+//	GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs{...}
+type GetUpstreamUpstreamSpecAiProviderCustomModelServiceInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput() GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput
+	ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(context.Context) GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput
+}
+
+type GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs struct {
+	// 模型服务名称。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 命名空间。
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// 端口。
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecAiProviderCustomModelService)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput() GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return i.ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs) ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput)
+}
+
+type GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecAiProviderCustomModelService)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput() GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput) ToGetUpstreamUpstreamSpecAiProviderCustomModelServiceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput {
+	return o
+}
+
+// 模型服务名称。
+func (o GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProviderCustomModelService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 命名空间。
+func (o GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProviderCustomModelService) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// 端口。
+func (o GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecAiProviderCustomModelService) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetUpstreamUpstreamSpecEcsInstance struct {
+	// 云服务器ID。
+	EcsId string `pulumi:"ecsId"`
+	// IP地址。
+	Ip string `pulumi:"ip"`
+	// 端口。
+	Port int `pulumi:"port"`
+}
+
+// GetUpstreamUpstreamSpecEcsInstanceInput is an input type that accepts GetUpstreamUpstreamSpecEcsInstanceArgs and GetUpstreamUpstreamSpecEcsInstanceOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecEcsInstanceInput` via:
+//
+//	GetUpstreamUpstreamSpecEcsInstanceArgs{...}
+type GetUpstreamUpstreamSpecEcsInstanceInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecEcsInstanceOutput() GetUpstreamUpstreamSpecEcsInstanceOutput
+	ToGetUpstreamUpstreamSpecEcsInstanceOutputWithContext(context.Context) GetUpstreamUpstreamSpecEcsInstanceOutput
+}
+
+type GetUpstreamUpstreamSpecEcsInstanceArgs struct {
+	// 云服务器ID。
+	EcsId pulumi.StringInput `pulumi:"ecsId"`
+	// IP地址。
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// 端口。
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetUpstreamUpstreamSpecEcsInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecEcsInstanceArgs) ToGetUpstreamUpstreamSpecEcsInstanceOutput() GetUpstreamUpstreamSpecEcsInstanceOutput {
+	return i.ToGetUpstreamUpstreamSpecEcsInstanceOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecEcsInstanceArgs) ToGetUpstreamUpstreamSpecEcsInstanceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecEcsInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecEcsInstanceOutput)
+}
+
+// GetUpstreamUpstreamSpecEcsInstanceArrayInput is an input type that accepts GetUpstreamUpstreamSpecEcsInstanceArray and GetUpstreamUpstreamSpecEcsInstanceArrayOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecEcsInstanceArrayInput` via:
+//
+//	GetUpstreamUpstreamSpecEcsInstanceArray{ GetUpstreamUpstreamSpecEcsInstanceArgs{...} }
+type GetUpstreamUpstreamSpecEcsInstanceArrayInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecEcsInstanceArrayOutput() GetUpstreamUpstreamSpecEcsInstanceArrayOutput
+	ToGetUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(context.Context) GetUpstreamUpstreamSpecEcsInstanceArrayOutput
+}
+
+type GetUpstreamUpstreamSpecEcsInstanceArray []GetUpstreamUpstreamSpecEcsInstanceInput
+
+func (GetUpstreamUpstreamSpecEcsInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecEcsInstanceArray) ToGetUpstreamUpstreamSpecEcsInstanceArrayOutput() GetUpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return i.ToGetUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecEcsInstanceArray) ToGetUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecEcsInstanceArrayOutput)
+}
+
+type GetUpstreamUpstreamSpecEcsInstanceOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecEcsInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecEcsInstanceOutput) ToGetUpstreamUpstreamSpecEcsInstanceOutput() GetUpstreamUpstreamSpecEcsInstanceOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecEcsInstanceOutput) ToGetUpstreamUpstreamSpecEcsInstanceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecEcsInstanceOutput {
+	return o
+}
+
+// 云服务器ID。
+func (o GetUpstreamUpstreamSpecEcsInstanceOutput) EcsId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecEcsInstance) string { return v.EcsId }).(pulumi.StringOutput)
+}
+
+// IP地址。
+func (o GetUpstreamUpstreamSpecEcsInstanceOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecEcsInstance) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// 端口。
+func (o GetUpstreamUpstreamSpecEcsInstanceOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecEcsInstance) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetUpstreamUpstreamSpecEcsInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecEcsInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamUpstreamSpecEcsInstance)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecEcsInstanceArrayOutput) ToGetUpstreamUpstreamSpecEcsInstanceArrayOutput() GetUpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecEcsInstanceArrayOutput) ToGetUpstreamUpstreamSpecEcsInstanceArrayOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecEcsInstanceArrayOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecEcsInstanceArrayOutput) Index(i pulumi.IntInput) GetUpstreamUpstreamSpecEcsInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUpstreamUpstreamSpecEcsInstance {
+		return vs[0].([]GetUpstreamUpstreamSpecEcsInstance)[vs[1].(int)]
+	}).(GetUpstreamUpstreamSpecEcsInstanceOutput)
+}
+
+type GetUpstreamUpstreamSpecK8SService struct {
+	// 容器服务名称。长度限制为2~63个字符。
+	Name string `pulumi:"name"`
+	// 命名空间。长度限制为2~63个字符。
+	Namespace string `pulumi:"namespace"`
+	// 端口。
+	Port int `pulumi:"port"`
+}
+
+// GetUpstreamUpstreamSpecK8SServiceInput is an input type that accepts GetUpstreamUpstreamSpecK8SServiceArgs and GetUpstreamUpstreamSpecK8SServiceOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecK8SServiceInput` via:
+//
+//	GetUpstreamUpstreamSpecK8SServiceArgs{...}
+type GetUpstreamUpstreamSpecK8SServiceInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecK8SServiceOutput() GetUpstreamUpstreamSpecK8SServiceOutput
+	ToGetUpstreamUpstreamSpecK8SServiceOutputWithContext(context.Context) GetUpstreamUpstreamSpecK8SServiceOutput
+}
+
+type GetUpstreamUpstreamSpecK8SServiceArgs struct {
+	// 容器服务名称。长度限制为2~63个字符。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 命名空间。长度限制为2~63个字符。
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// 端口。
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetUpstreamUpstreamSpecK8SServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecK8SService)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecK8SServiceArgs) ToGetUpstreamUpstreamSpecK8SServiceOutput() GetUpstreamUpstreamSpecK8SServiceOutput {
+	return i.ToGetUpstreamUpstreamSpecK8SServiceOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecK8SServiceArgs) ToGetUpstreamUpstreamSpecK8SServiceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecK8SServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecK8SServiceOutput)
+}
+
+type GetUpstreamUpstreamSpecK8SServiceOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecK8SServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecK8SService)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecK8SServiceOutput) ToGetUpstreamUpstreamSpecK8SServiceOutput() GetUpstreamUpstreamSpecK8SServiceOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecK8SServiceOutput) ToGetUpstreamUpstreamSpecK8SServiceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecK8SServiceOutput {
+	return o
+}
+
+// 容器服务名称。长度限制为2~63个字符。
+func (o GetUpstreamUpstreamSpecK8SServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecK8SService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 命名空间。长度限制为2~63个字符。
+func (o GetUpstreamUpstreamSpecK8SServiceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecK8SService) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// 端口。
+func (o GetUpstreamUpstreamSpecK8SServiceOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecK8SService) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetUpstreamUpstreamSpecNacosService struct {
+	// 分组。
+	Group string `pulumi:"group"`
+	// 命名空间。
+	Namespace string `pulumi:"namespace"`
+	// 命名空间ID。
+	NamespaceId string `pulumi:"namespaceId"`
+	// 服务。
+	Service string `pulumi:"service"`
+	// Upstream来源ID。
+	UpstreamSourceId string `pulumi:"upstreamSourceId"`
+}
+
+// GetUpstreamUpstreamSpecNacosServiceInput is an input type that accepts GetUpstreamUpstreamSpecNacosServiceArgs and GetUpstreamUpstreamSpecNacosServiceOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecNacosServiceInput` via:
+//
+//	GetUpstreamUpstreamSpecNacosServiceArgs{...}
+type GetUpstreamUpstreamSpecNacosServiceInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecNacosServiceOutput() GetUpstreamUpstreamSpecNacosServiceOutput
+	ToGetUpstreamUpstreamSpecNacosServiceOutputWithContext(context.Context) GetUpstreamUpstreamSpecNacosServiceOutput
+}
+
+type GetUpstreamUpstreamSpecNacosServiceArgs struct {
+	// 分组。
+	Group pulumi.StringInput `pulumi:"group"`
+	// 命名空间。
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// 命名空间ID。
+	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
+	// 服务。
+	Service pulumi.StringInput `pulumi:"service"`
+	// Upstream来源ID。
+	UpstreamSourceId pulumi.StringInput `pulumi:"upstreamSourceId"`
+}
+
+func (GetUpstreamUpstreamSpecNacosServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecNacosService)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecNacosServiceArgs) ToGetUpstreamUpstreamSpecNacosServiceOutput() GetUpstreamUpstreamSpecNacosServiceOutput {
+	return i.ToGetUpstreamUpstreamSpecNacosServiceOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecNacosServiceArgs) ToGetUpstreamUpstreamSpecNacosServiceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecNacosServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecNacosServiceOutput)
+}
+
+type GetUpstreamUpstreamSpecNacosServiceOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecNacosServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecNacosService)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) ToGetUpstreamUpstreamSpecNacosServiceOutput() GetUpstreamUpstreamSpecNacosServiceOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) ToGetUpstreamUpstreamSpecNacosServiceOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecNacosServiceOutput {
+	return o
+}
+
+// 分组。
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) Group() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecNacosService) string { return v.Group }).(pulumi.StringOutput)
+}
+
+// 命名空间。
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecNacosService) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// 命名空间ID。
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) NamespaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecNacosService) string { return v.NamespaceId }).(pulumi.StringOutput)
+}
+
+// 服务。
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecNacosService) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// Upstream来源ID。
+func (o GetUpstreamUpstreamSpecNacosServiceOutput) UpstreamSourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecNacosService) string { return v.UpstreamSourceId }).(pulumi.StringOutput)
+}
+
+type GetUpstreamUpstreamSpecVeFaas struct {
+	// 函数ID。
+	FunctionId string `pulumi:"functionId"`
+}
+
+// GetUpstreamUpstreamSpecVeFaasInput is an input type that accepts GetUpstreamUpstreamSpecVeFaasArgs and GetUpstreamUpstreamSpecVeFaasOutput values.
+// You can construct a concrete instance of `GetUpstreamUpstreamSpecVeFaasInput` via:
+//
+//	GetUpstreamUpstreamSpecVeFaasArgs{...}
+type GetUpstreamUpstreamSpecVeFaasInput interface {
+	pulumi.Input
+
+	ToGetUpstreamUpstreamSpecVeFaasOutput() GetUpstreamUpstreamSpecVeFaasOutput
+	ToGetUpstreamUpstreamSpecVeFaasOutputWithContext(context.Context) GetUpstreamUpstreamSpecVeFaasOutput
+}
+
+type GetUpstreamUpstreamSpecVeFaasArgs struct {
+	// 函数ID。
+	FunctionId pulumi.StringInput `pulumi:"functionId"`
+}
+
+func (GetUpstreamUpstreamSpecVeFaasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecVeFaas)(nil)).Elem()
+}
+
+func (i GetUpstreamUpstreamSpecVeFaasArgs) ToGetUpstreamUpstreamSpecVeFaasOutput() GetUpstreamUpstreamSpecVeFaasOutput {
+	return i.ToGetUpstreamUpstreamSpecVeFaasOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamUpstreamSpecVeFaasArgs) ToGetUpstreamUpstreamSpecVeFaasOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecVeFaasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamUpstreamSpecVeFaasOutput)
+}
+
+type GetUpstreamUpstreamSpecVeFaasOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamUpstreamSpecVeFaasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamUpstreamSpecVeFaas)(nil)).Elem()
+}
+
+func (o GetUpstreamUpstreamSpecVeFaasOutput) ToGetUpstreamUpstreamSpecVeFaasOutput() GetUpstreamUpstreamSpecVeFaasOutput {
+	return o
+}
+
+func (o GetUpstreamUpstreamSpecVeFaasOutput) ToGetUpstreamUpstreamSpecVeFaasOutputWithContext(ctx context.Context) GetUpstreamUpstreamSpecVeFaasOutput {
+	return o
+}
+
+// 函数ID。
+func (o GetUpstreamUpstreamSpecVeFaasOutput) FunctionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamUpstreamSpecVeFaas) string { return v.FunctionId }).(pulumi.StringOutput)
+}
+
+type GetUpstreamVersionDetail struct {
+	// 标签。
+	Labels []GetUpstreamVersionDetailLabel `pulumi:"labels"`
+	// 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+	Name string `pulumi:"name"`
+	// 更新时间。
+	UpdateTime string `pulumi:"updateTime"`
+}
+
+// GetUpstreamVersionDetailInput is an input type that accepts GetUpstreamVersionDetailArgs and GetUpstreamVersionDetailOutput values.
+// You can construct a concrete instance of `GetUpstreamVersionDetailInput` via:
+//
+//	GetUpstreamVersionDetailArgs{...}
+type GetUpstreamVersionDetailInput interface {
+	pulumi.Input
+
+	ToGetUpstreamVersionDetailOutput() GetUpstreamVersionDetailOutput
+	ToGetUpstreamVersionDetailOutputWithContext(context.Context) GetUpstreamVersionDetailOutput
+}
+
+type GetUpstreamVersionDetailArgs struct {
+	// 标签。
+	Labels GetUpstreamVersionDetailLabelArrayInput `pulumi:"labels"`
+	// 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+	Name pulumi.StringInput `pulumi:"name"`
+	// 更新时间。
+	UpdateTime pulumi.StringInput `pulumi:"updateTime"`
+}
+
+func (GetUpstreamVersionDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamVersionDetail)(nil)).Elem()
+}
+
+func (i GetUpstreamVersionDetailArgs) ToGetUpstreamVersionDetailOutput() GetUpstreamVersionDetailOutput {
+	return i.ToGetUpstreamVersionDetailOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamVersionDetailArgs) ToGetUpstreamVersionDetailOutputWithContext(ctx context.Context) GetUpstreamVersionDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamVersionDetailOutput)
+}
+
+// GetUpstreamVersionDetailArrayInput is an input type that accepts GetUpstreamVersionDetailArray and GetUpstreamVersionDetailArrayOutput values.
+// You can construct a concrete instance of `GetUpstreamVersionDetailArrayInput` via:
+//
+//	GetUpstreamVersionDetailArray{ GetUpstreamVersionDetailArgs{...} }
+type GetUpstreamVersionDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetUpstreamVersionDetailArrayOutput() GetUpstreamVersionDetailArrayOutput
+	ToGetUpstreamVersionDetailArrayOutputWithContext(context.Context) GetUpstreamVersionDetailArrayOutput
+}
+
+type GetUpstreamVersionDetailArray []GetUpstreamVersionDetailInput
+
+func (GetUpstreamVersionDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamVersionDetail)(nil)).Elem()
+}
+
+func (i GetUpstreamVersionDetailArray) ToGetUpstreamVersionDetailArrayOutput() GetUpstreamVersionDetailArrayOutput {
+	return i.ToGetUpstreamVersionDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamVersionDetailArray) ToGetUpstreamVersionDetailArrayOutputWithContext(ctx context.Context) GetUpstreamVersionDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamVersionDetailArrayOutput)
+}
+
+type GetUpstreamVersionDetailOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamVersionDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamVersionDetail)(nil)).Elem()
+}
+
+func (o GetUpstreamVersionDetailOutput) ToGetUpstreamVersionDetailOutput() GetUpstreamVersionDetailOutput {
+	return o
+}
+
+func (o GetUpstreamVersionDetailOutput) ToGetUpstreamVersionDetailOutputWithContext(ctx context.Context) GetUpstreamVersionDetailOutput {
+	return o
+}
+
+// 标签。
+func (o GetUpstreamVersionDetailOutput) Labels() GetUpstreamVersionDetailLabelArrayOutput {
+	return o.ApplyT(func(v GetUpstreamVersionDetail) []GetUpstreamVersionDetailLabel { return v.Labels }).(GetUpstreamVersionDetailLabelArrayOutput)
+}
+
+// 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+func (o GetUpstreamVersionDetailOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamVersionDetail) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 更新时间。
+func (o GetUpstreamVersionDetailOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamVersionDetail) string { return v.UpdateTime }).(pulumi.StringOutput)
+}
+
+type GetUpstreamVersionDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamVersionDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamVersionDetail)(nil)).Elem()
+}
+
+func (o GetUpstreamVersionDetailArrayOutput) ToGetUpstreamVersionDetailArrayOutput() GetUpstreamVersionDetailArrayOutput {
+	return o
+}
+
+func (o GetUpstreamVersionDetailArrayOutput) ToGetUpstreamVersionDetailArrayOutputWithContext(ctx context.Context) GetUpstreamVersionDetailArrayOutput {
+	return o
+}
+
+func (o GetUpstreamVersionDetailArrayOutput) Index(i pulumi.IntInput) GetUpstreamVersionDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUpstreamVersionDetail {
+		return vs[0].([]GetUpstreamVersionDetail)[vs[1].(int)]
+	}).(GetUpstreamVersionDetailOutput)
+}
+
+type GetUpstreamVersionDetailLabel struct {
+	// 键。
+	Key string `pulumi:"key"`
+	// 值。
+	Value string `pulumi:"value"`
+}
+
+// GetUpstreamVersionDetailLabelInput is an input type that accepts GetUpstreamVersionDetailLabelArgs and GetUpstreamVersionDetailLabelOutput values.
+// You can construct a concrete instance of `GetUpstreamVersionDetailLabelInput` via:
+//
+//	GetUpstreamVersionDetailLabelArgs{...}
+type GetUpstreamVersionDetailLabelInput interface {
+	pulumi.Input
+
+	ToGetUpstreamVersionDetailLabelOutput() GetUpstreamVersionDetailLabelOutput
+	ToGetUpstreamVersionDetailLabelOutputWithContext(context.Context) GetUpstreamVersionDetailLabelOutput
+}
+
+type GetUpstreamVersionDetailLabelArgs struct {
+	// 键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetUpstreamVersionDetailLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (i GetUpstreamVersionDetailLabelArgs) ToGetUpstreamVersionDetailLabelOutput() GetUpstreamVersionDetailLabelOutput {
+	return i.ToGetUpstreamVersionDetailLabelOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamVersionDetailLabelArgs) ToGetUpstreamVersionDetailLabelOutputWithContext(ctx context.Context) GetUpstreamVersionDetailLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamVersionDetailLabelOutput)
+}
+
+// GetUpstreamVersionDetailLabelArrayInput is an input type that accepts GetUpstreamVersionDetailLabelArray and GetUpstreamVersionDetailLabelArrayOutput values.
+// You can construct a concrete instance of `GetUpstreamVersionDetailLabelArrayInput` via:
+//
+//	GetUpstreamVersionDetailLabelArray{ GetUpstreamVersionDetailLabelArgs{...} }
+type GetUpstreamVersionDetailLabelArrayInput interface {
+	pulumi.Input
+
+	ToGetUpstreamVersionDetailLabelArrayOutput() GetUpstreamVersionDetailLabelArrayOutput
+	ToGetUpstreamVersionDetailLabelArrayOutputWithContext(context.Context) GetUpstreamVersionDetailLabelArrayOutput
+}
+
+type GetUpstreamVersionDetailLabelArray []GetUpstreamVersionDetailLabelInput
+
+func (GetUpstreamVersionDetailLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (i GetUpstreamVersionDetailLabelArray) ToGetUpstreamVersionDetailLabelArrayOutput() GetUpstreamVersionDetailLabelArrayOutput {
+	return i.ToGetUpstreamVersionDetailLabelArrayOutputWithContext(context.Background())
+}
+
+func (i GetUpstreamVersionDetailLabelArray) ToGetUpstreamVersionDetailLabelArrayOutputWithContext(ctx context.Context) GetUpstreamVersionDetailLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUpstreamVersionDetailLabelArrayOutput)
+}
+
+type GetUpstreamVersionDetailLabelOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamVersionDetailLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (o GetUpstreamVersionDetailLabelOutput) ToGetUpstreamVersionDetailLabelOutput() GetUpstreamVersionDetailLabelOutput {
+	return o
+}
+
+func (o GetUpstreamVersionDetailLabelOutput) ToGetUpstreamVersionDetailLabelOutputWithContext(ctx context.Context) GetUpstreamVersionDetailLabelOutput {
+	return o
+}
+
+// 键。
+func (o GetUpstreamVersionDetailLabelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamVersionDetailLabel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 值。
+func (o GetUpstreamVersionDetailLabelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUpstreamVersionDetailLabel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetUpstreamVersionDetailLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUpstreamVersionDetailLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUpstreamVersionDetailLabel)(nil)).Elem()
+}
+
+func (o GetUpstreamVersionDetailLabelArrayOutput) ToGetUpstreamVersionDetailLabelArrayOutput() GetUpstreamVersionDetailLabelArrayOutput {
+	return o
+}
+
+func (o GetUpstreamVersionDetailLabelArrayOutput) ToGetUpstreamVersionDetailLabelArrayOutputWithContext(ctx context.Context) GetUpstreamVersionDetailLabelArrayOutput {
+	return o
+}
+
+func (o GetUpstreamVersionDetailLabelArrayOutput) Index(i pulumi.IntInput) GetUpstreamVersionDetailLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUpstreamVersionDetailLabel {
+		return vs[0].([]GetUpstreamVersionDetailLabel)[vs[1].(int)]
+	}).(GetUpstreamVersionDetailLabelOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceAuthSpecInput)(nil)).Elem(), GatewayServiceAuthSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceAuthSpecPtrInput)(nil)).Elem(), GatewayServiceAuthSpecArgs{})
@@ -2274,6 +6100,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainArrayInput)(nil)).Elem(), GatewayServiceDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainSpecInput)(nil)).Elem(), GatewayServiceDomainSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayServiceDomainSpecPtrInput)(nil)).Elem(), GatewayServiceDomainSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamBackendTargetInput)(nil)).Elem(), UpstreamBackendTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamBackendTargetArrayInput)(nil)).Elem(), UpstreamBackendTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamCircuitBreakingSettingsInput)(nil)).Elem(), UpstreamCircuitBreakingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamCircuitBreakingSettingsPtrInput)(nil)).Elem(), UpstreamCircuitBreakingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamLoadBalancerSettingsInput)(nil)).Elem(), UpstreamLoadBalancerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamLoadBalancerSettingsPtrInput)(nil)).Elem(), UpstreamLoadBalancerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLbInput)(nil)).Elem(), UpstreamLoadBalancerSettingsConsistentHashLbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLbPtrInput)(nil)).Elem(), UpstreamLoadBalancerSettingsConsistentHashLbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput)(nil)).Elem(), UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrInput)(nil)).Elem(), UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceIngressSettingsInput)(nil)).Elem(), UpstreamSourceIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceIngressSettingsPtrInput)(nil)).Elem(), UpstreamSourceIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecInput)(nil)).Elem(), UpstreamSourceSourceSpecArgs{})
@@ -2286,18 +6122,57 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecNacosSourceAuthConfigPtrInput)(nil)).Elem(), UpstreamSourceSourceSpecNacosSourceAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecNacosSourceAuthConfigBasicInput)(nil)).Elem(), UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamSourceSourceSpecNacosSourceAuthConfigBasicPtrInput)(nil)).Elem(), UpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamTlsSettingsInput)(nil)).Elem(), UpstreamTlsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamTlsSettingsPtrInput)(nil)).Elem(), UpstreamTlsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecInput)(nil)).Elem(), UpstreamUpstreamSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecPtrInput)(nil)).Elem(), UpstreamUpstreamSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecAiProviderInput)(nil)).Elem(), UpstreamUpstreamSpecAiProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecAiProviderPtrInput)(nil)).Elem(), UpstreamUpstreamSpecAiProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecAiProviderCustomModelServiceInput)(nil)).Elem(), UpstreamUpstreamSpecAiProviderCustomModelServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecAiProviderCustomModelServicePtrInput)(nil)).Elem(), UpstreamUpstreamSpecAiProviderCustomModelServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecEcsInstanceInput)(nil)).Elem(), UpstreamUpstreamSpecEcsInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecEcsInstanceArrayInput)(nil)).Elem(), UpstreamUpstreamSpecEcsInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecK8SServiceInput)(nil)).Elem(), UpstreamUpstreamSpecK8SServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecK8SServicePtrInput)(nil)).Elem(), UpstreamUpstreamSpecK8SServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecNacosServiceInput)(nil)).Elem(), UpstreamUpstreamSpecNacosServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecNacosServicePtrInput)(nil)).Elem(), UpstreamUpstreamSpecNacosServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecVeFaasInput)(nil)).Elem(), UpstreamUpstreamSpecVeFaasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamUpstreamSpecVeFaasPtrInput)(nil)).Elem(), UpstreamUpstreamSpecVeFaasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamVersionDetailInput)(nil)).Elem(), UpstreamVersionDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamVersionDetailArrayInput)(nil)).Elem(), UpstreamVersionDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamVersionDetailLabelInput)(nil)).Elem(), UpstreamVersionDetailLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UpstreamVersionDetailLabelArrayInput)(nil)).Elem(), UpstreamVersionDetailLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceAuthSpecInput)(nil)).Elem(), GetGatewayServiceAuthSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceCustomDomainInput)(nil)).Elem(), GetGatewayServiceCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceCustomDomainArrayInput)(nil)).Elem(), GetGatewayServiceCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceDomainInput)(nil)).Elem(), GetGatewayServiceDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceDomainArrayInput)(nil)).Elem(), GetGatewayServiceDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayServiceDomainSpecInput)(nil)).Elem(), GetGatewayServiceDomainSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamBackendTargetInput)(nil)).Elem(), GetUpstreamBackendTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamBackendTargetArrayInput)(nil)).Elem(), GetUpstreamBackendTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamCircuitBreakingSettingsInput)(nil)).Elem(), GetUpstreamCircuitBreakingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamLoadBalancerSettingsInput)(nil)).Elem(), GetUpstreamLoadBalancerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamLoadBalancerSettingsConsistentHashLbInput)(nil)).Elem(), GetUpstreamLoadBalancerSettingsConsistentHashLbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieInput)(nil)).Elem(), GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceIngressSettingsInput)(nil)).Elem(), GetUpstreamSourceIngressSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecInput)(nil)).Elem(), GetUpstreamSourceSourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecK8SSourceInput)(nil)).Elem(), GetUpstreamSourceSourceSpecK8SSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecNacosSourceInput)(nil)).Elem(), GetUpstreamSourceSourceSpecNacosSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecNacosSourceAuthConfigInput)(nil)).Elem(), GetUpstreamSourceSourceSpecNacosSourceAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicInput)(nil)).Elem(), GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamTlsSettingsInput)(nil)).Elem(), GetUpstreamTlsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecInput)(nil)).Elem(), GetUpstreamUpstreamSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecAiProviderInput)(nil)).Elem(), GetUpstreamUpstreamSpecAiProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecAiProviderCustomModelServiceInput)(nil)).Elem(), GetUpstreamUpstreamSpecAiProviderCustomModelServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecEcsInstanceInput)(nil)).Elem(), GetUpstreamUpstreamSpecEcsInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecEcsInstanceArrayInput)(nil)).Elem(), GetUpstreamUpstreamSpecEcsInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecK8SServiceInput)(nil)).Elem(), GetUpstreamUpstreamSpecK8SServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecNacosServiceInput)(nil)).Elem(), GetUpstreamUpstreamSpecNacosServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamUpstreamSpecVeFaasInput)(nil)).Elem(), GetUpstreamUpstreamSpecVeFaasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamVersionDetailInput)(nil)).Elem(), GetUpstreamVersionDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamVersionDetailArrayInput)(nil)).Elem(), GetUpstreamVersionDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamVersionDetailLabelInput)(nil)).Elem(), GetUpstreamVersionDetailLabelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUpstreamVersionDetailLabelArrayInput)(nil)).Elem(), GetUpstreamVersionDetailLabelArray{})
 	pulumi.RegisterOutputType(GatewayServiceAuthSpecOutput{})
 	pulumi.RegisterOutputType(GatewayServiceAuthSpecPtrOutput{})
 	pulumi.RegisterOutputType(GatewayServiceCustomDomainOutput{})
@@ -2306,6 +6181,16 @@ func init() {
 	pulumi.RegisterOutputType(GatewayServiceDomainArrayOutput{})
 	pulumi.RegisterOutputType(GatewayServiceDomainSpecOutput{})
 	pulumi.RegisterOutputType(GatewayServiceDomainSpecPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamBackendTargetOutput{})
+	pulumi.RegisterOutputType(UpstreamBackendTargetArrayOutput{})
+	pulumi.RegisterOutputType(UpstreamCircuitBreakingSettingsOutput{})
+	pulumi.RegisterOutputType(UpstreamCircuitBreakingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamLoadBalancerSettingsOutput{})
+	pulumi.RegisterOutputType(UpstreamLoadBalancerSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamLoadBalancerSettingsConsistentHashLbOutput{})
+	pulumi.RegisterOutputType(UpstreamLoadBalancerSettingsConsistentHashLbPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput{})
+	pulumi.RegisterOutputType(UpstreamLoadBalancerSettingsConsistentHashLbHttpCookiePtrOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceIngressSettingsOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceIngressSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecOutput{})
@@ -2318,16 +6203,55 @@ func init() {
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecNacosSourceAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecNacosSourceAuthConfigBasicOutput{})
 	pulumi.RegisterOutputType(UpstreamSourceSourceSpecNacosSourceAuthConfigBasicPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamTlsSettingsOutput{})
+	pulumi.RegisterOutputType(UpstreamTlsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecAiProviderOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecAiProviderPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecAiProviderCustomModelServiceOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecAiProviderCustomModelServicePtrOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecEcsInstanceOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecEcsInstanceArrayOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecK8SServiceOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecK8SServicePtrOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecNacosServiceOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecNacosServicePtrOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecVeFaasOutput{})
+	pulumi.RegisterOutputType(UpstreamUpstreamSpecVeFaasPtrOutput{})
+	pulumi.RegisterOutputType(UpstreamVersionDetailOutput{})
+	pulumi.RegisterOutputType(UpstreamVersionDetailArrayOutput{})
+	pulumi.RegisterOutputType(UpstreamVersionDetailLabelOutput{})
+	pulumi.RegisterOutputType(UpstreamVersionDetailLabelArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayServiceAuthSpecOutput{})
 	pulumi.RegisterOutputType(GetGatewayServiceCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetGatewayServiceCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayServiceDomainOutput{})
 	pulumi.RegisterOutputType(GetGatewayServiceDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayServiceDomainSpecOutput{})
+	pulumi.RegisterOutputType(GetUpstreamBackendTargetOutput{})
+	pulumi.RegisterOutputType(GetUpstreamBackendTargetArrayOutput{})
+	pulumi.RegisterOutputType(GetUpstreamCircuitBreakingSettingsOutput{})
+	pulumi.RegisterOutputType(GetUpstreamLoadBalancerSettingsOutput{})
+	pulumi.RegisterOutputType(GetUpstreamLoadBalancerSettingsConsistentHashLbOutput{})
+	pulumi.RegisterOutputType(GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookieOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceIngressSettingsOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecK8SSourceOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecNacosSourceOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecNacosSourceAuthConfigOutput{})
 	pulumi.RegisterOutputType(GetUpstreamSourceSourceSpecNacosSourceAuthConfigBasicOutput{})
+	pulumi.RegisterOutputType(GetUpstreamTlsSettingsOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecAiProviderOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecAiProviderCustomModelServiceOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecEcsInstanceOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecEcsInstanceArrayOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecK8SServiceOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecNacosServiceOutput{})
+	pulumi.RegisterOutputType(GetUpstreamUpstreamSpecVeFaasOutput{})
+	pulumi.RegisterOutputType(GetUpstreamVersionDetailOutput{})
+	pulumi.RegisterOutputType(GetUpstreamVersionDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetUpstreamVersionDetailLabelOutput{})
+	pulumi.RegisterOutputType(GetUpstreamVersionDetailLabelArrayOutput{})
 }

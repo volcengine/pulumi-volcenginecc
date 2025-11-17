@@ -92,7 +92,7 @@ type LookupListenerResult struct {
 	PersistenceType string `pulumi:"persistenceType"`
 	// 监听器接收请求使用的端口。取值范围为 0～65535。参数Protocol为“TCP”或“UDP”时，支持传入0，表示用全端口监听。
 	Port int `pulumi:"port"`
-	// 监听器的协议。
+	// 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
 	Protocol string `pulumi:"protocol"`
 	// CLB与后端服务器之间的连接建立超时时间。建议大于健康检查超时时间。取值范围为 4-120秒，默认为4。仅参数Protocol取HTTP或HTTPS时，本参数有效。
 	ProxyConnectTimeout int `pulumi:"proxyConnectTimeout"`
@@ -311,7 +311,7 @@ func (o LookupListenerResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupListenerResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// 监听器的协议。
+// 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
 func (o LookupListenerResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerResult) string { return v.Protocol }).(pulumi.StringOutput)
 }

@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerGroupTag {
+    /**
+     * @return 绑定的标签键信息。
+     * 
+     */
     private String key;
+    /**
+     * @return 绑定的标签值信息。
+     * 
+     */
     private String value;
 
     private GetServerGroupTag() {}
+    /**
+     * @return 绑定的标签键信息。
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return 绑定的标签值信息。
+     * 
+     */
     public String value() {
         return this.value;
     }

@@ -1773,7 +1773,7 @@ class ServerGroupServer(dict):
         :param builtins.str description: 后端服务器的描述。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255字符。不填则默认为空字符串。
         :param builtins.str instance_id: 后端服务器。取值情况如下：当 Type 取ecs时，传云服务器实例的ID。当Type 取eni时，传已挂载至云服务器的辅助网卡的ID。当 Type 取ip时，传IP地址作为后端服务器。
         :param builtins.str ip: 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
-        :param builtins.int port: 后端服务器接收请求的端口号。取值范围为1～65535。
+        :param builtins.int port: 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
         :param builtins.str type: 后端服务器实例类型。当参数Type取instance时，取值如下：ecs：云服务器实例。eni：网卡。当参数Type取ip时，本参数取值为ip。
         :param builtins.int weight: 后端服务器的权重，取值范围为0 ～ 100。不填则默认为0。0表示不会将请求转发给该后端服务器。
         """
@@ -1818,7 +1818,7 @@ class ServerGroupServer(dict):
     @pulumi.getter
     def port(self) -> Optional[builtins.int]:
         """
-        后端服务器接收请求的端口号。取值范围为1～65535。
+        后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
         """
         return pulumi.get(self, "port")
 
@@ -1844,6 +1844,10 @@ class ServerGroupTag(dict):
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 绑定的标签键信息。
+        :param builtins.str value: 绑定的标签值信息。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1852,11 +1856,17 @@ class ServerGroupTag(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[builtins.str]:
+        """
+        绑定的标签键信息。
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        """
+        绑定的标签值信息。
+        """
         return pulumi.get(self, "value")
 
 
@@ -3138,7 +3148,7 @@ class GetServerGroupServerResult(dict):
         :param builtins.str description: 后端服务器的描述。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ～ 255字符。不填则默认为空字符串。
         :param builtins.str instance_id: 后端服务器。取值情况如下：当 Type 取ecs时，传云服务器实例的ID。当Type 取eni时，传已挂载至云服务器的辅助网卡的ID。当 Type 取ip时，传IP地址作为后端服务器。
         :param builtins.str ip: 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
-        :param builtins.int port: 后端服务器接收请求的端口号。取值范围为1～65535。
+        :param builtins.int port: 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
         :param builtins.str server_id: 后端服务器ID。
         :param builtins.str type: 后端服务器实例类型。当参数Type取instance时，取值如下：ecs：云服务器实例。eni：网卡。当参数Type取ip时，本参数取值为ip。
         :param builtins.int weight: 后端服务器的权重，取值范围为0 ～ 100。不填则默认为0。0表示不会将请求转发给该后端服务器。
@@ -3188,7 +3198,7 @@ class GetServerGroupServerResult(dict):
     @pulumi.getter
     def port(self) -> builtins.int:
         """
-        后端服务器接收请求的端口号。取值范围为1～65535。
+        后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
         """
         return pulumi.get(self, "port")
 
@@ -3222,17 +3232,27 @@ class GetServerGroupTagResult(dict):
     def __init__(__self__, *,
                  key: builtins.str,
                  value: builtins.str):
+        """
+        :param builtins.str key: 绑定的标签键信息。
+        :param builtins.str value: 绑定的标签值信息。
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> builtins.str:
+        """
+        绑定的标签键信息。
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> builtins.str:
+        """
+        绑定的标签值信息。
+        """
         return pulumi.get(self, "value")
 
 

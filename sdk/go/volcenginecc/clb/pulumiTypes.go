@@ -3607,7 +3607,7 @@ type ServerGroupServer struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
 	Ip *string `pulumi:"ip"`
-	// 后端服务器接收请求的端口号。取值范围为1～65535。
+	// 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
 	Port *int `pulumi:"port"`
 	// 后端服务器实例类型。当参数Type取instance时，取值如下：ecs：云服务器实例。eni：网卡。当参数Type取ip时，本参数取值为ip。
 	Type *string `pulumi:"type"`
@@ -3633,7 +3633,7 @@ type ServerGroupServerArgs struct {
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
-	// 后端服务器接收请求的端口号。取值范围为1～65535。
+	// 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// 后端服务器实例类型。当参数Type取instance时，取值如下：ecs：云服务器实例。eni：网卡。当参数Type取ip时，本参数取值为ip。
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -3707,7 +3707,7 @@ func (o ServerGroupServerOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupServer) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// 后端服务器接收请求的端口号。取值范围为1～65535。
+// 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
 func (o ServerGroupServerOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerGroupServer) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3743,7 +3743,9 @@ func (o ServerGroupServerArrayOutput) Index(i pulumi.IntInput) ServerGroupServer
 }
 
 type ServerGroupTag struct {
-	Key   *string `pulumi:"key"`
+	// 绑定的标签键信息。
+	Key *string `pulumi:"key"`
+	// 绑定的标签值信息。
 	Value *string `pulumi:"value"`
 }
 
@@ -3759,7 +3761,9 @@ type ServerGroupTagInput interface {
 }
 
 type ServerGroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// 绑定的标签键信息。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 绑定的标签值信息。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3814,10 +3818,12 @@ func (o ServerGroupTagOutput) ToServerGroupTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// 绑定的标签键信息。
 func (o ServerGroupTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// 绑定的标签值信息。
 func (o ServerGroupTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -6463,7 +6469,7 @@ type GetServerGroupServer struct {
 	InstanceId string `pulumi:"instanceId"`
 	// 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
 	Ip string `pulumi:"ip"`
-	// 后端服务器接收请求的端口号。取值范围为1～65535。
+	// 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
 	Port int `pulumi:"port"`
 	// 后端服务器ID。
 	ServerId string `pulumi:"serverId"`
@@ -6493,7 +6499,7 @@ type GetServerGroupServerArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// 后端服务器的私网IP地址。多个后端服务器IP之间使用“&”分隔。
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// 后端服务器接收请求的端口号。取值范围为1～65535。
+	// 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
 	Port pulumi.IntInput `pulumi:"port"`
 	// 后端服务器ID。
 	ServerId pulumi.StringInput `pulumi:"serverId"`
@@ -6574,7 +6580,7 @@ func (o GetServerGroupServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerGroupServer) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// 后端服务器接收请求的端口号。取值范围为1～65535。
+// 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
 func (o GetServerGroupServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerGroupServer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -6615,7 +6621,9 @@ func (o GetServerGroupServerArrayOutput) Index(i pulumi.IntInput) GetServerGroup
 }
 
 type GetServerGroupTag struct {
-	Key   string `pulumi:"key"`
+	// 绑定的标签键信息。
+	Key string `pulumi:"key"`
+	// 绑定的标签值信息。
 	Value string `pulumi:"value"`
 }
 
@@ -6631,7 +6639,9 @@ type GetServerGroupTagInput interface {
 }
 
 type GetServerGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// 绑定的标签键信息。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 绑定的标签值信息。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6686,10 +6696,12 @@ func (o GetServerGroupTagOutput) ToGetServerGroupTagOutputWithContext(ctx contex
 	return o
 }
 
+// 绑定的标签键信息。
 func (o GetServerGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// 绑定的标签值信息。
 func (o GetServerGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }

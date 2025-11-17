@@ -20,6 +20,21 @@ export const getAddons: typeof import("./getAddons").getAddons = null as any;
 export const getAddonsOutput: typeof import("./getAddons").getAddonsOutput = null as any;
 utilities.lazyLoad(exports, ["getAddons","getAddonsOutput"], () => require("./getAddons"));
 
+export { GetPermissionArgs, GetPermissionResult, GetPermissionOutputArgs } from "./getPermission";
+export const getPermission: typeof import("./getPermission").getPermission = null as any;
+export const getPermissionOutput: typeof import("./getPermission").getPermissionOutput = null as any;
+utilities.lazyLoad(exports, ["getPermission","getPermissionOutput"], () => require("./getPermission"));
+
+export { GetPermissionsResult } from "./getPermissions";
+export const getPermissions: typeof import("./getPermissions").getPermissions = null as any;
+export const getPermissionsOutput: typeof import("./getPermissions").getPermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissions","getPermissionsOutput"], () => require("./getPermissions"));
+
+export { PermissionArgs, PermissionState } from "./permission";
+export type Permission = import("./permission").Permission;
+export const Permission: typeof import("./permission").Permission = null as any;
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +42,12 @@ const _module = {
         switch (type) {
             case "volcenginecc:vke/addon:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "volcenginecc:vke/permission:Permission":
+                return new Permission(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "vke/addon", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vke/permission", _module)

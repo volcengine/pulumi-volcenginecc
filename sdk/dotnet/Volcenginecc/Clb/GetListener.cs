@@ -189,7 +189,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// 监听器的协议。
+        /// 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
         /// </summary>
         public readonly string Protocol;
         /// <summary>

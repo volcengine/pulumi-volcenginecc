@@ -9,5 +9,8 @@ import typing
 from .addon import *
 from .get_addon import *
 from .get_addons import *
+from .get_permission import *
+from .get_permissions import *
+from .permission import *
 from ._inputs import *
 from . import outputs

@@ -470,14 +470,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 监听器的协议。
+     * 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -1379,7 +1379,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol 监听器的协议。
+         * @param protocol 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
          * 
          * @return builder
          * 
@@ -1390,7 +1390,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol 监听器的协议。
+         * @param protocol 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
          * 
          * @return builder
          * 

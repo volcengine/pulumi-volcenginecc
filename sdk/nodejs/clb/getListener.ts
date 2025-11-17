@@ -155,7 +155,7 @@ export interface GetListenerResult {
      */
     readonly port: number;
     /**
-     * 监听器的协议。
+     * 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      */
     readonly protocol: string;
     /**

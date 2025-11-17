@@ -164,7 +164,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * 监听器的协议。
+     * 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -463,7 +463,7 @@ export interface ListenerState {
      */
     port?: pulumi.Input<number>;
     /**
-     * 监听器的协议。
+     * 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -634,7 +634,7 @@ export interface ListenerArgs {
      */
     port: pulumi.Input<number>;
     /**
-     * 监听器的协议。
+     * 监听器的协议。包括：TCP、UDP、HTTP、HTTPS。
      */
     protocol: pulumi.Input<string>;
     /**

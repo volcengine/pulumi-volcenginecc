@@ -849,6 +849,105 @@ export namespace apig {
         enablePublicResolution: boolean;
     }
 
+    export interface GetUpstreamBackendTarget {
+        /**
+         * 健康检查状态。
+         */
+        healthStatus: string;
+        /**
+         * 后端节点IP。
+         */
+        ip: string;
+        /**
+         * 后端节点端口。
+         */
+        port: number;
+    }
+
+    export interface GetUpstreamCircuitBreakingSettings {
+        /**
+         * 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+         */
+        baseEjectionTime: number;
+        /**
+         * 连续失败次数。取值限制为1~100。默认值为5。
+         */
+        consecutiveErrors: number;
+        /**
+         * 开启。
+         */
+        enable: boolean;
+        /**
+         * 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+         */
+        interval: number;
+        /**
+         * 最大熔断比例。取值限制为1~100。默认值为20%。
+         */
+        maxEjectionPercent: number;
+        /**
+         * 最小健康比例。取值限制为0~100。默认值为60%。
+         */
+        minHealthPercent: number;
+    }
+
+    export interface GetUpstreamLoadBalancerSettings {
+        /**
+         * 一致性哈希负载均衡。
+         */
+        consistentHashLb: outputs.apig.GetUpstreamLoadBalancerSettingsConsistentHashLb;
+        /**
+         * 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+         */
+        lbPolicy: string;
+        /**
+         * 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+         */
+        simpleLb: string;
+        /**
+         * 预热时间。单位为秒。
+         */
+        warmupDuration: number;
+    }
+
+    export interface GetUpstreamLoadBalancerSettingsConsistentHashLb {
+        /**
+         * 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+         */
+        hashKey: string;
+        /**
+         * Cookie。
+         */
+        httpCookie: outputs.apig.GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie;
+        /**
+         * 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        httpHeaderName: string;
+        /**
+         * 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        httpQueryParameterName: string;
+        /**
+         * 源IP地址。
+         */
+        useSourceIp: string;
+    }
+
+    export interface GetUpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+        /**
+         * 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+         */
+        name: string;
+        /**
+         * 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        path: string;
+        /**
+         * 有效期。单位为秒。
+         */
+        ttl: number;
+    }
+
     export interface GetUpstreamSourceIngressSettings {
         /**
          * 是否启用所有Ingress类。
@@ -935,6 +1034,259 @@ export namespace apig {
         username: string;
     }
 
+    export interface GetUpstreamTlsSettings {
+        /**
+         * SNI。留空时会将访问网关的域名透传到upstream。
+         */
+        sni: string;
+        /**
+         * TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+         */
+        tlsMode: string;
+    }
+
+    export interface GetUpstreamUpstreamSpec {
+        /**
+         * AI模型代理。
+         */
+        aiProvider: outputs.apig.GetUpstreamUpstreamSpecAiProvider;
+        /**
+         * 云服务器。
+         */
+        ecsInstances: outputs.apig.GetUpstreamUpstreamSpecEcsInstance[];
+        /**
+         * 容器服务。
+         */
+        k8SService: outputs.apig.GetUpstreamUpstreamSpecK8SService;
+        /**
+         * 注册中心。
+         */
+        nacosService: outputs.apig.GetUpstreamUpstreamSpecNacosService;
+        /**
+         * 函数服务。
+         */
+        veFaas: outputs.apig.GetUpstreamUpstreamSpecVeFaas;
+    }
+
+    export interface GetUpstreamUpstreamSpecAiProvider {
+        /**
+         * 模型地址。
+         */
+        baseUrl: string;
+        /**
+         * 火山自部署模型服务。
+         */
+        customModelService: outputs.apig.GetUpstreamUpstreamSpecAiProviderCustomModelService;
+        /**
+         * 模型服务商名称。
+         */
+        name: string;
+        /**
+         * 模型API key。
+         */
+        token: string;
+    }
+
+    export interface GetUpstreamUpstreamSpecAiProviderCustomModelService {
+        /**
+         * 模型服务名称。
+         */
+        name: string;
+        /**
+         * 命名空间。
+         */
+        namespace: string;
+        /**
+         * 端口。
+         */
+        port: number;
+    }
+
+    export interface GetUpstreamUpstreamSpecEcsInstance {
+        /**
+         * 云服务器ID。
+         */
+        ecsId: string;
+        /**
+         * IP地址。
+         */
+        ip: string;
+        /**
+         * 端口。
+         */
+        port: number;
+    }
+
+    export interface GetUpstreamUpstreamSpecK8SService {
+        /**
+         * 容器服务名称。长度限制为2~63个字符。
+         */
+        name: string;
+        /**
+         * 命名空间。长度限制为2~63个字符。
+         */
+        namespace: string;
+        /**
+         * 端口。
+         */
+        port: number;
+    }
+
+    export interface GetUpstreamUpstreamSpecNacosService {
+        /**
+         * 分组。
+         */
+        group: string;
+        /**
+         * 命名空间。
+         */
+        namespace: string;
+        /**
+         * 命名空间ID。
+         */
+        namespaceId: string;
+        /**
+         * 服务。
+         */
+        service: string;
+        /**
+         * Upstream来源ID。
+         */
+        upstreamSourceId: string;
+    }
+
+    export interface GetUpstreamUpstreamSpecVeFaas {
+        /**
+         * 函数ID。
+         */
+        functionId: string;
+    }
+
+    export interface GetUpstreamVersionDetail {
+        /**
+         * 标签。
+         */
+        labels: outputs.apig.GetUpstreamVersionDetailLabel[];
+        /**
+         * 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+         */
+        name: string;
+        /**
+         * 更新时间。
+         */
+        updateTime: string;
+    }
+
+    export interface GetUpstreamVersionDetailLabel {
+        /**
+         * 键。
+         */
+        key: string;
+        /**
+         * 值。
+         */
+        value: string;
+    }
+
+    export interface UpstreamBackendTarget {
+        /**
+         * 健康检查状态。
+         */
+        healthStatus: string;
+        /**
+         * 后端节点IP。
+         */
+        ip: string;
+        /**
+         * 后端节点端口。
+         */
+        port: number;
+    }
+
+    export interface UpstreamCircuitBreakingSettings {
+        /**
+         * 最小弹出时间。单位为毫秒。取值限制为1~86400000。默认值为30秒。
+         */
+        baseEjectionTime: number;
+        /**
+         * 连续失败次数。取值限制为1~100。默认值为5。
+         */
+        consecutiveErrors: number;
+        /**
+         * 开启。
+         */
+        enable: boolean;
+        /**
+         * 计算周期。单位为毫秒。取值限制为1~86400000。默认值为10秒。
+         */
+        interval: number;
+        /**
+         * 最大熔断比例。取值限制为1~100。默认值为20%。
+         */
+        maxEjectionPercent: number;
+        /**
+         * 最小健康比例。取值限制为0~100。默认值为60%。
+         */
+        minHealthPercent: number;
+    }
+
+    export interface UpstreamLoadBalancerSettings {
+        /**
+         * 一致性哈希负载均衡。
+         */
+        consistentHashLb: outputs.apig.UpstreamLoadBalancerSettingsConsistentHashLb;
+        /**
+         * 负载均衡策略，取值：SimpleLB：简单负载均衡。ConsistentHashLB：一致性哈希负载均衡。
+         */
+        lbPolicy: string;
+        /**
+         * 简单负载均衡，取值：ROUND*ROBIN：轮询。LEAST*CONN：最小连接数。RANDOM：随机。
+         */
+        simpleLb: string;
+        /**
+         * 预热时间。单位为秒。
+         */
+        warmupDuration: number;
+    }
+
+    export interface UpstreamLoadBalancerSettingsConsistentHashLb {
+        /**
+         * 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
+         */
+        hashKey: string;
+        /**
+         * Cookie。
+         */
+        httpCookie: outputs.apig.UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie;
+        /**
+         * 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        httpHeaderName: string;
+        /**
+         * 参数。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        httpQueryParameterName: string;
+        /**
+         * 源IP地址。
+         */
+        useSourceIp: string;
+    }
+
+    export interface UpstreamLoadBalancerSettingsConsistentHashLbHttpCookie {
+        /**
+         * 名称。支持ASCII可打印字符，长度限制为0~256个字符。
+         */
+        name: string;
+        /**
+         * 路径。支持ASCII可打印字符，长度限制为1~256个字符。
+         */
+        path: string;
+        /**
+         * 有效期。单位为秒。
+         */
+        ttl: number;
+    }
+
     export interface UpstreamSourceIngressSettings {
         /**
          * 是否启用所有Ingress类。
@@ -1019,6 +1371,154 @@ export namespace apig {
          * 用户名。
          */
         username: string;
+    }
+
+    export interface UpstreamTlsSettings {
+        /**
+         * SNI。留空时会将访问网关的域名透传到upstream。
+         */
+        sni: string;
+        /**
+         * TLS模式，取值：DISABLE：关闭TLS。SIMPLE：单向TLS。
+         */
+        tlsMode: string;
+    }
+
+    export interface UpstreamUpstreamSpec {
+        /**
+         * AI模型代理。
+         */
+        aiProvider: outputs.apig.UpstreamUpstreamSpecAiProvider;
+        ecsInstances: outputs.apig.UpstreamUpstreamSpecEcsInstance[];
+        /**
+         * 容器服务。
+         */
+        k8SService: outputs.apig.UpstreamUpstreamSpecK8SService;
+        /**
+         * 注册中心。
+         */
+        nacosService: outputs.apig.UpstreamUpstreamSpecNacosService;
+        /**
+         * 函数服务。
+         */
+        veFaas: outputs.apig.UpstreamUpstreamSpecVeFaas;
+    }
+
+    export interface UpstreamUpstreamSpecAiProvider {
+        /**
+         * 模型地址。
+         */
+        baseUrl: string;
+        /**
+         * 火山自部署模型服务。
+         */
+        customModelService: outputs.apig.UpstreamUpstreamSpecAiProviderCustomModelService;
+        /**
+         * 模型服务商名称。
+         */
+        name: string;
+        /**
+         * 模型API key。
+         */
+        token: string;
+    }
+
+    export interface UpstreamUpstreamSpecAiProviderCustomModelService {
+        /**
+         * 模型服务名称。
+         */
+        name: string;
+        /**
+         * 命名空间。
+         */
+        namespace: string;
+        /**
+         * 端口。
+         */
+        port: number;
+    }
+
+    export interface UpstreamUpstreamSpecEcsInstance {
+        /**
+         * 云服务器ID。
+         */
+        ecsId: string;
+        /**
+         * IP地址。
+         */
+        ip: string;
+        /**
+         * 端口。
+         */
+        port: number;
+    }
+
+    export interface UpstreamUpstreamSpecK8SService {
+        /**
+         * 容器服务名称。长度限制为2~63个字符。
+         */
+        name: string;
+        /**
+         * 命名空间。长度限制为2~63个字符。
+         */
+        namespace: string;
+        /**
+         * 端口。
+         */
+        port: number;
+    }
+
+    export interface UpstreamUpstreamSpecNacosService {
+        /**
+         * 分组。
+         */
+        group: string;
+        /**
+         * 命名空间。
+         */
+        namespace: string;
+        /**
+         * 命名空间ID。
+         */
+        namespaceId: string;
+        /**
+         * 服务。
+         */
+        service: string;
+        /**
+         * Upstream来源ID。
+         */
+        upstreamSourceId: string;
+    }
+
+    export interface UpstreamUpstreamSpecVeFaas {
+        /**
+         * 函数ID。
+         */
+        functionId: string;
+    }
+
+    export interface UpstreamVersionDetail {
+        labels: outputs.apig.UpstreamVersionDetailLabel[];
+        /**
+         * 版本名称。支持大小写字母、数字和中划线（-），长度限制为2~63个字符。不能以中划线（-）开头。
+         */
+        name: string;
+        /**
+         * 更新时间。
+         */
+        updateTime: string;
+    }
+
+    export interface UpstreamVersionDetailLabel {
+        /**
+         * 键。
+         */
+        key: string;
+        /**
+         * 值。
+         */
+        value: string;
     }
 
 }
@@ -1301,6 +1801,161 @@ export namespace autoscaling {
          * 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
          */
         volumeType: string;
+    }
+
+}
+
+export namespace cdn {
+    export interface GetShareConfigAllowIpAccessRule {
+        /**
+         * 表示一个条目列表。列表中的每个条目是一个 IP 地址或 CIDR 网段。IP 地址和网段可以是 IPv4 和 IPv6 格式。列表的额度如下：对于 AddSharedConfig，列表中条目的数量不能超过 30,000 个。
+         */
+        rules: string[];
+    }
+
+    export interface GetShareConfigAllowRefererAccessRule {
+        /**
+         * 表示是否不允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。false：表示允许。该参数的默认值是 false。
+         */
+        allowEmpty: boolean;
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType: outputs.cdn.GetShareConfigAllowRefererAccessRuleCommonType;
+    }
+
+    export interface GetShareConfigAllowRefererAccessRuleCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase: boolean;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules: string[];
+    }
+
+    export interface GetShareConfigCommonMatchs {
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType: outputs.cdn.GetShareConfigCommonMatchsCommonType;
+    }
+
+    export interface GetShareConfigCommonMatchsCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase: boolean;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules: string[];
+    }
+
+    export interface GetShareConfigDenyIpAccessRule {
+        /**
+         * 表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access_rule。
+         */
+        rules: string[];
+    }
+
+    export interface GetShareConfigDenyRefererAccessRule {
+        /**
+         * 表示是否允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示允许。false：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。该参数的默认值是 true。
+         */
+        allowEmpty: boolean;
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType: outputs.cdn.GetShareConfigDenyRefererAccessRuleCommonType;
+    }
+
+    export interface GetShareConfigDenyRefererAccessRuleCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase: boolean;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules: string[];
+    }
+
+    export interface ShareConfigAllowIpAccessRule {
+        /**
+         * 表示一个条目列表。列表中的每个条目是一个 IP 地址或 CIDR 网段。IP 地址和网段可以是 IPv4 和 IPv6 格式。列表的额度如下：对于 AddSharedConfig，列表中条目的数量不能超过 30,000 个。
+         */
+        rules: string[];
+    }
+
+    export interface ShareConfigAllowRefererAccessRule {
+        /**
+         * 表示是否不允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。false：表示允许。该参数的默认值是 false。
+         */
+        allowEmpty: boolean;
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType: outputs.cdn.ShareConfigAllowRefererAccessRuleCommonType;
+    }
+
+    export interface ShareConfigAllowRefererAccessRuleCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase: boolean;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules: string[];
+    }
+
+    export interface ShareConfigCommonMatchs {
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType: outputs.cdn.ShareConfigCommonMatchsCommonType;
+    }
+
+    export interface ShareConfigCommonMatchsCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase: boolean;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules: string[];
+    }
+
+    export interface ShareConfigDenyIpAccessRule {
+        /**
+         * 表示一个 IP 黑名单的配置，对应 ConfigType 是 deny*ip*access_rule。
+         */
+        rules: string[];
+    }
+
+    export interface ShareConfigDenyRefererAccessRule {
+        /**
+         * 表示是否允许 Referer 头部为空或者不包含 Referer 头部的请求。该参数有以下取值：true：表示允许。false：表示不允许。如果请求的 Referer 头部为空或者不包含 Referer 头部，内容分发网络拒绝请求。该参数的默认值是 true。
+         */
+        allowEmpty: boolean;
+        /**
+         * 表示该通用列表的内容。
+         */
+        commonType: outputs.cdn.ShareConfigDenyRefererAccessRuleCommonType;
+    }
+
+    export interface ShareConfigDenyRefererAccessRuleCommonType {
+        /**
+         * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
+         */
+        ignoreCase: boolean;
+        /**
+         * 表示一个条目列表，列表中的每个条目是一个字符串。列表的额度如下：列表最多可以包含 4,000 个条目。所有条目的总长度不能超过 200,000 个字符。CDN 在创建该全局配置时，会将列表中重复的条目删除。重复条目不占额度。
+         */
+        rules: string[];
     }
 
 }
@@ -1946,7 +2601,7 @@ export namespace clb {
          */
         ip: string;
         /**
-         * 后端服务器接收请求的端口号。取值范围为1～65535。
+         * 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
          */
         port: number;
         /**
@@ -1964,7 +2619,13 @@ export namespace clb {
     }
 
     export interface GetServerGroupTag {
+        /**
+         * 绑定的标签键信息。
+         */
         key: string;
+        /**
+         * 绑定的标签值信息。
+         */
         value: string;
     }
 
@@ -2294,7 +2955,7 @@ export namespace clb {
          */
         ip: string;
         /**
-         * 后端服务器接收请求的端口号。取值范围为1～65535。
+         * 后端服务器接收请求的端口号。取值范围为1～65535。参数AnyPortEnabled为“off”，且需要同时添加后端服务器时，该参数必须传入；参数AnyPortEnabled为“on”时，该参数默认为0。
          */
         port: number;
         /**
@@ -2308,7 +2969,13 @@ export namespace clb {
     }
 
     export interface ServerGroupTag {
+        /**
+         * 绑定的标签键信息。
+         */
         key: string;
+        /**
+         * 绑定的标签值信息。
+         */
         value: string;
     }
 
@@ -3959,6 +4626,275 @@ export namespace iam {
          * 标签值。
          */
         value: string;
+    }
+
+}
+
+export namespace kafka {
+    export interface GetTopicAccessPolicy {
+        /**
+         * SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。
+         */
+        accessPolicy: string;
+        /**
+         * SASL 用户名称。
+         */
+        userName: string;
+    }
+
+    export interface GetTopicTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface TopicAccessPolicy {
+        /**
+         * SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。
+         */
+        accessPolicy: string;
+        /**
+         * SASL 用户名称。
+         */
+        userName: string;
+    }
+
+    export interface TopicTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace natgateway {
+    export interface GetNgwEipAddress {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的地址。
+         */
+        eipAddress: string;
+        /**
+         * 公网IP的使用状态。Idle：未使用。UsedBySnat：被SNAT规则使用。UsedByDnat：被DNAT规则使用。UsedByNat：被SNAT/DNAT规则同时使用。
+         */
+        usingStatus: string;
+    }
+
+    export interface GetNgwNatIpAddress {
+        /**
+         * 中转Ip地址。
+         */
+        natIpAddress: string;
+        /**
+         * 中转Ip id。
+         */
+        natIpId: string;
+    }
+
+    export interface GetNgwTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface NgwEipAddress {
+        /**
+         * 公网IP的ID。
+         */
+        allocationId: string;
+        /**
+         * 公网IP的地址。
+         */
+        eipAddress: string;
+        /**
+         * 公网IP的使用状态。Idle：未使用。UsedBySnat：被SNAT规则使用。UsedByDnat：被DNAT规则使用。UsedByNat：被SNAT/DNAT规则同时使用。
+         */
+        usingStatus: string;
+    }
+
+    export interface NgwNatIpAddress {
+        /**
+         * 中转Ip地址。
+         */
+        natIpAddress: string;
+        /**
+         * 中转Ip id。
+         */
+        natIpId: string;
+    }
+
+    export interface NgwTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace privatezone {
+    export interface GetResolverEndpointIpConfig {
+        /**
+         * 终端节点 IP 地址所在的可用区。为了保证高可用，建议您至少添加 2 个可用区。
+         */
+        azId: string;
+        /**
+         * 终端节点的 IPv4 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。
+         */
+        ip: string;
+        /**
+         * 终端节点的 IPv6 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。
+         */
+        ipv6: string;
+        /**
+         * 终端节点 IP 地址所在的子网 ID。
+         */
+        subnetId: string;
+    }
+
+    export interface GetResolverEndpointTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetResolverRuleForwardIP {
+        /**
+         * VPC 外部的 DNS 服务器的 IP 地址。
+         */
+        ip: string;
+        /**
+         * VPC 外部的 DNS 服务器的端口。
+         */
+        port: number;
+    }
+
+    export interface GetResolverRuleTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetResolverRuleVpC {
+        /**
+         * 创建该 VPC 的火山引擎账号 ID。
+         */
+        accountId: string;
+        /**
+         * VPC 的地域。
+         */
+        region: string;
+        /**
+         * VPC 的地域的名称。
+         */
+        regionName: string;
+        /**
+         * VPC 的 ID。
+         */
+        vpcId: string;
+    }
+
+    export interface ResolverEndpointIpConfig {
+        /**
+         * 终端节点 IP 地址所在的可用区。为了保证高可用，建议您至少添加 2 个可用区。
+         */
+        azId: string;
+        /**
+         * 终端节点的 IPv4 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。
+         */
+        ip: string;
+        /**
+         * 终端节点的 IPv6 地址。如果您不设置该参数，系统会自动分配一个 IP 地址。您最多只能添加 6 个 IP 地址。
+         */
+        ipv6: string;
+        /**
+         * 终端节点 IP 地址所在的子网 ID。
+         */
+        subnetId: string;
+    }
+
+    export interface ResolverEndpointTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface ResolverRuleForwardIP {
+        /**
+         * VPC 外部的 DNS 服务器的 IP 地址。
+         */
+        ip: string;
+        /**
+         * VPC 外部的 DNS 服务器的端口。
+         */
+        port: number;
+    }
+
+    export interface ResolverRuleTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface ResolverRuleVpC {
+        /**
+         * 创建该 VPC 的火山引擎账号 ID。
+         */
+        accountId: string;
+        /**
+         * VPC 的地域。
+         */
+        region: string;
+        /**
+         * VPC 的地域的名称。
+         */
+        regionName: string;
+        /**
+         * VPC 的 ID。
+         */
+        vpcId: string;
     }
 
 }

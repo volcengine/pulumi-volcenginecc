@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.vke.inputs.GetAddonArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetAddonPlainArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetPermissionArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetPermissionPlainArgs;
 import com.volcengine.volcenginecc.vke.outputs.GetAddonResult;
 import com.volcengine.volcenginecc.vke.outputs.GetAddonsResult;
+import com.volcengine.volcenginecc.vke.outputs.GetPermissionResult;
+import com.volcengine.volcenginecc.vke.outputs.GetPermissionsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VkeFunctions {
@@ -100,5 +104,89 @@ public final class VkeFunctions {
      */
     public static CompletableFuture<GetAddonsResult> getAddonsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vke/getAddons:getAddons", TypeShape.of(GetAddonsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionResult> getPermission(GetPermissionArgs args) {
+        return getPermission(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static CompletableFuture<GetPermissionResult> getPermissionPlain(GetPermissionPlainArgs args) {
+        return getPermissionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionResult> getPermission(GetPermissionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getPermission:getPermission", TypeShape.of(GetPermissionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionResult> getPermission(GetPermissionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getPermission:getPermission", TypeShape.of(GetPermissionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static CompletableFuture<GetPermissionResult> getPermissionPlain(GetPermissionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getPermission:getPermission", TypeShape.of(GetPermissionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionsResult> getPermissions() {
+        return getPermissions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain() {
+        return getPermissionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionsResult> getPermissions(InvokeArgs args) {
+        return getPermissions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(InvokeArgs args) {
+        return getPermissionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionsResult> getPermissions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static Output<GetPermissionsResult> getPermissions(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Permission
+     * 
+     */
+    public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
     }
 }
