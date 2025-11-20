@@ -82,6 +82,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     */
+    public readonly policy!: pulumi.Output<string>;
+    /**
      * 存储桶所属项目。
      */
     public readonly projectName!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["lifecycleConfigs"] = state ? state.lifecycleConfigs : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
             resourceInputs["storageClass"] = state ? state.storageClass : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -130,6 +135,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["enableVersionStatus"] = args ? args.enableVersionStatus : undefined;
             resourceInputs["lifecycleConfigs"] = args ? args.lifecycleConfigs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -186,6 +192,10 @@ export interface BucketState {
      */
     name?: pulumi.Input<string>;
     /**
+     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     */
+    policy?: pulumi.Input<string>;
+    /**
      * 存储桶所属项目。
      */
     projectName?: pulumi.Input<string>;
@@ -222,6 +232,10 @@ export interface BucketArgs {
      * 桶名。
      */
     name: pulumi.Input<string>;
+    /**
+     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     */
+    policy?: pulumi.Input<string>;
     /**
      * 存储桶所属项目。
      */

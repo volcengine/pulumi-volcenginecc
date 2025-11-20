@@ -28,7 +28,7 @@ class GetBucketResult:
     """
     A collection of values returned by getBucket.
     """
-    def __init__(__self__, acl=None, acl_grant=None, az_redundancy=None, bucket_type=None, creation_date=None, enable_version_status=None, extranet_endpoint=None, id=None, intranet_endpoint=None, lifecycle_configs=None, location=None, name=None, project_name=None, storage_class=None, tags=None):
+    def __init__(__self__, acl=None, acl_grant=None, az_redundancy=None, bucket_type=None, creation_date=None, enable_version_status=None, extranet_endpoint=None, id=None, intranet_endpoint=None, lifecycle_configs=None, location=None, name=None, policy=None, project_name=None, storage_class=None, tags=None):
         if acl and not isinstance(acl, dict):
             raise TypeError("Expected argument 'acl' to be a dict")
         pulumi.set(__self__, "acl", acl)
@@ -65,6 +65,9 @@ class GetBucketResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if policy and not isinstance(policy, str):
+            raise TypeError("Expected argument 'policy' to be a str")
+        pulumi.set(__self__, "policy", policy)
         if project_name and not isinstance(project_name, str):
             raise TypeError("Expected argument 'project_name' to be a str")
         pulumi.set(__self__, "project_name", project_name)
@@ -169,6 +172,14 @@ class GetBucketResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def policy(self) -> builtins.str:
+        """
+        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        """
+        return pulumi.get(self, "policy")
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> builtins.str:
         """
@@ -211,6 +222,7 @@ class AwaitableGetBucketResult(GetBucketResult):
             lifecycle_configs=self.lifecycle_configs,
             location=self.location,
             name=self.name,
+            policy=self.policy,
             project_name=self.project_name,
             storage_class=self.storage_class,
             tags=self.tags)
@@ -242,6 +254,7 @@ def get_bucket(id: Optional[builtins.str] = None,
         lifecycle_configs=pulumi.get(__ret__, 'lifecycle_configs'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        policy=pulumi.get(__ret__, 'policy'),
         project_name=pulumi.get(__ret__, 'project_name'),
         storage_class=pulumi.get(__ret__, 'storage_class'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -270,6 +283,7 @@ def get_bucket_output(id: Optional[pulumi.Input[builtins.str]] = None,
         lifecycle_configs=pulumi.get(__response__, 'lifecycle_configs'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        policy=pulumi.get(__response__, 'policy'),
         project_name=pulumi.get(__response__, 'project_name'),
         storage_class=pulumi.get(__response__, 'storage_class'),
         tags=pulumi.get(__response__, 'tags')))

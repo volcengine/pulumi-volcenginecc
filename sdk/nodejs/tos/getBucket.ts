@@ -76,6 +76,10 @@ export interface GetBucketResult {
      */
     readonly name: string;
     /**
+     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     */
+    readonly policy: string;
+    /**
      * 存储桶所属项目。
      */
     readonly projectName: string;

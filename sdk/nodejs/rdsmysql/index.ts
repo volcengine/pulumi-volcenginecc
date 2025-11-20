@@ -10,6 +10,11 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
+export { DbAccountArgs, DbAccountState } from "./dbAccount";
+export type DbAccount = import("./dbAccount").DbAccount;
+export const DbAccount: typeof import("./dbAccount").DbAccount = null as any;
+utilities.lazyLoad(exports, ["DbAccount"], () => require("./dbAccount"));
+
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
@@ -20,6 +25,16 @@ export const getDatabases: typeof import("./getDatabases").getDatabases = null a
 export const getDatabasesOutput: typeof import("./getDatabases").getDatabasesOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabases","getDatabasesOutput"], () => require("./getDatabases"));
 
+export { GetDbAccountArgs, GetDbAccountResult, GetDbAccountOutputArgs } from "./getDbAccount";
+export const getDbAccount: typeof import("./getDbAccount").getDbAccount = null as any;
+export const getDbAccountOutput: typeof import("./getDbAccount").getDbAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDbAccount","getDbAccountOutput"], () => require("./getDbAccount"));
+
+export { GetDbAccountsResult } from "./getDbAccounts";
+export const getDbAccounts: typeof import("./getDbAccounts").getDbAccounts = null as any;
+export const getDbAccountsOutput: typeof import("./getDbAccounts").getDbAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getDbAccounts","getDbAccountsOutput"], () => require("./getDbAccounts"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +42,12 @@ const _module = {
         switch (type) {
             case "volcenginecc:rdsmysql/database:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "volcenginecc:rdsmysql/dbAccount:DbAccount":
+                return new DbAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "rdsmysql/database", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rdsmysql/dbAccount", _module)

@@ -1712,11 +1712,11 @@ export namespace autoscaling {
 
     export interface GetScalingConfigurationInstanceTypeOverride {
         /**
-         * 指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+         * 指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
          */
         instanceType: string;
         /**
-         * 指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+         * 指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
          */
         priceLimit: number;
     }
@@ -1734,15 +1734,15 @@ export namespace autoscaling {
 
     export interface GetScalingConfigurationVolume {
         /**
-         * 云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+         * 云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
          */
         deleteWithInstance: boolean;
         /**
-         * 云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
+         * 云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
          */
         size: number;
         /**
-         * 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+         * 云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
          */
         volumeType: string;
     }
@@ -1768,11 +1768,11 @@ export namespace autoscaling {
 
     export interface ScalingConfigurationInstanceTypeOverride {
         /**
-         * 指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+         * 指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
          */
         instanceType: string;
         /**
-         * 指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+         * 指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
          */
         priceLimit: number;
     }
@@ -1790,15 +1790,15 @@ export namespace autoscaling {
 
     export interface ScalingConfigurationVolume {
         /**
-         * 云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+         * 云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
          */
         deleteWithInstance: boolean;
         /**
-         * 云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
+         * 云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
          */
         size: number;
         /**
-         * 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+         * 云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
          */
         volumeType: string;
     }
@@ -3285,28 +3285,28 @@ export namespace ecs {
         allocationId: string;
         /**
          * 公网IP的带宽上限，默认值为1，单位：Mbps。
-         * - `ChargeType`传入`PayByBandwidth`：取值范围1～500。
-         * - `ChargeType`传入`PayByTraffic`：取值范围1～200。
+         *     - `ChargeType`传入`PayByBandwidth`：取值范围1～500。
+         *     - `ChargeType`传入`PayByTraffic`：取值范围1～200。
          */
         bandwidthMbps: number;
         /**
          * 共享带宽包的ID，表示将公网IP加入到共享带宽包。
-         * - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。
-         * - 公网IP加入到共享带宽包必须同时满足如下条件：
-         *   - 二者的安全防护类型相同。
-         *   - 二者的地域相同。
-         *   - 公网IP的计费方式必须是按量计费。
-         *   - 共享带宽包为IPv4类型。
+         *     - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。
+         *     - 公网IP加入到共享带宽包必须同时满足如下条件：
+         *       - 二者的安全防护类型相同。
+         *       - 二者的地域相同。
+         *       - 公网IP的计费方式必须是按量计费。
+         *       - 共享带宽包为IPv4类型。
          */
         bandwidthPackageId: string;
         /**
          * 公网IP的计费方式，取值：
-         * - PayByBandwidth（默认）：按量计费-按带宽上限计费。
-         * - PayByTraffic：按量计费-按实际流量计费。
-         * - PrePaid：包年包月。
-         * :::tip
-         * 实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。
-         * :::
+         *     - PayByBandwidth（默认）：按量计费-按带宽上限计费。
+         *     - PayByTraffic：按量计费-按实际流量计费。
+         *     - PrePaid：包年包月。
+         *   
+         *   **提示:**
+         *   实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。
          */
         chargeType: string;
         /**
@@ -3315,13 +3315,13 @@ export namespace ecs {
         ipAddress: string;
         /**
          * 公网IP的线路类型，默认为BGP。取值：
-         * - BGP：BGP（多线）。
-         * - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：
-         *   - ChinaMobile：中国移动静态单线。
-         *   - ChinaTelecom：中国电信静态单线。
-         *   - ChinaUnicom：中国联通静态单线。
-         * - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。
-         * - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。
+         *     - BGP：BGP（多线）。
+         *     - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：
+         *       - ChinaMobile：中国移动静态单线。
+         *       - ChinaTelecom：中国电信静态单线。
+         *       - ChinaUnicom：中国联通静态单线。
+         *     - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。
+         *     - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。
          */
         isp: string;
         /**
@@ -3699,28 +3699,28 @@ export namespace ecs {
         allocationId: string;
         /**
          * 公网IP的带宽上限，默认值为1，单位：Mbps。
-         * - `ChargeType`传入`PayByBandwidth`：取值范围1～500。
-         * - `ChargeType`传入`PayByTraffic`：取值范围1～200。
+         *     - `ChargeType`传入`PayByBandwidth`：取值范围1～500。
+         *     - `ChargeType`传入`PayByTraffic`：取值范围1～200。
          */
         bandwidthMbps: number;
         /**
          * 共享带宽包的ID，表示将公网IP加入到共享带宽包。
-         * - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。
-         * - 公网IP加入到共享带宽包必须同时满足如下条件：
-         *   - 二者的安全防护类型相同。
-         *   - 二者的地域相同。
-         *   - 公网IP的计费方式必须是按量计费。
-         *   - 共享带宽包为IPv4类型。
+         *     - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。
+         *     - 公网IP加入到共享带宽包必须同时满足如下条件：
+         *       - 二者的安全防护类型相同。
+         *       - 二者的地域相同。
+         *       - 公网IP的计费方式必须是按量计费。
+         *       - 共享带宽包为IPv4类型。
          */
         bandwidthPackageId: string;
         /**
          * 公网IP的计费方式，取值：
-         * - PayByBandwidth（默认）：按量计费-按带宽上限计费。
-         * - PayByTraffic：按量计费-按实际流量计费。
-         * - PrePaid：包年包月。
-         * :::tip
-         * 实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。
-         * :::
+         *     - PayByBandwidth（默认）：按量计费-按带宽上限计费。
+         *     - PayByTraffic：按量计费-按实际流量计费。
+         *     - PrePaid：包年包月。
+         *   
+         *   **提示:**
+         *   实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。
          */
         chargeType: string;
         /**
@@ -3729,13 +3729,13 @@ export namespace ecs {
         ipAddress: string;
         /**
          * 公网IP的线路类型，默认为BGP。取值：
-         * - BGP：BGP（多线）。
-         * - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：
-         *   - ChinaMobile：中国移动静态单线。
-         *   - ChinaTelecom：中国电信静态单线。
-         *   - ChinaUnicom：中国联通静态单线。
-         * - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。
-         * - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。
+         *     - BGP：BGP（多线）。
+         *     - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：
+         *       - ChinaMobile：中国移动静态单线。
+         *       - ChinaTelecom：中国电信静态单线。
+         *       - ChinaUnicom：中国联通静态单线。
+         *     - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。
+         *     - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。
          */
         isp: string;
         /**
@@ -4919,6 +4919,56 @@ export namespace rdsmysql {
         host: string;
     }
 
+    export interface DbAccountAccountPrivilege {
+        /**
+         * 数据库权限的类型。取值范围：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。Global：全局权限。None：清除账号权限。说明该参数作为请求参数时，有以下注意事项：仅支持在作为请求参数时允许取值为 Global 和 None。权限类型为单选，传多个时会报错。仅 GrantDBAccountPrivilege 接口支持为 AccountPrivilege 取值 None。当 AccountPrivilege 取值 None 时，如果 DBName 的取值为空字符串，则清除账号的所有全局权限。如果 DBName 的取值为指定数据库，则清除账号在该数据库的所有权限。
+         */
+        accountPrivilege: string;
+        /**
+         * 账号的权限信息。当 AccountPrivilege 取值为 Custom 时，该字段的取值范围如下：SELECT INSERT UPDATE DELETE CREATE DROP REFERENCES INDEX ALTER CREATE TEMPORARY TABLES LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW EVENT TRIGGER CREATE ROUTINE ALTER ROUTINE 当 AccountPrivilege 取值为 Global 时，该字段的取值范围如下：PROCESS REPLICATION SLAVE REPLICATION CLIENT SELECT INSERT UPDATE DELETE CREATE DROP RELOAD REFERENCES INDEX ALTER LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW CREATE ROUTINE ALTER ROUTINE CREATE USER EVENT TRIGGER SHOW DATABASES CREATE TEMPORARY TABLES 说明  作为请求参数时，在 AccountPrivilege 取值为 Custom 时必填。 在 CreateDBAccount 接口中，会自动为账号赋予 REPLICATION SLAVE、PROCESS 和 REPLICATION CLIENT 全局权限。 可取多个值。使用英文逗号（,）分隔多个权限。写入方式为覆盖方式。
+         */
+        accountPrivilegeDetails: string[];
+        /**
+         * 需修改账号授权的或账号已有权限的数据库名称。说明在 CreateDBAccount 和 GrantDBAccountPrivilege 接口中作为请求参数时，需确认 DBName 对应的数据库已存在。进行全局授权的修改时，应为 DBName 传空字符。
+         */
+        dbName: string;
+    }
+
+    export interface DbAccountTableColumnPrivilege {
+        columnPrivileges: outputs.rdsmysql.DbAccountTableColumnPrivilegeColumnPrivilege[];
+        /**
+         * 对账号进行权限设置的表所属的数据库的名称。
+         */
+        dbName: string;
+        tablePrivileges: outputs.rdsmysql.DbAccountTableColumnPrivilegeTablePrivilege[];
+    }
+
+    export interface DbAccountTableColumnPrivilegeColumnPrivilege {
+        /**
+         * 对账号进行列权限设置的权限信息。取值（可多选）：INSERT REFERENCES SELECT UPDATE说明多个权限之间使用英文逗号（,）分隔。
+         */
+        accountPrivilegeDetails: string[];
+        /**
+         * 对账号进行列权限设置的列的名称。
+         */
+        columnName: string;
+        /**
+         * 对账号进行列权限设置的表所属的数据库的名称。
+         */
+        tableName: string;
+    }
+
+    export interface DbAccountTableColumnPrivilegeTablePrivilege {
+        /**
+         * 账号的表权限。取值范围（可多选）：ALTER CREATE DELETE DROP INDEX INSERT SELECT SHOW VIEW TRIGGER UPDATE CREATE VIEW REFERENCES 说明多个权限之间使用英文逗号（,）分隔。
+         */
+        accountPrivilegeDetails: string[];
+        /**
+         * 对账号进行权限设置的表的名称。
+         */
+        tableName: string;
+    }
+
     export interface GetDatabaseDatabasePrivilege {
         /**
          * 数据库账号名称。
@@ -4936,6 +4986,62 @@ export namespace rdsmysql {
          * 指定的数据库账号可以访问数据库的 IP 地址。默认值为 %。若指定 Host 为 %，允许该账号从任意 IP 地址访问数据库。若指定 Host 为 192.10.10.%，则表示该账号可从 192.10.10.0~192.10.10.255 之间的 IP 地址访问数据库。指定的 Host 需要添加在实例所绑定的白名单中，
          */
         host: string;
+    }
+
+    export interface GetDbAccountAccountPrivilege {
+        /**
+         * 数据库权限的类型。取值范围：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。Global：全局权限。None：清除账号权限。说明该参数作为请求参数时，有以下注意事项：仅支持在作为请求参数时允许取值为 Global 和 None。权限类型为单选，传多个时会报错。仅 GrantDBAccountPrivilege 接口支持为 AccountPrivilege 取值 None。当 AccountPrivilege 取值 None 时，如果 DBName 的取值为空字符串，则清除账号的所有全局权限。如果 DBName 的取值为指定数据库，则清除账号在该数据库的所有权限。
+         */
+        accountPrivilege: string;
+        /**
+         * 账号的权限信息。当 AccountPrivilege 取值为 Custom 时，该字段的取值范围如下：SELECT INSERT UPDATE DELETE CREATE DROP REFERENCES INDEX ALTER CREATE TEMPORARY TABLES LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW EVENT TRIGGER CREATE ROUTINE ALTER ROUTINE 当 AccountPrivilege 取值为 Global 时，该字段的取值范围如下：PROCESS REPLICATION SLAVE REPLICATION CLIENT SELECT INSERT UPDATE DELETE CREATE DROP RELOAD REFERENCES INDEX ALTER LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW CREATE ROUTINE ALTER ROUTINE CREATE USER EVENT TRIGGER SHOW DATABASES CREATE TEMPORARY TABLES 说明  作为请求参数时，在 AccountPrivilege 取值为 Custom 时必填。 在 CreateDBAccount 接口中，会自动为账号赋予 REPLICATION SLAVE、PROCESS 和 REPLICATION CLIENT 全局权限。 可取多个值。使用英文逗号（,）分隔多个权限。写入方式为覆盖方式。
+         */
+        accountPrivilegeDetails: string[];
+        /**
+         * 需修改账号授权的或账号已有权限的数据库名称。说明在 CreateDBAccount 和 GrantDBAccountPrivilege 接口中作为请求参数时，需确认 DBName 对应的数据库已存在。进行全局授权的修改时，应为 DBName 传空字符。
+         */
+        dbName: string;
+    }
+
+    export interface GetDbAccountTableColumnPrivilege {
+        /**
+         * 账号的列权限信息。
+         */
+        columnPrivileges: outputs.rdsmysql.GetDbAccountTableColumnPrivilegeColumnPrivilege[];
+        /**
+         * 对账号进行权限设置的表所属的数据库的名称。
+         */
+        dbName: string;
+        /**
+         * 账号的表权限信息。
+         */
+        tablePrivileges: outputs.rdsmysql.GetDbAccountTableColumnPrivilegeTablePrivilege[];
+    }
+
+    export interface GetDbAccountTableColumnPrivilegeColumnPrivilege {
+        /**
+         * 对账号进行列权限设置的权限信息。取值（可多选）：INSERT REFERENCES SELECT UPDATE说明多个权限之间使用英文逗号（,）分隔。
+         */
+        accountPrivilegeDetails: string[];
+        /**
+         * 对账号进行列权限设置的列的名称。
+         */
+        columnName: string;
+        /**
+         * 对账号进行列权限设置的表所属的数据库的名称。
+         */
+        tableName: string;
+    }
+
+    export interface GetDbAccountTableColumnPrivilegeTablePrivilege {
+        /**
+         * 账号的表权限。取值范围（可多选）：ALTER CREATE DELETE DROP INDEX INSERT SELECT SHOW VIEW TRIGGER UPDATE CREATE VIEW REFERENCES 说明多个权限之间使用英文逗号（,）分隔。
+         */
+        accountPrivilegeDetails: string[];
+        /**
+         * 对账号进行权限设置的表的名称。
+         */
+        tableName: string;
     }
 
 }

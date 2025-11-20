@@ -111,6 +111,21 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * 
+     */
+    @Import(name="policy")
+    private @Nullable Output<String> policy;
+
+    /**
+     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * 
+     */
+    public Optional<Output<String>> policy() {
+        return Optional.ofNullable(this.policy);
+    }
+
+    /**
      * 存储桶所属项目。
      * 
      */
@@ -157,6 +172,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         this.enableVersionStatus = $.enableVersionStatus;
         this.lifecycleConfigs = $.lifecycleConfigs;
         this.name = $.name;
+        this.policy = $.policy;
         this.projectName = $.projectName;
         this.storageClass = $.storageClass;
         this.tags = $.tags;
@@ -305,6 +321,27 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param policy JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(@Nullable Output<String> policy) {
+            $.policy = policy;
+            return this;
+        }
+
+        /**
+         * @param policy JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Output.of(policy));
         }
 
         /**

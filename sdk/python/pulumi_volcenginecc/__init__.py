@@ -39,6 +39,8 @@ if typing.TYPE_CHECKING:
     kafka = __kafka
     import pulumi_volcenginecc.natgateway as __natgateway
     natgateway = __natgateway
+    import pulumi_volcenginecc.organization as __organization
+    organization = __organization
     import pulumi_volcenginecc.privatezone as __privatezone
     privatezone = __privatezone
     import pulumi_volcenginecc.rdsmysql as __rdsmysql
@@ -78,6 +80,7 @@ else:
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
     natgateway = _utilities.lazy_import('pulumi_volcenginecc.natgateway')
+    organization = _utilities.lazy_import('pulumi_volcenginecc.organization')
     privatezone = _utilities.lazy_import('pulumi_volcenginecc.privatezone')
     rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
     redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
@@ -400,6 +403,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "organization/unit",
+  "fqn": "pulumi_volcenginecc.organization",
+  "classes": {
+   "volcenginecc:organization/unit:Unit": "Unit"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "privatezone/resolverEndpoint",
   "fqn": "pulumi_volcenginecc.privatezone",
   "classes": {
@@ -420,6 +431,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rdsmysql",
   "classes": {
    "volcenginecc:rdsmysql/database:Database": "Database"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmysql/dbAccount",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/dbAccount:DbAccount": "DbAccount"
   }
  },
  {

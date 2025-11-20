@@ -149,14 +149,14 @@ public class Ngw extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      * 
      */
     @Export(name="directMode", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> directMode;
 
     /**
-     * @return 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * @return 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      * 
      */
     public Output<Boolean> directMode() {

@@ -42,6 +42,8 @@ type Bucket struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// 桶名。
 	Name pulumi.StringOutput `pulumi:"name"`
+	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	Policy pulumi.StringOutput `pulumi:"policy"`
 	// 存储桶所属项目。
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
@@ -102,6 +104,8 @@ type bucketState struct {
 	Location *string `pulumi:"location"`
 	// 桶名。
 	Name *string `pulumi:"name"`
+	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	Policy *string `pulumi:"policy"`
 	// 存储桶所属项目。
 	ProjectName *string `pulumi:"projectName"`
 	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
@@ -130,6 +134,8 @@ type BucketState struct {
 	Location pulumi.StringPtrInput
 	// 桶名。
 	Name pulumi.StringPtrInput
+	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	Policy pulumi.StringPtrInput
 	// 存储桶所属项目。
 	ProjectName pulumi.StringPtrInput
 	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
@@ -154,6 +160,8 @@ type bucketArgs struct {
 	LifecycleConfigs    []BucketLifecycleConfig `pulumi:"lifecycleConfigs"`
 	// 桶名。
 	Name string `pulumi:"name"`
+	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	Policy *string `pulumi:"policy"`
 	// 存储桶所属项目。
 	ProjectName *string `pulumi:"projectName"`
 	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
@@ -175,6 +183,8 @@ type BucketArgs struct {
 	LifecycleConfigs    BucketLifecycleConfigArrayInput
 	// 桶名。
 	Name pulumi.StringInput
+	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	Policy pulumi.StringPtrInput
 	// 存储桶所属项目。
 	ProjectName pulumi.StringPtrInput
 	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
@@ -320,6 +330,11 @@ func (o BucketOutput) Location() pulumi.StringOutput {
 // 桶名。
 func (o BucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+func (o BucketOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
 // 存储桶所属项目。

@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetDatabaseArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetDatabasePlainArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetDbAccountArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetDbAccountPlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetDatabaseResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetDatabasesResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetDbAccountResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetDbAccountsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RdsmysqlFunctions {
@@ -100,5 +104,89 @@ public final class RdsmysqlFunctions {
      */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountResult> getDbAccount(GetDbAccountArgs args) {
+        return getDbAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountResult> getDbAccountPlain(GetDbAccountPlainArgs args) {
+        return getDbAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountResult> getDbAccount(GetDbAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getDbAccount:getDbAccount", TypeShape.of(GetDbAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountResult> getDbAccount(GetDbAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getDbAccount:getDbAccount", TypeShape.of(GetDbAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountResult> getDbAccountPlain(GetDbAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getDbAccount:getDbAccount", TypeShape.of(GetDbAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts() {
+        return getDbAccounts(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountsResult> getDbAccountsPlain() {
+        return getDbAccountsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts(InvokeArgs args) {
+        return getDbAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountsResult> getDbAccountsPlain(InvokeArgs args) {
+        return getDbAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getDbAccounts:getDbAccounts", TypeShape.of(GetDbAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getDbAccounts:getDbAccounts", TypeShape.of(GetDbAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountsResult> getDbAccountsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getDbAccounts:getDbAccounts", TypeShape.of(GetDbAccountsResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -83,6 +83,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// </summary>
+        [Output("policy")]
+        public Output<string> Policy { get; private set; } = null!;
+
+        /// <summary>
         /// 存储桶所属项目。
         /// </summary>
         [Output("projectName")]
@@ -186,6 +192,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
+
+        /// <summary>
         /// 存储桶所属项目。
         /// </summary>
         [Input("projectName")]
@@ -277,6 +289,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
 
         /// <summary>
         /// 存储桶所属项目。

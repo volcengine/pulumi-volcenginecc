@@ -24,6 +24,7 @@ import * as filenas from "./filenas";
 import * as iam from "./iam";
 import * as kafka from "./kafka";
 import * as natgateway from "./natgateway";
+import * as organization from "./organization";
 import * as privatezone from "./privatezone";
 import * as rdsmysql from "./rdsmysql";
 import * as redis from "./redis";
@@ -53,6 +54,7 @@ export {
     iam,
     kafka,
     natgateway,
+    organization,
     privatezone,
     rdsmysql,
     redis,

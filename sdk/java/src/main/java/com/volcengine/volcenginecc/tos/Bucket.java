@@ -174,6 +174,20 @@ public class Bucket extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * 
+     */
+    @Export(name="policy", refs={String.class}, tree="[0]")
+    private Output<String> policy;
+
+    /**
+     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * 
+     */
+    public Output<String> policy() {
+        return this.policy;
+    }
+    /**
      * 存储桶所属项目。
      * 
      */

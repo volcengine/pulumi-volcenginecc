@@ -110,6 +110,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// </summary>
+        public readonly string Policy;
+        /// <summary>
         /// 存储桶所属项目。
         /// </summary>
         public readonly string ProjectName;
@@ -148,6 +152,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 
             string name,
 
+            string policy,
+
             string projectName,
 
             string storageClass,
@@ -166,6 +172,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
             LifecycleConfigs = lifecycleConfigs;
             Location = location;
             Name = name;
+            Policy = policy;
             ProjectName = projectName;
             StorageClass = storageClass;
             Tags = tags;

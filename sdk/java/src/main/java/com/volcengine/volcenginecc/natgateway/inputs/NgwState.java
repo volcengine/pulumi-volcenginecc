@@ -97,14 +97,14 @@ public final class NgwState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      * 
      */
     @Import(name="directMode")
     private @Nullable Output<Boolean> directMode;
 
     /**
-     * @return 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * @return 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      * 
      */
     public Optional<Output<Boolean>> directMode() {
@@ -590,7 +590,7 @@ public final class NgwState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directMode 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+         * @param directMode 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class NgwState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directMode 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+         * @param directMode 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
          * 
          * @return builder
          * 
