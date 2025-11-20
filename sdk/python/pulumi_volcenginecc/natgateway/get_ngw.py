@@ -164,7 +164,7 @@ class GetNgwResult:
     @pulumi.getter(name="directMode")
     def direct_mode(self) -> builtins.bool:
         """
-        标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         """
         return pulumi.get(self, "direct_mode")
 

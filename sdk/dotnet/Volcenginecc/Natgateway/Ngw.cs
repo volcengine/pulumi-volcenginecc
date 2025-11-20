@@ -86,7 +86,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        /// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         /// </summary>
         [Output("directMode")]
         public Output<bool> DirectMode { get; private set; } = null!;
@@ -386,7 +386,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        /// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         /// </summary>
         [Input("directMode")]
         public Input<bool>? DirectMode { get; set; }

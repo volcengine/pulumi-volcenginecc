@@ -85,7 +85,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        /// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         /// </summary>
         public readonly bool DirectMode;
         /// <summary>

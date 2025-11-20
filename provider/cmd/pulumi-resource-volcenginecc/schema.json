@@ -3126,11 +3126,11 @@
             "properties": {
                 "instanceType": {
                     "type": "string",
-                    "description": "指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用\u0026分隔。\n"
+                    "description": "指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用\u0026分隔。\n"
                 },
                 "priceLimit": {
                     "type": "number",
-                    "description": "指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用\u0026分隔。\n"
+                    "description": "指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用\u0026分隔。\n"
                 }
             },
             "type": "object",
@@ -3168,15 +3168,15 @@
             "properties": {
                 "deleteWithInstance": {
                     "type": "boolean",
-                    "description": "云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。\n"
+                    "description": "云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。\n"
                 },
                 "size": {
                     "type": "integer",
-                    "description": "云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用\u0026分隔。\n"
+                    "description": "云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用\u0026分隔。\n"
                 },
                 "volumeType": {
                     "type": "string",
-                    "description": "云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用\u0026分隔。\n"
+                    "description": "云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用\u0026分隔。\n"
                 }
             },
             "type": "object",
@@ -3226,11 +3226,11 @@
             "properties": {
                 "instanceType": {
                     "type": "string",
-                    "description": "指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用\u0026分隔。\n"
+                    "description": "指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用\u0026分隔。\n"
                 },
                 "priceLimit": {
                     "type": "number",
-                    "description": "指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用\u0026分隔。\n"
+                    "description": "指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用\u0026分隔。\n"
                 }
             },
             "type": "object",
@@ -3270,15 +3270,15 @@
             "properties": {
                 "deleteWithInstance": {
                     "type": "boolean",
-                    "description": "云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。\n"
+                    "description": "云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。\n"
                 },
                 "size": {
                     "type": "integer",
-                    "description": "云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用\u0026分隔。\n"
+                    "description": "云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用\u0026分隔。\n"
                 },
                 "volumeType": {
                     "type": "string",
-                    "description": "云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用\u0026分隔。\n"
+                    "description": "云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用\u0026分隔。\n"
                 }
             },
             "type": "object",
@@ -5777,15 +5777,15 @@
                 },
                 "bandwidthMbps": {
                     "type": "integer",
-                    "description": "公网IP的带宽上限，默认值为1，单位：Mbps。\n- `ChargeType`传入`PayByBandwidth`：取值范围1～500。\n- `ChargeType`传入`PayByTraffic`：取值范围1～200。\n"
+                    "description": "公网IP的带宽上限，默认值为1，单位：Mbps。\n    - `ChargeType`传入`PayByBandwidth`：取值范围1～500。\n    - `ChargeType`传入`PayByTraffic`：取值范围1～200。\n"
                 },
                 "bandwidthPackageId": {
                     "type": "string",
-                    "description": "共享带宽包的ID，表示将公网IP加入到共享带宽包。\n- 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。\n- 公网IP加入到共享带宽包必须同时满足如下条件：\n  - 二者的安全防护类型相同。\n  - 二者的地域相同。\n  - 公网IP的计费方式必须是按量计费。\n  - 共享带宽包为IPv4类型。\n"
+                    "description": "共享带宽包的ID，表示将公网IP加入到共享带宽包。\n    - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。\n    - 公网IP加入到共享带宽包必须同时满足如下条件：\n      - 二者的安全防护类型相同。\n      - 二者的地域相同。\n      - 公网IP的计费方式必须是按量计费。\n      - 共享带宽包为IPv4类型。\n"
                 },
                 "chargeType": {
                     "type": "string",
-                    "description": "公网IP的计费方式，取值：\n- PayByBandwidth（默认）：按量计费-按带宽上限计费。\n- PayByTraffic：按量计费-按实际流量计费。\n- PrePaid：包年包月。\n:::tip\n实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。\n:::\n"
+                    "description": "公网IP的计费方式，取值：\n    - PayByBandwidth（默认）：按量计费-按带宽上限计费。\n    - PayByTraffic：按量计费-按实际流量计费。\n    - PrePaid：包年包月。\n  \n  **提示:**\n  实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -5793,7 +5793,7 @@
                 },
                 "isp": {
                     "type": "string",
-                    "description": "公网IP的线路类型，默认为BGP。取值：\n- BGP：BGP（多线）。\n- 若您的账号已申请并开通了静态单线权限，则可传入如下取值：\n  - ChinaMobile：中国移动静态单线。\n  - ChinaTelecom：中国电信静态单线。\n  - ChinaUnicom：中国联通静态单线。\n- 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。\n- 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。\n"
+                    "description": "公网IP的线路类型，默认为BGP。取值：\n    - BGP：BGP（多线）。\n    - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：\n      - ChinaMobile：中国移动静态单线。\n      - ChinaTelecom：中国电信静态单线。\n      - ChinaUnicom：中国联通静态单线。\n    - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。\n    - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。\n"
                 },
                 "releaseWithInstance": {
                     "type": "boolean",
@@ -6500,15 +6500,15 @@
                 },
                 "bandwidthMbps": {
                     "type": "integer",
-                    "description": "公网IP的带宽上限，默认值为1，单位：Mbps。\n- `ChargeType`传入`PayByBandwidth`：取值范围1～500。\n- `ChargeType`传入`PayByTraffic`：取值范围1～200。\n"
+                    "description": "公网IP的带宽上限，默认值为1，单位：Mbps。\n    - `ChargeType`传入`PayByBandwidth`：取值范围1～500。\n    - `ChargeType`传入`PayByTraffic`：取值范围1～200。\n"
                 },
                 "bandwidthPackageId": {
                     "type": "string",
-                    "description": "共享带宽包的ID，表示将公网IP加入到共享带宽包。\n- 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。\n- 公网IP加入到共享带宽包必须同时满足如下条件：\n  - 二者的安全防护类型相同。\n  - 二者的地域相同。\n  - 公网IP的计费方式必须是按量计费。\n  - 共享带宽包为IPv4类型。\n"
+                    "description": "共享带宽包的ID，表示将公网IP加入到共享带宽包。\n    - 您可以调用[DescribeBandwidthPackages](https://www.volcengine.com/docs/6623/100685)接口，查询共享带宽包的ID。\n    - 公网IP加入到共享带宽包必须同时满足如下条件：\n      - 二者的安全防护类型相同。\n      - 二者的地域相同。\n      - 公网IP的计费方式必须是按量计费。\n      - 共享带宽包为IPv4类型。\n"
                 },
                 "chargeType": {
                     "type": "string",
-                    "description": "公网IP的计费方式，取值：\n- PayByBandwidth（默认）：按量计费-按带宽上限计费。\n- PayByTraffic：按量计费-按实际流量计费。\n- PrePaid：包年包月。\n:::tip\n实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。\n:::\n"
+                    "description": "公网IP的计费方式，取值：\n    - PayByBandwidth（默认）：按量计费-按带宽上限计费。\n    - PayByTraffic：按量计费-按实际流量计费。\n    - PrePaid：包年包月。\n  \n  **提示:**\n  实例的计费类型`InstanceChargeType`取值为`PostPaid`时，该参数取值不能为`PrePaid`。\n"
                 },
                 "ipAddress": {
                     "type": "string",
@@ -6516,7 +6516,7 @@
                 },
                 "isp": {
                     "type": "string",
-                    "description": "公网IP的线路类型，默认为BGP。取值：\n- BGP：BGP（多线）。\n- 若您的账号已申请并开通了静态单线权限，则可传入如下取值：\n  - ChinaMobile：中国移动静态单线。\n  - ChinaTelecom：中国电信静态单线。\n  - ChinaUnicom：中国联通静态单线。\n- 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。\n- 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。\n"
+                    "description": "公网IP的线路类型，默认为BGP。取值：\n    - BGP：BGP（多线）。\n    - 若您的账号已申请并开通了静态单线权限，则可传入如下取值：\n      - ChinaMobile：中国移动静态单线。\n      - ChinaTelecom：中国电信静态单线。\n      - ChinaUnicom：中国联通静态单线。\n    - 若您的账号已申请并开通了BGP单线权限，则可传入SingleLine_BGP。\n    - 若您的账号已申请并开通了静态BGP权限，则可传入Static_BGP。\n"
                 },
                 "releaseWithInstance": {
                     "type": "boolean",
@@ -8637,6 +8637,118 @@
                 }
             }
         },
+        "volcenginecc:rdsmysql/DbAccountAccountPrivilege:DbAccountAccountPrivilege": {
+            "properties": {
+                "accountPrivilege": {
+                    "type": "string",
+                    "description": "数据库权限的类型。取值范围：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。Global：全局权限。None：清除账号权限。说明该参数作为请求参数时，有以下注意事项：仅支持在作为请求参数时允许取值为 Global 和 None。权限类型为单选，传多个时会报错。仅 GrantDBAccountPrivilege 接口支持为 AccountPrivilege 取值 None。当 AccountPrivilege 取值 None 时，如果 DBName 的取值为空字符串，则清除账号的所有全局权限。如果 DBName 的取值为指定数据库，则清除账号在该数据库的所有权限。\n"
+                },
+                "accountPrivilegeDetails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "账号的权限信息。当 AccountPrivilege 取值为 Custom 时，该字段的取值范围如下：SELECT INSERT UPDATE DELETE CREATE DROP REFERENCES INDEX ALTER CREATE TEMPORARY TABLES LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW EVENT TRIGGER CREATE ROUTINE ALTER ROUTINE 当 AccountPrivilege 取值为 Global 时，该字段的取值范围如下：PROCESS REPLICATION SLAVE REPLICATION CLIENT SELECT INSERT UPDATE DELETE CREATE DROP RELOAD REFERENCES INDEX ALTER LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW CREATE ROUTINE ALTER ROUTINE CREATE USER EVENT TRIGGER SHOW DATABASES CREATE TEMPORARY TABLES 说明  作为请求参数时，在 AccountPrivilege 取值为 Custom 时必填。 在 CreateDBAccount 接口中，会自动为账号赋予 REPLICATION SLAVE、PROCESS 和 REPLICATION CLIENT 全局权限。 可取多个值。使用英文逗号（,）分隔多个权限。写入方式为覆盖方式。\n"
+                },
+                "dbName": {
+                    "type": "string",
+                    "description": "需修改账号授权的或账号已有权限的数据库名称。说明在 CreateDBAccount 和 GrantDBAccountPrivilege 接口中作为请求参数时，需确认 DBName 对应的数据库已存在。进行全局授权的修改时，应为 DBName 传空字符。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountPrivilege",
+                        "accountPrivilegeDetails",
+                        "dbName"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/DbAccountTableColumnPrivilege:DbAccountTableColumnPrivilege": {
+            "properties": {
+                "columnPrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/DbAccountTableColumnPrivilegeColumnPrivilege:DbAccountTableColumnPrivilegeColumnPrivilege"
+                    }
+                },
+                "dbName": {
+                    "type": "string",
+                    "description": "对账号进行权限设置的表所属的数据库的名称。\n"
+                },
+                "tablePrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/DbAccountTableColumnPrivilegeTablePrivilege:DbAccountTableColumnPrivilegeTablePrivilege"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "columnPrivileges",
+                        "dbName",
+                        "tablePrivileges"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/DbAccountTableColumnPrivilegeColumnPrivilege:DbAccountTableColumnPrivilegeColumnPrivilege": {
+            "properties": {
+                "accountPrivilegeDetails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "对账号进行列权限设置的权限信息。取值（可多选）：INSERT REFERENCES SELECT UPDATE说明多个权限之间使用英文逗号（,）分隔。\n"
+                },
+                "columnName": {
+                    "type": "string",
+                    "description": "对账号进行列权限设置的列的名称。\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "对账号进行列权限设置的表所属的数据库的名称。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountPrivilegeDetails",
+                        "columnName",
+                        "tableName"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/DbAccountTableColumnPrivilegeTablePrivilege:DbAccountTableColumnPrivilegeTablePrivilege": {
+            "properties": {
+                "accountPrivilegeDetails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "账号的表权限。取值范围（可多选）：ALTER CREATE DELETE DROP INDEX INSERT SELECT SHOW VIEW TRIGGER UPDATE CREATE VIEW REFERENCES 说明多个权限之间使用英文逗号（,）分隔。\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "对账号进行权限设置的表的名称。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountPrivilegeDetails",
+                        "tableName"
+                    ]
+                }
+            }
+        },
         "volcenginecc:rdsmysql/getDatabaseDatabasePrivilege:getDatabaseDatabasePrivilege": {
             "properties": {
                 "accountName": {
@@ -8662,6 +8774,124 @@
                 "accountPrivilege",
                 "accountPrivilegeDetail",
                 "host"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/getDbAccountAccountPrivilege:getDbAccountAccountPrivilege": {
+            "properties": {
+                "accountPrivilege": {
+                    "type": "string",
+                    "description": "数据库权限的类型。取值范围：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。Global：全局权限。None：清除账号权限。说明该参数作为请求参数时，有以下注意事项：仅支持在作为请求参数时允许取值为 Global 和 None。权限类型为单选，传多个时会报错。仅 GrantDBAccountPrivilege 接口支持为 AccountPrivilege 取值 None。当 AccountPrivilege 取值 None 时，如果 DBName 的取值为空字符串，则清除账号的所有全局权限。如果 DBName 的取值为指定数据库，则清除账号在该数据库的所有权限。\n"
+                },
+                "accountPrivilegeDetails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "账号的权限信息。当 AccountPrivilege 取值为 Custom 时，该字段的取值范围如下：SELECT INSERT UPDATE DELETE CREATE DROP REFERENCES INDEX ALTER CREATE TEMPORARY TABLES LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW EVENT TRIGGER CREATE ROUTINE ALTER ROUTINE 当 AccountPrivilege 取值为 Global 时，该字段的取值范围如下：PROCESS REPLICATION SLAVE REPLICATION CLIENT SELECT INSERT UPDATE DELETE CREATE DROP RELOAD REFERENCES INDEX ALTER LOCK TABLES EXECUTE CREATE VIEW SHOW VIEW CREATE ROUTINE ALTER ROUTINE CREATE USER EVENT TRIGGER SHOW DATABASES CREATE TEMPORARY TABLES 说明  作为请求参数时，在 AccountPrivilege 取值为 Custom 时必填。 在 CreateDBAccount 接口中，会自动为账号赋予 REPLICATION SLAVE、PROCESS 和 REPLICATION CLIENT 全局权限。 可取多个值。使用英文逗号（,）分隔多个权限。写入方式为覆盖方式。\n"
+                },
+                "dbName": {
+                    "type": "string",
+                    "description": "需修改账号授权的或账号已有权限的数据库名称。说明在 CreateDBAccount 和 GrantDBAccountPrivilege 接口中作为请求参数时，需确认 DBName 对应的数据库已存在。进行全局授权的修改时，应为 DBName 传空字符。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountPrivilege",
+                "accountPrivilegeDetails",
+                "dbName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/getDbAccountTableColumnPrivilege:getDbAccountTableColumnPrivilege": {
+            "properties": {
+                "columnPrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/getDbAccountTableColumnPrivilegeColumnPrivilege:getDbAccountTableColumnPrivilegeColumnPrivilege"
+                    },
+                    "description": "账号的列权限信息。\n"
+                },
+                "dbName": {
+                    "type": "string",
+                    "description": "对账号进行权限设置的表所属的数据库的名称。\n"
+                },
+                "tablePrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/getDbAccountTableColumnPrivilegeTablePrivilege:getDbAccountTableColumnPrivilegeTablePrivilege"
+                    },
+                    "description": "账号的表权限信息。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "columnPrivileges",
+                "dbName",
+                "tablePrivileges"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/getDbAccountTableColumnPrivilegeColumnPrivilege:getDbAccountTableColumnPrivilegeColumnPrivilege": {
+            "properties": {
+                "accountPrivilegeDetails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "对账号进行列权限设置的权限信息。取值（可多选）：INSERT REFERENCES SELECT UPDATE说明多个权限之间使用英文逗号（,）分隔。\n"
+                },
+                "columnName": {
+                    "type": "string",
+                    "description": "对账号进行列权限设置的列的名称。\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "对账号进行列权限设置的表所属的数据库的名称。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountPrivilegeDetails",
+                "columnName",
+                "tableName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:rdsmysql/getDbAccountTableColumnPrivilegeTablePrivilege:getDbAccountTableColumnPrivilegeTablePrivilege": {
+            "properties": {
+                "accountPrivilegeDetails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "账号的表权限。取值范围（可多选）：ALTER CREATE DELETE DROP INDEX INSERT SELECT SHOW VIEW TRIGGER UPDATE CREATE VIEW REFERENCES 说明多个权限之间使用英文逗号（,）分隔。\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "对账号进行权限设置的表的名称。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountPrivilegeDetails",
+                "tableName"
             ],
             "language": {
                 "nodejs": {
@@ -13614,7 +13844,7 @@
                 },
                 "port": {
                     "type": "integer",
-                    "description": "监听器的监听端口，取值：1 - 65535 。\n"
+                    "description": "监听器的监听端口，取值：1   - 65535 。\n"
                 },
                 "projectName": {
                     "type": "string",
@@ -13769,7 +13999,7 @@
                 },
                 "port": {
                     "type": "integer",
-                    "description": "监听器的监听端口，取值：1 - 65535 。\n"
+                    "description": "监听器的监听端口，取值：1   - 65535 。\n"
                 },
                 "protocol": {
                     "type": "string",
@@ -13896,7 +14126,7 @@
                     },
                     "port": {
                         "type": "integer",
-                        "description": "监听器的监听端口，取值：1 - 65535 。\n"
+                        "description": "监听器的监听端口，取值：1   - 65535 。\n"
                     },
                     "projectName": {
                         "type": "string",
@@ -15322,7 +15552,7 @@
                 },
                 "hostName": {
                     "type": "string",
-                    "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv- + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n"
+                    "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv  - + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n"
                 },
                 "hpcClusterId": {
                     "type": "string",
@@ -15464,7 +15694,7 @@
                 },
                 "hostName": {
                     "type": "string",
-                    "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv- + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n"
+                    "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv  - + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n"
                 },
                 "hpcClusterId": {
                     "type": "string",
@@ -15565,7 +15795,7 @@
                     },
                     "hostName": {
                         "type": "string",
-                        "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv- + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n"
+                        "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv  - + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n"
                     },
                     "hpcClusterId": {
                         "type": "string",
@@ -19798,11 +20028,11 @@
             "properties": {
                 "affinityGroupSize": {
                     "type": "integer",
-                    "description": "亲和组规格，取值：2。 :::tip - 当前仅高性能计算NPU型hpcpci3实例（邀测）支持亲和组。 -\n该功能正在邀测中，如需试用，请联系客户经理申请。 :::\n"
+                    "description": "亲和组规格，取值：2。 **提示:** - 当前仅高性能计算NPU型hpcpci3实例（邀测）支持亲和组。\n- 该功能正在邀测中，如需试用，请联系客户经理申请。\n"
                 },
                 "autoRenew": {
                     "type": "boolean",
-                    "description": "实例到期后是否自动续费，取值： - true：自动续费。 - false（默认）：不自动续费。 :::tip\n仅当参数`InstanceChargeType`取值为`PrePaid`时生效。 :::\n"
+                    "description": "实例到期后是否自动续费，取值： - true：自动续费。 - false（默认）：不自动续费。\n**提示:** 仅当参数`InstanceChargeType`取值为`PrePaid`时生效。\n"
                 },
                 "autoRenewPeriod": {
                     "type": "integer",
@@ -19810,7 +20040,7 @@
                 },
                 "cpuMaxFrequency": {
                     "type": "number",
-                    "description": "指定CPU最大频率，单位：GHz，取值范围：CPU的主频到睿频之间。 :::tip -\n当前仅g3al、c3al、r3al、g4i、c4i、r4i、g4ie、c4ie、r4ie实例支持设置该参数。规格的主频/睿频及更多信息，请参见[实例规格介绍](https://www.volcengine.com/docs/6396/70840)。\n- 该功能正在邀测中，如需使用，请联系客户经理申请。 :::\n"
+                    "description": "指定CPU最大频率，单位：GHz，取值范围：CPU的主频到睿频之间。 **提示:** -\n当前仅g3al、c3al、r3al、g4i、c4i、r4i、g4ie、c4ie、r4ie实例支持设置该参数。规格的主频/睿频及更多信息，请参见[实例规格介绍](https://www.volcengine.com/docs/6396/70840)。\n- 该功能正在邀测中，如需使用，请联系客户经理申请。\n"
                 },
                 "cpuMemory": {
                     "$ref": "#/types/volcenginecc:ecs/InstanceCpuMemory:InstanceCpuMemory",
@@ -19822,7 +20052,7 @@
                 },
                 "creditSpecification": {
                     "type": "string",
-                    "description": "突发性能实例的运行模式，取值： - Standard：标准模式。 -\nUnlimited：无性能约束模式（暂不支持）。 :::tip -\n仅当`InstanceTypeId`取值为ecs.t2系列，即突发性能实例时该参数生效。 -\n不传或传入空值时，突发性能实例默认为`Standard`标准模式。 :::\n"
+                    "description": "突发性能实例的运行模式，取值： - Standard：标准模式。 -\nUnlimited：无性能约束模式（暂不支持）。 **提示:** -\n仅当`InstanceTypeId`取值为ecs.t2系列，即突发性能实例时该参数生效。 -\n不传或传入空值时，突发性能实例默认为`Standard`标准模式。\n"
                 },
                 "deletionProtection": {
                     "type": "boolean",
@@ -19854,7 +20084,7 @@
                 },
                 "hpcClusterId": {
                     "type": "string",
-                    "description": "实例所属的高性能计算集群ID。 :::tip\n仅当创建高性能计算GPU型实例时，该参数生效且为必填项。 :::\n"
+                    "description": "实例所属的高性能计算集群ID。 **提示:**\n仅当创建高性能计算GPU型实例时，该参数生效且为必填项。\n"
                 },
                 "image": {
                     "$ref": "#/types/volcenginecc:ecs/InstanceImage:InstanceImage",
@@ -19890,11 +20120,11 @@
                 },
                 "period": {
                     "type": "integer",
-                    "description": "购买资源的时长（N）。 -\n`PeriodUnit`为`Month`（默认）时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。 -\n`PeriodUnit`为`Year`时，取值：1、2、3、4、5。 :::tip\n仅当`InstanceChargeType`取值为`PrePaid`时生效，且为必填。\n"
+                    "description": "购买资源的时长（N）。 -\n`PeriodUnit`为`Month`（默认）时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。 -\n`PeriodUnit`为`Year`时，取值：1、2、3、4、5。 **提示:**\n仅当`InstanceChargeType`取值为`PrePaid`时生效，且为必填。\n"
                 },
                 "periodUnit": {
                     "type": "string",
-                    "description": "购买资源的时长单位。取值： - Month（默认）：月。 - Year：年。 :::tip\n仅当`InstanceChargeType`取值为`PrePaid`时生效。\n"
+                    "description": "购买资源的时长单位。取值： - Month（默认）：月。 - Year：年。 **提示:**\n仅当`InstanceChargeType`取值为`PrePaid`时生效。\n"
                 },
                 "placement": {
                     "$ref": "#/types/volcenginecc:ecs/InstancePlacement:InstancePlacement",
@@ -19996,11 +20226,11 @@
             "inputProperties": {
                 "affinityGroupSize": {
                     "type": "integer",
-                    "description": "亲和组规格，取值：2。 :::tip - 当前仅高性能计算NPU型hpcpci3实例（邀测）支持亲和组。 -\n该功能正在邀测中，如需试用，请联系客户经理申请。 :::\n"
+                    "description": "亲和组规格，取值：2。 **提示:** - 当前仅高性能计算NPU型hpcpci3实例（邀测）支持亲和组。\n- 该功能正在邀测中，如需试用，请联系客户经理申请。\n"
                 },
                 "autoRenew": {
                     "type": "boolean",
-                    "description": "实例到期后是否自动续费，取值： - true：自动续费。 - false（默认）：不自动续费。 :::tip\n仅当参数`InstanceChargeType`取值为`PrePaid`时生效。 :::\n"
+                    "description": "实例到期后是否自动续费，取值： - true：自动续费。 - false（默认）：不自动续费。\n**提示:** 仅当参数`InstanceChargeType`取值为`PrePaid`时生效。\n"
                 },
                 "autoRenewPeriod": {
                     "type": "integer",
@@ -20008,11 +20238,11 @@
                 },
                 "cpuMaxFrequency": {
                     "type": "number",
-                    "description": "指定CPU最大频率，单位：GHz，取值范围：CPU的主频到睿频之间。 :::tip -\n当前仅g3al、c3al、r3al、g4i、c4i、r4i、g4ie、c4ie、r4ie实例支持设置该参数。规格的主频/睿频及更多信息，请参见[实例规格介绍](https://www.volcengine.com/docs/6396/70840)。\n- 该功能正在邀测中，如需使用，请联系客户经理申请。 :::\n"
+                    "description": "指定CPU最大频率，单位：GHz，取值范围：CPU的主频到睿频之间。 **提示:** -\n当前仅g3al、c3al、r3al、g4i、c4i、r4i、g4ie、c4ie、r4ie实例支持设置该参数。规格的主频/睿频及更多信息，请参见[实例规格介绍](https://www.volcengine.com/docs/6396/70840)。\n- 该功能正在邀测中，如需使用，请联系客户经理申请。\n"
                 },
                 "creditSpecification": {
                     "type": "string",
-                    "description": "突发性能实例的运行模式，取值： - Standard：标准模式。 -\nUnlimited：无性能约束模式（暂不支持）。 :::tip -\n仅当`InstanceTypeId`取值为ecs.t2系列，即突发性能实例时该参数生效。 -\n不传或传入空值时，突发性能实例默认为`Standard`标准模式。 :::\n"
+                    "description": "突发性能实例的运行模式，取值： - Standard：标准模式。 -\nUnlimited：无性能约束模式（暂不支持）。 **提示:** -\n仅当`InstanceTypeId`取值为ecs.t2系列，即突发性能实例时该参数生效。 -\n不传或传入空值时，突发性能实例默认为`Standard`标准模式。\n"
                 },
                 "deletionProtection": {
                     "type": "boolean",
@@ -20040,7 +20270,7 @@
                 },
                 "hpcClusterId": {
                     "type": "string",
-                    "description": "实例所属的高性能计算集群ID。 :::tip\n仅当创建高性能计算GPU型实例时，该参数生效且为必填项。 :::\n"
+                    "description": "实例所属的高性能计算集群ID。 **提示:**\n仅当创建高性能计算GPU型实例时，该参数生效且为必填项。\n"
                 },
                 "image": {
                     "$ref": "#/types/volcenginecc:ecs/InstanceImage:InstanceImage",
@@ -20072,11 +20302,11 @@
                 },
                 "period": {
                     "type": "integer",
-                    "description": "购买资源的时长（N）。 -\n`PeriodUnit`为`Month`（默认）时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。 -\n`PeriodUnit`为`Year`时，取值：1、2、3、4、5。 :::tip\n仅当`InstanceChargeType`取值为`PrePaid`时生效，且为必填。\n"
+                    "description": "购买资源的时长（N）。 -\n`PeriodUnit`为`Month`（默认）时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。 -\n`PeriodUnit`为`Year`时，取值：1、2、3、4、5。 **提示:**\n仅当`InstanceChargeType`取值为`PrePaid`时生效，且为必填。\n"
                 },
                 "periodUnit": {
                     "type": "string",
-                    "description": "购买资源的时长单位。取值： - Month（默认）：月。 - Year：年。 :::tip\n仅当`InstanceChargeType`取值为`PrePaid`时生效。\n"
+                    "description": "购买资源的时长单位。取值： - Month（默认）：月。 - Year：年。 **提示:**\n仅当`InstanceChargeType`取值为`PrePaid`时生效。\n"
                 },
                 "placement": {
                     "$ref": "#/types/volcenginecc:ecs/InstancePlacement:InstancePlacement",
@@ -20144,11 +20374,11 @@
                 "properties": {
                     "affinityGroupSize": {
                         "type": "integer",
-                        "description": "亲和组规格，取值：2。 :::tip - 当前仅高性能计算NPU型hpcpci3实例（邀测）支持亲和组。 -\n该功能正在邀测中，如需试用，请联系客户经理申请。 :::\n"
+                        "description": "亲和组规格，取值：2。 **提示:** - 当前仅高性能计算NPU型hpcpci3实例（邀测）支持亲和组。\n- 该功能正在邀测中，如需试用，请联系客户经理申请。\n"
                     },
                     "autoRenew": {
                         "type": "boolean",
-                        "description": "实例到期后是否自动续费，取值： - true：自动续费。 - false（默认）：不自动续费。 :::tip\n仅当参数`InstanceChargeType`取值为`PrePaid`时生效。 :::\n"
+                        "description": "实例到期后是否自动续费，取值： - true：自动续费。 - false（默认）：不自动续费。\n**提示:** 仅当参数`InstanceChargeType`取值为`PrePaid`时生效。\n"
                     },
                     "autoRenewPeriod": {
                         "type": "integer",
@@ -20156,7 +20386,7 @@
                     },
                     "cpuMaxFrequency": {
                         "type": "number",
-                        "description": "指定CPU最大频率，单位：GHz，取值范围：CPU的主频到睿频之间。 :::tip -\n当前仅g3al、c3al、r3al、g4i、c4i、r4i、g4ie、c4ie、r4ie实例支持设置该参数。规格的主频/睿频及更多信息，请参见[实例规格介绍](https://www.volcengine.com/docs/6396/70840)。\n- 该功能正在邀测中，如需使用，请联系客户经理申请。 :::\n"
+                        "description": "指定CPU最大频率，单位：GHz，取值范围：CPU的主频到睿频之间。 **提示:** -\n当前仅g3al、c3al、r3al、g4i、c4i、r4i、g4ie、c4ie、r4ie实例支持设置该参数。规格的主频/睿频及更多信息，请参见[实例规格介绍](https://www.volcengine.com/docs/6396/70840)。\n- 该功能正在邀测中，如需使用，请联系客户经理申请。\n"
                     },
                     "cpuMemory": {
                         "$ref": "#/types/volcenginecc:ecs/InstanceCpuMemory:InstanceCpuMemory",
@@ -20168,7 +20398,7 @@
                     },
                     "creditSpecification": {
                         "type": "string",
-                        "description": "突发性能实例的运行模式，取值： - Standard：标准模式。 -\nUnlimited：无性能约束模式（暂不支持）。 :::tip -\n仅当`InstanceTypeId`取值为ecs.t2系列，即突发性能实例时该参数生效。 -\n不传或传入空值时，突发性能实例默认为`Standard`标准模式。 :::\n"
+                        "description": "突发性能实例的运行模式，取值： - Standard：标准模式。 -\nUnlimited：无性能约束模式（暂不支持）。 **提示:** -\n仅当`InstanceTypeId`取值为ecs.t2系列，即突发性能实例时该参数生效。 -\n不传或传入空值时，突发性能实例默认为`Standard`标准模式。\n"
                     },
                     "deletionProtection": {
                         "type": "boolean",
@@ -20200,7 +20430,7 @@
                     },
                     "hpcClusterId": {
                         "type": "string",
-                        "description": "实例所属的高性能计算集群ID。 :::tip\n仅当创建高性能计算GPU型实例时，该参数生效且为必填项。 :::\n"
+                        "description": "实例所属的高性能计算集群ID。 **提示:**\n仅当创建高性能计算GPU型实例时，该参数生效且为必填项。\n"
                     },
                     "image": {
                         "$ref": "#/types/volcenginecc:ecs/InstanceImage:InstanceImage",
@@ -20236,11 +20466,11 @@
                     },
                     "period": {
                         "type": "integer",
-                        "description": "购买资源的时长（N）。 -\n`PeriodUnit`为`Month`（默认）时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。 -\n`PeriodUnit`为`Year`时，取值：1、2、3、4、5。 :::tip\n仅当`InstanceChargeType`取值为`PrePaid`时生效，且为必填。\n"
+                        "description": "购买资源的时长（N）。 -\n`PeriodUnit`为`Month`（默认）时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。 -\n`PeriodUnit`为`Year`时，取值：1、2、3、4、5。 **提示:**\n仅当`InstanceChargeType`取值为`PrePaid`时生效，且为必填。\n"
                     },
                     "periodUnit": {
                         "type": "string",
-                        "description": "购买资源的时长单位。取值： - Month（默认）：月。 - Year：年。 :::tip\n仅当`InstanceChargeType`取值为`PrePaid`时生效。\n"
+                        "description": "购买资源的时长单位。取值： - Month（默认）：月。 - Year：年。 **提示:**\n仅当`InstanceChargeType`取值为`PrePaid`时生效。\n"
                     },
                     "placement": {
                         "$ref": "#/types/volcenginecc:ecs/InstancePlacement:InstancePlacement",
@@ -22110,7 +22340,7 @@
                 },
                 "directMode": {
                     "type": "boolean",
-                    "description": "标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。\n"
+                    "description": "标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。\n"
                 },
                 "dnatEntryIds": {
                     "type": "array",
@@ -22332,7 +22562,7 @@
                     },
                     "directMode": {
                         "type": "boolean",
-                        "description": "标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。\n"
+                        "description": "标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。\n"
                     },
                     "dnatEntryIds": {
                         "type": "array",
@@ -22437,6 +22667,145 @@
                     "zoneId": {
                         "type": "string",
                         "description": "NAT网关所属主可用区的ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:organization/unit:Unit": {
+            "description": "企业组织的创建者管理员账号可以新建组织单元来搭建企业的组织结构，对账号进行分组织单元管理。组织单元可以分多个组织单元层级，管理员账号也可属于任意层级的任意组织单元节点。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst organizationUnitDemo = new volcenginecc.organization.Unit(\"OrganizationUnitDemo\", {\n    parentId: \"735281472xxxx3651635\",\n    name: \"OrganizationUnitDemo\",\n    description: \"OrganizationUnitDemo description\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\norganization_unit_demo = volcenginecc.organization.Unit(\"OrganizationUnitDemo\",\n    parent_id=\"735281472xxxx3651635\",\n    name=\"OrganizationUnitDemo\",\n    description=\"OrganizationUnitDemo description\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var organizationUnitDemo = new Volcenginecc.Organization.Unit(\"OrganizationUnitDemo\", new()\n    {\n        ParentId = \"735281472xxxx3651635\",\n        Name = \"OrganizationUnitDemo\",\n        Description = \"OrganizationUnitDemo description\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/organization\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := organization.NewUnit(ctx, \"OrganizationUnitDemo\", \u0026organization.UnitArgs{\n\t\t\tParentId:    pulumi.String(\"735281472xxxx3651635\"),\n\t\t\tName:        pulumi.String(\"OrganizationUnitDemo\"),\n\t\t\tDescription: pulumi.String(\"OrganizationUnitDemo description\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.organization.Unit;\nimport com.volcengine.volcenginecc.organization.UnitArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var organizationUnitDemo = new Unit(\"organizationUnitDemo\", UnitArgs.builder()\n            .parentId(\"735281472xxxx3651635\")\n            .name(\"OrganizationUnitDemo\")\n            .description(\"OrganizationUnitDemo description\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  organizationUnitDemo:\n    type: volcenginecc:organization:Unit\n    name: OrganizationUnitDemo\n    properties:\n      parentId: 735281472xxxx3651635\n      name: OrganizationUnitDemo\n      description: OrganizationUnitDemo description\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:organization/unit:Unit example \"org_unit_id\"\n```\n\n",
+            "properties": {
+                "createdTime": {
+                    "type": "string",
+                    "description": "创建时间。\n"
+                },
+                "deleteUk": {
+                    "type": "string",
+                    "description": "删除标识。\n"
+                },
+                "deletedTime": {
+                    "type": "string",
+                    "description": "删除时间。\n"
+                },
+                "depth": {
+                    "type": "integer",
+                    "description": "深度。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "描述。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "组织单元名称。\n"
+                },
+                "orgId": {
+                    "type": "string",
+                    "description": "组织ID。\n"
+                },
+                "orgType": {
+                    "type": "integer",
+                    "description": "组织类型。企业组织： 1\n"
+                },
+                "orgUnitId": {
+                    "type": "string",
+                    "description": "组织单元ID。\n"
+                },
+                "owner": {
+                    "type": "string",
+                    "description": "管理员ID。\n"
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "父单元Id。\n"
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "更新时间。\n"
+                }
+            },
+            "required": [
+                "createdTime",
+                "deleteUk",
+                "deletedTime",
+                "depth",
+                "description",
+                "name",
+                "orgId",
+                "orgType",
+                "orgUnitId",
+                "owner",
+                "parentId",
+                "updatedTime"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "描述。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "组织单元名称。\n"
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "父单元Id。\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "parentId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Unit resources.\n",
+                "properties": {
+                    "createdTime": {
+                        "type": "string",
+                        "description": "创建时间。\n"
+                    },
+                    "deleteUk": {
+                        "type": "string",
+                        "description": "删除标识。\n"
+                    },
+                    "deletedTime": {
+                        "type": "string",
+                        "description": "删除时间。\n"
+                    },
+                    "depth": {
+                        "type": "integer",
+                        "description": "深度。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "描述。\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "组织单元名称。\n"
+                    },
+                    "orgId": {
+                        "type": "string",
+                        "description": "组织ID。\n"
+                    },
+                    "orgType": {
+                        "type": "integer",
+                        "description": "组织类型。企业组织： 1\n"
+                    },
+                    "orgUnitId": {
+                        "type": "string",
+                        "description": "组织单元ID。\n"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "管理员ID。\n"
+                    },
+                    "parentId": {
+                        "type": "string",
+                        "description": "父单元Id。\n"
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "更新时间。\n"
                     }
                 },
                 "type": "object"
@@ -22953,6 +23322,182 @@
                     },
                     "status": {
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:rdsmysql/dbAccount:DbAccount": {
+            "description": "数据库账号\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  rDSMySQLDBAccountDemo:\n    type: volcenginecc:rdsmysql:DbAccount\n    name: RDSMySQLDBAccountDemo\n    properties:\n      accountDesc: RDSMySQLDBAccountDemo desc\n      instanceId: mysql-a5b5caexxxxx\n      accountName: RDSMySQLDBAccountDemo\n      accountPassword: '********'\n      accountType: Normal\n      accountPrivileges:\n        - account_privilege: Custom\n          account_privilege_detail:\n            - CREATE\n            - DROP\n            - REFERENCES\n            - INDEX\n          db_name: test\n        - account_privilege: Global\n          account_privilege_detail:\n            - PROCESS\n            - REPLICATION SLAVE\n            - REPLICATION CLIENT\n            - DROP\n            - ALTER\n          db_name: \"\"\n      host: '%'\n      tableColumnPrivileges: []\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:rdsmysql/dbAccount:DbAccount example \"instance_id|account_name|host\"\n```\n\n",
+            "properties": {
+                "accountDesc": {
+                    "type": "string",
+                    "description": "账号信息描述信息，长度不超过 256 个字符。\n"
+                },
+                "accountName": {
+                    "type": "string",
+                    "description": "数据库账号名称。命名规则如下：长度为 2~32 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）和中划线（-）组成。账号名称在实例内必须是唯一的。不能使用某些预留字，被禁用的预留字请参见禁用词列表。说明在高权限账号名称中可使用关键字 root 和 admin。\n"
+                },
+                "accountPassword": {
+                    "type": "string",
+                    "description": "数据库账号的密码。规则如下：长度为 8~32 个字符。由大写字母、小写字母、数字、特殊字符中的至少三种组成。特殊字符为 !@#$%^\u0026*()_+-=,.\u0026?|/。\n"
+                },
+                "accountPrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/DbAccountAccountPrivilege:DbAccountAccountPrivilege"
+                    }
+                },
+                "accountPrivilegesSqls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "账号的指定数据库权限信息的 SQL 语句。\n"
+                },
+                "accountStatus": {
+                    "type": "string",
+                    "description": "账号状态，取值为：Unavailable：不可用。Available：可用。\n"
+                },
+                "accountType": {
+                    "type": "string",
+                    "description": "账号类型，取值范围：Super：高权限账号。Normal：普通账号。\n"
+                },
+                "hasTableColumnPrivilegeDbNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "账号拥有的表列权限所属的数据库。说明如果账号没有表列权限，则不返回该字段。\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "指定的数据库账号可以访问数据库的 IP 地址。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例 ID。\n"
+                },
+                "tableColumnPrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/DbAccountTableColumnPrivilege:DbAccountTableColumnPrivilege"
+                    }
+                }
+            },
+            "required": [
+                "accountDesc",
+                "accountName",
+                "accountPassword",
+                "accountPrivileges",
+                "accountPrivilegesSqls",
+                "accountStatus",
+                "accountType",
+                "hasTableColumnPrivilegeDbNames",
+                "host",
+                "instanceId",
+                "tableColumnPrivileges"
+            ],
+            "inputProperties": {
+                "accountDesc": {
+                    "type": "string",
+                    "description": "账号信息描述信息，长度不超过 256 个字符。\n"
+                },
+                "accountName": {
+                    "type": "string",
+                    "description": "数据库账号名称。命名规则如下：长度为 2~32 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）和中划线（-）组成。账号名称在实例内必须是唯一的。不能使用某些预留字，被禁用的预留字请参见禁用词列表。说明在高权限账号名称中可使用关键字 root 和 admin。\n"
+                },
+                "accountPassword": {
+                    "type": "string",
+                    "description": "数据库账号的密码。规则如下：长度为 8~32 个字符。由大写字母、小写字母、数字、特殊字符中的至少三种组成。特殊字符为 !@#$%^\u0026*()_+-=,.\u0026?|/。\n"
+                },
+                "accountPrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/DbAccountAccountPrivilege:DbAccountAccountPrivilege"
+                    }
+                },
+                "accountType": {
+                    "type": "string",
+                    "description": "账号类型，取值范围：Super：高权限账号。Normal：普通账号。\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "指定的数据库账号可以访问数据库的 IP 地址。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例 ID。\n"
+                },
+                "tableColumnPrivileges": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rdsmysql/DbAccountTableColumnPrivilege:DbAccountTableColumnPrivilege"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "accountName",
+                "accountPassword",
+                "accountType",
+                "instanceId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DbAccount resources.\n",
+                "properties": {
+                    "accountDesc": {
+                        "type": "string",
+                        "description": "账号信息描述信息，长度不超过 256 个字符。\n"
+                    },
+                    "accountName": {
+                        "type": "string",
+                        "description": "数据库账号名称。命名规则如下：长度为 2~32 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）和中划线（-）组成。账号名称在实例内必须是唯一的。不能使用某些预留字，被禁用的预留字请参见禁用词列表。说明在高权限账号名称中可使用关键字 root 和 admin。\n"
+                    },
+                    "accountPassword": {
+                        "type": "string",
+                        "description": "数据库账号的密码。规则如下：长度为 8~32 个字符。由大写字母、小写字母、数字、特殊字符中的至少三种组成。特殊字符为 !@#$%^\u0026*()_+-=,.\u0026?|/。\n"
+                    },
+                    "accountPrivileges": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rdsmysql/DbAccountAccountPrivilege:DbAccountAccountPrivilege"
+                        }
+                    },
+                    "accountPrivilegesSqls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "账号的指定数据库权限信息的 SQL 语句。\n"
+                    },
+                    "accountStatus": {
+                        "type": "string",
+                        "description": "账号状态，取值为：Unavailable：不可用。Available：可用。\n"
+                    },
+                    "accountType": {
+                        "type": "string",
+                        "description": "账号类型，取值范围：Super：高权限账号。Normal：普通账号。\n"
+                    },
+                    "hasTableColumnPrivilegeDbNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "账号拥有的表列权限所属的数据库。说明如果账号没有表列权限，则不返回该字段。\n"
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "指定的数据库账号可以访问数据库的 IP 地址。\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "实例 ID。\n"
+                    },
+                    "tableColumnPrivileges": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rdsmysql/DbAccountTableColumnPrivilege:DbAccountTableColumnPrivilege"
+                        }
                     }
                 },
                 "type": "object"
@@ -24113,7 +24658,7 @@
             }
         },
         "volcenginecc:tos/bucket:Bucket": {
-            "description": "存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  bucketDemo:\n    type: volcenginecc:tos:Bucket\n    name: BucketDemo\n    properties:\n      name: bucket-demo\n      enableVersionStatus: Enabled\n      tags:\n        - key: env\n          value: test\n      lifecycleConfigs:\n        - expiration:\n            date: 2027-01-18T00:00:00Z\n          filter:\n            greaterThanIncludeEqual: Disabled\n            lessThanIncludeEqual: Disabled\n            objectSizeGreaterThan: 123\n            objectSizeLessThan: 789\n          id: bucketdemo\n          prefix: prefix\n          status: Enabled\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:tos/bucket:Bucket example \"name\"\n```\n\n",
+            "description": "存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  bucketDemo:\n    type: volcenginecc:tos:Bucket\n    name: BucketDemo\n    properties:\n      name: bucket-demo\n      storageClass: STANDARD\n      enableVersionStatus: Enabled\n      bucketType: fns\n      tags:\n        - key: env\n          value: test\n      policy: '{\"Version\":\"1.0\",\"Statement\":[{\"Sid\":\"f8fd\",\"Effect\":\"Allow\",\"Principal\":[\"*******\"],\"Action\":[\"tos:Get*\",\"tos:List*\",\"tos:HeadBucket\"],\"Resource\":[\"trn:tos:::************\",\"trn:tos:::************/*\"]}]}'\n      lifecycleConfigs:\n        - expiration:\n            date: 2027-01-18T00:00:00Z\n          filter:\n            greaterThanIncludeEqual: Disabled\n            lessThanIncludeEqual: Disabled\n            objectSizeGreaterThan: 123\n            objectSizeLessThan: 789\n          lifecycle_rule_id: bucketdemo\n          prefix: prefix\n          status: Enabled\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:tos/bucket:Bucket example \"name\"\n```\n\n",
             "properties": {
                 "acl": {
                     "$ref": "#/types/volcenginecc:tos/BucketAcl:BucketAcl",
@@ -24160,6 +24705,10 @@
                     "type": "string",
                     "description": "桶名。\n"
                 },
+                "policy": {
+                    "type": "string",
+                    "description": "JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。\n"
+                },
                 "projectName": {
                     "type": "string",
                     "description": "存储桶所属项目。\n"
@@ -24187,6 +24736,7 @@
                 "lifecycleConfigs",
                 "location",
                 "name",
+                "policy",
                 "projectName",
                 "storageClass",
                 "tags"
@@ -24220,6 +24770,10 @@
                 "name": {
                     "type": "string",
                     "description": "桶名。\n"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。\n"
                 },
                 "projectName": {
                     "type": "string",
@@ -24286,6 +24840,10 @@
                     "name": {
                         "type": "string",
                         "description": "桶名。\n"
+                    },
+                    "policy": {
+                        "type": "string",
+                        "description": "JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。\n"
                     },
                     "projectName": {
                         "type": "string",
@@ -28635,7 +29193,7 @@
                         "type": "string"
                     },
                     "port": {
-                        "description": "监听器的监听端口，取值：1 - 65535 。\n",
+                        "description": "监听器的监听端口，取值：1   - 65535 。\n",
                         "type": "integer"
                     },
                     "projectName": {
@@ -29639,7 +30197,7 @@
                         "description": "公网IP。\n"
                     },
                     "hostName": {
-                        "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv- + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n",
+                        "description": "实例的主机名。取值：Linux实例允许使用点号分隔字符成多段，每段中允许使用字母、数字或中划线“-”。不能以点号“.”或中划线“-”开头或结尾，且不能连续使用点号“.”或中划线“-”。Linux系统的主机名长度限制为2～63个字符。Windows实例允许使用字母、数字或中划线“-”，不能完全是数字。不能以中划线“-”开头或结尾，且不能连续使用中划线“-”。Windows系统的主机名长度限制在2～15个字符。如不填，则遵循以下规则自动生成：结构：iv  - + 初始主机名，例如iv-3tigy72q3u3vj0******。已创建实例保持原主机名生成逻辑，不随实例重启发生变化。初始主机名生成逻辑：Linux：提取实例IDi-之后的全部字符。Windows：提取实例IDi-之后的后12位字符。\n",
                         "type": "string"
                     },
                     "hpcClusterId": {
@@ -33782,7 +34340,7 @@
                         "type": "string"
                     },
                     "directMode": {
-                        "description": "标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。\n",
+                        "description": "标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。\n",
                         "type": "boolean"
                     },
                     "dnatEntryIds": {
@@ -33936,6 +34494,119 @@
             "description": "Plural Data Source schema for Volcengine::NatGateway::NGW\n",
             "outputs": {
                 "description": "A collection of values returned by getNgws.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:organization/getUnit:getUnit": {
+            "description": "Data Source schema for Volcengine::Organization::Unit\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUnit.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUnit.\n",
+                "properties": {
+                    "createdTime": {
+                        "description": "创建时间。\n",
+                        "type": "string"
+                    },
+                    "deleteUk": {
+                        "description": "删除标识。\n",
+                        "type": "string"
+                    },
+                    "deletedTime": {
+                        "description": "删除时间。\n",
+                        "type": "string"
+                    },
+                    "depth": {
+                        "description": "深度。\n",
+                        "type": "integer"
+                    },
+                    "description": {
+                        "description": "描述。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "组织单元名称。\n",
+                        "type": "string"
+                    },
+                    "orgId": {
+                        "description": "组织ID。\n",
+                        "type": "string"
+                    },
+                    "orgType": {
+                        "description": "组织类型。企业组织： 1\n",
+                        "type": "integer"
+                    },
+                    "orgUnitId": {
+                        "description": "组织单元ID。\n",
+                        "type": "string"
+                    },
+                    "owner": {
+                        "description": "管理员ID。\n",
+                        "type": "string"
+                    },
+                    "parentId": {
+                        "description": "父单元Id。\n",
+                        "type": "string"
+                    },
+                    "updatedTime": {
+                        "description": "更新时间。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdTime",
+                    "deleteUk",
+                    "deletedTime",
+                    "depth",
+                    "description",
+                    "id",
+                    "name",
+                    "orgId",
+                    "orgType",
+                    "orgUnitId",
+                    "owner",
+                    "parentId",
+                    "updatedTime"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:organization/getUnits:getUnits": {
+            "description": "Plural Data Source schema for Volcengine::Organization::Unit\n",
+            "outputs": {
+                "description": "A collection of values returned by getUnits.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -34290,6 +34961,126 @@
             "description": "Plural Data Source schema for Volcengine::RDSMySQL::Database\n",
             "outputs": {
                 "description": "A collection of values returned by getDatabases.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:rdsmysql/getDbAccount:getDbAccount": {
+            "description": "Data Source schema for Volcengine::RDSMySQL::DBAccount\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDbAccount.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDbAccount.\n",
+                "properties": {
+                    "accountDesc": {
+                        "description": "账号信息描述信息，长度不超过 256 个字符。\n",
+                        "type": "string"
+                    },
+                    "accountName": {
+                        "description": "数据库账号名称。命名规则如下：长度为 2~32 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）和中划线（-）组成。账号名称在实例内必须是唯一的。不能使用某些预留字，被禁用的预留字请参见禁用词列表。说明在高权限账号名称中可使用关键字 root 和 admin。\n",
+                        "type": "string"
+                    },
+                    "accountPassword": {
+                        "description": "数据库账号的密码。规则如下：长度为 8~32 个字符。由大写字母、小写字母、数字、特殊字符中的至少三种组成。特殊字符为 !@#$%^\u0026*()_+-=,.\u0026?|/。\n",
+                        "type": "string"
+                    },
+                    "accountPrivileges": {
+                        "description": "账号的指定数据库权限信息。说明当 AccountType 取值为 Super 时，无需为 AccountPrivileges 传值\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rdsmysql/getDbAccountAccountPrivilege:getDbAccountAccountPrivilege"
+                        },
+                        "type": "array"
+                    },
+                    "accountPrivilegesSqls": {
+                        "description": "账号的指定数据库权限信息的 SQL 语句。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "accountStatus": {
+                        "description": "账号状态，取值为：Unavailable：不可用。Available：可用。\n",
+                        "type": "string"
+                    },
+                    "accountType": {
+                        "description": "账号类型，取值范围：Super：高权限账号。Normal：普通账号。\n",
+                        "type": "string"
+                    },
+                    "hasTableColumnPrivilegeDbNames": {
+                        "description": "账号拥有的表列权限所属的数据库。说明如果账号没有表列权限，则不返回该字段。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "host": {
+                        "description": "指定的数据库账号可以访问数据库的 IP 地址。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "description": "实例 ID。\n",
+                        "type": "string"
+                    },
+                    "tableColumnPrivileges": {
+                        "description": "账号的表列权限设置。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rdsmysql/getDbAccountTableColumnPrivilege:getDbAccountTableColumnPrivilege"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "accountDesc",
+                    "accountName",
+                    "accountPassword",
+                    "accountPrivileges",
+                    "accountPrivilegesSqls",
+                    "accountStatus",
+                    "accountType",
+                    "hasTableColumnPrivilegeDbNames",
+                    "host",
+                    "id",
+                    "instanceId",
+                    "tableColumnPrivileges"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:rdsmysql/getDbAccounts:getDbAccounts": {
+            "description": "Plural Data Source schema for Volcengine::RDSMySQL::DBAccount\n",
+            "outputs": {
+                "description": "A collection of values returned by getDbAccounts.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -35019,6 +35810,10 @@
                         "description": "桶名。\n",
                         "type": "string"
                     },
+                    "policy": {
+                        "description": "JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。\n",
+                        "type": "string"
+                    },
                     "projectName": {
                         "description": "存储桶所属项目。\n",
                         "type": "string"
@@ -35048,6 +35843,7 @@
                     "lifecycleConfigs",
                     "location",
                     "name",
+                    "policy",
                     "projectName",
                     "storageClass",
                     "tags"

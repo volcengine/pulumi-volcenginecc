@@ -86,7 +86,7 @@ export class Ngw extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      */
     public /*out*/ readonly directMode!: pulumi.Output<boolean>;
     /**
@@ -280,7 +280,7 @@ export interface NgwState {
      */
     description?: pulumi.Input<string>;
     /**
-     * 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      */
     directMode?: pulumi.Input<boolean>;
     /**

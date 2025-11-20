@@ -157,7 +157,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         /// </summary>
         public readonly string PcaSubCaCertificateId;
         /// <summary>
-        /// 监听器的监听端口，取值：1 - 65535 。
+        /// 监听器的监听端口，取值：1   - 65535 。
         /// </summary>
         public readonly int Port;
         /// <summary>

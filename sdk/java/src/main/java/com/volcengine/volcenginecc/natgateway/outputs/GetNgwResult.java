@@ -42,7 +42,7 @@ public final class GetNgwResult {
      */
     private String description;
     /**
-     * @return 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * @return 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      * 
      */
     private Boolean directMode;
@@ -204,7 +204,7 @@ public final class GetNgwResult {
         return this.description;
     }
     /**
-     * @return 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+     * @return 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
      * 
      */
     public Boolean directMode() {

@@ -609,6 +609,9 @@
                     }
                 }
             },
+            "volcenginecc_organization_unit": {
+                "current": "volcenginecc:organization/unit:Unit"
+            },
             "volcenginecc_privatezone_resolver_endpoint": {
                 "current": "volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint",
                 "fields": {
@@ -642,6 +645,54 @@
                 "fields": {
                     "database_privileges": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdsmysql_db_account": {
+                "current": "volcenginecc:rdsmysql/dbAccount:DbAccount",
+                "fields": {
+                    "account_privileges": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "account_privilege_detail": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "account_privileges_sql": {
+                        "maxItemsOne": false
+                    },
+                    "has_table_column_privilege_db_names": {
+                        "maxItemsOne": false
+                    },
+                    "table_column_privileges": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "column_privileges": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "account_privilege_detail": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "table_privileges": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "account_privilege_detail": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1887,6 +1938,17 @@
                     }
                 }
             },
+            "volcenginecc_organization_unit": {
+                "current": "volcenginecc:organization/getUnit:getUnit"
+            },
+            "volcenginecc_organization_units": {
+                "current": "volcenginecc:organization/getUnits:getUnits",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_privatezone_resolver_endpoint": {
                 "current": "volcenginecc:privatezone/getResolverEndpoint:getResolverEndpoint",
                 "fields": {
@@ -1941,6 +2003,62 @@
             },
             "volcenginecc_rdsmysql_databases": {
                 "current": "volcenginecc:rdsmysql/getDatabases:getDatabases",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdsmysql_db_account": {
+                "current": "volcenginecc:rdsmysql/getDbAccount:getDbAccount",
+                "fields": {
+                    "account_privileges": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "account_privilege_detail": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "account_privileges_sql": {
+                        "maxItemsOne": false
+                    },
+                    "has_table_column_privilege_db_names": {
+                        "maxItemsOne": false
+                    },
+                    "table_column_privileges": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "column_privileges": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "account_privilege_detail": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "table_privileges": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "account_privilege_detail": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_rdsmysql_db_accounts": {
+                "current": "volcenginecc:rdsmysql/getDbAccounts:getDbAccounts",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

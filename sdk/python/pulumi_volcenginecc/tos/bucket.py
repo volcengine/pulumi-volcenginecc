@@ -29,6 +29,7 @@ class BucketArgs:
                  bucket_type: Optional[pulumi.Input[builtins.str]] = None,
                  enable_version_status: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigArgs']]]] = None,
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
@@ -39,6 +40,7 @@ class BucketArgs:
         :param pulumi.Input[builtins.str] az_redundancy: 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
         :param pulumi.Input[builtins.str] bucket_type: 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
         :param pulumi.Input[builtins.str] enable_version_status: 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
         :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
         :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
         """
@@ -55,6 +57,8 @@ class BucketArgs:
             pulumi.set(__self__, "enable_version_status", enable_version_status)
         if lifecycle_configs is not None:
             pulumi.set(__self__, "lifecycle_configs", lifecycle_configs)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if storage_class is not None:
@@ -141,6 +145,18 @@ class BucketArgs:
         pulumi.set(self, "lifecycle_configs", value)
 
     @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -188,6 +204,7 @@ class _BucketState:
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigArgs']]]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
@@ -202,6 +219,7 @@ class _BucketState:
         :param pulumi.Input[builtins.str] intranet_endpoint: 存储桶的 TOS 协议私网访问域名
         :param pulumi.Input[builtins.str] location: 桶所在区域。
         :param pulumi.Input[builtins.str] name: 桶名。
+        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
         :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
         :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
         """
@@ -227,6 +245,8 @@ class _BucketState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if storage_class is not None:
@@ -361,6 +381,18 @@ class _BucketState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -407,6 +439,7 @@ class Bucket(pulumi.CustomResource):
                  enable_version_status: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigArgs', 'BucketLifecycleConfigArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketTagArgs', 'BucketTagArgsDict']]]]] = None,
@@ -427,6 +460,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket_type: 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
         :param pulumi.Input[builtins.str] enable_version_status: 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
         :param pulumi.Input[builtins.str] name: 桶名。
+        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
         :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
         :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
         """
@@ -467,6 +501,7 @@ class Bucket(pulumi.CustomResource):
                  enable_version_status: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigArgs', 'BucketLifecycleConfigArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketTagArgs', 'BucketTagArgsDict']]]]] = None,
@@ -488,6 +523,7 @@ class Bucket(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["policy"] = policy
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["storage_class"] = storage_class
             __props__.__dict__["tags"] = tags
@@ -516,6 +552,7 @@ class Bucket(pulumi.CustomResource):
             lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigArgs', 'BucketLifecycleConfigArgsDict']]]]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            policy: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
             storage_class: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketTagArgs', 'BucketTagArgsDict']]]]] = None) -> 'Bucket':
@@ -535,6 +572,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] intranet_endpoint: 存储桶的 TOS 协议私网访问域名
         :param pulumi.Input[builtins.str] location: 桶所在区域。
         :param pulumi.Input[builtins.str] name: 桶名。
+        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
         :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
         :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
         """
@@ -553,6 +591,7 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["lifecycle_configs"] = lifecycle_configs
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["policy"] = policy
         __props__.__dict__["project_name"] = project_name
         __props__.__dict__["storage_class"] = storage_class
         __props__.__dict__["tags"] = tags
@@ -639,6 +678,14 @@ class Bucket(pulumi.CustomResource):
         桶名。
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[builtins.str]:
+        """
+        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="projectName")

@@ -269,7 +269,7 @@ class _NgwState:
         :param pulumi.Input[builtins.str] created_time: 创建时间
         :param pulumi.Input[builtins.str] deleted_time: 删除时间
         :param pulumi.Input[builtins.str] description: NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。
-        :param pulumi.Input[builtins.bool] direct_mode: 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        :param pulumi.Input[builtins.bool] direct_mode: 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dnat_entry_ids: DNAT规则ID列表。
         :param pulumi.Input[builtins.str] expired_time: 包年包月NAT网关到期时间。仅包年包月计费类型的NAT网关会返回此参数。
         :param pulumi.Input[builtins.str] lock_reason: NAT被锁定的原因。financial：因欠费被锁定。security：因安全原因被锁定。
@@ -414,7 +414,7 @@ class _NgwState:
     @pulumi.getter(name="directMode")
     def direct_mode(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         """
         return pulumi.get(self, "direct_mode")
 
@@ -910,7 +910,7 @@ class Ngw(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_time: 创建时间
         :param pulumi.Input[builtins.str] deleted_time: 删除时间
         :param pulumi.Input[builtins.str] description: NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。
-        :param pulumi.Input[builtins.bool] direct_mode: 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        :param pulumi.Input[builtins.bool] direct_mode: 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dnat_entry_ids: DNAT规则ID列表。
         :param pulumi.Input[builtins.str] expired_time: 包年包月NAT网关到期时间。仅包年包月计费类型的NAT网关会返回此参数。
         :param pulumi.Input[builtins.str] lock_reason: NAT被锁定的原因。financial：因欠费被锁定。security：因安全原因被锁定。
@@ -1011,7 +1011,7 @@ class Ngw(pulumi.CustomResource):
     @pulumi.getter(name="directMode")
     def direct_mode(self) -> pulumi.Output[builtins.bool]:
         """
-        标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+        标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
         """
         return pulumi.get(self, "direct_mode")
 

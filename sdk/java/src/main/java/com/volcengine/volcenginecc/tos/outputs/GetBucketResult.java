@@ -72,6 +72,11 @@ public final class GetBucketResult {
      */
     private String name;
     /**
+     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * 
+     */
+    private String policy;
+    /**
      * @return 存储桶所属项目。
      * 
      */
@@ -169,6 +174,13 @@ public final class GetBucketResult {
         return this.name;
     }
     /**
+     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * 
+     */
+    public String policy() {
+        return this.policy;
+    }
+    /**
      * @return 存储桶所属项目。
      * 
      */
@@ -211,6 +223,7 @@ public final class GetBucketResult {
         private List<GetBucketLifecycleConfig> lifecycleConfigs;
         private String location;
         private String name;
+        private String policy;
         private String projectName;
         private String storageClass;
         private List<GetBucketTag> tags;
@@ -229,6 +242,7 @@ public final class GetBucketResult {
     	      this.lifecycleConfigs = defaults.lifecycleConfigs;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.policy = defaults.policy;
     	      this.projectName = defaults.projectName;
     	      this.storageClass = defaults.storageClass;
     	      this.tags = defaults.tags;
@@ -334,6 +348,14 @@ public final class GetBucketResult {
             return this;
         }
         @CustomType.Setter
+        public Builder policy(String policy) {
+            if (policy == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "policy");
+            }
+            this.policy = policy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder projectName(String projectName) {
             if (projectName == null) {
               throw new MissingRequiredPropertyException("GetBucketResult", "projectName");
@@ -374,6 +396,7 @@ public final class GetBucketResult {
             _resultValue.lifecycleConfigs = lifecycleConfigs;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.policy = policy;
             _resultValue.projectName = projectName;
             _resultValue.storageClass = storageClass;
             _resultValue.tags = tags;

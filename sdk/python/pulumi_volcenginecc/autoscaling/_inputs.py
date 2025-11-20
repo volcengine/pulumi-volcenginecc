@@ -124,11 +124,11 @@ if not MYPY:
     class ScalingConfigurationInstanceTypeOverrideArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+        指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
         """
         price_limit: NotRequired[pulumi.Input[builtins.float]]
         """
-        指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+        指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
         """
 elif False:
     ScalingConfigurationInstanceTypeOverrideArgsDict: TypeAlias = Mapping[str, Any]
@@ -139,8 +139,8 @@ class ScalingConfigurationInstanceTypeOverrideArgs:
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  price_limit: Optional[pulumi.Input[builtins.float]] = None):
         """
-        :param pulumi.Input[builtins.str] instance_type: 指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
-        :param pulumi.Input[builtins.float] price_limit: 指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+        :param pulumi.Input[builtins.str] instance_type: 指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+        :param pulumi.Input[builtins.float] price_limit: 指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -151,7 +151,7 @@ class ScalingConfigurationInstanceTypeOverrideArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        指定抢占式实例的规格。参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
+        指定抢占式实例的规格。参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - InstanceType：表示抢占式实例的规格。多个规格之间用&分隔。
         """
         return pulumi.get(self, "instance_type")
 
@@ -163,7 +163,7 @@ class ScalingConfigurationInstanceTypeOverrideArgs:
     @pulumi.getter(name="priceLimit")
     def price_limit(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        指定抢占式实例规格每小时的最高价格参数 - N：表示实例规格的序号，取值为1 ～ 10。取值 - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
+        指定抢占式实例规格每小时的最高价格参数   - N：表示实例规格的序号，取值为1 ～ 10。取值   - PriceLimit：表示抢占式实例规格每小时的最高价格。取值：大于0，且最大不超过3位小数。多个价格之间用&分隔。
         """
         return pulumi.get(self, "price_limit")
 
@@ -228,15 +228,15 @@ if not MYPY:
     class ScalingConfigurationVolumeArgsDict(TypedDict):
         delete_with_instance: NotRequired[pulumi.Input[builtins.bool]]
         """
-        云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+        云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
         """
         size: NotRequired[pulumi.Input[builtins.int]]
         """
-        云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
+        云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
         """
         volume_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+        云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
         """
 elif False:
     ScalingConfigurationVolumeArgsDict: TypeAlias = Mapping[str, Any]
@@ -248,9 +248,9 @@ class ScalingConfigurationVolumeArgs:
                  size: Optional[pulumi.Input[builtins.int]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.bool] delete_with_instance: 云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
-        :param pulumi.Input[builtins.int] size: 云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
-        :param pulumi.Input[builtins.str] volume_type: 云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+        :param pulumi.Input[builtins.bool] delete_with_instance: 云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+        :param pulumi.Input[builtins.int] size: 云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
+        :param pulumi.Input[builtins.str] volume_type: 云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
         """
         if delete_with_instance is not None:
             pulumi.set(__self__, "delete_with_instance", delete_with_instance)
@@ -263,7 +263,7 @@ class ScalingConfigurationVolumeArgs:
     @pulumi.getter(name="deleteWithInstance")
     def delete_with_instance(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        云盘是否随实例释放：参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 - 15。参数 - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+        云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
         """
         return pulumi.get(self, "delete_with_instance")
 
@@ -275,7 +275,7 @@ class ScalingConfigurationVolumeArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        云盘的容量，单位为GiB。参数 - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值 - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10 - 500。数据盘取值范围：10 - 8192。多个云盘之间用&分隔。
+        云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
         """
         return pulumi.get(self, "size")
 
@@ -287,7 +287,7 @@ class ScalingConfigurationVolumeArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        云盘的类型：参数 - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数 - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+        云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
         """
         return pulumi.get(self, "volume_type")
 

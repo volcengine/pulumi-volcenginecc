@@ -71,7 +71,7 @@ type Ngw struct {
 	DeletedTime pulumi.StringOutput `pulumi:"deletedTime"`
 	// NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。
 	Description pulumi.StringOutput `pulumi:"description"`
-	// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+	// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
 	DirectMode pulumi.BoolOutput `pulumi:"directMode"`
 	// DNAT规则ID列表。
 	DnatEntryIds pulumi.StringArrayOutput `pulumi:"dnatEntryIds"`
@@ -161,7 +161,7 @@ type ngwState struct {
 	DeletedTime *string `pulumi:"deletedTime"`
 	// NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。
 	Description *string `pulumi:"description"`
-	// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+	// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
 	DirectMode *bool `pulumi:"directMode"`
 	// DNAT规则ID列表。
 	DnatEntryIds []string        `pulumi:"dnatEntryIds"`
@@ -219,7 +219,7 @@ type NgwState struct {
 	DeletedTime pulumi.StringPtrInput
 	// NAT网关的描述。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为1 ～ 255个字符。不填默认空字符串。
 	Description pulumi.StringPtrInput
-	// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+	// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
 	DirectMode pulumi.BoolPtrInput
 	// DNAT规则ID列表。
 	DnatEntryIds pulumi.StringArrayInput
@@ -439,7 +439,7 @@ func (o NgwOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ngw) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// 标识该nat是直通还是非直通。 - true（默认）：EIP直通nat网关。 - false：非EIP直通nat网关。
+// 标识该nat是直通还是非直通。   - true（默认）：EIP直通nat网关。   - false：非EIP直通nat网关。
 func (o NgwOutput) DirectMode() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Ngw) pulumi.BoolOutput { return v.DirectMode }).(pulumi.BoolOutput)
 }
