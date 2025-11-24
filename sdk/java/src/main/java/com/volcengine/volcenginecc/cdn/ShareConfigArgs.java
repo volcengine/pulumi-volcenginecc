@@ -7,7 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.cdn.inputs.ShareConfigAllowIpAccessRuleArgs;
 import com.volcengine.volcenginecc.cdn.inputs.ShareConfigAllowRefererAccessRuleArgs;
-import com.volcengine.volcenginecc.cdn.inputs.ShareConfigCommonMatchsArgs;
+import com.volcengine.volcenginecc.cdn.inputs.ShareConfigCommonMatchListArgs;
 import com.volcengine.volcenginecc.cdn.inputs.ShareConfigDenyIpAccessRuleArgs;
 import com.volcengine.volcenginecc.cdn.inputs.ShareConfigDenyRefererAccessRuleArgs;
 import java.lang.String;
@@ -54,15 +54,15 @@ public final class ShareConfigArgs extends com.pulumi.resources.ResourceArgs {
      * 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
      * 
      */
-    @Import(name="commonMatchs")
-    private @Nullable Output<ShareConfigCommonMatchsArgs> commonMatchs;
+    @Import(name="commonMatchList")
+    private @Nullable Output<ShareConfigCommonMatchListArgs> commonMatchList;
 
     /**
      * @return 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
      * 
      */
-    public Optional<Output<ShareConfigCommonMatchsArgs>> commonMatchs() {
-        return Optional.ofNullable(this.commonMatchs);
+    public Optional<Output<ShareConfigCommonMatchListArgs>> commonMatchList() {
+        return Optional.ofNullable(this.commonMatchList);
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ShareConfigArgs extends com.pulumi.resources.ResourceArgs {
     private ShareConfigArgs(ShareConfigArgs $) {
         this.allowIpAccessRule = $.allowIpAccessRule;
         this.allowRefererAccessRule = $.allowRefererAccessRule;
-        this.commonMatchs = $.commonMatchs;
+        this.commonMatchList = $.commonMatchList;
         this.configName = $.configName;
         this.configType = $.configType;
         this.denyIpAccessRule = $.denyIpAccessRule;
@@ -214,24 +214,24 @@ public final class ShareConfigArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commonMatchs 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
+         * @param commonMatchList 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
          * 
          * @return builder
          * 
          */
-        public Builder commonMatchs(@Nullable Output<ShareConfigCommonMatchsArgs> commonMatchs) {
-            $.commonMatchs = commonMatchs;
+        public Builder commonMatchList(@Nullable Output<ShareConfigCommonMatchListArgs> commonMatchList) {
+            $.commonMatchList = commonMatchList;
             return this;
         }
 
         /**
-         * @param commonMatchs 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
+         * @param commonMatchList 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
          * 
          * @return builder
          * 
          */
-        public Builder commonMatchs(ShareConfigCommonMatchsArgs commonMatchs) {
-            return commonMatchs(Output.of(commonMatchs));
+        public Builder commonMatchList(ShareConfigCommonMatchListArgs commonMatchList) {
+            return commonMatchList(Output.of(commonMatchList));
         }
 
         /**

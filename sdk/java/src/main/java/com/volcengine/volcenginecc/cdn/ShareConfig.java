@@ -12,7 +12,7 @@ import com.volcengine.volcenginecc.cdn.ShareConfigArgs;
 import com.volcengine.volcenginecc.cdn.inputs.ShareConfigState;
 import com.volcengine.volcenginecc.cdn.outputs.ShareConfigAllowIpAccessRule;
 import com.volcengine.volcenginecc.cdn.outputs.ShareConfigAllowRefererAccessRule;
-import com.volcengine.volcenginecc.cdn.outputs.ShareConfigCommonMatchs;
+import com.volcengine.volcenginecc.cdn.outputs.ShareConfigCommonMatchList;
 import com.volcengine.volcenginecc.cdn.outputs.ShareConfigDenyIpAccessRule;
 import com.volcengine.volcenginecc.cdn.outputs.ShareConfigDenyRefererAccessRule;
 import java.lang.Integer;
@@ -68,15 +68,15 @@ public class ShareConfig extends com.pulumi.resources.CustomResource {
      * 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
      * 
      */
-    @Export(name="commonMatchs", refs={ShareConfigCommonMatchs.class}, tree="[0]")
-    private Output<ShareConfigCommonMatchs> commonMatchs;
+    @Export(name="commonMatchList", refs={ShareConfigCommonMatchList.class}, tree="[0]")
+    private Output<ShareConfigCommonMatchList> commonMatchList;
 
     /**
      * @return 表示一个通用列表的配置，对应 ConfigType 是 common*match*list。
      * 
      */
-    public Output<ShareConfigCommonMatchs> commonMatchs() {
-        return this.commonMatchs;
+    public Output<ShareConfigCommonMatchList> commonMatchList() {
+        return this.commonMatchList;
     }
     /**
      * 表示全局配置的名称。名称有以下要求：名称可以包含汉字、字母、数字、下划线（_），长度在 3-45 个字符之间。一个汉字占 3 个字符。名称不能与主账号下某个已有的全局配置的名称相同。

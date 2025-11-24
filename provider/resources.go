@@ -173,6 +173,9 @@ func Provider() tfbridge.ProviderInfo {
 		if k == "volcenginecc_waf_domain" {
 			delete(prov.Resources, k)
 		}
+		if k == "volcenginecc_natgateway_nat_ip" {
+			delete(prov.Resources, k)
+		}
 	}
 	prov.MustApplyAutoAliases()
 

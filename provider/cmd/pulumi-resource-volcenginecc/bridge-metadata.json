@@ -171,6 +171,29 @@
                     }
                 }
             },
+            "volcenginecc_autoscaling_scaling_group": {
+                "current": "volcenginecc:autoscaling/scalingGroup:ScalingGroup",
+                "fields": {
+                    "db_instance_ids": {
+                        "maxItemsOne": false
+                    },
+                    "launch_template_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "server_group_attributes": {
+                        "maxItemsOne": false
+                    },
+                    "subnet_ids": {
+                        "maxItemsOne": false
+                    },
+                    "suspended_processes": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cdn_share_config": {
                 "current": "volcenginecc:cdn/shareConfig:ShareConfig",
                 "fields": {
@@ -192,7 +215,7 @@
                             }
                         }
                     },
-                    "common_matchs": {
+                    "common_match_list": {
                         "fields": {
                             "common_type": {
                                 "fields": {
@@ -220,6 +243,17 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "volcenginecc_cen_cen": {
+                "current": "volcenginecc:cen/cen:Cen",
+                "fields": {
+                    "cen_bandwidth_package_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -589,6 +623,9 @@
                     }
                 }
             },
+            "volcenginecc_natgateway_dnatentry": {
+                "current": "volcenginecc:natgateway/dnatentry:Dnatentry"
+            },
             "volcenginecc_natgateway_ngw": {
                 "current": "volcenginecc:natgateway/ngw:Ngw",
                 "fields": {
@@ -608,6 +645,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_natgateway_snatentry": {
+                "current": "volcenginecc:natgateway/snatentry:Snatentry"
             },
             "volcenginecc_organization_unit": {
                 "current": "volcenginecc:organization/unit:Unit"
@@ -805,6 +845,40 @@
             "volcenginecc_transitrouter_transit_router_route_table": {
                 "current": "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable",
                 "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_instance": {
+                "current": "volcenginecc:vedbm/instance:Instance",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "node_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "maintenance_window": {
+                        "fields": {
+                            "day_of_month": {
+                                "maxItemsOne": false
+                            },
+                            "day_of_week": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "nodes": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -1273,6 +1347,37 @@
                     }
                 }
             },
+            "volcenginecc_autoscaling_scaling_group": {
+                "current": "volcenginecc:autoscaling/getScalingGroup:getScalingGroup",
+                "fields": {
+                    "db_instance_ids": {
+                        "maxItemsOne": false
+                    },
+                    "launch_template_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "server_group_attributes": {
+                        "maxItemsOne": false
+                    },
+                    "subnet_ids": {
+                        "maxItemsOne": false
+                    },
+                    "suspended_processes": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_autoscaling_scaling_groups": {
+                "current": "volcenginecc:autoscaling/getScalingGroups:getScalingGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cdn_share_config": {
                 "current": "volcenginecc:cdn/getShareConfig:getShareConfig",
                 "fields": {
@@ -1294,7 +1399,7 @@
                             }
                         }
                     },
-                    "common_matchs": {
+                    "common_match_list": {
                         "fields": {
                             "common_type": {
                                 "fields": {
@@ -1327,6 +1432,25 @@
             },
             "volcenginecc_cdn_share_configs": {
                 "current": "volcenginecc:cdn/getShareConfigs:getShareConfigs",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cen_cen": {
+                "current": "volcenginecc:cen/getCen:getCen",
+                "fields": {
+                    "cen_bandwidth_package_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cen_cens": {
+                "current": "volcenginecc:cen/getCens:getCens",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -1910,6 +2034,28 @@
                     }
                 }
             },
+            "volcenginecc_natgateway_dnatentries": {
+                "current": "volcenginecc:natgateway/getDnatentries:getDnatentries",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_natgateway_dnatentry": {
+                "current": "volcenginecc:natgateway/getDnatentry:getDnatentry"
+            },
+            "volcenginecc_natgateway_nat_ip": {
+                "current": "volcenginecc:natgateway/getNatIp:getNatIp"
+            },
+            "volcenginecc_natgateway_nat_ips": {
+                "current": "volcenginecc:natgateway/getNatIps:getNatIps",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_natgateway_ngw": {
                 "current": "volcenginecc:natgateway/getNgw:getNgw",
                 "fields": {
@@ -1937,6 +2083,17 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_natgateway_snatentries": {
+                "current": "volcenginecc:natgateway/getSnatentries:getSnatentries",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_natgateway_snatentry": {
+                "current": "volcenginecc:natgateway/getSnatentry:getSnatentry"
             },
             "volcenginecc_organization_unit": {
                 "current": "volcenginecc:organization/getUnit:getUnit"
@@ -2229,6 +2386,48 @@
             },
             "volcenginecc_transitrouter_transit_routers": {
                 "current": "volcenginecc:transitrouter/getTransitRouters:getTransitRouters",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_instance": {
+                "current": "volcenginecc:vedbm/getInstance:getInstance",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "node_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "maintenance_window": {
+                        "fields": {
+                            "day_of_month": {
+                                "maxItemsOne": false
+                            },
+                            "day_of_week": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "nodes": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_instances": {
+                "current": "volcenginecc:vedbm/getInstances:getInstances",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

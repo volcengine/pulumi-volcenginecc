@@ -10,13 +10,193 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.natgateway.inputs.GetDnatentryArgs;
+import com.volcengine.volcenginecc.natgateway.inputs.GetDnatentryPlainArgs;
+import com.volcengine.volcenginecc.natgateway.inputs.GetNatIpArgs;
+import com.volcengine.volcenginecc.natgateway.inputs.GetNatIpPlainArgs;
 import com.volcengine.volcenginecc.natgateway.inputs.GetNgwArgs;
 import com.volcengine.volcenginecc.natgateway.inputs.GetNgwPlainArgs;
+import com.volcengine.volcenginecc.natgateway.inputs.GetSnatentryArgs;
+import com.volcengine.volcenginecc.natgateway.inputs.GetSnatentryPlainArgs;
+import com.volcengine.volcenginecc.natgateway.outputs.GetDnatentriesResult;
+import com.volcengine.volcenginecc.natgateway.outputs.GetDnatentryResult;
+import com.volcengine.volcenginecc.natgateway.outputs.GetNatIpResult;
+import com.volcengine.volcenginecc.natgateway.outputs.GetNatIpsResult;
 import com.volcengine.volcenginecc.natgateway.outputs.GetNgwResult;
 import com.volcengine.volcenginecc.natgateway.outputs.GetNgwsResult;
+import com.volcengine.volcenginecc.natgateway.outputs.GetSnatentriesResult;
+import com.volcengine.volcenginecc.natgateway.outputs.GetSnatentryResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class NatgatewayFunctions {
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentriesResult> getDnatentries() {
+        return getDnatentries(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static CompletableFuture<GetDnatentriesResult> getDnatentriesPlain() {
+        return getDnatentriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentriesResult> getDnatentries(InvokeArgs args) {
+        return getDnatentries(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static CompletableFuture<GetDnatentriesResult> getDnatentriesPlain(InvokeArgs args) {
+        return getDnatentriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentriesResult> getDnatentries(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getDnatentries:getDnatentries", TypeShape.of(GetDnatentriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentriesResult> getDnatentries(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getDnatentries:getDnatentries", TypeShape.of(GetDnatentriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static CompletableFuture<GetDnatentriesResult> getDnatentriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getDnatentries:getDnatentries", TypeShape.of(GetDnatentriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentryResult> getDnatentry(GetDnatentryArgs args) {
+        return getDnatentry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static CompletableFuture<GetDnatentryResult> getDnatentryPlain(GetDnatentryPlainArgs args) {
+        return getDnatentryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentryResult> getDnatentry(GetDnatentryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getDnatentry:getDnatentry", TypeShape.of(GetDnatentryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static Output<GetDnatentryResult> getDnatentry(GetDnatentryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getDnatentry:getDnatentry", TypeShape.of(GetDnatentryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Dnatentry
+     * 
+     */
+    public static CompletableFuture<GetDnatentryResult> getDnatentryPlain(GetDnatentryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getDnatentry:getDnatentry", TypeShape.of(GetDnatentryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpResult> getNatIp(GetNatIpArgs args) {
+        return getNatIp(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static CompletableFuture<GetNatIpResult> getNatIpPlain(GetNatIpPlainArgs args) {
+        return getNatIpPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpResult> getNatIp(GetNatIpArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getNatIp:getNatIp", TypeShape.of(GetNatIpResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpResult> getNatIp(GetNatIpArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getNatIp:getNatIp", TypeShape.of(GetNatIpResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static CompletableFuture<GetNatIpResult> getNatIpPlain(GetNatIpPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getNatIp:getNatIp", TypeShape.of(GetNatIpResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpsResult> getNatIps() {
+        return getNatIps(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static CompletableFuture<GetNatIpsResult> getNatIpsPlain() {
+        return getNatIpsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpsResult> getNatIps(InvokeArgs args) {
+        return getNatIps(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static CompletableFuture<GetNatIpsResult> getNatIpsPlain(InvokeArgs args) {
+        return getNatIpsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpsResult> getNatIps(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getNatIps:getNatIps", TypeShape.of(GetNatIpsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static Output<GetNatIpsResult> getNatIps(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getNatIps:getNatIps", TypeShape.of(GetNatIpsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::NatIp
+     * 
+     */
+    public static CompletableFuture<GetNatIpsResult> getNatIpsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getNatIps:getNatIps", TypeShape.of(GetNatIpsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::NatGateway::NGW
      * 
@@ -100,5 +280,89 @@ public final class NatgatewayFunctions {
      */
     public static CompletableFuture<GetNgwsResult> getNgwsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getNgws:getNgws", TypeShape.of(GetNgwsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentriesResult> getSnatentries() {
+        return getSnatentries(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static CompletableFuture<GetSnatentriesResult> getSnatentriesPlain() {
+        return getSnatentriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentriesResult> getSnatentries(InvokeArgs args) {
+        return getSnatentries(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static CompletableFuture<GetSnatentriesResult> getSnatentriesPlain(InvokeArgs args) {
+        return getSnatentriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentriesResult> getSnatentries(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getSnatentries:getSnatentries", TypeShape.of(GetSnatentriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentriesResult> getSnatentries(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getSnatentries:getSnatentries", TypeShape.of(GetSnatentriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static CompletableFuture<GetSnatentriesResult> getSnatentriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getSnatentries:getSnatentries", TypeShape.of(GetSnatentriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentryResult> getSnatentry(GetSnatentryArgs args) {
+        return getSnatentry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static CompletableFuture<GetSnatentryResult> getSnatentryPlain(GetSnatentryPlainArgs args) {
+        return getSnatentryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentryResult> getSnatentry(GetSnatentryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getSnatentry:getSnatentry", TypeShape.of(GetSnatentryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static Output<GetSnatentryResult> getSnatentry(GetSnatentryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:natgateway/getSnatentry:getSnatentry", TypeShape.of(GetSnatentryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::NatGateway::Snatentry
+     * 
+     */
+    public static CompletableFuture<GetSnatentryResult> getSnatentryPlain(GetSnatentryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:natgateway/getSnatentry:getSnatentry", TypeShape.of(GetSnatentryResult.class), args, Utilities.withVersion(options));
     }
 }

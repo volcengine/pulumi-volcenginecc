@@ -5,6 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DnatentryArgs, DnatentryState } from "./dnatentry";
+export type Dnatentry = import("./dnatentry").Dnatentry;
+export const Dnatentry: typeof import("./dnatentry").Dnatentry = null as any;
+utilities.lazyLoad(exports, ["Dnatentry"], () => require("./dnatentry"));
+
+export { GetDnatentriesResult } from "./getDnatentries";
+export const getDnatentries: typeof import("./getDnatentries").getDnatentries = null as any;
+export const getDnatentriesOutput: typeof import("./getDnatentries").getDnatentriesOutput = null as any;
+utilities.lazyLoad(exports, ["getDnatentries","getDnatentriesOutput"], () => require("./getDnatentries"));
+
+export { GetDnatentryArgs, GetDnatentryResult, GetDnatentryOutputArgs } from "./getDnatentry";
+export const getDnatentry: typeof import("./getDnatentry").getDnatentry = null as any;
+export const getDnatentryOutput: typeof import("./getDnatentry").getDnatentryOutput = null as any;
+utilities.lazyLoad(exports, ["getDnatentry","getDnatentryOutput"], () => require("./getDnatentry"));
+
+export { GetNatIpArgs, GetNatIpResult, GetNatIpOutputArgs } from "./getNatIp";
+export const getNatIp: typeof import("./getNatIp").getNatIp = null as any;
+export const getNatIpOutput: typeof import("./getNatIp").getNatIpOutput = null as any;
+utilities.lazyLoad(exports, ["getNatIp","getNatIpOutput"], () => require("./getNatIp"));
+
+export { GetNatIpsResult } from "./getNatIps";
+export const getNatIps: typeof import("./getNatIps").getNatIps = null as any;
+export const getNatIpsOutput: typeof import("./getNatIps").getNatIpsOutput = null as any;
+utilities.lazyLoad(exports, ["getNatIps","getNatIpsOutput"], () => require("./getNatIps"));
+
 export { GetNgwArgs, GetNgwResult, GetNgwOutputArgs } from "./getNgw";
 export const getNgw: typeof import("./getNgw").getNgw = null as any;
 export const getNgwOutput: typeof import("./getNgw").getNgwOutput = null as any;
@@ -15,21 +40,42 @@ export const getNgws: typeof import("./getNgws").getNgws = null as any;
 export const getNgwsOutput: typeof import("./getNgws").getNgwsOutput = null as any;
 utilities.lazyLoad(exports, ["getNgws","getNgwsOutput"], () => require("./getNgws"));
 
+export { GetSnatentriesResult } from "./getSnatentries";
+export const getSnatentries: typeof import("./getSnatentries").getSnatentries = null as any;
+export const getSnatentriesOutput: typeof import("./getSnatentries").getSnatentriesOutput = null as any;
+utilities.lazyLoad(exports, ["getSnatentries","getSnatentriesOutput"], () => require("./getSnatentries"));
+
+export { GetSnatentryArgs, GetSnatentryResult, GetSnatentryOutputArgs } from "./getSnatentry";
+export const getSnatentry: typeof import("./getSnatentry").getSnatentry = null as any;
+export const getSnatentryOutput: typeof import("./getSnatentry").getSnatentryOutput = null as any;
+utilities.lazyLoad(exports, ["getSnatentry","getSnatentryOutput"], () => require("./getSnatentry"));
+
 export { NgwArgs, NgwState } from "./ngw";
 export type Ngw = import("./ngw").Ngw;
 export const Ngw: typeof import("./ngw").Ngw = null as any;
 utilities.lazyLoad(exports, ["Ngw"], () => require("./ngw"));
+
+export { SnatentryArgs, SnatentryState } from "./snatentry";
+export type Snatentry = import("./snatentry").Snatentry;
+export const Snatentry: typeof import("./snatentry").Snatentry = null as any;
+utilities.lazyLoad(exports, ["Snatentry"], () => require("./snatentry"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:natgateway/dnatentry:Dnatentry":
+                return new Dnatentry(name, <any>undefined, { urn })
             case "volcenginecc:natgateway/ngw:Ngw":
                 return new Ngw(name, <any>undefined, { urn })
+            case "volcenginecc:natgateway/snatentry:Snatentry":
+                return new Snatentry(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "natgateway/dnatentry", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "natgateway/ngw", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "natgateway/snatentry", _module)

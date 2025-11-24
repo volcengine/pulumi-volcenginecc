@@ -21,6 +21,8 @@ if typing.TYPE_CHECKING:
     autoscaling = __autoscaling
     import pulumi_volcenginecc.cdn as __cdn
     cdn = __cdn
+    import pulumi_volcenginecc.cen as __cen
+    cen = __cen
     import pulumi_volcenginecc.clb as __clb
     clb = __clb
     import pulumi_volcenginecc.config as __config
@@ -55,6 +57,8 @@ if typing.TYPE_CHECKING:
     tos = __tos
     import pulumi_volcenginecc.transitrouter as __transitrouter
     transitrouter = __transitrouter
+    import pulumi_volcenginecc.vedbm as __vedbm
+    vedbm = __vedbm
     import pulumi_volcenginecc.vefaas as __vefaas
     vefaas = __vefaas
     import pulumi_volcenginecc.vke as __vke
@@ -71,6 +75,7 @@ else:
     ark = _utilities.lazy_import('pulumi_volcenginecc.ark')
     autoscaling = _utilities.lazy_import('pulumi_volcenginecc.autoscaling')
     cdn = _utilities.lazy_import('pulumi_volcenginecc.cdn')
+    cen = _utilities.lazy_import('pulumi_volcenginecc.cen')
     clb = _utilities.lazy_import('pulumi_volcenginecc.clb')
     config = _utilities.lazy_import('pulumi_volcenginecc.config')
     cr = _utilities.lazy_import('pulumi_volcenginecc.cr')
@@ -88,6 +93,7 @@ else:
     tls = _utilities.lazy_import('pulumi_volcenginecc.tls')
     tos = _utilities.lazy_import('pulumi_volcenginecc.tos')
     transitrouter = _utilities.lazy_import('pulumi_volcenginecc.transitrouter')
+    vedbm = _utilities.lazy_import('pulumi_volcenginecc.vedbm')
     vefaas = _utilities.lazy_import('pulumi_volcenginecc.vefaas')
     vke = _utilities.lazy_import('pulumi_volcenginecc.vke')
     vmp = _utilities.lazy_import('pulumi_volcenginecc.vmp')
@@ -179,10 +185,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "autoscaling/scalingGroup",
+  "fqn": "pulumi_volcenginecc.autoscaling",
+  "classes": {
+   "volcenginecc:autoscaling/scalingGroup:ScalingGroup": "ScalingGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cdn/shareConfig",
   "fqn": "pulumi_volcenginecc.cdn",
   "classes": {
    "volcenginecc:cdn/shareConfig:ShareConfig": "ShareConfig"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cen/cen",
+  "fqn": "pulumi_volcenginecc.cen",
+  "classes": {
+   "volcenginecc:cen/cen:Cen": "Cen"
   }
  },
  {
@@ -395,10 +417,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "natgateway/dnatentry",
+  "fqn": "pulumi_volcenginecc.natgateway",
+  "classes": {
+   "volcenginecc:natgateway/dnatentry:Dnatentry": "Dnatentry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "natgateway/ngw",
   "fqn": "pulumi_volcenginecc.natgateway",
   "classes": {
    "volcenginecc:natgateway/ngw:Ngw": "Ngw"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "natgateway/snatentry",
+  "fqn": "pulumi_volcenginecc.natgateway",
+  "classes": {
+   "volcenginecc:natgateway/snatentry:Snatentry": "Snatentry"
   }
  },
  {
@@ -495,6 +533,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable": "TransitRouterRouteTable"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vedbm/instance",
+  "fqn": "pulumi_volcenginecc.vedbm",
+  "classes": {
+   "volcenginecc:vedbm/instance:Instance": "Instance"
   }
  },
  {

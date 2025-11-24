@@ -15,6 +15,7 @@ import * as apig from "./apig";
 import * as ark from "./ark";
 import * as autoscaling from "./autoscaling";
 import * as cdn from "./cdn";
+import * as cen from "./cen";
 import * as clb from "./clb";
 import * as config from "./config";
 import * as cr from "./cr";
@@ -33,6 +34,7 @@ import * as tls from "./tls";
 import * as tos from "./tos";
 import * as transitrouter from "./transitrouter";
 import * as types from "./types";
+import * as vedbm from "./vedbm";
 import * as vefaas from "./vefaas";
 import * as vke from "./vke";
 import * as vmp from "./vmp";
@@ -45,6 +47,7 @@ export {
     ark,
     autoscaling,
     cdn,
+    cen,
     clb,
     config,
     cr,
@@ -63,6 +66,7 @@ export {
     tos,
     transitrouter,
     types,
+    vedbm,
     vefaas,
     vke,
     vmp,

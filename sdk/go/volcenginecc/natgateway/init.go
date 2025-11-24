@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:natgateway/dnatentry:Dnatentry":
+		r = &Dnatentry{}
 	case "volcenginecc:natgateway/ngw:Ngw":
 		r = &Ngw{}
+	case "volcenginecc:natgateway/snatentry:Snatentry":
+		r = &Snatentry{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,7 +42,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"natgateway/dnatentry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"natgateway/ngw",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"natgateway/snatentry",
 		&module{version},
 	)
 }
