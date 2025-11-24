@@ -3190,6 +3190,110 @@
                 }
             }
         },
+        "volcenginecc:autoscaling/ScalingGroupInstancesDistribution:ScalingGroupInstancesDistribution": {
+            "properties": {
+                "compensateWithOnDemand": {
+                    "type": "boolean",
+                    "description": "当因价格、库存等原因无法创建足够的抢占式实例时，是否允许使用按量实例补充抢占式容量。true: 允许。false（默认）: 不允许。\n"
+                },
+                "onDemandBaseCapacity": {
+                    "type": "integer",
+                    "description": "伸缩组中按量计费实例个数的最小值，取值范围：0~2000。当组中按量计费实例个数少于该值时，将优先创建按量计费的实例。\n"
+                },
+                "onDemandPercentageAboveBaseCapacity": {
+                    "type": "integer",
+                    "description": "伸缩组满足最小按量实例数要求后，超出的实例中按量实例应占的比例，取值范围：0～100。\n"
+                },
+                "spotInstanceRemedy": {
+                    "type": "boolean",
+                    "description": "是否允许抢占式实例到期替换。开启则表示在抢占式实例被回收前5分钟左右，伸缩组将主动新建新的抢占式实例替换掉当前抢占式实例。true: 允许。false（默认）: 不允许。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "compensateWithOnDemand",
+                        "onDemandBaseCapacity",
+                        "onDemandPercentageAboveBaseCapacity",
+                        "spotInstanceRemedy"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:autoscaling/ScalingGroupLaunchTemplateOverride:ScalingGroupLaunchTemplateOverride": {
+            "properties": {
+                "instanceType": {
+                    "type": "string",
+                    "description": "指定实例规格。本参数仅当LaunchTemplateId参数存在取值时生有效。\n"
+                },
+                "priceLimit": {
+                    "type": "number",
+                    "description": "指定抢占式实例规格每小时的最高价格。本参数仅当LaunchTemplateId参数存在取值，且启动模版的计费模式为设置出价上限的抢占式实例（即SpotWithPriceLimit）时有效。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "instanceType",
+                        "priceLimit"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:autoscaling/ScalingGroupServerGroupAttribute:ScalingGroupServerGroupAttribute": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "description": "负载均衡后端服务器组中服务器的端口号。取值1 ～ 65535。\n"
+                },
+                "serverGroupId": {
+                    "type": "string",
+                    "description": "负载均衡后端服务器组的ID。\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "负载均衡服务器组类型。单个CLB/ALB最多支持添加20个后端服务器组，所有CLB/ALB最多支持添加100个后端服务器。ALB：应用型负载均衡。CLB：传统型型负载均衡（默认）。\n"
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "负载均衡后端服务器组中服务器的权重。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "port",
+                        "serverGroupId",
+                        "type",
+                        "weight"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:autoscaling/ScalingGroupTag:ScalingGroupTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
         "volcenginecc:autoscaling/getScalingConfigurationEip:getScalingConfigurationEip": {
             "properties": {
                 "bandwidth": {
@@ -3293,6 +3397,124 @@
                 }
             }
         },
+        "volcenginecc:autoscaling/getScalingGroupInstancesDistribution:getScalingGroupInstancesDistribution": {
+            "properties": {
+                "compensateWithOnDemand": {
+                    "type": "boolean",
+                    "description": "当因价格、库存等原因无法创建足够的抢占式实例时，是否允许使用按量实例补充抢占式容量。true: 允许。false（默认）: 不允许。\n"
+                },
+                "onDemandBaseCapacity": {
+                    "type": "integer",
+                    "description": "伸缩组中按量计费实例个数的最小值，取值范围：0~2000。当组中按量计费实例个数少于该值时，将优先创建按量计费的实例。\n"
+                },
+                "onDemandPercentageAboveBaseCapacity": {
+                    "type": "integer",
+                    "description": "伸缩组满足最小按量实例数要求后，超出的实例中按量实例应占的比例，取值范围：0～100。\n"
+                },
+                "spotInstanceRemedy": {
+                    "type": "boolean",
+                    "description": "是否允许抢占式实例到期替换。开启则表示在抢占式实例被回收前5分钟左右，伸缩组将主动新建新的抢占式实例替换掉当前抢占式实例。true: 允许。false（默认）: 不允许。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "compensateWithOnDemand",
+                "onDemandBaseCapacity",
+                "onDemandPercentageAboveBaseCapacity",
+                "spotInstanceRemedy"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:autoscaling/getScalingGroupLaunchTemplateOverride:getScalingGroupLaunchTemplateOverride": {
+            "properties": {
+                "instanceType": {
+                    "type": "string",
+                    "description": "指定实例规格。本参数仅当LaunchTemplateId参数存在取值时生有效。\n"
+                },
+                "priceLimit": {
+                    "type": "number",
+                    "description": "指定抢占式实例规格每小时的最高价格。本参数仅当LaunchTemplateId参数存在取值，且启动模版的计费模式为设置出价上限的抢占式实例（即SpotWithPriceLimit）时有效。\n"
+                },
+                "weightedCapacity": {
+                    "type": "integer",
+                    "description": "实例规格的权重。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "instanceType",
+                "priceLimit",
+                "weightedCapacity"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:autoscaling/getScalingGroupServerGroupAttribute:getScalingGroupServerGroupAttribute": {
+            "properties": {
+                "loadBalancerId": {
+                    "type": "string",
+                    "description": "负载均衡实例的ID。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "负载均衡后端服务器组中服务器的端口号。取值1 ～ 65535。\n"
+                },
+                "serverGroupId": {
+                    "type": "string",
+                    "description": "负载均衡后端服务器组的ID。\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "负载均衡服务器组类型。单个CLB/ALB最多支持添加20个后端服务器组，所有CLB/ALB最多支持添加100个后端服务器。ALB：应用型负载均衡。CLB：传统型型负载均衡（默认）。\n"
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "负载均衡后端服务器组中服务器的权重。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "loadBalancerId",
+                "port",
+                "serverGroupId",
+                "type",
+                "weight"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:autoscaling/getScalingGroupTag:getScalingGroupTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "volcenginecc:cdn/ShareConfigAllowIpAccessRule:ShareConfigAllowIpAccessRule": {
             "properties": {
                 "rules": {
@@ -3357,10 +3579,10 @@
                 }
             }
         },
-        "volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs": {
+        "volcenginecc:cdn/ShareConfigCommonMatchList:ShareConfigCommonMatchList": {
             "properties": {
                 "commonType": {
-                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchsCommonType:ShareConfigCommonMatchsCommonType",
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchListCommonType:ShareConfigCommonMatchListCommonType",
                     "description": "表示该通用列表的内容。\n"
                 }
             },
@@ -3373,7 +3595,7 @@
                 }
             }
         },
-        "volcenginecc:cdn/ShareConfigCommonMatchsCommonType:ShareConfigCommonMatchsCommonType": {
+        "volcenginecc:cdn/ShareConfigCommonMatchListCommonType:ShareConfigCommonMatchListCommonType": {
             "properties": {
                 "ignoreCase": {
                     "type": "boolean",
@@ -3528,10 +3750,10 @@
                 }
             }
         },
-        "volcenginecc:cdn/getShareConfigCommonMatchs:getShareConfigCommonMatchs": {
+        "volcenginecc:cdn/getShareConfigCommonMatchList:getShareConfigCommonMatchList": {
             "properties": {
                 "commonType": {
-                    "$ref": "#/types/volcenginecc:cdn/getShareConfigCommonMatchsCommonType:getShareConfigCommonMatchsCommonType",
+                    "$ref": "#/types/volcenginecc:cdn/getShareConfigCommonMatchListCommonType:getShareConfigCommonMatchListCommonType",
                     "description": "表示该通用列表的内容。\n"
                 }
             },
@@ -3545,7 +3767,7 @@
                 }
             }
         },
-        "volcenginecc:cdn/getShareConfigCommonMatchsCommonType:getShareConfigCommonMatchsCommonType": {
+        "volcenginecc:cdn/getShareConfigCommonMatchListCommonType:getShareConfigCommonMatchListCommonType": {
             "properties": {
                 "ignoreCase": {
                     "type": "boolean",
@@ -3630,6 +3852,49 @@
             "required": [
                 "ignoreCase",
                 "rules"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:cen/CenTag:CenTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。长度限制为1～128个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。长度限制为0～256个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:cen/getCenTag:getCenTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。长度限制为1～128个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。长度限制为0～256个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
             ],
             "language": {
                 "nodejs": {
@@ -10561,6 +10826,562 @@
                 }
             }
         },
+        "volcenginecc:vedbm/InstanceChargeDetail:InstanceChargeDetail": {
+            "properties": {
+                "autoRenew": {
+                    "type": "boolean",
+                    "description": "预付费场景下是否自动续费。取值：true：自动续费。false：不自动续费。\n"
+                },
+                "chargeEndTime": {
+                    "type": "string",
+                    "description": "预付费场景下计费到期的时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "chargeStartTime": {
+                    "type": "string",
+                    "description": "计费开始的时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "chargeStatus": {
+                    "type": "string",
+                    "description": "付费状态：Normal：正常。Overdue：欠费。Shutdown：关停。\n"
+                },
+                "chargeType": {
+                    "type": "string",
+                    "description": "计费类型。PostPaid：按量计费；PrePaid：包年包月。\n"
+                },
+                "overdueReclaimTime": {
+                    "type": "string",
+                    "description": "欠费关停时预计释放时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "overdueTime": {
+                    "type": "string",
+                    "description": "欠费关停时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "预付费场景下的购买时长。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "预付费场景下的购买周期。Month：包月。Year：包年。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "autoRenew",
+                        "chargeEndTime",
+                        "chargeStartTime",
+                        "chargeStatus",
+                        "chargeType",
+                        "overdueReclaimTime",
+                        "overdueTime",
+                        "period",
+                        "periodUnit"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vedbm/InstanceEndpoint:InstanceEndpoint": {
+            "properties": {
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceEndpointAddress:InstanceEndpointAddress"
+                    }
+                },
+                "autoAddNewNodes": {
+                    "type": "boolean",
+                    "description": "是否允许自动加入新节点，取值：true：是。false：否。\n"
+                },
+                "consistLevel": {
+                    "type": "string",
+                    "description": "一致性级别，仅对读写模式的连接终端有效。取值：Eventual：最终一致性。Session：会话一致性。Global：全局一致性。\n"
+                },
+                "consistTimeout": {
+                    "type": "integer",
+                    "description": "延迟很大时，只读节点同步最新数据的超时时间，单位为 us，取值范围为 1us~100000000us。\n"
+                },
+                "consistTimeoutAction": {
+                    "type": "string",
+                    "description": "只读节点同步数据超时后的超时策略，支持以下两种策略：ReturnError：返回 SQL 报错（wait replication complete timeout, please retry）。ReadMaster：发送请求到主节点。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "地址描述。\n"
+                },
+                "distributedTransaction": {
+                    "type": "boolean",
+                    "description": "是否开启事务拆分，仅对读写模式的连接终端有效。取值：true：是。false：否。\n"
+                },
+                "endpointId": {
+                    "type": "string",
+                    "description": "实例连接终端 ID。\n"
+                },
+                "endpointName": {
+                    "type": "string",
+                    "description": "实例连接终端名称。\n"
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "连接终端类型，取值：Cluster：默认终端。Primary：主节点终端。Custom：自定义终端。\n"
+                },
+                "masterAcceptReadRequests": {
+                    "type": "boolean",
+                    "description": "主节点是否接受读请求。仅对读写模式的连接终端有效。true：是。false：否。\n"
+                },
+                "nodeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "连接终端配置的节点列表。\n"
+                },
+                "readWriteMode": {
+                    "type": "string",
+                    "description": "连接终端的读写模式，取值：ReadWrite: 读写。ReadOnly: 只读。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "addresses",
+                        "autoAddNewNodes",
+                        "consistLevel",
+                        "consistTimeout",
+                        "consistTimeoutAction",
+                        "description",
+                        "distributedTransaction",
+                        "endpointId",
+                        "endpointName",
+                        "endpointType",
+                        "masterAcceptReadRequests",
+                        "nodeIds",
+                        "readWriteMode"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vedbm/InstanceEndpointAddress:InstanceEndpointAddress": {
+            "properties": {
+                "dnsVisibility": {
+                    "type": "boolean",
+                    "description": "解析方式。当前返回值只能为 false。\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "实例内网访问域名。\n"
+                },
+                "eipId": {
+                    "type": "string",
+                    "description": "公网 ID。\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "IP 地址。\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "网络类型：Private：私有网络 VPC。Public：公网访问。\n"
+                },
+                "port": {
+                    "type": "string",
+                    "description": "实例内网访问端口。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "子网 ID。子网必须属于所选的可用区。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "dnsVisibility",
+                        "domain",
+                        "eipId",
+                        "ipAddress",
+                        "networkType",
+                        "port",
+                        "subnetId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vedbm/InstanceMaintenanceWindow:InstanceMaintenanceWindow": {
+            "properties": {
+                "dayKind": {
+                    "type": "string",
+                    "description": "可维护周期粒度，默认取值为：Week（周）。\n"
+                },
+                "dayOfMonths": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "指定每月哪一天为可维护时间段，默认为空，表示每天都指定。\n"
+                },
+                "dayOfWeeks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "每周的哪一天为可维护时间段，默认取值为每一天：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。\n"
+                },
+                "maintenanceTime": {
+                    "type": "string",
+                    "description": "实例的可维护时间段。格式：HH:mmZ-HH:mmZ（UTC 时间）。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "dayKind",
+                        "dayOfMonths",
+                        "dayOfWeeks",
+                        "maintenanceTime"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vedbm/InstanceNode:InstanceNode": {
+            "properties": {
+                "failoverPriority": {
+                    "type": "integer",
+                    "description": "节点切主的优先级，取值范围为 0~15。数值越大，优先级越高。\n"
+                },
+                "nodeType": {
+                    "type": "string",
+                    "description": "节点类型。取值：Primary：主节点。ReadOnly：只读节点。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "failoverPriority",
+                        "nodeType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vedbm/InstanceTag:InstanceTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vedbm/getInstanceChargeDetail:getInstanceChargeDetail": {
+            "properties": {
+                "autoRenew": {
+                    "type": "boolean",
+                    "description": "预付费场景下是否自动续费。取值：true：自动续费。false：不自动续费。\n"
+                },
+                "chargeEndTime": {
+                    "type": "string",
+                    "description": "预付费场景下计费到期的时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "chargeStartTime": {
+                    "type": "string",
+                    "description": "计费开始的时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "chargeStatus": {
+                    "type": "string",
+                    "description": "付费状态：Normal：正常。Overdue：欠费。Shutdown：关停。\n"
+                },
+                "chargeType": {
+                    "type": "string",
+                    "description": "计费类型。PostPaid：按量计费；PrePaid：包年包月。\n"
+                },
+                "overdueReclaimTime": {
+                    "type": "string",
+                    "description": "欠费关停时预计释放时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "overdueTime": {
+                    "type": "string",
+                    "description": "欠费关停时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "预付费场景下的购买时长。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "预付费场景下的购买周期。Month：包月。Year：包年。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "autoRenew",
+                "chargeEndTime",
+                "chargeStartTime",
+                "chargeStatus",
+                "chargeType",
+                "overdueReclaimTime",
+                "overdueTime",
+                "period",
+                "periodUnit"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vedbm/getInstanceEndpoint:getInstanceEndpoint": {
+            "properties": {
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/getInstanceEndpointAddress:getInstanceEndpointAddress"
+                    },
+                    "description": "连接地址信息。\n"
+                },
+                "autoAddNewNodes": {
+                    "type": "boolean",
+                    "description": "是否允许自动加入新节点，取值：true：是。false：否。\n"
+                },
+                "consistLevel": {
+                    "type": "string",
+                    "description": "一致性级别，仅对读写模式的连接终端有效。取值：Eventual：最终一致性。Session：会话一致性。Global：全局一致性。\n"
+                },
+                "consistTimeout": {
+                    "type": "integer",
+                    "description": "延迟很大时，只读节点同步最新数据的超时时间，单位为 us，取值范围为 1us~100000000us。\n"
+                },
+                "consistTimeoutAction": {
+                    "type": "string",
+                    "description": "只读节点同步数据超时后的超时策略，支持以下两种策略：ReturnError：返回 SQL 报错（wait replication complete timeout, please retry）。ReadMaster：发送请求到主节点。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "地址描述。\n"
+                },
+                "distributedTransaction": {
+                    "type": "boolean",
+                    "description": "是否开启事务拆分，仅对读写模式的连接终端有效。取值：true：是。false：否。\n"
+                },
+                "endpointId": {
+                    "type": "string",
+                    "description": "实例连接终端 ID。\n"
+                },
+                "endpointName": {
+                    "type": "string",
+                    "description": "实例连接终端名称。\n"
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "连接终端类型，取值：Cluster：默认终端。Primary：主节点终端。Custom：自定义终端。\n"
+                },
+                "masterAcceptReadRequests": {
+                    "type": "boolean",
+                    "description": "主节点是否接受读请求。仅对读写模式的连接终端有效。true：是。false：否。\n"
+                },
+                "nodeIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "连接终端配置的节点列表。\n"
+                },
+                "readWriteMode": {
+                    "type": "string",
+                    "description": "连接终端的读写模式，取值：ReadWrite: 读写。ReadOnly: 只读。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "addresses",
+                "autoAddNewNodes",
+                "consistLevel",
+                "consistTimeout",
+                "consistTimeoutAction",
+                "description",
+                "distributedTransaction",
+                "endpointId",
+                "endpointName",
+                "endpointType",
+                "masterAcceptReadRequests",
+                "nodeIds",
+                "readWriteMode"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vedbm/getInstanceEndpointAddress:getInstanceEndpointAddress": {
+            "properties": {
+                "dnsVisibility": {
+                    "type": "boolean",
+                    "description": "解析方式。当前返回值只能为 false。\n"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "实例内网访问域名。\n"
+                },
+                "eipId": {
+                    "type": "string",
+                    "description": "公网 ID。\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "IP 地址。\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "网络类型：Private：私有网络 VPC。Public：公网访问。\n"
+                },
+                "port": {
+                    "type": "string",
+                    "description": "实例内网访问端口。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "子网 ID。子网必须属于所选的可用区。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dnsVisibility",
+                "domain",
+                "eipId",
+                "ipAddress",
+                "networkType",
+                "port",
+                "subnetId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vedbm/getInstanceMaintenanceWindow:getInstanceMaintenanceWindow": {
+            "properties": {
+                "dayKind": {
+                    "type": "string",
+                    "description": "可维护周期粒度，默认取值为：Week（周）。\n"
+                },
+                "dayOfMonths": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "指定每月哪一天为可维护时间段，默认为空，表示每天都指定。\n"
+                },
+                "dayOfWeeks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "每周的哪一天为可维护时间段，默认取值为每一天：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。\n"
+                },
+                "maintenanceTime": {
+                    "type": "string",
+                    "description": "实例的可维护时间段。格式：HH:mmZ-HH:mmZ（UTC 时间）。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dayKind",
+                "dayOfMonths",
+                "dayOfWeeks",
+                "maintenanceTime"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vedbm/getInstanceNode:getInstanceNode": {
+            "properties": {
+                "failoverPriority": {
+                    "type": "integer",
+                    "description": "节点切主的优先级，取值范围为 0~15。数值越大，优先级越高。\n"
+                },
+                "memory": {
+                    "type": "integer",
+                    "description": "内存大小，单位为 GiB。\n"
+                },
+                "nodeId": {
+                    "type": "string",
+                    "description": "节点 ID。\n"
+                },
+                "nodeSpec": {
+                    "type": "string",
+                    "description": "节点规格。\n"
+                },
+                "nodeType": {
+                    "type": "string",
+                    "description": "节点类型。取值：Primary：主节点。ReadOnly：只读节点。\n"
+                },
+                "vCpu": {
+                    "type": "integer",
+                    "description": "CPU 大小，例如当取值为 1 时表示 CPU 大小为 1U。\n"
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "可用区 ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "failoverPriority",
+                "memory",
+                "nodeId",
+                "nodeSpec",
+                "nodeType",
+                "vCpu",
+                "zoneId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vedbm/getInstanceTag:getInstanceTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "volcenginecc:vefaas/KafkaTriggerKafkaCredentials:KafkaTriggerKafkaCredentials": {
             "properties": {
                 "mechanism": {
@@ -15905,6 +16726,410 @@
                 "type": "object"
             }
         },
+        "volcenginecc:autoscaling/scalingGroup:ScalingGroup": {
+            "description": "伸缩组用于管理一组云资源实例。通过伸缩组可以定义云资源池中的实例数/容量、冷却时间、负载均衡等信息。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  autoScalingScalingGroupDemo:\n    type: volcenginecc:autoscaling:ScalingGroup\n    name: AutoScalingScalingGroupDemo\n    properties:\n      healthCheckType: ECS\n      scalingMode: release\n      instancesDistribution:\n        compensate_with_on_demand: true\n        on_demand_base_capacity: 0\n        on_demand_percentage_above_base_capacity: 50\n        spot_instance_remedy: true\n      tags:\n        - key: env\n          value: test\n      launchTemplateOverrides:\n        - instance_type: ecs.g4il.large\n          price_limit: 0\n      launchTemplateId: lt-ye9dsl3ucffig992xxxxfncd\n      projectName: default\n      serverGroupAttributes:\n        - port: 8080\n          server_group_id: rsp-13g2ktevofhfk3n6nxxxu4mqjq0o\n          type: CLB\n          weight: 50\n        - port: 8080\n          server_group_id: rsp-bde4j3yuu8008dv4xxxx0nkn203g\n          type: ALB\n          weight: 50\n      launchTemplateVersion: Default\n      subnetIds:\n        - subnet-3nrd6qaq3log0931ecxxxh3re2r\n      defaultCooldown: 300\n      desireInstanceNumber: -1\n      instanceTerminatePolicy: OldestScalingConfigurationWithOldestInstance\n      maxInstanceNumber: 6\n      minInstanceNumber: 1\n      multiAzPolicy: PRIORITY\n      scalingGroupName: AutoScalingScalingGroupDemo\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:autoscaling/scalingGroup:ScalingGroup example \"scaling_group_id\"\n```\n\n",
+            "properties": {
+                "activeScalingConfigurationId": {
+                    "type": "string",
+                    "description": "伸缩组绑定的伸缩配置的ID。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "伸缩组创建时间。\n"
+                },
+                "dbInstanceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "RDS数据库实例的ID。\n"
+                },
+                "defaultCooldown": {
+                    "type": "integer",
+                    "description": "执行一次伸缩活动（添加或移出ECS实例）结束后的冷却时间。冷却时间内，该伸缩组不执行其它的伸缩活动，仅针对云监控报警任务触发的伸缩活动和伸缩规则有效。取值范围：5 ~ 86400，单位：秒。默认值：300。\n"
+                },
+                "desireInstanceNumber": {
+                    "type": "integer",
+                    "description": "伸缩组中期望运行的实例个数。1、不小于最小实例数MinInstanceNumber且不大于最大实例数MaxInstanceNumber。2、默认值：-1，表示不开启期望实例数能力。此时，伸缩组创建完成后会立即开始伸缩活动自动添加相应个数的实例。\n"
+                },
+                "healthCheckType": {
+                    "type": "string",
+                    "description": "伸缩组的健康检查方式。1、NONE：不做实例健康状态检查。2、ECS（默认）：对伸缩组内的ECS实例做健康检查。\n"
+                },
+                "instanceTerminatePolicy": {
+                    "type": "string",
+                    "description": "实例移除策略，1、OldestInstance：移出最早加入 （包括自动创建和手动添加）伸缩组的实例。2、NewestInstance：移出最晚加入（包括自动创建和手动添加）伸缩组的实例。3、OldestScalingConfigurationWithOldestInstance（默认）：移出最早与伸缩组绑定的伸缩配置中，最早由伸缩组 自动创建 的实例。4、OldestScalingConfigurationWithNewestInstance：移出最早与伸缩组绑定的伸缩配置中，最晚由伸缩组 自动创建 的实例。\n"
+                },
+                "instancesDistribution": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupInstancesDistribution:ScalingGroupInstancesDistribution",
+                    "description": "实例分布策略。\n"
+                },
+                "isEnableScalingGroup": {
+                    "type": "boolean",
+                    "description": "是否启用伸缩组。true：启用。false：停止\n"
+                },
+                "launchTemplateId": {
+                    "type": "string",
+                    "description": "实例启动模板ID，配置后表示选择启动模版作为伸缩配置来源。\n"
+                },
+                "launchTemplateOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupLaunchTemplateOverride:ScalingGroupLaunchTemplateOverride"
+                    }
+                },
+                "launchTemplateVersion": {
+                    "type": "string",
+                    "description": "实例启动模板的版本。1、模板的某个版本号。2、Default（默认）：始终使用模板默认版本。3、Latest：始终使用模板最新版本。\n"
+                },
+                "lifecycleState": {
+                    "type": "string",
+                    "description": "伸缩组的状态。Active：已启用。InActive：未激活。Deleting：删除中。Locked: 已锁定。CoolingDown: 冷却中。Unknown: 未知状态。\n"
+                },
+                "loadBalancerHealthCheckGracePeriod": {
+                    "type": "integer",
+                    "description": "伸缩组实例CLB健康状况检查宽限期。\n"
+                },
+                "maxInstanceNumber": {
+                    "type": "integer",
+                    "description": "伸缩组中实例个数的最大值，默认取值0 ～ 100。您可以通过配额中心调整。\n"
+                },
+                "minInstanceNumber": {
+                    "type": "integer",
+                    "description": "伸缩组中实例个数的最小值，默认取值0 ～ 100。您可以通过配额中心调整。\n"
+                },
+                "multiAzPolicy": {
+                    "type": "string",
+                    "description": "扩缩容策略，如果您选择了多个子网，需配置本参数。1、PRIORITY（默认）：优先级策略。2、BALANCE：均衡分布策略。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "伸缩组所属项目，默认为default。一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。\n"
+                },
+                "scalingGroupId": {
+                    "type": "string",
+                    "description": "伸缩组ID。\n"
+                },
+                "scalingGroupName": {
+                    "type": "string",
+                    "description": "伸缩组名称，同一地域下伸缩组名称唯一。只能以中文、字母开头，只能包含中文、字母、数字、下划线和中划线 。长度限制为1 ~ 128个字符。暂不支持特殊字符。\n"
+                },
+                "scalingMode": {
+                    "type": "string",
+                    "description": "伸缩组的实例回收模式。1、release（默认）：释放模式。2、recycle：停机回收模式。\n"
+                },
+                "serverGroupAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupServerGroupAttribute:ScalingGroupServerGroupAttribute"
+                    }
+                },
+                "stoppedInstanceCount": {
+                    "type": "integer",
+                    "description": "伸缩组内处于停用中状态的实例数量。\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "伸缩组中实例主网卡的子网ID列表。\n"
+                },
+                "suspendedProcesses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "暂停中的流程，无暂停中流程则返回空值。ScaleIn：缩容流程。ScaleOut：扩容流程。HealthCheck：健康检查。AlarmNotification：报警任务。ScheduledAction：定时任务。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupTag:ScalingGroupTag"
+                    }
+                },
+                "totalInstanceCount": {
+                    "type": "integer",
+                    "description": "当前伸缩组内实例的个数。\n"
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "伸缩组更新时间。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "伸缩组所属私有网络ID。\n"
+                }
+            },
+            "required": [
+                "activeScalingConfigurationId",
+                "createdTime",
+                "dbInstanceIds",
+                "defaultCooldown",
+                "desireInstanceNumber",
+                "healthCheckType",
+                "instanceTerminatePolicy",
+                "instancesDistribution",
+                "isEnableScalingGroup",
+                "launchTemplateId",
+                "launchTemplateOverrides",
+                "launchTemplateVersion",
+                "lifecycleState",
+                "loadBalancerHealthCheckGracePeriod",
+                "maxInstanceNumber",
+                "minInstanceNumber",
+                "multiAzPolicy",
+                "projectName",
+                "scalingGroupId",
+                "scalingGroupName",
+                "scalingMode",
+                "serverGroupAttributes",
+                "stoppedInstanceCount",
+                "subnetIds",
+                "suspendedProcesses",
+                "tags",
+                "totalInstanceCount",
+                "updatedTime",
+                "vpcId"
+            ],
+            "inputProperties": {
+                "activeScalingConfigurationId": {
+                    "type": "string",
+                    "description": "伸缩组绑定的伸缩配置的ID。\n"
+                },
+                "defaultCooldown": {
+                    "type": "integer",
+                    "description": "执行一次伸缩活动（添加或移出ECS实例）结束后的冷却时间。冷却时间内，该伸缩组不执行其它的伸缩活动，仅针对云监控报警任务触发的伸缩活动和伸缩规则有效。取值范围：5 ~ 86400，单位：秒。默认值：300。\n"
+                },
+                "desireInstanceNumber": {
+                    "type": "integer",
+                    "description": "伸缩组中期望运行的实例个数。1、不小于最小实例数MinInstanceNumber且不大于最大实例数MaxInstanceNumber。2、默认值：-1，表示不开启期望实例数能力。此时，伸缩组创建完成后会立即开始伸缩活动自动添加相应个数的实例。\n"
+                },
+                "healthCheckType": {
+                    "type": "string",
+                    "description": "伸缩组的健康检查方式。1、NONE：不做实例健康状态检查。2、ECS（默认）：对伸缩组内的ECS实例做健康检查。\n"
+                },
+                "instanceTerminatePolicy": {
+                    "type": "string",
+                    "description": "实例移除策略，1、OldestInstance：移出最早加入 （包括自动创建和手动添加）伸缩组的实例。2、NewestInstance：移出最晚加入（包括自动创建和手动添加）伸缩组的实例。3、OldestScalingConfigurationWithOldestInstance（默认）：移出最早与伸缩组绑定的伸缩配置中，最早由伸缩组 自动创建 的实例。4、OldestScalingConfigurationWithNewestInstance：移出最早与伸缩组绑定的伸缩配置中，最晚由伸缩组 自动创建 的实例。\n"
+                },
+                "instancesDistribution": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupInstancesDistribution:ScalingGroupInstancesDistribution",
+                    "description": "实例分布策略。\n"
+                },
+                "isEnableScalingGroup": {
+                    "type": "boolean",
+                    "description": "是否启用伸缩组。true：启用。false：停止\n"
+                },
+                "launchTemplateId": {
+                    "type": "string",
+                    "description": "实例启动模板ID，配置后表示选择启动模版作为伸缩配置来源。\n"
+                },
+                "launchTemplateOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupLaunchTemplateOverride:ScalingGroupLaunchTemplateOverride"
+                    }
+                },
+                "launchTemplateVersion": {
+                    "type": "string",
+                    "description": "实例启动模板的版本。1、模板的某个版本号。2、Default（默认）：始终使用模板默认版本。3、Latest：始终使用模板最新版本。\n"
+                },
+                "maxInstanceNumber": {
+                    "type": "integer",
+                    "description": "伸缩组中实例个数的最大值，默认取值0 ～ 100。您可以通过配额中心调整。\n"
+                },
+                "minInstanceNumber": {
+                    "type": "integer",
+                    "description": "伸缩组中实例个数的最小值，默认取值0 ～ 100。您可以通过配额中心调整。\n"
+                },
+                "multiAzPolicy": {
+                    "type": "string",
+                    "description": "扩缩容策略，如果您选择了多个子网，需配置本参数。1、PRIORITY（默认）：优先级策略。2、BALANCE：均衡分布策略。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "伸缩组所属项目，默认为default。一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。\n"
+                },
+                "scalingGroupName": {
+                    "type": "string",
+                    "description": "伸缩组名称，同一地域下伸缩组名称唯一。只能以中文、字母开头，只能包含中文、字母、数字、下划线和中划线 。长度限制为1 ~ 128个字符。暂不支持特殊字符。\n"
+                },
+                "scalingMode": {
+                    "type": "string",
+                    "description": "伸缩组的实例回收模式。1、release（默认）：释放模式。2、recycle：停机回收模式。\n"
+                },
+                "serverGroupAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupServerGroupAttribute:ScalingGroupServerGroupAttribute"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "伸缩组中实例主网卡的子网ID列表。\n"
+                },
+                "suspendedProcesses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "暂停中的流程，无暂停中流程则返回空值。ScaleIn：缩容流程。ScaleOut：扩容流程。HealthCheck：健康检查。AlarmNotification：报警任务。ScheduledAction：定时任务。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupTag:ScalingGroupTag"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "maxInstanceNumber",
+                "minInstanceNumber",
+                "scalingGroupName",
+                "subnetIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ScalingGroup resources.\n",
+                "properties": {
+                    "activeScalingConfigurationId": {
+                        "type": "string",
+                        "description": "伸缩组绑定的伸缩配置的ID。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "伸缩组创建时间。\n"
+                    },
+                    "dbInstanceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "RDS数据库实例的ID。\n"
+                    },
+                    "defaultCooldown": {
+                        "type": "integer",
+                        "description": "执行一次伸缩活动（添加或移出ECS实例）结束后的冷却时间。冷却时间内，该伸缩组不执行其它的伸缩活动，仅针对云监控报警任务触发的伸缩活动和伸缩规则有效。取值范围：5 ~ 86400，单位：秒。默认值：300。\n"
+                    },
+                    "desireInstanceNumber": {
+                        "type": "integer",
+                        "description": "伸缩组中期望运行的实例个数。1、不小于最小实例数MinInstanceNumber且不大于最大实例数MaxInstanceNumber。2、默认值：-1，表示不开启期望实例数能力。此时，伸缩组创建完成后会立即开始伸缩活动自动添加相应个数的实例。\n"
+                    },
+                    "healthCheckType": {
+                        "type": "string",
+                        "description": "伸缩组的健康检查方式。1、NONE：不做实例健康状态检查。2、ECS（默认）：对伸缩组内的ECS实例做健康检查。\n"
+                    },
+                    "instanceTerminatePolicy": {
+                        "type": "string",
+                        "description": "实例移除策略，1、OldestInstance：移出最早加入 （包括自动创建和手动添加）伸缩组的实例。2、NewestInstance：移出最晚加入（包括自动创建和手动添加）伸缩组的实例。3、OldestScalingConfigurationWithOldestInstance（默认）：移出最早与伸缩组绑定的伸缩配置中，最早由伸缩组 自动创建 的实例。4、OldestScalingConfigurationWithNewestInstance：移出最早与伸缩组绑定的伸缩配置中，最晚由伸缩组 自动创建 的实例。\n"
+                    },
+                    "instancesDistribution": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupInstancesDistribution:ScalingGroupInstancesDistribution",
+                        "description": "实例分布策略。\n"
+                    },
+                    "isEnableScalingGroup": {
+                        "type": "boolean",
+                        "description": "是否启用伸缩组。true：启用。false：停止\n"
+                    },
+                    "launchTemplateId": {
+                        "type": "string",
+                        "description": "实例启动模板ID，配置后表示选择启动模版作为伸缩配置来源。\n"
+                    },
+                    "launchTemplateOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupLaunchTemplateOverride:ScalingGroupLaunchTemplateOverride"
+                        }
+                    },
+                    "launchTemplateVersion": {
+                        "type": "string",
+                        "description": "实例启动模板的版本。1、模板的某个版本号。2、Default（默认）：始终使用模板默认版本。3、Latest：始终使用模板最新版本。\n"
+                    },
+                    "lifecycleState": {
+                        "type": "string",
+                        "description": "伸缩组的状态。Active：已启用。InActive：未激活。Deleting：删除中。Locked: 已锁定。CoolingDown: 冷却中。Unknown: 未知状态。\n"
+                    },
+                    "loadBalancerHealthCheckGracePeriod": {
+                        "type": "integer",
+                        "description": "伸缩组实例CLB健康状况检查宽限期。\n"
+                    },
+                    "maxInstanceNumber": {
+                        "type": "integer",
+                        "description": "伸缩组中实例个数的最大值，默认取值0 ～ 100。您可以通过配额中心调整。\n"
+                    },
+                    "minInstanceNumber": {
+                        "type": "integer",
+                        "description": "伸缩组中实例个数的最小值，默认取值0 ～ 100。您可以通过配额中心调整。\n"
+                    },
+                    "multiAzPolicy": {
+                        "type": "string",
+                        "description": "扩缩容策略，如果您选择了多个子网，需配置本参数。1、PRIORITY（默认）：优先级策略。2、BALANCE：均衡分布策略。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "伸缩组所属项目，默认为default。一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。\n"
+                    },
+                    "scalingGroupId": {
+                        "type": "string",
+                        "description": "伸缩组ID。\n"
+                    },
+                    "scalingGroupName": {
+                        "type": "string",
+                        "description": "伸缩组名称，同一地域下伸缩组名称唯一。只能以中文、字母开头，只能包含中文、字母、数字、下划线和中划线 。长度限制为1 ~ 128个字符。暂不支持特殊字符。\n"
+                    },
+                    "scalingMode": {
+                        "type": "string",
+                        "description": "伸缩组的实例回收模式。1、release（默认）：释放模式。2、recycle：停机回收模式。\n"
+                    },
+                    "serverGroupAttributes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupServerGroupAttribute:ScalingGroupServerGroupAttribute"
+                        }
+                    },
+                    "stoppedInstanceCount": {
+                        "type": "integer",
+                        "description": "伸缩组内处于停用中状态的实例数量。\n"
+                    },
+                    "subnetIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "伸缩组中实例主网卡的子网ID列表。\n"
+                    },
+                    "suspendedProcesses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "暂停中的流程，无暂停中流程则返回空值。ScaleIn：缩容流程。ScaleOut：扩容流程。HealthCheck：健康检查。AlarmNotification：报警任务。ScheduledAction：定时任务。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:autoscaling/ScalingGroupTag:ScalingGroupTag"
+                        }
+                    },
+                    "totalInstanceCount": {
+                        "type": "integer",
+                        "description": "当前伸缩组内实例的个数。\n"
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "伸缩组更新时间。\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "伸缩组所属私有网络ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:cdn/shareConfig:ShareConfig": {
             "description": "全局配置扩展了域名的配置能力，具有以下优点：提升了黑白名单的容量。例如，IP 黑名单可以包含高达 30,000 个条目。提升了域名配置的效率。一个全局配置可与多个域名关联。提供了通用列表类型，可以在额外的域名配置中被使用。一个全局配置的修改可立刻应用于其关联的所有域名。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  cDNShareConfigDemo:\n    type: volcenginecc:cdn:ShareConfig\n    name: CDNShareConfigDemo\n    properties:\n      configName: CDNShareConfigDemo\n      configType: allow_referer_access_rule\n      project: default\n      allowRefererAccessRule:\n        allow_empty: true\n        common_type:\n          ignoreCase: true\n          rules:\n            - 139.x.x.1\n            - 139.x.x.2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:cdn/shareConfig:ShareConfig example \"config_name\"\n```\n\n",
             "properties": {
@@ -15916,8 +17141,8 @@
                     "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule",
                     "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
                 },
-                "commonMatchs": {
-                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs",
+                "commonMatchList": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchList:ShareConfigCommonMatchList",
                     "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
                 },
                 "configName": {
@@ -15956,7 +17181,7 @@
             "required": [
                 "allowIpAccessRule",
                 "allowRefererAccessRule",
-                "commonMatchs",
+                "commonMatchList",
                 "configName",
                 "configType",
                 "denyIpAccessRule",
@@ -15975,8 +17200,8 @@
                     "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule",
                     "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
                 },
-                "commonMatchs": {
-                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs",
+                "commonMatchList": {
+                    "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchList:ShareConfigCommonMatchList",
                     "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
                 },
                 "configName": {
@@ -16011,8 +17236,8 @@
                         "$ref": "#/types/volcenginecc:cdn/ShareConfigAllowRefererAccessRule:ShareConfigAllowRefererAccessRule",
                         "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
                     },
-                    "commonMatchs": {
-                        "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchs:ShareConfigCommonMatchs",
+                    "commonMatchList": {
+                        "$ref": "#/types/volcenginecc:cdn/ShareConfigCommonMatchList:ShareConfigCommonMatchList",
                         "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
                     },
                     "configName": {
@@ -16046,6 +17271,139 @@
                     "updatedTime": {
                         "type": "integer",
                         "description": "表示该全局配置的最近修改时间，单位是 Unix 时间戳。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:cen/cen:Cen": {
+            "description": "云企业网（Cloud Enterprise Network，CEN）提供一种能够快速构建跨地域私有网络（VPC）与云下数据中心（IDC）之间高速、优质、稳定的网络能力，帮助您打造一张具有企业级规模和通信能力的全球云上网络。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst cENCENDemo = new volcenginecc.cen.Cen(\"CENCENDemo\", {\n    cenName: \"CENCENDemo\",\n    description: \"CENCENDemo descripiton\",\n    projectName: \"iac\",\n    tags: [{\n        key: \"dev\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nc_encen_demo = volcenginecc.cen.Cen(\"CENCENDemo\",\n    cen_name=\"CENCENDemo\",\n    description=\"CENCENDemo descripiton\",\n    project_name=\"iac\",\n    tags=[{\n        \"key\": \"dev\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var cENCENDemo = new Volcenginecc.Cen.Cen(\"CENCENDemo\", new()\n    {\n        CenName = \"CENCENDemo\",\n        Description = \"CENCENDemo descripiton\",\n        ProjectName = \"iac\",\n        Tags = new[]\n        {\n            new Volcenginecc.Cen.Inputs.CenTagArgs\n            {\n                Key = \"dev\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/cen\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := cen.NewCen(ctx, \"CENCENDemo\", \u0026cen.CenArgs{\n\t\t\tCenName:     pulumi.String(\"CENCENDemo\"),\n\t\t\tDescription: pulumi.String(\"CENCENDemo descripiton\"),\n\t\t\tProjectName: pulumi.String(\"iac\"),\n\t\t\tTags: cen.CenTagArray{\n\t\t\t\t\u0026cen.CenTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"dev\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.cen.Cen;\nimport com.volcengine.volcenginecc.cen.CenArgs;\nimport com.pulumi.volcenginecc.cen.inputs.CenTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var cENCENDemo = new Cen(\"cENCENDemo\", CenArgs.builder()\n            .cenName(\"CENCENDemo\")\n            .description(\"CENCENDemo descripiton\")\n            .projectName(\"iac\")\n            .tags(CenTagArgs.builder()\n                .key(\"dev\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  cENCENDemo:\n    type: volcenginecc:cen:Cen\n    name: CENCENDemo\n    properties:\n      cenName: CENCENDemo\n      description: CENCENDemo descripiton\n      projectName: iac\n      tags:\n        - key: dev\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:cen/cen:Cen example \"cen_id\"\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "CEN实例所属的账号ID。\n"
+                },
+                "cenBandwidthPackageIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "带宽包ID。\n"
+                },
+                "cenId": {
+                    "type": "string",
+                    "description": "CEN实例的ID。\n"
+                },
+                "cenName": {
+                    "type": "string",
+                    "description": "CEN实例的名称。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：点号（.）、下划线（_）和中划线（-）。长度限制为1～128个字符。不填则默认为CEN实例的ID。\n"
+                },
+                "creationTime": {
+                    "type": "string",
+                    "description": "创建CEN实例的时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "CEN实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0～255个字符。不填则默认为空。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "CEN实例所属项目的名称。不填则默认为default。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "CEN实例的状态。Creating: 创建中Deleting: 删除中Pending：配置中Available：可用\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:cen/CenTag:CenTag"
+                    }
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "更新CEN实例的时间。\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "cenBandwidthPackageIds",
+                "cenId",
+                "cenName",
+                "creationTime",
+                "description",
+                "projectName",
+                "status",
+                "tags",
+                "updateTime"
+            ],
+            "inputProperties": {
+                "cenName": {
+                    "type": "string",
+                    "description": "CEN实例的名称。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：点号（.）、下划线（_）和中划线（-）。长度限制为1～128个字符。不填则默认为CEN实例的ID。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "CEN实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0～255个字符。不填则默认为空。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "CEN实例所属项目的名称。不填则默认为default。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:cen/CenTag:CenTag"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Cen resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "CEN实例所属的账号ID。\n"
+                    },
+                    "cenBandwidthPackageIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "带宽包ID。\n"
+                    },
+                    "cenId": {
+                        "type": "string",
+                        "description": "CEN实例的ID。\n"
+                    },
+                    "cenName": {
+                        "type": "string",
+                        "description": "CEN实例的名称。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：点号（.）、下划线（_）和中划线（-）。长度限制为1～128个字符。不填则默认为CEN实例的ID。\n"
+                    },
+                    "creationTime": {
+                        "type": "string",
+                        "description": "创建CEN实例的时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "CEN实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0～255个字符。不填则默认为空。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "CEN实例所属项目的名称。不填则默认为default。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "CEN实例的状态。Creating: 创建中Deleting: 删除中Pending：配置中Available：可用\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:cen/CenTag:CenTag"
+                        }
+                    },
+                    "updateTime": {
+                        "type": "string",
+                        "description": "更新CEN实例的时间。\n"
                     }
                 },
                 "type": "object"
@@ -22315,6 +23673,151 @@
                 "type": "object"
             }
         },
+        "volcenginecc:natgateway/dnatentry:Dnatentry": {
+            "description": "目的地址转换。即当中转IP及端口被访问时，私网NAT网关将访问请求中的目的地址和端口替换成云服务器的私网IP及端口后，进行转发。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst natGatewayDnatentryDemo = new volcenginecc.natgateway.Dnatentry(\"NatGatewayDnatentryDemo\", {\n    dnatEntryName: \"NatGatewayDnatentryDemo\",\n    protocol: \"udp\",\n    internalIp: \"192.168.xxx.53\",\n    internalPort: \"20-25\",\n    externalIp: \"115.190.xxx.9\",\n    externalPort: \"25-30\",\n    natGatewayId: \"ngw-2pc28yhdpbx8g227qo1sxxxxx\",\n    portType: \"specified\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nnat_gateway_dnatentry_demo = volcenginecc.natgateway.Dnatentry(\"NatGatewayDnatentryDemo\",\n    dnat_entry_name=\"NatGatewayDnatentryDemo\",\n    protocol=\"udp\",\n    internal_ip=\"192.168.xxx.53\",\n    internal_port=\"20-25\",\n    external_ip=\"115.190.xxx.9\",\n    external_port=\"25-30\",\n    nat_gateway_id=\"ngw-2pc28yhdpbx8g227qo1sxxxxx\",\n    port_type=\"specified\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var natGatewayDnatentryDemo = new Volcenginecc.Natgateway.Dnatentry(\"NatGatewayDnatentryDemo\", new()\n    {\n        DnatEntryName = \"NatGatewayDnatentryDemo\",\n        Protocol = \"udp\",\n        InternalIp = \"192.168.xxx.53\",\n        InternalPort = \"20-25\",\n        ExternalIp = \"115.190.xxx.9\",\n        ExternalPort = \"25-30\",\n        NatGatewayId = \"ngw-2pc28yhdpbx8g227qo1sxxxxx\",\n        PortType = \"specified\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/natgateway\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := natgateway.NewDnatentry(ctx, \"NatGatewayDnatentryDemo\", \u0026natgateway.DnatentryArgs{\n\t\t\tDnatEntryName: pulumi.String(\"NatGatewayDnatentryDemo\"),\n\t\t\tProtocol:      pulumi.String(\"udp\"),\n\t\t\tInternalIp:    pulumi.String(\"192.168.xxx.53\"),\n\t\t\tInternalPort:  pulumi.String(\"20-25\"),\n\t\t\tExternalIp:    pulumi.String(\"115.190.xxx.9\"),\n\t\t\tExternalPort:  pulumi.String(\"25-30\"),\n\t\t\tNatGatewayId:  pulumi.String(\"ngw-2pc28yhdpbx8g227qo1sxxxxx\"),\n\t\t\tPortType:      pulumi.String(\"specified\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.natgateway.Dnatentry;\nimport com.volcengine.volcenginecc.natgateway.DnatentryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var natGatewayDnatentryDemo = new Dnatentry(\"natGatewayDnatentryDemo\", DnatentryArgs.builder()\n            .dnatEntryName(\"NatGatewayDnatentryDemo\")\n            .protocol(\"udp\")\n            .internalIp(\"192.168.xxx.53\")\n            .internalPort(\"20-25\")\n            .externalIp(\"115.190.xxx.9\")\n            .externalPort(\"25-30\")\n            .natGatewayId(\"ngw-2pc28yhdpbx8g227qo1sxxxxx\")\n            .portType(\"specified\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  natGatewayDnatentryDemo:\n    type: volcenginecc:natgateway:Dnatentry\n    name: NatGatewayDnatentryDemo\n    properties:\n      dnatEntryName: NatGatewayDnatentryDemo\n      protocol: udp\n      internalIp: 192.168.xxx.53\n      internalPort: 20-25\n      externalIp: 115.190.xxx.9\n      externalPort: 25-30\n      natGatewayId: ngw-2pc28yhdpbx8g227qo1sxxxxx\n      portType: specified\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:natgateway/dnatentry:Dnatentry example \"dnat_entry_id\"\n```\n\n",
+            "properties": {
+                "dnatEntryId": {
+                    "type": "string",
+                    "description": "DNAT规则的ID。\n"
+                },
+                "dnatEntryName": {
+                    "type": "string",
+                    "description": "DNAT规则的名称。\n"
+                },
+                "externalIp": {
+                    "type": "string",
+                    "description": "NAT网关用于网络地址转换的IP地址。当NAT网关为公网NAT网关时，传入其绑定的公网IP地址。当NAT网关为私网NAT网关时，传入其中转IP地址。\n"
+                },
+                "externalPort": {
+                    "type": "string",
+                    "description": "接收来自公网外部请求的端口或端口段。\n"
+                },
+                "internalIp": {
+                    "type": "string",
+                    "description": "云服务器实例的私网IP。\n"
+                },
+                "internalPort": {
+                    "type": "string",
+                    "description": "云服务器实例私网IP的端口或端口段。\n"
+                },
+                "natGatewayId": {
+                    "type": "string",
+                    "description": "DNAT规则所属NAT网关的ID。\n"
+                },
+                "portType": {
+                    "type": "string",
+                    "description": "DNAT规则的端口类型。specified：指定端口。any：任意端口。即IP映射。\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "协议类型。tcp：转发TCP协议的报文。udp：转发UDP协议的报文。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "DNAT规则的状态。Creating：创建中。Deleting：删除中。Available：可用。\n"
+                }
+            },
+            "required": [
+                "dnatEntryId",
+                "dnatEntryName",
+                "externalIp",
+                "externalPort",
+                "internalIp",
+                "internalPort",
+                "natGatewayId",
+                "portType",
+                "protocol",
+                "status"
+            ],
+            "inputProperties": {
+                "dnatEntryName": {
+                    "type": "string",
+                    "description": "DNAT规则的名称。\n"
+                },
+                "externalIp": {
+                    "type": "string",
+                    "description": "NAT网关用于网络地址转换的IP地址。当NAT网关为公网NAT网关时，传入其绑定的公网IP地址。当NAT网关为私网NAT网关时，传入其中转IP地址。\n"
+                },
+                "externalPort": {
+                    "type": "string",
+                    "description": "接收来自公网外部请求的端口或端口段。\n"
+                },
+                "internalIp": {
+                    "type": "string",
+                    "description": "云服务器实例的私网IP。\n"
+                },
+                "internalPort": {
+                    "type": "string",
+                    "description": "云服务器实例私网IP的端口或端口段。\n"
+                },
+                "natGatewayId": {
+                    "type": "string",
+                    "description": "DNAT规则所属NAT网关的ID。\n"
+                },
+                "portType": {
+                    "type": "string",
+                    "description": "DNAT规则的端口类型。specified：指定端口。any：任意端口。即IP映射。\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "协议类型。tcp：转发TCP协议的报文。udp：转发UDP协议的报文。\n"
+                }
+            },
+            "requiredInputs": [
+                "externalIp",
+                "externalPort",
+                "internalIp",
+                "internalPort",
+                "natGatewayId",
+                "protocol"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Dnatentry resources.\n",
+                "properties": {
+                    "dnatEntryId": {
+                        "type": "string",
+                        "description": "DNAT规则的ID。\n"
+                    },
+                    "dnatEntryName": {
+                        "type": "string",
+                        "description": "DNAT规则的名称。\n"
+                    },
+                    "externalIp": {
+                        "type": "string",
+                        "description": "NAT网关用于网络地址转换的IP地址。当NAT网关为公网NAT网关时，传入其绑定的公网IP地址。当NAT网关为私网NAT网关时，传入其中转IP地址。\n"
+                    },
+                    "externalPort": {
+                        "type": "string",
+                        "description": "接收来自公网外部请求的端口或端口段。\n"
+                    },
+                    "internalIp": {
+                        "type": "string",
+                        "description": "云服务器实例的私网IP。\n"
+                    },
+                    "internalPort": {
+                        "type": "string",
+                        "description": "云服务器实例私网IP的端口或端口段。\n"
+                    },
+                    "natGatewayId": {
+                        "type": "string",
+                        "description": "DNAT规则所属NAT网关的ID。\n"
+                    },
+                    "portType": {
+                        "type": "string",
+                        "description": "DNAT规则的端口类型。specified：指定端口。any：任意端口。即IP映射。\n"
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "协议类型。tcp：转发TCP协议的报文。udp：转发UDP协议的报文。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "DNAT规则的状态。Creating：创建中。Deleting：删除中。Available：可用。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:natgateway/ngw:Ngw": {
             "description": "NAT网关为私有网络内的云服务器提供网络地址转换服务。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst natGatewayNGWDemo = new volcenginecc.natgateway.Ngw(\"NatGatewayNGWDemo\", {\n    spec: \"Small\",\n    vpcId: \"vpc-2f8kicbjkot8g4f4pzyyxxxxx\",\n    subnetId: \"subnet-3hicda1321wqo3nkipk4xxxxx\",\n    natGatewayName: \"NatGatewayNGWDemo\",\n    billingType: 2,\n    projectName: \"default\",\n    networkType: \"internet\",\n    description: \"NatGatewayNGWDemo\",\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nnat_gateway_ngw_demo = volcenginecc.natgateway.Ngw(\"NatGatewayNGWDemo\",\n    spec=\"Small\",\n    vpc_id=\"vpc-2f8kicbjkot8g4f4pzyyxxxxx\",\n    subnet_id=\"subnet-3hicda1321wqo3nkipk4xxxxx\",\n    nat_gateway_name=\"NatGatewayNGWDemo\",\n    billing_type=2,\n    project_name=\"default\",\n    network_type=\"internet\",\n    description=\"NatGatewayNGWDemo\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var natGatewayNGWDemo = new Volcenginecc.Natgateway.Ngw(\"NatGatewayNGWDemo\", new()\n    {\n        Spec = \"Small\",\n        VpcId = \"vpc-2f8kicbjkot8g4f4pzyyxxxxx\",\n        SubnetId = \"subnet-3hicda1321wqo3nkipk4xxxxx\",\n        NatGatewayName = \"NatGatewayNGWDemo\",\n        BillingType = 2,\n        ProjectName = \"default\",\n        NetworkType = \"internet\",\n        Description = \"NatGatewayNGWDemo\",\n        Tags = new[]\n        {\n            new Volcenginecc.Natgateway.Inputs.NgwTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/natgateway\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := natgateway.NewNgw(ctx, \"NatGatewayNGWDemo\", \u0026natgateway.NgwArgs{\n\t\t\tSpec:           pulumi.String(\"Small\"),\n\t\t\tVpcId:          pulumi.String(\"vpc-2f8kicbjkot8g4f4pzyyxxxxx\"),\n\t\t\tSubnetId:       pulumi.String(\"subnet-3hicda1321wqo3nkipk4xxxxx\"),\n\t\t\tNatGatewayName: pulumi.String(\"NatGatewayNGWDemo\"),\n\t\t\tBillingType:    pulumi.Int(2),\n\t\t\tProjectName:    pulumi.String(\"default\"),\n\t\t\tNetworkType:    pulumi.String(\"internet\"),\n\t\t\tDescription:    pulumi.String(\"NatGatewayNGWDemo\"),\n\t\t\tTags: natgateway.NgwTagArray{\n\t\t\t\t\u0026natgateway.NgwTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.natgateway.Ngw;\nimport com.volcengine.volcenginecc.natgateway.NgwArgs;\nimport com.pulumi.volcenginecc.natgateway.inputs.NgwTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var natGatewayNGWDemo = new Ngw(\"natGatewayNGWDemo\", NgwArgs.builder()\n            .spec(\"Small\")\n            .vpcId(\"vpc-2f8kicbjkot8g4f4pzyyxxxxx\")\n            .subnetId(\"subnet-3hicda1321wqo3nkipk4xxxxx\")\n            .natGatewayName(\"NatGatewayNGWDemo\")\n            .billingType(2)\n            .projectName(\"default\")\n            .networkType(\"internet\")\n            .description(\"NatGatewayNGWDemo\")\n            .tags(NgwTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  natGatewayNGWDemo:\n    type: volcenginecc:natgateway:Ngw\n    name: NatGatewayNGWDemo\n    properties:\n      spec: Small\n      vpcId: vpc-2f8kicbjkot8g4f4pzyyxxxxx\n      subnetId: subnet-3hicda1321wqo3nkipk4xxxxx\n      natGatewayName: NatGatewayNGWDemo\n      billingType: 2\n      projectName: default\n      networkType: internet\n      description: NatGatewayNGWDemo\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:natgateway/ngw:Ngw example \"nat_gateway_id\"\n```\n\n",
             "properties": {
@@ -22667,6 +24170,129 @@
                     "zoneId": {
                         "type": "string",
                         "description": "NAT网关所属主可用区的ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/snatentry:Snatentry": {
+            "description": "当私有网络内有多台云服务器实例需要访问公网时，为了节省公网IP且避免在公网上直接暴露云服务器IP，您可以使用公网NAT网关的SNAT规则，安全、便捷、高效地访问公网。SNAT规则支持私有网络、子网、云服务器、自定义网段等四种粒度，您可根据业务需求灵活配置。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst natGatewaySnatentryDemo = new volcenginecc.natgateway.Snatentry(\"NatGatewaySnatentryDemo\", {\n    natGatewayId: \"ngw-2pc28yhdpbx8g227qo1xxxxx\",\n    eipId: \"eip-iivdtssgbdog74o8cuxxxxx,eip-btbv1pk36g3k5h0b2vxxxxx\",\n    snatEntryName: \"私有网络\",\n    sourceCidr: \"0.0.0.0/0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nnat_gateway_snatentry_demo = volcenginecc.natgateway.Snatentry(\"NatGatewaySnatentryDemo\",\n    nat_gateway_id=\"ngw-2pc28yhdpbx8g227qo1xxxxx\",\n    eip_id=\"eip-iivdtssgbdog74o8cuxxxxx,eip-btbv1pk36g3k5h0b2vxxxxx\",\n    snat_entry_name=\"私有网络\",\n    source_cidr=\"0.0.0.0/0\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var natGatewaySnatentryDemo = new Volcenginecc.Natgateway.Snatentry(\"NatGatewaySnatentryDemo\", new()\n    {\n        NatGatewayId = \"ngw-2pc28yhdpbx8g227qo1xxxxx\",\n        EipId = \"eip-iivdtssgbdog74o8cuxxxxx,eip-btbv1pk36g3k5h0b2vxxxxx\",\n        SnatEntryName = \"私有网络\",\n        SourceCidr = \"0.0.0.0/0\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/natgateway\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := natgateway.NewSnatentry(ctx, \"NatGatewaySnatentryDemo\", \u0026natgateway.SnatentryArgs{\n\t\t\tNatGatewayId:  pulumi.String(\"ngw-2pc28yhdpbx8g227qo1xxxxx\"),\n\t\t\tEipId:         pulumi.String(\"eip-iivdtssgbdog74o8cuxxxxx,eip-btbv1pk36g3k5h0b2vxxxxx\"),\n\t\t\tSnatEntryName: pulumi.String(\"私有网络\"),\n\t\t\tSourceCidr:    pulumi.String(\"0.0.0.0/0\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.natgateway.Snatentry;\nimport com.volcengine.volcenginecc.natgateway.SnatentryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var natGatewaySnatentryDemo = new Snatentry(\"natGatewaySnatentryDemo\", SnatentryArgs.builder()\n            .natGatewayId(\"ngw-2pc28yhdpbx8g227qo1xxxxx\")\n            .eipId(\"eip-iivdtssgbdog74o8cuxxxxx,eip-btbv1pk36g3k5h0b2vxxxxx\")\n            .snatEntryName(\"私有网络\")\n            .sourceCidr(\"0.0.0.0/0\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  natGatewaySnatentryDemo:\n    type: volcenginecc:natgateway:Snatentry\n    name: NatGatewaySnatentryDemo\n    properties:\n      natGatewayId: ngw-2pc28yhdpbx8g227qo1xxxxx\n      eipId: eip-iivdtssgbdog74o8cuxxxxx,eip-btbv1pk36g3k5h0b2vxxxxx\n      snatEntryName: 私有网络\n      sourceCidr: 0.0.0.0/0\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:natgateway/snatentry:Snatentry example \"snat_entry_id\"\n```\n\n",
+            "properties": {
+                "eipAddress": {
+                    "type": "string",
+                    "description": "SNAT规则关联的公网IP的IP地址。返回单个公网IP的IP地址。 返回多个公网IP的IP地址。\n"
+                },
+                "eipId": {
+                    "type": "string",
+                    "description": "SNAT规则关联的公网IP的ID。返回单个公网IP的ID。 返回多个公网IP的ID。\n"
+                },
+                "natGatewayId": {
+                    "type": "string",
+                    "description": "SNAT规则所属NAT网关的ID。\n"
+                },
+                "natIpId": {
+                    "type": "string",
+                    "description": "私网NAT网关的中转IP的ID。\n"
+                },
+                "snatEntryId": {
+                    "type": "string",
+                    "description": "SNAT规则的ID。\n"
+                },
+                "snatEntryName": {
+                    "type": "string",
+                    "description": "SNAT规则的名称。\n"
+                },
+                "sourceCidr": {
+                    "type": "string",
+                    "description": "SNAT规则对应的网段。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "SNAT规则的状态。Creating：创建中。Deleting：删除中。Available：可用。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "SNAT规则关联子网的ID。\n"
+                }
+            },
+            "required": [
+                "eipAddress",
+                "eipId",
+                "natGatewayId",
+                "natIpId",
+                "snatEntryId",
+                "snatEntryName",
+                "sourceCidr",
+                "status",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "eipId": {
+                    "type": "string",
+                    "description": "SNAT规则关联的公网IP的ID。返回单个公网IP的ID。 返回多个公网IP的ID。\n"
+                },
+                "natGatewayId": {
+                    "type": "string",
+                    "description": "SNAT规则所属NAT网关的ID。\n"
+                },
+                "natIpId": {
+                    "type": "string",
+                    "description": "私网NAT网关的中转IP的ID。\n"
+                },
+                "snatEntryName": {
+                    "type": "string",
+                    "description": "SNAT规则的名称。\n"
+                },
+                "sourceCidr": {
+                    "type": "string",
+                    "description": "SNAT规则对应的网段。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "SNAT规则关联子网的ID。\n"
+                }
+            },
+            "requiredInputs": [
+                "natGatewayId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Snatentry resources.\n",
+                "properties": {
+                    "eipAddress": {
+                        "type": "string",
+                        "description": "SNAT规则关联的公网IP的IP地址。返回单个公网IP的IP地址。 返回多个公网IP的IP地址。\n"
+                    },
+                    "eipId": {
+                        "type": "string",
+                        "description": "SNAT规则关联的公网IP的ID。返回单个公网IP的ID。 返回多个公网IP的ID。\n"
+                    },
+                    "natGatewayId": {
+                        "type": "string",
+                        "description": "SNAT规则所属NAT网关的ID。\n"
+                    },
+                    "natIpId": {
+                        "type": "string",
+                        "description": "私网NAT网关的中转IP的ID。\n"
+                    },
+                    "snatEntryId": {
+                        "type": "string",
+                        "description": "SNAT规则的ID。\n"
+                    },
+                    "snatEntryName": {
+                        "type": "string",
+                        "description": "SNAT规则的名称。\n"
+                    },
+                    "sourceCidr": {
+                        "type": "string",
+                        "description": "SNAT规则对应的网段。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "SNAT规则的状态。Creating：创建中。Deleting：删除中。Available：可用。\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "SNAT规则关联子网的ID。\n"
                     }
                 },
                 "type": "object"
@@ -25343,6 +26969,407 @@
                     "updateTime": {
                         "type": "string",
                         "description": "TR路由表的最近操作时间\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:vedbm/instance:Instance": {
+            "description": "云数据库 veDB MySQL 版是火山引擎自研新一代云原生关系型数据库。云数据库 veDB MySQL 版 100% 兼容 MySQL，适用于企业多样化的数据库应用场景。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  vEDBMInstanceDemo:\n    type: volcenginecc:vedbm:Instance\n    name: VEDBMInstanceDemo\n    properties:\n      instanceName: VEDBMInstanceDemo\n      dbEngineVersion: MySQL_8_0\n      dbMinorVersion: '3.0'\n      nodeSpec: vedb.mysql.x4.medium\n      zoneIds: cn-beijing-a\n      nodeNumber: 2\n      vpcId: vpc-1a1vgeoxxxccg8nvepjykjnuw\n      subnetId: subnet-3nrd6xxx3log0931ech3re2r\n      port: 3306\n      superAccountName: username\n      superAccountPassword: '*******'\n      timeZone: UTC +08:00\n      lowerCaseTableNames: '1'\n      projectName: default\n      tags:\n        - key: dev\n          value: test\n      deletionProtection: enabled\n      number: 1\n      chargeDetail:\n        charge_type: PostPaid\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vedbm/instance:Instance example \"instance_id\"\n```\n\n",
+            "properties": {
+                "chargeDetail": {
+                    "$ref": "#/types/volcenginecc:vedbm/InstanceChargeDetail:InstanceChargeDetail",
+                    "description": "计费详细信息。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "实例的创建时间，格式：YYYY-MM-DDTHH:MM:SSZ（UTC 时间）。\n"
+                },
+                "dbEngineVersion": {
+                    "type": "string",
+                    "description": "实例兼容版本。取值范围：MySQL*8*0：表示兼容社区 MySQL 8.0 版本。MySQL*5*7：表示兼容社区 MySQL 5.7 版本。\n"
+                },
+                "dbMinorVersion": {
+                    "type": "string",
+                    "description": "根据兼容版本，选择 veDB MySQL 小版本。当 DBEngineVersion 取值为 MySQL*5*7 时，该参数取值默认为 2.0。当 DBEngineVersion 取值为 MySQL*8*0 时，该参数取值范围如下：3.0（默认）：veDB MySQL 稳定版，100% 兼容 MySQL 8.0。3.1：原生支持 HTAP 应用场景，加速复杂查询。3.2：原生支持 HTAP 应用场景，加速复杂查询。\n"
+                },
+                "dbRevisionVersion": {
+                    "type": "string",
+                    "description": "实例的内核版本。\n"
+                },
+                "deletionProtection": {
+                    "type": "string",
+                    "description": "实例是否开启了删除保护功能。取值范围：enabled：开启。disabled：关闭。\n"
+                },
+                "endpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceEndpoint:InstanceEndpoint"
+                    }
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "实例 ID。\n"
+                },
+                "instanceName": {
+                    "type": "string",
+                    "description": "实例名称。命名规则：不能以数字、中划线（-）开头。只能包含中文、字母、数字、下划线（_）和中划线（-）。长度需在 1~128 个字符内。\n"
+                },
+                "instanceStatus": {
+                    "type": "string",
+                    "description": "实例状态。\n"
+                },
+                "lowerCaseTableNames": {
+                    "type": "string",
+                    "description": "表名是否区分大小写。取值范围：0：表名称大小写敏感，后端根据实际表名存储。1：表名称不区分大小写，后端存储时将表名称统一为小写字母。\n"
+                },
+                "maintenanceWindow": {
+                    "$ref": "#/types/volcenginecc:vedbm/InstanceMaintenanceWindow:InstanceMaintenanceWindow",
+                    "description": "实例的可维护时间窗口信息。\n"
+                },
+                "nodeNumber": {
+                    "type": "integer",
+                    "description": "实例节点数量。取值范围为 2~16 个。\n"
+                },
+                "nodeSpec": {
+                    "type": "string",
+                    "description": "实例的节点规格代码。\n"
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceNode:InstanceNode"
+                    }
+                },
+                "number": {
+                    "type": "integer",
+                    "description": "创建的实例数量，取值范围 1~50，默认值为 1。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "为实例默认创建的连接终端指定私网端口号。默认取值为 3306，取值范围为 1000~65534。\n"
+                },
+                "prePaidStorageInGb": {
+                    "type": "integer",
+                    "description": "预付费的存储总容量大小，单位 GiB。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "实例所属的项目名称。\n"
+                },
+                "specFamily": {
+                    "type": "string",
+                    "description": "实例规格类型，取值：General：通用型。Exclusive：独享型。\n"
+                },
+                "storageChargeType": {
+                    "type": "string",
+                    "description": "存储计费类型，不传入该参数时，存储计费类型默认与计算计费类型取值一致。取值：PostPaid：按量计费（后付费）。PrePaid：包年包月（预付费）。\n"
+                },
+                "storageUsedGiB": {
+                    "type": "number",
+                    "description": "已使用存储空间大小，单位 GiB。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "子网 ID。子网必须属于所选的可用区。\n"
+                },
+                "superAccountName": {
+                    "type": "string",
+                    "description": "高权限用户的账号名称。账号名称需满足以下要求：名称唯一，且长度在 2~32 个字符内。由字母、数字、中划线（-）、下划线（_）组成。以字母开头，以字母或数字结尾。名称内不能包含禁用关键词。\n"
+                },
+                "superAccountPassword": {
+                    "type": "string",
+                    "description": "高权限账号的密码。账号密码需满足以下要求：只能包含大小写字母、数字和特殊字符（如 ~!@#$%^\u0026*_-+=`|(){}[]:;'\u003c\u003e,.?/）。长度需在 8~32 个字符内。至少包含大写字母、小写字母、数字或特殊字符中的 3 种。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceTag:InstanceTag"
+                    }
+                },
+                "templateId": {
+                    "type": "string",
+                    "description": "参数模板 ID。\n"
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "实例的时区。国内所有地域默认时区为 UTC +08:00。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "私有网络（VPC） ID。\n"
+                },
+                "zoneIds": {
+                    "type": "string",
+                    "description": "可用区 ID。\n"
+                }
+            },
+            "required": [
+                "chargeDetail",
+                "createdTime",
+                "dbEngineVersion",
+                "dbMinorVersion",
+                "dbRevisionVersion",
+                "deletionProtection",
+                "endpoints",
+                "instanceId",
+                "instanceName",
+                "instanceStatus",
+                "lowerCaseTableNames",
+                "maintenanceWindow",
+                "nodeNumber",
+                "nodeSpec",
+                "nodes",
+                "number",
+                "port",
+                "prePaidStorageInGb",
+                "projectName",
+                "specFamily",
+                "storageChargeType",
+                "storageUsedGiB",
+                "subnetId",
+                "superAccountName",
+                "superAccountPassword",
+                "tags",
+                "templateId",
+                "timeZone",
+                "vpcId",
+                "zoneIds"
+            ],
+            "inputProperties": {
+                "chargeDetail": {
+                    "$ref": "#/types/volcenginecc:vedbm/InstanceChargeDetail:InstanceChargeDetail",
+                    "description": "计费详细信息。\n"
+                },
+                "dbEngineVersion": {
+                    "type": "string",
+                    "description": "实例兼容版本。取值范围：MySQL*8*0：表示兼容社区 MySQL 8.0 版本。MySQL*5*7：表示兼容社区 MySQL 5.7 版本。\n"
+                },
+                "dbMinorVersion": {
+                    "type": "string",
+                    "description": "根据兼容版本，选择 veDB MySQL 小版本。当 DBEngineVersion 取值为 MySQL*5*7 时，该参数取值默认为 2.0。当 DBEngineVersion 取值为 MySQL*8*0 时，该参数取值范围如下：3.0（默认）：veDB MySQL 稳定版，100% 兼容 MySQL 8.0。3.1：原生支持 HTAP 应用场景，加速复杂查询。3.2：原生支持 HTAP 应用场景，加速复杂查询。\n"
+                },
+                "deletionProtection": {
+                    "type": "string",
+                    "description": "实例是否开启了删除保护功能。取值范围：enabled：开启。disabled：关闭。\n"
+                },
+                "instanceName": {
+                    "type": "string",
+                    "description": "实例名称。命名规则：不能以数字、中划线（-）开头。只能包含中文、字母、数字、下划线（_）和中划线（-）。长度需在 1~128 个字符内。\n"
+                },
+                "lowerCaseTableNames": {
+                    "type": "string",
+                    "description": "表名是否区分大小写。取值范围：0：表名称大小写敏感，后端根据实际表名存储。1：表名称不区分大小写，后端存储时将表名称统一为小写字母。\n"
+                },
+                "maintenanceWindow": {
+                    "$ref": "#/types/volcenginecc:vedbm/InstanceMaintenanceWindow:InstanceMaintenanceWindow",
+                    "description": "实例的可维护时间窗口信息。\n"
+                },
+                "nodeNumber": {
+                    "type": "integer",
+                    "description": "实例节点数量。取值范围为 2~16 个。\n"
+                },
+                "nodeSpec": {
+                    "type": "string",
+                    "description": "实例的节点规格代码。\n"
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceNode:InstanceNode"
+                    }
+                },
+                "number": {
+                    "type": "integer",
+                    "description": "创建的实例数量，取值范围 1~50，默认值为 1。\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "为实例默认创建的连接终端指定私网端口号。默认取值为 3306，取值范围为 1000~65534。\n"
+                },
+                "prePaidStorageInGb": {
+                    "type": "integer",
+                    "description": "预付费的存储总容量大小，单位 GiB。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "实例所属的项目名称。\n"
+                },
+                "storageChargeType": {
+                    "type": "string",
+                    "description": "存储计费类型，不传入该参数时，存储计费类型默认与计算计费类型取值一致。取值：PostPaid：按量计费（后付费）。PrePaid：包年包月（预付费）。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "子网 ID。子网必须属于所选的可用区。\n"
+                },
+                "superAccountName": {
+                    "type": "string",
+                    "description": "高权限用户的账号名称。账号名称需满足以下要求：名称唯一，且长度在 2~32 个字符内。由字母、数字、中划线（-）、下划线（_）组成。以字母开头，以字母或数字结尾。名称内不能包含禁用关键词。\n"
+                },
+                "superAccountPassword": {
+                    "type": "string",
+                    "description": "高权限账号的密码。账号密码需满足以下要求：只能包含大小写字母、数字和特殊字符（如 ~!@#$%^\u0026*_-+=`|(){}[]:;'\u003c\u003e,.?/）。长度需在 8~32 个字符内。至少包含大写字母、小写字母、数字或特殊字符中的 3 种。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceTag:InstanceTag"
+                    }
+                },
+                "templateId": {
+                    "type": "string",
+                    "description": "参数模板 ID。\n"
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "实例的时区。国内所有地域默认时区为 UTC +08:00。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "私有网络（VPC） ID。\n"
+                },
+                "zoneIds": {
+                    "type": "string",
+                    "description": "可用区 ID。\n"
+                }
+            },
+            "requiredInputs": [
+                "dbEngineVersion",
+                "nodeNumber",
+                "nodeSpec",
+                "subnetId",
+                "vpcId",
+                "zoneIds"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Instance resources.\n",
+                "properties": {
+                    "chargeDetail": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceChargeDetail:InstanceChargeDetail",
+                        "description": "计费详细信息。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "实例的创建时间，格式：YYYY-MM-DDTHH:MM:SSZ（UTC 时间）。\n"
+                    },
+                    "dbEngineVersion": {
+                        "type": "string",
+                        "description": "实例兼容版本。取值范围：MySQL*8*0：表示兼容社区 MySQL 8.0 版本。MySQL*5*7：表示兼容社区 MySQL 5.7 版本。\n"
+                    },
+                    "dbMinorVersion": {
+                        "type": "string",
+                        "description": "根据兼容版本，选择 veDB MySQL 小版本。当 DBEngineVersion 取值为 MySQL*5*7 时，该参数取值默认为 2.0。当 DBEngineVersion 取值为 MySQL*8*0 时，该参数取值范围如下：3.0（默认）：veDB MySQL 稳定版，100% 兼容 MySQL 8.0。3.1：原生支持 HTAP 应用场景，加速复杂查询。3.2：原生支持 HTAP 应用场景，加速复杂查询。\n"
+                    },
+                    "dbRevisionVersion": {
+                        "type": "string",
+                        "description": "实例的内核版本。\n"
+                    },
+                    "deletionProtection": {
+                        "type": "string",
+                        "description": "实例是否开启了删除保护功能。取值范围：enabled：开启。disabled：关闭。\n"
+                    },
+                    "endpoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vedbm/InstanceEndpoint:InstanceEndpoint"
+                        }
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "实例 ID。\n"
+                    },
+                    "instanceName": {
+                        "type": "string",
+                        "description": "实例名称。命名规则：不能以数字、中划线（-）开头。只能包含中文、字母、数字、下划线（_）和中划线（-）。长度需在 1~128 个字符内。\n"
+                    },
+                    "instanceStatus": {
+                        "type": "string",
+                        "description": "实例状态。\n"
+                    },
+                    "lowerCaseTableNames": {
+                        "type": "string",
+                        "description": "表名是否区分大小写。取值范围：0：表名称大小写敏感，后端根据实际表名存储。1：表名称不区分大小写，后端存储时将表名称统一为小写字母。\n"
+                    },
+                    "maintenanceWindow": {
+                        "$ref": "#/types/volcenginecc:vedbm/InstanceMaintenanceWindow:InstanceMaintenanceWindow",
+                        "description": "实例的可维护时间窗口信息。\n"
+                    },
+                    "nodeNumber": {
+                        "type": "integer",
+                        "description": "实例节点数量。取值范围为 2~16 个。\n"
+                    },
+                    "nodeSpec": {
+                        "type": "string",
+                        "description": "实例的节点规格代码。\n"
+                    },
+                    "nodes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vedbm/InstanceNode:InstanceNode"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "description": "创建的实例数量，取值范围 1~50，默认值为 1。\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "为实例默认创建的连接终端指定私网端口号。默认取值为 3306，取值范围为 1000~65534。\n"
+                    },
+                    "prePaidStorageInGb": {
+                        "type": "integer",
+                        "description": "预付费的存储总容量大小，单位 GiB。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "实例所属的项目名称。\n"
+                    },
+                    "specFamily": {
+                        "type": "string",
+                        "description": "实例规格类型，取值：General：通用型。Exclusive：独享型。\n"
+                    },
+                    "storageChargeType": {
+                        "type": "string",
+                        "description": "存储计费类型，不传入该参数时，存储计费类型默认与计算计费类型取值一致。取值：PostPaid：按量计费（后付费）。PrePaid：包年包月（预付费）。\n"
+                    },
+                    "storageUsedGiB": {
+                        "type": "number",
+                        "description": "已使用存储空间大小，单位 GiB。\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "子网 ID。子网必须属于所选的可用区。\n"
+                    },
+                    "superAccountName": {
+                        "type": "string",
+                        "description": "高权限用户的账号名称。账号名称需满足以下要求：名称唯一，且长度在 2~32 个字符内。由字母、数字、中划线（-）、下划线（_）组成。以字母开头，以字母或数字结尾。名称内不能包含禁用关键词。\n"
+                    },
+                    "superAccountPassword": {
+                        "type": "string",
+                        "description": "高权限账号的密码。账号密码需满足以下要求：只能包含大小写字母、数字和特殊字符（如 ~!@#$%^\u0026*_-+=`|(){}[]:;'\u003c\u003e,.?/）。长度需在 8~32 个字符内。至少包含大写字母、小写字母、数字或特殊字符中的 3 种。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vedbm/InstanceTag:InstanceTag"
+                        }
+                    },
+                    "templateId": {
+                        "type": "string",
+                        "description": "参数模板 ID。\n"
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "description": "实例的时区。国内所有地域默认时区为 UTC +08:00。\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "私有网络（VPC） ID。\n"
+                    },
+                    "zoneIds": {
+                        "type": "string",
+                        "description": "可用区 ID。\n"
                     }
                 },
                 "type": "object"
@@ -30367,6 +32394,222 @@
                 "type": "object"
             }
         },
+        "volcenginecc:autoscaling/getScalingGroup:getScalingGroup": {
+            "description": "Data Source schema for Volcengine::AutoScaling::ScalingGroup\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getScalingGroup.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getScalingGroup.\n",
+                "properties": {
+                    "activeScalingConfigurationId": {
+                        "description": "伸缩组绑定的伸缩配置的ID。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "伸缩组创建时间。\n",
+                        "type": "string"
+                    },
+                    "dbInstanceIds": {
+                        "description": "RDS数据库实例的ID。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "defaultCooldown": {
+                        "description": "执行一次伸缩活动（添加或移出ECS实例）结束后的冷却时间。冷却时间内，该伸缩组不执行其它的伸缩活动，仅针对云监控报警任务触发的伸缩活动和伸缩规则有效。取值范围：5 ~ 86400，单位：秒。默认值：300。\n",
+                        "type": "integer"
+                    },
+                    "desireInstanceNumber": {
+                        "description": "伸缩组中期望运行的实例个数。1、不小于最小实例数MinInstanceNumber且不大于最大实例数MaxInstanceNumber。2、默认值：-1，表示不开启期望实例数能力。此时，伸缩组创建完成后会立即开始伸缩活动自动添加相应个数的实例。\n",
+                        "type": "integer"
+                    },
+                    "healthCheckType": {
+                        "description": "伸缩组的健康检查方式。1、NONE：不做实例健康状态检查。2、ECS（默认）：对伸缩组内的ECS实例做健康检查。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "instanceTerminatePolicy": {
+                        "description": "实例移除策略，1、OldestInstance：移出最早加入 （包括自动创建和手动添加）伸缩组的实例。2、NewestInstance：移出最晚加入（包括自动创建和手动添加）伸缩组的实例。3、OldestScalingConfigurationWithOldestInstance（默认）：移出最早与伸缩组绑定的伸缩配置中，最早由伸缩组 自动创建 的实例。4、OldestScalingConfigurationWithNewestInstance：移出最早与伸缩组绑定的伸缩配置中，最晚由伸缩组 自动创建 的实例。\n",
+                        "type": "string"
+                    },
+                    "instancesDistribution": {
+                        "$ref": "#/types/volcenginecc:autoscaling/getScalingGroupInstancesDistribution:getScalingGroupInstancesDistribution",
+                        "description": "实例分布策略。\n"
+                    },
+                    "isEnableScalingGroup": {
+                        "description": "是否启用伸缩组。true：启用。false：停止\n",
+                        "type": "boolean"
+                    },
+                    "launchTemplateId": {
+                        "description": "实例启动模板ID，配置后表示选择启动模版作为伸缩配置来源。\n",
+                        "type": "string"
+                    },
+                    "launchTemplateOverrides": {
+                        "description": "实例启动模版信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:autoscaling/getScalingGroupLaunchTemplateOverride:getScalingGroupLaunchTemplateOverride"
+                        },
+                        "type": "array"
+                    },
+                    "launchTemplateVersion": {
+                        "description": "实例启动模板的版本。1、模板的某个版本号。2、Default（默认）：始终使用模板默认版本。3、Latest：始终使用模板最新版本。\n",
+                        "type": "string"
+                    },
+                    "lifecycleState": {
+                        "description": "伸缩组的状态。Active：已启用。InActive：未激活。Deleting：删除中。Locked: 已锁定。CoolingDown: 冷却中。Unknown: 未知状态。\n",
+                        "type": "string"
+                    },
+                    "loadBalancerHealthCheckGracePeriod": {
+                        "description": "伸缩组实例CLB健康状况检查宽限期。\n",
+                        "type": "integer"
+                    },
+                    "maxInstanceNumber": {
+                        "description": "伸缩组中实例个数的最大值，默认取值0 ～ 100。您可以通过配额中心调整。\n",
+                        "type": "integer"
+                    },
+                    "minInstanceNumber": {
+                        "description": "伸缩组中实例个数的最小值，默认取值0 ～ 100。您可以通过配额中心调整。\n",
+                        "type": "integer"
+                    },
+                    "multiAzPolicy": {
+                        "description": "扩缩容策略，如果您选择了多个子网，需配置本参数。1、PRIORITY（默认）：优先级策略。2、BALANCE：均衡分布策略。\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "伸缩组所属项目，默认为default。一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。\n",
+                        "type": "string"
+                    },
+                    "scalingGroupId": {
+                        "description": "伸缩组ID。\n",
+                        "type": "string"
+                    },
+                    "scalingGroupName": {
+                        "description": "伸缩组名称，同一地域下伸缩组名称唯一。只能以中文、字母开头，只能包含中文、字母、数字、下划线和中划线 。长度限制为1 ~ 128个字符。暂不支持特殊字符。\n",
+                        "type": "string"
+                    },
+                    "scalingMode": {
+                        "description": "伸缩组的实例回收模式。1、release（默认）：释放模式。2、recycle：停机回收模式。\n",
+                        "type": "string"
+                    },
+                    "serverGroupAttributes": {
+                        "description": "伸缩组关联的负载均衡信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:autoscaling/getScalingGroupServerGroupAttribute:getScalingGroupServerGroupAttribute"
+                        },
+                        "type": "array"
+                    },
+                    "stoppedInstanceCount": {
+                        "description": "伸缩组内处于停用中状态的实例数量。\n",
+                        "type": "integer"
+                    },
+                    "subnetIds": {
+                        "description": "伸缩组中实例主网卡的子网ID列表。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "suspendedProcesses": {
+                        "description": "暂停中的流程，无暂停中流程则返回空值。ScaleIn：缩容流程。ScaleOut：扩容流程。HealthCheck：健康检查。AlarmNotification：报警任务。ScheduledAction：定时任务。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tags": {
+                        "description": "标签列表。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:autoscaling/getScalingGroupTag:getScalingGroupTag"
+                        },
+                        "type": "array"
+                    },
+                    "totalInstanceCount": {
+                        "description": "当前伸缩组内实例的个数。\n",
+                        "type": "integer"
+                    },
+                    "updatedTime": {
+                        "description": "伸缩组更新时间。\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "伸缩组所属私有网络ID。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "activeScalingConfigurationId",
+                    "createdTime",
+                    "dbInstanceIds",
+                    "defaultCooldown",
+                    "desireInstanceNumber",
+                    "healthCheckType",
+                    "id",
+                    "instanceTerminatePolicy",
+                    "instancesDistribution",
+                    "isEnableScalingGroup",
+                    "launchTemplateId",
+                    "launchTemplateOverrides",
+                    "launchTemplateVersion",
+                    "lifecycleState",
+                    "loadBalancerHealthCheckGracePeriod",
+                    "maxInstanceNumber",
+                    "minInstanceNumber",
+                    "multiAzPolicy",
+                    "projectName",
+                    "scalingGroupId",
+                    "scalingGroupName",
+                    "scalingMode",
+                    "serverGroupAttributes",
+                    "stoppedInstanceCount",
+                    "subnetIds",
+                    "suspendedProcesses",
+                    "tags",
+                    "totalInstanceCount",
+                    "updatedTime",
+                    "vpcId"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:autoscaling/getScalingGroups:getScalingGroups": {
+            "description": "Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup\n",
+            "outputs": {
+                "description": "A collection of values returned by getScalingGroups.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
         "volcenginecc:cdn/getShareConfig:getShareConfig": {
             "description": "Data Source schema for Volcengine::CDN::ShareConfig\n",
             "inputs": {
@@ -30393,8 +32636,8 @@
                         "$ref": "#/types/volcenginecc:cdn/getShareConfigAllowRefererAccessRule:getShareConfigAllowRefererAccessRule",
                         "description": "表示一个 Referer 白名单的配置，对应 ConfigType 是 allow*referer*access*rule。\n"
                     },
-                    "commonMatchs": {
-                        "$ref": "#/types/volcenginecc:cdn/getShareConfigCommonMatchs:getShareConfigCommonMatchs",
+                    "commonMatchList": {
+                        "$ref": "#/types/volcenginecc:cdn/getShareConfigCommonMatchList:getShareConfigCommonMatchList",
                         "description": "表示一个通用列表的配置，对应 ConfigType 是 common*match*list。\n"
                     },
                     "configName": {
@@ -30437,7 +32680,7 @@
                 "required": [
                     "allowIpAccessRule",
                     "allowRefererAccessRule",
-                    "commonMatchs",
+                    "commonMatchList",
                     "configName",
                     "configType",
                     "denyIpAccessRule",
@@ -30455,6 +32698,115 @@
             "description": "Plural Data Source schema for Volcengine::CDN::ShareConfig\n",
             "outputs": {
                 "description": "A collection of values returned by getShareConfigs.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:cen/getCen:getCen": {
+            "description": "Data Source schema for Volcengine::CEN::CEN\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCen.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCen.\n",
+                "properties": {
+                    "accountId": {
+                        "description": "CEN实例所属的账号ID。\n",
+                        "type": "string"
+                    },
+                    "cenBandwidthPackageIds": {
+                        "description": "带宽包ID。\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "cenId": {
+                        "description": "CEN实例的ID。\n",
+                        "type": "string"
+                    },
+                    "cenName": {
+                        "description": "CEN实例的名称。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：点号（.）、下划线（_）和中划线（-）。长度限制为1～128个字符。不填则默认为CEN实例的ID。\n",
+                        "type": "string"
+                    },
+                    "creationTime": {
+                        "description": "创建CEN实例的时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "CEN实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）。长度限制为0～255个字符。不填则默认为空。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "CEN实例所属项目的名称。不填则默认为default。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "CEN实例的状态。Creating: 创建中Deleting: 删除中Pending：配置中Available：可用\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "标签信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:cen/getCenTag:getCenTag"
+                        },
+                        "type": "array"
+                    },
+                    "updateTime": {
+                        "description": "更新CEN实例的时间。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "cenBandwidthPackageIds",
+                    "cenId",
+                    "cenName",
+                    "creationTime",
+                    "description",
+                    "id",
+                    "projectName",
+                    "status",
+                    "tags",
+                    "updateTime"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:cen/getCens:getCens": {
+            "description": "Plural Data Source schema for Volcengine::CEN::CEN\n",
+            "outputs": {
+                "description": "A collection of values returned by getCens.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -34301,6 +36653,202 @@
                 "type": "object"
             }
         },
+        "volcenginecc:natgateway/getDnatentries:getDnatentries": {
+            "description": "Plural Data Source schema for Volcengine::NatGateway::Dnatentry\n",
+            "outputs": {
+                "description": "A collection of values returned by getDnatentries.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getDnatentry:getDnatentry": {
+            "description": "Data Source schema for Volcengine::NatGateway::Dnatentry\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDnatentry.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDnatentry.\n",
+                "properties": {
+                    "dnatEntryId": {
+                        "description": "DNAT规则的ID。\n",
+                        "type": "string"
+                    },
+                    "dnatEntryName": {
+                        "description": "DNAT规则的名称。\n",
+                        "type": "string"
+                    },
+                    "externalIp": {
+                        "description": "NAT网关用于网络地址转换的IP地址。当NAT网关为公网NAT网关时，传入其绑定的公网IP地址。当NAT网关为私网NAT网关时，传入其中转IP地址。\n",
+                        "type": "string"
+                    },
+                    "externalPort": {
+                        "description": "接收来自公网外部请求的端口或端口段。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "internalIp": {
+                        "description": "云服务器实例的私网IP。\n",
+                        "type": "string"
+                    },
+                    "internalPort": {
+                        "description": "云服务器实例私网IP的端口或端口段。\n",
+                        "type": "string"
+                    },
+                    "natGatewayId": {
+                        "description": "DNAT规则所属NAT网关的ID。\n",
+                        "type": "string"
+                    },
+                    "portType": {
+                        "description": "DNAT规则的端口类型。specified：指定端口。any：任意端口。即IP映射。\n",
+                        "type": "string"
+                    },
+                    "protocol": {
+                        "description": "协议类型。tcp：转发TCP协议的报文。udp：转发UDP协议的报文。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "DNAT规则的状态。Creating：创建中。Deleting：删除中。Available：可用。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dnatEntryId",
+                    "dnatEntryName",
+                    "externalIp",
+                    "externalPort",
+                    "id",
+                    "internalIp",
+                    "internalPort",
+                    "natGatewayId",
+                    "portType",
+                    "protocol",
+                    "status"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getNatIp:getNatIp": {
+            "description": "Data Source schema for Volcengine::NatGateway::NatIp\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNatIp.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNatIp.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "description": "是否为默认中转IP。true：是。false：否。\n",
+                        "type": "boolean"
+                    },
+                    "natGatewayId": {
+                        "description": "私网NAT网关ID。\n",
+                        "type": "string"
+                    },
+                    "natIp": {
+                        "description": "中转IP的地址。若不填，则系统自动从私网NAT网关所在子网随机分配一个空闲的IP地址。\n",
+                        "type": "string"
+                    },
+                    "natIpDescription": {
+                        "description": "中转IP的描述。长度限制为0~ 255个字符。不填默认为空字符串。需要以字母、中文或数字开头。可包含英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。\n",
+                        "type": "string"
+                    },
+                    "natIpId": {
+                        "description": "中转IP的ID。\n",
+                        "type": "string"
+                    },
+                    "natIpName": {
+                        "description": "中转IP的名称。长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短划线（-）。不填默认为中转IP的ID。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "中转IP的状态。Creating：创建中。Available：可用。Deleting：删除中。Deleted：已删除。\n",
+                        "type": "string"
+                    },
+                    "usingStatus": {
+                        "description": "中转IP的使用状态。Idle：未使用。UsedBySnat：被SNAT规则使用。UsedByDnat：被DNAT规则使用。UsedByNat：被SNAT/DNAT规则同时使用。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "isDefault",
+                    "natGatewayId",
+                    "natIp",
+                    "natIpDescription",
+                    "natIpId",
+                    "natIpName",
+                    "status",
+                    "usingStatus"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getNatIps:getNatIps": {
+            "description": "Plural Data Source schema for Volcengine::NatGateway::NatIp\n",
+            "outputs": {
+                "description": "A collection of values returned by getNatIps.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
         "volcenginecc:natgateway/getNgw:getNgw": {
             "description": "Data Source schema for Volcengine::NatGateway::NGW\n",
             "inputs": {
@@ -34510,6 +37058,104 @@
                 "required": [
                     "id",
                     "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getSnatentries:getSnatentries": {
+            "description": "Plural Data Source schema for Volcengine::NatGateway::Snatentry\n",
+            "outputs": {
+                "description": "A collection of values returned by getSnatentries.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:natgateway/getSnatentry:getSnatentry": {
+            "description": "Data Source schema for Volcengine::NatGateway::Snatentry\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSnatentry.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSnatentry.\n",
+                "properties": {
+                    "eipAddress": {
+                        "description": "SNAT规则关联的公网IP的IP地址。返回单个公网IP的IP地址。 返回多个公网IP的IP地址。\n",
+                        "type": "string"
+                    },
+                    "eipId": {
+                        "description": "SNAT规则关联的公网IP的ID。返回单个公网IP的ID。 返回多个公网IP的ID。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "natGatewayId": {
+                        "description": "SNAT规则所属NAT网关的ID。\n",
+                        "type": "string"
+                    },
+                    "natIpId": {
+                        "description": "私网NAT网关的中转IP的ID。\n",
+                        "type": "string"
+                    },
+                    "snatEntryId": {
+                        "description": "SNAT规则的ID。\n",
+                        "type": "string"
+                    },
+                    "snatEntryName": {
+                        "description": "SNAT规则的名称。\n",
+                        "type": "string"
+                    },
+                    "sourceCidr": {
+                        "description": "SNAT规则对应的网段。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "SNAT规则的状态。Creating：创建中。Deleting：删除中。Available：可用。\n",
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "description": "SNAT规则关联子网的ID。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "eipAddress",
+                    "eipId",
+                    "id",
+                    "natGatewayId",
+                    "natIpId",
+                    "snatEntryId",
+                    "snatEntryName",
+                    "sourceCidr",
+                    "status",
+                    "subnetId"
                 ],
                 "type": "object"
             }
@@ -36216,6 +38862,218 @@
             "description": "Plural Data Source schema for Volcengine::TransitRouter::TransitRouter\n",
             "outputs": {
                 "description": "A collection of values returned by getTransitRouters.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vedbm/getInstance:getInstance": {
+            "description": "Data Source schema for Volcengine::VEDBM::Instance\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstance.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getInstance.\n",
+                "properties": {
+                    "chargeDetail": {
+                        "$ref": "#/types/volcenginecc:vedbm/getInstanceChargeDetail:getInstanceChargeDetail",
+                        "description": "计费详细信息。\n"
+                    },
+                    "createdTime": {
+                        "description": "实例的创建时间，格式：YYYY-MM-DDTHH:MM:SSZ（UTC 时间）。\n",
+                        "type": "string"
+                    },
+                    "dbEngineVersion": {
+                        "description": "实例兼容版本。取值范围：MySQL*8*0：表示兼容社区 MySQL 8.0 版本。MySQL*5*7：表示兼容社区 MySQL 5.7 版本。\n",
+                        "type": "string"
+                    },
+                    "dbMinorVersion": {
+                        "description": "根据兼容版本，选择 veDB MySQL 小版本。当 DBEngineVersion 取值为 MySQL*5*7 时，该参数取值默认为 2.0。当 DBEngineVersion 取值为 MySQL*8*0 时，该参数取值范围如下：3.0（默认）：veDB MySQL 稳定版，100% 兼容 MySQL 8.0。3.1：原生支持 HTAP 应用场景，加速复杂查询。3.2：原生支持 HTAP 应用场景，加速复杂查询。\n",
+                        "type": "string"
+                    },
+                    "dbRevisionVersion": {
+                        "description": "实例的内核版本。\n",
+                        "type": "string"
+                    },
+                    "deletionProtection": {
+                        "description": "实例是否开启了删除保护功能。取值范围：enabled：开启。disabled：关闭。\n",
+                        "type": "string"
+                    },
+                    "endpoints": {
+                        "description": "连接终端的详细信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vedbm/getInstanceEndpoint:getInstanceEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "description": "实例 ID。\n",
+                        "type": "string"
+                    },
+                    "instanceName": {
+                        "description": "实例名称。命名规则：不能以数字、中划线（-）开头。只能包含中文、字母、数字、下划线（_）和中划线（-）。长度需在 1~128 个字符内。\n",
+                        "type": "string"
+                    },
+                    "instanceStatus": {
+                        "description": "实例状态。\n",
+                        "type": "string"
+                    },
+                    "lowerCaseTableNames": {
+                        "description": "表名是否区分大小写。取值范围：0：表名称大小写敏感，后端根据实际表名存储。1：表名称不区分大小写，后端存储时将表名称统一为小写字母。\n",
+                        "type": "string"
+                    },
+                    "maintenanceWindow": {
+                        "$ref": "#/types/volcenginecc:vedbm/getInstanceMaintenanceWindow:getInstanceMaintenanceWindow",
+                        "description": "实例的可维护时间窗口信息。\n"
+                    },
+                    "nodeNumber": {
+                        "description": "实例节点数量。取值范围为 2~16 个。\n",
+                        "type": "integer"
+                    },
+                    "nodeSpec": {
+                        "description": "实例的节点规格代码。\n",
+                        "type": "string"
+                    },
+                    "nodes": {
+                        "description": "实例节点的详细信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vedbm/getInstanceNode:getInstanceNode"
+                        },
+                        "type": "array"
+                    },
+                    "number": {
+                        "description": "创建的实例数量，取值范围 1~50，默认值为 1。\n",
+                        "type": "integer"
+                    },
+                    "port": {
+                        "description": "为实例默认创建的连接终端指定私网端口号。默认取值为 3306，取值范围为 1000~65534。\n",
+                        "type": "integer"
+                    },
+                    "prePaidStorageInGb": {
+                        "description": "预付费的存储总容量大小，单位 GiB。\n",
+                        "type": "integer"
+                    },
+                    "projectName": {
+                        "description": "实例所属的项目名称。\n",
+                        "type": "string"
+                    },
+                    "specFamily": {
+                        "description": "实例规格类型，取值：General：通用型。Exclusive：独享型。\n",
+                        "type": "string"
+                    },
+                    "storageChargeType": {
+                        "description": "存储计费类型，不传入该参数时，存储计费类型默认与计算计费类型取值一致。取值：PostPaid：按量计费（后付费）。PrePaid：包年包月（预付费）。\n",
+                        "type": "string"
+                    },
+                    "storageUsedGiB": {
+                        "description": "已使用存储空间大小，单位 GiB。\n",
+                        "type": "number"
+                    },
+                    "subnetId": {
+                        "description": "子网 ID。子网必须属于所选的可用区。\n",
+                        "type": "string"
+                    },
+                    "superAccountName": {
+                        "description": "高权限用户的账号名称。账号名称需满足以下要求：名称唯一，且长度在 2~32 个字符内。由字母、数字、中划线（-）、下划线（_）组成。以字母开头，以字母或数字结尾。名称内不能包含禁用关键词。\n",
+                        "type": "string"
+                    },
+                    "superAccountPassword": {
+                        "description": "高权限账号的密码。账号密码需满足以下要求：只能包含大小写字母、数字和特殊字符（如 ~!@#$%^\u0026*_-+=`|(){}[]:;'\u003c\u003e,.?/）。长度需在 8~32 个字符内。至少包含大写字母、小写字母、数字或特殊字符中的 3 种。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "实例绑定的标签键和标签值数组对象。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vedbm/getInstanceTag:getInstanceTag"
+                        },
+                        "type": "array"
+                    },
+                    "templateId": {
+                        "description": "参数模板 ID。\n",
+                        "type": "string"
+                    },
+                    "timeZone": {
+                        "description": "实例的时区。国内所有地域默认时区为 UTC +08:00。\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "私有网络（VPC） ID。\n",
+                        "type": "string"
+                    },
+                    "zoneIds": {
+                        "description": "可用区 ID。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chargeDetail",
+                    "createdTime",
+                    "dbEngineVersion",
+                    "dbMinorVersion",
+                    "dbRevisionVersion",
+                    "deletionProtection",
+                    "endpoints",
+                    "id",
+                    "instanceId",
+                    "instanceName",
+                    "instanceStatus",
+                    "lowerCaseTableNames",
+                    "maintenanceWindow",
+                    "nodeNumber",
+                    "nodeSpec",
+                    "nodes",
+                    "number",
+                    "port",
+                    "prePaidStorageInGb",
+                    "projectName",
+                    "specFamily",
+                    "storageChargeType",
+                    "storageUsedGiB",
+                    "subnetId",
+                    "superAccountName",
+                    "superAccountPassword",
+                    "tags",
+                    "templateId",
+                    "timeZone",
+                    "vpcId",
+                    "zoneIds"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vedbm/getInstances:getInstances": {
+            "description": "Plural Data Source schema for Volcengine::VEDBM::Instance\n",
+            "outputs": {
+                "description": "A collection of values returned by getInstances.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",

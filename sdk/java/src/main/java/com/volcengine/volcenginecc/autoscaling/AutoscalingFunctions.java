@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingConfigurationArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingConfigurationPlainArgs;
+import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingGroupArgs;
+import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingGroupPlainArgs;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingConfigurationResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingConfigurationsResult;
+import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingGroupResult;
+import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingGroupsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class AutoscalingFunctions {
@@ -100,5 +104,89 @@ public final class AutoscalingFunctions {
      */
     public static CompletableFuture<GetScalingConfigurationsResult> getScalingConfigurationsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingConfigurations:getScalingConfigurations", TypeShape.of(GetScalingConfigurationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupResult> getScalingGroup(GetScalingGroupArgs args) {
+        return getScalingGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static CompletableFuture<GetScalingGroupResult> getScalingGroupPlain(GetScalingGroupPlainArgs args) {
+        return getScalingGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupResult> getScalingGroup(GetScalingGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingGroup:getScalingGroup", TypeShape.of(GetScalingGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupResult> getScalingGroup(GetScalingGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingGroup:getScalingGroup", TypeShape.of(GetScalingGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static CompletableFuture<GetScalingGroupResult> getScalingGroupPlain(GetScalingGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingGroup:getScalingGroup", TypeShape.of(GetScalingGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupsResult> getScalingGroups() {
+        return getScalingGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static CompletableFuture<GetScalingGroupsResult> getScalingGroupsPlain() {
+        return getScalingGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupsResult> getScalingGroups(InvokeArgs args) {
+        return getScalingGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static CompletableFuture<GetScalingGroupsResult> getScalingGroupsPlain(InvokeArgs args) {
+        return getScalingGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupsResult> getScalingGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingGroups:getScalingGroups", TypeShape.of(GetScalingGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static Output<GetScalingGroupsResult> getScalingGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingGroups:getScalingGroups", TypeShape.of(GetScalingGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingGroup
+     * 
+     */
+    public static CompletableFuture<GetScalingGroupsResult> getScalingGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingGroups:getScalingGroups", TypeShape.of(GetScalingGroupsResult.class), args, Utilities.withVersion(options));
     }
 }

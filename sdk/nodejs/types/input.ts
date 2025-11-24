@@ -921,6 +921,66 @@ export namespace autoscaling {
          */
         volumeType?: pulumi.Input<string>;
     }
+
+    export interface ScalingGroupInstancesDistribution {
+        /**
+         * 当因价格、库存等原因无法创建足够的抢占式实例时，是否允许使用按量实例补充抢占式容量。true: 允许。false（默认）: 不允许。
+         */
+        compensateWithOnDemand?: pulumi.Input<boolean>;
+        /**
+         * 伸缩组中按量计费实例个数的最小值，取值范围：0~2000。当组中按量计费实例个数少于该值时，将优先创建按量计费的实例。
+         */
+        onDemandBaseCapacity?: pulumi.Input<number>;
+        /**
+         * 伸缩组满足最小按量实例数要求后，超出的实例中按量实例应占的比例，取值范围：0～100。
+         */
+        onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
+        /**
+         * 是否允许抢占式实例到期替换。开启则表示在抢占式实例被回收前5分钟左右，伸缩组将主动新建新的抢占式实例替换掉当前抢占式实例。true: 允许。false（默认）: 不允许。
+         */
+        spotInstanceRemedy?: pulumi.Input<boolean>;
+    }
+
+    export interface ScalingGroupLaunchTemplateOverride {
+        /**
+         * 指定实例规格。本参数仅当LaunchTemplateId参数存在取值时生有效。
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * 指定抢占式实例规格每小时的最高价格。本参数仅当LaunchTemplateId参数存在取值，且启动模版的计费模式为设置出价上限的抢占式实例（即SpotWithPriceLimit）时有效。
+         */
+        priceLimit?: pulumi.Input<number>;
+    }
+
+    export interface ScalingGroupServerGroupAttribute {
+        /**
+         * 负载均衡后端服务器组中服务器的端口号。取值1 ～ 65535。
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * 负载均衡后端服务器组的ID。
+         */
+        serverGroupId?: pulumi.Input<string>;
+        /**
+         * 负载均衡服务器组类型。单个CLB/ALB最多支持添加20个后端服务器组，所有CLB/ALB最多支持添加100个后端服务器。ALB：应用型负载均衡。CLB：传统型型负载均衡（默认）。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 负载均衡后端服务器组中服务器的权重。
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface ScalingGroupTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
 }
 
 export namespace cdn {
@@ -953,14 +1013,14 @@ export namespace cdn {
         rules?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface ShareConfigCommonMatchs {
+    export interface ShareConfigCommonMatchList {
         /**
          * 表示该通用列表的内容。
          */
-        commonType?: pulumi.Input<inputs.cdn.ShareConfigCommonMatchsCommonType>;
+        commonType?: pulumi.Input<inputs.cdn.ShareConfigCommonMatchListCommonType>;
     }
 
-    export interface ShareConfigCommonMatchsCommonType {
+    export interface ShareConfigCommonMatchListCommonType {
         /**
          * 表示 Rules 中的条目是否区分大小写。该参数有以下取值：true：表示不区分大小写。false：表示区分大小写。该参数的默认值是 true。
          */
@@ -999,6 +1059,20 @@ export namespace cdn {
          */
         rules?: pulumi.Input<pulumi.Input<string>[]>;
     }
+}
+
+export namespace cen {
+    export interface CenTag {
+        /**
+         * 用户标签的标签键。长度限制为1～128个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。长度限制为0～256个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@
+         */
+        value?: pulumi.Input<string>;
+    }
+
 }
 
 export namespace clb {
@@ -2903,6 +2977,171 @@ export namespace transitrouter {
         key?: pulumi.Input<string>;
         /**
          * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace vedbm {
+    export interface InstanceChargeDetail {
+        /**
+         * 预付费场景下是否自动续费。取值：true：自动续费。false：不自动续费。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 预付费场景下计费到期的时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeEndTime?: pulumi.Input<string>;
+        /**
+         * 计费开始的时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeStartTime?: pulumi.Input<string>;
+        /**
+         * 付费状态：Normal：正常。Overdue：欠费。Shutdown：关停。
+         */
+        chargeStatus?: pulumi.Input<string>;
+        /**
+         * 计费类型。PostPaid：按量计费；PrePaid：包年包月。
+         */
+        chargeType?: pulumi.Input<string>;
+        /**
+         * 欠费关停时预计释放时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueReclaimTime?: pulumi.Input<string>;
+        /**
+         * 欠费关停时间，格式：yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueTime?: pulumi.Input<string>;
+        /**
+         * 预付费场景下的购买时长。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 预付费场景下的购买周期。Month：包月。Year：包年。
+         */
+        periodUnit?: pulumi.Input<string>;
+    }
+
+    export interface InstanceEndpoint {
+        addresses?: pulumi.Input<pulumi.Input<inputs.vedbm.InstanceEndpointAddress>[]>;
+        /**
+         * 是否允许自动加入新节点，取值：true：是。false：否。
+         */
+        autoAddNewNodes?: pulumi.Input<boolean>;
+        /**
+         * 一致性级别，仅对读写模式的连接终端有效。取值：Eventual：最终一致性。Session：会话一致性。Global：全局一致性。
+         */
+        consistLevel?: pulumi.Input<string>;
+        /**
+         * 延迟很大时，只读节点同步最新数据的超时时间，单位为 us，取值范围为 1us~100000000us。
+         */
+        consistTimeout?: pulumi.Input<number>;
+        /**
+         * 只读节点同步数据超时后的超时策略，支持以下两种策略：ReturnError：返回 SQL 报错（wait replication complete timeout, please retry）。ReadMaster：发送请求到主节点。
+         */
+        consistTimeoutAction?: pulumi.Input<string>;
+        /**
+         * 地址描述。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 是否开启事务拆分，仅对读写模式的连接终端有效。取值：true：是。false：否。
+         */
+        distributedTransaction?: pulumi.Input<boolean>;
+        /**
+         * 实例连接终端 ID。
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * 实例连接终端名称。
+         */
+        endpointName?: pulumi.Input<string>;
+        /**
+         * 连接终端类型，取值：Cluster：默认终端。Primary：主节点终端。Custom：自定义终端。
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * 主节点是否接受读请求。仅对读写模式的连接终端有效。true：是。false：否。
+         */
+        masterAcceptReadRequests?: pulumi.Input<boolean>;
+        /**
+         * 连接终端配置的节点列表。
+         */
+        nodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 连接终端的读写模式，取值：ReadWrite: 读写。ReadOnly: 只读。
+         */
+        readWriteMode?: pulumi.Input<string>;
+    }
+
+    export interface InstanceEndpointAddress {
+        /**
+         * 解析方式。当前返回值只能为 false。
+         */
+        dnsVisibility?: pulumi.Input<boolean>;
+        /**
+         * 实例内网访问域名。
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * 公网 ID。
+         */
+        eipId?: pulumi.Input<string>;
+        /**
+         * IP 地址。
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * 网络类型：Private：私有网络 VPC。Public：公网访问。
+         */
+        networkType?: pulumi.Input<string>;
+        /**
+         * 实例内网访问端口。
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * 子网 ID。子网必须属于所选的可用区。
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceMaintenanceWindow {
+        /**
+         * 可维护周期粒度，默认取值为：Week（周）。
+         */
+        dayKind?: pulumi.Input<string>;
+        /**
+         * 指定每月哪一天为可维护时间段，默认为空，表示每天都指定。
+         */
+        dayOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * 每周的哪一天为可维护时间段，默认取值为每一天：Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+         */
+        dayOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 实例的可维护时间段。格式：HH:mmZ-HH:mmZ（UTC 时间）。
+         */
+        maintenanceTime?: pulumi.Input<string>;
+    }
+
+    export interface InstanceNode {
+        /**
+         * 节点切主的优先级，取值范围为 0~15。数值越大，优先级越高。
+         */
+        failoverPriority?: pulumi.Input<number>;
+        /**
+         * 节点类型。取值：Primary：主节点。ReadOnly：只读节点。
+         */
+        nodeType?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 用户标签的标签键。长度取值范围为1~128字符，允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。若标签键开头或结尾存在空格，系统会自动为其去除。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
          */
         value?: pulumi.Input<string>;
     }

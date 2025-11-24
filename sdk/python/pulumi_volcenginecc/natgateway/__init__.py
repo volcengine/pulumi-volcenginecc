@@ -6,8 +6,16 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .dnatentry import *
+from .get_dnatentries import *
+from .get_dnatentry import *
+from .get_nat_ip import *
+from .get_nat_ips import *
 from .get_ngw import *
 from .get_ngws import *
+from .get_snatentries import *
+from .get_snatentry import *
 from .ngw import *
+from .snatentry import *
 from ._inputs import *
 from . import outputs
