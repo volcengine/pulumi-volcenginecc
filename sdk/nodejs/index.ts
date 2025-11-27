@@ -27,6 +27,7 @@ import * as kafka from "./kafka";
 import * as natgateway from "./natgateway";
 import * as organization from "./organization";
 import * as privatezone from "./privatezone";
+import * as rabbitmq from "./rabbitmq";
 import * as rdsmysql from "./rdsmysql";
 import * as redis from "./redis";
 import * as storageebs from "./storageebs";
@@ -59,6 +60,7 @@ export {
     natgateway,
     organization,
     privatezone,
+    rabbitmq,
     rdsmysql,
     redis,
     storageebs,

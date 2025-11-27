@@ -32,6 +32,12 @@ __all__ = [
     'ScalingGroupServerGroupAttributeArgsDict',
     'ScalingGroupTagArgs',
     'ScalingGroupTagArgsDict',
+    'ScalingPolicyAlarmPolicyArgs',
+    'ScalingPolicyAlarmPolicyArgsDict',
+    'ScalingPolicyAlarmPolicyConditionArgs',
+    'ScalingPolicyAlarmPolicyConditionArgsDict',
+    'ScalingPolicyScheduledPolicyArgs',
+    'ScalingPolicyScheduledPolicyArgsDict',
 ]
 
 MYPY = False
@@ -590,5 +596,374 @@ class ScalingGroupTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ScalingPolicyAlarmPolicyArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgsDict']]
+        """
+        单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。
+        """
+        condition_operator: NotRequired[pulumi.Input[builtins.str]]
+        """
+        多指标告警时的判定条件。&&：多个指标同时成立才判定为触发告警。||（默认）：任意指标满足条件就判定为触发告警。
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgsDict']]]]
+        effective: NotRequired[pulumi.Input[builtins.str]]
+        """
+        报警任务的生效时间段。
+        """
+        evaluation_count: NotRequired[pulumi.Input[builtins.int]]
+        """
+        当监控指标数据连续几次达到阈值时，即触发伸缩行为。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+        """
+        rule_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        报警任务的类型，取值：Static：表示由agent采集的静态监控。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+        """
+elif False:
+    ScalingPolicyAlarmPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyAlarmPolicyArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs']] = None,
+                 condition_operator: Optional[pulumi.Input[builtins.str]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs']]]] = None,
+                 effective: Optional[pulumi.Input[builtins.str]] = None,
+                 evaluation_count: Optional[pulumi.Input[builtins.int]] = None,
+                 rule_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs'] condition: 单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。
+        :param pulumi.Input[builtins.str] condition_operator: 多指标告警时的判定条件。&&：多个指标同时成立才判定为触发告警。||（默认）：任意指标满足条件就判定为触发告警。
+        :param pulumi.Input[builtins.str] effective: 报警任务的生效时间段。
+        :param pulumi.Input[builtins.int] evaluation_count: 当监控指标数据连续几次达到阈值时，即触发伸缩行为。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+        :param pulumi.Input[builtins.str] rule_type: 报警任务的类型，取值：Static：表示由agent采集的静态监控。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_operator is not None:
+            pulumi.set(__self__, "condition_operator", condition_operator)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if effective is not None:
+            pulumi.set(__self__, "effective", effective)
+        if evaluation_count is not None:
+            pulumi.set(__self__, "evaluation_count", evaluation_count)
+        if rule_type is not None:
+            pulumi.set(__self__, "rule_type", rule_type)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs']]:
+        """
+        单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionOperator")
+    def condition_operator(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        多指标告警时的判定条件。&&：多个指标同时成立才判定为触发告警。||（默认）：任意指标满足条件就判定为触发告警。
+        """
+        return pulumi.get(self, "condition_operator")
+
+    @condition_operator.setter
+    def condition_operator(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "condition_operator", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs']]]]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyAlarmPolicyConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def effective(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        报警任务的生效时间段。
+        """
+        return pulumi.get(self, "effective")
+
+    @effective.setter
+    def effective(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "effective", value)
+
+    @property
+    @pulumi.getter(name="evaluationCount")
+    def evaluation_count(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        当监控指标数据连续几次达到阈值时，即触发伸缩行为。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+        """
+        return pulumi.get(self, "evaluation_count")
+
+    @evaluation_count.setter
+    def evaluation_count(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "evaluation_count", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        报警任务的类型，取值：Static：表示由agent采集的静态监控。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "rule_type", value)
+
+
+if not MYPY:
+    class ScalingPolicyAlarmPolicyConditionArgsDict(TypedDict):
+        comparison_operator: NotRequired[pulumi.Input[builtins.str]]
+        """
+        指标告警时的规则表达式对象。>：大于。<：小于。=：等于。
+        """
+        metric_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        指标告警时的监控指标名称。CpuTotal*Max：带内CPU使用率最大值。CpuTotal*Min：带内CPU使用率最小值。CpuTotal*Avg：带内CPU使用率平均值。MemoryUsedUtilization*Max：带内内存使用率最大值。MemoryUsedUtilization*Min：带内内存使用率最小值。MemoryUsedUtilization*Avg：带内内存使用率平均值。Instance*CpuBusy*Max：带外CPU利用率最大值。Instance*CpuBusy*Min：带外CPU利用率最小值。Instance*CpuBusy*Avg：带外CPU利用率平均值。Instance*NetTxBits*Avg: 带外网络流出速率平均值。Instance*NetRxBits*Avg: 带外网络流入速率平均值。Instance*NetTxPackets*Avg: 带外网络发送包速率平均值。Instance*NetRxPackets*Avg: 带外网络接收包速率平均值。SystemDiskReadBytes*Avg: 带内系统盘读带宽平均值。SystemDiskWriteBytes*Avg: 带内系统盘写带宽平均值。SystemDiskReadIOPS*Avg: 带内系统盘读IOPS平均值。SystemDiskWriteIOPS*Avg: 带内系统盘写IOPS平均值。NetTcpConnection_Avg: 带内TCP连接数平均值。
+        """
+        metric_unit: NotRequired[pulumi.Input[builtins.str]]
+        """
+        指标告警时的监控指标阈值的单位。当AlarmPolicy.Conditions.MetricName参数取值为CPU/内存使用率时: Percent。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写带宽时: Bytes/Second(IEC)。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写IOPS时: Count/Second。当AlarmPolicy.Conditions.MetricName参数取值为TCP连接数时: Count。当AlarmPolicy.Condition.MetricName参数取值为网络流入/流出速率时: Bits/Second(IEC)。当AlarmPolicy.Condition.MetricName参数取值为网络收发包速率时: Packet/Second。
+        """
+        threshold: NotRequired[pulumi.Input[builtins.str]]
+        """
+        指标告警时的监控指标的阈值。当AlarmPolicy.Conditions.MetricUnit取值为Percent时：1 ～ 100。当AlarmPolicy.Conditions.MetricUnit取值为Bytes/Second(IEC)时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count/Second时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Bits/Second(IEC)时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Packet/Second时：大于0的整数。
+        """
+elif False:
+    ScalingPolicyAlarmPolicyConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyAlarmPolicyConditionArgs:
+    def __init__(__self__, *,
+                 comparison_operator: Optional[pulumi.Input[builtins.str]] = None,
+                 metric_name: Optional[pulumi.Input[builtins.str]] = None,
+                 metric_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 threshold: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] comparison_operator: 指标告警时的规则表达式对象。>：大于。<：小于。=：等于。
+        :param pulumi.Input[builtins.str] metric_name: 指标告警时的监控指标名称。CpuTotal*Max：带内CPU使用率最大值。CpuTotal*Min：带内CPU使用率最小值。CpuTotal*Avg：带内CPU使用率平均值。MemoryUsedUtilization*Max：带内内存使用率最大值。MemoryUsedUtilization*Min：带内内存使用率最小值。MemoryUsedUtilization*Avg：带内内存使用率平均值。Instance*CpuBusy*Max：带外CPU利用率最大值。Instance*CpuBusy*Min：带外CPU利用率最小值。Instance*CpuBusy*Avg：带外CPU利用率平均值。Instance*NetTxBits*Avg: 带外网络流出速率平均值。Instance*NetRxBits*Avg: 带外网络流入速率平均值。Instance*NetTxPackets*Avg: 带外网络发送包速率平均值。Instance*NetRxPackets*Avg: 带外网络接收包速率平均值。SystemDiskReadBytes*Avg: 带内系统盘读带宽平均值。SystemDiskWriteBytes*Avg: 带内系统盘写带宽平均值。SystemDiskReadIOPS*Avg: 带内系统盘读IOPS平均值。SystemDiskWriteIOPS*Avg: 带内系统盘写IOPS平均值。NetTcpConnection_Avg: 带内TCP连接数平均值。
+        :param pulumi.Input[builtins.str] metric_unit: 指标告警时的监控指标阈值的单位。当AlarmPolicy.Conditions.MetricName参数取值为CPU/内存使用率时: Percent。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写带宽时: Bytes/Second(IEC)。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写IOPS时: Count/Second。当AlarmPolicy.Conditions.MetricName参数取值为TCP连接数时: Count。当AlarmPolicy.Condition.MetricName参数取值为网络流入/流出速率时: Bits/Second(IEC)。当AlarmPolicy.Condition.MetricName参数取值为网络收发包速率时: Packet/Second。
+        :param pulumi.Input[builtins.str] threshold: 指标告警时的监控指标的阈值。当AlarmPolicy.Conditions.MetricUnit取值为Percent时：1 ～ 100。当AlarmPolicy.Conditions.MetricUnit取值为Bytes/Second(IEC)时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count/Second时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Bits/Second(IEC)时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Packet/Second时：大于0的整数。
+        """
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metric_unit is not None:
+            pulumi.set(__self__, "metric_unit", metric_unit)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        指标告警时的规则表达式对象。>：大于。<：小于。=：等于。
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comparison_operator", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        指标告警时的监控指标名称。CpuTotal*Max：带内CPU使用率最大值。CpuTotal*Min：带内CPU使用率最小值。CpuTotal*Avg：带内CPU使用率平均值。MemoryUsedUtilization*Max：带内内存使用率最大值。MemoryUsedUtilization*Min：带内内存使用率最小值。MemoryUsedUtilization*Avg：带内内存使用率平均值。Instance*CpuBusy*Max：带外CPU利用率最大值。Instance*CpuBusy*Min：带外CPU利用率最小值。Instance*CpuBusy*Avg：带外CPU利用率平均值。Instance*NetTxBits*Avg: 带外网络流出速率平均值。Instance*NetRxBits*Avg: 带外网络流入速率平均值。Instance*NetTxPackets*Avg: 带外网络发送包速率平均值。Instance*NetRxPackets*Avg: 带外网络接收包速率平均值。SystemDiskReadBytes*Avg: 带内系统盘读带宽平均值。SystemDiskWriteBytes*Avg: 带内系统盘写带宽平均值。SystemDiskReadIOPS*Avg: 带内系统盘读IOPS平均值。SystemDiskWriteIOPS*Avg: 带内系统盘写IOPS平均值。NetTcpConnection_Avg: 带内TCP连接数平均值。
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter(name="metricUnit")
+    def metric_unit(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        指标告警时的监控指标阈值的单位。当AlarmPolicy.Conditions.MetricName参数取值为CPU/内存使用率时: Percent。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写带宽时: Bytes/Second(IEC)。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写IOPS时: Count/Second。当AlarmPolicy.Conditions.MetricName参数取值为TCP连接数时: Count。当AlarmPolicy.Condition.MetricName参数取值为网络流入/流出速率时: Bits/Second(IEC)。当AlarmPolicy.Condition.MetricName参数取值为网络收发包速率时: Packet/Second。
+        """
+        return pulumi.get(self, "metric_unit")
+
+    @metric_unit.setter
+    def metric_unit(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "metric_unit", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        指标告警时的监控指标的阈值。当AlarmPolicy.Conditions.MetricUnit取值为Percent时：1 ～ 100。当AlarmPolicy.Conditions.MetricUnit取值为Bytes/Second(IEC)时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count/Second时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Bits/Second(IEC)时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Packet/Second时：大于0的整数。
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "threshold", value)
+
+
+if not MYPY:
+    class ScalingPolicyScheduledPolicyArgsDict(TypedDict):
+        launch_time: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示任务的触发时间，默认为此刻。当ScalingPolicyType值为Scheduled时，表示定时任务的触发时间。当ScalingPolicyType值为Recurrence时：如果ScheduledPolicy.RecurrenceType为空，则表示仅按照此处指定的日期和时间执行一次。如果ScheduledPolicy.RecurrenceType不为空，则表示周期任务开始时间。
+        """
+        launch_time_read: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示任务的触发时间。只读字段，修改或创建使用LaunchTime。
+        """
+        recurrence_end_time: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示周期任务的结束时间。仅支持选择自创建当日起365日内的时间。若不配置，则根据重复周期（ScheduledPolicy.RecurrenceType）默认为此刻后的一天/周/月。设置为空，表示本任务永不停止。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+        recurrence_end_time_read: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示周期任务的结束时间。只读字段，修改或创建使用RecurrenceEndTime。
+        """
+        recurrence_start_time: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示周期任务的开始执行时间。当ScalingPolicyType取值为Recurrence时有效。
+        """
+        recurrence_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示周期任务的重复周期，取值：Daily：每XX天执行一次。Weekly：选择每周中的几天，每天执行一次。Monthly：选择每月中XX号到XX号，每天执行一次。Cron：按照指定的Cron表达式执行。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+        recurrence_value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        表示重复执行周期任务的数值。当ScheduledPolicy.RecurrenceType参数取值为Daily时，只能填写一个值，取值：1   - 31。当ScheduledPolicy.RecurrenceType参数取值为Weekly时，可以填入多个值，使用英文逗号（,）分隔。星期一到星期日的取值依次为：1,2,3,4,5,6,7。当ScheduledPolicy.RecurrenceType参数取值为Monthly时，格式为A-B。A、B的取值范围均为1-31，且B必须大于等于A。当ScheduledPolicy.RecurrenceType参数取值为Cron 时，表示UTC+8时间，支持分、时、日、月、星期的5域表达式，支持通配符英文逗号（,）、英文问号（?）、连词符（-）、星号（*）、井号（#）、斜线（/）、L和W。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+elif False:
+    ScalingPolicyScheduledPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyScheduledPolicyArgs:
+    def __init__(__self__, *,
+                 launch_time: Optional[pulumi.Input[builtins.str]] = None,
+                 launch_time_read: Optional[pulumi.Input[builtins.str]] = None,
+                 recurrence_end_time: Optional[pulumi.Input[builtins.str]] = None,
+                 recurrence_end_time_read: Optional[pulumi.Input[builtins.str]] = None,
+                 recurrence_start_time: Optional[pulumi.Input[builtins.str]] = None,
+                 recurrence_type: Optional[pulumi.Input[builtins.str]] = None,
+                 recurrence_value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] launch_time: 表示任务的触发时间，默认为此刻。当ScalingPolicyType值为Scheduled时，表示定时任务的触发时间。当ScalingPolicyType值为Recurrence时：如果ScheduledPolicy.RecurrenceType为空，则表示仅按照此处指定的日期和时间执行一次。如果ScheduledPolicy.RecurrenceType不为空，则表示周期任务开始时间。
+        :param pulumi.Input[builtins.str] launch_time_read: 表示任务的触发时间。只读字段，修改或创建使用LaunchTime。
+        :param pulumi.Input[builtins.str] recurrence_end_time: 表示周期任务的结束时间。仅支持选择自创建当日起365日内的时间。若不配置，则根据重复周期（ScheduledPolicy.RecurrenceType）默认为此刻后的一天/周/月。设置为空，表示本任务永不停止。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        :param pulumi.Input[builtins.str] recurrence_end_time_read: 表示周期任务的结束时间。只读字段，修改或创建使用RecurrenceEndTime。
+        :param pulumi.Input[builtins.str] recurrence_start_time: 表示周期任务的开始执行时间。当ScalingPolicyType取值为Recurrence时有效。
+        :param pulumi.Input[builtins.str] recurrence_type: 表示周期任务的重复周期，取值：Daily：每XX天执行一次。Weekly：选择每周中的几天，每天执行一次。Monthly：选择每月中XX号到XX号，每天执行一次。Cron：按照指定的Cron表达式执行。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        :param pulumi.Input[builtins.str] recurrence_value: 表示重复执行周期任务的数值。当ScheduledPolicy.RecurrenceType参数取值为Daily时，只能填写一个值，取值：1   - 31。当ScheduledPolicy.RecurrenceType参数取值为Weekly时，可以填入多个值，使用英文逗号（,）分隔。星期一到星期日的取值依次为：1,2,3,4,5,6,7。当ScheduledPolicy.RecurrenceType参数取值为Monthly时，格式为A-B。A、B的取值范围均为1-31，且B必须大于等于A。当ScheduledPolicy.RecurrenceType参数取值为Cron 时，表示UTC+8时间，支持分、时、日、月、星期的5域表达式，支持通配符英文逗号（,）、英文问号（?）、连词符（-）、星号（*）、井号（#）、斜线（/）、L和W。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+        if launch_time is not None:
+            pulumi.set(__self__, "launch_time", launch_time)
+        if launch_time_read is not None:
+            pulumi.set(__self__, "launch_time_read", launch_time_read)
+        if recurrence_end_time is not None:
+            pulumi.set(__self__, "recurrence_end_time", recurrence_end_time)
+        if recurrence_end_time_read is not None:
+            pulumi.set(__self__, "recurrence_end_time_read", recurrence_end_time_read)
+        if recurrence_start_time is not None:
+            pulumi.set(__self__, "recurrence_start_time", recurrence_start_time)
+        if recurrence_type is not None:
+            pulumi.set(__self__, "recurrence_type", recurrence_type)
+        if recurrence_value is not None:
+            pulumi.set(__self__, "recurrence_value", recurrence_value)
+
+    @property
+    @pulumi.getter(name="launchTime")
+    def launch_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示任务的触发时间，默认为此刻。当ScalingPolicyType值为Scheduled时，表示定时任务的触发时间。当ScalingPolicyType值为Recurrence时：如果ScheduledPolicy.RecurrenceType为空，则表示仅按照此处指定的日期和时间执行一次。如果ScheduledPolicy.RecurrenceType不为空，则表示周期任务开始时间。
+        """
+        return pulumi.get(self, "launch_time")
+
+    @launch_time.setter
+    def launch_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "launch_time", value)
+
+    @property
+    @pulumi.getter(name="launchTimeRead")
+    def launch_time_read(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示任务的触发时间。只读字段，修改或创建使用LaunchTime。
+        """
+        return pulumi.get(self, "launch_time_read")
+
+    @launch_time_read.setter
+    def launch_time_read(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "launch_time_read", value)
+
+    @property
+    @pulumi.getter(name="recurrenceEndTime")
+    def recurrence_end_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示周期任务的结束时间。仅支持选择自创建当日起365日内的时间。若不配置，则根据重复周期（ScheduledPolicy.RecurrenceType）默认为此刻后的一天/周/月。设置为空，表示本任务永不停止。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+        return pulumi.get(self, "recurrence_end_time")
+
+    @recurrence_end_time.setter
+    def recurrence_end_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "recurrence_end_time", value)
+
+    @property
+    @pulumi.getter(name="recurrenceEndTimeRead")
+    def recurrence_end_time_read(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示周期任务的结束时间。只读字段，修改或创建使用RecurrenceEndTime。
+        """
+        return pulumi.get(self, "recurrence_end_time_read")
+
+    @recurrence_end_time_read.setter
+    def recurrence_end_time_read(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "recurrence_end_time_read", value)
+
+    @property
+    @pulumi.getter(name="recurrenceStartTime")
+    def recurrence_start_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示周期任务的开始执行时间。当ScalingPolicyType取值为Recurrence时有效。
+        """
+        return pulumi.get(self, "recurrence_start_time")
+
+    @recurrence_start_time.setter
+    def recurrence_start_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "recurrence_start_time", value)
+
+    @property
+    @pulumi.getter(name="recurrenceType")
+    def recurrence_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示周期任务的重复周期，取值：Daily：每XX天执行一次。Weekly：选择每周中的几天，每天执行一次。Monthly：选择每月中XX号到XX号，每天执行一次。Cron：按照指定的Cron表达式执行。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+        return pulumi.get(self, "recurrence_type")
+
+    @recurrence_type.setter
+    def recurrence_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "recurrence_type", value)
+
+    @property
+    @pulumi.getter(name="recurrenceValue")
+    def recurrence_value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        表示重复执行周期任务的数值。当ScheduledPolicy.RecurrenceType参数取值为Daily时，只能填写一个值，取值：1   - 31。当ScheduledPolicy.RecurrenceType参数取值为Weekly时，可以填入多个值，使用英文逗号（,）分隔。星期一到星期日的取值依次为：1,2,3,4,5,6,7。当ScheduledPolicy.RecurrenceType参数取值为Monthly时，格式为A-B。A、B的取值范围均为1-31，且B必须大于等于A。当ScheduledPolicy.RecurrenceType参数取值为Cron 时，表示UTC+8时间，支持分、时、日、月、星期的5域表达式，支持通配符英文逗号（,）、英文问号（?）、连词符（-）、星号（*）、井号（#）、斜线（/）、L和W。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+        """
+        return pulumi.get(self, "recurrence_value")
+
+    @recurrence_value.setter
+    def recurrence_value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "recurrence_value", value)
 
 

@@ -7,8 +7,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .addon import *
+from .cluster import *
 from .get_addon import *
 from .get_addons import *
+from .get_cluster import *
+from .get_clusters import *
 from .get_permission import *
 from .get_permissions import *
 from .permission import *

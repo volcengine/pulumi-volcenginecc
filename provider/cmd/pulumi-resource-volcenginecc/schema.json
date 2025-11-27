@@ -3294,6 +3294,126 @@
                 }
             }
         },
+        "volcenginecc:autoscaling/ScalingPolicyAlarmPolicy:ScalingPolicyAlarmPolicy": {
+            "properties": {
+                "condition": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyAlarmPolicyCondition:ScalingPolicyAlarmPolicyCondition",
+                    "description": "单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。\n"
+                },
+                "conditionOperator": {
+                    "type": "string",
+                    "description": "多指标告警时的判定条件。\u0026\u0026：多个指标同时成立才判定为触发告警。||（默认）：任意指标满足条件就判定为触发告警。\n"
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyAlarmPolicyCondition:ScalingPolicyAlarmPolicyCondition"
+                    }
+                },
+                "effective": {
+                    "type": "string",
+                    "description": "报警任务的生效时间段。\n"
+                },
+                "evaluationCount": {
+                    "type": "integer",
+                    "description": "当监控指标数据连续几次达到阈值时，即触发伸缩行为。仅当ScalingPolicyType取值为Alarm时有效且为必填项。\n"
+                },
+                "ruleType": {
+                    "type": "string",
+                    "description": "报警任务的类型，取值：Static：表示由agent采集的静态监控。仅当ScalingPolicyType取值为Alarm时有效且为必填项。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "condition",
+                        "conditionOperator",
+                        "conditions",
+                        "effective",
+                        "evaluationCount",
+                        "ruleType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:autoscaling/ScalingPolicyAlarmPolicyCondition:ScalingPolicyAlarmPolicyCondition": {
+            "properties": {
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "指标告警时的规则表达式对象。\u003e：大于。\u003c：小于。=：等于。\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "指标告警时的监控指标名称。CpuTotal*Max：带内CPU使用率最大值。CpuTotal*Min：带内CPU使用率最小值。CpuTotal*Avg：带内CPU使用率平均值。MemoryUsedUtilization*Max：带内内存使用率最大值。MemoryUsedUtilization*Min：带内内存使用率最小值。MemoryUsedUtilization*Avg：带内内存使用率平均值。Instance*CpuBusy*Max：带外CPU利用率最大值。Instance*CpuBusy*Min：带外CPU利用率最小值。Instance*CpuBusy*Avg：带外CPU利用率平均值。Instance*NetTxBits*Avg: 带外网络流出速率平均值。Instance*NetRxBits*Avg: 带外网络流入速率平均值。Instance*NetTxPackets*Avg: 带外网络发送包速率平均值。Instance*NetRxPackets*Avg: 带外网络接收包速率平均值。SystemDiskReadBytes*Avg: 带内系统盘读带宽平均值。SystemDiskWriteBytes*Avg: 带内系统盘写带宽平均值。SystemDiskReadIOPS*Avg: 带内系统盘读IOPS平均值。SystemDiskWriteIOPS*Avg: 带内系统盘写IOPS平均值。NetTcpConnection_Avg: 带内TCP连接数平均值。\n"
+                },
+                "metricUnit": {
+                    "type": "string",
+                    "description": "指标告警时的监控指标阈值的单位。当AlarmPolicy.Conditions.MetricName参数取值为CPU/内存使用率时: Percent。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写带宽时: Bytes/Second(IEC)。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写IOPS时: Count/Second。当AlarmPolicy.Conditions.MetricName参数取值为TCP连接数时: Count。当AlarmPolicy.Condition.MetricName参数取值为网络流入/流出速率时: Bits/Second(IEC)。当AlarmPolicy.Condition.MetricName参数取值为网络收发包速率时: Packet/Second。\n"
+                },
+                "threshold": {
+                    "type": "string",
+                    "description": "指标告警时的监控指标的阈值。当AlarmPolicy.Conditions.MetricUnit取值为Percent时：1 ～ 100。当AlarmPolicy.Conditions.MetricUnit取值为Bytes/Second(IEC)时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count/Second时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Bits/Second(IEC)时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Packet/Second时：大于0的整数。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "comparisonOperator",
+                        "metricName",
+                        "metricUnit",
+                        "threshold"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:autoscaling/ScalingPolicyScheduledPolicy:ScalingPolicyScheduledPolicy": {
+            "properties": {
+                "launchTime": {
+                    "type": "string",
+                    "description": "表示任务的触发时间，默认为此刻。当ScalingPolicyType值为Scheduled时，表示定时任务的触发时间。当ScalingPolicyType值为Recurrence时：如果ScheduledPolicy.RecurrenceType为空，则表示仅按照此处指定的日期和时间执行一次。如果ScheduledPolicy.RecurrenceType不为空，则表示周期任务开始时间。\n"
+                },
+                "launchTimeRead": {
+                    "type": "string",
+                    "description": "表示任务的触发时间。只读字段，修改或创建使用LaunchTime。\n"
+                },
+                "recurrenceEndTime": {
+                    "type": "string",
+                    "description": "表示周期任务的结束时间。仅支持选择自创建当日起365日内的时间。若不配置，则根据重复周期（ScheduledPolicy.RecurrenceType）默认为此刻后的一天/周/月。设置为空，表示本任务永不停止。当ScalingPolicyType取值为Recurrence时有效且为必填项。\n"
+                },
+                "recurrenceEndTimeRead": {
+                    "type": "string",
+                    "description": "表示周期任务的结束时间。只读字段，修改或创建使用RecurrenceEndTime。\n"
+                },
+                "recurrenceStartTime": {
+                    "type": "string",
+                    "description": "表示周期任务的开始执行时间。当ScalingPolicyType取值为Recurrence时有效。\n"
+                },
+                "recurrenceType": {
+                    "type": "string",
+                    "description": "表示周期任务的重复周期，取值：Daily：每XX天执行一次。Weekly：选择每周中的几天，每天执行一次。Monthly：选择每月中XX号到XX号，每天执行一次。Cron：按照指定的Cron表达式执行。当ScalingPolicyType取值为Recurrence时有效且为必填项。\n"
+                },
+                "recurrenceValue": {
+                    "type": "string",
+                    "description": "表示重复执行周期任务的数值。当ScheduledPolicy.RecurrenceType参数取值为Daily时，只能填写一个值，取值：1   - 31。当ScheduledPolicy.RecurrenceType参数取值为Weekly时，可以填入多个值，使用英文逗号（,）分隔。星期一到星期日的取值依次为：1,2,3,4,5,6,7。当ScheduledPolicy.RecurrenceType参数取值为Monthly时，格式为A-B。A、B的取值范围均为1-31，且B必须大于等于A。当ScheduledPolicy.RecurrenceType参数取值为Cron 时，表示UTC+8时间，支持分、时、日、月、星期的5域表达式，支持通配符英文逗号（,）、英文问号（?）、连词符（-）、星号（*）、井号（#）、斜线（/）、L和W。当ScalingPolicyType取值为Recurrence时有效且为必填项。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "launchTime",
+                        "launchTimeRead",
+                        "recurrenceEndTime",
+                        "recurrenceEndTimeRead",
+                        "recurrenceStartTime",
+                        "recurrenceType",
+                        "recurrenceValue"
+                    ]
+                }
+            }
+        },
         "volcenginecc:autoscaling/getScalingConfigurationEip:getScalingConfigurationEip": {
             "properties": {
                 "bandwidth": {
@@ -3508,6 +3628,130 @@
             "required": [
                 "key",
                 "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:autoscaling/getScalingPolicyAlarmPolicy:getScalingPolicyAlarmPolicy": {
+            "properties": {
+                "condition": {
+                    "$ref": "#/types/volcenginecc:autoscaling/getScalingPolicyAlarmPolicyCondition:getScalingPolicyAlarmPolicyCondition",
+                    "description": "单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。\n"
+                },
+                "conditionOperator": {
+                    "type": "string",
+                    "description": "多指标告警时的判定条件。\u0026\u0026：多个指标同时成立才判定为触发告警。||（默认）：任意指标满足条件就判定为触发告警。\n"
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:autoscaling/getScalingPolicyAlarmPolicyCondition:getScalingPolicyAlarmPolicyCondition"
+                    },
+                    "description": "多指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效，且必须配置AlarmPolicy.Condition.x或AlarmPolicy.Conditions.x相关参数，当二者同时配置时，仅AlarmPolicy.Conditions.x生效。\n"
+                },
+                "effective": {
+                    "type": "string",
+                    "description": "报警任务的生效时间段。\n"
+                },
+                "evaluationCount": {
+                    "type": "integer",
+                    "description": "当监控指标数据连续几次达到阈值时，即触发伸缩行为。仅当ScalingPolicyType取值为Alarm时有效且为必填项。\n"
+                },
+                "ruleType": {
+                    "type": "string",
+                    "description": "报警任务的类型，取值：Static：表示由agent采集的静态监控。仅当ScalingPolicyType取值为Alarm时有效且为必填项。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "condition",
+                "conditionOperator",
+                "conditions",
+                "effective",
+                "evaluationCount",
+                "ruleType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:autoscaling/getScalingPolicyAlarmPolicyCondition:getScalingPolicyAlarmPolicyCondition": {
+            "properties": {
+                "comparisonOperator": {
+                    "type": "string",
+                    "description": "指标告警时的规则表达式对象。\u003e：大于。\u003c：小于。=：等于。\n"
+                },
+                "metricName": {
+                    "type": "string",
+                    "description": "指标告警时的监控指标名称。CpuTotal*Max：带内CPU使用率最大值。CpuTotal*Min：带内CPU使用率最小值。CpuTotal*Avg：带内CPU使用率平均值。MemoryUsedUtilization*Max：带内内存使用率最大值。MemoryUsedUtilization*Min：带内内存使用率最小值。MemoryUsedUtilization*Avg：带内内存使用率平均值。Instance*CpuBusy*Max：带外CPU利用率最大值。Instance*CpuBusy*Min：带外CPU利用率最小值。Instance*CpuBusy*Avg：带外CPU利用率平均值。Instance*NetTxBits*Avg: 带外网络流出速率平均值。Instance*NetRxBits*Avg: 带外网络流入速率平均值。Instance*NetTxPackets*Avg: 带外网络发送包速率平均值。Instance*NetRxPackets*Avg: 带外网络接收包速率平均值。SystemDiskReadBytes*Avg: 带内系统盘读带宽平均值。SystemDiskWriteBytes*Avg: 带内系统盘写带宽平均值。SystemDiskReadIOPS*Avg: 带内系统盘读IOPS平均值。SystemDiskWriteIOPS*Avg: 带内系统盘写IOPS平均值。NetTcpConnection_Avg: 带内TCP连接数平均值。\n"
+                },
+                "metricUnit": {
+                    "type": "string",
+                    "description": "指标告警时的监控指标阈值的单位。当AlarmPolicy.Conditions.MetricName参数取值为CPU/内存使用率时: Percent。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写带宽时: Bytes/Second(IEC)。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写IOPS时: Count/Second。当AlarmPolicy.Conditions.MetricName参数取值为TCP连接数时: Count。当AlarmPolicy.Condition.MetricName参数取值为网络流入/流出速率时: Bits/Second(IEC)。当AlarmPolicy.Condition.MetricName参数取值为网络收发包速率时: Packet/Second。\n"
+                },
+                "threshold": {
+                    "type": "string",
+                    "description": "指标告警时的监控指标的阈值。当AlarmPolicy.Conditions.MetricUnit取值为Percent时：1 ～ 100。当AlarmPolicy.Conditions.MetricUnit取值为Bytes/Second(IEC)时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count/Second时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Bits/Second(IEC)时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Packet/Second时：大于0的整数。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comparisonOperator",
+                "metricName",
+                "metricUnit",
+                "threshold"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:autoscaling/getScalingPolicyScheduledPolicy:getScalingPolicyScheduledPolicy": {
+            "properties": {
+                "launchTime": {
+                    "type": "string",
+                    "description": "表示任务的触发时间，默认为此刻。当ScalingPolicyType值为Scheduled时，表示定时任务的触发时间。当ScalingPolicyType值为Recurrence时：如果ScheduledPolicy.RecurrenceType为空，则表示仅按照此处指定的日期和时间执行一次。如果ScheduledPolicy.RecurrenceType不为空，则表示周期任务开始时间。\n"
+                },
+                "launchTimeRead": {
+                    "type": "string",
+                    "description": "表示任务的触发时间。只读字段，修改或创建使用LaunchTime。\n"
+                },
+                "recurrenceEndTime": {
+                    "type": "string",
+                    "description": "表示周期任务的结束时间。仅支持选择自创建当日起365日内的时间。若不配置，则根据重复周期（ScheduledPolicy.RecurrenceType）默认为此刻后的一天/周/月。设置为空，表示本任务永不停止。当ScalingPolicyType取值为Recurrence时有效且为必填项。\n"
+                },
+                "recurrenceEndTimeRead": {
+                    "type": "string",
+                    "description": "表示周期任务的结束时间。只读字段，修改或创建使用RecurrenceEndTime。\n"
+                },
+                "recurrenceStartTime": {
+                    "type": "string",
+                    "description": "表示周期任务的开始执行时间。当ScalingPolicyType取值为Recurrence时有效。\n"
+                },
+                "recurrenceType": {
+                    "type": "string",
+                    "description": "表示周期任务的重复周期，取值：Daily：每XX天执行一次。Weekly：选择每周中的几天，每天执行一次。Monthly：选择每月中XX号到XX号，每天执行一次。Cron：按照指定的Cron表达式执行。当ScalingPolicyType取值为Recurrence时有效且为必填项。\n"
+                },
+                "recurrenceValue": {
+                    "type": "string",
+                    "description": "表示重复执行周期任务的数值。当ScheduledPolicy.RecurrenceType参数取值为Daily时，只能填写一个值，取值：1   - 31。当ScheduledPolicy.RecurrenceType参数取值为Weekly时，可以填入多个值，使用英文逗号（,）分隔。星期一到星期日的取值依次为：1,2,3,4,5,6,7。当ScheduledPolicy.RecurrenceType参数取值为Monthly时，格式为A-B。A、B的取值范围均为1-31，且B必须大于等于A。当ScheduledPolicy.RecurrenceType参数取值为Cron 时，表示UTC+8时间，支持分、时、日、月、星期的5域表达式，支持通配符英文逗号（,）、英文问号（?）、连词符（-）、星号（*）、井号（#）、斜线（/）、L和W。当ScalingPolicyType取值为Recurrence时有效且为必填项。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "launchTime",
+                "launchTimeRead",
+                "recurrenceEndTime",
+                "recurrenceEndTimeRead",
+                "recurrenceStartTime",
+                "recurrenceType",
+                "recurrenceValue"
             ],
             "language": {
                 "nodejs": {
@@ -8871,6 +9115,245 @@
                 }
             }
         },
+        "volcenginecc:rabbitmq/InstanceChargeDetail:InstanceChargeDetail": {
+            "properties": {
+                "autoRenew": {
+                    "type": "boolean",
+                    "description": "包年包月实例到期后是否自动续费。\n"
+                },
+                "chargeEndTime": {
+                    "type": "string",
+                    "description": "实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "chargeExpireTime": {
+                    "type": "string",
+                    "description": "包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "chargeStartTime": {
+                    "type": "string",
+                    "description": "实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "chargeStatus": {
+                    "type": "string",
+                    "description": "实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。\n"
+                },
+                "chargeType": {
+                    "type": "string",
+                    "description": "实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。\n"
+                },
+                "overdueReclaimTime": {
+                    "type": "string",
+                    "description": "实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "overdueTime": {
+                    "type": "string",
+                    "description": "实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "包年包月类型实例的购买时长。PeriodUnit 指定为 Month 时，取值范围为 1~9。PeriodUnit 指定为 Year 时，取值范围为 1~3。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "购买时长的单位，取值如下：MONTHLY：按月购买。YEARLY：按年购买。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "autoRenew",
+                        "chargeEndTime",
+                        "chargeExpireTime",
+                        "chargeStartTime",
+                        "chargeStatus",
+                        "chargeType",
+                        "overdueReclaimTime",
+                        "overdueTime",
+                        "period",
+                        "periodUnit"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:rabbitmq/InstanceEndpoint:InstanceEndpoint": {
+            "properties": {
+                "endpointType": {
+                    "type": "string",
+                    "description": "实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。\n"
+                },
+                "internalEndpoint": {
+                    "type": "string",
+                    "description": "实例的私网访问域名。\n"
+                },
+                "internalIpEndpoint": {
+                    "type": "string",
+                    "description": "公共服务区 IP 接入点。\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "接入点的网络类型。PrivateNetwork 表示私有网络 VPC。\n"
+                },
+                "publicEndpoint": {
+                    "type": "string",
+                    "description": "实例公网访问域名。仅在开启公网访问之后显示。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "endpointType",
+                        "internalEndpoint",
+                        "internalIpEndpoint",
+                        "networkType",
+                        "publicEndpoint"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:rabbitmq/InstanceTag:InstanceTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签的键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签的值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:rabbitmq/getInstanceChargeDetail:getInstanceChargeDetail": {
+            "properties": {
+                "autoRenew": {
+                    "type": "boolean",
+                    "description": "包年包月实例到期后是否自动续费。\n"
+                },
+                "chargeEndTime": {
+                    "type": "string",
+                    "description": "实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "chargeExpireTime": {
+                    "type": "string",
+                    "description": "包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "chargeStartTime": {
+                    "type": "string",
+                    "description": "实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "chargeStatus": {
+                    "type": "string",
+                    "description": "实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。\n"
+                },
+                "chargeType": {
+                    "type": "string",
+                    "description": "实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。\n"
+                },
+                "overdueReclaimTime": {
+                    "type": "string",
+                    "description": "实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "overdueTime": {
+                    "type": "string",
+                    "description": "实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "包年包月类型实例的购买时长。PeriodUnit 指定为 Month 时，取值范围为 1~9。PeriodUnit 指定为 Year 时，取值范围为 1~3。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "购买时长的单位，取值如下：MONTHLY：按月购买。YEARLY：按年购买。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "autoRenew",
+                "chargeEndTime",
+                "chargeExpireTime",
+                "chargeStartTime",
+                "chargeStatus",
+                "chargeType",
+                "overdueReclaimTime",
+                "overdueTime",
+                "period",
+                "periodUnit"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:rabbitmq/getInstanceEndpoint:getInstanceEndpoint": {
+            "properties": {
+                "endpointType": {
+                    "type": "string",
+                    "description": "实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。\n"
+                },
+                "internalEndpoint": {
+                    "type": "string",
+                    "description": "实例的私网访问域名。\n"
+                },
+                "internalIpEndpoint": {
+                    "type": "string",
+                    "description": "公共服务区 IP 接入点。\n"
+                },
+                "networkType": {
+                    "type": "string",
+                    "description": "接入点的网络类型。PrivateNetwork 表示私有网络 VPC。\n"
+                },
+                "publicEndpoint": {
+                    "type": "string",
+                    "description": "实例公网访问域名。仅在开启公网访问之后显示。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "endpointType",
+                "internalEndpoint",
+                "internalIpEndpoint",
+                "networkType",
+                "publicEndpoint"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:rabbitmq/getInstanceTag:getInstanceTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签的键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签的值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "volcenginecc:rdsmysql/DatabaseDatabasePrivilege:DatabaseDatabasePrivilege": {
             "properties": {
                 "accountName": {
@@ -11710,6 +12193,440 @@
                 }
             }
         },
+        "volcenginecc:vke/ClusterClusterConfig:ClusterClusterConfig": {
+            "properties": {
+                "apiServerEndpoints": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfigApiServerEndpoints:ClusterClusterConfigApiServerEndpoints",
+                    "description": "集群 API Server 访问的 IPv4 地址信息。\n"
+                },
+                "apiServerPublicAccessConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfigApiServerPublicAccessConfig:ClusterClusterConfigApiServerPublicAccessConfig",
+                    "description": "集群 API Server 公网访问配置信息。ApiServerPublicAccessEnable=true时才返回的参数。\n"
+                },
+                "apiServerPublicAccessEnabled": {
+                    "type": "boolean",
+                    "description": "节点公网访问配置，参数值说明：false：未开启。true：已开启。\n"
+                },
+                "resourcePublicAccessDefaultEnabled": {
+                    "type": "boolean",
+                    "description": "节点公网访问配置，参数值说明：false：未开启。true：已开启。\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "集群控制面及节点使用的的安全组。\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "集群控制面在私有网络内通信的子网 ID。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "集群控制面及部分节点的网络所在的私有网络（VPC）ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "apiServerEndpoints",
+                        "apiServerPublicAccessConfig",
+                        "apiServerPublicAccessEnabled",
+                        "resourcePublicAccessDefaultEnabled",
+                        "securityGroupIds",
+                        "subnetIds",
+                        "vpcId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterClusterConfigApiServerEndpoints:ClusterClusterConfigApiServerEndpoints": {
+            "properties": {
+                "privateIp": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfigApiServerEndpointsPrivateIp:ClusterClusterConfigApiServerEndpointsPrivateIp",
+                    "description": "集群 API Server 私网的 IPv4 地址。\n"
+                },
+                "publicIp": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfigApiServerEndpointsPublicIp:ClusterClusterConfigApiServerEndpointsPublicIp",
+                    "description": "集群 API Server 公网的 IPv4 地址。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "privateIp",
+                        "publicIp"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterClusterConfigApiServerEndpointsPrivateIp:ClusterClusterConfigApiServerEndpointsPrivateIp": {
+            "properties": {
+                "ipv4": {
+                    "type": "string",
+                    "description": "私网 IP 的 IPv4 地址。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ipv4"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterClusterConfigApiServerEndpointsPublicIp:ClusterClusterConfigApiServerEndpointsPublicIp": {
+            "properties": {
+                "ipv4": {
+                    "type": "string",
+                    "description": "公网 IP 的 IPv4 地址。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ipv4"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterClusterConfigApiServerPublicAccessConfig:ClusterClusterConfigApiServerPublicAccessConfig": {
+            "properties": {
+                "publicAccessNetworkConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig:ClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig",
+                    "description": "公网访问网络配置。ApiServerPublicAccessEnable=true时才返回的参数。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "publicAccessNetworkConfig"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig:ClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig": {
+            "properties": {
+                "bandwidth": {
+                    "type": "integer",
+                    "description": "公网 IP 的带宽峰值，单位：Mbps。\n"
+                },
+                "billingType": {
+                    "type": "integer",
+                    "description": "公网 IP 的计费类型：2：按量计费-按带宽上限。3：按量计费-按实际流量。\n"
+                },
+                "isp": {
+                    "type": "string",
+                    "description": "公网 IP 的线路类型，参数值说明： BGP：BGP（多线）。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "bandwidth",
+                        "billingType",
+                        "isp"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterLoggingConfig:ClusterLoggingConfig": {
+            "properties": {
+                "logProjectId": {
+                    "type": "string",
+                    "description": "集群的日志项目（Log Project）ID。 如果为空，表示集群的日志项目未被创建。\n"
+                },
+                "logSetups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterLoggingConfigLogSetup:ClusterLoggingConfigLogSetup"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "logProjectId",
+                        "logSetups"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterLoggingConfigLogSetup:ClusterLoggingConfigLogSetup": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "是否开启该日志选项，参数值说明：true：已开启。false：未开启。\n"
+                },
+                "logTtl": {
+                    "type": "integer",
+                    "description": "日志在日志服务中的保存时间，单位为天。 3650 天表示永久存储。\n"
+                },
+                "logType": {
+                    "type": "string",
+                    "description": "当前开启的日志类型，参数值说明：Audit：集群审计日志。KubeApiServer：kube-apiserver 组件日志。KubeScheduler：kube-scheduler 组件日志。KubeControllerManager：kube-controller-manager 组件日志。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "logTtl",
+                        "logType"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterMonitoringConfig:ClusterMonitoringConfig": {
+            "properties": {
+                "componentConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterMonitoringConfigComponentConfig:ClusterMonitoringConfigComponentConfig"
+                    }
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "监控数据所属的工作区 ID。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "componentConfigs",
+                        "workspaceId"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterMonitoringConfigComponentConfig:ClusterMonitoringConfigComponentConfig": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "是否启用该监控组件，true 表示启用，false 表示禁用。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "监控组件的名称，例如 'prometheus'、'grafana' 等。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "name"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterNodeStatistics:ClusterNodeStatistics": {
+            "properties": {
+                "creatingCount": {
+                    "type": "integer",
+                    "description": "Phase=Creating的节点总数量。\n"
+                },
+                "deletingCount": {
+                    "type": "integer",
+                    "description": "Phase=Deleting的节点总数量。\n"
+                },
+                "failedCount": {
+                    "type": "integer",
+                    "description": "Phase=Failed的节点总数量。\n"
+                },
+                "runningCount": {
+                    "type": "integer",
+                    "description": "Phase=Running的节点总数量。\n"
+                },
+                "totalCount": {
+                    "type": "integer",
+                    "description": "节点总数量。\n"
+                },
+                "updatingCount": {
+                    "type": "integer",
+                    "description": "Phase=Updating的节点总数量。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "creatingCount",
+                        "deletingCount",
+                        "failedCount",
+                        "runningCount",
+                        "totalCount",
+                        "updatingCount"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterPodsConfig:ClusterPodsConfig": {
+            "properties": {
+                "flannelConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterPodsConfigFlannelConfig:ClusterPodsConfigFlannelConfig",
+                    "description": "Flannel 网络配置。\n"
+                },
+                "podNetworkMode": {
+                    "type": "string",
+                    "description": "容器（Pod）网络模型（CNI），参数值说明：Flannel：Flannel 网络模型，独立的 Underlay 容器网络模型。VpcCniShared：VPC-CNI 网络模型，基于私有网络的弹性网卡 ENI 实现的 Underlay 容器网络模型。\n"
+                },
+                "vpcCniConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterPodsConfigVpcCniConfig:ClusterPodsConfigVpcCniConfig",
+                    "description": "VPC-CNI 网络配置。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "flannelConfig",
+                        "podNetworkMode",
+                        "vpcCniConfig"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterPodsConfigFlannelConfig:ClusterPodsConfigFlannelConfig": {
+            "properties": {
+                "maxPodsPerNode": {
+                    "type": "integer",
+                    "description": "Flannel 模型容器网络的单节点 Pod 实例数量上限，取值：64（默认值）、16、32、128、256。\n"
+                },
+                "podCidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Flannel 容器网络的 Pod CIDR。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "maxPodsPerNode",
+                        "podCidrs"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterPodsConfigVpcCniConfig:ClusterPodsConfigVpcCniConfig": {
+            "properties": {
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC-CNI 容器网络模型对应的 Pod 子网 ID 列表。\n"
+                },
+                "trunkEniEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启 VPC-CNI 容器网络模型的 Trunk 模式。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "subnetIds",
+                        "trunkEniEnabled"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterServicesConfig:ClusterServicesConfig": {
+            "properties": {
+                "serviceCidrsv4s": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Kubernetes 服务（Service）暴露的 IPv4 私有网络地址。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "serviceCidrsv4s"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterStatus:ClusterStatus": {
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterStatusCondition:ClusterStatusCondition"
+                    }
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "集群状态阶段\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "conditions",
+                        "phase"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterStatusCondition:ClusterStatusCondition": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "条件类型\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "type"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vke/ClusterTag:ClusterTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
         "volcenginecc:vke/getAddonStatus:getAddonStatus": {
             "properties": {
                 "conditions": {
@@ -11745,6 +12662,466 @@
             "type": "object",
             "required": [
                 "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterClusterConfig:getClusterClusterConfig": {
+            "properties": {
+                "apiServerEndpoints": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterClusterConfigApiServerEndpoints:getClusterClusterConfigApiServerEndpoints",
+                    "description": "集群 API Server 访问的 IPv4 地址信息。\n"
+                },
+                "apiServerPublicAccessConfig": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterClusterConfigApiServerPublicAccessConfig:getClusterClusterConfigApiServerPublicAccessConfig",
+                    "description": "集群 API Server 公网访问配置信息。ApiServerPublicAccessEnable=true时才返回的参数。\n"
+                },
+                "apiServerPublicAccessEnabled": {
+                    "type": "boolean",
+                    "description": "节点公网访问配置，参数值说明：false：未开启。true：已开启。\n"
+                },
+                "resourcePublicAccessDefaultEnabled": {
+                    "type": "boolean",
+                    "description": "节点公网访问配置，参数值说明：false：未开启。true：已开启。\n"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "集群控制面及节点使用的的安全组。\n"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "集群控制面在私有网络内通信的子网 ID。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "集群控制面及部分节点的网络所在的私有网络（VPC）ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "apiServerEndpoints",
+                "apiServerPublicAccessConfig",
+                "apiServerPublicAccessEnabled",
+                "resourcePublicAccessDefaultEnabled",
+                "securityGroupIds",
+                "subnetIds",
+                "vpcId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterClusterConfigApiServerEndpoints:getClusterClusterConfigApiServerEndpoints": {
+            "properties": {
+                "privateIp": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterClusterConfigApiServerEndpointsPrivateIp:getClusterClusterConfigApiServerEndpointsPrivateIp",
+                    "description": "集群 API Server 私网的 IPv4 地址。\n"
+                },
+                "publicIp": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterClusterConfigApiServerEndpointsPublicIp:getClusterClusterConfigApiServerEndpointsPublicIp",
+                    "description": "集群 API Server 公网的 IPv4 地址。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateIp",
+                "publicIp"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterClusterConfigApiServerEndpointsPrivateIp:getClusterClusterConfigApiServerEndpointsPrivateIp": {
+            "properties": {
+                "ipv4": {
+                    "type": "string",
+                    "description": "私网 IP 的 IPv4 地址。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ipv4"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterClusterConfigApiServerEndpointsPublicIp:getClusterClusterConfigApiServerEndpointsPublicIp": {
+            "properties": {
+                "ipv4": {
+                    "type": "string",
+                    "description": "公网 IP 的 IPv4 地址。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ipv4"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterClusterConfigApiServerPublicAccessConfig:getClusterClusterConfigApiServerPublicAccessConfig": {
+            "properties": {
+                "publicAccessNetworkConfig": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig:getClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig",
+                    "description": "公网访问网络配置。ApiServerPublicAccessEnable=true时才返回的参数。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "publicAccessNetworkConfig"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig:getClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig": {
+            "properties": {
+                "bandwidth": {
+                    "type": "integer",
+                    "description": "公网 IP 的带宽峰值，单位：Mbps。\n"
+                },
+                "billingType": {
+                    "type": "integer",
+                    "description": "公网 IP 的计费类型：2：按量计费-按带宽上限。3：按量计费-按实际流量。\n"
+                },
+                "isp": {
+                    "type": "string",
+                    "description": "公网 IP 的线路类型，参数值说明： BGP：BGP（多线）。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bandwidth",
+                "billingType",
+                "isp"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterLoggingConfig:getClusterLoggingConfig": {
+            "properties": {
+                "logProjectId": {
+                    "type": "string",
+                    "description": "集群的日志项目（Log Project）ID。 如果为空，表示集群的日志项目未被创建。\n"
+                },
+                "logSetups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterLoggingConfigLogSetup:getClusterLoggingConfigLogSetup"
+                    },
+                    "description": "集群的日志选项信息。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "logProjectId",
+                "logSetups"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterLoggingConfigLogSetup:getClusterLoggingConfigLogSetup": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "是否开启该日志选项，参数值说明：true：已开启。false：未开启。\n"
+                },
+                "logTopicId": {
+                    "type": "string",
+                    "description": "采集目标的TLS日志主题ID。 如果为空，表示对应日志的主题未被创建。\n"
+                },
+                "logTtl": {
+                    "type": "integer",
+                    "description": "日志在日志服务中的保存时间，单位为天。 3650 天表示永久存储。\n"
+                },
+                "logType": {
+                    "type": "string",
+                    "description": "当前开启的日志类型，参数值说明：Audit：集群审计日志。KubeApiServer：kube-apiserver 组件日志。KubeScheduler：kube-scheduler 组件日志。KubeControllerManager：kube-controller-manager 组件日志。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled",
+                "logTopicId",
+                "logTtl",
+                "logType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterMonitoringConfig:getClusterMonitoringConfig": {
+            "properties": {
+                "componentConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterMonitoringConfigComponentConfig:getClusterMonitoringConfigComponentConfig"
+                    },
+                    "description": "监控组件的配置列表。\n"
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "监控数据所属的工作区 ID。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "componentConfigs",
+                "workspaceId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterMonitoringConfigComponentConfig:getClusterMonitoringConfigComponentConfig": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "是否启用该监控组件，true 表示启用，false 表示禁用。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "监控组件的名称，例如 'prometheus'、'grafana' 等。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterNodeStatistics:getClusterNodeStatistics": {
+            "properties": {
+                "creatingCount": {
+                    "type": "integer",
+                    "description": "Phase=Creating的节点总数量。\n"
+                },
+                "deletingCount": {
+                    "type": "integer",
+                    "description": "Phase=Deleting的节点总数量。\n"
+                },
+                "failedCount": {
+                    "type": "integer",
+                    "description": "Phase=Failed的节点总数量。\n"
+                },
+                "runningCount": {
+                    "type": "integer",
+                    "description": "Phase=Running的节点总数量。\n"
+                },
+                "totalCount": {
+                    "type": "integer",
+                    "description": "节点总数量。\n"
+                },
+                "updatingCount": {
+                    "type": "integer",
+                    "description": "Phase=Updating的节点总数量。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "creatingCount",
+                "deletingCount",
+                "failedCount",
+                "runningCount",
+                "totalCount",
+                "updatingCount"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterPodsConfig:getClusterPodsConfig": {
+            "properties": {
+                "flannelConfig": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterPodsConfigFlannelConfig:getClusterPodsConfigFlannelConfig",
+                    "description": "Flannel 网络配置。\n"
+                },
+                "podNetworkMode": {
+                    "type": "string",
+                    "description": "容器（Pod）网络模型（CNI），参数值说明：Flannel：Flannel 网络模型，独立的 Underlay 容器网络模型。VpcCniShared：VPC-CNI 网络模型，基于私有网络的弹性网卡 ENI 实现的 Underlay 容器网络模型。\n"
+                },
+                "vpcCniConfig": {
+                    "$ref": "#/types/volcenginecc:vke/getClusterPodsConfigVpcCniConfig:getClusterPodsConfigVpcCniConfig",
+                    "description": "VPC-CNI 网络配置。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "flannelConfig",
+                "podNetworkMode",
+                "vpcCniConfig"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterPodsConfigFlannelConfig:getClusterPodsConfigFlannelConfig": {
+            "properties": {
+                "maxPodsPerNode": {
+                    "type": "integer",
+                    "description": "Flannel 模型容器网络的单节点 Pod 实例数量上限，取值：64（默认值）、16、32、128、256。\n"
+                },
+                "podCidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Flannel 容器网络的 Pod CIDR。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxPodsPerNode",
+                "podCidrs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterPodsConfigVpcCniConfig:getClusterPodsConfigVpcCniConfig": {
+            "properties": {
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "VPC-CNI 容器网络模型对应的 Pod 子网 ID 列表。\n"
+                },
+                "trunkEniEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启 VPC-CNI 容器网络模型的 Trunk 模式。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "subnetIds",
+                "trunkEniEnabled"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterServicesConfig:getClusterServicesConfig": {
+            "properties": {
+                "serviceCidrsv4s": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Kubernetes 服务（Service）暴露的 IPv4 私有网络地址。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "serviceCidrsv4s"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterStatus:getClusterStatus": {
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterStatusCondition:getClusterStatusCondition"
+                    },
+                    "description": "状态条件列表\n"
+                },
+                "phase": {
+                    "type": "string",
+                    "description": "集群状态阶段\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "conditions",
+                "phase"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterStatusCondition:getClusterStatusCondition": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "条件类型\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vke/getClusterTag:getClusterTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "标签键。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
             ],
             "language": {
                 "nodejs": {
@@ -17125,6 +18502,161 @@
                     "vpcId": {
                         "type": "string",
                         "description": "伸缩组所属私有网络ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:autoscaling/scalingPolicy:ScalingPolicy": {
+            "description": "伸缩规则用于定义触发扩缩容行为的条件和方式，包括规则类型、触发时间、伸缩行为、冷却时间等。在同一个伸缩组中，您可以启用多条伸缩规则，满足任意类型时均会执行伸缩动作。但当同一时间满足多个类型时，将优先执行手动触发的伸缩行为。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  autoScalingScalingPolicyDemo:\n    type: volcenginecc:autoscaling:ScalingPolicy\n    name: AutoScalingScalingPolicyDemo\n    properties:\n      scalingGroupId: scg-ye9vu9ztco9ht5lxxxxx\n      scalingPolicyName: AutoScalingScalingPolicyDemo-定时任务\n      scalingPolicyType: Scheduled\n      adjustmentType: PercentChangeInCapacity\n      adjustmentValue: 1\n      cooldown: 86400\n      scheduledPolicy:\n        launch_time: 2025-12-21T11:58Z\n        recurrence_end_time: \"\"\n        recurrence_type: \"\"\n        recurrence_value: \"\"\n      isEnabledPolicy: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:autoscaling/scalingPolicy:ScalingPolicy example \"scaling_group_id|scaling_policy_id\"\n```\n\n",
+            "properties": {
+                "adjustmentType": {
+                    "type": "string",
+                    "description": "伸缩规则的伸缩行为，适用于简单规则和步进规则，QuantityChangeInCapacity：增加或减少指定数量的实例。PercentChangeInCapacity：增加或减少指定比例的实例。TotalCapacity： 将当前伸缩组的实例数量调整到指定数量。\n"
+                },
+                "adjustmentValue": {
+                    "type": "integer",
+                    "description": "伸缩行为的调整数值，适用于简单规则和步进规则，当AdjustmentType参数取值为QuantityChangeInCapacity时：-100   - 100，不允许为0，单位：个。当AdjustmentType参数取值为PercentChangeInCapacity时：-100   - 10000，不允许为0，单位：%。当AdjustmentType参数取值为TotalCapacity时：默认为0   - 100，单位：个。\n"
+                },
+                "alarmPolicy": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyAlarmPolicy:ScalingPolicyAlarmPolicy",
+                    "description": "报警任务的详细信息。\n"
+                },
+                "cooldown": {
+                    "type": "integer",
+                    "description": "伸缩规则的冷却时间。 取值：0-86400，单位：秒，不填则默认使用伸缩组的冷却时间。\n"
+                },
+                "isEnabledPolicy": {
+                    "type": "boolean",
+                    "description": "伸缩规则的状态。取值：true：启用。false：停用。需保证伸缩组的状态为Active。\n"
+                },
+                "scalingGroupId": {
+                    "type": "string",
+                    "description": "伸缩组ID。\n"
+                },
+                "scalingPolicyId": {
+                    "type": "string",
+                    "description": "伸缩规则ID。\n"
+                },
+                "scalingPolicyName": {
+                    "type": "string",
+                    "description": "伸缩规则名称。\n"
+                },
+                "scalingPolicyType": {
+                    "type": "string",
+                    "description": "伸缩规则的类型，取值：Scheduled：定时任务。Recurrence：周期任务。Alarm：报警任务。\n"
+                },
+                "scheduledPolicy": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyScheduledPolicy:ScalingPolicyScheduledPolicy",
+                    "description": "定时任务/周期任务的详细信息。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "伸缩规则的状态。取值：Active：已启用。InActive：已停用。需保证伸缩组的状态为Active。\n"
+                }
+            },
+            "required": [
+                "adjustmentType",
+                "adjustmentValue",
+                "alarmPolicy",
+                "cooldown",
+                "isEnabledPolicy",
+                "scalingGroupId",
+                "scalingPolicyId",
+                "scalingPolicyName",
+                "scalingPolicyType",
+                "scheduledPolicy",
+                "status"
+            ],
+            "inputProperties": {
+                "adjustmentType": {
+                    "type": "string",
+                    "description": "伸缩规则的伸缩行为，适用于简单规则和步进规则，QuantityChangeInCapacity：增加或减少指定数量的实例。PercentChangeInCapacity：增加或减少指定比例的实例。TotalCapacity： 将当前伸缩组的实例数量调整到指定数量。\n"
+                },
+                "adjustmentValue": {
+                    "type": "integer",
+                    "description": "伸缩行为的调整数值，适用于简单规则和步进规则，当AdjustmentType参数取值为QuantityChangeInCapacity时：-100   - 100，不允许为0，单位：个。当AdjustmentType参数取值为PercentChangeInCapacity时：-100   - 10000，不允许为0，单位：%。当AdjustmentType参数取值为TotalCapacity时：默认为0   - 100，单位：个。\n"
+                },
+                "alarmPolicy": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyAlarmPolicy:ScalingPolicyAlarmPolicy",
+                    "description": "报警任务的详细信息。\n"
+                },
+                "cooldown": {
+                    "type": "integer",
+                    "description": "伸缩规则的冷却时间。 取值：0-86400，单位：秒，不填则默认使用伸缩组的冷却时间。\n"
+                },
+                "isEnabledPolicy": {
+                    "type": "boolean",
+                    "description": "伸缩规则的状态。取值：true：启用。false：停用。需保证伸缩组的状态为Active。\n"
+                },
+                "scalingGroupId": {
+                    "type": "string",
+                    "description": "伸缩组ID。\n"
+                },
+                "scalingPolicyName": {
+                    "type": "string",
+                    "description": "伸缩规则名称。\n"
+                },
+                "scalingPolicyType": {
+                    "type": "string",
+                    "description": "伸缩规则的类型，取值：Scheduled：定时任务。Recurrence：周期任务。Alarm：报警任务。\n"
+                },
+                "scheduledPolicy": {
+                    "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyScheduledPolicy:ScalingPolicyScheduledPolicy",
+                    "description": "定时任务/周期任务的详细信息。\n"
+                }
+            },
+            "requiredInputs": [
+                "scalingGroupId",
+                "scalingPolicyName",
+                "scalingPolicyType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ScalingPolicy resources.\n",
+                "properties": {
+                    "adjustmentType": {
+                        "type": "string",
+                        "description": "伸缩规则的伸缩行为，适用于简单规则和步进规则，QuantityChangeInCapacity：增加或减少指定数量的实例。PercentChangeInCapacity：增加或减少指定比例的实例。TotalCapacity： 将当前伸缩组的实例数量调整到指定数量。\n"
+                    },
+                    "adjustmentValue": {
+                        "type": "integer",
+                        "description": "伸缩行为的调整数值，适用于简单规则和步进规则，当AdjustmentType参数取值为QuantityChangeInCapacity时：-100   - 100，不允许为0，单位：个。当AdjustmentType参数取值为PercentChangeInCapacity时：-100   - 10000，不允许为0，单位：%。当AdjustmentType参数取值为TotalCapacity时：默认为0   - 100，单位：个。\n"
+                    },
+                    "alarmPolicy": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyAlarmPolicy:ScalingPolicyAlarmPolicy",
+                        "description": "报警任务的详细信息。\n"
+                    },
+                    "cooldown": {
+                        "type": "integer",
+                        "description": "伸缩规则的冷却时间。 取值：0-86400，单位：秒，不填则默认使用伸缩组的冷却时间。\n"
+                    },
+                    "isEnabledPolicy": {
+                        "type": "boolean",
+                        "description": "伸缩规则的状态。取值：true：启用。false：停用。需保证伸缩组的状态为Active。\n"
+                    },
+                    "scalingGroupId": {
+                        "type": "string",
+                        "description": "伸缩组ID。\n"
+                    },
+                    "scalingPolicyId": {
+                        "type": "string",
+                        "description": "伸缩规则ID。\n"
+                    },
+                    "scalingPolicyName": {
+                        "type": "string",
+                        "description": "伸缩规则名称。\n"
+                    },
+                    "scalingPolicyType": {
+                        "type": "string",
+                        "description": "伸缩规则的类型，取值：Scheduled：定时任务。Recurrence：周期任务。Alarm：报警任务。\n"
+                    },
+                    "scheduledPolicy": {
+                        "$ref": "#/types/volcenginecc:autoscaling/ScalingPolicyScheduledPolicy:ScalingPolicyScheduledPolicy",
+                        "description": "定时任务/周期任务的详细信息。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "伸缩规则的状态。取值：Active：已启用。InActive：已停用。需保证伸缩组的状态为Active。\n"
                     }
                 },
                 "type": "object"
@@ -24856,6 +26388,313 @@
                 "type": "object"
             }
         },
+        "volcenginecc:rabbitmq/instance:Instance": {
+            "description": "消息队列 RabbitMQ版是一款支持 AMQP（Advanced Message Queuing Protocol） 协议的分布式高可用消息队列产品，完全兼容 RabbitMQ 开源生态及多语言客户端，提供丰富的消息特性和灵活的消息路由，同时具备分布式、高吞吐、低延迟、灵活扩展的云消息服务优势，无需用户部署运维，能够轻松实现快速上云。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  rabbitMQInstanceDemo:\n    type: volcenginecc:rabbitmq:Instance\n    name: RabbitMQInstanceDemo\n    properties:\n      zoneId: cn-beijing-a\n      userName: RabbitMQInstanceDemo\n      computeSpec: rabbitmq.n1.x4.small\n      version: '3.12'\n      userPassword: '********'\n      storageSpace: 100\n      instanceDescription: RabbitMQInstanceDemo\n      vpcId: vpc-1a1vgeo93yxxx8nvepjxxxxx\n      chargeDetail:\n        charge_type: PostPaid\n      subnetId: subnet-ij9s4hxxxs3k74o8cuxxxxx\n      eipId: eip-1c0qhbjo7xxxw5e8j70axxxxx\n      instanceName: RabbitMQInstanceDemo\n      tags:\n        - key: env\n          value: test\n      projectName: default\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:rabbitmq/instance:Instance example \"instance_id\"\n```\n\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "创建实例的主账号ID。\n"
+                },
+                "applyPrivateDnsToPublic": {
+                    "type": "boolean",
+                    "description": "是否已开启公网解析功能。true：已开启, false：已关闭\n"
+                },
+                "archType": {
+                    "type": "string",
+                    "description": "实例的类型，即集群版或单机版。\n"
+                },
+                "chargeDetail": {
+                    "$ref": "#/types/volcenginecc:rabbitmq/InstanceChargeDetail:InstanceChargeDetail",
+                    "description": "实例的计费方式等计费信息。\n"
+                },
+                "computeSpec": {
+                    "type": "string",
+                    "description": "RabbitMQ实例的计算规格。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "实例的创建时间。\n"
+                },
+                "eipId": {
+                    "type": "string",
+                    "description": "EIP的ID。\n"
+                },
+                "endpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rabbitmq/InstanceEndpoint:InstanceEndpoint"
+                    }
+                },
+                "instanceDescription": {
+                    "type": "string",
+                    "description": "实例的简单描述。\n"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "RabbitMQ 实例 ID。\n"
+                },
+                "instanceName": {
+                    "type": "string",
+                    "description": "RabbitMQ 实例名称。\n"
+                },
+                "instanceStatus": {
+                    "type": "string",
+                    "description": "实例状态。\n"
+                },
+                "isEncrypted": {
+                    "type": "boolean",
+                    "description": "是否开启了云盘加密。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "实例所属的IAM项目。\n"
+                },
+                "storageSpace": {
+                    "type": "integer",
+                    "description": "实例总存储空间。单位为 GiB。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "VPC的子网ID。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rabbitmq/InstanceTag:InstanceTag"
+                    }
+                },
+                "usedStorageSpace": {
+                    "type": "integer",
+                    "description": "实例已用存储空间。单位为 GiB。\n"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "RabbitMQ WebUI管理员账号名。\n"
+                },
+                "userPassword": {
+                    "type": "string",
+                    "description": "RabbitMQ WebUI管理员密码。\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "支持的 RabbitMQ 版本。当前支持的版本包括：3.8.18：RabbitMQ 3.8.18 版本。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "私有网络（VPC）ID。\n"
+                },
+                "zoneDescription": {
+                    "type": "string",
+                    "description": "可用区的描述信息。\n"
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "实例所在的可用区 ID。对于跨 AZ 的高可用实例，此处会返回多个可用区 ID。\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "applyPrivateDnsToPublic",
+                "archType",
+                "chargeDetail",
+                "computeSpec",
+                "createdTime",
+                "eipId",
+                "endpoints",
+                "instanceDescription",
+                "instanceId",
+                "instanceName",
+                "instanceStatus",
+                "isEncrypted",
+                "projectName",
+                "storageSpace",
+                "subnetId",
+                "tags",
+                "usedStorageSpace",
+                "userName",
+                "userPassword",
+                "version",
+                "vpcId",
+                "zoneDescription",
+                "zoneId"
+            ],
+            "inputProperties": {
+                "chargeDetail": {
+                    "$ref": "#/types/volcenginecc:rabbitmq/InstanceChargeDetail:InstanceChargeDetail",
+                    "description": "实例的计费方式等计费信息。\n"
+                },
+                "computeSpec": {
+                    "type": "string",
+                    "description": "RabbitMQ实例的计算规格。\n"
+                },
+                "eipId": {
+                    "type": "string",
+                    "description": "EIP的ID。\n"
+                },
+                "instanceDescription": {
+                    "type": "string",
+                    "description": "实例的简单描述。\n"
+                },
+                "instanceName": {
+                    "type": "string",
+                    "description": "RabbitMQ 实例名称。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "实例所属的IAM项目。\n"
+                },
+                "storageSpace": {
+                    "type": "integer",
+                    "description": "实例总存储空间。单位为 GiB。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "VPC的子网ID。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:rabbitmq/InstanceTag:InstanceTag"
+                    }
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "RabbitMQ WebUI管理员账号名。\n"
+                },
+                "userPassword": {
+                    "type": "string",
+                    "description": "RabbitMQ WebUI管理员密码。\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "支持的 RabbitMQ 版本。当前支持的版本包括：3.8.18：RabbitMQ 3.8.18 版本。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "私有网络（VPC）ID。\n"
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "实例所在的可用区 ID。对于跨 AZ 的高可用实例，此处会返回多个可用区 ID。\n"
+                }
+            },
+            "requiredInputs": [
+                "computeSpec",
+                "storageSpace",
+                "subnetId",
+                "userName",
+                "userPassword",
+                "version",
+                "vpcId",
+                "zoneId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Instance resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "创建实例的主账号ID。\n"
+                    },
+                    "applyPrivateDnsToPublic": {
+                        "type": "boolean",
+                        "description": "是否已开启公网解析功能。true：已开启, false：已关闭\n"
+                    },
+                    "archType": {
+                        "type": "string",
+                        "description": "实例的类型，即集群版或单机版。\n"
+                    },
+                    "chargeDetail": {
+                        "$ref": "#/types/volcenginecc:rabbitmq/InstanceChargeDetail:InstanceChargeDetail",
+                        "description": "实例的计费方式等计费信息。\n"
+                    },
+                    "computeSpec": {
+                        "type": "string",
+                        "description": "RabbitMQ实例的计算规格。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "实例的创建时间。\n"
+                    },
+                    "eipId": {
+                        "type": "string",
+                        "description": "EIP的ID。\n"
+                    },
+                    "endpoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rabbitmq/InstanceEndpoint:InstanceEndpoint"
+                        }
+                    },
+                    "instanceDescription": {
+                        "type": "string",
+                        "description": "实例的简单描述。\n"
+                    },
+                    "instanceId": {
+                        "type": "string",
+                        "description": "RabbitMQ 实例 ID。\n"
+                    },
+                    "instanceName": {
+                        "type": "string",
+                        "description": "RabbitMQ 实例名称。\n"
+                    },
+                    "instanceStatus": {
+                        "type": "string",
+                        "description": "实例状态。\n"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean",
+                        "description": "是否开启了云盘加密。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "实例所属的IAM项目。\n"
+                    },
+                    "storageSpace": {
+                        "type": "integer",
+                        "description": "实例总存储空间。单位为 GiB。\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "VPC的子网ID。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rabbitmq/InstanceTag:InstanceTag"
+                        }
+                    },
+                    "usedStorageSpace": {
+                        "type": "integer",
+                        "description": "实例已用存储空间。单位为 GiB。\n"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "RabbitMQ WebUI管理员账号名。\n"
+                    },
+                    "userPassword": {
+                        "type": "string",
+                        "description": "RabbitMQ WebUI管理员密码。\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "支持的 RabbitMQ 版本。当前支持的版本包括：3.8.18：RabbitMQ 3.8.18 版本。\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "私有网络（VPC）ID。\n"
+                    },
+                    "zoneDescription": {
+                        "type": "string",
+                        "description": "可用区的描述信息。\n"
+                    },
+                    "zoneId": {
+                        "type": "string",
+                        "description": "实例所在的可用区 ID。对于跨 AZ 的高可用实例，此处会返回多个可用区 ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:rdsmysql/database:Database": {
             "description": "数据库\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  databaseDemo:\n    type: volcenginecc:rdsmysql:Database\n    name: DatabaseDemo\n    properties:\n      characterSetName: utf8\n      databasePrivileges:\n        - account_name: a***\n          account_privilege: ReadOnly\n          host: '%'\n      description: Demo Example\n      instanceId: mysql-779***\n      name: rdstest\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:rdsmysql/database:Database example \"instance_id|name\"\n```\n\n",
             "properties": {
@@ -27950,6 +29789,262 @@
                     "version": {
                         "type": "string",
                         "description": "组件版本。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:vke/cluster:Cluster": {
+            "description": "容器服务通过深度融合新一代云原生技术，提供以容器为核心的高性能 Kubernetes 容器集群管理服务。在云端一键构建高可用 Kubernetes 集群，并实现容器化应用的可视化全生命周期管理，助力用户快速构建容器化应用。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  vKEClusterDemo:\n    type: volcenginecc:vke:Cluster\n    name: VKEClusterDemo\n    properties:\n      projectName: default\n      name: VKEClusterDemo\n      description: VKEClusterDemo\n      deleteProtectionEnabled: true\n      clusterConfig:\n        subnet_ids:\n          - subnet-***\n        api_server_public_access_enabled: true\n        api_server_public_access_config:\n          publicAccessNetworkConfig:\n            billingType: 3\n            bandwidth: 1\n            isp: BGP\n        resource_public_access_default_enabled: true\n      podsConfig:\n        pod_network_mode: VpcCniShared\n        vpc_cni_config:\n          subnetIds:\n            - subnet-***\n          trunkEniEnabled: false\n      servicesConfig:\n        service_cidrsv_4:\n          - 172.22.xxx.0/22\n      tags:\n        - key: env\n          value: test\n      kubernetesVersionCreate: '1.30'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vke/cluster:Cluster example \"cluster_id\"\n```\n\n",
+            "properties": {
+                "clusterConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfig:ClusterClusterConfig",
+                    "description": "集群控制面及部分节点的网络配置。\n"
+                },
+                "clusterId": {
+                    "type": "string",
+                    "description": "集群 ID。\n"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "description": "集群创建时间。标准 RFC3339 格式的 UTC+0 时间。\n"
+                },
+                "deleteProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "集群删除保护，取值：false：（默认值）关闭删除保护。true：开启删除保护，不允许直接删除集群。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "集群描述。长度限制为 300 个字符以内。\n"
+                },
+                "kubernetesVersion": {
+                    "type": "string",
+                    "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。（查询使用）\n"
+                },
+                "kubernetesVersionCreate": {
+                    "type": "string",
+                    "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。(创建使用)\n"
+                },
+                "loggingConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterLoggingConfig:ClusterLoggingConfig",
+                    "description": "集群的日志配置信息。\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "集群状态描述。\n"
+                },
+                "monitoringConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterMonitoringConfig:ClusterMonitoringConfig",
+                    "description": "监控配置信息。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "集群名称。同一个地域下，名称必须唯一。支持大小写英文字母、汉字、数字、短划线（-），长度限制为 2～64 个字符。\n"
+                },
+                "nodeStatistics": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterNodeStatistics:ClusterNodeStatistics",
+                    "description": "集群中各主状态下对应的节点数量统计。\n"
+                },
+                "podsConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterPodsConfig:ClusterPodsConfig",
+                    "description": "Pod 的网络配置。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "集群所属项目名称，一个集群只能归属于一个项目。只能包含英文字母、数字、下划线（_）、英文句点（.）和中划线（-）。长度限制在 64 个字符以内。默认值：default。\n"
+                },
+                "servicesConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterServicesConfig:ClusterServicesConfig",
+                    "description": "服务的网络配置。\n"
+                },
+                "sourceRegion": {
+                    "type": "string",
+                    "description": "集群源地域。\n"
+                },
+                "status": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterStatus:ClusterStatus",
+                    "description": "集群状态。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterTag:ClusterTag"
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "集群类型。\n"
+                },
+                "updatedTime": {
+                    "type": "string",
+                    "description": "集群最近一次更新的时间。标准 RFC3339 格式的 UTC+0 时间。\n"
+                }
+            },
+            "required": [
+                "clusterConfig",
+                "clusterId",
+                "createdTime",
+                "deleteProtectionEnabled",
+                "description",
+                "kubernetesVersion",
+                "kubernetesVersionCreate",
+                "loggingConfig",
+                "message",
+                "monitoringConfig",
+                "name",
+                "nodeStatistics",
+                "podsConfig",
+                "projectName",
+                "servicesConfig",
+                "sourceRegion",
+                "status",
+                "tags",
+                "type",
+                "updatedTime"
+            ],
+            "inputProperties": {
+                "clusterConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterClusterConfig:ClusterClusterConfig",
+                    "description": "集群控制面及部分节点的网络配置。\n"
+                },
+                "deleteProtectionEnabled": {
+                    "type": "boolean",
+                    "description": "集群删除保护，取值：false：（默认值）关闭删除保护。true：开启删除保护，不允许直接删除集群。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "集群描述。长度限制为 300 个字符以内。\n"
+                },
+                "kubernetesVersion": {
+                    "type": "string",
+                    "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。（查询使用）\n"
+                },
+                "kubernetesVersionCreate": {
+                    "type": "string",
+                    "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。(创建使用)\n"
+                },
+                "loggingConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterLoggingConfig:ClusterLoggingConfig",
+                    "description": "集群的日志配置信息。\n"
+                },
+                "monitoringConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterMonitoringConfig:ClusterMonitoringConfig",
+                    "description": "监控配置信息。\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "集群名称。同一个地域下，名称必须唯一。支持大小写英文字母、汉字、数字、短划线（-），长度限制为 2～64 个字符。\n"
+                },
+                "podsConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterPodsConfig:ClusterPodsConfig",
+                    "description": "Pod 的网络配置。\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "集群所属项目名称，一个集群只能归属于一个项目。只能包含英文字母、数字、下划线（_）、英文句点（.）和中划线（-）。长度限制在 64 个字符以内。默认值：default。\n"
+                },
+                "servicesConfig": {
+                    "$ref": "#/types/volcenginecc:vke/ClusterServicesConfig:ClusterServicesConfig",
+                    "description": "服务的网络配置。\n"
+                },
+                "sourceRegion": {
+                    "type": "string",
+                    "description": "集群源地域。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterTag:ClusterTag"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Cluster resources.\n",
+                "properties": {
+                    "clusterConfig": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterClusterConfig:ClusterClusterConfig",
+                        "description": "集群控制面及部分节点的网络配置。\n"
+                    },
+                    "clusterId": {
+                        "type": "string",
+                        "description": "集群 ID。\n"
+                    },
+                    "createdTime": {
+                        "type": "string",
+                        "description": "集群创建时间。标准 RFC3339 格式的 UTC+0 时间。\n"
+                    },
+                    "deleteProtectionEnabled": {
+                        "type": "boolean",
+                        "description": "集群删除保护，取值：false：（默认值）关闭删除保护。true：开启删除保护，不允许直接删除集群。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "集群描述。长度限制为 300 个字符以内。\n"
+                    },
+                    "kubernetesVersion": {
+                        "type": "string",
+                        "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。（查询使用）\n"
+                    },
+                    "kubernetesVersionCreate": {
+                        "type": "string",
+                        "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。(创建使用)\n"
+                    },
+                    "loggingConfig": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterLoggingConfig:ClusterLoggingConfig",
+                        "description": "集群的日志配置信息。\n"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "集群状态描述。\n"
+                    },
+                    "monitoringConfig": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterMonitoringConfig:ClusterMonitoringConfig",
+                        "description": "监控配置信息。\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "集群名称。同一个地域下，名称必须唯一。支持大小写英文字母、汉字、数字、短划线（-），长度限制为 2～64 个字符。\n"
+                    },
+                    "nodeStatistics": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterNodeStatistics:ClusterNodeStatistics",
+                        "description": "集群中各主状态下对应的节点数量统计。\n"
+                    },
+                    "podsConfig": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterPodsConfig:ClusterPodsConfig",
+                        "description": "Pod 的网络配置。\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "集群所属项目名称，一个集群只能归属于一个项目。只能包含英文字母、数字、下划线（_）、英文句点（.）和中划线（-）。长度限制在 64 个字符以内。默认值：default。\n"
+                    },
+                    "servicesConfig": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterServicesConfig:ClusterServicesConfig",
+                        "description": "服务的网络配置。\n"
+                    },
+                    "sourceRegion": {
+                        "type": "string",
+                        "description": "集群源地域。\n"
+                    },
+                    "status": {
+                        "$ref": "#/types/volcenginecc:vke/ClusterStatus:ClusterStatus",
+                        "description": "集群状态。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vke/ClusterTag:ClusterTag"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "集群类型。\n"
+                    },
+                    "updatedTime": {
+                        "type": "string",
+                        "description": "集群最近一次更新的时间。标准 RFC3339 格式的 UTC+0 时间。\n"
                     }
                 },
                 "type": "object"
@@ -32606,6 +34701,114 @@
                 "required": [
                     "id",
                     "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:autoscaling/getScalingPolicies:getScalingPolicies": {
+            "description": "Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy\n",
+            "outputs": {
+                "description": "A collection of values returned by getScalingPolicies.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:autoscaling/getScalingPolicy:getScalingPolicy": {
+            "description": "Data Source schema for Volcengine::AutoScaling::ScalingPolicy\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getScalingPolicy.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getScalingPolicy.\n",
+                "properties": {
+                    "adjustmentType": {
+                        "description": "伸缩规则的伸缩行为，适用于简单规则和步进规则，QuantityChangeInCapacity：增加或减少指定数量的实例。PercentChangeInCapacity：增加或减少指定比例的实例。TotalCapacity： 将当前伸缩组的实例数量调整到指定数量。\n",
+                        "type": "string"
+                    },
+                    "adjustmentValue": {
+                        "description": "伸缩行为的调整数值，适用于简单规则和步进规则，当AdjustmentType参数取值为QuantityChangeInCapacity时：-100   - 100，不允许为0，单位：个。当AdjustmentType参数取值为PercentChangeInCapacity时：-100   - 10000，不允许为0，单位：%。当AdjustmentType参数取值为TotalCapacity时：默认为0   - 100，单位：个。\n",
+                        "type": "integer"
+                    },
+                    "alarmPolicy": {
+                        "$ref": "#/types/volcenginecc:autoscaling/getScalingPolicyAlarmPolicy:getScalingPolicyAlarmPolicy",
+                        "description": "报警任务的详细信息。\n"
+                    },
+                    "cooldown": {
+                        "description": "伸缩规则的冷却时间。 取值：0-86400，单位：秒，不填则默认使用伸缩组的冷却时间。\n",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "isEnabledPolicy": {
+                        "description": "伸缩规则的状态。取值：true：启用。false：停用。需保证伸缩组的状态为Active。\n",
+                        "type": "boolean"
+                    },
+                    "scalingGroupId": {
+                        "description": "伸缩组ID。\n",
+                        "type": "string"
+                    },
+                    "scalingPolicyId": {
+                        "description": "伸缩规则ID。\n",
+                        "type": "string"
+                    },
+                    "scalingPolicyName": {
+                        "description": "伸缩规则名称。\n",
+                        "type": "string"
+                    },
+                    "scalingPolicyType": {
+                        "description": "伸缩规则的类型，取值：Scheduled：定时任务。Recurrence：周期任务。Alarm：报警任务。\n",
+                        "type": "string"
+                    },
+                    "scheduledPolicy": {
+                        "$ref": "#/types/volcenginecc:autoscaling/getScalingPolicyScheduledPolicy:getScalingPolicyScheduledPolicy",
+                        "description": "定时任务/周期任务的详细信息。\n"
+                    },
+                    "status": {
+                        "description": "伸缩规则的状态。取值：Active：已启用。InActive：已停用。需保证伸缩组的状态为Active。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "adjustmentType",
+                    "adjustmentValue",
+                    "alarmPolicy",
+                    "cooldown",
+                    "id",
+                    "isEnabledPolicy",
+                    "scalingGroupId",
+                    "scalingPolicyId",
+                    "scalingPolicyName",
+                    "scalingPolicyType",
+                    "scheduledPolicy",
+                    "status"
                 ],
                 "type": "object"
             }
@@ -37542,6 +39745,185 @@
                 "type": "object"
             }
         },
+        "volcenginecc:rabbitmq/getInstance:getInstance": {
+            "description": "Data Source schema for Volcengine::RabbitMQ::Instance\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstance.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getInstance.\n",
+                "properties": {
+                    "accountId": {
+                        "description": "创建实例的主账号ID。\n",
+                        "type": "string"
+                    },
+                    "applyPrivateDnsToPublic": {
+                        "description": "是否已开启公网解析功能。true：已开启, false：已关闭\n",
+                        "type": "boolean"
+                    },
+                    "archType": {
+                        "description": "实例的类型，即集群版或单机版。\n",
+                        "type": "string"
+                    },
+                    "chargeDetail": {
+                        "$ref": "#/types/volcenginecc:rabbitmq/getInstanceChargeDetail:getInstanceChargeDetail",
+                        "description": "实例的计费方式等计费信息。\n"
+                    },
+                    "computeSpec": {
+                        "description": "RabbitMQ实例的计算规格。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "实例的创建时间。\n",
+                        "type": "string"
+                    },
+                    "eipId": {
+                        "description": "EIP的ID。\n",
+                        "type": "string"
+                    },
+                    "endpoints": {
+                        "description": "实例的连接信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rabbitmq/getInstanceEndpoint:getInstanceEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "instanceDescription": {
+                        "description": "实例的简单描述。\n",
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "description": "RabbitMQ 实例 ID。\n",
+                        "type": "string"
+                    },
+                    "instanceName": {
+                        "description": "RabbitMQ 实例名称。\n",
+                        "type": "string"
+                    },
+                    "instanceStatus": {
+                        "description": "实例状态。\n",
+                        "type": "string"
+                    },
+                    "isEncrypted": {
+                        "description": "是否开启了云盘加密。\n",
+                        "type": "boolean"
+                    },
+                    "projectName": {
+                        "description": "实例所属的IAM项目。\n",
+                        "type": "string"
+                    },
+                    "storageSpace": {
+                        "description": "实例总存储空间。单位为 GiB。\n",
+                        "type": "integer"
+                    },
+                    "subnetId": {
+                        "description": "VPC的子网ID。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "实例绑定的标签。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:rabbitmq/getInstanceTag:getInstanceTag"
+                        },
+                        "type": "array"
+                    },
+                    "usedStorageSpace": {
+                        "description": "实例已用存储空间。单位为 GiB。\n",
+                        "type": "integer"
+                    },
+                    "userName": {
+                        "description": "RabbitMQ WebUI管理员账号名。\n",
+                        "type": "string"
+                    },
+                    "userPassword": {
+                        "description": "RabbitMQ WebUI管理员密码。\n",
+                        "type": "string"
+                    },
+                    "version": {
+                        "description": "支持的 RabbitMQ 版本。当前支持的版本包括：3.8.18：RabbitMQ 3.8.18 版本。\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "私有网络（VPC）ID。\n",
+                        "type": "string"
+                    },
+                    "zoneDescription": {
+                        "description": "可用区的描述信息。\n",
+                        "type": "string"
+                    },
+                    "zoneId": {
+                        "description": "实例所在的可用区 ID。对于跨 AZ 的高可用实例，此处会返回多个可用区 ID。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "accountId",
+                    "applyPrivateDnsToPublic",
+                    "archType",
+                    "chargeDetail",
+                    "computeSpec",
+                    "createdTime",
+                    "eipId",
+                    "endpoints",
+                    "id",
+                    "instanceDescription",
+                    "instanceId",
+                    "instanceName",
+                    "instanceStatus",
+                    "isEncrypted",
+                    "projectName",
+                    "storageSpace",
+                    "subnetId",
+                    "tags",
+                    "usedStorageSpace",
+                    "userName",
+                    "userPassword",
+                    "version",
+                    "vpcId",
+                    "zoneDescription",
+                    "zoneId"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:rabbitmq/getInstances:getInstances": {
+            "description": "Plural Data Source schema for Volcengine::RabbitMQ::Instance\n",
+            "outputs": {
+                "description": "A collection of values returned by getInstances.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
         "volcenginecc:rdsmysql/getDatabase:getDatabase": {
             "description": "Data Source schema for Volcengine::RDSMySQL::Database\n",
             "inputs": {
@@ -39464,6 +41846,162 @@
             "description": "Plural Data Source schema for Volcengine::VKE::Addon\n",
             "outputs": {
                 "description": "A collection of values returned by getAddons.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vke/getCluster:getCluster": {
+            "description": "Data Source schema for Volcengine::VKE::Cluster\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCluster.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCluster.\n",
+                "properties": {
+                    "clusterConfig": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterClusterConfig:getClusterClusterConfig",
+                        "description": "集群控制面及部分节点的网络配置。\n"
+                    },
+                    "clusterId": {
+                        "description": "集群 ID。\n",
+                        "type": "string"
+                    },
+                    "createdTime": {
+                        "description": "集群创建时间。标准 RFC3339 格式的 UTC+0 时间。\n",
+                        "type": "string"
+                    },
+                    "deleteProtectionEnabled": {
+                        "description": "集群删除保护，取值：false：（默认值）关闭删除保护。true：开启删除保护，不允许直接删除集群。\n",
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "description": "集群描述。长度限制为 300 个字符以内。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "kubernetesVersion": {
+                        "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。（查询使用）\n",
+                        "type": "string"
+                    },
+                    "kubernetesVersionCreate": {
+                        "description": "集群的 Kubernetes 版本，格式为x.xx。创建集群时，系统自动匹配该 Kubernetes 版本对应的最新 VKE 版本。(创建使用)\n",
+                        "type": "string"
+                    },
+                    "loggingConfig": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterLoggingConfig:getClusterLoggingConfig",
+                        "description": "集群的日志配置信息。\n"
+                    },
+                    "message": {
+                        "description": "集群状态描述。\n",
+                        "type": "string"
+                    },
+                    "monitoringConfig": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterMonitoringConfig:getClusterMonitoringConfig",
+                        "description": "监控配置信息。\n"
+                    },
+                    "name": {
+                        "description": "集群名称。同一个地域下，名称必须唯一。支持大小写英文字母、汉字、数字、短划线（-），长度限制为 2～64 个字符。\n",
+                        "type": "string"
+                    },
+                    "nodeStatistics": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterNodeStatistics:getClusterNodeStatistics",
+                        "description": "集群中各主状态下对应的节点数量统计。\n"
+                    },
+                    "podsConfig": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterPodsConfig:getClusterPodsConfig",
+                        "description": "Pod 的网络配置。\n"
+                    },
+                    "projectName": {
+                        "description": "集群所属项目名称，一个集群只能归属于一个项目。只能包含英文字母、数字、下划线（_）、英文句点（.）和中划线（-）。长度限制在 64 个字符以内。默认值：default。\n",
+                        "type": "string"
+                    },
+                    "servicesConfig": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterServicesConfig:getClusterServicesConfig",
+                        "description": "服务的网络配置。\n"
+                    },
+                    "sourceRegion": {
+                        "description": "集群源地域。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/types/volcenginecc:vke/getClusterStatus:getClusterStatus",
+                        "description": "集群状态。\n"
+                    },
+                    "tags": {
+                        "description": "集群的标签。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vke/getClusterTag:getClusterTag"
+                        },
+                        "type": "array"
+                    },
+                    "type": {
+                        "description": "集群类型。\n",
+                        "type": "string"
+                    },
+                    "updatedTime": {
+                        "description": "集群最近一次更新的时间。标准 RFC3339 格式的 UTC+0 时间。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "clusterConfig",
+                    "clusterId",
+                    "createdTime",
+                    "deleteProtectionEnabled",
+                    "description",
+                    "id",
+                    "kubernetesVersion",
+                    "kubernetesVersionCreate",
+                    "loggingConfig",
+                    "message",
+                    "monitoringConfig",
+                    "name",
+                    "nodeStatistics",
+                    "podsConfig",
+                    "projectName",
+                    "servicesConfig",
+                    "sourceRegion",
+                    "status",
+                    "tags",
+                    "type",
+                    "updatedTime"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vke/getClusters:getClusters": {
+            "description": "Plural Data Source schema for Volcengine::VKE::Cluster\n",
+            "outputs": {
+                "description": "A collection of values returned by getClusters.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",

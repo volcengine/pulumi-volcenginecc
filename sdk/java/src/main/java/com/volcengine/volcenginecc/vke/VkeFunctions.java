@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.vke.inputs.GetAddonArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetAddonPlainArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetClusterArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetClusterPlainArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetPermissionArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetPermissionPlainArgs;
 import com.volcengine.volcenginecc.vke.outputs.GetAddonResult;
 import com.volcengine.volcenginecc.vke.outputs.GetAddonsResult;
+import com.volcengine.volcenginecc.vke.outputs.GetClusterResult;
+import com.volcengine.volcenginecc.vke.outputs.GetClustersResult;
 import com.volcengine.volcenginecc.vke.outputs.GetPermissionResult;
 import com.volcengine.volcenginecc.vke.outputs.GetPermissionsResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class VkeFunctions {
      */
     public static CompletableFuture<GetAddonsResult> getAddonsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vke/getAddons:getAddons", TypeShape.of(GetAddonsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
+        return getCluster(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
+        return getClusterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClustersResult> getClusters() {
+        return getClusters(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static CompletableFuture<GetClustersResult> getClustersPlain() {
+        return getClustersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClustersResult> getClusters(InvokeArgs args) {
+        return getClusters(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args) {
+        return getClustersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Cluster
+     * 
+     */
+    public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VKE::Permission
