@@ -14,10 +14,14 @@ import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingConfigurationArg
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingConfigurationPlainArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingGroupArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingGroupPlainArgs;
+import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingPolicyArgs;
+import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingPolicyPlainArgs;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingConfigurationResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingConfigurationsResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingGroupResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingGroupsResult;
+import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingPoliciesResult;
+import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingPolicyResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class AutoscalingFunctions {
@@ -188,5 +192,89 @@ public final class AutoscalingFunctions {
      */
     public static CompletableFuture<GetScalingGroupsResult> getScalingGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingGroups:getScalingGroups", TypeShape.of(GetScalingGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPoliciesResult> getScalingPolicies() {
+        return getScalingPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static CompletableFuture<GetScalingPoliciesResult> getScalingPoliciesPlain() {
+        return getScalingPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPoliciesResult> getScalingPolicies(InvokeArgs args) {
+        return getScalingPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static CompletableFuture<GetScalingPoliciesResult> getScalingPoliciesPlain(InvokeArgs args) {
+        return getScalingPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPoliciesResult> getScalingPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingPolicies:getScalingPolicies", TypeShape.of(GetScalingPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPoliciesResult> getScalingPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingPolicies:getScalingPolicies", TypeShape.of(GetScalingPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static CompletableFuture<GetScalingPoliciesResult> getScalingPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingPolicies:getScalingPolicies", TypeShape.of(GetScalingPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPolicyResult> getScalingPolicy(GetScalingPolicyArgs args) {
+        return getScalingPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static CompletableFuture<GetScalingPolicyResult> getScalingPolicyPlain(GetScalingPolicyPlainArgs args) {
+        return getScalingPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPolicyResult> getScalingPolicy(GetScalingPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingPolicy:getScalingPolicy", TypeShape.of(GetScalingPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static Output<GetScalingPolicyResult> getScalingPolicy(GetScalingPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingPolicy:getScalingPolicy", TypeShape.of(GetScalingPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingPolicy
+     * 
+     */
+    public static CompletableFuture<GetScalingPolicyResult> getScalingPolicyPlain(GetScalingPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingPolicy:getScalingPolicy", TypeShape.of(GetScalingPolicyResult.class), args, Utilities.withVersion(options));
     }
 }

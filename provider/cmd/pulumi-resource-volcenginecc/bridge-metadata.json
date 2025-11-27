@@ -194,6 +194,18 @@
                     }
                 }
             },
+            "volcenginecc_autoscaling_scaling_policy": {
+                "current": "volcenginecc:autoscaling/scalingPolicy:ScalingPolicy",
+                "fields": {
+                    "alarm_policy": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "volcenginecc_cdn_share_config": {
                 "current": "volcenginecc:cdn/shareConfig:ShareConfig",
                 "fields": {
@@ -680,6 +692,17 @@
                     }
                 }
             },
+            "volcenginecc_rabbitmq_instance": {
+                "current": "volcenginecc:rabbitmq/instance:Instance",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdsmysql_database": {
                 "current": "volcenginecc:rdsmysql/database:Database",
                 "fields": {
@@ -914,6 +937,70 @@
                                 "maxItemsOne": false
                             }
                         }
+                    }
+                }
+            },
+            "volcenginecc_vke_cluster": {
+                "current": "volcenginecc:vke/cluster:Cluster",
+                "fields": {
+                    "cluster_config": {
+                        "fields": {
+                            "security_group_ids": {
+                                "maxItemsOne": false
+                            },
+                            "subnet_ids": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "logging_config": {
+                        "fields": {
+                            "log_setups": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "monitoring_config": {
+                        "fields": {
+                            "component_configs": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "pods_config": {
+                        "fields": {
+                            "flannel_config": {
+                                "fields": {
+                                    "pod_cidrs": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "vpc_cni_config": {
+                                "fields": {
+                                    "subnet_ids": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "services_config": {
+                        "fields": {
+                            "service_cidrsv_4": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "status": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1375,6 +1462,26 @@
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_autoscaling_scaling_policies": {
+                "current": "volcenginecc:autoscaling/getScalingPolicies:getScalingPolicies",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_autoscaling_scaling_policy": {
+                "current": "volcenginecc:autoscaling/getScalingPolicy:getScalingPolicy",
+                "fields": {
+                    "alarm_policy": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -2150,6 +2257,25 @@
                     }
                 }
             },
+            "volcenginecc_rabbitmq_instance": {
+                "current": "volcenginecc:rabbitmq/getInstance:getInstance",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rabbitmq_instances": {
+                "current": "volcenginecc:rabbitmq/getInstances:getInstances",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdsmysql_database": {
                 "current": "volcenginecc:rdsmysql/getDatabase:getDatabase",
                 "fields": {
@@ -2485,6 +2611,78 @@
             },
             "volcenginecc_vke_addons": {
                 "current": "volcenginecc:vke/getAddons:getAddons",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vke_cluster": {
+                "current": "volcenginecc:vke/getCluster:getCluster",
+                "fields": {
+                    "cluster_config": {
+                        "fields": {
+                            "security_group_ids": {
+                                "maxItemsOne": false
+                            },
+                            "subnet_ids": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "logging_config": {
+                        "fields": {
+                            "log_setups": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "monitoring_config": {
+                        "fields": {
+                            "component_configs": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "pods_config": {
+                        "fields": {
+                            "flannel_config": {
+                                "fields": {
+                                    "pod_cidrs": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "vpc_cni_config": {
+                                "fields": {
+                                    "subnet_ids": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "services_config": {
+                        "fields": {
+                            "service_cidrsv_4": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "status": {
+                        "fields": {
+                            "conditions": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vke_clusters": {
+                "current": "volcenginecc:vke/getClusters:getClusters",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

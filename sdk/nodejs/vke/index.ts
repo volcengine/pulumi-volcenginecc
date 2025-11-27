@@ -10,6 +10,11 @@ export type Addon = import("./addon").Addon;
 export const Addon: typeof import("./addon").Addon = null as any;
 utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
 
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
 export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
 export const getAddon: typeof import("./getAddon").getAddon = null as any;
 export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
@@ -19,6 +24,16 @@ export { GetAddonsResult } from "./getAddons";
 export const getAddons: typeof import("./getAddons").getAddons = null as any;
 export const getAddonsOutput: typeof import("./getAddons").getAddonsOutput = null as any;
 utilities.lazyLoad(exports, ["getAddons","getAddonsOutput"], () => require("./getAddons"));
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetClustersResult } from "./getClusters";
+export const getClusters: typeof import("./getClusters").getClusters = null as any;
+export const getClustersOutput: typeof import("./getClusters").getClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getClusters","getClustersOutput"], () => require("./getClusters"));
 
 export { GetPermissionArgs, GetPermissionResult, GetPermissionOutputArgs } from "./getPermission";
 export const getPermission: typeof import("./getPermission").getPermission = null as any;
@@ -42,6 +57,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:vke/addon:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "volcenginecc:vke/cluster:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "volcenginecc:vke/permission:Permission":
                 return new Permission(name, <any>undefined, { urn })
             default:
@@ -50,4 +67,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "vke/addon", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "vke/cluster", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "vke/permission", _module)

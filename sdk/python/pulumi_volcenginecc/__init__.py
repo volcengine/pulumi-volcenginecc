@@ -45,6 +45,8 @@ if typing.TYPE_CHECKING:
     organization = __organization
     import pulumi_volcenginecc.privatezone as __privatezone
     privatezone = __privatezone
+    import pulumi_volcenginecc.rabbitmq as __rabbitmq
+    rabbitmq = __rabbitmq
     import pulumi_volcenginecc.rdsmysql as __rdsmysql
     rdsmysql = __rdsmysql
     import pulumi_volcenginecc.redis as __redis
@@ -87,6 +89,7 @@ else:
     natgateway = _utilities.lazy_import('pulumi_volcenginecc.natgateway')
     organization = _utilities.lazy_import('pulumi_volcenginecc.organization')
     privatezone = _utilities.lazy_import('pulumi_volcenginecc.privatezone')
+    rabbitmq = _utilities.lazy_import('pulumi_volcenginecc.rabbitmq')
     rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
     redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
     storageebs = _utilities.lazy_import('pulumi_volcenginecc.storageebs')
@@ -189,6 +192,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.autoscaling",
   "classes": {
    "volcenginecc:autoscaling/scalingGroup:ScalingGroup": "ScalingGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "autoscaling/scalingPolicy",
+  "fqn": "pulumi_volcenginecc.autoscaling",
+  "classes": {
+   "volcenginecc:autoscaling/scalingPolicy:ScalingPolicy": "ScalingPolicy"
   }
  },
  {
@@ -465,6 +476,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rabbitmq/instance",
+  "fqn": "pulumi_volcenginecc.rabbitmq",
+  "classes": {
+   "volcenginecc:rabbitmq/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdsmysql/database",
   "fqn": "pulumi_volcenginecc.rdsmysql",
   "classes": {
@@ -565,6 +584,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
    "volcenginecc:vke/addon:Addon": "Addon"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/cluster",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/cluster:Cluster": "Cluster"
   }
  },
  {

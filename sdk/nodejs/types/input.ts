@@ -981,6 +981,80 @@ export namespace autoscaling {
          */
         value?: pulumi.Input<string>;
     }
+
+    export interface ScalingPolicyAlarmPolicy {
+        /**
+         * 单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。
+         */
+        condition?: pulumi.Input<inputs.autoscaling.ScalingPolicyAlarmPolicyCondition>;
+        /**
+         * 多指标告警时的判定条件。&&：多个指标同时成立才判定为触发告警。||（默认）：任意指标满足条件就判定为触发告警。
+         */
+        conditionOperator?: pulumi.Input<string>;
+        conditions?: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyAlarmPolicyCondition>[]>;
+        /**
+         * 报警任务的生效时间段。
+         */
+        effective?: pulumi.Input<string>;
+        /**
+         * 当监控指标数据连续几次达到阈值时，即触发伸缩行为。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+         */
+        evaluationCount?: pulumi.Input<number>;
+        /**
+         * 报警任务的类型，取值：Static：表示由agent采集的静态监控。仅当ScalingPolicyType取值为Alarm时有效且为必填项。
+         */
+        ruleType?: pulumi.Input<string>;
+    }
+
+    export interface ScalingPolicyAlarmPolicyCondition {
+        /**
+         * 指标告警时的规则表达式对象。>：大于。<：小于。=：等于。
+         */
+        comparisonOperator?: pulumi.Input<string>;
+        /**
+         * 指标告警时的监控指标名称。CpuTotal*Max：带内CPU使用率最大值。CpuTotal*Min：带内CPU使用率最小值。CpuTotal*Avg：带内CPU使用率平均值。MemoryUsedUtilization*Max：带内内存使用率最大值。MemoryUsedUtilization*Min：带内内存使用率最小值。MemoryUsedUtilization*Avg：带内内存使用率平均值。Instance*CpuBusy*Max：带外CPU利用率最大值。Instance*CpuBusy*Min：带外CPU利用率最小值。Instance*CpuBusy*Avg：带外CPU利用率平均值。Instance*NetTxBits*Avg: 带外网络流出速率平均值。Instance*NetRxBits*Avg: 带外网络流入速率平均值。Instance*NetTxPackets*Avg: 带外网络发送包速率平均值。Instance*NetRxPackets*Avg: 带外网络接收包速率平均值。SystemDiskReadBytes*Avg: 带内系统盘读带宽平均值。SystemDiskWriteBytes*Avg: 带内系统盘写带宽平均值。SystemDiskReadIOPS*Avg: 带内系统盘读IOPS平均值。SystemDiskWriteIOPS*Avg: 带内系统盘写IOPS平均值。NetTcpConnection_Avg: 带内TCP连接数平均值。
+         */
+        metricName?: pulumi.Input<string>;
+        /**
+         * 指标告警时的监控指标阈值的单位。当AlarmPolicy.Conditions.MetricName参数取值为CPU/内存使用率时: Percent。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写带宽时: Bytes/Second(IEC)。当AlarmPolicy.Conditions.MetricName参数取值为系统盘读/写IOPS时: Count/Second。当AlarmPolicy.Conditions.MetricName参数取值为TCP连接数时: Count。当AlarmPolicy.Condition.MetricName参数取值为网络流入/流出速率时: Bits/Second(IEC)。当AlarmPolicy.Condition.MetricName参数取值为网络收发包速率时: Packet/Second。
+         */
+        metricUnit?: pulumi.Input<string>;
+        /**
+         * 指标告警时的监控指标的阈值。当AlarmPolicy.Conditions.MetricUnit取值为Percent时：1 ～ 100。当AlarmPolicy.Conditions.MetricUnit取值为Bytes/Second(IEC)时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count/Second时：大于0的整数。当AlarmPolicy.Conditions.MetricUnit取值为Count时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Bits/Second(IEC)时：大于0的整数。当AlarmPolicy.Condition.MetricUnit取值为Packet/Second时：大于0的整数。
+         */
+        threshold?: pulumi.Input<string>;
+    }
+
+    export interface ScalingPolicyScheduledPolicy {
+        /**
+         * 表示任务的触发时间，默认为此刻。当ScalingPolicyType值为Scheduled时，表示定时任务的触发时间。当ScalingPolicyType值为Recurrence时：如果ScheduledPolicy.RecurrenceType为空，则表示仅按照此处指定的日期和时间执行一次。如果ScheduledPolicy.RecurrenceType不为空，则表示周期任务开始时间。
+         */
+        launchTime?: pulumi.Input<string>;
+        /**
+         * 表示任务的触发时间。只读字段，修改或创建使用LaunchTime。
+         */
+        launchTimeRead?: pulumi.Input<string>;
+        /**
+         * 表示周期任务的结束时间。仅支持选择自创建当日起365日内的时间。若不配置，则根据重复周期（ScheduledPolicy.RecurrenceType）默认为此刻后的一天/周/月。设置为空，表示本任务永不停止。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+         */
+        recurrenceEndTime?: pulumi.Input<string>;
+        /**
+         * 表示周期任务的结束时间。只读字段，修改或创建使用RecurrenceEndTime。
+         */
+        recurrenceEndTimeRead?: pulumi.Input<string>;
+        /**
+         * 表示周期任务的开始执行时间。当ScalingPolicyType取值为Recurrence时有效。
+         */
+        recurrenceStartTime?: pulumi.Input<string>;
+        /**
+         * 表示周期任务的重复周期，取值：Daily：每XX天执行一次。Weekly：选择每周中的几天，每天执行一次。Monthly：选择每月中XX号到XX号，每天执行一次。Cron：按照指定的Cron表达式执行。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+         */
+        recurrenceType?: pulumi.Input<string>;
+        /**
+         * 表示重复执行周期任务的数值。当ScheduledPolicy.RecurrenceType参数取值为Daily时，只能填写一个值，取值：1   - 31。当ScheduledPolicy.RecurrenceType参数取值为Weekly时，可以填入多个值，使用英文逗号（,）分隔。星期一到星期日的取值依次为：1,2,3,4,5,6,7。当ScheduledPolicy.RecurrenceType参数取值为Monthly时，格式为A-B。A、B的取值范围均为1-31，且B必须大于等于A。当ScheduledPolicy.RecurrenceType参数取值为Cron 时，表示UTC+8时间，支持分、时、日、月、星期的5域表达式，支持通配符英文逗号（,）、英文问号（?）、连词符（-）、星号（*）、井号（#）、斜线（/）、L和W。当ScalingPolicyType取值为Recurrence时有效且为必填项。
+         */
+        recurrenceValue?: pulumi.Input<string>;
+    }
 }
 
 export namespace cdn {
@@ -2459,6 +2533,85 @@ export namespace privatezone {
     }
 }
 
+export namespace rabbitmq {
+    export interface InstanceChargeDetail {
+        /**
+         * 包年包月实例到期后是否自动续费。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        chargeEndTime?: pulumi.Input<string>;
+        /**
+         * 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        chargeExpireTime?: pulumi.Input<string>;
+        /**
+         * 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        chargeStartTime?: pulumi.Input<string>;
+        /**
+         * 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+         */
+        chargeStatus?: pulumi.Input<string>;
+        /**
+         * 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+         */
+        chargeType?: pulumi.Input<string>;
+        /**
+         * 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueReclaimTime?: pulumi.Input<string>;
+        /**
+         * 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueTime?: pulumi.Input<string>;
+        /**
+         * 包年包月类型实例的购买时长。PeriodUnit 指定为 Month 时，取值范围为 1~9。PeriodUnit 指定为 Year 时，取值范围为 1~3。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 购买时长的单位，取值如下：MONTHLY：按月购买。YEARLY：按年购买。
+         */
+        periodUnit?: pulumi.Input<string>;
+    }
+
+    export interface InstanceEndpoint {
+        /**
+         * 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * 实例的私网访问域名。
+         */
+        internalEndpoint?: pulumi.Input<string>;
+        /**
+         * 公共服务区 IP 接入点。
+         */
+        internalIpEndpoint?: pulumi.Input<string>;
+        /**
+         * 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+         */
+        networkType?: pulumi.Input<string>;
+        /**
+         * 实例公网访问域名。仅在开启公网访问之后显示。
+         */
+        publicEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签的键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签的值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace rdsmysql {
     export interface DatabaseDatabasePrivilege {
         /**
@@ -3238,6 +3391,223 @@ export namespace vke {
          * 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface ClusterClusterConfig {
+        /**
+         * 集群 API Server 访问的 IPv4 地址信息。
+         */
+        apiServerEndpoints?: pulumi.Input<inputs.vke.ClusterClusterConfigApiServerEndpoints>;
+        /**
+         * 集群 API Server 公网访问配置信息。ApiServerPublicAccessEnable=true时才返回的参数。
+         */
+        apiServerPublicAccessConfig?: pulumi.Input<inputs.vke.ClusterClusterConfigApiServerPublicAccessConfig>;
+        /**
+         * 节点公网访问配置，参数值说明：false：未开启。true：已开启。
+         */
+        apiServerPublicAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * 节点公网访问配置，参数值说明：false：未开启。true：已开启。
+         */
+        resourcePublicAccessDefaultEnabled?: pulumi.Input<boolean>;
+        /**
+         * 集群控制面及节点使用的的安全组。
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 集群控制面在私有网络内通信的子网 ID。
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 集群控制面及部分节点的网络所在的私有网络（VPC）ID。
+         */
+        vpcId?: pulumi.Input<string>;
+    }
+
+    export interface ClusterClusterConfigApiServerEndpoints {
+        /**
+         * 集群 API Server 私网的 IPv4 地址。
+         */
+        privateIp?: pulumi.Input<inputs.vke.ClusterClusterConfigApiServerEndpointsPrivateIp>;
+        /**
+         * 集群 API Server 公网的 IPv4 地址。
+         */
+        publicIp?: pulumi.Input<inputs.vke.ClusterClusterConfigApiServerEndpointsPublicIp>;
+    }
+
+    export interface ClusterClusterConfigApiServerEndpointsPrivateIp {
+        /**
+         * 私网 IP 的 IPv4 地址。
+         */
+        ipv4?: pulumi.Input<string>;
+    }
+
+    export interface ClusterClusterConfigApiServerEndpointsPublicIp {
+        /**
+         * 公网 IP 的 IPv4 地址。
+         */
+        ipv4?: pulumi.Input<string>;
+    }
+
+    export interface ClusterClusterConfigApiServerPublicAccessConfig {
+        /**
+         * 公网访问网络配置。ApiServerPublicAccessEnable=true时才返回的参数。
+         */
+        publicAccessNetworkConfig?: pulumi.Input<inputs.vke.ClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig>;
+    }
+
+    export interface ClusterClusterConfigApiServerPublicAccessConfigPublicAccessNetworkConfig {
+        /**
+         * 公网 IP 的带宽峰值，单位：Mbps。
+         */
+        bandwidth?: pulumi.Input<number>;
+        /**
+         * 公网 IP 的计费类型：2：按量计费-按带宽上限。3：按量计费-按实际流量。
+         */
+        billingType?: pulumi.Input<number>;
+        /**
+         * 公网 IP 的线路类型，参数值说明： BGP：BGP（多线）。
+         */
+        isp?: pulumi.Input<string>;
+    }
+
+    export interface ClusterLoggingConfig {
+        /**
+         * 集群的日志项目（Log Project）ID。 如果为空，表示集群的日志项目未被创建。
+         */
+        logProjectId?: pulumi.Input<string>;
+        logSetups?: pulumi.Input<pulumi.Input<inputs.vke.ClusterLoggingConfigLogSetup>[]>;
+    }
+
+    export interface ClusterLoggingConfigLogSetup {
+        /**
+         * 是否开启该日志选项，参数值说明：true：已开启。false：未开启。
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * 日志在日志服务中的保存时间，单位为天。 3650 天表示永久存储。
+         */
+        logTtl?: pulumi.Input<number>;
+        /**
+         * 当前开启的日志类型，参数值说明：Audit：集群审计日志。KubeApiServer：kube-apiserver 组件日志。KubeScheduler：kube-scheduler 组件日志。KubeControllerManager：kube-controller-manager 组件日志。
+         */
+        logType?: pulumi.Input<string>;
+    }
+
+    export interface ClusterMonitoringConfig {
+        componentConfigs?: pulumi.Input<pulumi.Input<inputs.vke.ClusterMonitoringConfigComponentConfig>[]>;
+        /**
+         * 监控数据所属的工作区 ID。
+         */
+        workspaceId?: pulumi.Input<string>;
+    }
+
+    export interface ClusterMonitoringConfigComponentConfig {
+        /**
+         * 是否启用该监控组件，true 表示启用，false 表示禁用。
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * 监控组件的名称，例如 'prometheus'、'grafana' 等。
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface ClusterNodeStatistics {
+        /**
+         * Phase=Creating的节点总数量。
+         */
+        creatingCount?: pulumi.Input<number>;
+        /**
+         * Phase=Deleting的节点总数量。
+         */
+        deletingCount?: pulumi.Input<number>;
+        /**
+         * Phase=Failed的节点总数量。
+         */
+        failedCount?: pulumi.Input<number>;
+        /**
+         * Phase=Running的节点总数量。
+         */
+        runningCount?: pulumi.Input<number>;
+        /**
+         * 节点总数量。
+         */
+        totalCount?: pulumi.Input<number>;
+        /**
+         * Phase=Updating的节点总数量。
+         */
+        updatingCount?: pulumi.Input<number>;
+    }
+
+    export interface ClusterPodsConfig {
+        /**
+         * Flannel 网络配置。
+         */
+        flannelConfig?: pulumi.Input<inputs.vke.ClusterPodsConfigFlannelConfig>;
+        /**
+         * 容器（Pod）网络模型（CNI），参数值说明：Flannel：Flannel 网络模型，独立的 Underlay 容器网络模型。VpcCniShared：VPC-CNI 网络模型，基于私有网络的弹性网卡 ENI 实现的 Underlay 容器网络模型。
+         */
+        podNetworkMode?: pulumi.Input<string>;
+        /**
+         * VPC-CNI 网络配置。
+         */
+        vpcCniConfig?: pulumi.Input<inputs.vke.ClusterPodsConfigVpcCniConfig>;
+    }
+
+    export interface ClusterPodsConfigFlannelConfig {
+        /**
+         * Flannel 模型容器网络的单节点 Pod 实例数量上限，取值：64（默认值）、16、32、128、256。
+         */
+        maxPodsPerNode?: pulumi.Input<number>;
+        /**
+         * Flannel 容器网络的 Pod CIDR。
+         */
+        podCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterPodsConfigVpcCniConfig {
+        /**
+         * VPC-CNI 容器网络模型对应的 Pod 子网 ID 列表。
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 是否开启 VPC-CNI 容器网络模型的 Trunk 模式。
+         */
+        trunkEniEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterServicesConfig {
+        /**
+         * Kubernetes 服务（Service）暴露的 IPv4 私有网络地址。
+         */
+        serviceCidrsv4s?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterStatus {
+        conditions?: pulumi.Input<pulumi.Input<inputs.vke.ClusterStatusCondition>[]>;
+        /**
+         * 集群状态阶段
+         */
+        phase?: pulumi.Input<string>;
+    }
+
+    export interface ClusterStatusCondition {
+        /**
+         * 条件类型
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface ClusterTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
     }
 
 }
