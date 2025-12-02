@@ -28,8 +28,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         [Output("accountId")]
         public Output<int> AccountId { get; private set; } = null!;
 
-        [Output("attachedPolicys")]
-        public Output<ImmutableArray<Outputs.GroupAttachedPolicy>> AttachedPolicys { get; private set; } = null!;
+        [Output("attachedPolicies")]
+        public Output<ImmutableArray<Outputs.GroupAttachedPolicy>> AttachedPolicies { get; private set; } = null!;
 
         /// <summary>
         /// 用户组的创建时间。
@@ -117,12 +117,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
-        [Input("attachedPolicys")]
-        private InputList<Inputs.GroupAttachedPolicyArgs>? _attachedPolicys;
-        public InputList<Inputs.GroupAttachedPolicyArgs> AttachedPolicys
+        [Input("attachedPolicies")]
+        private InputList<Inputs.GroupAttachedPolicyArgs>? _attachedPolicies;
+        public InputList<Inputs.GroupAttachedPolicyArgs> AttachedPolicies
         {
-            get => _attachedPolicys ?? (_attachedPolicys = new InputList<Inputs.GroupAttachedPolicyArgs>());
-            set => _attachedPolicys = value;
+            get => _attachedPolicies ?? (_attachedPolicies = new InputList<Inputs.GroupAttachedPolicyArgs>());
+            set => _attachedPolicies = value;
         }
 
         /// <summary>
@@ -165,12 +165,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         [Input("accountId")]
         public Input<int>? AccountId { get; set; }
 
-        [Input("attachedPolicys")]
-        private InputList<Inputs.GroupAttachedPolicyGetArgs>? _attachedPolicys;
-        public InputList<Inputs.GroupAttachedPolicyGetArgs> AttachedPolicys
+        [Input("attachedPolicies")]
+        private InputList<Inputs.GroupAttachedPolicyGetArgs>? _attachedPolicies;
+        public InputList<Inputs.GroupAttachedPolicyGetArgs> AttachedPolicies
         {
-            get => _attachedPolicys ?? (_attachedPolicys = new InputList<Inputs.GroupAttachedPolicyGetArgs>());
-            set => _attachedPolicys = value;
+            get => _attachedPolicies ?? (_attachedPolicies = new InputList<Inputs.GroupAttachedPolicyGetArgs>());
+            set => _attachedPolicies = value;
         }
 
         /// <summary>

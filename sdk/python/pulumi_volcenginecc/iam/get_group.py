@@ -28,13 +28,13 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, account_id=None, attached_policys=None, created_time=None, description=None, display_name=None, id=None, updated_time=None, user_group_id=None, user_group_name=None, users=None):
+    def __init__(__self__, account_id=None, attached_policies=None, created_time=None, description=None, display_name=None, id=None, updated_time=None, user_group_id=None, user_group_name=None, users=None):
         if account_id and not isinstance(account_id, int):
             raise TypeError("Expected argument 'account_id' to be a int")
         pulumi.set(__self__, "account_id", account_id)
-        if attached_policys and not isinstance(attached_policys, list):
-            raise TypeError("Expected argument 'attached_policys' to be a list")
-        pulumi.set(__self__, "attached_policys", attached_policys)
+        if attached_policies and not isinstance(attached_policies, list):
+            raise TypeError("Expected argument 'attached_policies' to be a list")
+        pulumi.set(__self__, "attached_policies", attached_policies)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -69,12 +69,12 @@ class GetGroupResult:
         return pulumi.get(self, "account_id")
 
     @property
-    @pulumi.getter(name="attachedPolicys")
-    def attached_policys(self) -> Sequence['outputs.GetGroupAttachedPolicyResult']:
+    @pulumi.getter(name="attachedPolicies")
+    def attached_policies(self) -> Sequence['outputs.GetGroupAttachedPolicyResult']:
         """
         用户组绑定的策略信息。
         """
-        return pulumi.get(self, "attached_policys")
+        return pulumi.get(self, "attached_policies")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -148,7 +148,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             yield self
         return GetGroupResult(
             account_id=self.account_id,
-            attached_policys=self.attached_policys,
+            attached_policies=self.attached_policies,
             created_time=self.created_time,
             description=self.description,
             display_name=self.display_name,
@@ -174,7 +174,7 @@ def get_group(id: Optional[builtins.str] = None,
 
     return AwaitableGetGroupResult(
         account_id=pulumi.get(__ret__, 'account_id'),
-        attached_policys=pulumi.get(__ret__, 'attached_policys'),
+        attached_policies=pulumi.get(__ret__, 'attached_policies'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -197,7 +197,7 @@ def get_group_output(id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:iam/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         account_id=pulumi.get(__response__, 'account_id'),
-        attached_policys=pulumi.get(__response__, 'attached_policys'),
+        attached_policies=pulumi.get(__response__, 'attached_policies'),
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

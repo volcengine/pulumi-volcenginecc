@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:apig/gateway:Gateway":
+		r = &Gateway{}
 	case "volcenginecc:apig/gatewayService:GatewayService":
 		r = &GatewayService{}
 	case "volcenginecc:apig/upstream:Upstream":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"apig/gateway",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"apig/gatewayService",

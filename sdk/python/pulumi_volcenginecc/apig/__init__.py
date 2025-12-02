@@ -6,9 +6,12 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .gateway import *
 from .gateway_service import *
+from .get_gateway import *
 from .get_gateway_service import *
 from .get_gateway_services import *
+from .get_gateways import *
 from .get_upstream import *
 from .get_upstream_source import *
 from .get_upstream_sources import *

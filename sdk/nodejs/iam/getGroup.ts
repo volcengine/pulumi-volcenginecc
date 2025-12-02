@@ -37,7 +37,7 @@ export interface GetGroupResult {
     /**
      * 用户组绑定的策略信息。
      */
-    readonly attachedPolicys: outputs.iam.GetGroupAttachedPolicy[];
+    readonly attachedPolicies: outputs.iam.GetGroupAttachedPolicy[];
     /**
      * 用户组的创建时间。
      */

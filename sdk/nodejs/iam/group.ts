@@ -47,7 +47,7 @@ export class Group extends pulumi.CustomResource {
      * 用户组所属主账号的ID。
      */
     public /*out*/ readonly accountId!: pulumi.Output<number>;
-    public readonly attachedPolicys!: pulumi.Output<outputs.iam.GroupAttachedPolicy[]>;
+    public readonly attachedPolicies!: pulumi.Output<outputs.iam.GroupAttachedPolicy[]>;
     /**
      * 用户组的创建时间。
      */
@@ -88,7 +88,7 @@ export class Group extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["attachedPolicys"] = state ? state.attachedPolicys : undefined;
+            resourceInputs["attachedPolicies"] = state ? state.attachedPolicies : undefined;
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
@@ -101,7 +101,7 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.userGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userGroupName'");
             }
-            resourceInputs["attachedPolicys"] = args ? args.attachedPolicys : undefined;
+            resourceInputs["attachedPolicies"] = args ? args.attachedPolicies : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["userGroupName"] = args ? args.userGroupName : undefined;
@@ -124,7 +124,7 @@ export interface GroupState {
      * 用户组所属主账号的ID。
      */
     accountId?: pulumi.Input<number>;
-    attachedPolicys?: pulumi.Input<pulumi.Input<inputs.iam.GroupAttachedPolicy>[]>;
+    attachedPolicies?: pulumi.Input<pulumi.Input<inputs.iam.GroupAttachedPolicy>[]>;
     /**
      * 用户组的创建时间。
      */
@@ -156,7 +156,7 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    attachedPolicys?: pulumi.Input<pulumi.Input<inputs.iam.GroupAttachedPolicy>[]>;
+    attachedPolicies?: pulumi.Input<pulumi.Input<inputs.iam.GroupAttachedPolicy>[]>;
     /**
      * 用户组描述信息。长度不超过128。
      */

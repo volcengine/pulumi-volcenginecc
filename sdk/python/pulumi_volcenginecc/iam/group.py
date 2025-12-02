@@ -23,7 +23,7 @@ __all__ = ['GroupArgs', 'Group']
 class GroupArgs:
     def __init__(__self__, *,
                  user_group_name: pulumi.Input[builtins.str],
-                 attached_policys: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]] = None,
+                 attached_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['GroupUserArgs']]]] = None):
@@ -34,8 +34,8 @@ class GroupArgs:
         :param pulumi.Input[builtins.str] display_name: 用户组显示名称。长度不超过64。
         """
         pulumi.set(__self__, "user_group_name", user_group_name)
-        if attached_policys is not None:
-            pulumi.set(__self__, "attached_policys", attached_policys)
+        if attached_policies is not None:
+            pulumi.set(__self__, "attached_policies", attached_policies)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -56,13 +56,13 @@ class GroupArgs:
         pulumi.set(self, "user_group_name", value)
 
     @property
-    @pulumi.getter(name="attachedPolicys")
-    def attached_policys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]:
-        return pulumi.get(self, "attached_policys")
+    @pulumi.getter(name="attachedPolicies")
+    def attached_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]:
+        return pulumi.get(self, "attached_policies")
 
-    @attached_policys.setter
-    def attached_policys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]):
-        pulumi.set(self, "attached_policys", value)
+    @attached_policies.setter
+    def attached_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]):
+        pulumi.set(self, "attached_policies", value)
 
     @property
     @pulumi.getter
@@ -102,7 +102,7 @@ class GroupArgs:
 class _GroupState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[builtins.int]] = None,
-                 attached_policys: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]] = None,
+                 attached_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]] = None,
                  created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -122,8 +122,8 @@ class _GroupState:
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
-        if attached_policys is not None:
-            pulumi.set(__self__, "attached_policys", attached_policys)
+        if attached_policies is not None:
+            pulumi.set(__self__, "attached_policies", attached_policies)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
         if description is not None:
@@ -152,13 +152,13 @@ class _GroupState:
         pulumi.set(self, "account_id", value)
 
     @property
-    @pulumi.getter(name="attachedPolicys")
-    def attached_policys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]:
-        return pulumi.get(self, "attached_policys")
+    @pulumi.getter(name="attachedPolicies")
+    def attached_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]:
+        return pulumi.get(self, "attached_policies")
 
-    @attached_policys.setter
-    def attached_policys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]):
-        pulumi.set(self, "attached_policys", value)
+    @attached_policies.setter
+    def attached_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupAttachedPolicyArgs']]]]):
+        pulumi.set(self, "attached_policies", value)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -248,7 +248,7 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_policys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupAttachedPolicyArgs', 'GroupAttachedPolicyArgsDict']]]]] = None,
+                 attached_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupAttachedPolicyArgs', 'GroupAttachedPolicyArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -299,7 +299,7 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_policys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupAttachedPolicyArgs', 'GroupAttachedPolicyArgsDict']]]]] = None,
+                 attached_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupAttachedPolicyArgs', 'GroupAttachedPolicyArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -313,7 +313,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupArgs.__new__(GroupArgs)
 
-            __props__.__dict__["attached_policys"] = attached_policys
+            __props__.__dict__["attached_policies"] = attached_policies
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if user_group_name is None and not opts.urn:
@@ -335,7 +335,7 @@ class Group(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[builtins.int]] = None,
-            attached_policys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupAttachedPolicyArgs', 'GroupAttachedPolicyArgsDict']]]]] = None,
+            attached_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupAttachedPolicyArgs', 'GroupAttachedPolicyArgsDict']]]]] = None,
             created_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             display_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -363,7 +363,7 @@ class Group(pulumi.CustomResource):
         __props__ = _GroupState.__new__(_GroupState)
 
         __props__.__dict__["account_id"] = account_id
-        __props__.__dict__["attached_policys"] = attached_policys
+        __props__.__dict__["attached_policies"] = attached_policies
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
@@ -382,9 +382,9 @@ class Group(pulumi.CustomResource):
         return pulumi.get(self, "account_id")
 
     @property
-    @pulumi.getter(name="attachedPolicys")
-    def attached_policys(self) -> pulumi.Output[Sequence['outputs.GroupAttachedPolicy']]:
-        return pulumi.get(self, "attached_policys")
+    @pulumi.getter(name="attachedPolicies")
+    def attached_policies(self) -> pulumi.Output[Sequence['outputs.GroupAttachedPolicy']]:
+        return pulumi.get(self, "attached_policies")
 
     @property
     @pulumi.getter(name="createdTime")

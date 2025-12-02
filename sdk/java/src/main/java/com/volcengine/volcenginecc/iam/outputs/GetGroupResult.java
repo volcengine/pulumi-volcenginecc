@@ -23,7 +23,7 @@ public final class GetGroupResult {
      * @return 用户组绑定的策略信息。
      * 
      */
-    private List<GetGroupAttachedPolicy> attachedPolicys;
+    private List<GetGroupAttachedPolicy> attachedPolicies;
     /**
      * @return 用户组的创建时间。
      * 
@@ -77,8 +77,8 @@ public final class GetGroupResult {
      * @return 用户组绑定的策略信息。
      * 
      */
-    public List<GetGroupAttachedPolicy> attachedPolicys() {
-        return this.attachedPolicys;
+    public List<GetGroupAttachedPolicy> attachedPolicies() {
+        return this.attachedPolicies;
     }
     /**
      * @return 用户组的创建时间。
@@ -147,7 +147,7 @@ public final class GetGroupResult {
     @CustomType.Builder
     public static final class Builder {
         private Integer accountId;
-        private List<GetGroupAttachedPolicy> attachedPolicys;
+        private List<GetGroupAttachedPolicy> attachedPolicies;
         private String createdTime;
         private String description;
         private String displayName;
@@ -160,7 +160,7 @@ public final class GetGroupResult {
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
-    	      this.attachedPolicys = defaults.attachedPolicys;
+    	      this.attachedPolicies = defaults.attachedPolicies;
     	      this.createdTime = defaults.createdTime;
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
@@ -180,15 +180,15 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder attachedPolicys(List<GetGroupAttachedPolicy> attachedPolicys) {
-            if (attachedPolicys == null) {
-              throw new MissingRequiredPropertyException("GetGroupResult", "attachedPolicys");
+        public Builder attachedPolicies(List<GetGroupAttachedPolicy> attachedPolicies) {
+            if (attachedPolicies == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "attachedPolicies");
             }
-            this.attachedPolicys = attachedPolicys;
+            this.attachedPolicies = attachedPolicies;
             return this;
         }
-        public Builder attachedPolicys(GetGroupAttachedPolicy... attachedPolicys) {
-            return attachedPolicys(List.of(attachedPolicys));
+        public Builder attachedPolicies(GetGroupAttachedPolicy... attachedPolicies) {
+            return attachedPolicies(List.of(attachedPolicies));
         }
         @CustomType.Setter
         public Builder createdTime(String createdTime) {
@@ -260,7 +260,7 @@ public final class GetGroupResult {
         public GetGroupResult build() {
             final var _resultValue = new GetGroupResult();
             _resultValue.accountId = accountId;
-            _resultValue.attachedPolicys = attachedPolicys;
+            _resultValue.attachedPolicies = attachedPolicies;
             _resultValue.createdTime = createdTime;
             _resultValue.description = description;
             _resultValue.displayName = displayName;

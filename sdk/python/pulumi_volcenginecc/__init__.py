@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     directconnect = __directconnect
     import pulumi_volcenginecc.ecs as __ecs
     ecs = __ecs
+    import pulumi_volcenginecc.escloud as __escloud
+    escloud = __escloud
     import pulumi_volcenginecc.filenas as __filenas
     filenas = __filenas
     import pulumi_volcenginecc.iam as __iam
@@ -63,6 +65,8 @@ if typing.TYPE_CHECKING:
     vedbm = __vedbm
     import pulumi_volcenginecc.vefaas as __vefaas
     vefaas = __vefaas
+    import pulumi_volcenginecc.vepfs as __vepfs
+    vepfs = __vepfs
     import pulumi_volcenginecc.vke as __vke
     vke = __vke
     import pulumi_volcenginecc.vmp as __vmp
@@ -83,6 +87,7 @@ else:
     cr = _utilities.lazy_import('pulumi_volcenginecc.cr')
     directconnect = _utilities.lazy_import('pulumi_volcenginecc.directconnect')
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
+    escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
@@ -98,6 +103,7 @@ else:
     transitrouter = _utilities.lazy_import('pulumi_volcenginecc.transitrouter')
     vedbm = _utilities.lazy_import('pulumi_volcenginecc.vedbm')
     vefaas = _utilities.lazy_import('pulumi_volcenginecc.vefaas')
+    vepfs = _utilities.lazy_import('pulumi_volcenginecc.vepfs')
     vke = _utilities.lazy_import('pulumi_volcenginecc.vke')
     vmp = _utilities.lazy_import('pulumi_volcenginecc.vmp')
     vpc = _utilities.lazy_import('pulumi_volcenginecc.vpc')
@@ -144,6 +150,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.alb",
   "classes": {
    "volcenginecc:alb/serverGroup:ServerGroup": "ServerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "apig/gateway",
+  "fqn": "pulumi_volcenginecc.apig",
+  "classes": {
+   "volcenginecc:apig/gateway:Gateway": "Gateway"
   }
  },
  {
@@ -372,6 +386,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "escloud/instance",
+  "fqn": "pulumi_volcenginecc.escloud",
+  "classes": {
+   "volcenginecc:escloud/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "filenas/instance",
   "fqn": "pulumi_volcenginecc.filenas",
   "classes": {
@@ -500,6 +522,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdsmysql/instance",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "redis/instance",
   "fqn": "pulumi_volcenginecc.redis",
   "classes": {
@@ -580,6 +610,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vepfs/instance",
+  "fqn": "pulumi_volcenginecc.vepfs",
+  "classes": {
+   "volcenginecc:vepfs/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vke/addon",
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
@@ -592,6 +630,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
    "volcenginecc:vke/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/nodePool",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/nodePool:NodePool": "NodePool"
   }
  },
  {

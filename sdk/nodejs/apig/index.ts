@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GatewayArgs, GatewayState } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+
 export { GatewayServiceArgs, GatewayServiceState } from "./gatewayService";
 export type GatewayService = import("./gatewayService").GatewayService;
 export const GatewayService: typeof import("./gatewayService").GatewayService = null as any;
 utilities.lazyLoad(exports, ["GatewayService"], () => require("./gatewayService"));
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
 
 export { GetGatewayServiceArgs, GetGatewayServiceResult, GetGatewayServiceOutputArgs } from "./getGatewayService";
 export const getGatewayService: typeof import("./getGatewayService").getGatewayService = null as any;
@@ -19,6 +29,11 @@ export { GetGatewayServicesResult } from "./getGatewayServices";
 export const getGatewayServices: typeof import("./getGatewayServices").getGatewayServices = null as any;
 export const getGatewayServicesOutput: typeof import("./getGatewayServices").getGatewayServicesOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayServices","getGatewayServicesOutput"], () => require("./getGatewayServices"));
+
+export { GetGatewaysResult } from "./getGateways";
+export const getGateways: typeof import("./getGateways").getGateways = null as any;
+export const getGatewaysOutput: typeof import("./getGateways").getGatewaysOutput = null as any;
+utilities.lazyLoad(exports, ["getGateways","getGatewaysOutput"], () => require("./getGateways"));
 
 export { GetUpstreamArgs, GetUpstreamResult, GetUpstreamOutputArgs } from "./getUpstream";
 export const getUpstream: typeof import("./getUpstream").getUpstream = null as any;
@@ -55,6 +70,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:apig/gateway:Gateway":
+                return new Gateway(name, <any>undefined, { urn })
             case "volcenginecc:apig/gatewayService:GatewayService":
                 return new GatewayService(name, <any>undefined, { urn })
             case "volcenginecc:apig/upstream:Upstream":
@@ -66,6 +83,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "apig/gateway", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/gatewayService", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/upstream", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/upstreamSource", _module)

@@ -33,7 +33,7 @@ type LookupGroupResult struct {
 	// 用户组所属主账号的ID。
 	AccountId int `pulumi:"accountId"`
 	// 用户组绑定的策略信息。
-	AttachedPolicys []GetGroupAttachedPolicy `pulumi:"attachedPolicys"`
+	AttachedPolicies []GetGroupAttachedPolicy `pulumi:"attachedPolicies"`
 	// 用户组的创建时间。
 	CreatedTime string `pulumi:"createdTime"`
 	// 用户组描述信息。长度不超过128。
@@ -92,8 +92,8 @@ func (o LookupGroupResultOutput) AccountId() pulumi.IntOutput {
 }
 
 // 用户组绑定的策略信息。
-func (o LookupGroupResultOutput) AttachedPolicys() GetGroupAttachedPolicyArrayOutput {
-	return o.ApplyT(func(v LookupGroupResult) []GetGroupAttachedPolicy { return v.AttachedPolicys }).(GetGroupAttachedPolicyArrayOutput)
+func (o LookupGroupResultOutput) AttachedPolicies() GetGroupAttachedPolicyArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupAttachedPolicy { return v.AttachedPolicies }).(GetGroupAttachedPolicyArrayOutput)
 }
 
 // 用户组的创建时间。
