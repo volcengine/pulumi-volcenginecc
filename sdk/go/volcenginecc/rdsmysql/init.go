@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "volcenginecc:rdsmysql/dbAccount:DbAccount":
 		r = &DbAccount{}
+	case "volcenginecc:rdsmysql/instance:Instance":
+		r = &Instance{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdsmysql/dbAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdsmysql/instance",
 		&module{version},
 	)
 }

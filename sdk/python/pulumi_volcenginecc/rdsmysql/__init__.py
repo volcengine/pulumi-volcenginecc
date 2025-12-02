@@ -12,5 +12,8 @@ from .get_database import *
 from .get_databases import *
 from .get_db_account import *
 from .get_db_accounts import *
+from .get_instance import *
+from .get_instances import *
+from .instance import *
 from ._inputs import *
 from . import outputs

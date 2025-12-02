@@ -23,8 +23,8 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// 用户组所属主账号的ID。
-	AccountId       pulumi.IntOutput               `pulumi:"accountId"`
-	AttachedPolicys GroupAttachedPolicyArrayOutput `pulumi:"attachedPolicys"`
+	AccountId        pulumi.IntOutput               `pulumi:"accountId"`
+	AttachedPolicies GroupAttachedPolicyArrayOutput `pulumi:"attachedPolicies"`
 	// 用户组的创建时间。
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// 用户组描述信息。长度不超过128。
@@ -74,8 +74,8 @@ func GetGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
 	// 用户组所属主账号的ID。
-	AccountId       *int                  `pulumi:"accountId"`
-	AttachedPolicys []GroupAttachedPolicy `pulumi:"attachedPolicys"`
+	AccountId        *int                  `pulumi:"accountId"`
+	AttachedPolicies []GroupAttachedPolicy `pulumi:"attachedPolicies"`
 	// 用户组的创建时间。
 	CreatedTime *string `pulumi:"createdTime"`
 	// 用户组描述信息。长度不超过128。
@@ -93,8 +93,8 @@ type groupState struct {
 
 type GroupState struct {
 	// 用户组所属主账号的ID。
-	AccountId       pulumi.IntPtrInput
-	AttachedPolicys GroupAttachedPolicyArrayInput
+	AccountId        pulumi.IntPtrInput
+	AttachedPolicies GroupAttachedPolicyArrayInput
 	// 用户组的创建时间。
 	CreatedTime pulumi.StringPtrInput
 	// 用户组描述信息。长度不超过128。
@@ -115,7 +115,7 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	AttachedPolicys []GroupAttachedPolicy `pulumi:"attachedPolicys"`
+	AttachedPolicies []GroupAttachedPolicy `pulumi:"attachedPolicies"`
 	// 用户组描述信息。长度不超过128。
 	Description *string `pulumi:"description"`
 	// 用户组显示名称。长度不超过64。
@@ -127,7 +127,7 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	AttachedPolicys GroupAttachedPolicyArrayInput
+	AttachedPolicies GroupAttachedPolicyArrayInput
 	// 用户组描述信息。长度不超过128。
 	Description pulumi.StringPtrInput
 	// 用户组显示名称。长度不超过64。
@@ -229,8 +229,8 @@ func (o GroupOutput) AccountId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Group) pulumi.IntOutput { return v.AccountId }).(pulumi.IntOutput)
 }
 
-func (o GroupOutput) AttachedPolicys() GroupAttachedPolicyArrayOutput {
-	return o.ApplyT(func(v *Group) GroupAttachedPolicyArrayOutput { return v.AttachedPolicys }).(GroupAttachedPolicyArrayOutput)
+func (o GroupOutput) AttachedPolicies() GroupAttachedPolicyArrayOutput {
+	return o.ApplyT(func(v *Group) GroupAttachedPolicyArrayOutput { return v.AttachedPolicies }).(GroupAttachedPolicyArrayOutput)
 }
 
 // 用户组的创建时间。

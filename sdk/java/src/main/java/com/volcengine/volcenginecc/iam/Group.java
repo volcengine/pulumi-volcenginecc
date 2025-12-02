@@ -48,11 +48,11 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Integer> accountId() {
         return this.accountId;
     }
-    @Export(name="attachedPolicys", refs={List.class,GroupAttachedPolicy.class}, tree="[0,1]")
-    private Output<List<GroupAttachedPolicy>> attachedPolicys;
+    @Export(name="attachedPolicies", refs={List.class,GroupAttachedPolicy.class}, tree="[0,1]")
+    private Output<List<GroupAttachedPolicy>> attachedPolicies;
 
-    public Output<List<GroupAttachedPolicy>> attachedPolicys() {
-        return this.attachedPolicys;
+    public Output<List<GroupAttachedPolicy>> attachedPolicies() {
+        return this.attachedPolicies;
     }
     /**
      * 用户组的创建时间。

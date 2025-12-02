@@ -410,6 +410,166 @@ export namespace alb {
 }
 
 export namespace apig {
+    export interface GatewayBackendSpec {
+        /**
+         * 是否支持VKE Flannel CNI。
+         */
+        isVkeWithFlannelCniSupported?: pulumi.Input<boolean>;
+        /**
+         * VKE Pod CIDR。
+         */
+        vkePodCidr?: pulumi.Input<string>;
+    }
+
+    export interface GatewayCustomLog {
+        customVariables?: pulumi.Input<pulumi.Input<inputs.apig.GatewayCustomLogCustomVariable>[]>;
+        requestHeaders?: pulumi.Input<pulumi.Input<inputs.apig.GatewayCustomLogRequestHeader>[]>;
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.apig.GatewayCustomLogResponseHeader>[]>;
+    }
+
+    export interface GatewayCustomLogCustomVariable {
+        /**
+         * 字段别名。
+         */
+        aliasesInLog?: pulumi.Input<string>;
+        /**
+         * 请求头键。
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    export interface GatewayCustomLogRequestHeader {
+        /**
+         * 字段别名。
+         */
+        aliasesInLog?: pulumi.Input<string>;
+        /**
+         * 请求头键。
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    export interface GatewayCustomLogResponseHeader {
+        /**
+         * 字段别名。
+         */
+        aliasesInLog?: pulumi.Input<string>;
+        /**
+         * 请求头键。
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    export interface GatewayEvent {
+        /**
+         * 事件代码。
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * 事件创建时间。
+         */
+        createdTime?: pulumi.Input<string>;
+        /**
+         * 附带信息。
+         */
+        data?: pulumi.Input<string>;
+        /**
+         * 事件描述。
+         */
+        description?: pulumi.Input<string>;
+    }
+
+    export interface GatewayLogSpec {
+        /**
+         * 是否开启日志服务。
+         */
+        enable?: pulumi.Input<boolean>;
+        /**
+         * 日志项目ID。
+         */
+        projectId?: pulumi.Input<string>;
+        /**
+         * 日志主题ID。ProjectId 指定项目里面的日志主题。
+         */
+        topicId?: pulumi.Input<string>;
+    }
+
+    export interface GatewayMonitorSpec {
+        /**
+         * 托管Prometheus（VMP）服务。
+         */
+        enable?: pulumi.Input<boolean>;
+        /**
+         * Prometheus工作区ID。
+         */
+        workspaceId?: pulumi.Input<string>;
+    }
+
+    export interface GatewayNetworkSpec {
+        subnets?: pulumi.Input<pulumi.Input<inputs.apig.GatewayNetworkSpecSubnet>[]>;
+        /**
+         * VPC ID。
+         */
+        vpcId?: pulumi.Input<string>;
+        /**
+         * VPC名称。
+         */
+        vpcName?: pulumi.Input<string>;
+    }
+
+    export interface GatewayNetworkSpecSubnet {
+        /**
+         * 可用区。
+         */
+        az?: pulumi.Input<string>;
+        /**
+         * 子网ID。
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * 子网名称。
+         */
+        subnetName?: pulumi.Input<string>;
+    }
+
+    export interface GatewayResourceSpec {
+        /**
+         * CLB规格编码。CLB规格，取值：small*1：小型 I。small*2：小型 II。medium*1：中型 I。medium*2：中型 II。large*1：大型 I。large*2：大型 II。
+         */
+        clbSpecCode?: pulumi.Input<string>;
+        /**
+         * 节点规格，取值：1c2g。2c4g。4c8g。8c16g。
+         */
+        instanceSpecCode?: pulumi.Input<string>;
+        /**
+         * 网络类型。默认值为开启公网，开启私网。
+         */
+        networkType?: pulumi.Input<inputs.apig.GatewayResourceSpecNetworkType>;
+        /**
+         * 公网带宽上限，该字段仅用于“按带宽上限收费”公网网络计费方式。单位为Mbps。取值限制为0~500。默认值为0。
+         */
+        publicNetworkBandwidth?: pulumi.Input<number>;
+        /**
+         * 公网网络计费方式，取值：traffic：按实际流量计费。bandwidth：按带宽上限计费。
+         */
+        publicNetworkBillingType?: pulumi.Input<string>;
+        /**
+         * 节点数量。取值限制为2~100。
+         */
+        replicas?: pulumi.Input<number>;
+    }
+
+    export interface GatewayResourceSpecNetworkType {
+        /**
+         * 是否启用私网。
+         */
+        enablePrivateNetwork?: pulumi.Input<boolean>;
+        /**
+         * 是否启用公网。
+         */
+        enablePublicNetwork?: pulumi.Input<boolean>;
+    }
+
     export interface GatewayServiceAuthSpec {
         /**
          * 是否开启认证。
@@ -444,6 +604,51 @@ export namespace apig {
          * 开启私网域名公网解析。
          */
         enablePublicResolution?: pulumi.Input<boolean>;
+    }
+
+    export interface GatewayTraceSpec {
+        /**
+         * 应用性能监控全链路版链路追踪配置。
+         */
+        apmTraceSpec?: pulumi.Input<inputs.apig.GatewayTraceSpecApmTraceSpec>;
+        /**
+         * 是否启用链路追踪。
+         */
+        enable?: pulumi.Input<boolean>;
+        /**
+         * 链路追踪配置信息。
+         */
+        tlsTraceSpec?: pulumi.Input<inputs.apig.GatewayTraceSpecTlsTraceSpec>;
+        /**
+         * 链路追踪类型，取值：tls：日志服务。apm：应用性能监控全链路版。
+         */
+        traceType?: pulumi.Input<string>;
+    }
+
+    export interface GatewayTraceSpecApmTraceSpec {
+        /**
+         * API Key。
+         */
+        apiKey?: pulumi.Input<string>;
+    }
+
+    export interface GatewayTraceSpecTlsTraceSpec {
+        /**
+         * Access key。
+         */
+        iamUserAk?: pulumi.Input<string>;
+        /**
+         * Secret key。
+         */
+        iamUserSk?: pulumi.Input<string>;
+        /**
+         * 日志项目ID。
+         */
+        projectId?: pulumi.Input<string>;
+        /**
+         * Trace ID。
+         */
+        traceId?: pulumi.Input<string>;
     }
 
     export interface UpstreamBackendTarget {
@@ -2155,6 +2360,589 @@ export namespace ecs {
     }
 }
 
+export namespace escloud {
+    export interface InstanceInstanceConfiguration {
+        /**
+         * 管理员密码。
+         */
+        adminPassword?: pulumi.Input<string>;
+        /**
+         * 管理员用户名。
+         */
+        adminUserName?: pulumi.Input<string>;
+        /**
+         * 包年包月实例是否配置自动续费。true：自动续费，系统会在每次到期前自动为实例续费。false：未开启自动续费，需要在实例到期前进行手动续费。如需了解更多，请参见实例续费。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 实例计费类型。PostPaid：按量计费。PrePaid：包年包月。
+         */
+        chargeType?: pulumi.Input<string>;
+        /**
+         * 冷节点数量。
+         */
+        coldNodeNumber?: pulumi.Input<number>;
+        /**
+         * 冷节点的节点规格配置详情。
+         */
+        coldNodeResourceSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationColdNodeResourceSpec>;
+        /**
+         * 冷节点的存储规格配置详情。
+         */
+        coldNodeStorageSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationColdNodeStorageSpec>;
+        /**
+         * 计费配置码，可以通过调用DescribeNodeAvailableSpecs接口获得。
+         */
+        configurationCode?: pulumi.Input<string>;
+        /**
+         * 协调节点数量。
+         */
+        coordinatorNodeNumber?: pulumi.Input<number>;
+        /**
+         * 协调节点的节点规格配置详情。
+         */
+        coordinatorNodeResourceSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationCoordinatorNodeResourceSpec>;
+        /**
+         * 协调节点的存储规格配置详情。
+         */
+        coordinatorNodeStorageSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationCoordinatorNodeStorageSpec>;
+        /**
+         * 是否开启实例删除保护功能，取值说明如下：true：开启实例删除保护。false：关闭实例删除保护。说明开启实例删除保护后，您将无法通过控制台或者 API 删除实例。
+         */
+        deletionProtection?: pulumi.Input<boolean>;
+        /**
+         * 是否启用 HTTPS 访问协议。true：启用 HTTPS 访问。false：不启用 HTTPS，使用 HTTP 访问。说明如果选择使用 HTTP 访问，将无需安全认证即可访问，并使用 HTTP 明文传输数据。您需要确保访问环境的安全性，且不要将访问接口暴露在公网环境上。实例创建完成后，支持根据业务需求修改传输协议。相关文档，请参见切换实例传输协议。
+         */
+        enableHttps?: pulumi.Input<boolean>;
+        /**
+         * Master 节点是否独立。true：Master 节点独立。false：Master 节点与数据节点重合，即使用 Hot 声明。
+         */
+        enablePureMaster?: pulumi.Input<boolean>;
+        /**
+         * 数据节点数量。
+         */
+        hotNodeNumber?: pulumi.Input<number>;
+        /**
+         * 数据节点的节点规格配置详情。
+         */
+        hotNodeResourceSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationHotNodeResourceSpec>;
+        /**
+         * 数据节点的存储规格配置详情。
+         */
+        hotNodeStorageSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationHotNodeStorageSpec>;
+        /**
+         * 包年包月实例购买时长。
+         */
+        includeMonths?: pulumi.Input<number>;
+        /**
+         * 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
+         */
+        instanceName?: pulumi.Input<string>;
+        /**
+         * kibana 节点数量。
+         */
+        kibanaNodeNumber?: pulumi.Input<number>;
+        /**
+         * Kibana 节点的节点规格配置详情。
+         */
+        kibanaNodeResourceSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationKibanaNodeResourceSpec>;
+        /**
+         * master 节点数量。
+         */
+        masterNodeNumber?: pulumi.Input<number>;
+        /**
+         * Master 节点的节点规格配置详情。
+         */
+        masterNodeResourceSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationMasterNodeResourceSpec>;
+        /**
+         * Master 节点的存储规格配置详情。
+         */
+        masterNodeStorageSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationMasterNodeStorageSpec>;
+        networkSpecs?: pulumi.Input<pulumi.Input<inputs.escloud.InstanceInstanceConfigurationNetworkSpec>[]>;
+        nodeSpecsAssigns?: pulumi.Input<pulumi.Input<inputs.escloud.InstanceInstanceConfigurationNodeSpecsAssign>[]>;
+        /**
+         * 包年包月实例的购买时长，单位：月。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 按需设置云搜索实例所属的项目，有利于云资源的分组管理。项目是提供的一种资源管理方式，有利于维护资源独立、数据安全；同时可从项目维度查看资源消费账单，便于计算云资源使用成本。如需了解更多信息，请参见项目概述
+         */
+        projectName?: pulumi.Input<string>;
+        /**
+         * 实例所在区域。
+         */
+        regionId?: pulumi.Input<string>;
+        /**
+         * 设置实例的子网信息。说明设置的子网必须是主可用区中的子网。
+         */
+        subnet?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationSubnet>;
+        tags?: pulumi.Input<pulumi.Input<inputs.escloud.InstanceInstanceConfigurationTag>[]>;
+        /**
+         * API的版本，取值：2023-01-01。
+         */
+        version?: pulumi.Input<string>;
+        /**
+         * 设置实例的私有网络 VPC 信息。
+         */
+        vpc?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationVpc>;
+        /**
+         * 温节点数量。
+         */
+        warmNodeNumber?: pulumi.Input<number>;
+        /**
+         * 温节点的节点规格配置详情。
+         */
+        warmNodeResourceSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationWarmNodeResourceSpec>;
+        /**
+         * 温节点的存储规格配置详情。
+         */
+        warmNodeStorageSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationWarmNodeStorageSpec>;
+        /**
+         * 实例所在可用区。说明如果是多可用区部署，则填写多个 ZoneId，使用英文逗号分隔，如cn-beijing-a,cn-beijing-c。最左侧的 ZoneId 为主可用区，其余为备可用区。
+         */
+        zoneId?: pulumi.Input<string>;
+        /**
+         * 实例的可用区数量。
+         */
+        zoneNumber?: pulumi.Input<number>;
+    }
+
+    export interface InstanceInstanceConfigurationColdNodeResourceSpec {
+        /**
+         * 节点规格的 CPU 资源，单位为核（Core）
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * 节点规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 节点规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 节点规格的内存容量，单位 GiB
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点规格。如需了解节点规格类型和详情
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationColdNodeStorageSpec {
+        /**
+         * 存储规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 存储规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 存储规格的最大值，单位为 GiB
+         */
+        maxSize?: pulumi.Input<number>;
+        /**
+         * 存储规格最小值，单位为 GiB
+         */
+        minSize?: pulumi.Input<number>;
+        /**
+         * 存储规格，当前的规格如下：es.volume.essd.pl0：标准版-高性能云盘-pl0
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 当前存储规格值，单位为 GiB
+         */
+        size?: pulumi.Input<number>;
+    }
+
+    export interface InstanceInstanceConfigurationCoordinatorNodeResourceSpec {
+        /**
+         * 节点规格的 CPU 资源，单位为核（Core）
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * 节点规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 节点规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 节点规格的内存容量，单位 GiB
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点规格。如需了解节点规格类型和详情
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationCoordinatorNodeStorageSpec {
+        /**
+         * 存储规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 存储规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 存储规格的最大值，单位为 GiB
+         */
+        maxSize?: pulumi.Input<number>;
+        /**
+         * 存储规格最小值，单位为 GiB
+         */
+        minSize?: pulumi.Input<number>;
+        /**
+         * 存储规格，当前的规格如下：es.volume.essd.pl0：标准版-高性能云盘-pl0
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 当前存储规格值，单位为 GiB
+         */
+        size?: pulumi.Input<number>;
+    }
+
+    export interface InstanceInstanceConfigurationHotNodeResourceSpec {
+        /**
+         * 节点规格的 CPU 资源，单位为核（Core）。
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * 节点规格的描述信息。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 节点规格的显示名称。
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 节点规格的内存容量，单位 GiB。
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点规格。如需了解节点规格类型和详情，请参见产品规格。
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationHotNodeStorageSpec {
+        /**
+         * 存储规格的描述信息。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 存储规格的显示名称。
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 存储规格的最大值，单位为 GiB。
+         */
+        maxSize?: pulumi.Input<number>;
+        /**
+         * 存储规格最小值，单位为 GiB。
+         */
+        minSize?: pulumi.Input<number>;
+        /**
+         * 存储规格，当前的规格如下：es.volume.essd.pl0：标准版-高性能云盘-pl0
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 配置的可用磁盘空间大小。
+         */
+        size?: pulumi.Input<number>;
+    }
+
+    export interface InstanceInstanceConfigurationKibanaNodeResourceSpec {
+        /**
+         * 节点规格的 CPU 资源，单位为核（Core）
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * 节点规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 节点规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 节点规格的内存容量，单位 GiB
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点规格。如需了解节点规格类型和详情
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationMasterNodeResourceSpec {
+        /**
+         * 节点规格的 CPU 资源，单位为核（Core）
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * 节点规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 节点规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 节点规格的内存容量，单位 GiB
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点规格。如需了解节点规格类型和详情
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationMasterNodeStorageSpec {
+        /**
+         * 存储规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 存储规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 存储规格的最大值，单位为 GiB
+         */
+        maxSize?: pulumi.Input<number>;
+        /**
+         * 存储规格最小值，单位为 GiB
+         */
+        minSize?: pulumi.Input<number>;
+        /**
+         * 存储规格，当前的规格如下：es.volume.essd.pl0：标准版-高性能云盘-pl0
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 当前存储规格值，单位为 GiB
+         */
+        size?: pulumi.Input<number>;
+    }
+
+    export interface InstanceInstanceConfigurationNetworkSpec {
+        /**
+         * 公网IP的带宽上限，默认为“1”，单位：Mbps。
+         */
+        bandwidth?: pulumi.Input<number>;
+        /**
+         * 开启/关闭
+         */
+        isOpen?: pulumi.Input<boolean>;
+        /**
+         * 实例公网资源规格名称
+         */
+        specName?: pulumi.Input<string>;
+        /**
+         * 公网应用类型 Elasticsearch：es实例使用。Kibana：Dashboard使用
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationNodeSpecsAssign {
+        /**
+         * 磁盘额外性能包相关配置。
+         */
+        extraPerformance?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationNodeSpecsAssignExtraPerformance>;
+        /**
+         * 节点数量。配置数据节点数量时，在不同部署方式下，需要注意以下信息：单可用区部署：建议生产环境至少配置 3 个数据节点，配置 2 个节点时存在脑裂风险。如果启用专有主节点，2 个数据节点不会脑裂。双可用区部署，默认启用专有主节点：建议生产环境至少配置 4 个数据节点，即每个可用区两个数据节点。三可用区部署，默认启用专有主节点：建议生产环境至少配置 6 个数据节点，即每个可用区两个数据节点。数据节点数量可设范围为 1~100，如果有更多数据节点的需求，可申请开白提升配额到 200。配置 Master 节点：如果没有启用专有主节点，那么 Master 节点的配置和数据节点相同，否则 Master 配置是独立的。配置专有主节点，如需启用专有主节点，数量默认配置为 3。配置 Kibana 节点，数量固定为 1。配置协调节点，如需启用，生产环境建议至少 2 个协调节点，可配范围为 2~50。温数据节点：如需启用，生产环境建议至少 3 个温数据节点，最多可配置 100 个。冷数据节点：如需启用，生产环境建议至少 2 个温数据节点，最多可配置 100 个。
+         */
+        number?: pulumi.Input<number>;
+        /**
+         * 计算资源规格名称。您可以通过调用DescribeNodeAvailableSpecs接口获取可用的节点规格列表。如需了解规格详情，请参见V2 实例规格
+         */
+        resourceSpecName?: pulumi.Input<string>;
+        /**
+         * 存储容量，单位为 GiB。默认值为 100GiB，调整步长为 10GiB。说明Kibana 节点的 StorageSize 设置为0，即"StorageSize": 0。专有主节点和协调节点的 StorageSize 默认是 20。
+         */
+        storageSize?: pulumi.Input<number>;
+        /**
+         * 存储规格名称，当前支持的规格如下：es.volume.essd.pl0：标准版-高性能云盘-pl0。es.volume.essd.flexpl-standard：标准版-高性能云盘-flexpl。说明Kibana 节点的 StorageSpecName 设置为空，即"StorageSpecName": ""。
+         */
+        storageSpecName?: pulumi.Input<string>;
+        /**
+         * 节点类型。请先了解节点类型的作用，然后结合业务判断是否需要创建，详情请参见节点类型。Master：Master 节点。Hot：数据节点。Cold：冷数据节点。Warm：温数据节点。Kibana：Kibana 节点。Coordinator：协调节点。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationNodeSpecsAssignExtraPerformance {
+        /**
+         * 当您的数据节点选择使用 FlexPL 存储类型，且存储规格配置为 500GiB 及以上时，支持购买带宽包增加磁盘带宽。单位为MiB，调整步长为10MiB。当前支持的存储规格及对应额外性能包吞吐量上限如下：es.volume.essd.flexpl-standard：650
+         */
+        throughput?: pulumi.Input<number>;
+    }
+
+    export interface InstanceInstanceConfigurationSubnet {
+        /**
+         * Subnet ID。
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * Subnet 名称。
+         */
+        subnetName?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationTag {
+        /**
+         * 用户标签的标签键。长度限制为1～128个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@。同一资源的标签键不允许重复
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。长度限制为0～256个字符。大小写敏感，不能以空格开头或结尾。允许包含字母、数字、空格（）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、减号（-）和@
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationVpc {
+        /**
+         * VPC ID。
+         */
+        vpcId?: pulumi.Input<string>;
+        /**
+         * VPC 名称。
+         */
+        vpcName?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationWarmNodeResourceSpec {
+        /**
+         * 节点规格的 CPU 资源，单位为核（Core）
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * 节点规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 节点规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 节点规格的内存容量，单位 GiB
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点规格。如需了解节点规格类型和详情
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface InstanceInstanceConfigurationWarmNodeStorageSpec {
+        /**
+         * 存储规格的描述信息
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 存储规格的显示名称
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * 存储规格的最大值，单位为 GiB
+         */
+        maxSize?: pulumi.Input<number>;
+        /**
+         * 存储规格最小值，单位为 GiB
+         */
+        minSize?: pulumi.Input<number>;
+        /**
+         * 存储规格，当前的规格如下：es.volume.essd.pl0：标准版-高性能云盘-pl0
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 当前存储规格值，单位为 GiB
+         */
+        size?: pulumi.Input<number>;
+    }
+
+    export interface InstanceKibanaConfig {
+        /**
+         * 接口请求超时时长，默认为 30000 毫秒，即后端响应时长超过 30 秒时将出现503 Request timed out报错。如果需要正常获得响应、减少 503 报错，您可以选择增加请求超时时长。
+         */
+        requestTimeout?: pulumi.Input<number>;
+        /**
+         * 是否主动延长会话有效期。true：默认值，表示每次页面请求都会延长会话有效期。false：不会主动延长会话有效期。此种配置下可以实现会话超时过期效果，当登录时长达到 Session 有效时长后，将会自动退出登录。
+         */
+        sessionKeepAlive?: pulumi.Input<boolean>;
+        /**
+         * 会话有效时长，默认为 3600000 毫秒（1 小时）。如果您选择将 Session 活动保持设置为否，当登录时长达到 Session 有效时长后，将会自动退出登录。
+         */
+        sessionTtl?: pulumi.Input<number>;
+    }
+
+    export interface InstanceSubInstance {
+        /**
+         * 企业级 SQL 分析实例 ID。
+         */
+        subInstanceId?: pulumi.Input<string>;
+        /**
+         * 实例状态。
+         */
+        subInstanceStatus?: pulumi.Input<string>;
+        /**
+         * 实例类型。
+         */
+        subInstanceType?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTransferInfo {
+        /**
+         * ForbidStop
+         */
+        forbidStop?: pulumi.Input<boolean>;
+        /**
+         * 资源信息。
+         */
+        reduceSpecConfig?: pulumi.Input<inputs.escloud.InstanceTransferInfoReduceSpecConfig>;
+        /**
+         * 数据迁移任务进度，百分制。
+         */
+        transferProgress?: pulumi.Input<number>;
+        /**
+         * 数据迁移任务状态。
+         */
+        transferStatus?: pulumi.Input<string>;
+        /**
+         * 数据迁移任务 ID。
+         */
+        transferTaskId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTransferInfoReduceSpecConfig {
+        /**
+         * 冷节点数量。
+         */
+        coldNodeNum?: pulumi.Input<number>;
+        /**
+         * 数据节点数量。
+         */
+        dataNodeNum?: pulumi.Input<number>;
+        /**
+         * Master 节点是否独立。true：Master 节点独立。false：Master 节点与数据节点重合，即用 Hot 来声明。
+         */
+        enablePureMaster?: pulumi.Input<boolean>;
+        /**
+         * Master 节点数量。
+         */
+        masterNodeNum?: pulumi.Input<number>;
+        /**
+         * 温节点数量。
+         */
+        warmNodeNum?: pulumi.Input<number>;
+    }
+}
+
 export namespace filenas {
     export interface InstanceCachePerformance {
         /**
@@ -2682,6 +3470,299 @@ export namespace rdsmysql {
         tableName?: pulumi.Input<string>;
     }
 
+    export interface InstanceAddressObject {
+        /**
+         * false：私网解析（默认）。true：私网以及公网解析。
+         */
+        dnsVisibility?: pulumi.Input<boolean>;
+        /**
+         * 连接域名。
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * EIP 的 ID，仅对 Public 地址有效。
+         */
+        eipId?: pulumi.Input<string>;
+        /**
+         * IP 协议版本。取值为 IPv4。
+         */
+        internetProtocol?: pulumi.Input<string>;
+        /**
+         * IP 地址。
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * 网络地址类型，取值为：Private：私网地址。Public：公网地址。
+         */
+        networkType?: pulumi.Input<string>;
+        /**
+         * 端口。
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * 子网 ID，仅对 Private 地址有效。
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceAutoStorageScalingConfig {
+        /**
+         * 是否开启实例的自动扩容功能。取值：true：是。false：否。
+         */
+        enableStorageAutoScale?: pulumi.Input<boolean>;
+        /**
+         * 触发自动扩容的可用存储空间占比。取值范围为 10~50，默认值为 10，单位为 %。
+         */
+        storageThreshold?: pulumi.Input<number>;
+        /**
+         * 可自动扩容的存储空间上限。该字段的取值下限为实例存储空间+20GB；取值上限为实例主节点规格对应的存储空间取值范围的上限，单位为 GB。关于不同规格可选择存储空间取值范围的详细信息。
+         */
+        storageUpperBound?: pulumi.Input<number>;
+    }
+
+    export interface InstanceChargeDetail {
+        /**
+         * 预付费场景下是否自动续费。取值：true：自动续费。false：不自动续费。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 包年包月实例的计费结束时间（UTC 时间）。格式为 yyyy-MM-ddTHH:mm:ss.sssZ。
+         */
+        chargeEndTime?: pulumi.Input<string>;
+        /**
+         * 实例的计费开始时间（UTC 时间）。格式为 yyyy-MM-ddTHH:mm:ss.sssZ。
+         */
+        chargeStartTime?: pulumi.Input<string>;
+        /**
+         * 实例的计费状态。取值：Normal：正常。Overdue：欠费。Unpaid：等待支付。
+         */
+        chargeStatus?: pulumi.Input<string>;
+        /**
+         * 付费类型。取值为：PrePaid：包年包月。PostPaid：按量计费。
+         */
+        chargeType: pulumi.Input<string>;
+        /**
+         * 实例购买数量。取值范围为 1~50。默认值为 1。
+         */
+        number?: pulumi.Input<number>;
+        /**
+         * 实例欠费关停（按量付费）或到期关停（包年包月）后，预计被释放的时间（UTC 时间）。格式为 yyyy-MM-ddTHH:mm:ss.sssZ。
+         */
+        overdueReclaimTime?: pulumi.Input<string>;
+        /**
+         * 实例欠费关停（按量付费）或到期关停（包年包月）的时间（UTC 时间）。格式为 yyyy-MM-ddTHH:mm:ss.sssZ。
+         */
+        overdueTime?: pulumi.Input<string>;
+        /**
+         * 预付费场景下的购买时长。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 预付费场景下的购买周期。Month：购买周期为月。默认。Year：购买周期为年。
+         */
+        periodUnit?: pulumi.Input<string>;
+        /**
+         * 临时升配的还原时间（UTC 时间）。格式为 yyyy-MM-ddTHH:mm:ss.sssZ。
+         */
+        tempModifyEndTime?: pulumi.Input<string>;
+        /**
+         * 临时升配的开始时间（UTC 时间）。格式为 yyyy-MM-ddTHH:mm:ss.sssZ。
+         */
+        tempModifyStartTime?: pulumi.Input<string>;
+    }
+
+    export interface InstanceDisasterRecoveryInstance {
+        /**
+         * 主实例与灾备实例之间同步任务的 ID。
+         */
+        dtsTaskId?: pulumi.Input<string>;
+        /**
+         * 主实例与灾备实例之间同步任务的名称。
+         */
+        dtsTaskName?: pulumi.Input<string>;
+        /**
+         * 主实例与灾备实例之间同步任务的状态。
+         */
+        dtsTaskStatus?: pulumi.Input<string>;
+        /**
+         * 灾备实例的 ID。
+         */
+        instanceId?: pulumi.Input<string>;
+        /**
+         * 灾备实例的名称。
+         */
+        instanceName?: pulumi.Input<string>;
+        /**
+         * 灾备实例与主实例之间的时延。
+         */
+        secondsBehindMaster?: pulumi.Input<number>;
+    }
+
+    export interface InstanceEndpoint {
+        /**
+         * 当终端类型为读写终端或只读终端时，支持设置新节点是否自动加入。取值：Enable：自动加入Disable：不自动加入（默认）。
+         */
+        autoAddNewNodes?: pulumi.Input<string>;
+        /**
+         * 连接终端标签。
+         */
+        connectionInfoTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 连接终端类型。取值：Proxy：代理终端。Direct：直连终端。
+         */
+        connectionMode?: pulumi.Input<string>;
+        /**
+         * 代理终端的连接池类型。取值：Transaction：事务级连接池。默认值。Direct：直连模式。
+         */
+        connectionPoolType?: pulumi.Input<string>;
+        /**
+         * 连接终端的描述信息。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 是否启用连接保持。取值：true：是。false：否。
+         */
+        enableConnectionPersistent?: pulumi.Input<boolean>;
+        /**
+         * 是否已开启全局只读，取值：Enable：开启。Disable：未开启。
+         */
+        enableReadOnly?: pulumi.Input<string>;
+        /**
+         * 是否已开启读写分离，取值：Enable：开启。Disable：未开启。
+         */
+        enableReadWriteSplitting?: pulumi.Input<string>;
+        /**
+         * 实例连接终端 ID。
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * 实例连接终端名称。
+         */
+        endpointName?: pulumi.Input<string>;
+        /**
+         * 终端类型。取值为 Custom，自定义终端。
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * 空闲连接回收功能是否开启。true：开启。false：不开启。
+         */
+        idleConnectionReclaim?: pulumi.Input<boolean>;
+        /**
+         * 是否开启事务分离。取值：true：是。false：否。
+         */
+        implicitTransSplit?: pulumi.Input<boolean>;
+        /**
+         * 是否开启主节点路由。取值：true：是。false：否。
+         */
+        masterNodeRouting?: pulumi.Input<boolean>;
+        /**
+         * 过载保护超时时间。取值范围为 60~7200 之间的整数，单位为秒。
+         */
+        masterProtectorTimeout?: pulumi.Input<number>;
+        /**
+         * 代理终端的 Multi-Statements 模式。取值：Strict：Strict 模式。默认值。Loose：Loose 模式。
+         */
+        multiStatementsMode?: pulumi.Input<string>;
+        /**
+         * 是否开启过载保护。取值：true：是。false：否。
+         */
+        overloadProtection?: pulumi.Input<boolean>;
+        /**
+         * 读权重分配模式。当开通读写分离设置为 true 时需要传入此参数。在 CreateDBEndpoint 和 ModifyDBEndpoint 接口中做请求参数时，取值范围如下：LoadSchedule：负载调度。RoundRobinCustom：自定义权重的轮询调度。RoundRobinAuto：自动分配权重的轮询调度。在 DescribeDBInstanceDetail 接口中做返回参数时，取值范围如下：Default：按规格权重自动分配。Custom：自定义分配权重。RoundRobin：轮询调度。LoadSchedule：负载调度。RoundRobinCustom：自定义权重的轮询调度。RoundRobinAuto：自动分配权重的轮询调度。
+         */
+        readOnlyNodeDistributionType?: pulumi.Input<string>;
+        /**
+         * 只读节点延迟阈值。取值范围为 1~3600，默认为 30，单位为秒。
+         */
+        readOnlyNodeMaxDelayTime?: pulumi.Input<number>;
+        readOnlyNodeWeights?: pulumi.Input<pulumi.Input<inputs.rdsmysql.InstanceEndpointReadOnlyNodeWeight>[]>;
+        /**
+         * 读写模式：ReadWrite：读写。ReadOnly：只读。
+         */
+        readWriteMode?: pulumi.Input<string>;
+    }
+
+    export interface InstanceEndpointReadOnlyNodeWeight {
+        /**
+         * 只读节点需要传入 NodeId，主节点无需传入。
+         */
+        nodeId?: pulumi.Input<string>;
+        /**
+         * 节点类型。Primary：主节点。ReadOnly：只读节点。
+         */
+        nodeType?: pulumi.Input<string>;
+        /**
+         * 节点的读权重，以 100 递增，最大值为 10000。
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface InstanceMaintenanceWindow {
+        /**
+         * 可维护周期粒度，取值为 Week，周。
+         */
+        dayKind?: pulumi.Input<string>;
+        /**
+         * 指定可维护时间段在每周生效的日期。可多选。Monday：周一。Tuesday：周二。Wednesday：周三。Thursday：周四。Friday：周五。Saturday：周六。Sunday：周日。
+         */
+        dayOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 实例的可维护时间段。格式：HH:mmZ-HH:mmZ（UTC 时间）。说明
+         */
+        maintenanceTime?: pulumi.Input<string>;
+    }
+
+    export interface InstanceNode {
+        /**
+         * 节点规格。
+         */
+        nodeSpec: pulumi.Input<string>;
+        /**
+         * 节点类型。取值：Primary：主节点。Secondary：备节点。ReadOnly：只读节点。
+         */
+        nodeType: pulumi.Input<string>;
+        /**
+         * 可用区 ID。
+         */
+        zoneId: pulumi.Input<string>;
+    }
+
+    export interface InstanceProxyDetail {
+        /**
+         * 实例的数据库代理功能状态。取值：Creating：代理开启中。Running：代理运行中。Shutdown：代理已关闭。Deleting：代理关闭中
+         */
+        dbProxyStatus?: pulumi.Input<string>;
+        /**
+         * 实例的数据库代理服务的资源信息。
+         */
+        proxyResourceInfo?: pulumi.Input<inputs.rdsmysql.InstanceProxyDetailProxyResourceInfo>;
+    }
+
+    export interface InstanceProxyDetailProxyResourceInfo {
+        /**
+         * 实例数据库代理服务当前的核数。
+         */
+        currentProxyCpuNum?: pulumi.Input<number>;
+        /**
+         * 用户可为数据库代理服务配置的最多核数。
+         */
+        maxProxyCpuNum?: pulumi.Input<number>;
+        /**
+         * 用户可为数据库代理服务配置的最少核数。
+         */
+        minProxyCpuNum?: pulumi.Input<number>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
 }
 
 export namespace redis {
@@ -3377,6 +4458,30 @@ export namespace vefaas {
     }
 }
 
+export namespace vepfs {
+    export interface InstanceCapacityInfo {
+        /**
+         * 文件系统总容量，单位为 TiB。
+         */
+        totalTiB?: pulumi.Input<number>;
+        /**
+         * 已使用容量（GiB）。
+         */
+        usedGiB?: pulumi.Input<number>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace vke {
     export interface AddonStatus {
         conditions?: pulumi.Input<pulumi.Input<inputs.vke.AddonStatusCondition>[]>;
@@ -3610,6 +4715,474 @@ export namespace vke {
         value?: pulumi.Input<string>;
     }
 
+    export interface NodePoolAutoScaling {
+        /**
+         * 配置节点池的期望节点数。
+         */
+        desiredReplicas?: pulumi.Input<number>;
+        /**
+         * 配置节点池弹性伸缩功能开关，参数值说明：false：关闭。true：开启。
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * 配置节点池的最大节点数。
+         */
+        maxReplicas?: pulumi.Input<number>;
+        /**
+         * 配置节点池的最小节点数。
+         */
+        minReplicas?: pulumi.Input<number>;
+        /**
+         * 优先级。
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * 伸缩组ID。
+         */
+        scalingGroupId?: pulumi.Input<string>;
+        /**
+         * 节点池的多子网调度策略，参数值说明：ZoneBalance：可用区均衡策略。Priority：子网优先级策略。
+         */
+        subnetPolicy?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolKubernetesConfig {
+        /**
+         * 是否禁用自动同步标签污点到存量节点的功能，参数值说明：true：禁用，即关闭自动同步。false：不禁用，即开启自动同步。
+         */
+        autoSyncDisabled?: pulumi.Input<boolean>;
+        /**
+         * 封锁节点配置，参数值说明：false：不封锁。true：封锁。
+         */
+        cordon?: pulumi.Input<boolean>;
+        /**
+         * Kubelet 组件的相关配置
+         */
+        kubeletConfig?: pulumi.Input<inputs.vke.NodePoolKubernetesConfigKubeletConfig>;
+        labels?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigLabel>[]>;
+        /**
+         * Kubernetes 中节点对象的元数据名称前缀。
+         */
+        namePrefix?: pulumi.Input<string>;
+        /**
+         * Kubernetes 中节点对象的元数据名称后缀。
+         */
+        nameSuffix?: pulumi.Input<string>;
+        /**
+         * Kubernetes 中节点对象的元数据名称是否使用 ECS 主机名称，取值：true：使用 ECS 主机名称作为节点名称。false：不使用使用 ECS 主机名称作为节点名称。
+         */
+        nameUseHostname?: pulumi.Input<boolean>;
+        taints?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigTaint>[]>;
+    }
+
+    export interface NodePoolKubernetesConfigKubeletConfig {
+        /**
+         * 配置 kubelet 的 CpuManagerPolicy 策略，包含 none 和 static 两种策略
+         */
+        cpuManagerPolicy?: pulumi.Input<string>;
+        /**
+         * 特性门控。
+         */
+        featureGates?: pulumi.Input<inputs.vke.NodePoolKubernetesConfigKubeletConfigFeatureGates>;
+        /**
+         * 每秒发送到 API 服务器的突发请求数量上限。不包括事件和节点心跳 API，其速率限制由一组不同的标志控制。
+         */
+        kubeApiBurst?: pulumi.Input<number>;
+        /**
+         * 与 apiserver 通信的每秒查询个数（QPS）。不包含事件和节点心跳 API，它们的速率限制是由一组不同的标志所控制。
+         */
+        kubeApiQps?: pulumi.Input<number>;
+        kubeReserveds?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigKubeletConfigKubeReserved>[]>;
+        /**
+         * 配置 kubelet 支持的最大 Pod 数量
+         */
+        maxPods?: pulumi.Input<number>;
+        /**
+         * 设置突发性镜像拉取的个数上限，在不超过 RegistryPullQps 设置值的前提下暂时允许此参数所给的镜像拉取个数。
+         */
+        registryBurst?: pulumi.Input<number>;
+        /**
+         * 可用来限制镜像仓库的 QPS 上限
+         */
+        registryPullQps?: pulumi.Input<number>;
+        /**
+         * 逐一拉取镜像。
+         */
+        serializeImagePulls?: pulumi.Input<boolean>;
+        systemReserveds?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigKubeletConfigSystemReserved>[]>;
+        /**
+         * 拓扑管理策略，取值：none：（默认）禁用拓扑管理策略。restricted：kubelet 仅接受在所请求资源上实现最佳 NUMA（Non-Uniform Memory Access，非一致存储访问结构）的 Pod。best-effort：kubelet 会优先选择在 CPU 和设备资源上实现 NUMA 的 Pod。single-numa-node：kubelet 仅允许在同一个节点的 CPU 和设备资源上实现 NUMA 的 Pod。
+         */
+        topologyManagerPolicy?: pulumi.Input<string>;
+        /**
+         * 拓扑管理策略的资源粒度，取值：container：表示资源对齐粒度为容器级。pod：表示资源对齐粒度为 Pod 级。
+         */
+        topologyManagerScope?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolKubernetesConfigKubeletConfigFeatureGates {
+        /**
+         * 是否开启特性开关本地垂直Pod伸缩
+         */
+        inPlacePodVerticalScaling?: pulumi.Input<boolean>;
+        /**
+         * 是否开启 QoSResourceManager特性开关，取值：  - true 开启。  - false 关闭。
+         */
+        qoSResourceManager?: pulumi.Input<boolean>;
+    }
+
+    export interface NodePoolKubernetesConfigKubeletConfigKubeReserved {
+        /**
+         * 资源名称，取值为 cpu 或 memory。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 指定资源的资源量。   - 当资源为 cpu 时，取值示例为 200m。   - 当资源为 memory 时，取值示例为 1G
+         */
+        quantity?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolKubernetesConfigKubeletConfigSystemReserved {
+        /**
+         * 资源名称，取值为 cpu 或 memory。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 指定资源的资源量。   - 当资源为 cpu 时，取值示例为 200m。   - 当资源为 memory 时，取值示例为 1G。
+         */
+        quantity?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolKubernetesConfigLabel {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolKubernetesConfigTaint {
+        /**
+         * 污点效果，取值：NoSchedule：（默认值）不调度。NoExecute：驱逐没有容忍污点的 Pod。PreferNoSchedule：尽量避免调度。
+         */
+        effect?: pulumi.Input<string>;
+        /**
+         * 污点键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 污点值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolManagement {
+        /**
+         * 节点池是否开启托管。取值：  - true：开启。  - false：关闭。。
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * 检查自愈配置。
+         */
+        remedyConfig?: pulumi.Input<inputs.vke.NodePoolManagementRemedyConfig>;
+    }
+
+    export interface NodePoolManagementRemedyConfig {
+        /**
+         * 是否开启检查自愈。
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * 检查自愈规则ID。
+         */
+        remedyId?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolNodeConfig {
+        /**
+         * 节点的第一块数据盘是否已配置并格式化挂载作为容器镜像和日志的存储目录，参数值说明：false：未配置并格式化。true：已配置并格式化。
+         */
+        additionalContainerStorageEnabled?: pulumi.Input<boolean>;
+        /**
+         * 云服务器实例到期是否自动续费，参数值说明：true：自动续费false：不自动续费仅当InstanceChargeType=PrePaid时才返回的参数。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 云服务器实例每次自动续费时长，单位为月。仅当AutoRenew=true时才返回的参数。
+         */
+        autoRenewPeriod?: pulumi.Input<number>;
+        dataVolumes?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolNodeConfigDataVolume>[]>;
+        /**
+         * 实例在部署集中的分组号，0表示未设置
+         */
+        deploymentSetGroupNumber?: pulumi.Input<number>;
+        /**
+         * 实例需要加入的部署集ID
+         */
+        deploymentSetId?: pulumi.Input<string>;
+        /**
+         * 节点对应的主机名称。
+         */
+        hostname?: pulumi.Input<string>;
+        /**
+         * 高性能计算集群 ID。当节点池配置为高性能计算 GPU 型规格节点时，返回高性能计算集群 ID。
+         */
+        hpcClusterIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点对应云服务器所使用的镜像 ID。
+         */
+        imageId?: pulumi.Input<string>;
+        /**
+         * 创建并初始化节点后执行的自定义脚本。Base64 编码后的 Shell 格式脚本。
+         */
+        initializeScript?: pulumi.Input<string>;
+        /**
+         * 云服务器实例计费类型，参数值说明：PostPaid：按量计费PrePaid：包年包月
+         */
+        instanceChargeType?: pulumi.Input<string>;
+        /**
+         * 节点（实例）名称。
+         */
+        instanceName?: pulumi.Input<string>;
+        /**
+         * 节点对应的云服务器实例规格 ID 列表。
+         */
+        instanceTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 设置抢占式实例和按量实例的混合策略。当SpotStrategy为SpotAsPriceGo时，该策略生效。。
+         */
+        instancesDistribution?: pulumi.Input<inputs.vke.NodePoolNodeConfigInstancesDistribution>;
+        /**
+         * 节点名称前缀，为空字符串或 nil 时表示未开启节点名称前缀策略。
+         */
+        namePrefix?: pulumi.Input<string>;
+        /**
+         * 节点间的网络通讯模式。
+         */
+        networkTrafficMode?: pulumi.Input<string>;
+        /**
+         * 云服务器实例购买时长，单位为月。仅当InstanceChargeType=PrePaid时才返回的参数。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 部署节点前执行脚本。
+         */
+        preScript?: pulumi.Input<string>;
+        /**
+         * ECS所属项目，一个ECS只能归属于一个项目。
+         */
+        projectName?: pulumi.Input<string>;
+        /**
+         * 节点自动开启公网访问的配置信息
+         */
+        publicAccessConfig?: pulumi.Input<inputs.vke.NodePoolNodeConfigPublicAccessConfig>;
+        /**
+         * 节点是否自动开启公网访问。取值：  - false：关闭  - true：开启
+         */
+        publicAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * 节点安全配置。
+         */
+        security?: pulumi.Input<inputs.vke.NodePoolNodeConfigSecurity>;
+        /**
+         * 按量计费的抢占式策略，当InstanceChargeType=PostPaid时NoSpot：正常按量计费实例。SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
+         */
+        spotStrategy?: pulumi.Input<string>;
+        /**
+         * 节点网络所属的子网 ID 列表。
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点的系统盘配置。
+         */
+        systemVolume?: pulumi.Input<inputs.vke.NodePoolNodeConfigSystemVolume>;
+        tags?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolNodeConfigTag>[]>;
+    }
+
+    export interface NodePoolNodeConfigDataVolume {
+        /**
+         * 文件系统，取值：  - Ext4 (默认值)  - Xfs
+         */
+        fileSystem?: pulumi.Input<string>;
+        /**
+         * 磁盘格式化后的目标挂载目录。
+         */
+        mountPoint?: pulumi.Input<string>;
+        /**
+         * 放置组Id
+         */
+        placementGroupId?: pulumi.Input<string>;
+        /**
+         * 磁盘容量，单位 GiB。
+         */
+        size?: pulumi.Input<number>;
+        /**
+         * 使用快照创建数据盘。您可以调用DescribeSnapshots接口查询快照ID。说明  - 仅极速型SSD和高效性云盘支持通过快照创建云盘  - 仅状态为“可用”(available)的快照支持创建新云盘，“创建中”、“回滚中”、“删除中”及“错误”状态下的快照不支持创建新云盘。
+         */
+        snapshotId?: pulumi.Input<string>;
+        /**
+         * 放置子组
+         */
+        subgroupNumber?: pulumi.Input<number>;
+        /**
+         * 磁盘类型：ESSD*PL0：性能级别为 PL0 的极速型 SSD 云盘。ESSD*FlexPL：性能级别为 PL1 的极速型 SSD 云盘。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolNodeConfigInstancesDistribution {
+        /**
+         * 容量重新平衡。取值范围：  - true：开启该功能，当抢占式实例即将被回收前，主动创建新的抢占式实例进行补偿。  - false（默认值）：不开启该功能，则等待抢占式实例被回收后才会去扩容补齐实例数
+         */
+        capacityRebalance?: pulumi.Input<boolean>;
+        /**
+         * 按量实例替补功能。取值范围：  - true：开启该功能，当所有抢占式实例因库存不足等原因全部购买失败后，尝试购买按量实例  - false（默认值）：不开启该功能，在需要扩容抢占式实例时仅尝试所配置的抢占式实例
+         */
+        compensateWithOnDemand?: pulumi.Input<boolean>;
+        /**
+         * 基础容量的大小，基础容量部分固定为按量计费实例。取值范围：[0,500]，默认值为0。
+         */
+        onDemandBaseCapacity?: pulumi.Input<number>;
+        /**
+         * 超出基础容量部分，按量计费实例所占的比例。取值范围[0, 100]，0代表超出基础容量的部分仅生产抢占式实例，100代表仅生产按量实例，默认值为0。
+         */
+        onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
+    }
+
+    export interface NodePoolNodeConfigPublicAccessConfig {
+        /**
+         * 公网 IP 的带宽峰值，单位：Mbps。
+         */
+        bandwidth?: pulumi.Input<number>;
+        /**
+         * 公网 IP 的计费类型：2：按量计费-按带宽上限。3：按量计费-按实际流量。
+         */
+        billingType?: pulumi.Input<number>;
+        /**
+         * 公网 IP 的线路类型，参数值说明： BGP：BGP（多线）。
+         */
+        isp?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolNodeConfigSecurity {
+        /**
+         * 节点的访问方式配置。
+         */
+        login?: pulumi.Input<inputs.vke.NodePoolNodeConfigSecurityLogin>;
+        /**
+         * 节点网络所在的安全组 ID 列表。
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点的安全策略，参数值说明：Hids：主机安全加固。
+         */
+        securityStrategies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点是否启用了安全加固配置，参数值说明：true：已开启。false：未开启。
+         */
+        securityStrategyEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface NodePoolNodeConfigSecurityLogin {
+        /**
+         * Root 用户登录密码，使用 Base64 编码格式。请遵循云服务器对于实例密码的要求规范：长度为 8～30 个字符，不能以/和$6$开头，支持以下几项字符，且至少包含三项，小写字母a~z，大写字母A~Z，数字0~9，特殊字符( ) ` ~ ! @ # $ % ^ & * _   - + = | { } [ ] : ; ' < > , . ? /
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * SSH 密钥对名称。请确保该密钥对已在云服务器中创建或托管。
+         */
+        sshKeyPairName?: pulumi.Input<string>;
+        /**
+         * 节点的访问登录方式，参数值说明：Password：密码登录。SshKeyPair：SSH 密钥对登录。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolNodeConfigSystemVolume {
+        /**
+         * 放置组Id
+         */
+        placementGroupId?: pulumi.Input<string>;
+        /**
+         * 云盘容量，单位 GiB，取值说明：默认值：40GiB。极速型 SSD（ESSD*PL0，ESSD*FlexPL）：40~2048GiB。
+         */
+        size?: pulumi.Input<number>;
+        /**
+         * 放置子组
+         */
+        subgroupNumber?: pulumi.Input<number>;
+        /**
+         * 云盘类型：ESSD*PL0：（默认值）性能级别为 PL0 的极速型 SSD 云盘。ESSD*FlexPL：性能级别为 PL1 的极速型 SSD 云盘。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolNodeConfigTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolNodeStatistics {
+        /**
+         * Phase=Creating的节点总数量。
+         */
+        creatingCount?: pulumi.Input<number>;
+        /**
+         * Phase=Deleting的节点总数量。
+         */
+        deletingCount?: pulumi.Input<number>;
+        /**
+         * Phase=Failed的节点总数量。
+         */
+        failedCount?: pulumi.Input<number>;
+        /**
+         * Phase=Running的节点总数量。
+         */
+        runningCount?: pulumi.Input<number>;
+        /**
+         * 节点池中的节点总数量。
+         */
+        totalCount?: pulumi.Input<number>;
+        /**
+         * Phase=Updating的节点总数量。
+         */
+        updatingCount?: pulumi.Input<number>;
+    }
+
+    export interface NodePoolStatus {
+        conditions?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolStatusCondition>[]>;
+        /**
+         * 节点池的状态，参数值有：Creating、Running、Updating、Deleting、Failed、Scaling。
+         */
+        phase?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolStatusCondition {
+        /**
+         * 节点池当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：ProgressingOk、ResourceCleanupFailed、Unknown、ClusterNotRunning。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
 }
 
 export namespace vmp {

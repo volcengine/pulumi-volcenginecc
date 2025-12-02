@@ -71,7 +71,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// <summary>
         /// 用户组绑定的策略信息。
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetGroupAttachedPolicyResult> AttachedPolicys;
+        public readonly ImmutableArray<Outputs.GetGroupAttachedPolicyResult> AttachedPolicies;
         /// <summary>
         /// 用户组的创建时间。
         /// </summary>
@@ -109,7 +109,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         private GetGroupResult(
             int accountId,
 
-            ImmutableArray<Outputs.GetGroupAttachedPolicyResult> attachedPolicys,
+            ImmutableArray<Outputs.GetGroupAttachedPolicyResult> attachedPolicies,
 
             string createdTime,
 
@@ -128,7 +128,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
             ImmutableArray<Outputs.GetGroupUserResult> users)
         {
             AccountId = accountId;
-            AttachedPolicys = attachedPolicys;
+            AttachedPolicies = attachedPolicies;
             CreatedTime = createdTime;
             Description = description;
             DisplayName = displayName;

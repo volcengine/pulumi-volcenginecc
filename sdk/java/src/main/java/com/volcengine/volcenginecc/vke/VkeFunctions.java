@@ -14,12 +14,16 @@ import com.volcengine.volcenginecc.vke.inputs.GetAddonArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetAddonPlainArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetClusterArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetClusterPlainArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetNodePoolArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetNodePoolPlainArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetPermissionArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetPermissionPlainArgs;
 import com.volcengine.volcenginecc.vke.outputs.GetAddonResult;
 import com.volcengine.volcenginecc.vke.outputs.GetAddonsResult;
 import com.volcengine.volcenginecc.vke.outputs.GetClusterResult;
 import com.volcengine.volcenginecc.vke.outputs.GetClustersResult;
+import com.volcengine.volcenginecc.vke.outputs.GetNodePoolResult;
+import com.volcengine.volcenginecc.vke.outputs.GetNodePoolsResult;
 import com.volcengine.volcenginecc.vke.outputs.GetPermissionResult;
 import com.volcengine.volcenginecc.vke.outputs.GetPermissionsResult;
 import java.util.concurrent.CompletableFuture;
@@ -192,6 +196,90 @@ public final class VkeFunctions {
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vke/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolResult> getNodePool(GetNodePoolArgs args) {
+        return getNodePool(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static CompletableFuture<GetNodePoolResult> getNodePoolPlain(GetNodePoolPlainArgs args) {
+        return getNodePoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolResult> getNodePool(GetNodePoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getNodePool:getNodePool", TypeShape.of(GetNodePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolResult> getNodePool(GetNodePoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getNodePool:getNodePool", TypeShape.of(GetNodePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static CompletableFuture<GetNodePoolResult> getNodePoolPlain(GetNodePoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getNodePool:getNodePool", TypeShape.of(GetNodePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolsResult> getNodePools() {
+        return getNodePools(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static CompletableFuture<GetNodePoolsResult> getNodePoolsPlain() {
+        return getNodePoolsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolsResult> getNodePools(InvokeArgs args) {
+        return getNodePools(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static CompletableFuture<GetNodePoolsResult> getNodePoolsPlain(InvokeArgs args) {
+        return getNodePoolsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolsResult> getNodePools(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getNodePools:getNodePools", TypeShape.of(GetNodePoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static Output<GetNodePoolsResult> getNodePools(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getNodePools:getNodePools", TypeShape.of(GetNodePoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::NodePool
+     * 
+     */
+    public static CompletableFuture<GetNodePoolsResult> getNodePoolsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getNodePools:getNodePools", TypeShape.of(GetNodePoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VKE::Permission

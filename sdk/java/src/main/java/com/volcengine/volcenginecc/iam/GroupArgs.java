@@ -19,11 +19,11 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupArgs Empty = new GroupArgs();
 
-    @Import(name="attachedPolicys")
-    private @Nullable Output<List<GroupAttachedPolicyArgs>> attachedPolicys;
+    @Import(name="attachedPolicies")
+    private @Nullable Output<List<GroupAttachedPolicyArgs>> attachedPolicies;
 
-    public Optional<Output<List<GroupAttachedPolicyArgs>>> attachedPolicys() {
-        return Optional.ofNullable(this.attachedPolicys);
+    public Optional<Output<List<GroupAttachedPolicyArgs>>> attachedPolicies() {
+        return Optional.ofNullable(this.attachedPolicies);
     }
 
     /**
@@ -81,7 +81,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs() {}
 
     private GroupArgs(GroupArgs $) {
-        this.attachedPolicys = $.attachedPolicys;
+        this.attachedPolicies = $.attachedPolicies;
         this.description = $.description;
         this.displayName = $.displayName;
         this.userGroupName = $.userGroupName;
@@ -106,17 +106,17 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GroupArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder attachedPolicys(@Nullable Output<List<GroupAttachedPolicyArgs>> attachedPolicys) {
-            $.attachedPolicys = attachedPolicys;
+        public Builder attachedPolicies(@Nullable Output<List<GroupAttachedPolicyArgs>> attachedPolicies) {
+            $.attachedPolicies = attachedPolicies;
             return this;
         }
 
-        public Builder attachedPolicys(List<GroupAttachedPolicyArgs> attachedPolicys) {
-            return attachedPolicys(Output.of(attachedPolicys));
+        public Builder attachedPolicies(List<GroupAttachedPolicyArgs> attachedPolicies) {
+            return attachedPolicies(Output.of(attachedPolicies));
         }
 
-        public Builder attachedPolicys(GroupAttachedPolicyArgs... attachedPolicys) {
-            return attachedPolicys(List.of(attachedPolicys));
+        public Builder attachedPolicies(GroupAttachedPolicyArgs... attachedPolicies) {
+            return attachedPolicies(List.of(attachedPolicies));
         }
 
         /**

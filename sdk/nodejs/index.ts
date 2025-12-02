@@ -21,6 +21,7 @@ import * as config from "./config";
 import * as cr from "./cr";
 import * as directconnect from "./directconnect";
 import * as ecs from "./ecs";
+import * as escloud from "./escloud";
 import * as filenas from "./filenas";
 import * as iam from "./iam";
 import * as kafka from "./kafka";
@@ -37,6 +38,7 @@ import * as transitrouter from "./transitrouter";
 import * as types from "./types";
 import * as vedbm from "./vedbm";
 import * as vefaas from "./vefaas";
+import * as vepfs from "./vepfs";
 import * as vke from "./vke";
 import * as vmp from "./vmp";
 import * as vpc from "./vpc";
@@ -54,6 +56,7 @@ export {
     cr,
     directconnect,
     ecs,
+    escloud,
     filenas,
     iam,
     kafka,
@@ -70,6 +73,7 @@ export {
     types,
     vedbm,
     vefaas,
+    vepfs,
     vke,
     vmp,
     vpc,
