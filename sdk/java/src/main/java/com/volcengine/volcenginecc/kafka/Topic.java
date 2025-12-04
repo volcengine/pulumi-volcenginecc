@@ -57,14 +57,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.allAuthority;
     }
     /**
-     * opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
+     * Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
      * 
      */
     @Export(name="cleanupPolicies", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cleanupPolicies;
 
     /**
-     * @return opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
+     * @return Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
      * 
      */
     public Output<List<String>> cleanupPolicies() {
@@ -113,14 +113,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.instanceId;
     }
     /**
-     * 消息保留时长，单位小时。
+     * 消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。
      * 
      */
     @Export(name="logRetentionHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> logRetentionHours;
 
     /**
-     * @return 消息保留时长，单位小时。
+     * @return 消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。
      * 
      */
     public Output<Integer> logRetentionHours() {
