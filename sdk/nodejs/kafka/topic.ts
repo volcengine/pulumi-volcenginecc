@@ -49,7 +49,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly allAuthority!: pulumi.Output<boolean>;
     /**
-     * opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
+     * Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
      */
     public readonly cleanupPolicies!: pulumi.Output<string[]>;
     /**
@@ -65,7 +65,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
-     * 消息保留时长，单位小时。
+     * 消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。
      */
     public /*out*/ readonly logRetentionHours!: pulumi.Output<number>;
     /**
@@ -168,7 +168,7 @@ export interface TopicState {
      */
     allAuthority?: pulumi.Input<boolean>;
     /**
-     * opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
+     * Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
      */
     cleanupPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -184,7 +184,7 @@ export interface TopicState {
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * 消息保留时长，单位小时。
+     * 消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。
      */
     logRetentionHours?: pulumi.Input<number>;
     /**
@@ -228,7 +228,7 @@ export interface TopicArgs {
      */
     allAuthority?: pulumi.Input<boolean>;
     /**
-     * opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
+     * Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。
      */
     cleanupPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**

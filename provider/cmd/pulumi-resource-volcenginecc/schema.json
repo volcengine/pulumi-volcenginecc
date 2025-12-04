@@ -28609,6 +28609,10 @@
                     "type": "string",
                     "description": "实例的状态。实例的状态，取值： CREATING：创建中 RUNNING：运行中 STOPPING：停止中\nSTOPPED：已停止 REBOOTING: 重启中 STARTING：启动中 REBUILDING：重装中 RESIZING：更配中 ERROR：错误\nDELETING：删除中。\n"
                 },
+                "stoppedMode": {
+                    "type": "string",
+                    "description": "StoppedMode string 可选 示例值：KeepCharging 停机模式，取值：\nKeepCharging：普通停机模式。停机后实例及其相关资源仍被保留且持续计费，费用和停机前一致。\nStopCharging：节省停机模式。停机后实例的计算资源（vCPU、GPU和内存）将被回收且停止计费，所挂载的云盘、镜像、公网IP仍被保留且持续计费。\n有关节省停机的启用条件，请参见按量计费节省停机模式说明。\n默认值：若您在云服务器控制台开启了默认节省停机模式，并且符合启用条件，则默认值为StopCharging。否则，默认值为KeepCharging。\n"
+                },
                 "systemVolume": {
                     "$ref": "#/types/volcenginecc:ecs/InstanceSystemVolume:InstanceSystemVolume",
                     "description": "实例的系统卷。\n"
@@ -28669,6 +28673,7 @@
                 "spotPriceLimit",
                 "spotStrategy",
                 "status",
+                "stoppedMode",
                 "systemVolume",
                 "tags",
                 "updatedAt",
@@ -28790,6 +28795,10 @@
                 "status": {
                     "type": "string",
                     "description": "实例的状态。实例的状态，取值： CREATING：创建中 RUNNING：运行中 STOPPING：停止中\nSTOPPED：已停止 REBOOTING: 重启中 STARTING：启动中 REBUILDING：重装中 RESIZING：更配中 ERROR：错误\nDELETING：删除中。\n"
+                },
+                "stoppedMode": {
+                    "type": "string",
+                    "description": "StoppedMode string 可选 示例值：KeepCharging 停机模式，取值：\nKeepCharging：普通停机模式。停机后实例及其相关资源仍被保留且持续计费，费用和停机前一致。\nStopCharging：节省停机模式。停机后实例的计算资源（vCPU、GPU和内存）将被回收且停止计费，所挂载的云盘、镜像、公网IP仍被保留且持续计费。\n有关节省停机的启用条件，请参见按量计费节省停机模式说明。\n默认值：若您在云服务器控制台开启了默认节省停机模式，并且符合启用条件，则默认值为StopCharging。否则，默认值为KeepCharging。\n"
                 },
                 "systemVolume": {
                     "$ref": "#/types/volcenginecc:ecs/InstanceSystemVolume:InstanceSystemVolume",
@@ -28954,6 +28963,10 @@
                     "status": {
                         "type": "string",
                         "description": "实例的状态。实例的状态，取值： CREATING：创建中 RUNNING：运行中 STOPPING：停止中\nSTOPPED：已停止 REBOOTING: 重启中 STARTING：启动中 REBUILDING：重装中 RESIZING：更配中 ERROR：错误\nDELETING：删除中。\n"
+                    },
+                    "stoppedMode": {
+                        "type": "string",
+                        "description": "StoppedMode string 可选 示例值：KeepCharging 停机模式，取值：\nKeepCharging：普通停机模式。停机后实例及其相关资源仍被保留且持续计费，费用和停机前一致。\nStopCharging：节省停机模式。停机后实例的计算资源（vCPU、GPU和内存）将被回收且停止计费，所挂载的云盘、镜像、公网IP仍被保留且持续计费。\n有关节省停机的启用条件，请参见按量计费节省停机模式说明。\n默认值：若您在云服务器控制台开启了默认节省停机模式，并且符合启用条件，则默认值为StopCharging。否则，默认值为KeepCharging。\n"
                     },
                     "systemVolume": {
                         "$ref": "#/types/volcenginecc:ecs/InstanceSystemVolume:InstanceSystemVolume",
@@ -31009,7 +31022,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
+                    "description": "Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
                 },
                 "createdTime": {
                     "type": "string",
@@ -31025,7 +31038,7 @@
                 },
                 "logRetentionHours": {
                     "type": "integer",
-                    "description": "消息保留时长，单位小时。\n"
+                    "description": "消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。\n"
                 },
                 "parameters": {
                     "type": "string",
@@ -31095,7 +31108,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
+                    "description": "Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
                 },
                 "description": {
                     "type": "string",
@@ -31151,7 +31164,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
+                        "description": "Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n"
                     },
                     "createdTime": {
                         "type": "string",
@@ -31167,7 +31180,7 @@
                     },
                     "logRetentionHours": {
                         "type": "integer",
-                        "description": "消息保留时长，单位小时。\n"
+                        "description": "消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。\n"
                     },
                     "parameters": {
                         "type": "string",
@@ -32971,7 +32984,7 @@
             }
         },
         "volcenginecc:rdsmysql/instance:Instance": {
-            "description": "云数据库 veDB MySQL 版采用计算存储分离架构，最多支持 500TiB 的超大容量结构化数据存储，单个数据库集群最多可扩展至 16 个计算节点。基于云原生数据库设计理念，云数据库 veDB MySQL 版既融合了商业数据库高性能、高可靠、高可用的特征，又具有开源数据库简单开放、快速迭代、高效扩展的优势。经过字节跳动集团关键业务场景的锤炼和行业 TOP 领域的经验积累，云数据库 veDB MySQL 版能够为企业提供安全可靠、性能优越、功能丰富的数据库服务。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  rDSMySQLInstanceDemo:\n    type: volcenginecc:rdsmysql:Instance\n    name: RDSMySQLInstanceDemo\n    properties:\n      deletionProtection: Disabled\n      dbEngineVersion: MySQL_5_7\n      nodes:\n        - zone_id: cn-beijing-a\n          node_spec: rds.mysql.c.s.1c2g\n          node_type: Primary\n        - zone_id: cn-beijing-a\n          node_spec: rds.mysql.c.s.1c2g\n          node_type: Secondary\n        - zone_id: cn-beijing-a\n          node_spec: rds.mysql.c.s.1c2g\n          node_type: ReadOnly\n      storageType: CloudESSD_PL0\n      storageSpace: 100\n      instanceType: DoubleNode\n      vpcId: vpc-rrco37ovjq4gv0x58xxxxx\n      subnetId: subnet-rrwqhg3qzxfkv0x57xxxxx\n      instanceName: RDSMySQLInstanceDemo-按量计费\n      superAccountName: test_account\n      superAccountPassword: '***********'\n      lowerCaseTableNames: '1'\n      dbTimeZone: UTC +08:00\n      chargeDetail:\n        charge_type: PostPaid\n        auto_renew: false\n        number: 1\n      allowListIds:\n        - acl-8cde5e16f44143788234ca4489xxxxx\n        - acl-31f6053bd6be4cff88c1b205d20xxxxx\n      port: 3306\n      maintenanceWindow:\n        day_kind: Week\n        day_of_week:\n          - Monday\n        maintenance_time: 18:00Z-21:59Z\n      autoStorageScalingConfig:\n        enable_storage_auto_scale: true\n        storage_threshold: 10\n        storage_upper_bound: 3000\n      projectName: default\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:rdsmysql/instance:Instance example \"instance_id\"\n```\n\n",
+            "description": "云数据库 MySQL 版是火山引擎基于开源数据库 MySQL 打造的弹性、可靠的在线关系型数据库服务。 MySQL 实例使用云原生方式部署，结合本地 SSD 存储类型，提供高性能读写能力；完全兼容 MySQL 引擎，并提供实例管理、备份恢复、日志管理、监控告警、数据迁移等全套解决方案，帮助企业简化繁杂的数据库管理和运维任务，使企业有更多的时间与资源聚焦于自己的核心业务。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  rDSMySQLInstanceDemo:\n    type: volcenginecc:rdsmysql:Instance\n    name: RDSMySQLInstanceDemo\n    properties:\n      deletionProtection: Disabled\n      dbEngineVersion: MySQL_5_7\n      nodes:\n        - zone_id: cn-beijing-a\n          node_spec: rds.mysql.c.s.1c2g\n          node_type: Primary\n        - zone_id: cn-beijing-a\n          node_spec: rds.mysql.c.s.1c2g\n          node_type: Secondary\n        - zone_id: cn-beijing-a\n          node_spec: rds.mysql.c.s.1c2g\n          node_type: ReadOnly\n      storageType: CloudESSD_PL0\n      storageSpace: 100\n      instanceType: DoubleNode\n      vpcId: vpc-rrco37ovjq4gv0x58xxxxx\n      subnetId: subnet-rrwqhg3qzxfkv0x57xxxxx\n      instanceName: RDSMySQLInstanceDemo-按量计费\n      superAccountName: test_account\n      superAccountPassword: '***********'\n      lowerCaseTableNames: '1'\n      dbTimeZone: UTC +08:00\n      chargeDetail:\n        charge_type: PostPaid\n        auto_renew: false\n        number: 1\n      allowListIds:\n        - acl-8cde5e16f44143788234ca4489xxxxx\n        - acl-31f6053bd6be4cff88c1b205d20xxxxx\n      port: 3306\n      maintenanceWindow:\n        day_kind: Week\n        day_of_week:\n          - Monday\n        maintenance_time: 18:00Z-21:59Z\n      autoStorageScalingConfig:\n        enable_storage_auto_scale: true\n        storage_threshold: 10\n        storage_upper_bound: 3000\n      projectName: default\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:rdsmysql/instance:Instance example \"instance_id\"\n```\n\n",
             "properties": {
                 "addressObjects": {
                     "type": "array",
@@ -45080,6 +45093,9 @@
                     "status": {
                         "type": "string"
                     },
+                    "stoppedMode": {
+                        "type": "string"
+                    },
                     "systemVolume": {
                         "$ref": "#/types/volcenginecc:ecs/getInstanceSystemVolume:getInstanceSystemVolume"
                     },
@@ -45136,6 +45152,7 @@
                     "spotPriceLimit",
                     "spotStrategy",
                     "status",
+                    "stoppedMode",
                     "systemVolume",
                     "tags",
                     "updatedAt",
@@ -46525,7 +46542,7 @@
                         "type": "boolean"
                     },
                     "cleanupPolicies": {
-                        "description": "opic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n",
+                        "description": "Topic 的消息清理策略，支持以下三种取值方式：[delete]：默认的消息清理策略。在磁盘容量充足的情况下，保留在最长保留时间范围内的消息；在磁盘容量不足时，将提前删除旧消息，以保证服务可用性。[compact]：COMPACT 消息清理策略针对每个消息的 Key 进行整合，对于有相同 Key 的消息，只保留最新的 value 值，旧的记录则会被清除。[delete,compact]：同时配置 DELETE 和 COMPACT 两种消息清理策略。只要消息满足任一条清理策略时，都将被清除。\n",
                         "items": {
                             "type": "string"
                         },
@@ -46548,7 +46565,7 @@
                         "type": "string"
                     },
                     "logRetentionHours": {
-                        "description": "消息保留时长，单位小时。\n",
+                        "description": "消息保留时长，单位小时。Topic维度的消息保留时长，取值范围：1   - 2160小时（90天）。\n",
                         "type": "integer"
                     },
                     "parameters": {
@@ -46568,7 +46585,7 @@
                         "type": "string"
                     },
                     "tags": {
-                        "description": "公网IP的标签信息\n",
+                        "description": "Topic 的标签信息\n",
                         "items": {
                             "$ref": "#/types/volcenginecc:kafka/getTopicTag:getTopicTag"
                         },
