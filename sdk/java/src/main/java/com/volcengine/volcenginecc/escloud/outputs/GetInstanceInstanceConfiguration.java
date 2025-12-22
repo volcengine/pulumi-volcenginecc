@@ -115,11 +115,6 @@ public final class GetInstanceInstanceConfiguration {
      */
     private GetInstanceInstanceConfigurationHotNodeStorageSpec hotNodeStorageSpec;
     /**
-     * @return 包年包月实例购买时长。
-     * 
-     */
-    private Integer includeMonths;
-    /**
      * @return 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
      * 
      */
@@ -341,13 +336,6 @@ public final class GetInstanceInstanceConfiguration {
         return this.hotNodeStorageSpec;
     }
     /**
-     * @return 包年包月实例购买时长。
-     * 
-     */
-    public Integer includeMonths() {
-        return this.includeMonths;
-    }
-    /**
      * @return 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
      * 
      */
@@ -514,7 +502,6 @@ public final class GetInstanceInstanceConfiguration {
         private Integer hotNodeNumber;
         private GetInstanceInstanceConfigurationHotNodeResourceSpec hotNodeResourceSpec;
         private GetInstanceInstanceConfigurationHotNodeStorageSpec hotNodeStorageSpec;
-        private Integer includeMonths;
         private String instanceName;
         private Integer kibanaNodeNumber;
         private GetInstanceInstanceConfigurationKibanaNodeResourceSpec kibanaNodeResourceSpec;
@@ -555,7 +542,6 @@ public final class GetInstanceInstanceConfiguration {
     	      this.hotNodeNumber = defaults.hotNodeNumber;
     	      this.hotNodeResourceSpec = defaults.hotNodeResourceSpec;
     	      this.hotNodeStorageSpec = defaults.hotNodeStorageSpec;
-    	      this.includeMonths = defaults.includeMonths;
     	      this.instanceName = defaults.instanceName;
     	      this.kibanaNodeNumber = defaults.kibanaNodeNumber;
     	      this.kibanaNodeResourceSpec = defaults.kibanaNodeResourceSpec;
@@ -712,14 +698,6 @@ public final class GetInstanceInstanceConfiguration {
               throw new MissingRequiredPropertyException("GetInstanceInstanceConfiguration", "hotNodeStorageSpec");
             }
             this.hotNodeStorageSpec = hotNodeStorageSpec;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder includeMonths(Integer includeMonths) {
-            if (includeMonths == null) {
-              throw new MissingRequiredPropertyException("GetInstanceInstanceConfiguration", "includeMonths");
-            }
-            this.includeMonths = includeMonths;
             return this;
         }
         @CustomType.Setter
@@ -910,7 +888,6 @@ public final class GetInstanceInstanceConfiguration {
             _resultValue.hotNodeNumber = hotNodeNumber;
             _resultValue.hotNodeResourceSpec = hotNodeResourceSpec;
             _resultValue.hotNodeStorageSpec = hotNodeStorageSpec;
-            _resultValue.includeMonths = includeMonths;
             _resultValue.instanceName = instanceName;
             _resultValue.kibanaNodeNumber = kibanaNodeNumber;
             _resultValue.kibanaNodeResourceSpec = kibanaNodeResourceSpec;

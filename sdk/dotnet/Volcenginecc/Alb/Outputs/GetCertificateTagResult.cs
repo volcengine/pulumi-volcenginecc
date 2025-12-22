@@ -14,7 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
     [OutputType]
     public sealed class GetCertificateTagResult
     {
+        /// <summary>
+        /// 用户标签的标签键。
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// 用户标签的标签值。
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

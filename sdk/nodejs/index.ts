@@ -23,8 +23,11 @@ import * as directconnect from "./directconnect";
 import * as ecs from "./ecs";
 import * as escloud from "./escloud";
 import * as filenas from "./filenas";
+import * as hbase from "./hbase";
 import * as iam from "./iam";
 import * as kafka from "./kafka";
+import * as kms from "./kms";
+import * as mongodb from "./mongodb";
 import * as natgateway from "./natgateway";
 import * as organization from "./organization";
 import * as privatezone from "./privatezone";
@@ -58,8 +61,11 @@ export {
     ecs,
     escloud,
     filenas,
+    hbase,
     iam,
     kafka,
+    kms,
+    mongodb,
     natgateway,
     organization,
     privatezone,

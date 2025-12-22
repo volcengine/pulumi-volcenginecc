@@ -48,8 +48,6 @@ type InstanceInstanceConfiguration struct {
 	HotNodeResourceSpec *InstanceInstanceConfigurationHotNodeResourceSpec `pulumi:"hotNodeResourceSpec"`
 	// 数据节点的存储规格配置详情。
 	HotNodeStorageSpec *InstanceInstanceConfigurationHotNodeStorageSpec `pulumi:"hotNodeStorageSpec"`
-	// 包年包月实例购买时长。
-	IncludeMonths *int `pulumi:"includeMonths"`
 	// 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
 	InstanceName *string `pulumi:"instanceName"`
 	// kibana 节点数量。
@@ -135,8 +133,6 @@ type InstanceInstanceConfigurationArgs struct {
 	HotNodeResourceSpec InstanceInstanceConfigurationHotNodeResourceSpecPtrInput `pulumi:"hotNodeResourceSpec"`
 	// 数据节点的存储规格配置详情。
 	HotNodeStorageSpec InstanceInstanceConfigurationHotNodeStorageSpecPtrInput `pulumi:"hotNodeStorageSpec"`
-	// 包年包月实例购买时长。
-	IncludeMonths pulumi.IntPtrInput `pulumi:"includeMonths"`
 	// 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
 	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
 	// kibana 节点数量。
@@ -348,11 +344,6 @@ func (o InstanceInstanceConfigurationOutput) HotNodeStorageSpec() InstanceInstan
 	return o.ApplyT(func(v InstanceInstanceConfiguration) *InstanceInstanceConfigurationHotNodeStorageSpec {
 		return v.HotNodeStorageSpec
 	}).(InstanceInstanceConfigurationHotNodeStorageSpecPtrOutput)
-}
-
-// 包年包月实例购买时长。
-func (o InstanceInstanceConfigurationOutput) IncludeMonths() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceInstanceConfiguration) *int { return v.IncludeMonths }).(pulumi.IntPtrOutput)
 }
 
 // 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
@@ -658,16 +649,6 @@ func (o InstanceInstanceConfigurationPtrOutput) HotNodeStorageSpec() InstanceIns
 		}
 		return v.HotNodeStorageSpec
 	}).(InstanceInstanceConfigurationHotNodeStorageSpecPtrOutput)
-}
-
-// 包年包月实例购买时长。
-func (o InstanceInstanceConfigurationPtrOutput) IncludeMonths() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InstanceInstanceConfiguration) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeMonths
-	}).(pulumi.IntPtrOutput)
 }
 
 // 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
@@ -4879,8 +4860,6 @@ type GetInstanceInstanceConfiguration struct {
 	HotNodeResourceSpec GetInstanceInstanceConfigurationHotNodeResourceSpec `pulumi:"hotNodeResourceSpec"`
 	// 数据节点的存储规格配置详情。
 	HotNodeStorageSpec GetInstanceInstanceConfigurationHotNodeStorageSpec `pulumi:"hotNodeStorageSpec"`
-	// 包年包月实例购买时长。
-	IncludeMonths int `pulumi:"includeMonths"`
 	// 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
 	InstanceName string `pulumi:"instanceName"`
 	// kibana 节点数量。
@@ -4969,8 +4948,6 @@ type GetInstanceInstanceConfigurationArgs struct {
 	HotNodeResourceSpec GetInstanceInstanceConfigurationHotNodeResourceSpecInput `pulumi:"hotNodeResourceSpec"`
 	// 数据节点的存储规格配置详情。
 	HotNodeStorageSpec GetInstanceInstanceConfigurationHotNodeStorageSpecInput `pulumi:"hotNodeStorageSpec"`
-	// 包年包月实例购买时长。
-	IncludeMonths pulumi.IntInput `pulumi:"includeMonths"`
 	// 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
 	InstanceName pulumi.StringInput `pulumi:"instanceName"`
 	// kibana 节点数量。
@@ -5134,11 +5111,6 @@ func (o GetInstanceInstanceConfigurationOutput) HotNodeStorageSpec() GetInstance
 	return o.ApplyT(func(v GetInstanceInstanceConfiguration) GetInstanceInstanceConfigurationHotNodeStorageSpec {
 		return v.HotNodeStorageSpec
 	}).(GetInstanceInstanceConfigurationHotNodeStorageSpecOutput)
-}
-
-// 包年包月实例购买时长。
-func (o GetInstanceInstanceConfigurationOutput) IncludeMonths() pulumi.IntOutput {
-	return o.ApplyT(func(v GetInstanceInstanceConfiguration) int { return v.IncludeMonths }).(pulumi.IntOutput)
 }
 
 // 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。

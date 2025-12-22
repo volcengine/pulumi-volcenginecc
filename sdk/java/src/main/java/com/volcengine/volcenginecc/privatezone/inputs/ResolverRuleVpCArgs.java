@@ -16,21 +16,6 @@ public final class ResolverRuleVpCArgs extends com.pulumi.resources.ResourceArgs
     public static final ResolverRuleVpCArgs Empty = new ResolverRuleVpCArgs();
 
     /**
-     * 创建该 VPC 的火山引擎账号 ID。
-     * 
-     */
-    @Import(name="accountId")
-    private @Nullable Output<String> accountId;
-
-    /**
-     * @return 创建该 VPC 的火山引擎账号 ID。
-     * 
-     */
-    public Optional<Output<String>> accountId() {
-        return Optional.ofNullable(this.accountId);
-    }
-
-    /**
      * VPC 的地域。
      * 
      */
@@ -43,21 +28,6 @@ public final class ResolverRuleVpCArgs extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
-    }
-
-    /**
-     * VPC 的地域的名称。
-     * 
-     */
-    @Import(name="regionName")
-    private @Nullable Output<String> regionName;
-
-    /**
-     * @return VPC 的地域的名称。
-     * 
-     */
-    public Optional<Output<String>> regionName() {
-        return Optional.ofNullable(this.regionName);
     }
 
     /**
@@ -78,9 +48,7 @@ public final class ResolverRuleVpCArgs extends com.pulumi.resources.ResourceArgs
     private ResolverRuleVpCArgs() {}
 
     private ResolverRuleVpCArgs(ResolverRuleVpCArgs $) {
-        this.accountId = $.accountId;
         this.region = $.region;
-        this.regionName = $.regionName;
         this.vpcId = $.vpcId;
     }
 
@@ -103,27 +71,6 @@ public final class ResolverRuleVpCArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId 创建该 VPC 的火山引擎账号 ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(@Nullable Output<String> accountId) {
-            $.accountId = accountId;
-            return this;
-        }
-
-        /**
-         * @param accountId 创建该 VPC 的火山引擎账号 ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(String accountId) {
-            return accountId(Output.of(accountId));
-        }
-
-        /**
          * @param region VPC 的地域。
          * 
          * @return builder
@@ -142,27 +89,6 @@ public final class ResolverRuleVpCArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder region(String region) {
             return region(Output.of(region));
-        }
-
-        /**
-         * @param regionName VPC 的地域的名称。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder regionName(@Nullable Output<String> regionName) {
-            $.regionName = regionName;
-            return this;
-        }
-
-        /**
-         * @param regionName VPC 的地域的名称。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder regionName(String regionName) {
-            return regionName(Output.of(regionName));
         }
 
         /**

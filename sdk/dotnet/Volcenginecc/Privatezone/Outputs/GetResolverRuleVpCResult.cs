@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone.Outputs
     public sealed class GetResolverRuleVpCResult
     {
         /// <summary>
-        /// 创建该 VPC 的火山引擎账号 ID。
+        /// 创建该 VPC 的账号 ID。
         /// </summary>
         public readonly string AccountId;
         /// <summary>

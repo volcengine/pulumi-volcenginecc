@@ -200,11 +200,7 @@ class ResolverRuleVpC(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "accountId":
-            suggest = "account_id"
-        elif key == "regionName":
-            suggest = "region_name"
-        elif key == "vpcId":
+        if key == "vpcId":
             suggest = "vpc_id"
 
         if suggest:
@@ -219,32 +215,16 @@ class ResolverRuleVpC(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_id: Optional[builtins.str] = None,
                  region: Optional[builtins.str] = None,
-                 region_name: Optional[builtins.str] = None,
                  vpc_id: Optional[builtins.str] = None):
         """
-        :param builtins.str account_id: 创建该 VPC 的火山引擎账号 ID。
         :param builtins.str region: VPC 的地域。
-        :param builtins.str region_name: VPC 的地域的名称。
         :param builtins.str vpc_id: VPC 的 ID。
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if region_name is not None:
-            pulumi.set(__self__, "region_name", region_name)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[builtins.str]:
-        """
-        创建该 VPC 的火山引擎账号 ID。
-        """
-        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
@@ -253,14 +233,6 @@ class ResolverRuleVpC(dict):
         VPC 的地域。
         """
         return pulumi.get(self, "region")
-
-    @property
-    @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[builtins.str]:
-        """
-        VPC 的地域的名称。
-        """
-        return pulumi.get(self, "region_name")
 
     @property
     @pulumi.getter(name="vpcId")
@@ -417,7 +389,7 @@ class GetResolverRuleVpCResult(dict):
                  region_name: builtins.str,
                  vpc_id: builtins.str):
         """
-        :param builtins.str account_id: 创建该 VPC 的火山引擎账号 ID。
+        :param builtins.str account_id: 创建该 VPC 的账号 ID。
         :param builtins.str region: VPC 的地域。
         :param builtins.str region_name: VPC 的地域的名称。
         :param builtins.str vpc_id: VPC 的 ID。
@@ -431,7 +403,7 @@ class GetResolverRuleVpCResult(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> builtins.str:
         """
-        创建该 VPC 的火山引擎账号 ID。
+        创建该 VPC 的账号 ID。
         """
         return pulumi.get(self, "account_id")
 

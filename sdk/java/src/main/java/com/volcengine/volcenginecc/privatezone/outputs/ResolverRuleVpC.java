@@ -12,20 +12,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverRuleVpC {
     /**
-     * @return 创建该 VPC 的火山引擎账号 ID。
-     * 
-     */
-    private @Nullable String accountId;
-    /**
      * @return VPC 的地域。
      * 
      */
     private @Nullable String region;
-    /**
-     * @return VPC 的地域的名称。
-     * 
-     */
-    private @Nullable String regionName;
     /**
      * @return VPC 的 ID。
      * 
@@ -34,25 +24,11 @@ public final class ResolverRuleVpC {
 
     private ResolverRuleVpC() {}
     /**
-     * @return 创建该 VPC 的火山引擎账号 ID。
-     * 
-     */
-    public Optional<String> accountId() {
-        return Optional.ofNullable(this.accountId);
-    }
-    /**
      * @return VPC 的地域。
      * 
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
-    }
-    /**
-     * @return VPC 的地域的名称。
-     * 
-     */
-    public Optional<String> regionName() {
-        return Optional.ofNullable(this.regionName);
     }
     /**
      * @return VPC 的 ID。
@@ -71,35 +47,19 @@ public final class ResolverRuleVpC {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String accountId;
         private @Nullable String region;
-        private @Nullable String regionName;
         private @Nullable String vpcId;
         public Builder() {}
         public Builder(ResolverRuleVpC defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.accountId = defaults.accountId;
     	      this.region = defaults.region;
-    	      this.regionName = defaults.regionName;
     	      this.vpcId = defaults.vpcId;
         }
 
         @CustomType.Setter
-        public Builder accountId(@Nullable String accountId) {
-
-            this.accountId = accountId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(@Nullable String region) {
 
             this.region = region;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder regionName(@Nullable String regionName) {
-
-            this.regionName = regionName;
             return this;
         }
         @CustomType.Setter
@@ -110,9 +70,7 @@ public final class ResolverRuleVpC {
         }
         public ResolverRuleVpC build() {
             final var _resultValue = new ResolverRuleVpC();
-            _resultValue.accountId = accountId;
             _resultValue.region = region;
-            _resultValue.regionName = regionName;
             _resultValue.vpcId = vpcId;
             return _resultValue;
         }

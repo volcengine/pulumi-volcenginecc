@@ -36,13 +36,11 @@ type LookupResolverRuleResult struct {
 	Enable bool `pulumi:"enable"`
 	// 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
 	EndpointId int `pulumi:"endpointId"`
-	// 终端节点的 TRN。
-	EndpointTrn string `pulumi:"endpointTrn"`
 	// 外部的 DNS 服务器的 IP 地址和端口。您最多只能添加 10 个 IP 地址。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
 	ForwardIPs []GetResolverRuleForwardIP `pulumi:"forwardIPs"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
-	// 最近一次更新转发规则的火山引擎账号的 ID
+	// 最近一次更新转发规则的账号的 ID
 	LastOperator string `pulumi:"lastOperator"`
 	// 递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通
 	Line string `pulumi:"line"`
@@ -60,8 +58,6 @@ type LookupResolverRuleResult struct {
 	UpdatedTime string `pulumi:"updatedTime"`
 	// 转发规则所关联的 VPC。转发规则在关联的 VPC 中生效。Type 参数是 OUTBOUND 时，VPC 的地域必须和终端节点所在的地域相同。
 	VpCs []GetResolverRuleVpC `pulumi:"vpCs"`
-	// 域名所关联的一个或多个 VPC 的 TRN。
-	VpcTrns []string `pulumi:"vpcTrns"`
 	// 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -115,11 +111,6 @@ func (o LookupResolverRuleResultOutput) EndpointId() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) int { return v.EndpointId }).(pulumi.IntOutput)
 }
 
-// 终端节点的 TRN。
-func (o LookupResolverRuleResultOutput) EndpointTrn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.EndpointTrn }).(pulumi.StringOutput)
-}
-
 // 外部的 DNS 服务器的 IP 地址和端口。您最多只能添加 10 个 IP 地址。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
 func (o LookupResolverRuleResultOutput) ForwardIPs() GetResolverRuleForwardIPArrayOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) []GetResolverRuleForwardIP { return v.ForwardIPs }).(GetResolverRuleForwardIPArrayOutput)
@@ -130,7 +121,7 @@ func (o LookupResolverRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// 最近一次更新转发规则的火山引擎账号的 ID
+// 最近一次更新转发规则的账号的 ID
 func (o LookupResolverRuleResultOutput) LastOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.LastOperator }).(pulumi.StringOutput)
 }
@@ -173,11 +164,6 @@ func (o LookupResolverRuleResultOutput) UpdatedTime() pulumi.StringOutput {
 // 转发规则所关联的 VPC。转发规则在关联的 VPC 中生效。Type 参数是 OUTBOUND 时，VPC 的地域必须和终端节点所在的地域相同。
 func (o LookupResolverRuleResultOutput) VpCs() GetResolverRuleVpCArrayOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) []GetResolverRuleVpC { return v.VpCs }).(GetResolverRuleVpCArrayOutput)
-}
-
-// 域名所关联的一个或多个 VPC 的 TRN。
-func (o LookupResolverRuleResultOutput) VpcTrns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupResolverRuleResult) []string { return v.VpcTrns }).(pulumi.StringArrayOutput)
 }
 
 // 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。

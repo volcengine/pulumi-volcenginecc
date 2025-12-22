@@ -43,10 +43,6 @@ export interface GetResolverRuleResult {
      */
     readonly endpointId: number;
     /**
-     * 终端节点的 TRN。
-     */
-    readonly endpointTrn: string;
-    /**
      * 外部的 DNS 服务器的 IP 地址和端口。您最多只能添加 10 个 IP 地址。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
      */
     readonly forwardIPs: outputs.privatezone.GetResolverRuleForwardIP[];
@@ -55,7 +51,7 @@ export interface GetResolverRuleResult {
      */
     readonly id: string;
     /**
-     * 最近一次更新转发规则的火山引擎账号的 ID
+     * 最近一次更新转发规则的账号的 ID
      */
     readonly lastOperator: string;
     /**
@@ -90,10 +86,6 @@ export interface GetResolverRuleResult {
      * 转发规则所关联的 VPC。转发规则在关联的 VPC 中生效。Type 参数是 OUTBOUND 时，VPC 的地域必须和终端节点所在的地域相同。
      */
     readonly vpCs: outputs.privatezone.GetResolverRuleVpC[];
-    /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     */
-    readonly vpcTrns: string[];
     /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      */

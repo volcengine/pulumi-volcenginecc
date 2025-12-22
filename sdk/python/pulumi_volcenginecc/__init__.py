@@ -37,10 +37,16 @@ if typing.TYPE_CHECKING:
     escloud = __escloud
     import pulumi_volcenginecc.filenas as __filenas
     filenas = __filenas
+    import pulumi_volcenginecc.hbase as __hbase
+    hbase = __hbase
     import pulumi_volcenginecc.iam as __iam
     iam = __iam
     import pulumi_volcenginecc.kafka as __kafka
     kafka = __kafka
+    import pulumi_volcenginecc.kms as __kms
+    kms = __kms
+    import pulumi_volcenginecc.mongodb as __mongodb
+    mongodb = __mongodb
     import pulumi_volcenginecc.natgateway as __natgateway
     natgateway = __natgateway
     import pulumi_volcenginecc.organization as __organization
@@ -89,8 +95,11 @@ else:
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
     escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
+    hbase = _utilities.lazy_import('pulumi_volcenginecc.hbase')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
+    kms = _utilities.lazy_import('pulumi_volcenginecc.kms')
+    mongodb = _utilities.lazy_import('pulumi_volcenginecc.mongodb')
     natgateway = _utilities.lazy_import('pulumi_volcenginecc.natgateway')
     organization = _utilities.lazy_import('pulumi_volcenginecc.organization')
     privatezone = _utilities.lazy_import('pulumi_volcenginecc.privatezone')
@@ -150,6 +159,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.alb",
   "classes": {
    "volcenginecc:alb/serverGroup:ServerGroup": "ServerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "apig/customDomain",
+  "fqn": "pulumi_volcenginecc.apig",
+  "classes": {
+   "volcenginecc:apig/customDomain:CustomDomain": "CustomDomain"
   }
  },
  {
@@ -402,6 +419,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "hbase/instance",
+  "fqn": "pulumi_volcenginecc.hbase",
+  "classes": {
+   "volcenginecc:hbase/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "iam/accesskey",
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
@@ -450,10 +475,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "mongodb/instance",
+  "fqn": "pulumi_volcenginecc.mongodb",
+  "classes": {
+   "volcenginecc:mongodb/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "natgateway/dnatentry",
   "fqn": "pulumi_volcenginecc.natgateway",
   "classes": {
    "volcenginecc:natgateway/dnatentry:Dnatentry": "Dnatentry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "natgateway/natIp",
+  "fqn": "pulumi_volcenginecc.natgateway",
+  "classes": {
+   "volcenginecc:natgateway/natIp:NatIp": "NatIp"
   }
  },
  {
@@ -726,6 +767,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpc",
   "classes": {
    "volcenginecc:vpc/vpc:Vpc": "Vpc"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "waf/domain",
+  "fqn": "pulumi_volcenginecc.waf",
+  "classes": {
+   "volcenginecc:waf/domain:Domain": "Domain"
   }
  }
 ]

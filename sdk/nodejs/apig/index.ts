@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomDomainArgs, CustomDomainState } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+
 export { GatewayArgs, GatewayState } from "./gateway";
 export type Gateway = import("./gateway").Gateway;
 export const Gateway: typeof import("./gateway").Gateway = null as any;
@@ -14,6 +19,16 @@ export { GatewayServiceArgs, GatewayServiceState } from "./gatewayService";
 export type GatewayService = import("./gatewayService").GatewayService;
 export const GatewayService: typeof import("./gatewayService").GatewayService = null as any;
 utilities.lazyLoad(exports, ["GatewayService"], () => require("./gatewayService"));
+
+export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
+export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
+export const getCustomDomainOutput: typeof import("./getCustomDomain").getCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDomain","getCustomDomainOutput"], () => require("./getCustomDomain"));
+
+export { GetCustomDomainsResult } from "./getCustomDomains";
+export const getCustomDomains: typeof import("./getCustomDomains").getCustomDomains = null as any;
+export const getCustomDomainsOutput: typeof import("./getCustomDomains").getCustomDomainsOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDomains","getCustomDomainsOutput"], () => require("./getCustomDomains"));
 
 export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
 export const getGateway: typeof import("./getGateway").getGateway = null as any;
@@ -70,6 +85,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:apig/customDomain:CustomDomain":
+                return new CustomDomain(name, <any>undefined, { urn })
             case "volcenginecc:apig/gateway:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "volcenginecc:apig/gatewayService:GatewayService":
@@ -83,6 +100,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "apig/customDomain", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/gateway", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/gatewayService", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "apig/upstream", _module)

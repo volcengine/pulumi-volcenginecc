@@ -24,36 +24,26 @@ class ResolverRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
-                 enable: Optional[pulumi.Input[builtins.bool]] = None,
                  endpoint_id: Optional[pulumi.Input[builtins.int]] = None,
-                 endpoint_trn: Optional[pulumi.Input[builtins.str]] = None,
                  forward_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleForwardIPArgs']]]] = None,
                  line: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTagArgs']]]] = None,
                  vp_cs: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleVpCArgs']]]] = None,
-                 vpc_trns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  zone_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverRule resource.
         :param pulumi.Input[builtins.str] name: 转发规则的名称。支持 UTF-8 格式。
         :param pulumi.Input[builtins.str] type: 转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。
-        :param pulumi.Input[builtins.bool] enable: 转发规则是否被启用。true：启用。false：禁用。
         :param pulumi.Input[builtins.int] endpoint_id: 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
-        :param pulumi.Input[builtins.str] endpoint_trn: 终端节点的 TRN。
         :param pulumi.Input[builtins.str] line: 递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通
         :param pulumi.Input[builtins.str] project_name: 转发规则所属的项目名称。默认为 default。
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_trns: 域名所关联的一个或多个 VPC 的 TRN。
         :param pulumi.Input[builtins.str] zone_name: 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
-        if enable is not None:
-            pulumi.set(__self__, "enable", enable)
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
-        if endpoint_trn is not None:
-            pulumi.set(__self__, "endpoint_trn", endpoint_trn)
         if forward_ips is not None:
             pulumi.set(__self__, "forward_ips", forward_ips)
         if line is not None:
@@ -64,8 +54,6 @@ class ResolverRuleArgs:
             pulumi.set(__self__, "tags", tags)
         if vp_cs is not None:
             pulumi.set(__self__, "vp_cs", vp_cs)
-        if vpc_trns is not None:
-            pulumi.set(__self__, "vpc_trns", vpc_trns)
         if zone_name is not None:
             pulumi.set(__self__, "zone_name", zone_name)
 
@@ -94,18 +82,6 @@ class ResolverRuleArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        转发规则是否被启用。true：启用。false：禁用。
-        """
-        return pulumi.get(self, "enable")
-
-    @enable.setter
-    def enable(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "enable", value)
-
-    @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -116,18 +92,6 @@ class ResolverRuleArgs:
     @endpoint_id.setter
     def endpoint_id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "endpoint_id", value)
-
-    @property
-    @pulumi.getter(name="endpointTrn")
-    def endpoint_trn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        终端节点的 TRN。
-        """
-        return pulumi.get(self, "endpoint_trn")
-
-    @endpoint_trn.setter
-    def endpoint_trn(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "endpoint_trn", value)
 
     @property
     @pulumi.getter(name="forwardIPs")
@@ -181,18 +145,6 @@ class ResolverRuleArgs:
         pulumi.set(self, "vp_cs", value)
 
     @property
-    @pulumi.getter(name="vpcTrns")
-    def vpc_trns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        域名所关联的一个或多个 VPC 的 TRN。
-        """
-        return pulumi.get(self, "vpc_trns")
-
-    @vpc_trns.setter
-    def vpc_trns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "vpc_trns", value)
-
-    @property
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -211,7 +163,6 @@ class _ResolverRuleState:
                  created_time: Optional[pulumi.Input[builtins.str]] = None,
                  enable: Optional[pulumi.Input[builtins.bool]] = None,
                  endpoint_id: Optional[pulumi.Input[builtins.int]] = None,
-                 endpoint_trn: Optional[pulumi.Input[builtins.str]] = None,
                  forward_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleForwardIPArgs']]]] = None,
                  last_operator: Optional[pulumi.Input[builtins.str]] = None,
                  line: Optional[pulumi.Input[builtins.str]] = None,
@@ -222,22 +173,19 @@ class _ResolverRuleState:
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  vp_cs: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleVpCArgs']]]] = None,
-                 vpc_trns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  zone_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverRule resources.
         :param pulumi.Input[builtins.str] created_time: 转发规则的创建时间
         :param pulumi.Input[builtins.bool] enable: 转发规则是否被启用。true：启用。false：禁用。
         :param pulumi.Input[builtins.int] endpoint_id: 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
-        :param pulumi.Input[builtins.str] endpoint_trn: 终端节点的 TRN。
-        :param pulumi.Input[builtins.str] last_operator: 最近一次更新转发规则的火山引擎账号的 ID
+        :param pulumi.Input[builtins.str] last_operator: 最近一次更新转发规则的账号的 ID
         :param pulumi.Input[builtins.str] line: 递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通
         :param pulumi.Input[builtins.str] name: 转发规则的名称。支持 UTF-8 格式。
         :param pulumi.Input[builtins.str] project_name: 转发规则所属的项目名称。默认为 default。
         :param pulumi.Input[builtins.str] rule_id: 转发规则的 ID。
         :param pulumi.Input[builtins.str] type: 转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。
         :param pulumi.Input[builtins.str] updated_time: 转发规则的更新时间
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_trns: 域名所关联的一个或多个 VPC 的 TRN。
         :param pulumi.Input[builtins.str] zone_name: 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
         """
         if created_time is not None:
@@ -246,8 +194,6 @@ class _ResolverRuleState:
             pulumi.set(__self__, "enable", enable)
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
-        if endpoint_trn is not None:
-            pulumi.set(__self__, "endpoint_trn", endpoint_trn)
         if forward_ips is not None:
             pulumi.set(__self__, "forward_ips", forward_ips)
         if last_operator is not None:
@@ -268,8 +214,6 @@ class _ResolverRuleState:
             pulumi.set(__self__, "updated_time", updated_time)
         if vp_cs is not None:
             pulumi.set(__self__, "vp_cs", vp_cs)
-        if vpc_trns is not None:
-            pulumi.set(__self__, "vpc_trns", vpc_trns)
         if zone_name is not None:
             pulumi.set(__self__, "zone_name", zone_name)
 
@@ -310,18 +254,6 @@ class _ResolverRuleState:
         pulumi.set(self, "endpoint_id", value)
 
     @property
-    @pulumi.getter(name="endpointTrn")
-    def endpoint_trn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        终端节点的 TRN。
-        """
-        return pulumi.get(self, "endpoint_trn")
-
-    @endpoint_trn.setter
-    def endpoint_trn(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "endpoint_trn", value)
-
-    @property
     @pulumi.getter(name="forwardIPs")
     def forward_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleForwardIPArgs']]]]:
         return pulumi.get(self, "forward_ips")
@@ -334,7 +266,7 @@ class _ResolverRuleState:
     @pulumi.getter(name="lastOperator")
     def last_operator(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        最近一次更新转发规则的火山引擎账号的 ID
+        最近一次更新转发规则的账号的 ID
         """
         return pulumi.get(self, "last_operator")
 
@@ -433,18 +365,6 @@ class _ResolverRuleState:
         pulumi.set(self, "vp_cs", value)
 
     @property
-    @pulumi.getter(name="vpcTrns")
-    def vpc_trns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        域名所关联的一个或多个 VPC 的 TRN。
-        """
-        return pulumi.get(self, "vpc_trns")
-
-    @vpc_trns.setter
-    def vpc_trns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "vpc_trns", value)
-
-    @property
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -463,9 +383,7 @@ class ResolverRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable: Optional[pulumi.Input[builtins.bool]] = None,
                  endpoint_id: Optional[pulumi.Input[builtins.int]] = None,
-                 endpoint_trn: Optional[pulumi.Input[builtins.str]] = None,
                  forward_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleForwardIPArgs', 'ResolverRuleForwardIPArgsDict']]]]] = None,
                  line: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -473,7 +391,6 @@ class ResolverRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTagArgs', 'ResolverRuleTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vp_cs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleVpCArgs', 'ResolverRuleVpCArgsDict']]]]] = None,
-                 vpc_trns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  zone_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -487,14 +404,11 @@ class ResolverRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] enable: 转发规则是否被启用。true：启用。false：禁用。
         :param pulumi.Input[builtins.int] endpoint_id: 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
-        :param pulumi.Input[builtins.str] endpoint_trn: 终端节点的 TRN。
         :param pulumi.Input[builtins.str] line: 递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通
         :param pulumi.Input[builtins.str] name: 转发规则的名称。支持 UTF-8 格式。
         :param pulumi.Input[builtins.str] project_name: 转发规则所属的项目名称。默认为 default。
         :param pulumi.Input[builtins.str] type: 转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_trns: 域名所关联的一个或多个 VPC 的 TRN。
         :param pulumi.Input[builtins.str] zone_name: 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
         """
         ...
@@ -527,9 +441,7 @@ class ResolverRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable: Optional[pulumi.Input[builtins.bool]] = None,
                  endpoint_id: Optional[pulumi.Input[builtins.int]] = None,
-                 endpoint_trn: Optional[pulumi.Input[builtins.str]] = None,
                  forward_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleForwardIPArgs', 'ResolverRuleForwardIPArgsDict']]]]] = None,
                  line: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -537,7 +449,6 @@ class ResolverRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleTagArgs', 'ResolverRuleTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  vp_cs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleVpCArgs', 'ResolverRuleVpCArgsDict']]]]] = None,
-                 vpc_trns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  zone_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -548,9 +459,7 @@ class ResolverRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResolverRuleArgs.__new__(ResolverRuleArgs)
 
-            __props__.__dict__["enable"] = enable
             __props__.__dict__["endpoint_id"] = endpoint_id
-            __props__.__dict__["endpoint_trn"] = endpoint_trn
             __props__.__dict__["forward_ips"] = forward_ips
             __props__.__dict__["line"] = line
             if name is None and not opts.urn:
@@ -562,9 +471,9 @@ class ResolverRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["vp_cs"] = vp_cs
-            __props__.__dict__["vpc_trns"] = vpc_trns
             __props__.__dict__["zone_name"] = zone_name
             __props__.__dict__["created_time"] = None
+            __props__.__dict__["enable"] = None
             __props__.__dict__["last_operator"] = None
             __props__.__dict__["rule_id"] = None
             __props__.__dict__["updated_time"] = None
@@ -581,7 +490,6 @@ class ResolverRule(pulumi.CustomResource):
             created_time: Optional[pulumi.Input[builtins.str]] = None,
             enable: Optional[pulumi.Input[builtins.bool]] = None,
             endpoint_id: Optional[pulumi.Input[builtins.int]] = None,
-            endpoint_trn: Optional[pulumi.Input[builtins.str]] = None,
             forward_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleForwardIPArgs', 'ResolverRuleForwardIPArgsDict']]]]] = None,
             last_operator: Optional[pulumi.Input[builtins.str]] = None,
             line: Optional[pulumi.Input[builtins.str]] = None,
@@ -592,7 +500,6 @@ class ResolverRule(pulumi.CustomResource):
             type: Optional[pulumi.Input[builtins.str]] = None,
             updated_time: Optional[pulumi.Input[builtins.str]] = None,
             vp_cs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResolverRuleVpCArgs', 'ResolverRuleVpCArgsDict']]]]] = None,
-            vpc_trns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             zone_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ResolverRule':
         """
         Get an existing ResolverRule resource's state with the given name, id, and optional extra
@@ -604,15 +511,13 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_time: 转发规则的创建时间
         :param pulumi.Input[builtins.bool] enable: 转发规则是否被启用。true：启用。false：禁用。
         :param pulumi.Input[builtins.int] endpoint_id: 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
-        :param pulumi.Input[builtins.str] endpoint_trn: 终端节点的 TRN。
-        :param pulumi.Input[builtins.str] last_operator: 最近一次更新转发规则的火山引擎账号的 ID
+        :param pulumi.Input[builtins.str] last_operator: 最近一次更新转发规则的账号的 ID
         :param pulumi.Input[builtins.str] line: 递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通
         :param pulumi.Input[builtins.str] name: 转发规则的名称。支持 UTF-8 格式。
         :param pulumi.Input[builtins.str] project_name: 转发规则所属的项目名称。默认为 default。
         :param pulumi.Input[builtins.str] rule_id: 转发规则的 ID。
         :param pulumi.Input[builtins.str] type: 转发规则类型。OUTBOUND：转发到外部的 DNS 服务器。LINE：自定义公网递归 DNS 服务器的出口 IP 地址的运营商。
         :param pulumi.Input[builtins.str] updated_time: 转发规则的更新时间
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_trns: 域名所关联的一个或多个 VPC 的 TRN。
         :param pulumi.Input[builtins.str] zone_name: 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -622,7 +527,6 @@ class ResolverRule(pulumi.CustomResource):
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["enable"] = enable
         __props__.__dict__["endpoint_id"] = endpoint_id
-        __props__.__dict__["endpoint_trn"] = endpoint_trn
         __props__.__dict__["forward_ips"] = forward_ips
         __props__.__dict__["last_operator"] = last_operator
         __props__.__dict__["line"] = line
@@ -633,7 +537,6 @@ class ResolverRule(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         __props__.__dict__["updated_time"] = updated_time
         __props__.__dict__["vp_cs"] = vp_cs
-        __props__.__dict__["vpc_trns"] = vpc_trns
         __props__.__dict__["zone_name"] = zone_name
         return ResolverRule(resource_name, opts=opts, __props__=__props__)
 
@@ -662,14 +565,6 @@ class ResolverRule(pulumi.CustomResource):
         return pulumi.get(self, "endpoint_id")
 
     @property
-    @pulumi.getter(name="endpointTrn")
-    def endpoint_trn(self) -> pulumi.Output[builtins.str]:
-        """
-        终端节点的 TRN。
-        """
-        return pulumi.get(self, "endpoint_trn")
-
-    @property
     @pulumi.getter(name="forwardIPs")
     def forward_ips(self) -> pulumi.Output[Sequence['outputs.ResolverRuleForwardIP']]:
         return pulumi.get(self, "forward_ips")
@@ -678,7 +573,7 @@ class ResolverRule(pulumi.CustomResource):
     @pulumi.getter(name="lastOperator")
     def last_operator(self) -> pulumi.Output[builtins.str]:
         """
-        最近一次更新转发规则的火山引擎账号的 ID
+        最近一次更新转发规则的账号的 ID
         """
         return pulumi.get(self, "last_operator")
 
@@ -739,14 +634,6 @@ class ResolverRule(pulumi.CustomResource):
     @pulumi.getter(name="vpCs")
     def vp_cs(self) -> pulumi.Output[Sequence['outputs.ResolverRuleVpC']]:
         return pulumi.get(self, "vp_cs")
-
-    @property
-    @pulumi.getter(name="vpcTrns")
-    def vpc_trns(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        域名所关联的一个或多个 VPC 的 TRN。
-        """
-        return pulumi.get(self, "vpc_trns")
 
     @property
     @pulumi.getter(name="zoneName")

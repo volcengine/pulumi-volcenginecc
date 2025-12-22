@@ -15,17 +15,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone.Outputs
     public sealed class ResolverRuleVpC
     {
         /// <summary>
-        /// 创建该 VPC 的火山引擎账号 ID。
-        /// </summary>
-        public readonly string? AccountId;
-        /// <summary>
         /// VPC 的地域。
         /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// VPC 的地域的名称。
-        /// </summary>
-        public readonly string? RegionName;
         /// <summary>
         /// VPC 的 ID。
         /// </summary>
@@ -33,17 +25,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone.Outputs
 
         [OutputConstructor]
         private ResolverRuleVpC(
-            string? accountId,
-
             string? region,
-
-            string? regionName,
 
             string? vpcId)
         {
-            AccountId = accountId;
             Region = region;
-            RegionName = regionName;
             VpcId = vpcId;
         }
     }

@@ -290,21 +290,6 @@ public final class InstanceInstanceConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * 包年包月实例购买时长。
-     * 
-     */
-    @Import(name="includeMonths")
-    private @Nullable Output<Integer> includeMonths;
-
-    /**
-     * @return 包年包月实例购买时长。
-     * 
-     */
-    public Optional<Output<Integer>> includeMonths() {
-        return Optional.ofNullable(this.includeMonths);
-    }
-
-    /**
      * 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
      * 
      */
@@ -600,7 +585,6 @@ public final class InstanceInstanceConfigurationArgs extends com.pulumi.resource
         this.hotNodeNumber = $.hotNodeNumber;
         this.hotNodeResourceSpec = $.hotNodeResourceSpec;
         this.hotNodeStorageSpec = $.hotNodeStorageSpec;
-        this.includeMonths = $.includeMonths;
         this.instanceName = $.instanceName;
         this.kibanaNodeNumber = $.kibanaNodeNumber;
         this.kibanaNodeResourceSpec = $.kibanaNodeResourceSpec;
@@ -996,27 +980,6 @@ public final class InstanceInstanceConfigurationArgs extends com.pulumi.resource
          */
         public Builder hotNodeStorageSpec(InstanceInstanceConfigurationHotNodeStorageSpecArgs hotNodeStorageSpec) {
             return hotNodeStorageSpec(Output.of(hotNodeStorageSpec));
-        }
-
-        /**
-         * @param includeMonths 包年包月实例购买时长。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder includeMonths(@Nullable Output<Integer> includeMonths) {
-            $.includeMonths = includeMonths;
-            return this;
-        }
-
-        /**
-         * @param includeMonths 包年包月实例购买时长。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder includeMonths(Integer includeMonths) {
-            return includeMonths(Output.of(includeMonths));
         }
 
         /**

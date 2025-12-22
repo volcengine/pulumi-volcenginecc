@@ -116,11 +116,6 @@ public final class InstanceInstanceConfiguration {
      */
     private @Nullable InstanceInstanceConfigurationHotNodeStorageSpec hotNodeStorageSpec;
     /**
-     * @return 包年包月实例购买时长。
-     * 
-     */
-    private @Nullable Integer includeMonths;
-    /**
      * @return 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
      * 
      */
@@ -330,13 +325,6 @@ public final class InstanceInstanceConfiguration {
         return Optional.ofNullable(this.hotNodeStorageSpec);
     }
     /**
-     * @return 包年包月实例购买时长。
-     * 
-     */
-    public Optional<Integer> includeMonths() {
-        return Optional.ofNullable(this.includeMonths);
-    }
-    /**
      * @return 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
      * 
      */
@@ -491,7 +479,6 @@ public final class InstanceInstanceConfiguration {
         private @Nullable Integer hotNodeNumber;
         private @Nullable InstanceInstanceConfigurationHotNodeResourceSpec hotNodeResourceSpec;
         private @Nullable InstanceInstanceConfigurationHotNodeStorageSpec hotNodeStorageSpec;
-        private @Nullable Integer includeMonths;
         private @Nullable String instanceName;
         private @Nullable Integer kibanaNodeNumber;
         private @Nullable InstanceInstanceConfigurationKibanaNodeResourceSpec kibanaNodeResourceSpec;
@@ -532,7 +519,6 @@ public final class InstanceInstanceConfiguration {
     	      this.hotNodeNumber = defaults.hotNodeNumber;
     	      this.hotNodeResourceSpec = defaults.hotNodeResourceSpec;
     	      this.hotNodeStorageSpec = defaults.hotNodeStorageSpec;
-    	      this.includeMonths = defaults.includeMonths;
     	      this.instanceName = defaults.instanceName;
     	      this.kibanaNodeNumber = defaults.kibanaNodeNumber;
     	      this.kibanaNodeResourceSpec = defaults.kibanaNodeResourceSpec;
@@ -655,12 +641,6 @@ public final class InstanceInstanceConfiguration {
         public Builder hotNodeStorageSpec(@Nullable InstanceInstanceConfigurationHotNodeStorageSpec hotNodeStorageSpec) {
 
             this.hotNodeStorageSpec = hotNodeStorageSpec;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder includeMonths(@Nullable Integer includeMonths) {
-
-            this.includeMonths = includeMonths;
             return this;
         }
         @CustomType.Setter
@@ -811,7 +791,6 @@ public final class InstanceInstanceConfiguration {
             _resultValue.hotNodeNumber = hotNodeNumber;
             _resultValue.hotNodeResourceSpec = hotNodeResourceSpec;
             _resultValue.hotNodeStorageSpec = hotNodeStorageSpec;
-            _resultValue.includeMonths = includeMonths;
             _resultValue.instanceName = instanceName;
             _resultValue.kibanaNodeNumber = kibanaNodeNumber;
             _resultValue.kibanaNodeResourceSpec = kibanaNodeResourceSpec;

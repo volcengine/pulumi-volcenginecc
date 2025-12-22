@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.privatezone.inputs.ResolverRuleForwardIPArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.ResolverRuleTagArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.ResolverRuleVpCArgs;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -21,21 +20,6 @@ import javax.annotation.Nullable;
 public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ResolverRuleArgs Empty = new ResolverRuleArgs();
-
-    /**
-     * 转发规则是否被启用。true：启用。false：禁用。
-     * 
-     */
-    @Import(name="enable")
-    private @Nullable Output<Boolean> enable;
-
-    /**
-     * @return 转发规则是否被启用。true：启用。false：禁用。
-     * 
-     */
-    public Optional<Output<Boolean>> enable() {
-        return Optional.ofNullable(this.enable);
-    }
 
     /**
      * 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
@@ -50,21 +34,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> endpointId() {
         return Optional.ofNullable(this.endpointId);
-    }
-
-    /**
-     * 终端节点的 TRN。
-     * 
-     */
-    @Import(name="endpointTrn")
-    private @Nullable Output<String> endpointTrn;
-
-    /**
-     * @return 终端节点的 TRN。
-     * 
-     */
-    public Optional<Output<String>> endpointTrn() {
-        return Optional.ofNullable(this.endpointTrn);
     }
 
     @Import(name="forwardIPs")
@@ -149,21 +118,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    @Import(name="vpcTrns")
-    private @Nullable Output<List<String>> vpcTrns;
-
-    /**
-     * @return 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    public Optional<Output<List<String>>> vpcTrns() {
-        return Optional.ofNullable(this.vpcTrns);
-    }
-
-    /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      * 
      */
@@ -181,9 +135,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     private ResolverRuleArgs() {}
 
     private ResolverRuleArgs(ResolverRuleArgs $) {
-        this.enable = $.enable;
         this.endpointId = $.endpointId;
-        this.endpointTrn = $.endpointTrn;
         this.forwardIPs = $.forwardIPs;
         this.line = $.line;
         this.name = $.name;
@@ -191,7 +143,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.type = $.type;
         this.vpCs = $.vpCs;
-        this.vpcTrns = $.vpcTrns;
         this.zoneName = $.zoneName;
     }
 
@@ -214,27 +165,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable 转发规则是否被启用。true：启用。false：禁用。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enable(@Nullable Output<Boolean> enable) {
-            $.enable = enable;
-            return this;
-        }
-
-        /**
-         * @param enable 转发规则是否被启用。true：启用。false：禁用。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enable(Boolean enable) {
-            return enable(Output.of(enable));
-        }
-
-        /**
          * @param endpointId 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
          * 
          * @return builder
@@ -253,27 +183,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpointId(Integer endpointId) {
             return endpointId(Output.of(endpointId));
-        }
-
-        /**
-         * @param endpointTrn 终端节点的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder endpointTrn(@Nullable Output<String> endpointTrn) {
-            $.endpointTrn = endpointTrn;
-            return this;
-        }
-
-        /**
-         * @param endpointTrn 终端节点的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder endpointTrn(String endpointTrn) {
-            return endpointTrn(Output.of(endpointTrn));
         }
 
         public Builder forwardIPs(@Nullable Output<List<ResolverRuleForwardIPArgs>> forwardIPs) {
@@ -397,37 +306,6 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder vpCs(ResolverRuleVpCArgs... vpCs) {
             return vpCs(List.of(vpCs));
-        }
-
-        /**
-         * @param vpcTrns 域名所关联的一个或多个 VPC 的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcTrns(@Nullable Output<List<String>> vpcTrns) {
-            $.vpcTrns = vpcTrns;
-            return this;
-        }
-
-        /**
-         * @param vpcTrns 域名所关联的一个或多个 VPC 的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcTrns(List<String> vpcTrns) {
-            return vpcTrns(Output.of(vpcTrns));
-        }
-
-        /**
-         * @param vpcTrns 域名所关联的一个或多个 VPC 的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcTrns(String... vpcTrns) {
-            return vpcTrns(List.of(vpcTrns));
         }
 
         /**

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateTag {
+    /**
+     * @return 用户标签的标签键。
+     * 
+     */
     private @Nullable String key;
+    /**
+     * @return 用户标签的标签值。
+     * 
+     */
     private @Nullable String value;
 
     private CertificateTag() {}
+    /**
+     * @return 用户标签的标签键。
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return 用户标签的标签值。
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }
