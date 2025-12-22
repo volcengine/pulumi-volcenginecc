@@ -77,7 +77,13 @@ export namespace alb {
     }
 
     export interface CertificateTag {
+        /**
+         * 用户标签的标签键。
+         */
         key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
         value?: pulumi.Input<string>;
     }
 
@@ -2431,10 +2437,6 @@ export namespace escloud {
          */
         hotNodeStorageSpec?: pulumi.Input<inputs.escloud.InstanceInstanceConfigurationHotNodeStorageSpec>;
         /**
-         * 包年包月实例购买时长。
-         */
-        includeMonths?: pulumi.Input<number>;
-        /**
          * 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
          */
         instanceName?: pulumi.Input<string>;
@@ -2978,6 +2980,46 @@ export namespace filenas {
     }
 }
 
+export namespace hbase {
+    export interface InstanceEndpoint {
+        /**
+         * 连接地址类型，关于连接地址的更多信息，请参见连接地址类型。取值范围如下：Zk：ZK 地址。Thrift：Thrift2 地址。HBaseReUsedEipId：当 ZK 连接地址或 Thrift2 连接地址开启了公网访问时，会返回该参数，表示实例中其他组件（如 RS 节点、Master 节点等）共享绑定使用的 EIP ID 信息。
+         */
+        addressType?: pulumi.Input<string>;
+        /**
+         * 当 ZK 连接地址或 Thrift2 连接地址开启了公网访问时，会返回该参数，表示 EIP ID。
+         */
+        eipId?: pulumi.Input<string>;
+        /**
+         * 连接地址 ID。说明默认仅返回 ZK 私网连接地址。若您申请了 Thrift2 连接地址，或者为 ZK 或 Thrift2 连接地址开启了公网访问，那么还会同时对应连接地址的 ID。当连接地址类型为 HBaseReUsedEipId 时，连接地址 ID 也固定为 HBaseReUsedEipId。
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * 连接地址的连接串。说明默认仅返回 ZK 私网连接地址。若您申请了 Thrift2 连接地址，或者为 ZK 或 Thrift2 连接地址开启了公网访问，那么还会同时对应连接地址的连接串。当连接地址类型为 HBaseReUsedEipId 时，连接地址的连接串也固定为 HBaseReUsedEipId。
+         */
+        endpointStr?: pulumi.Input<string>;
+        /**
+         * 连接地址网络类型。取值范围如下：Public：公网访问地址。Private：私网访问地址。
+         */
+        networkType?: pulumi.Input<string>;
+        /**
+         * 私网域名是否开启公网解析。
+         */
+        privateDnsVisibility?: pulumi.Input<boolean>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 实例所绑定标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 实例所绑定标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace iam {
     export interface GroupAttachedPolicy {
         /**
@@ -3209,6 +3251,213 @@ export namespace kafka {
     }
 }
 
+export namespace kms {
+}
+
+export namespace mongodb {
+    export interface InstanceConfigServer {
+        /**
+         * ConfigServer 的节点 ID。
+         */
+        configServerNodeId?: pulumi.Input<string>;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。
+         */
+        nodeRole?: pulumi.Input<string>;
+        /**
+         * 节点状态。
+         */
+        nodeStatus?: pulumi.Input<string>;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb?: pulumi.Input<number>;
+        /**
+         * 总核数。
+         */
+        totalvCpu?: pulumi.Input<number>;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb?: pulumi.Input<number>;
+        /**
+         * 已用核数。
+         */
+        usedvCpu?: pulumi.Input<number>;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceMongo {
+        /**
+         * Mongos 的节点 ID。
+         */
+        mongosNodeId?: pulumi.Input<string>;
+        /**
+         * 节点规格。
+         */
+        nodeSpec?: pulumi.Input<string>;
+        /**
+         * 节点状态。
+         */
+        nodeStatus?: pulumi.Input<string>;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb?: pulumi.Input<number>;
+        /**
+         * 总核数。
+         */
+        totalvCpu?: pulumi.Input<number>;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb?: pulumi.Input<number>;
+        /**
+         * 已用核数。
+         */
+        usedvCpu?: pulumi.Input<number>;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceNode {
+        /**
+         * 节点延迟时间。单位：秒。
+         */
+        nodeDelayTime?: pulumi.Input<number>;
+        /**
+         * 节点 ID。
+         */
+        nodeId?: pulumi.Input<string>;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。ReadOnly：只读节点。
+         */
+        nodeRole?: pulumi.Input<string>;
+        /**
+         * 节点规格。
+         */
+        nodeSpec?: pulumi.Input<string>;
+        /**
+         * 节点状态。
+         */
+        nodeStatus?: pulumi.Input<string>;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb?: pulumi.Input<number>;
+        /**
+         * 该节点的总存储空间。单位：GiB。
+         */
+        totalStorageGb?: pulumi.Input<number>;
+        /**
+         * 总核数。
+         */
+        totalvCpu?: pulumi.Input<number>;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb?: pulumi.Input<number>;
+        /**
+         * 该节点已用的存储空间。单位：GiB。
+         */
+        usedStorageGb?: pulumi.Input<number>;
+        /**
+         * 已用核数。
+         */
+        usedvCpu?: pulumi.Input<number>;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceNodeAvailabilityZone {
+        /**
+         * 当前可用区中需要添加的只读节点数量。当前仅副本集实例和分片集群实例中 Shard 分片支持添加只读节点。其中：当实例类型为副本集（即 InstanceType 取值为 ReplicaSet）时，该值表示单个副本集实例中的只读节点总数量。每个副本集实例最多支持添加 5 个只读节点。当实例类型为分片集群（即 InstanceType 取值为 ShardedCluster）时，该值表示每个 Shard 分片中的只读节点数量。每个 Shard 分片最多添加 5 个只读节点。
+         */
+        nodeNumber?: pulumi.Input<number>;
+        /**
+         * 只读节点所在的可用区。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceShard {
+        nodes?: pulumi.Input<pulumi.Input<inputs.mongodb.InstanceShardNode>[]>;
+        /**
+         * Shard 节点的 ID。
+         */
+        shardId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceShardNode {
+        /**
+         * 节点延迟时间。单位：秒。
+         */
+        nodeDelayTime?: pulumi.Input<number>;
+        /**
+         * 节点 ID。
+         */
+        nodeId?: pulumi.Input<string>;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。ReadOnly：只读节点。
+         */
+        nodeRole?: pulumi.Input<string>;
+        /**
+         * 节点规格。
+         */
+        nodeSpec?: pulumi.Input<string>;
+        /**
+         * 节点状态。
+         */
+        nodeStatus?: pulumi.Input<string>;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb?: pulumi.Input<number>;
+        /**
+         * 该节点的总存储空间。单位：GiB。
+         */
+        totalStorageGb?: pulumi.Input<number>;
+        /**
+         * 总核数。
+         */
+        totalvCpu?: pulumi.Input<number>;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb?: pulumi.Input<number>;
+        /**
+         * 该节点已用的存储空间。单位：GiB。
+         */
+        usedStorageGb?: pulumi.Input<number>;
+        /**
+         * 已用核数。
+         */
+        usedvCpu?: pulumi.Input<number>;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace natgateway {
     export interface NgwEipAddress {
         /**
@@ -3303,17 +3552,9 @@ export namespace privatezone {
 
     export interface ResolverRuleVpC {
         /**
-         * 创建该 VPC 的火山引擎账号 ID。
-         */
-        accountId?: pulumi.Input<string>;
-        /**
          * VPC 的地域。
          */
         region?: pulumi.Input<string>;
-        /**
-         * VPC 的地域的名称。
-         */
-        regionName?: pulumi.Input<string>;
         /**
          * VPC 的 ID。
          */
@@ -5798,4 +6039,108 @@ export namespace vpc {
 }
 
 export namespace waf {
+    export interface DomainBackendGroup {
+        /**
+         * 接入的端口号。
+         */
+        accessPorts?: pulumi.Input<pulumi.Input<number>[]>;
+        backends?: pulumi.Input<pulumi.Input<inputs.waf.DomainBackendGroupBackend>[]>;
+        /**
+         * 源站组名称。
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface DomainBackendGroupBackend {
+        /**
+         * 源站 IP 地址。
+         */
+        ip?: pulumi.Input<string>;
+        /**
+         * 源站端口。
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * 源站协议。
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * 源站权重。
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface DomainCloudAccessConfig {
+        /**
+         * 接入协议类型。
+         */
+        accessProtocol?: pulumi.Input<string>;
+        /**
+         * 防护模式。
+         */
+        defenceMode?: pulumi.Input<number>;
+        /**
+         * 负载均衡实例 ID。
+         */
+        instanceId?: pulumi.Input<string>;
+        /**
+         * 负载均衡实例名称。
+         */
+        instanceName?: pulumi.Input<string>;
+        /**
+         * 负载均衡监听器 ID。
+         */
+        listenerId?: pulumi.Input<string>;
+        lostAssociationFromAlb?: pulumi.Input<number>;
+        /**
+         * 监听器转发规则的端口号。
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * 监听器转发规则的协议类型。
+         */
+        protocol?: pulumi.Input<string>;
+    }
+
+    export interface DomainProtocolPorts {
+        /**
+         * HTTP 协议的端口号。
+         */
+        http?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * HTTPS 协议的端口号。
+         */
+        https?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface DomainTcpListenerConfig {
+        accessProtocol?: pulumi.Input<string>;
+        defenceMode?: pulumi.Input<number>;
+        instanceId?: pulumi.Input<string>;
+        instanceName?: pulumi.Input<string>;
+        listenerId?: pulumi.Input<string>;
+        lostAssociationFromAlb?: pulumi.Input<number>;
+        port?: pulumi.Input<string>;
+        protocol?: pulumi.Input<string>;
+    }
+
+    export interface DomainTlsFieldsConfig {
+        headersConfig?: pulumi.Input<inputs.waf.DomainTlsFieldsConfigHeadersConfig>;
+    }
+
+    export interface DomainTlsFieldsConfigHeadersConfig {
+        /**
+         * 是否记录全量 header。
+         */
+        enable?: pulumi.Input<number>;
+        /**
+         * 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+         */
+        excludedKeyLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 统计 header 字段，将对应字段用于日志统计分析和告警。
+         */
+        statisticalKeyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
 }

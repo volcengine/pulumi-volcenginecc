@@ -102,8 +102,6 @@ class InstanceInstanceConfiguration(dict):
             suggest = "hot_node_resource_spec"
         elif key == "hotNodeStorageSpec":
             suggest = "hot_node_storage_spec"
-        elif key == "includeMonths":
-            suggest = "include_months"
         elif key == "instanceName":
             suggest = "instance_name"
         elif key == "kibanaNodeNumber":
@@ -164,7 +162,6 @@ class InstanceInstanceConfiguration(dict):
                  hot_node_number: Optional[builtins.int] = None,
                  hot_node_resource_spec: Optional['outputs.InstanceInstanceConfigurationHotNodeResourceSpec'] = None,
                  hot_node_storage_spec: Optional['outputs.InstanceInstanceConfigurationHotNodeStorageSpec'] = None,
-                 include_months: Optional[builtins.int] = None,
                  instance_name: Optional[builtins.str] = None,
                  kibana_node_number: Optional[builtins.int] = None,
                  kibana_node_resource_spec: Optional['outputs.InstanceInstanceConfigurationKibanaNodeResourceSpec'] = None,
@@ -203,7 +200,6 @@ class InstanceInstanceConfiguration(dict):
         :param builtins.int hot_node_number: 数据节点数量。
         :param 'InstanceInstanceConfigurationHotNodeResourceSpecArgs' hot_node_resource_spec: 数据节点的节点规格配置详情。
         :param 'InstanceInstanceConfigurationHotNodeStorageSpecArgs' hot_node_storage_spec: 数据节点的存储规格配置详情。
-        :param builtins.int include_months: 包年包月实例购买时长。
         :param builtins.str instance_name: 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
         :param builtins.int kibana_node_number: kibana 节点数量。
         :param 'InstanceInstanceConfigurationKibanaNodeResourceSpecArgs' kibana_node_resource_spec: Kibana 节点的节点规格配置详情。
@@ -256,8 +252,6 @@ class InstanceInstanceConfiguration(dict):
             pulumi.set(__self__, "hot_node_resource_spec", hot_node_resource_spec)
         if hot_node_storage_spec is not None:
             pulumi.set(__self__, "hot_node_storage_spec", hot_node_storage_spec)
-        if include_months is not None:
-            pulumi.set(__self__, "include_months", include_months)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
         if kibana_node_number is not None:
@@ -434,14 +428,6 @@ class InstanceInstanceConfiguration(dict):
         数据节点的存储规格配置详情。
         """
         return pulumi.get(self, "hot_node_storage_spec")
-
-    @property
-    @pulumi.getter(name="includeMonths")
-    def include_months(self) -> Optional[builtins.int]:
-        """
-        包年包月实例购买时长。
-        """
-        return pulumi.get(self, "include_months")
 
     @property
     @pulumi.getter(name="instanceName")
@@ -2257,7 +2243,6 @@ class GetInstanceInstanceConfigurationResult(dict):
                  hot_node_number: builtins.int,
                  hot_node_resource_spec: 'outputs.GetInstanceInstanceConfigurationHotNodeResourceSpecResult',
                  hot_node_storage_spec: 'outputs.GetInstanceInstanceConfigurationHotNodeStorageSpecResult',
-                 include_months: builtins.int,
                  instance_name: builtins.str,
                  kibana_node_number: builtins.int,
                  kibana_node_resource_spec: 'outputs.GetInstanceInstanceConfigurationKibanaNodeResourceSpecResult',
@@ -2296,7 +2281,6 @@ class GetInstanceInstanceConfigurationResult(dict):
         :param builtins.int hot_node_number: 数据节点数量。
         :param 'GetInstanceInstanceConfigurationHotNodeResourceSpecArgs' hot_node_resource_spec: 数据节点的节点规格配置详情。
         :param 'GetInstanceInstanceConfigurationHotNodeStorageSpecArgs' hot_node_storage_spec: 数据节点的存储规格配置详情。
-        :param builtins.int include_months: 包年包月实例购买时长。
         :param builtins.str instance_name: 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
         :param builtins.int kibana_node_number: kibana 节点数量。
         :param 'GetInstanceInstanceConfigurationKibanaNodeResourceSpecArgs' kibana_node_resource_spec: Kibana 节点的节点规格配置详情。
@@ -2335,7 +2319,6 @@ class GetInstanceInstanceConfigurationResult(dict):
         pulumi.set(__self__, "hot_node_number", hot_node_number)
         pulumi.set(__self__, "hot_node_resource_spec", hot_node_resource_spec)
         pulumi.set(__self__, "hot_node_storage_spec", hot_node_storage_spec)
-        pulumi.set(__self__, "include_months", include_months)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "kibana_node_number", kibana_node_number)
         pulumi.set(__self__, "kibana_node_resource_spec", kibana_node_resource_spec)
@@ -2492,14 +2475,6 @@ class GetInstanceInstanceConfigurationResult(dict):
         数据节点的存储规格配置详情。
         """
         return pulumi.get(self, "hot_node_storage_spec")
-
-    @property
-    @pulumi.getter(name="includeMonths")
-    def include_months(self) -> builtins.int:
-        """
-        包年包月实例购买时长。
-        """
-        return pulumi.get(self, "include_months")
 
     @property
     @pulumi.getter(name="instanceName")

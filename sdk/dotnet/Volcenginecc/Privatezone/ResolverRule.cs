@@ -40,17 +40,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
         [Output("endpointId")]
         public Output<int> EndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// 终端节点的 TRN。
-        /// </summary>
-        [Output("endpointTrn")]
-        public Output<string> EndpointTrn { get; private set; } = null!;
-
         [Output("forwardIPs")]
         public Output<ImmutableArray<Outputs.ResolverRuleForwardIP>> ForwardIPs { get; private set; } = null!;
 
         /// <summary>
-        /// 最近一次更新转发规则的火山引擎账号的 ID
+        /// 最近一次更新转发规则的账号的 ID
         /// </summary>
         [Output("lastOperator")]
         public Output<string> LastOperator { get; private set; } = null!;
@@ -96,12 +90,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
 
         [Output("vpCs")]
         public Output<ImmutableArray<Outputs.ResolverRuleVpC>> VpCs { get; private set; } = null!;
-
-        /// <summary>
-        /// 域名所关联的一个或多个 VPC 的 TRN。
-        /// </summary>
-        [Output("vpcTrns")]
-        public Output<ImmutableArray<string>> VpcTrns { get; private set; } = null!;
 
         /// <summary>
         /// 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
@@ -157,22 +145,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
     public sealed class ResolverRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 转发规则是否被启用。true：启用。false：禁用。
-        /// </summary>
-        [Input("enable")]
-        public Input<bool>? Enable { get; set; }
-
-        /// <summary>
         /// 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
         /// </summary>
         [Input("endpointId")]
         public Input<int>? EndpointId { get; set; }
-
-        /// <summary>
-        /// 终端节点的 TRN。
-        /// </summary>
-        [Input("endpointTrn")]
-        public Input<string>? EndpointTrn { get; set; }
 
         [Input("forwardIPs")]
         private InputList<Inputs.ResolverRuleForwardIPArgs>? _forwardIPs;
@@ -222,18 +198,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
             set => _vpCs = value;
         }
 
-        [Input("vpcTrns")]
-        private InputList<string>? _vpcTrns;
-
-        /// <summary>
-        /// 域名所关联的一个或多个 VPC 的 TRN。
-        /// </summary>
-        public InputList<string> VpcTrns
-        {
-            get => _vpcTrns ?? (_vpcTrns = new InputList<string>());
-            set => _vpcTrns = value;
-        }
-
         /// <summary>
         /// 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
         /// </summary>
@@ -266,12 +230,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
         [Input("endpointId")]
         public Input<int>? EndpointId { get; set; }
 
-        /// <summary>
-        /// 终端节点的 TRN。
-        /// </summary>
-        [Input("endpointTrn")]
-        public Input<string>? EndpointTrn { get; set; }
-
         [Input("forwardIPs")]
         private InputList<Inputs.ResolverRuleForwardIPGetArgs>? _forwardIPs;
         public InputList<Inputs.ResolverRuleForwardIPGetArgs> ForwardIPs
@@ -281,7 +239,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
         }
 
         /// <summary>
-        /// 最近一次更新转发规则的火山引擎账号的 ID
+        /// 最近一次更新转发规则的账号的 ID
         /// </summary>
         [Input("lastOperator")]
         public Input<string>? LastOperator { get; set; }
@@ -336,18 +294,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
         {
             get => _vpCs ?? (_vpCs = new InputList<Inputs.ResolverRuleVpCGetArgs>());
             set => _vpCs = value;
-        }
-
-        [Input("vpcTrns")]
-        private InputList<string>? _vpcTrns;
-
-        /// <summary>
-        /// 域名所关联的一个或多个 VPC 的 TRN。
-        /// </summary>
-        public InputList<string> VpcTrns
-        {
-            get => _vpcTrns ?? (_vpcTrns = new InputList<string>());
-            set => _vpcTrns = value;
         }
 
         /// <summary>

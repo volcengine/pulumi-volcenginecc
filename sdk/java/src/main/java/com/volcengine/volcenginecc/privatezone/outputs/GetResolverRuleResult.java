@@ -32,11 +32,6 @@ public final class GetResolverRuleResult {
      */
     private Integer endpointId;
     /**
-     * @return 终端节点的 TRN。
-     * 
-     */
-    private String endpointTrn;
-    /**
      * @return 外部的 DNS 服务器的 IP 地址和端口。您最多只能添加 10 个 IP 地址。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
      * 
      */
@@ -47,7 +42,7 @@ public final class GetResolverRuleResult {
      */
     private String id;
     /**
-     * @return 最近一次更新转发规则的火山引擎账号的 ID
+     * @return 最近一次更新转发规则的账号的 ID
      * 
      */
     private String lastOperator;
@@ -92,11 +87,6 @@ public final class GetResolverRuleResult {
      */
     private List<GetResolverRuleVpC> vpCs;
     /**
-     * @return 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    private List<String> vpcTrns;
-    /**
      * @return 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      * 
      */
@@ -125,13 +115,6 @@ public final class GetResolverRuleResult {
         return this.endpointId;
     }
     /**
-     * @return 终端节点的 TRN。
-     * 
-     */
-    public String endpointTrn() {
-        return this.endpointTrn;
-    }
-    /**
      * @return 外部的 DNS 服务器的 IP 地址和端口。您最多只能添加 10 个 IP 地址。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
      * 
      */
@@ -146,7 +129,7 @@ public final class GetResolverRuleResult {
         return this.id;
     }
     /**
-     * @return 最近一次更新转发规则的火山引擎账号的 ID
+     * @return 最近一次更新转发规则的账号的 ID
      * 
      */
     public String lastOperator() {
@@ -209,13 +192,6 @@ public final class GetResolverRuleResult {
         return this.vpCs;
     }
     /**
-     * @return 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    public List<String> vpcTrns() {
-        return this.vpcTrns;
-    }
-    /**
      * @return 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      * 
      */
@@ -235,7 +211,6 @@ public final class GetResolverRuleResult {
         private String createdTime;
         private Boolean enable;
         private Integer endpointId;
-        private String endpointTrn;
         private List<GetResolverRuleForwardIP> forwardIPs;
         private String id;
         private String lastOperator;
@@ -247,7 +222,6 @@ public final class GetResolverRuleResult {
         private String type;
         private String updatedTime;
         private List<GetResolverRuleVpC> vpCs;
-        private List<String> vpcTrns;
         private String zoneName;
         public Builder() {}
         public Builder(GetResolverRuleResult defaults) {
@@ -255,7 +229,6 @@ public final class GetResolverRuleResult {
     	      this.createdTime = defaults.createdTime;
     	      this.enable = defaults.enable;
     	      this.endpointId = defaults.endpointId;
-    	      this.endpointTrn = defaults.endpointTrn;
     	      this.forwardIPs = defaults.forwardIPs;
     	      this.id = defaults.id;
     	      this.lastOperator = defaults.lastOperator;
@@ -267,7 +240,6 @@ public final class GetResolverRuleResult {
     	      this.type = defaults.type;
     	      this.updatedTime = defaults.updatedTime;
     	      this.vpCs = defaults.vpCs;
-    	      this.vpcTrns = defaults.vpcTrns;
     	      this.zoneName = defaults.zoneName;
         }
 
@@ -293,14 +265,6 @@ public final class GetResolverRuleResult {
               throw new MissingRequiredPropertyException("GetResolverRuleResult", "endpointId");
             }
             this.endpointId = endpointId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder endpointTrn(String endpointTrn) {
-            if (endpointTrn == null) {
-              throw new MissingRequiredPropertyException("GetResolverRuleResult", "endpointTrn");
-            }
-            this.endpointTrn = endpointTrn;
             return this;
         }
         @CustomType.Setter
@@ -401,17 +365,6 @@ public final class GetResolverRuleResult {
             return vpCs(List.of(vpCs));
         }
         @CustomType.Setter
-        public Builder vpcTrns(List<String> vpcTrns) {
-            if (vpcTrns == null) {
-              throw new MissingRequiredPropertyException("GetResolverRuleResult", "vpcTrns");
-            }
-            this.vpcTrns = vpcTrns;
-            return this;
-        }
-        public Builder vpcTrns(String... vpcTrns) {
-            return vpcTrns(List.of(vpcTrns));
-        }
-        @CustomType.Setter
         public Builder zoneName(String zoneName) {
             if (zoneName == null) {
               throw new MissingRequiredPropertyException("GetResolverRuleResult", "zoneName");
@@ -424,7 +377,6 @@ public final class GetResolverRuleResult {
             _resultValue.createdTime = createdTime;
             _resultValue.enable = enable;
             _resultValue.endpointId = endpointId;
-            _resultValue.endpointTrn = endpointTrn;
             _resultValue.forwardIPs = forwardIPs;
             _resultValue.id = id;
             _resultValue.lastOperator = lastOperator;
@@ -436,7 +388,6 @@ public final class GetResolverRuleResult {
             _resultValue.type = type;
             _resultValue.updatedTime = updatedTime;
             _resultValue.vpCs = vpCs;
-            _resultValue.vpcTrns = vpcTrns;
             _resultValue.zoneName = zoneName;
             return _resultValue;
         }

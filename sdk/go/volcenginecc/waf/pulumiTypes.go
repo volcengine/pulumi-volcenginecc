@@ -13,6 +13,999 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DomainBackendGroup struct {
+	// 接入的端口号。
+	AccessPorts []int                       `pulumi:"accessPorts"`
+	Backends    []DomainBackendGroupBackend `pulumi:"backends"`
+	// 源站组名称。
+	Name *string `pulumi:"name"`
+}
+
+// DomainBackendGroupInput is an input type that accepts DomainBackendGroupArgs and DomainBackendGroupOutput values.
+// You can construct a concrete instance of `DomainBackendGroupInput` via:
+//
+//	DomainBackendGroupArgs{...}
+type DomainBackendGroupInput interface {
+	pulumi.Input
+
+	ToDomainBackendGroupOutput() DomainBackendGroupOutput
+	ToDomainBackendGroupOutputWithContext(context.Context) DomainBackendGroupOutput
+}
+
+type DomainBackendGroupArgs struct {
+	// 接入的端口号。
+	AccessPorts pulumi.IntArrayInput                `pulumi:"accessPorts"`
+	Backends    DomainBackendGroupBackendArrayInput `pulumi:"backends"`
+	// 源站组名称。
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DomainBackendGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBackendGroup)(nil)).Elem()
+}
+
+func (i DomainBackendGroupArgs) ToDomainBackendGroupOutput() DomainBackendGroupOutput {
+	return i.ToDomainBackendGroupOutputWithContext(context.Background())
+}
+
+func (i DomainBackendGroupArgs) ToDomainBackendGroupOutputWithContext(ctx context.Context) DomainBackendGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBackendGroupOutput)
+}
+
+// DomainBackendGroupArrayInput is an input type that accepts DomainBackendGroupArray and DomainBackendGroupArrayOutput values.
+// You can construct a concrete instance of `DomainBackendGroupArrayInput` via:
+//
+//	DomainBackendGroupArray{ DomainBackendGroupArgs{...} }
+type DomainBackendGroupArrayInput interface {
+	pulumi.Input
+
+	ToDomainBackendGroupArrayOutput() DomainBackendGroupArrayOutput
+	ToDomainBackendGroupArrayOutputWithContext(context.Context) DomainBackendGroupArrayOutput
+}
+
+type DomainBackendGroupArray []DomainBackendGroupInput
+
+func (DomainBackendGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBackendGroup)(nil)).Elem()
+}
+
+func (i DomainBackendGroupArray) ToDomainBackendGroupArrayOutput() DomainBackendGroupArrayOutput {
+	return i.ToDomainBackendGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DomainBackendGroupArray) ToDomainBackendGroupArrayOutputWithContext(ctx context.Context) DomainBackendGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBackendGroupArrayOutput)
+}
+
+type DomainBackendGroupOutput struct{ *pulumi.OutputState }
+
+func (DomainBackendGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBackendGroup)(nil)).Elem()
+}
+
+func (o DomainBackendGroupOutput) ToDomainBackendGroupOutput() DomainBackendGroupOutput {
+	return o
+}
+
+func (o DomainBackendGroupOutput) ToDomainBackendGroupOutputWithContext(ctx context.Context) DomainBackendGroupOutput {
+	return o
+}
+
+// 接入的端口号。
+func (o DomainBackendGroupOutput) AccessPorts() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DomainBackendGroup) []int { return v.AccessPorts }).(pulumi.IntArrayOutput)
+}
+
+func (o DomainBackendGroupOutput) Backends() DomainBackendGroupBackendArrayOutput {
+	return o.ApplyT(func(v DomainBackendGroup) []DomainBackendGroupBackend { return v.Backends }).(DomainBackendGroupBackendArrayOutput)
+}
+
+// 源站组名称。
+func (o DomainBackendGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainBackendGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DomainBackendGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainBackendGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBackendGroup)(nil)).Elem()
+}
+
+func (o DomainBackendGroupArrayOutput) ToDomainBackendGroupArrayOutput() DomainBackendGroupArrayOutput {
+	return o
+}
+
+func (o DomainBackendGroupArrayOutput) ToDomainBackendGroupArrayOutputWithContext(ctx context.Context) DomainBackendGroupArrayOutput {
+	return o
+}
+
+func (o DomainBackendGroupArrayOutput) Index(i pulumi.IntInput) DomainBackendGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainBackendGroup {
+		return vs[0].([]DomainBackendGroup)[vs[1].(int)]
+	}).(DomainBackendGroupOutput)
+}
+
+type DomainBackendGroupBackend struct {
+	// 源站 IP 地址。
+	Ip *string `pulumi:"ip"`
+	// 源站端口。
+	Port *int `pulumi:"port"`
+	// 源站协议。
+	Protocol *string `pulumi:"protocol"`
+	// 源站权重。
+	Weight *int `pulumi:"weight"`
+}
+
+// DomainBackendGroupBackendInput is an input type that accepts DomainBackendGroupBackendArgs and DomainBackendGroupBackendOutput values.
+// You can construct a concrete instance of `DomainBackendGroupBackendInput` via:
+//
+//	DomainBackendGroupBackendArgs{...}
+type DomainBackendGroupBackendInput interface {
+	pulumi.Input
+
+	ToDomainBackendGroupBackendOutput() DomainBackendGroupBackendOutput
+	ToDomainBackendGroupBackendOutputWithContext(context.Context) DomainBackendGroupBackendOutput
+}
+
+type DomainBackendGroupBackendArgs struct {
+	// 源站 IP 地址。
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// 源站端口。
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// 源站协议。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// 源站权重。
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (DomainBackendGroupBackendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBackendGroupBackend)(nil)).Elem()
+}
+
+func (i DomainBackendGroupBackendArgs) ToDomainBackendGroupBackendOutput() DomainBackendGroupBackendOutput {
+	return i.ToDomainBackendGroupBackendOutputWithContext(context.Background())
+}
+
+func (i DomainBackendGroupBackendArgs) ToDomainBackendGroupBackendOutputWithContext(ctx context.Context) DomainBackendGroupBackendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBackendGroupBackendOutput)
+}
+
+// DomainBackendGroupBackendArrayInput is an input type that accepts DomainBackendGroupBackendArray and DomainBackendGroupBackendArrayOutput values.
+// You can construct a concrete instance of `DomainBackendGroupBackendArrayInput` via:
+//
+//	DomainBackendGroupBackendArray{ DomainBackendGroupBackendArgs{...} }
+type DomainBackendGroupBackendArrayInput interface {
+	pulumi.Input
+
+	ToDomainBackendGroupBackendArrayOutput() DomainBackendGroupBackendArrayOutput
+	ToDomainBackendGroupBackendArrayOutputWithContext(context.Context) DomainBackendGroupBackendArrayOutput
+}
+
+type DomainBackendGroupBackendArray []DomainBackendGroupBackendInput
+
+func (DomainBackendGroupBackendArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBackendGroupBackend)(nil)).Elem()
+}
+
+func (i DomainBackendGroupBackendArray) ToDomainBackendGroupBackendArrayOutput() DomainBackendGroupBackendArrayOutput {
+	return i.ToDomainBackendGroupBackendArrayOutputWithContext(context.Background())
+}
+
+func (i DomainBackendGroupBackendArray) ToDomainBackendGroupBackendArrayOutputWithContext(ctx context.Context) DomainBackendGroupBackendArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBackendGroupBackendArrayOutput)
+}
+
+type DomainBackendGroupBackendOutput struct{ *pulumi.OutputState }
+
+func (DomainBackendGroupBackendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBackendGroupBackend)(nil)).Elem()
+}
+
+func (o DomainBackendGroupBackendOutput) ToDomainBackendGroupBackendOutput() DomainBackendGroupBackendOutput {
+	return o
+}
+
+func (o DomainBackendGroupBackendOutput) ToDomainBackendGroupBackendOutputWithContext(ctx context.Context) DomainBackendGroupBackendOutput {
+	return o
+}
+
+// 源站 IP 地址。
+func (o DomainBackendGroupBackendOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainBackendGroupBackend) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// 源站端口。
+func (o DomainBackendGroupBackendOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainBackendGroupBackend) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// 源站协议。
+func (o DomainBackendGroupBackendOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainBackendGroupBackend) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// 源站权重。
+func (o DomainBackendGroupBackendOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainBackendGroupBackend) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type DomainBackendGroupBackendArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainBackendGroupBackendArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBackendGroupBackend)(nil)).Elem()
+}
+
+func (o DomainBackendGroupBackendArrayOutput) ToDomainBackendGroupBackendArrayOutput() DomainBackendGroupBackendArrayOutput {
+	return o
+}
+
+func (o DomainBackendGroupBackendArrayOutput) ToDomainBackendGroupBackendArrayOutputWithContext(ctx context.Context) DomainBackendGroupBackendArrayOutput {
+	return o
+}
+
+func (o DomainBackendGroupBackendArrayOutput) Index(i pulumi.IntInput) DomainBackendGroupBackendOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainBackendGroupBackend {
+		return vs[0].([]DomainBackendGroupBackend)[vs[1].(int)]
+	}).(DomainBackendGroupBackendOutput)
+}
+
+type DomainCloudAccessConfig struct {
+	// 接入协议类型。
+	AccessProtocol *string `pulumi:"accessProtocol"`
+	// 防护模式。
+	DefenceMode *int `pulumi:"defenceMode"`
+	// 负载均衡实例 ID。
+	InstanceId *string `pulumi:"instanceId"`
+	// 负载均衡实例名称。
+	InstanceName *string `pulumi:"instanceName"`
+	// 负载均衡监听器 ID。
+	ListenerId             *string `pulumi:"listenerId"`
+	LostAssociationFromAlb *int    `pulumi:"lostAssociationFromAlb"`
+	// 监听器转发规则的端口号。
+	Port *string `pulumi:"port"`
+	// 监听器转发规则的协议类型。
+	Protocol *string `pulumi:"protocol"`
+}
+
+// DomainCloudAccessConfigInput is an input type that accepts DomainCloudAccessConfigArgs and DomainCloudAccessConfigOutput values.
+// You can construct a concrete instance of `DomainCloudAccessConfigInput` via:
+//
+//	DomainCloudAccessConfigArgs{...}
+type DomainCloudAccessConfigInput interface {
+	pulumi.Input
+
+	ToDomainCloudAccessConfigOutput() DomainCloudAccessConfigOutput
+	ToDomainCloudAccessConfigOutputWithContext(context.Context) DomainCloudAccessConfigOutput
+}
+
+type DomainCloudAccessConfigArgs struct {
+	// 接入协议类型。
+	AccessProtocol pulumi.StringPtrInput `pulumi:"accessProtocol"`
+	// 防护模式。
+	DefenceMode pulumi.IntPtrInput `pulumi:"defenceMode"`
+	// 负载均衡实例 ID。
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	// 负载均衡实例名称。
+	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
+	// 负载均衡监听器 ID。
+	ListenerId             pulumi.StringPtrInput `pulumi:"listenerId"`
+	LostAssociationFromAlb pulumi.IntPtrInput    `pulumi:"lostAssociationFromAlb"`
+	// 监听器转发规则的端口号。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 监听器转发规则的协议类型。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (DomainCloudAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCloudAccessConfig)(nil)).Elem()
+}
+
+func (i DomainCloudAccessConfigArgs) ToDomainCloudAccessConfigOutput() DomainCloudAccessConfigOutput {
+	return i.ToDomainCloudAccessConfigOutputWithContext(context.Background())
+}
+
+func (i DomainCloudAccessConfigArgs) ToDomainCloudAccessConfigOutputWithContext(ctx context.Context) DomainCloudAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainCloudAccessConfigOutput)
+}
+
+// DomainCloudAccessConfigArrayInput is an input type that accepts DomainCloudAccessConfigArray and DomainCloudAccessConfigArrayOutput values.
+// You can construct a concrete instance of `DomainCloudAccessConfigArrayInput` via:
+//
+//	DomainCloudAccessConfigArray{ DomainCloudAccessConfigArgs{...} }
+type DomainCloudAccessConfigArrayInput interface {
+	pulumi.Input
+
+	ToDomainCloudAccessConfigArrayOutput() DomainCloudAccessConfigArrayOutput
+	ToDomainCloudAccessConfigArrayOutputWithContext(context.Context) DomainCloudAccessConfigArrayOutput
+}
+
+type DomainCloudAccessConfigArray []DomainCloudAccessConfigInput
+
+func (DomainCloudAccessConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainCloudAccessConfig)(nil)).Elem()
+}
+
+func (i DomainCloudAccessConfigArray) ToDomainCloudAccessConfigArrayOutput() DomainCloudAccessConfigArrayOutput {
+	return i.ToDomainCloudAccessConfigArrayOutputWithContext(context.Background())
+}
+
+func (i DomainCloudAccessConfigArray) ToDomainCloudAccessConfigArrayOutputWithContext(ctx context.Context) DomainCloudAccessConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainCloudAccessConfigArrayOutput)
+}
+
+type DomainCloudAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainCloudAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCloudAccessConfig)(nil)).Elem()
+}
+
+func (o DomainCloudAccessConfigOutput) ToDomainCloudAccessConfigOutput() DomainCloudAccessConfigOutput {
+	return o
+}
+
+func (o DomainCloudAccessConfigOutput) ToDomainCloudAccessConfigOutputWithContext(ctx context.Context) DomainCloudAccessConfigOutput {
+	return o
+}
+
+// 接入协议类型。
+func (o DomainCloudAccessConfigOutput) AccessProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.AccessProtocol }).(pulumi.StringPtrOutput)
+}
+
+// 防护模式。
+func (o DomainCloudAccessConfigOutput) DefenceMode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *int { return v.DefenceMode }).(pulumi.IntPtrOutput)
+}
+
+// 负载均衡实例 ID。
+func (o DomainCloudAccessConfigOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+// 负载均衡实例名称。
+func (o DomainCloudAccessConfigOutput) InstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.InstanceName }).(pulumi.StringPtrOutput)
+}
+
+// 负载均衡监听器 ID。
+func (o DomainCloudAccessConfigOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainCloudAccessConfigOutput) LostAssociationFromAlb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *int { return v.LostAssociationFromAlb }).(pulumi.IntPtrOutput)
+}
+
+// 监听器转发规则的端口号。
+func (o DomainCloudAccessConfigOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// 监听器转发规则的协议类型。
+func (o DomainCloudAccessConfigOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type DomainCloudAccessConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainCloudAccessConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainCloudAccessConfig)(nil)).Elem()
+}
+
+func (o DomainCloudAccessConfigArrayOutput) ToDomainCloudAccessConfigArrayOutput() DomainCloudAccessConfigArrayOutput {
+	return o
+}
+
+func (o DomainCloudAccessConfigArrayOutput) ToDomainCloudAccessConfigArrayOutputWithContext(ctx context.Context) DomainCloudAccessConfigArrayOutput {
+	return o
+}
+
+func (o DomainCloudAccessConfigArrayOutput) Index(i pulumi.IntInput) DomainCloudAccessConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainCloudAccessConfig {
+		return vs[0].([]DomainCloudAccessConfig)[vs[1].(int)]
+	}).(DomainCloudAccessConfigOutput)
+}
+
+type DomainProtocolPorts struct {
+	// HTTP 协议的端口号。
+	Http []int `pulumi:"http"`
+	// HTTPS 协议的端口号。
+	Https []int `pulumi:"https"`
+}
+
+// DomainProtocolPortsInput is an input type that accepts DomainProtocolPortsArgs and DomainProtocolPortsOutput values.
+// You can construct a concrete instance of `DomainProtocolPortsInput` via:
+//
+//	DomainProtocolPortsArgs{...}
+type DomainProtocolPortsInput interface {
+	pulumi.Input
+
+	ToDomainProtocolPortsOutput() DomainProtocolPortsOutput
+	ToDomainProtocolPortsOutputWithContext(context.Context) DomainProtocolPortsOutput
+}
+
+type DomainProtocolPortsArgs struct {
+	// HTTP 协议的端口号。
+	Http pulumi.IntArrayInput `pulumi:"http"`
+	// HTTPS 协议的端口号。
+	Https pulumi.IntArrayInput `pulumi:"https"`
+}
+
+func (DomainProtocolPortsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainProtocolPorts)(nil)).Elem()
+}
+
+func (i DomainProtocolPortsArgs) ToDomainProtocolPortsOutput() DomainProtocolPortsOutput {
+	return i.ToDomainProtocolPortsOutputWithContext(context.Background())
+}
+
+func (i DomainProtocolPortsArgs) ToDomainProtocolPortsOutputWithContext(ctx context.Context) DomainProtocolPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainProtocolPortsOutput)
+}
+
+func (i DomainProtocolPortsArgs) ToDomainProtocolPortsPtrOutput() DomainProtocolPortsPtrOutput {
+	return i.ToDomainProtocolPortsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainProtocolPortsArgs) ToDomainProtocolPortsPtrOutputWithContext(ctx context.Context) DomainProtocolPortsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainProtocolPortsOutput).ToDomainProtocolPortsPtrOutputWithContext(ctx)
+}
+
+// DomainProtocolPortsPtrInput is an input type that accepts DomainProtocolPortsArgs, DomainProtocolPortsPtr and DomainProtocolPortsPtrOutput values.
+// You can construct a concrete instance of `DomainProtocolPortsPtrInput` via:
+//
+//	        DomainProtocolPortsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainProtocolPortsPtrInput interface {
+	pulumi.Input
+
+	ToDomainProtocolPortsPtrOutput() DomainProtocolPortsPtrOutput
+	ToDomainProtocolPortsPtrOutputWithContext(context.Context) DomainProtocolPortsPtrOutput
+}
+
+type domainProtocolPortsPtrType DomainProtocolPortsArgs
+
+func DomainProtocolPortsPtr(v *DomainProtocolPortsArgs) DomainProtocolPortsPtrInput {
+	return (*domainProtocolPortsPtrType)(v)
+}
+
+func (*domainProtocolPortsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainProtocolPorts)(nil)).Elem()
+}
+
+func (i *domainProtocolPortsPtrType) ToDomainProtocolPortsPtrOutput() DomainProtocolPortsPtrOutput {
+	return i.ToDomainProtocolPortsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainProtocolPortsPtrType) ToDomainProtocolPortsPtrOutputWithContext(ctx context.Context) DomainProtocolPortsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainProtocolPortsPtrOutput)
+}
+
+type DomainProtocolPortsOutput struct{ *pulumi.OutputState }
+
+func (DomainProtocolPortsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainProtocolPorts)(nil)).Elem()
+}
+
+func (o DomainProtocolPortsOutput) ToDomainProtocolPortsOutput() DomainProtocolPortsOutput {
+	return o
+}
+
+func (o DomainProtocolPortsOutput) ToDomainProtocolPortsOutputWithContext(ctx context.Context) DomainProtocolPortsOutput {
+	return o
+}
+
+func (o DomainProtocolPortsOutput) ToDomainProtocolPortsPtrOutput() DomainProtocolPortsPtrOutput {
+	return o.ToDomainProtocolPortsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainProtocolPortsOutput) ToDomainProtocolPortsPtrOutputWithContext(ctx context.Context) DomainProtocolPortsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainProtocolPorts) *DomainProtocolPorts {
+		return &v
+	}).(DomainProtocolPortsPtrOutput)
+}
+
+// HTTP 协议的端口号。
+func (o DomainProtocolPortsOutput) Http() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DomainProtocolPorts) []int { return v.Http }).(pulumi.IntArrayOutput)
+}
+
+// HTTPS 协议的端口号。
+func (o DomainProtocolPortsOutput) Https() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DomainProtocolPorts) []int { return v.Https }).(pulumi.IntArrayOutput)
+}
+
+type DomainProtocolPortsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainProtocolPortsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainProtocolPorts)(nil)).Elem()
+}
+
+func (o DomainProtocolPortsPtrOutput) ToDomainProtocolPortsPtrOutput() DomainProtocolPortsPtrOutput {
+	return o
+}
+
+func (o DomainProtocolPortsPtrOutput) ToDomainProtocolPortsPtrOutputWithContext(ctx context.Context) DomainProtocolPortsPtrOutput {
+	return o
+}
+
+func (o DomainProtocolPortsPtrOutput) Elem() DomainProtocolPortsOutput {
+	return o.ApplyT(func(v *DomainProtocolPorts) DomainProtocolPorts {
+		if v != nil {
+			return *v
+		}
+		var ret DomainProtocolPorts
+		return ret
+	}).(DomainProtocolPortsOutput)
+}
+
+// HTTP 协议的端口号。
+func (o DomainProtocolPortsPtrOutput) Http() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DomainProtocolPorts) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(pulumi.IntArrayOutput)
+}
+
+// HTTPS 协议的端口号。
+func (o DomainProtocolPortsPtrOutput) Https() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DomainProtocolPorts) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Https
+	}).(pulumi.IntArrayOutput)
+}
+
+type DomainTcpListenerConfig struct {
+	AccessProtocol         *string `pulumi:"accessProtocol"`
+	DefenceMode            *int    `pulumi:"defenceMode"`
+	InstanceId             *string `pulumi:"instanceId"`
+	InstanceName           *string `pulumi:"instanceName"`
+	ListenerId             *string `pulumi:"listenerId"`
+	LostAssociationFromAlb *int    `pulumi:"lostAssociationFromAlb"`
+	Port                   *string `pulumi:"port"`
+	Protocol               *string `pulumi:"protocol"`
+}
+
+// DomainTcpListenerConfigInput is an input type that accepts DomainTcpListenerConfigArgs and DomainTcpListenerConfigOutput values.
+// You can construct a concrete instance of `DomainTcpListenerConfigInput` via:
+//
+//	DomainTcpListenerConfigArgs{...}
+type DomainTcpListenerConfigInput interface {
+	pulumi.Input
+
+	ToDomainTcpListenerConfigOutput() DomainTcpListenerConfigOutput
+	ToDomainTcpListenerConfigOutputWithContext(context.Context) DomainTcpListenerConfigOutput
+}
+
+type DomainTcpListenerConfigArgs struct {
+	AccessProtocol         pulumi.StringPtrInput `pulumi:"accessProtocol"`
+	DefenceMode            pulumi.IntPtrInput    `pulumi:"defenceMode"`
+	InstanceId             pulumi.StringPtrInput `pulumi:"instanceId"`
+	InstanceName           pulumi.StringPtrInput `pulumi:"instanceName"`
+	ListenerId             pulumi.StringPtrInput `pulumi:"listenerId"`
+	LostAssociationFromAlb pulumi.IntPtrInput    `pulumi:"lostAssociationFromAlb"`
+	Port                   pulumi.StringPtrInput `pulumi:"port"`
+	Protocol               pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (DomainTcpListenerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTcpListenerConfig)(nil)).Elem()
+}
+
+func (i DomainTcpListenerConfigArgs) ToDomainTcpListenerConfigOutput() DomainTcpListenerConfigOutput {
+	return i.ToDomainTcpListenerConfigOutputWithContext(context.Background())
+}
+
+func (i DomainTcpListenerConfigArgs) ToDomainTcpListenerConfigOutputWithContext(ctx context.Context) DomainTcpListenerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTcpListenerConfigOutput)
+}
+
+// DomainTcpListenerConfigArrayInput is an input type that accepts DomainTcpListenerConfigArray and DomainTcpListenerConfigArrayOutput values.
+// You can construct a concrete instance of `DomainTcpListenerConfigArrayInput` via:
+//
+//	DomainTcpListenerConfigArray{ DomainTcpListenerConfigArgs{...} }
+type DomainTcpListenerConfigArrayInput interface {
+	pulumi.Input
+
+	ToDomainTcpListenerConfigArrayOutput() DomainTcpListenerConfigArrayOutput
+	ToDomainTcpListenerConfigArrayOutputWithContext(context.Context) DomainTcpListenerConfigArrayOutput
+}
+
+type DomainTcpListenerConfigArray []DomainTcpListenerConfigInput
+
+func (DomainTcpListenerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTcpListenerConfig)(nil)).Elem()
+}
+
+func (i DomainTcpListenerConfigArray) ToDomainTcpListenerConfigArrayOutput() DomainTcpListenerConfigArrayOutput {
+	return i.ToDomainTcpListenerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i DomainTcpListenerConfigArray) ToDomainTcpListenerConfigArrayOutputWithContext(ctx context.Context) DomainTcpListenerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTcpListenerConfigArrayOutput)
+}
+
+type DomainTcpListenerConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainTcpListenerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTcpListenerConfig)(nil)).Elem()
+}
+
+func (o DomainTcpListenerConfigOutput) ToDomainTcpListenerConfigOutput() DomainTcpListenerConfigOutput {
+	return o
+}
+
+func (o DomainTcpListenerConfigOutput) ToDomainTcpListenerConfigOutputWithContext(ctx context.Context) DomainTcpListenerConfigOutput {
+	return o
+}
+
+func (o DomainTcpListenerConfigOutput) AccessProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.AccessProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) DefenceMode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *int { return v.DefenceMode }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) InstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.InstanceName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) LostAssociationFromAlb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *int { return v.LostAssociationFromAlb }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainTcpListenerConfigOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type DomainTcpListenerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainTcpListenerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTcpListenerConfig)(nil)).Elem()
+}
+
+func (o DomainTcpListenerConfigArrayOutput) ToDomainTcpListenerConfigArrayOutput() DomainTcpListenerConfigArrayOutput {
+	return o
+}
+
+func (o DomainTcpListenerConfigArrayOutput) ToDomainTcpListenerConfigArrayOutputWithContext(ctx context.Context) DomainTcpListenerConfigArrayOutput {
+	return o
+}
+
+func (o DomainTcpListenerConfigArrayOutput) Index(i pulumi.IntInput) DomainTcpListenerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTcpListenerConfig {
+		return vs[0].([]DomainTcpListenerConfig)[vs[1].(int)]
+	}).(DomainTcpListenerConfigOutput)
+}
+
+type DomainTlsFieldsConfig struct {
+	HeadersConfig *DomainTlsFieldsConfigHeadersConfig `pulumi:"headersConfig"`
+}
+
+// DomainTlsFieldsConfigInput is an input type that accepts DomainTlsFieldsConfigArgs and DomainTlsFieldsConfigOutput values.
+// You can construct a concrete instance of `DomainTlsFieldsConfigInput` via:
+//
+//	DomainTlsFieldsConfigArgs{...}
+type DomainTlsFieldsConfigInput interface {
+	pulumi.Input
+
+	ToDomainTlsFieldsConfigOutput() DomainTlsFieldsConfigOutput
+	ToDomainTlsFieldsConfigOutputWithContext(context.Context) DomainTlsFieldsConfigOutput
+}
+
+type DomainTlsFieldsConfigArgs struct {
+	HeadersConfig DomainTlsFieldsConfigHeadersConfigPtrInput `pulumi:"headersConfig"`
+}
+
+func (DomainTlsFieldsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTlsFieldsConfig)(nil)).Elem()
+}
+
+func (i DomainTlsFieldsConfigArgs) ToDomainTlsFieldsConfigOutput() DomainTlsFieldsConfigOutput {
+	return i.ToDomainTlsFieldsConfigOutputWithContext(context.Background())
+}
+
+func (i DomainTlsFieldsConfigArgs) ToDomainTlsFieldsConfigOutputWithContext(ctx context.Context) DomainTlsFieldsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTlsFieldsConfigOutput)
+}
+
+func (i DomainTlsFieldsConfigArgs) ToDomainTlsFieldsConfigPtrOutput() DomainTlsFieldsConfigPtrOutput {
+	return i.ToDomainTlsFieldsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainTlsFieldsConfigArgs) ToDomainTlsFieldsConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTlsFieldsConfigOutput).ToDomainTlsFieldsConfigPtrOutputWithContext(ctx)
+}
+
+// DomainTlsFieldsConfigPtrInput is an input type that accepts DomainTlsFieldsConfigArgs, DomainTlsFieldsConfigPtr and DomainTlsFieldsConfigPtrOutput values.
+// You can construct a concrete instance of `DomainTlsFieldsConfigPtrInput` via:
+//
+//	        DomainTlsFieldsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainTlsFieldsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainTlsFieldsConfigPtrOutput() DomainTlsFieldsConfigPtrOutput
+	ToDomainTlsFieldsConfigPtrOutputWithContext(context.Context) DomainTlsFieldsConfigPtrOutput
+}
+
+type domainTlsFieldsConfigPtrType DomainTlsFieldsConfigArgs
+
+func DomainTlsFieldsConfigPtr(v *DomainTlsFieldsConfigArgs) DomainTlsFieldsConfigPtrInput {
+	return (*domainTlsFieldsConfigPtrType)(v)
+}
+
+func (*domainTlsFieldsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTlsFieldsConfig)(nil)).Elem()
+}
+
+func (i *domainTlsFieldsConfigPtrType) ToDomainTlsFieldsConfigPtrOutput() DomainTlsFieldsConfigPtrOutput {
+	return i.ToDomainTlsFieldsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainTlsFieldsConfigPtrType) ToDomainTlsFieldsConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTlsFieldsConfigPtrOutput)
+}
+
+type DomainTlsFieldsConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainTlsFieldsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTlsFieldsConfig)(nil)).Elem()
+}
+
+func (o DomainTlsFieldsConfigOutput) ToDomainTlsFieldsConfigOutput() DomainTlsFieldsConfigOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigOutput) ToDomainTlsFieldsConfigOutputWithContext(ctx context.Context) DomainTlsFieldsConfigOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigOutput) ToDomainTlsFieldsConfigPtrOutput() DomainTlsFieldsConfigPtrOutput {
+	return o.ToDomainTlsFieldsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTlsFieldsConfigOutput) ToDomainTlsFieldsConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTlsFieldsConfig) *DomainTlsFieldsConfig {
+		return &v
+	}).(DomainTlsFieldsConfigPtrOutput)
+}
+
+func (o DomainTlsFieldsConfigOutput) HeadersConfig() DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return o.ApplyT(func(v DomainTlsFieldsConfig) *DomainTlsFieldsConfigHeadersConfig { return v.HeadersConfig }).(DomainTlsFieldsConfigHeadersConfigPtrOutput)
+}
+
+type DomainTlsFieldsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainTlsFieldsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTlsFieldsConfig)(nil)).Elem()
+}
+
+func (o DomainTlsFieldsConfigPtrOutput) ToDomainTlsFieldsConfigPtrOutput() DomainTlsFieldsConfigPtrOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigPtrOutput) ToDomainTlsFieldsConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigPtrOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigPtrOutput) Elem() DomainTlsFieldsConfigOutput {
+	return o.ApplyT(func(v *DomainTlsFieldsConfig) DomainTlsFieldsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainTlsFieldsConfig
+		return ret
+	}).(DomainTlsFieldsConfigOutput)
+}
+
+func (o DomainTlsFieldsConfigPtrOutput) HeadersConfig() DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *DomainTlsFieldsConfig) *DomainTlsFieldsConfigHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HeadersConfig
+	}).(DomainTlsFieldsConfigHeadersConfigPtrOutput)
+}
+
+type DomainTlsFieldsConfigHeadersConfig struct {
+	// 是否记录全量 header。
+	Enable *int `pulumi:"enable"`
+	// 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+	ExcludedKeyLists []string `pulumi:"excludedKeyLists"`
+	// 统计 header 字段，将对应字段用于日志统计分析和告警。
+	StatisticalKeyLists []string `pulumi:"statisticalKeyLists"`
+}
+
+// DomainTlsFieldsConfigHeadersConfigInput is an input type that accepts DomainTlsFieldsConfigHeadersConfigArgs and DomainTlsFieldsConfigHeadersConfigOutput values.
+// You can construct a concrete instance of `DomainTlsFieldsConfigHeadersConfigInput` via:
+//
+//	DomainTlsFieldsConfigHeadersConfigArgs{...}
+type DomainTlsFieldsConfigHeadersConfigInput interface {
+	pulumi.Input
+
+	ToDomainTlsFieldsConfigHeadersConfigOutput() DomainTlsFieldsConfigHeadersConfigOutput
+	ToDomainTlsFieldsConfigHeadersConfigOutputWithContext(context.Context) DomainTlsFieldsConfigHeadersConfigOutput
+}
+
+type DomainTlsFieldsConfigHeadersConfigArgs struct {
+	// 是否记录全量 header。
+	Enable pulumi.IntPtrInput `pulumi:"enable"`
+	// 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+	ExcludedKeyLists pulumi.StringArrayInput `pulumi:"excludedKeyLists"`
+	// 统计 header 字段，将对应字段用于日志统计分析和告警。
+	StatisticalKeyLists pulumi.StringArrayInput `pulumi:"statisticalKeyLists"`
+}
+
+func (DomainTlsFieldsConfigHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTlsFieldsConfigHeadersConfig)(nil)).Elem()
+}
+
+func (i DomainTlsFieldsConfigHeadersConfigArgs) ToDomainTlsFieldsConfigHeadersConfigOutput() DomainTlsFieldsConfigHeadersConfigOutput {
+	return i.ToDomainTlsFieldsConfigHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i DomainTlsFieldsConfigHeadersConfigArgs) ToDomainTlsFieldsConfigHeadersConfigOutputWithContext(ctx context.Context) DomainTlsFieldsConfigHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTlsFieldsConfigHeadersConfigOutput)
+}
+
+func (i DomainTlsFieldsConfigHeadersConfigArgs) ToDomainTlsFieldsConfigHeadersConfigPtrOutput() DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return i.ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainTlsFieldsConfigHeadersConfigArgs) ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTlsFieldsConfigHeadersConfigOutput).ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// DomainTlsFieldsConfigHeadersConfigPtrInput is an input type that accepts DomainTlsFieldsConfigHeadersConfigArgs, DomainTlsFieldsConfigHeadersConfigPtr and DomainTlsFieldsConfigHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `DomainTlsFieldsConfigHeadersConfigPtrInput` via:
+//
+//	        DomainTlsFieldsConfigHeadersConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainTlsFieldsConfigHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainTlsFieldsConfigHeadersConfigPtrOutput() DomainTlsFieldsConfigHeadersConfigPtrOutput
+	ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(context.Context) DomainTlsFieldsConfigHeadersConfigPtrOutput
+}
+
+type domainTlsFieldsConfigHeadersConfigPtrType DomainTlsFieldsConfigHeadersConfigArgs
+
+func DomainTlsFieldsConfigHeadersConfigPtr(v *DomainTlsFieldsConfigHeadersConfigArgs) DomainTlsFieldsConfigHeadersConfigPtrInput {
+	return (*domainTlsFieldsConfigHeadersConfigPtrType)(v)
+}
+
+func (*domainTlsFieldsConfigHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTlsFieldsConfigHeadersConfig)(nil)).Elem()
+}
+
+func (i *domainTlsFieldsConfigHeadersConfigPtrType) ToDomainTlsFieldsConfigHeadersConfigPtrOutput() DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return i.ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainTlsFieldsConfigHeadersConfigPtrType) ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTlsFieldsConfigHeadersConfigPtrOutput)
+}
+
+type DomainTlsFieldsConfigHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainTlsFieldsConfigHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTlsFieldsConfigHeadersConfig)(nil)).Elem()
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigOutput) ToDomainTlsFieldsConfigHeadersConfigOutput() DomainTlsFieldsConfigHeadersConfigOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigOutput) ToDomainTlsFieldsConfigHeadersConfigOutputWithContext(ctx context.Context) DomainTlsFieldsConfigHeadersConfigOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigOutput) ToDomainTlsFieldsConfigHeadersConfigPtrOutput() DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return o.ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigOutput) ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTlsFieldsConfigHeadersConfig) *DomainTlsFieldsConfigHeadersConfig {
+		return &v
+	}).(DomainTlsFieldsConfigHeadersConfigPtrOutput)
+}
+
+// 是否记录全量 header。
+func (o DomainTlsFieldsConfigHeadersConfigOutput) Enable() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainTlsFieldsConfigHeadersConfig) *int { return v.Enable }).(pulumi.IntPtrOutput)
+}
+
+// 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+func (o DomainTlsFieldsConfigHeadersConfigOutput) ExcludedKeyLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainTlsFieldsConfigHeadersConfig) []string { return v.ExcludedKeyLists }).(pulumi.StringArrayOutput)
+}
+
+// 统计 header 字段，将对应字段用于日志统计分析和告警。
+func (o DomainTlsFieldsConfigHeadersConfigOutput) StatisticalKeyLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainTlsFieldsConfigHeadersConfig) []string { return v.StatisticalKeyLists }).(pulumi.StringArrayOutput)
+}
+
+type DomainTlsFieldsConfigHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainTlsFieldsConfigHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTlsFieldsConfigHeadersConfig)(nil)).Elem()
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigPtrOutput) ToDomainTlsFieldsConfigHeadersConfigPtrOutput() DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigPtrOutput) ToDomainTlsFieldsConfigHeadersConfigPtrOutputWithContext(ctx context.Context) DomainTlsFieldsConfigHeadersConfigPtrOutput {
+	return o
+}
+
+func (o DomainTlsFieldsConfigHeadersConfigPtrOutput) Elem() DomainTlsFieldsConfigHeadersConfigOutput {
+	return o.ApplyT(func(v *DomainTlsFieldsConfigHeadersConfig) DomainTlsFieldsConfigHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainTlsFieldsConfigHeadersConfig
+		return ret
+	}).(DomainTlsFieldsConfigHeadersConfigOutput)
+}
+
+// 是否记录全量 header。
+func (o DomainTlsFieldsConfigHeadersConfigPtrOutput) Enable() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainTlsFieldsConfigHeadersConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.IntPtrOutput)
+}
+
+// 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+func (o DomainTlsFieldsConfigHeadersConfigPtrOutput) ExcludedKeyLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainTlsFieldsConfigHeadersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedKeyLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// 统计 header 字段，将对应字段用于日志统计分析和告警。
+func (o DomainTlsFieldsConfigHeadersConfigPtrOutput) StatisticalKeyLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainTlsFieldsConfigHeadersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticalKeyLists
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetDomainBackendGroup struct {
 	// 接入的端口号。
 	AccessPorts []int `pulumi:"accessPorts"`
@@ -726,6 +1719,20 @@ func (o GetDomainTlsFieldsConfigHeadersConfigOutput) StatisticalKeyLists() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBackendGroupInput)(nil)).Elem(), DomainBackendGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBackendGroupArrayInput)(nil)).Elem(), DomainBackendGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBackendGroupBackendInput)(nil)).Elem(), DomainBackendGroupBackendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBackendGroupBackendArrayInput)(nil)).Elem(), DomainBackendGroupBackendArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainCloudAccessConfigInput)(nil)).Elem(), DomainCloudAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainCloudAccessConfigArrayInput)(nil)).Elem(), DomainCloudAccessConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainProtocolPortsInput)(nil)).Elem(), DomainProtocolPortsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainProtocolPortsPtrInput)(nil)).Elem(), DomainProtocolPortsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTcpListenerConfigInput)(nil)).Elem(), DomainTcpListenerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTcpListenerConfigArrayInput)(nil)).Elem(), DomainTcpListenerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTlsFieldsConfigInput)(nil)).Elem(), DomainTlsFieldsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTlsFieldsConfigPtrInput)(nil)).Elem(), DomainTlsFieldsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTlsFieldsConfigHeadersConfigInput)(nil)).Elem(), DomainTlsFieldsConfigHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTlsFieldsConfigHeadersConfigPtrInput)(nil)).Elem(), DomainTlsFieldsConfigHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainBackendGroupInput)(nil)).Elem(), GetDomainBackendGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainBackendGroupArrayInput)(nil)).Elem(), GetDomainBackendGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainBackendGroupBackendInput)(nil)).Elem(), GetDomainBackendGroupBackendArgs{})
@@ -737,6 +1744,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainTcpListenerConfigArrayInput)(nil)).Elem(), GetDomainTcpListenerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainTlsFieldsConfigInput)(nil)).Elem(), GetDomainTlsFieldsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainTlsFieldsConfigHeadersConfigInput)(nil)).Elem(), GetDomainTlsFieldsConfigHeadersConfigArgs{})
+	pulumi.RegisterOutputType(DomainBackendGroupOutput{})
+	pulumi.RegisterOutputType(DomainBackendGroupArrayOutput{})
+	pulumi.RegisterOutputType(DomainBackendGroupBackendOutput{})
+	pulumi.RegisterOutputType(DomainBackendGroupBackendArrayOutput{})
+	pulumi.RegisterOutputType(DomainCloudAccessConfigOutput{})
+	pulumi.RegisterOutputType(DomainCloudAccessConfigArrayOutput{})
+	pulumi.RegisterOutputType(DomainProtocolPortsOutput{})
+	pulumi.RegisterOutputType(DomainProtocolPortsPtrOutput{})
+	pulumi.RegisterOutputType(DomainTcpListenerConfigOutput{})
+	pulumi.RegisterOutputType(DomainTcpListenerConfigArrayOutput{})
+	pulumi.RegisterOutputType(DomainTlsFieldsConfigOutput{})
+	pulumi.RegisterOutputType(DomainTlsFieldsConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainTlsFieldsConfigHeadersConfigOutput{})
+	pulumi.RegisterOutputType(DomainTlsFieldsConfigHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainBackendGroupOutput{})
 	pulumi.RegisterOutputType(GetDomainBackendGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainBackendGroupBackendOutput{})

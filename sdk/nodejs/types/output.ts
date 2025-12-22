@@ -52,7 +52,13 @@ export namespace alb {
     }
 
     export interface CertificateTag {
+        /**
+         * 用户标签的标签键。
+         */
         key: string;
+        /**
+         * 用户标签的标签值。
+         */
         value: string;
     }
 
@@ -102,7 +108,13 @@ export namespace alb {
     }
 
     export interface GetCertificateTag {
+        /**
+         * 用户标签的标签键。
+         */
         key: string;
+        /**
+         * 用户标签的标签值。
+         */
         value: string;
     }
 
@@ -4821,10 +4833,6 @@ export namespace escloud {
          */
         hotNodeStorageSpec: outputs.escloud.GetInstanceInstanceConfigurationHotNodeStorageSpec;
         /**
-         * 包年包月实例购买时长。
-         */
-        includeMonths: number;
-        /**
          * 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
          */
         instanceName: string;
@@ -5411,10 +5419,6 @@ export namespace escloud {
          */
         hotNodeStorageSpec: outputs.escloud.InstanceInstanceConfigurationHotNodeStorageSpec;
         /**
-         * 包年包月实例购买时长。
-         */
-        includeMonths: number;
-        /**
          * 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
          */
         instanceName: string;
@@ -5987,6 +5991,85 @@ export namespace filenas {
         type: string;
         /**
          * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace hbase {
+    export interface GetInstanceEndpoint {
+        /**
+         * 连接地址类型，关于连接地址的更多信息，请参见连接地址类型。取值范围如下：Zk：ZK 地址。Thrift：Thrift2 地址。HBaseReUsedEipId：当 ZK 连接地址或 Thrift2 连接地址开启了公网访问时，会返回该参数，表示实例中其他组件（如 RS 节点、Master 节点等）共享绑定使用的 EIP ID 信息。
+         */
+        addressType: string;
+        /**
+         * 当 ZK 连接地址或 Thrift2 连接地址开启了公网访问时，会返回该参数，表示 EIP ID。
+         */
+        eipId: string;
+        /**
+         * 连接地址 ID。说明默认仅返回 ZK 私网连接地址。若您申请了 Thrift2 连接地址，或者为 ZK 或 Thrift2 连接地址开启了公网访问，那么还会同时对应连接地址的 ID。当连接地址类型为 HBaseReUsedEipId 时，连接地址 ID 也固定为 HBaseReUsedEipId。
+         */
+        endpointId: string;
+        /**
+         * 连接地址的连接串。说明默认仅返回 ZK 私网连接地址。若您申请了 Thrift2 连接地址，或者为 ZK 或 Thrift2 连接地址开启了公网访问，那么还会同时对应连接地址的连接串。当连接地址类型为 HBaseReUsedEipId 时，连接地址的连接串也固定为 HBaseReUsedEipId。
+         */
+        endpointStr: string;
+        /**
+         * 连接地址网络类型。取值范围如下：Public：公网访问地址。Private：私网访问地址。
+         */
+        networkType: string;
+        /**
+         * 私网域名是否开启公网解析。
+         */
+        privateDnsVisibility: boolean;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 实例所绑定标签的标签键。
+         */
+        key: string;
+        /**
+         * 实例所绑定标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceEndpoint {
+        /**
+         * 连接地址类型，关于连接地址的更多信息，请参见连接地址类型。取值范围如下：Zk：ZK 地址。Thrift：Thrift2 地址。HBaseReUsedEipId：当 ZK 连接地址或 Thrift2 连接地址开启了公网访问时，会返回该参数，表示实例中其他组件（如 RS 节点、Master 节点等）共享绑定使用的 EIP ID 信息。
+         */
+        addressType: string;
+        /**
+         * 当 ZK 连接地址或 Thrift2 连接地址开启了公网访问时，会返回该参数，表示 EIP ID。
+         */
+        eipId: string;
+        /**
+         * 连接地址 ID。说明默认仅返回 ZK 私网连接地址。若您申请了 Thrift2 连接地址，或者为 ZK 或 Thrift2 连接地址开启了公网访问，那么还会同时对应连接地址的 ID。当连接地址类型为 HBaseReUsedEipId 时，连接地址 ID 也固定为 HBaseReUsedEipId。
+         */
+        endpointId: string;
+        /**
+         * 连接地址的连接串。说明默认仅返回 ZK 私网连接地址。若您申请了 Thrift2 连接地址，或者为 ZK 或 Thrift2 连接地址开启了公网访问，那么还会同时对应连接地址的连接串。当连接地址类型为 HBaseReUsedEipId 时，连接地址的连接串也固定为 HBaseReUsedEipId。
+         */
+        endpointStr: string;
+        /**
+         * 连接地址网络类型。取值范围如下：Public：公网访问地址。Private：私网访问地址。
+         */
+        networkType: string;
+        /**
+         * 私网域名是否开启公网解析。
+         */
+        privateDnsVisibility: boolean;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 实例所绑定标签的标签键。
+         */
+        key: string;
+        /**
+         * 实例所绑定标签的标签值。
          */
         value: string;
     }
@@ -6577,6 +6660,467 @@ export namespace kafka {
 
 }
 
+export namespace kms {
+    export interface GetKeyMultiRegionConfiguration {
+        /**
+         * 多区域密钥的类型。
+         */
+        multiRegionKeyType: string;
+        /**
+         * 主多区域键的事务识别号和区域 ID。
+         */
+        primaryKey: outputs.kms.GetKeyMultiRegionConfigurationPrimaryKey;
+        /**
+         * 副本多区域密钥的事务记录编号和区域 ID。
+         */
+        replicaKeys: outputs.kms.GetKeyMultiRegionConfigurationReplicaKey[];
+    }
+
+    export interface GetKeyMultiRegionConfigurationPrimaryKey {
+        /**
+         * 多区域密钥的区域 ID。
+         */
+        region: string;
+        /**
+         * 多区域密钥的 TRN。
+         */
+        trn: string;
+    }
+
+    export interface GetKeyMultiRegionConfigurationReplicaKey {
+        /**
+         * 多区域密钥的区域 ID。
+         */
+        region: string;
+        /**
+         * 多区域密钥的转换。
+         */
+        trn: string;
+    }
+
+    export interface GetKeyTag {
+        /**
+         * KMS密钥的标签键
+         */
+        key: string;
+        /**
+         * KMS密钥的标签值
+         */
+        value: string;
+    }
+
+}
+
+export namespace mongodb {
+    export interface GetInstanceConfigServer {
+        /**
+         * ConfigServer 的节点 ID。
+         */
+        configServerNodeId: string;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。
+         */
+        nodeRole: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceMongo {
+        /**
+         * Mongos 的节点 ID。
+         */
+        mongosNodeId: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceNode {
+        /**
+         * 节点延迟时间。单位：秒。
+         */
+        nodeDelayTime: number;
+        /**
+         * 节点 ID。
+         */
+        nodeId: string;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。ReadOnly：只读节点。
+         */
+        nodeRole: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 该节点的总存储空间。单位：GiB。
+         */
+        totalStorageGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 该节点已用的存储空间。单位：GiB。
+         */
+        usedStorageGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceNodeAvailabilityZone {
+        /**
+         * 当前可用区中需要添加的只读节点数量。当前仅副本集实例和分片集群实例中 Shard 分片支持添加只读节点。其中：当实例类型为副本集（即 InstanceType 取值为 ReplicaSet）时，该值表示单个副本集实例中的只读节点总数量。每个副本集实例最多支持添加 5 个只读节点。当实例类型为分片集群（即 InstanceType 取值为 ShardedCluster）时，该值表示每个 Shard 分片中的只读节点数量。每个 Shard 分片最多添加 5 个只读节点。
+         */
+        nodeNumber: number;
+        /**
+         * 只读节点所在的可用区。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceShard {
+        /**
+         * Shard 分片中各节点的信息列表。
+         */
+        nodes: outputs.mongodb.GetInstanceShardNode[];
+        /**
+         * Shard 节点的 ID。
+         */
+        shardId: string;
+    }
+
+    export interface GetInstanceShardNode {
+        /**
+         * 节点延迟时间。单位：秒。
+         */
+        nodeDelayTime: number;
+        /**
+         * 节点 ID。
+         */
+        nodeId: string;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。ReadOnly：只读节点。
+         */
+        nodeRole: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 该节点的总存储空间。单位：GiB。
+         */
+        totalStorageGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 该节点已用的存储空间。单位：GiB。
+         */
+        usedStorageGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceConfigServer {
+        /**
+         * ConfigServer 的节点 ID。
+         */
+        configServerNodeId: string;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。
+         */
+        nodeRole: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceMongo {
+        /**
+         * Mongos 的节点 ID。
+         */
+        mongosNodeId: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceNode {
+        /**
+         * 节点延迟时间。单位：秒。
+         */
+        nodeDelayTime: number;
+        /**
+         * 节点 ID。
+         */
+        nodeId: string;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。ReadOnly：只读节点。
+         */
+        nodeRole: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 该节点的总存储空间。单位：GiB。
+         */
+        totalStorageGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 该节点已用的存储空间。单位：GiB。
+         */
+        usedStorageGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceNodeAvailabilityZone {
+        /**
+         * 当前可用区中需要添加的只读节点数量。当前仅副本集实例和分片集群实例中 Shard 分片支持添加只读节点。其中：当实例类型为副本集（即 InstanceType 取值为 ReplicaSet）时，该值表示单个副本集实例中的只读节点总数量。每个副本集实例最多支持添加 5 个只读节点。当实例类型为分片集群（即 InstanceType 取值为 ShardedCluster）时，该值表示每个 Shard 分片中的只读节点数量。每个 Shard 分片最多添加 5 个只读节点。
+         */
+        nodeNumber: number;
+        /**
+         * 只读节点所在的可用区。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceShard {
+        nodes: outputs.mongodb.InstanceShardNode[];
+        /**
+         * Shard 节点的 ID。
+         */
+        shardId: string;
+    }
+
+    export interface InstanceShardNode {
+        /**
+         * 节点延迟时间。单位：秒。
+         */
+        nodeDelayTime: number;
+        /**
+         * 节点 ID。
+         */
+        nodeId: string;
+        /**
+         * 节点角色，取值范围如下：Primary：主节点。Secondary：从节点。Hidden：隐藏节点。ReadOnly：只读节点。
+         */
+        nodeRole: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态。
+         */
+        nodeStatus: string;
+        /**
+         * 总内存。单位：GiB。
+         */
+        totalMemoryGb: number;
+        /**
+         * 该节点的总存储空间。单位：GiB。
+         */
+        totalStorageGb: number;
+        /**
+         * 总核数。
+         */
+        totalvCpu: number;
+        /**
+         * 已用内存。单位：GiB。
+         */
+        usedMemoryGb: number;
+        /**
+         * 该节点已用的存储空间。单位：GiB。
+         */
+        usedStorageGb: number;
+        /**
+         * 已用核数。
+         */
+        usedvCpu: number;
+        /**
+         * 当前节点所属的可用区 ID。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
 export namespace natgateway {
     export interface GetNgwEipAddress {
         /**
@@ -6709,7 +7253,7 @@ export namespace privatezone {
 
     export interface GetResolverRuleVpC {
         /**
-         * 创建该 VPC 的火山引擎账号 ID。
+         * 创建该 VPC 的账号 ID。
          */
         accountId: string;
         /**
@@ -6780,17 +7324,9 @@ export namespace privatezone {
 
     export interface ResolverRuleVpC {
         /**
-         * 创建该 VPC 的火山引擎账号 ID。
-         */
-        accountId: string;
-        /**
          * VPC 的地域。
          */
         region: string;
-        /**
-         * VPC 的地域的名称。
-         */
-        regionName: string;
         /**
          * VPC 的 ID。
          */
@@ -11943,6 +12479,110 @@ export namespace vpc {
 }
 
 export namespace waf {
+    export interface DomainBackendGroup {
+        /**
+         * 接入的端口号。
+         */
+        accessPorts: number[];
+        backends: outputs.waf.DomainBackendGroupBackend[];
+        /**
+         * 源站组名称。
+         */
+        name: string;
+    }
+
+    export interface DomainBackendGroupBackend {
+        /**
+         * 源站 IP 地址。
+         */
+        ip: string;
+        /**
+         * 源站端口。
+         */
+        port: number;
+        /**
+         * 源站协议。
+         */
+        protocol: string;
+        /**
+         * 源站权重。
+         */
+        weight: number;
+    }
+
+    export interface DomainCloudAccessConfig {
+        /**
+         * 接入协议类型。
+         */
+        accessProtocol: string;
+        /**
+         * 防护模式。
+         */
+        defenceMode: number;
+        /**
+         * 负载均衡实例 ID。
+         */
+        instanceId: string;
+        /**
+         * 负载均衡实例名称。
+         */
+        instanceName: string;
+        /**
+         * 负载均衡监听器 ID。
+         */
+        listenerId: string;
+        lostAssociationFromAlb: number;
+        /**
+         * 监听器转发规则的端口号。
+         */
+        port: string;
+        /**
+         * 监听器转发规则的协议类型。
+         */
+        protocol: string;
+    }
+
+    export interface DomainProtocolPorts {
+        /**
+         * HTTP 协议的端口号。
+         */
+        http: number[];
+        /**
+         * HTTPS 协议的端口号。
+         */
+        https: number[];
+    }
+
+    export interface DomainTcpListenerConfig {
+        accessProtocol: string;
+        defenceMode: number;
+        instanceId: string;
+        instanceName: string;
+        listenerId: string;
+        lostAssociationFromAlb: number;
+        port: string;
+        protocol: string;
+    }
+
+    export interface DomainTlsFieldsConfig {
+        headersConfig: outputs.waf.DomainTlsFieldsConfigHeadersConfig;
+    }
+
+    export interface DomainTlsFieldsConfigHeadersConfig {
+        /**
+         * 是否记录全量 header。
+         */
+        enable: number;
+        /**
+         * 例外 header 字段，将对应字段从字段的 JSON 中排除，可帮助节约日志存储空间。
+         */
+        excludedKeyLists: string[];
+        /**
+         * 统计 header 字段，将对应字段用于日志统计分析和告警。
+         */
+        statisticalKeyLists: string[];
+    }
+
     export interface GetDomainBackendGroup {
         /**
          * 接入的端口号。

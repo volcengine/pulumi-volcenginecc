@@ -280,17 +280,9 @@ class ResolverRuleTagArgs:
 
 if not MYPY:
     class ResolverRuleVpCArgsDict(TypedDict):
-        account_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        创建该 VPC 的火山引擎账号 ID。
-        """
         region: NotRequired[pulumi.Input[builtins.str]]
         """
         VPC 的地域。
-        """
-        region_name: NotRequired[pulumi.Input[builtins.str]]
-        """
-        VPC 的地域的名称。
         """
         vpc_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -302,36 +294,16 @@ elif False:
 @pulumi.input_type
 class ResolverRuleVpCArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 region_name: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] account_id: 创建该 VPC 的火山引擎账号 ID。
         :param pulumi.Input[builtins.str] region: VPC 的地域。
-        :param pulumi.Input[builtins.str] region_name: VPC 的地域的名称。
         :param pulumi.Input[builtins.str] vpc_id: VPC 的 ID。
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if region_name is not None:
-            pulumi.set(__self__, "region_name", region_name)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        创建该 VPC 的火山引擎账号 ID。
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -344,18 +316,6 @@ class ResolverRuleVpCArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        VPC 的地域的名称。
-        """
-        return pulumi.get(self, "region_name")
-
-    @region_name.setter
-    def region_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "region_name", value)
 
     @property
     @pulumi.getter(name="vpcId")

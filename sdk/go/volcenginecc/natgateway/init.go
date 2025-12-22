@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:natgateway/dnatentry:Dnatentry":
 		r = &Dnatentry{}
+	case "volcenginecc:natgateway/natIp:NatIp":
+		r = &NatIp{}
 	case "volcenginecc:natgateway/ngw:Ngw":
 		r = &Ngw{}
 	case "volcenginecc:natgateway/snatentry:Snatentry":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"natgateway/dnatentry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"natgateway/natIp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

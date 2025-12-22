@@ -12,9 +12,9 @@ import (
 )
 
 // Data Source schema for Volcengine::WAF::Domain
-func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
+func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetDomainResult
+	var rv LookupDomainResult
 	err := ctx.Invoke("volcenginecc:waf/getDomain:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -23,13 +23,13 @@ func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOp
 }
 
 // A collection of arguments for invoking getDomain.
-type GetDomainArgs struct {
+type LookupDomainArgs struct {
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getDomain.
-type GetDomainResult struct {
+type LookupDomainResult struct {
 	// 接入模式。10：CNAME 接入，11：负载均衡（CLB）7 层接入。
 	AccessMode int `pulumi:"accessMode"`
 	// 高防实例 IP。高防型 WAF 接入展示，否则为空。
@@ -197,107 +197,107 @@ type GetDomainResult struct {
 	WhiteFieldEnable int `pulumi:"whiteFieldEnable"`
 }
 
-func GetDomainOutput(ctx *pulumi.Context, args GetDomainOutputArgs, opts ...pulumi.InvokeOption) GetDomainResultOutput {
+func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
 	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDomainResultOutput, error) {
-			args := v.(GetDomainArgs)
+		ApplyT(func(v interface{}) (LookupDomainResultOutput, error) {
+			args := v.(LookupDomainArgs)
 			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("volcenginecc:waf/getDomain:getDomain", args, GetDomainResultOutput{}, options).(GetDomainResultOutput), nil
-		}).(GetDomainResultOutput)
+			return ctx.InvokeOutput("volcenginecc:waf/getDomain:getDomain", args, LookupDomainResultOutput{}, options).(LookupDomainResultOutput), nil
+		}).(LookupDomainResultOutput)
 }
 
 // A collection of arguments for invoking getDomain.
-type GetDomainOutputArgs struct {
+type LookupDomainOutputArgs struct {
 	// Uniquely identifies the resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (GetDomainOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainArgs)(nil)).Elem()
+func (LookupDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getDomain.
-type GetDomainResultOutput struct{ *pulumi.OutputState }
+type LookupDomainResultOutput struct{ *pulumi.OutputState }
 
-func (GetDomainResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainResult)(nil)).Elem()
+func (LookupDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainResult)(nil)).Elem()
 }
 
-func (o GetDomainResultOutput) ToGetDomainResultOutput() GetDomainResultOutput {
+func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResultOutput {
 	return o
 }
 
-func (o GetDomainResultOutput) ToGetDomainResultOutputWithContext(ctx context.Context) GetDomainResultOutput {
+func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
 	return o
 }
 
 // 接入模式。10：CNAME 接入，11：负载均衡（CLB）7 层接入。
-func (o GetDomainResultOutput) AccessMode() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.AccessMode }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) AccessMode() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.AccessMode }).(pulumi.IntOutput)
 }
 
 // 高防实例 IP。高防型 WAF 接入展示，否则为空。
-func (o GetDomainResultOutput) AdvancedDefenseIp() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.AdvancedDefenseIp }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) AdvancedDefenseIp() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.AdvancedDefenseIp }).(pulumi.StringOutput)
 }
 
 // 高防实例 Ipv6。高防型 WAF 接入展示，否则为空。
-func (o GetDomainResultOutput) AdvancedDefenseIpv6() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.AdvancedDefenseIpv6 }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) AdvancedDefenseIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.AdvancedDefenseIpv6 }).(pulumi.StringOutput)
 }
 
 // 是否开启了 API 防护策略。0：关闭，1：开启。
-func (o GetDomainResultOutput) ApiEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ApiEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ApiEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ApiEnable }).(pulumi.IntOutput)
 }
 
 // 攻击状态。0:未发现攻击,1:发现攻击。
-func (o GetDomainResultOutput) AttackStatus() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.AttackStatus }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) AttackStatus() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.AttackStatus }).(pulumi.IntOutput)
 }
 
 // 是否开启智能 CC 防护策略。0：关闭，1：开启。
-func (o GetDomainResultOutput) AutoCcEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.AutoCcEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) AutoCcEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.AutoCcEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启自动封禁。0：关闭，1：开启。
-func (o GetDomainResultOutput) AutomaticBlackEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.AutomaticBlackEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) AutomaticBlackEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.AutomaticBlackEnable }).(pulumi.IntOutput)
 }
 
 // 源站配置。
-func (o GetDomainResultOutput) BackendGroups() GetDomainBackendGroupArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []GetDomainBackendGroup { return v.BackendGroups }).(GetDomainBackendGroupArrayOutput)
+func (o LookupDomainResultOutput) BackendGroups() GetDomainBackendGroupArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainBackendGroup { return v.BackendGroups }).(GetDomainBackendGroupArrayOutput)
 }
 
 // 是否开启了黑名单策略。0：关闭, 1：开启。
-func (o GetDomainResultOutput) BlackIpEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BlackIpEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BlackIpEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BlackIpEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启了区域封禁策略。0：关闭;1：开启。
-func (o GetDomainResultOutput) BlackLctEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BlackLctEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BlackLctEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BlackLctEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启动态Token防护。
-func (o GetDomainResultOutput) BotDytokenEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BotDytokenEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BotDytokenEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BotDytokenEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启 bot 频率限制策略。
 // 0：关闭
 // 1：开启。
-func (o GetDomainResultOutput) BotFrequencyEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BotFrequencyEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BotFrequencyEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BotFrequencyEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启 bot 统计防护策略。
 // 0：关闭
 // 1：开启。
-func (o GetDomainResultOutput) BotRepeatEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BotRepeatEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BotRepeatEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BotRepeatEnable }).(pulumi.IntOutput)
 }
 
 // 设置 bot 行为地图策略默认动作，当 BotSequenceEnable = 1 开启状态时生效。默认为 0 （观察）。
@@ -305,97 +305,97 @@ func (o GetDomainResultOutput) BotRepeatEnable() pulumi.IntOutput {
 // 2：拦截
 // 6：JS 挑战
 // 7：人机验证。
-func (o GetDomainResultOutput) BotSequenceDefaultAction() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BotSequenceDefaultAction }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BotSequenceDefaultAction() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BotSequenceDefaultAction }).(pulumi.IntOutput)
 }
 
 // 是否开启 bot 行为地图。
 // 0：关闭
 // 1：开启。
-func (o GetDomainResultOutput) BotSequenceEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.BotSequenceEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) BotSequenceEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.BotSequenceEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启 CC 防护策略。
 // 0：关闭
 // 1：开启。
-func (o GetDomainResultOutput) CcEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.CcEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) CcEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.CcEnable }).(pulumi.IntOutput)
 }
 
 // 托管至证书中心的证书ID。
-func (o GetDomainResultOutput) CertificateId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.CertificateId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) CertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.CertificateId }).(pulumi.StringOutput)
 }
 
 // 证书名称，协议类型包含 HTTPS 时显示。
-func (o GetDomainResultOutput) CertificateName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.CertificateName }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.CertificateName }).(pulumi.StringOutput)
 }
 
 // 证书托管平台:waf/certificate_service。
-func (o GetDomainResultOutput) CertificatePlatform() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.CertificatePlatform }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) CertificatePlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.CertificatePlatform }).(pulumi.StringOutput)
 }
 
 // CLB实例ID。
-func (o GetDomainResultOutput) ClbInstanceIds() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.ClbInstanceIds }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ClbInstanceIds() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ClbInstanceIds }).(pulumi.StringOutput)
 }
 
 // CLB监听器ID。
-func (o GetDomainResultOutput) ClbListenerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.ClbListenerId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ClbListenerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ClbListenerId }).(pulumi.StringOutput)
 }
 
 // CLB后端服务器组ID。
-func (o GetDomainResultOutput) ClbPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.ClbPoolId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ClbPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ClbPoolId }).(pulumi.StringOutput)
 }
 
 // CLB后端服务器ID。
-func (o GetDomainResultOutput) ClbServerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.ClbServerId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ClbServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ClbServerId }).(pulumi.StringOutput)
 }
 
 // 客户端IP获取方式。0:自定义Header字段,1:通过X-Forwarded-For(XFF)字段中第一个公网IP地址作为客户端真实IP地址。
-func (o GetDomainResultOutput) ClientIpLocation() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ClientIpLocation }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ClientIpLocation() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ClientIpLocation }).(pulumi.IntOutput)
 }
 
 // 客户端请求body最大值(MB)。
-func (o GetDomainResultOutput) ClientMaxBodySize() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ClientMaxBodySize }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ClientMaxBodySize() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ClientMaxBodySize }).(pulumi.IntOutput)
 }
 
 // LB接入参数。
-func (o GetDomainResultOutput) CloudAccessConfigs() GetDomainCloudAccessConfigArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []GetDomainCloudAccessConfig { return v.CloudAccessConfigs }).(GetDomainCloudAccessConfigArrayOutput)
+func (o LookupDomainResultOutput) CloudAccessConfigs() GetDomainCloudAccessConfigArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainCloudAccessConfig { return v.CloudAccessConfigs }).(GetDomainCloudAccessConfigArrayOutput)
 }
 
 // CNAME记录。
-func (o GetDomainResultOutput) Cname() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Cname }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Cname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Cname }).(pulumi.StringOutput)
 }
 
 // 是否开启自定义BOT防护。
-func (o GetDomainResultOutput) CustomBotEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.CustomBotEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) CustomBotEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.CustomBotEnable }).(pulumi.IntOutput)
 }
 
 // 自定义Header。
-func (o GetDomainResultOutput) CustomHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []string { return v.CustomHeaders }).(pulumi.StringArrayOutput)
+func (o LookupDomainResultOutput) CustomHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.CustomHeaders }).(pulumi.StringArrayOutput)
 }
 
 // 是否开启自定义响应。
-func (o GetDomainResultOutput) CustomRspEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.CustomRspEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) CustomRspEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.CustomRspEnable }).(pulumi.IntOutput)
 }
 
 // 自定义SNI。
-func (o GetDomainResultOutput) CustomSni() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.CustomSni }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) CustomSni() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.CustomSni }).(pulumi.StringOutput)
 }
 
 // 为例外 ALB 实例设置防护模式。
@@ -406,215 +406,215 @@ func (o GetDomainResultOutput) CustomSni() pulumi.StringOutput {
 // 5：部分启用，默认防护模式为启用防护，但存在例外实例为暂停防护或回源模式状态。
 // 6：部分暂停，默认防护模式为暂停防护，但存在例外实例为启用防护或回源模式状态。
 // 7：部分回源，默认防护模式为回源模式，但存在例外实例为启用防护或暂停防护状态。
-func (o GetDomainResultOutput) DefenceMode() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.DefenceMode }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) DefenceMode() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.DefenceMode }).(pulumi.IntOutput)
 }
 
 // 是否开启数据泄露防护。
-func (o GetDomainResultOutput) DlpEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.DlpEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) DlpEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.DlpEnable }).(pulumi.IntOutput)
 }
 
 // 防护的域名信息，支持泛域名和精确域名。
-func (o GetDomainResultOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Domain }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Domain }).(pulumi.StringOutput)
 }
 
 // 是否开启用户自定义重定向。0:关闭,1:开启。
-func (o GetDomainResultOutput) EnableCustomRedirect() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.EnableCustomRedirect }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) EnableCustomRedirect() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.EnableCustomRedirect }).(pulumi.IntOutput)
 }
 
 // 是否开启HTTP2.0。0:关闭,1:开启。
-func (o GetDomainResultOutput) EnableHttp2() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.EnableHttp2 }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) EnableHttp2() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.EnableHttp2 }).(pulumi.IntOutput)
 }
 
 // 是否支持防护Ipv6请求。0:关闭,1:开启。
-func (o GetDomainResultOutput) EnableIpv6() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.EnableIpv6 }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) EnableIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.EnableIpv6 }).(pulumi.IntOutput)
 }
 
 // 是否开启SNI配置。0:关闭,1:开启。
-func (o GetDomainResultOutput) EnableSni() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.EnableSni }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) EnableSni() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.EnableSni }).(pulumi.IntOutput)
 }
 
 // Uniquely identifies the resource.
-func (o GetDomainResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // 长连接复用个数。
-func (o GetDomainResultOutput) KeepAliveRequest() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.KeepAliveRequest }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) KeepAliveRequest() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.KeepAliveRequest }).(pulumi.IntOutput)
 }
 
 // 长连接保持时间(秒)。
-func (o GetDomainResultOutput) KeepAliveTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.KeepAliveTimeout }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) KeepAliveTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.KeepAliveTimeout }).(pulumi.IntOutput)
 }
 
 // 负载均衡算法类型。wrr:加权轮询,wlc:加权最小连接数,sh:源地址哈希。
-func (o GetDomainResultOutput) LbAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.LbAlgorithm }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) LbAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.LbAlgorithm }).(pulumi.StringOutput)
 }
 
 // 端口号。
-func (o GetDomainResultOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.Port }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
 // 项目名称。
-func (o GetDomainResultOutput) ProjectName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.ProjectName }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
 // 是否开启协议跟随。0:关闭,1:开启。
-func (o GetDomainResultOutput) ProtocolFollow() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProtocolFollow }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProtocolFollow() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProtocolFollow }).(pulumi.IntOutput)
 }
 
 // 接入端口信息。
-func (o GetDomainResultOutput) ProtocolPorts() GetDomainProtocolPortsOutput {
-	return o.ApplyT(func(v GetDomainResult) GetDomainProtocolPorts { return v.ProtocolPorts }).(GetDomainProtocolPortsOutput)
+func (o LookupDomainResultOutput) ProtocolPorts() GetDomainProtocolPortsOutput {
+	return o.ApplyT(func(v LookupDomainResult) GetDomainProtocolPorts { return v.ProtocolPorts }).(GetDomainProtocolPortsOutput)
 }
 
 // 接入协议类型,支持HTTP/HTTPS。
-func (o GetDomainResultOutput) Protocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+func (o LookupDomainResultOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
 // 是否开启代理配置。0:关闭,1:开启。
-func (o GetDomainResultOutput) ProxyConfig() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyConfig }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyConfig() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyConfig }).(pulumi.IntOutput)
 }
 
 // WAF和后端服务器的建连超时时间(秒)。
-func (o GetDomainResultOutput) ProxyConnectTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyConnectTimeout }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyConnectTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyConnectTimeout }).(pulumi.IntOutput)
 }
 
 // WAF回源长连接可复用个数。
-func (o GetDomainResultOutput) ProxyKeepAlive() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyKeepAlive }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyKeepAlive() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyKeepAlive }).(pulumi.IntOutput)
 }
 
 // 空闲长连接超时时间(秒)。
-func (o GetDomainResultOutput) ProxyKeepAliveTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyKeepAliveTimeout }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyKeepAliveTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyKeepAliveTimeout }).(pulumi.IntOutput)
 }
 
 // WAF从后端服务器读取响应的超时时间(秒)。
-func (o GetDomainResultOutput) ProxyReadTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyReadTimeout }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyReadTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyReadTimeout }).(pulumi.IntOutput)
 }
 
 // WAF回源重试次数。
-func (o GetDomainResultOutput) ProxyRetry() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyRetry }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyRetry() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyRetry }).(pulumi.IntOutput)
 }
 
 // WAF将请求传输到后端服务器的超时时间(秒)。
-func (o GetDomainResultOutput) ProxyWriteTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.ProxyWriteTimeout }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) ProxyWriteTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.ProxyWriteTimeout }).(pulumi.IntOutput)
 }
 
 // CNAME接入回源方式。0:私网回源,1:公网回源。
-func (o GetDomainResultOutput) PublicRealServer() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.PublicRealServer }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) PublicRealServer() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.PublicRealServer }).(pulumi.IntOutput)
 }
 
 // 是否开启异常响应防护。
-func (o GetDomainResultOutput) RspAbnormalEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.RspAbnormalEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) RspAbnormalEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.RspAbnormalEnable }).(pulumi.IntOutput)
 }
 
 // 服务IP。
-func (o GetDomainResultOutput) ServerIps() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.ServerIps }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) ServerIps() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.ServerIps }).(pulumi.StringOutput)
 }
 
 // WAF回源IP。
-func (o GetDomainResultOutput) SrcIps() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.SrcIps }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) SrcIps() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.SrcIps }).(pulumi.StringOutput)
 }
 
 // 源站协议。
-func (o GetDomainResultOutput) SrcProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.SrcProtocol }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) SrcProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.SrcProtocol }).(pulumi.StringOutput)
 }
 
 // 加密套件。
-func (o GetDomainResultOutput) SslCiphers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []string { return v.SslCiphers }).(pulumi.StringArrayOutput)
+func (o LookupDomainResultOutput) SslCiphers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.SslCiphers }).(pulumi.StringArrayOutput)
 }
 
 // TLS协议版本。如:TLSv1,TLSv1.1,TLSv1.2,TLSv1.3。
-func (o GetDomainResultOutput) SslProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []string { return v.SslProtocols }).(pulumi.StringArrayOutput)
+func (o LookupDomainResultOutput) SslProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.SslProtocols }).(pulumi.StringArrayOutput)
 }
 
 // 接入状态。0:正常,1:DNS未解析,2:配置中,3:配置失败,4:配置未生效,5:更新中,6:实例已删除。
-func (o GetDomainResultOutput) Status() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.Status }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) Status() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.Status }).(pulumi.IntOutput)
 }
 
 // 是否开启托管BOT防护。
-func (o GetDomainResultOutput) SystemBotEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.SystemBotEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) SystemBotEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.SystemBotEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启防篡改。
-func (o GetDomainResultOutput) TamperProofEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.TamperProofEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) TamperProofEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.TamperProofEnable }).(pulumi.IntOutput)
 }
 
 // TCP监听器配置。
-func (o GetDomainResultOutput) TcpListenerConfigs() GetDomainTcpListenerConfigArrayOutput {
-	return o.ApplyT(func(v GetDomainResult) []GetDomainTcpListenerConfig { return v.TcpListenerConfigs }).(GetDomainTcpListenerConfigArrayOutput)
+func (o LookupDomainResultOutput) TcpListenerConfigs() GetDomainTcpListenerConfigArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainTcpListenerConfig { return v.TcpListenerConfigs }).(GetDomainTcpListenerConfigArrayOutput)
 }
 
 // 是否开启日志服务。0:关闭,1:开启。
-func (o GetDomainResultOutput) TlsEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.TlsEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) TlsEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.TlsEnable }).(pulumi.IntOutput)
 }
 
 // 日志字段配置详情。
-func (o GetDomainResultOutput) TlsFieldsConfig() GetDomainTlsFieldsConfigOutput {
-	return o.ApplyT(func(v GetDomainResult) GetDomainTlsFieldsConfig { return v.TlsFieldsConfig }).(GetDomainTlsFieldsConfigOutput)
+func (o LookupDomainResultOutput) TlsFieldsConfig() GetDomainTlsFieldsConfigOutput {
+	return o.ApplyT(func(v LookupDomainResult) GetDomainTlsFieldsConfig { return v.TlsFieldsConfig }).(GetDomainTlsFieldsConfigOutput)
 }
 
 // 更新时间。
-func (o GetDomainResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) UpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }
 
 // VPC ID。
-func (o GetDomainResultOutput) VpcId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDomainResult) string { return v.VpcId }).(pulumi.StringOutput)
+func (o LookupDomainResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 // 是否开启WAF防护。
-func (o GetDomainResultOutput) WafEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.WafEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) WafEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.WafEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启白名单请求防护。
-func (o GetDomainResultOutput) WafWhiteReqEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.WafWhiteReqEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) WafWhiteReqEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.WafWhiteReqEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启白名单防护。
-func (o GetDomainResultOutput) WhiteEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.WhiteEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) WhiteEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.WhiteEnable }).(pulumi.IntOutput)
 }
 
 // 是否开启字段白名单防护。
-func (o GetDomainResultOutput) WhiteFieldEnable() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDomainResult) int { return v.WhiteFieldEnable }).(pulumi.IntOutput)
+func (o LookupDomainResultOutput) WhiteFieldEnable() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupDomainResult) int { return v.WhiteFieldEnable }).(pulumi.IntOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetDomainResultOutput{})
+	pulumi.RegisterOutputType(LookupDomainResultOutput{})
 }

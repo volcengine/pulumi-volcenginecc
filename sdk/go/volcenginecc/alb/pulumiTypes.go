@@ -359,7 +359,9 @@ func (o AclTagArrayOutput) Index(i pulumi.IntInput) AclTagOutput {
 }
 
 type CertificateTag struct {
-	Key   *string `pulumi:"key"`
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
 	Value *string `pulumi:"value"`
 }
 
@@ -375,7 +377,9 @@ type CertificateTagInput interface {
 }
 
 type CertificateTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -430,10 +434,12 @@ func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// 用户标签的标签键。
 func (o CertificateTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// 用户标签的标签值。
 func (o CertificateTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3513,7 +3519,9 @@ func (o GetAclTagArrayOutput) Index(i pulumi.IntInput) GetAclTagOutput {
 }
 
 type GetCertificateTag struct {
-	Key   string `pulumi:"key"`
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
 	Value string `pulumi:"value"`
 }
 
@@ -3529,7 +3537,9 @@ type GetCertificateTagInput interface {
 }
 
 type GetCertificateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3584,10 +3594,12 @@ func (o GetCertificateTagOutput) ToGetCertificateTagOutputWithContext(ctx contex
 	return o
 }
 
+// 用户标签的标签键。
 func (o GetCertificateTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// 用户标签的标签值。
 func (o GetCertificateTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateTag) string { return v.Value }).(pulumi.StringOutput)
 }

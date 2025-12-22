@@ -134,10 +134,6 @@ if not MYPY:
         """
         数据节点的存储规格配置详情。
         """
-        include_months: NotRequired[pulumi.Input[builtins.int]]
-        """
-        包年包月实例购买时长。
-        """
         instance_name: NotRequired[pulumi.Input[builtins.str]]
         """
         自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
@@ -232,7 +228,6 @@ class InstanceInstanceConfigurationArgs:
                  hot_node_number: Optional[pulumi.Input[builtins.int]] = None,
                  hot_node_resource_spec: Optional[pulumi.Input['InstanceInstanceConfigurationHotNodeResourceSpecArgs']] = None,
                  hot_node_storage_spec: Optional[pulumi.Input['InstanceInstanceConfigurationHotNodeStorageSpecArgs']] = None,
-                 include_months: Optional[pulumi.Input[builtins.int]] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
                  kibana_node_number: Optional[pulumi.Input[builtins.int]] = None,
                  kibana_node_resource_spec: Optional[pulumi.Input['InstanceInstanceConfigurationKibanaNodeResourceSpecArgs']] = None,
@@ -271,7 +266,6 @@ class InstanceInstanceConfigurationArgs:
         :param pulumi.Input[builtins.int] hot_node_number: 数据节点数量。
         :param pulumi.Input['InstanceInstanceConfigurationHotNodeResourceSpecArgs'] hot_node_resource_spec: 数据节点的节点规格配置详情。
         :param pulumi.Input['InstanceInstanceConfigurationHotNodeStorageSpecArgs'] hot_node_storage_spec: 数据节点的存储规格配置详情。
-        :param pulumi.Input[builtins.int] include_months: 包年包月实例购买时长。
         :param pulumi.Input[builtins.str] instance_name: 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
         :param pulumi.Input[builtins.int] kibana_node_number: kibana 节点数量。
         :param pulumi.Input['InstanceInstanceConfigurationKibanaNodeResourceSpecArgs'] kibana_node_resource_spec: Kibana 节点的节点规格配置详情。
@@ -324,8 +318,6 @@ class InstanceInstanceConfigurationArgs:
             pulumi.set(__self__, "hot_node_resource_spec", hot_node_resource_spec)
         if hot_node_storage_spec is not None:
             pulumi.set(__self__, "hot_node_storage_spec", hot_node_storage_spec)
-        if include_months is not None:
-            pulumi.set(__self__, "include_months", include_months)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
         if kibana_node_number is not None:
@@ -570,18 +562,6 @@ class InstanceInstanceConfigurationArgs:
     @hot_node_storage_spec.setter
     def hot_node_storage_spec(self, value: Optional[pulumi.Input['InstanceInstanceConfigurationHotNodeStorageSpecArgs']]):
         pulumi.set(self, "hot_node_storage_spec", value)
-
-    @property
-    @pulumi.getter(name="includeMonths")
-    def include_months(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        包年包月实例购买时长。
-        """
-        return pulumi.get(self, "include_months")
-
-    @include_months.setter
-    def include_months(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "include_months", value)
 
     @property
     @pulumi.getter(name="instanceName")

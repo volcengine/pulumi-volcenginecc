@@ -14,22 +14,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone.Inputs
     public sealed class ResolverRuleVpCArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建该 VPC 的火山引擎账号 ID。
-        /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
-
-        /// <summary>
         /// VPC 的地域。
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
-
-        /// <summary>
-        /// VPC 的地域的名称。
-        /// </summary>
-        [Input("regionName")]
-        public Input<string>? RegionName { get; set; }
 
         /// <summary>
         /// VPC 的 ID。

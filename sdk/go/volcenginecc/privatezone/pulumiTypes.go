@@ -456,12 +456,8 @@ func (o ResolverRuleTagArrayOutput) Index(i pulumi.IntInput) ResolverRuleTagOutp
 }
 
 type ResolverRuleVpC struct {
-	// 创建该 VPC 的火山引擎账号 ID。
-	AccountId *string `pulumi:"accountId"`
 	// VPC 的地域。
 	Region *string `pulumi:"region"`
-	// VPC 的地域的名称。
-	RegionName *string `pulumi:"regionName"`
 	// VPC 的 ID。
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -478,12 +474,8 @@ type ResolverRuleVpCInput interface {
 }
 
 type ResolverRuleVpCArgs struct {
-	// 创建该 VPC 的火山引擎账号 ID。
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// VPC 的地域。
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// VPC 的地域的名称。
-	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
 	// VPC 的 ID。
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
@@ -539,19 +531,9 @@ func (o ResolverRuleVpCOutput) ToResolverRuleVpCOutputWithContext(ctx context.Co
 	return o
 }
 
-// 创建该 VPC 的火山引擎账号 ID。
-func (o ResolverRuleVpCOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResolverRuleVpC) *string { return v.AccountId }).(pulumi.StringPtrOutput)
-}
-
 // VPC 的地域。
 func (o ResolverRuleVpCOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverRuleVpC) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-// VPC 的地域的名称。
-func (o ResolverRuleVpCOutput) RegionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResolverRuleVpC) *string { return v.RegionName }).(pulumi.StringPtrOutput)
 }
 
 // VPC 的 ID。
@@ -1022,7 +1004,7 @@ func (o GetResolverRuleTagArrayOutput) Index(i pulumi.IntInput) GetResolverRuleT
 }
 
 type GetResolverRuleVpC struct {
-	// 创建该 VPC 的火山引擎账号 ID。
+	// 创建该 VPC 的账号 ID。
 	AccountId string `pulumi:"accountId"`
 	// VPC 的地域。
 	Region string `pulumi:"region"`
@@ -1044,7 +1026,7 @@ type GetResolverRuleVpCInput interface {
 }
 
 type GetResolverRuleVpCArgs struct {
-	// 创建该 VPC 的火山引擎账号 ID。
+	// 创建该 VPC 的账号 ID。
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// VPC 的地域。
 	Region pulumi.StringInput `pulumi:"region"`
@@ -1105,7 +1087,7 @@ func (o GetResolverRuleVpCOutput) ToGetResolverRuleVpCOutputWithContext(ctx cont
 	return o
 }
 
-// 创建该 VPC 的火山引擎账号 ID。
+// 创建该 VPC 的账号 ID。
 func (o GetResolverRuleVpCOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverRuleVpC) string { return v.AccountId }).(pulumi.StringOutput)
 }

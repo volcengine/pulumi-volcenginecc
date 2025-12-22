@@ -78,20 +78,6 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
     public Output<Integer> endpointId() {
         return this.endpointId;
     }
-    /**
-     * 终端节点的 TRN。
-     * 
-     */
-    @Export(name="endpointTrn", refs={String.class}, tree="[0]")
-    private Output<String> endpointTrn;
-
-    /**
-     * @return 终端节点的 TRN。
-     * 
-     */
-    public Output<String> endpointTrn() {
-        return this.endpointTrn;
-    }
     @Export(name="forwardIPs", refs={List.class,ResolverRuleForwardIP.class}, tree="[0,1]")
     private Output<List<ResolverRuleForwardIP>> forwardIPs;
 
@@ -99,14 +85,14 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
         return this.forwardIPs;
     }
     /**
-     * 最近一次更新转发规则的火山引擎账号的 ID
+     * 最近一次更新转发规则的账号的 ID
      * 
      */
     @Export(name="lastOperator", refs={String.class}, tree="[0]")
     private Output<String> lastOperator;
 
     /**
-     * @return 最近一次更新转发规则的火山引擎账号的 ID
+     * @return 最近一次更新转发规则的账号的 ID
      * 
      */
     public Output<String> lastOperator() {
@@ -207,20 +193,6 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
 
     public Output<List<ResolverRuleVpC>> vpCs() {
         return this.vpCs;
-    }
-    /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    @Export(name="vpcTrns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> vpcTrns;
-
-    /**
-     * @return 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    public Output<List<String>> vpcTrns() {
-        return this.vpcTrns;
     }
     /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。

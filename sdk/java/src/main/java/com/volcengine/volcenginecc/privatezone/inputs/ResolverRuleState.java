@@ -66,21 +66,6 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.endpointId);
     }
 
-    /**
-     * 终端节点的 TRN。
-     * 
-     */
-    @Import(name="endpointTrn")
-    private @Nullable Output<String> endpointTrn;
-
-    /**
-     * @return 终端节点的 TRN。
-     * 
-     */
-    public Optional<Output<String>> endpointTrn() {
-        return Optional.ofNullable(this.endpointTrn);
-    }
-
     @Import(name="forwardIPs")
     private @Nullable Output<List<ResolverRuleForwardIPArgs>> forwardIPs;
 
@@ -89,14 +74,14 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 最近一次更新转发规则的火山引擎账号的 ID
+     * 最近一次更新转发规则的账号的 ID
      * 
      */
     @Import(name="lastOperator")
     private @Nullable Output<String> lastOperator;
 
     /**
-     * @return 最近一次更新转发规则的火山引擎账号的 ID
+     * @return 最近一次更新转发规则的账号的 ID
      * 
      */
     public Optional<Output<String>> lastOperator() {
@@ -208,21 +193,6 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    @Import(name="vpcTrns")
-    private @Nullable Output<List<String>> vpcTrns;
-
-    /**
-     * @return 域名所关联的一个或多个 VPC 的 TRN。
-     * 
-     */
-    public Optional<Output<List<String>>> vpcTrns() {
-        return Optional.ofNullable(this.vpcTrns);
-    }
-
-    /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      * 
      */
@@ -243,7 +213,6 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         this.createdTime = $.createdTime;
         this.enable = $.enable;
         this.endpointId = $.endpointId;
-        this.endpointTrn = $.endpointTrn;
         this.forwardIPs = $.forwardIPs;
         this.lastOperator = $.lastOperator;
         this.line = $.line;
@@ -254,7 +223,6 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         this.type = $.type;
         this.updatedTime = $.updatedTime;
         this.vpCs = $.vpCs;
-        this.vpcTrns = $.vpcTrns;
         this.zoneName = $.zoneName;
     }
 
@@ -339,27 +307,6 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
             return endpointId(Output.of(endpointId));
         }
 
-        /**
-         * @param endpointTrn 终端节点的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder endpointTrn(@Nullable Output<String> endpointTrn) {
-            $.endpointTrn = endpointTrn;
-            return this;
-        }
-
-        /**
-         * @param endpointTrn 终端节点的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder endpointTrn(String endpointTrn) {
-            return endpointTrn(Output.of(endpointTrn));
-        }
-
         public Builder forwardIPs(@Nullable Output<List<ResolverRuleForwardIPArgs>> forwardIPs) {
             $.forwardIPs = forwardIPs;
             return this;
@@ -374,7 +321,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastOperator 最近一次更新转发规则的火山引擎账号的 ID
+         * @param lastOperator 最近一次更新转发规则的账号的 ID
          * 
          * @return builder
          * 
@@ -385,7 +332,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastOperator 最近一次更新转发规则的火山引擎账号的 ID
+         * @param lastOperator 最近一次更新转发规则的账号的 ID
          * 
          * @return builder
          * 
@@ -544,37 +491,6 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
 
         public Builder vpCs(ResolverRuleVpCArgs... vpCs) {
             return vpCs(List.of(vpCs));
-        }
-
-        /**
-         * @param vpcTrns 域名所关联的一个或多个 VPC 的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcTrns(@Nullable Output<List<String>> vpcTrns) {
-            $.vpcTrns = vpcTrns;
-            return this;
-        }
-
-        /**
-         * @param vpcTrns 域名所关联的一个或多个 VPC 的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcTrns(List<String> vpcTrns) {
-            return vpcTrns(Output.of(vpcTrns));
-        }
-
-        /**
-         * @param vpcTrns 域名所关联的一个或多个 VPC 的 TRN。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcTrns(String... vpcTrns) {
-            return vpcTrns(List.of(vpcTrns));
         }
 
         /**

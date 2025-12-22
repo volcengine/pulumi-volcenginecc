@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.apig.inputs.GetCustomDomainArgs;
+import com.volcengine.volcenginecc.apig.inputs.GetCustomDomainPlainArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetGatewayArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetGatewayPlainArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetGatewayServiceArgs;
@@ -18,6 +20,8 @@ import com.volcengine.volcenginecc.apig.inputs.GetUpstreamArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamPlainArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamSourceArgs;
 import com.volcengine.volcenginecc.apig.inputs.GetUpstreamSourcePlainArgs;
+import com.volcengine.volcenginecc.apig.outputs.GetCustomDomainResult;
+import com.volcengine.volcenginecc.apig.outputs.GetCustomDomainsResult;
 import com.volcengine.volcenginecc.apig.outputs.GetGatewayResult;
 import com.volcengine.volcenginecc.apig.outputs.GetGatewayServiceResult;
 import com.volcengine.volcenginecc.apig.outputs.GetGatewayServicesResult;
@@ -29,6 +33,90 @@ import com.volcengine.volcenginecc.apig.outputs.GetUpstreamsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApigFunctions {
+    /**
+     * Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainResult> getCustomDomain(GetCustomDomainArgs args) {
+        return getCustomDomain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static CompletableFuture<GetCustomDomainResult> getCustomDomainPlain(GetCustomDomainPlainArgs args) {
+        return getCustomDomainPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainResult> getCustomDomain(GetCustomDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getCustomDomain:getCustomDomain", TypeShape.of(GetCustomDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainResult> getCustomDomain(GetCustomDomainArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getCustomDomain:getCustomDomain", TypeShape.of(GetCustomDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static CompletableFuture<GetCustomDomainResult> getCustomDomainPlain(GetCustomDomainPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:apig/getCustomDomain:getCustomDomain", TypeShape.of(GetCustomDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainsResult> getCustomDomains() {
+        return getCustomDomains(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static CompletableFuture<GetCustomDomainsResult> getCustomDomainsPlain() {
+        return getCustomDomainsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainsResult> getCustomDomains(InvokeArgs args) {
+        return getCustomDomains(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static CompletableFuture<GetCustomDomainsResult> getCustomDomainsPlain(InvokeArgs args) {
+        return getCustomDomainsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainsResult> getCustomDomains(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getCustomDomains:getCustomDomains", TypeShape.of(GetCustomDomainsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static Output<GetCustomDomainsResult> getCustomDomains(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:apig/getCustomDomains:getCustomDomains", TypeShape.of(GetCustomDomainsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::APIG::CustomDomain
+     * 
+     */
+    public static CompletableFuture<GetCustomDomainsResult> getCustomDomainsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:apig/getCustomDomains:getCustomDomains", TypeShape.of(GetCustomDomainsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::APIG::Gateway
      * 

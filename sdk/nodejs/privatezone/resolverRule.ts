@@ -50,18 +50,14 @@ export class ResolverRule extends pulumi.CustomResource {
     /**
      * 转发规则是否被启用。true：启用。false：禁用。
      */
-    public readonly enable!: pulumi.Output<boolean>;
+    public /*out*/ readonly enable!: pulumi.Output<boolean>;
     /**
      * 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
      */
     public readonly endpointId!: pulumi.Output<number>;
-    /**
-     * 终端节点的 TRN。
-     */
-    public readonly endpointTrn!: pulumi.Output<string>;
     public readonly forwardIPs!: pulumi.Output<outputs.privatezone.ResolverRuleForwardIP[]>;
     /**
-     * 最近一次更新转发规则的火山引擎账号的 ID
+     * 最近一次更新转发规则的账号的 ID
      */
     public /*out*/ readonly lastOperator!: pulumi.Output<string>;
     /**
@@ -91,10 +87,6 @@ export class ResolverRule extends pulumi.CustomResource {
     public /*out*/ readonly updatedTime!: pulumi.Output<string>;
     public readonly vpCs!: pulumi.Output<outputs.privatezone.ResolverRuleVpC[]>;
     /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     */
-    public readonly vpcTrns!: pulumi.Output<string[]>;
-    /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      */
     public readonly zoneName!: pulumi.Output<string>;
@@ -115,7 +107,6 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["endpointId"] = state ? state.endpointId : undefined;
-            resourceInputs["endpointTrn"] = state ? state.endpointTrn : undefined;
             resourceInputs["forwardIPs"] = state ? state.forwardIPs : undefined;
             resourceInputs["lastOperator"] = state ? state.lastOperator : undefined;
             resourceInputs["line"] = state ? state.line : undefined;
@@ -126,7 +117,6 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
             resourceInputs["vpCs"] = state ? state.vpCs : undefined;
-            resourceInputs["vpcTrns"] = state ? state.vpcTrns : undefined;
             resourceInputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as ResolverRuleArgs | undefined;
@@ -136,9 +126,7 @@ export class ResolverRule extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["endpointId"] = args ? args.endpointId : undefined;
-            resourceInputs["endpointTrn"] = args ? args.endpointTrn : undefined;
             resourceInputs["forwardIPs"] = args ? args.forwardIPs : undefined;
             resourceInputs["line"] = args ? args.line : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -146,9 +134,9 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpCs"] = args ? args.vpCs : undefined;
-            resourceInputs["vpcTrns"] = args ? args.vpcTrns : undefined;
             resourceInputs["zoneName"] = args ? args.zoneName : undefined;
             resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["enable"] = undefined /*out*/;
             resourceInputs["lastOperator"] = undefined /*out*/;
             resourceInputs["ruleId"] = undefined /*out*/;
             resourceInputs["updatedTime"] = undefined /*out*/;
@@ -174,13 +162,9 @@ export interface ResolverRuleState {
      * 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
      */
     endpointId?: pulumi.Input<number>;
-    /**
-     * 终端节点的 TRN。
-     */
-    endpointTrn?: pulumi.Input<string>;
     forwardIPs?: pulumi.Input<pulumi.Input<inputs.privatezone.ResolverRuleForwardIP>[]>;
     /**
-     * 最近一次更新转发规则的火山引擎账号的 ID
+     * 最近一次更新转发规则的账号的 ID
      */
     lastOperator?: pulumi.Input<string>;
     /**
@@ -210,10 +194,6 @@ export interface ResolverRuleState {
     updatedTime?: pulumi.Input<string>;
     vpCs?: pulumi.Input<pulumi.Input<inputs.privatezone.ResolverRuleVpC>[]>;
     /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     */
-    vpcTrns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      */
     zoneName?: pulumi.Input<string>;
@@ -224,17 +204,9 @@ export interface ResolverRuleState {
  */
 export interface ResolverRuleArgs {
     /**
-     * 转发规则是否被启用。true：启用。false：禁用。
-     */
-    enable?: pulumi.Input<boolean>;
-    /**
      * 终端节点的 ID。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。
      */
     endpointId?: pulumi.Input<number>;
-    /**
-     * 终端节点的 TRN。
-     */
-    endpointTrn?: pulumi.Input<string>;
     forwardIPs?: pulumi.Input<pulumi.Input<inputs.privatezone.ResolverRuleForwardIP>[]>;
     /**
      * 递归 DNS 服务器的出口 IP 地址的运营商。该参数仅在 Type 参数是 LINE 时有效。支持的取值：移动：中国移动，电信：中国电信，联通：中国联通
@@ -254,10 +226,6 @@ export interface ResolverRuleArgs {
      */
     type: pulumi.Input<string>;
     vpCs?: pulumi.Input<pulumi.Input<inputs.privatezone.ResolverRuleVpC>[]>;
-    /**
-     * 域名所关联的一个或多个 VPC 的 TRN。
-     */
-    vpcTrns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * 转发规则转发规则所关联的域名。您可以输入一个或多个域名。多个域名之间使用英文逗号, 分隔。最多支持输入 500 个域名。该参数仅在 Type 参数是 OUTBOUND 时有效且为必选参数。如果您把该参数设置为 *，则转发规则适用于 VPC 关联的所有域名。
      */

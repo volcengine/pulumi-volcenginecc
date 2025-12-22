@@ -13,9 +13,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
 
     public sealed class CertificateTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// 用户标签的标签键。
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// 用户标签的标签值。
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -116,12 +116,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Escloud.Inputs
         public Input<Inputs.InstanceInstanceConfigurationHotNodeStorageSpecGetArgs>? HotNodeStorageSpec { get; set; }
 
         /// <summary>
-        /// 包年包月实例购买时长。
-        /// </summary>
-        [Input("includeMonths")]
-        public Input<int>? IncludeMonths { get; set; }
-
-        /// <summary>
         /// 自定义设置实例名称。只能包含中文、字母、数字、短横线（-）和下划线（_），开头和结尾不能是数字和短横线（-）。长度在 1～128 个字符内。
         /// </summary>
         [Input("instanceName")]

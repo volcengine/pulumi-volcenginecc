@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResolverRuleVpC {
     /**
-     * @return 创建该 VPC 的火山引擎账号 ID。
+     * @return 创建该 VPC 的账号 ID。
      * 
      */
     private String accountId;
@@ -33,7 +33,7 @@ public final class GetResolverRuleVpC {
 
     private GetResolverRuleVpC() {}
     /**
-     * @return 创建该 VPC 的火山引擎账号 ID。
+     * @return 创建该 VPC 的账号 ID。
      * 
      */
     public String accountId() {

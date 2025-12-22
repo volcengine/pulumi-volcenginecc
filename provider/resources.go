@@ -171,6 +171,11 @@ func Provider() tfbridge.ProviderInfo {
 	}
 	prov.MustComputeTokens(token.VolcengineToken("volcenginecc_", makeToken))
 	for k := range prov.Resources {
+		if k == "volcenginecc_kms_key" {
+			delete(prov.Resources, k)
+		}
+	}
+	for k := range prov.Resources {
 		// 获取第二跟斜杠后面的值
 		lastPart := extractAndConvertToCamelCase(k)
 		//如果当前类的字段存在同名，比如domain的class下有domain字段，则domain字段 + Value
