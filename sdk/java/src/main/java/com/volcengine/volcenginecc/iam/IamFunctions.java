@@ -16,6 +16,8 @@ import com.volcengine.volcenginecc.iam.inputs.GetGroupArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetGroupPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetPolicyArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetPolicyPlainArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetProjectArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetProjectPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetRoleArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetRolePlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetUserArgs;
@@ -26,6 +28,8 @@ import com.volcengine.volcenginecc.iam.outputs.GetGroupResult;
 import com.volcengine.volcenginecc.iam.outputs.GetGroupsResult;
 import com.volcengine.volcenginecc.iam.outputs.GetPoliciesResult;
 import com.volcengine.volcenginecc.iam.outputs.GetPolicyResult;
+import com.volcengine.volcenginecc.iam.outputs.GetProjectResult;
+import com.volcengine.volcenginecc.iam.outputs.GetProjectsResult;
 import com.volcengine.volcenginecc.iam.outputs.GetRoleResult;
 import com.volcengine.volcenginecc.iam.outputs.GetRolesResult;
 import com.volcengine.volcenginecc.iam.outputs.GetUserResult;
@@ -284,6 +288,90 @@ public final class IamFunctions {
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:iam/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args) {
+        return getProject(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
+        return getProjectPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects() {
+        return getProjects(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectsResult> getProjectsPlain() {
+        return getProjectsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(InvokeArgs args) {
+        return getProjects(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectsResult> getProjectsPlain(InvokeArgs args) {
+        return getProjectsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectsResult> getProjectsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::IAM::Role

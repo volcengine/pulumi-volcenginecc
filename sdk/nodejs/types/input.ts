@@ -1268,6 +1268,265 @@ export namespace autoscaling {
     }
 }
 
+export namespace bmq {
+    export interface InstanceEndpoints {
+        /**
+         * 实例私网访问接入点响应数据。
+         */
+        overlay?: pulumi.Input<inputs.bmq.InstanceEndpointsOverlay>;
+        /**
+         * 实例公网访问接入点响应数据。
+         */
+        public?: pulumi.Input<inputs.bmq.InstanceEndpointsPublic>;
+    }
+
+    export interface InstanceEndpointsOverlay {
+        /**
+         * 域名映射地址。
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * 实例绑定的EIP的ID。
+         */
+        eipId?: pulumi.Input<string>;
+        /**
+         * 私网Plain接入点。
+         */
+        plain?: pulumi.Input<string>;
+        /**
+         * 普通接入点端口。
+         */
+        plainPort?: pulumi.Input<number>;
+        /**
+         * 私网SASL认证接入点。
+         */
+        sasl?: pulumi.Input<string>;
+        /**
+         * 认证接入点端口。
+         */
+        saslPort?: pulumi.Input<number>;
+        /**
+         * 加密接入点。
+         */
+        ssl?: pulumi.Input<string>;
+        /**
+         * 加密接入点端口。
+         */
+        sslPort?: pulumi.Input<number>;
+        /**
+         * 接入点状态。
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * 售卖区网络关联的VPC ID列表。
+         */
+        vpcIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface InstanceEndpointsPublic {
+        /**
+         * 域名映射地址。
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * 实例绑定的EIP的ID。
+         */
+        eipId?: pulumi.Input<string>;
+        /**
+         * 私网Plain接入点。
+         */
+        plain?: pulumi.Input<string>;
+        /**
+         * 普通接入点端口。
+         */
+        plainPort?: pulumi.Input<number>;
+        /**
+         * 私网SASL认证接入点。
+         */
+        sasl?: pulumi.Input<string>;
+        /**
+         * 认证接入点端口。
+         */
+        saslPort?: pulumi.Input<number>;
+        /**
+         * 加密接入点。
+         */
+        ssl?: pulumi.Input<string>;
+        /**
+         * 加密接入点端口。
+         */
+        sslPort?: pulumi.Input<number>;
+        /**
+         * 接入点状态。
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * 售卖区网络关联的VPC ID列表。
+         */
+        vpcIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface InstanceResourceTag {
+        tagKvs?: pulumi.Input<pulumi.Input<inputs.bmq.InstanceResourceTagTagKv>[]>;
+        /**
+         * 标签类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface InstanceResourceTagTagKv {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface InstanceResources {
+        /**
+         * 资源统计响应数据。
+         */
+        storage?: pulumi.Input<inputs.bmq.InstanceResourcesStorage>;
+    }
+
+    export interface InstanceResourcesStorage {
+        /**
+         * 资源大小。
+         */
+        size?: pulumi.Input<number>;
+        /**
+         * 资源单位。
+         */
+        unit?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace cbr {
+    export interface BackupPlanPolicy {
+        /**
+         * 创建此策略的账户 ID。
+         */
+        accountId?: pulumi.Input<string>;
+        /**
+         * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+         */
+        backupType?: pulumi.Input<string>;
+        /**
+         * 创建时间。
+         */
+        createdTime?: pulumi.Input<string>;
+        /**
+         * 用于指定备份周期，支持标准 crontab 表达式配置。
+         */
+        crontab?: pulumi.Input<string>;
+        /**
+         * 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+         */
+        enablePolicy?: pulumi.Input<boolean>;
+        /**
+         * 策略名称。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 该策略已关联的备份计划数量。
+         */
+        planNumber?: pulumi.Input<number>;
+        /**
+         * 备份策略 ID。
+         */
+        policyId?: pulumi.Input<string>;
+        /**
+         * 恢复点保留时间，-1 表示持续保留。
+         */
+        retentionDay?: pulumi.Input<number>;
+        /**
+         * 更新时间。
+         */
+        updatedTime?: pulumi.Input<string>;
+    }
+
+    export interface BackupPlanResourceList {
+        /**
+         * 资源的meta信息，创建备份计划时，用于存储额外的配置。
+         */
+        metaInformation: pulumi.Input<inputs.cbr.BackupPlanResourceListMetaInformation>;
+        /**
+         * 备份源 ID。
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+         */
+        resourceType: pulumi.Input<string>;
+    }
+
+    export interface BackupPlanResourceListMetaInformation {
+        /**
+         * ECS 的元数据，是一个 JSON string。
+         */
+        ecsMeta?: pulumi.Input<string>;
+        /**
+         * vePFS 备份源元数据，是一个 JSON string。
+         */
+        vepfsMeta?: pulumi.Input<string>;
+    }
+
+    export interface BackupResourceMetaInformation {
+        /**
+         * ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+         */
+        ecsMeta?: pulumi.Input<string>;
+        /**
+         * vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+         */
+        vepfsMeta?: pulumi.Input<string>;
+    }
+
+    export interface BackupResourcePlan {
+        /**
+         * 备份计划 ID
+         */
+        planId?: pulumi.Input<string>;
+        /**
+         * 备份计划名称
+         */
+        planName?: pulumi.Input<string>;
+    }
+
+    export interface VaultTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace cdn {
     export interface ShareConfigAllowIpAccessRule {
         /**
@@ -1916,6 +2175,19 @@ export namespace directconnect {
         value?: pulumi.Input<string>;
     }
 
+}
+
+export namespace dns {
+    export interface ZoneTag {
+        /**
+         * 标签的键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签的值。
+         */
+        value?: pulumi.Input<string>;
+    }
 }
 
 export namespace ecs {
@@ -2980,6 +3252,35 @@ export namespace filenas {
     }
 }
 
+export namespace firewallcenter {
+    export interface DnsControlPolicyDomainListV1 {
+        /**
+         * 具体地址信息。
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * 描述信息。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 地址类型。支持的取值如下所示。ip：IPv4 地址；ipv6：IPv6 地址；domain：域名；port：端口。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface DnsControlPolicySource {
+        /**
+         * VPC地域信息。
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * VPC ID。
+         */
+        vpcId?: pulumi.Input<string>;
+    }
+
+}
+
 export namespace hbase {
     export interface InstanceEndpoint {
         /**
@@ -3252,6 +3553,50 @@ export namespace kafka {
 }
 
 export namespace kms {
+    export interface KeyMultiRegionConfiguration {
+        /**
+         * 多区域密钥的类型。
+         */
+        multiRegionKeyType?: pulumi.Input<string>;
+        /**
+         * 主多区域键的事务识别号和区域 ID。
+         */
+        primaryKey?: pulumi.Input<inputs.kms.KeyMultiRegionConfigurationPrimaryKey>;
+        replicaKeys?: pulumi.Input<pulumi.Input<inputs.kms.KeyMultiRegionConfigurationReplicaKey>[]>;
+    }
+
+    export interface KeyMultiRegionConfigurationPrimaryKey {
+        /**
+         * 多区域密钥的区域 ID。
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * 多区域密钥的 TRN。
+         */
+        trn?: pulumi.Input<string>;
+    }
+
+    export interface KeyMultiRegionConfigurationReplicaKey {
+        /**
+         * 多区域密钥的区域 ID。
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * 多区域密钥的转换。
+         */
+        trn?: pulumi.Input<string>;
+    }
+
+    export interface KeyTag {
+        /**
+         * KMS密钥的标签键
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * KMS密钥的标签值
+         */
+        value?: pulumi.Input<string>;
+    }
 }
 
 export namespace mongodb {
@@ -3497,6 +3842,54 @@ export namespace natgateway {
     }
 }
 
+export namespace privatelink {
+    export interface EndpointServicePrivateDnsNameConfiguration {
+        /**
+         * 域验证名称。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 域验证状态。PendingVerification：待验证Verifying：验证中Verified：验证通过Failed：验证失败
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * 域验证类型。TXT：TXT记录。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 域验证值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EndpointServiceResource {
+        /**
+         * 终端节点服务ID。
+         */
+        instanceId?: pulumi.Input<string>;
+        /**
+         * 待添加到终端节点服务中的服务资源ID。
+         */
+        resourceId?: pulumi.Input<string>;
+        /**
+         * 负载均衡提供服务的可用区。
+         */
+        zoneIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointServiceTag {
+        /**
+         * 终端节点服务标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 终端节点服务标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+}
+
 export namespace privatezone {
     export interface ResolverEndpointIpConfig {
         /**
@@ -3636,6 +4029,160 @@ export namespace rabbitmq {
         key?: pulumi.Input<string>;
         /**
          * 标签的值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace rdsmssql {
+    export interface InstanceChargeInfo {
+        /**
+         * 预付费场景下是否自动续费。true：自动续费（默认）。false：不自动续费。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 计费到期时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeEndTime?: pulumi.Input<string>;
+        /**
+         * 计费开始时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeStartTime?: pulumi.Input<string>;
+        /**
+         * 付费状态。取值：Normal：表示实例正常。Overdue：表示实例欠费。Unpaid：表示实例等待支付。
+         */
+        chargeStatus?: pulumi.Input<string>;
+        /**
+         * 付费类型。取值：PostPaid：表示按量付费。PrePaid：表示包年包月。
+         */
+        chargeType?: pulumi.Input<string>;
+        /**
+         * 欠费关停时预计释放时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueReclaimTime?: pulumi.Input<string>;
+        /**
+         * 欠费关停时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueTime?: pulumi.Input<string>;
+        /**
+         * 预付费场景下的购买时长。默认值：1。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 预付费场景下的购买周期。Month：表示包月(默认值)。Year：表示包年。
+         */
+        periodUnit?: pulumi.Input<string>;
+    }
+
+    export interface InstanceConnectionInfo {
+        addresses?: pulumi.Input<pulumi.Input<inputs.rdsmssql.InstanceConnectionInfoAddress>[]>;
+        /**
+         * 描述信息。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 终端 ID。
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * 终端名称。
+         */
+        endpointName?: pulumi.Input<string>;
+        /**
+         * 终端类型。取值如下：Primary：表示主节点终端。ROCluster：表示只读集群终端。RO：表示只读节点终端。
+         */
+        endpointType?: pulumi.Input<string>;
+    }
+
+    export interface InstanceConnectionInfoAddress {
+        /**
+         * 表示是否开启私网到公网解析，取值如下：true：表示开启私网到公网解析。false：表示不开启私网到公网解析。
+         */
+        dnsVisibility?: pulumi.Input<boolean>;
+        /**
+         * 域名。
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * EIP的ID，仅对公网地址有效。
+         */
+        eipId?: pulumi.Input<string>;
+        /**
+         * IP地址。
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * 网络地址类型。取值：Private：私网类型。Public：公网类型。
+         */
+        networkType?: pulumi.Input<string>;
+        /**
+         * 端口。
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * 子网 ID，仅对私网地址有效。
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceNodeDetailInfo {
+        /**
+         * 节点的创建时间。
+         */
+        createTime?: pulumi.Input<string>;
+        /**
+         * 实例ID。
+         */
+        instanceId?: pulumi.Input<string>;
+        /**
+         * 内存大小，单位为 GiB。
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * 节点ID。
+         */
+        nodeId?: pulumi.Input<string>;
+        /**
+         * 节点IP。
+         */
+        nodeIp?: pulumi.Input<string>;
+        /**
+         * 节点规格。
+         */
+        nodeSpec?: pulumi.Input<string>;
+        /**
+         * 节点状态，取值为：Running：运行中。Creating：创建中。Deleting：删除中。Restarting：重启中。Updating：变更中。MasterChanging：主备切换中。Error：错误。
+         */
+        nodeStatus?: pulumi.Input<string>;
+        /**
+         * 节点类型。取值：Primary：表示主节点终端。ReadOnly：表示只读节点终端。Secondary：表示备节点终端。
+         */
+        nodeType?: pulumi.Input<string>;
+        /**
+         * 区域ID。
+         */
+        regionId?: pulumi.Input<string>;
+        /**
+         * 更新时间。
+         */
+        updateTime?: pulumi.Input<string>;
+        /**
+         * vCPU 数量。
+         */
+        vcpu?: pulumi.Input<number>;
+        /**
+         * 可用区ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
          */
         value?: pulumi.Input<string>;
     }
@@ -4095,7 +4642,100 @@ export namespace redis {
     }
 }
 
+export namespace rocketmq {
+    export interface InstanceChargeDetail {
+        /**
+         * 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+         */
+        chargeExpireTime?: pulumi.Input<string>;
+        /**
+         * 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        chargeStartTime?: pulumi.Input<string>;
+        /**
+         * 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+         */
+        chargeStatus?: pulumi.Input<string>;
+        /**
+         * 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+         */
+        chargeType?: pulumi.Input<string>;
+        /**
+         * 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueReclaimTime?: pulumi.Input<string>;
+        /**
+         * 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueTime?: pulumi.Input<string>;
+        /**
+         * 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+         */
+        period?: pulumi.Input<number>;
+        /**
+         * 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+         */
+        periodUnit?: pulumi.Input<string>;
+    }
+
+    export interface InstanceConnectionInfo {
+        /**
+         * 实例的接入点 IP 地址。
+         */
+        endpointAddressIp?: pulumi.Input<string>;
+        /**
+         * 实例的接入点类型。
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * 实例的私网接入点地址。
+         */
+        internalEndpoint?: pulumi.Input<string>;
+        /**
+         * 实例的接入点类型。
+         */
+        networkType?: pulumi.Input<string>;
+        /**
+         * 实例的公网接入点地址。
+         */
+        publicEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface InstanceProductInfo {
+        /**
+         * 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         */
+        sendReceiveRatio?: pulumi.Input<number>;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
 export namespace storageebs {
+    export interface SnapshotTag {
+        /**
+         * 为资源添加的用户标签的标签键。命名规则如下：不能以任何大小写形式的volc:或sys:开头。volc:或sys:开头为系统预留标签键禁止创建。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 为资源添加的用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface VolumeBaselinePerformance {
         /**
          * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。

@@ -14,15 +14,20 @@ import * as alb from "./alb";
 import * as apig from "./apig";
 import * as ark from "./ark";
 import * as autoscaling from "./autoscaling";
+import * as bmq from "./bmq";
+import * as cbr from "./cbr";
 import * as cdn from "./cdn";
 import * as cen from "./cen";
 import * as clb from "./clb";
+import * as cloudidentity from "./cloudidentity";
 import * as config from "./config";
 import * as cr from "./cr";
 import * as directconnect from "./directconnect";
+import * as dns from "./dns";
 import * as ecs from "./ecs";
 import * as escloud from "./escloud";
 import * as filenas from "./filenas";
+import * as firewallcenter from "./firewallcenter";
 import * as hbase from "./hbase";
 import * as iam from "./iam";
 import * as kafka from "./kafka";
@@ -30,10 +35,13 @@ import * as kms from "./kms";
 import * as mongodb from "./mongodb";
 import * as natgateway from "./natgateway";
 import * as organization from "./organization";
+import * as privatelink from "./privatelink";
 import * as privatezone from "./privatezone";
 import * as rabbitmq from "./rabbitmq";
+import * as rdsmssql from "./rdsmssql";
 import * as rdsmysql from "./rdsmysql";
 import * as redis from "./redis";
+import * as rocketmq from "./rocketmq";
 import * as storageebs from "./storageebs";
 import * as tls from "./tls";
 import * as tos from "./tos";
@@ -52,15 +60,20 @@ export {
     apig,
     ark,
     autoscaling,
+    bmq,
+    cbr,
     cdn,
     cen,
     clb,
+    cloudidentity,
     config,
     cr,
     directconnect,
+    dns,
     ecs,
     escloud,
     filenas,
+    firewallcenter,
     hbase,
     iam,
     kafka,
@@ -68,10 +81,13 @@ export {
     mongodb,
     natgateway,
     organization,
+    privatelink,
     privatezone,
     rabbitmq,
+    rdsmssql,
     rdsmysql,
     redis,
+    rocketmq,
     storageebs,
     tls,
     tos,

@@ -19,24 +19,34 @@ if typing.TYPE_CHECKING:
     ark = __ark
     import pulumi_volcenginecc.autoscaling as __autoscaling
     autoscaling = __autoscaling
+    import pulumi_volcenginecc.bmq as __bmq
+    bmq = __bmq
+    import pulumi_volcenginecc.cbr as __cbr
+    cbr = __cbr
     import pulumi_volcenginecc.cdn as __cdn
     cdn = __cdn
     import pulumi_volcenginecc.cen as __cen
     cen = __cen
     import pulumi_volcenginecc.clb as __clb
     clb = __clb
+    import pulumi_volcenginecc.cloudidentity as __cloudidentity
+    cloudidentity = __cloudidentity
     import pulumi_volcenginecc.config as __config
     config = __config
     import pulumi_volcenginecc.cr as __cr
     cr = __cr
     import pulumi_volcenginecc.directconnect as __directconnect
     directconnect = __directconnect
+    import pulumi_volcenginecc.dns as __dns
+    dns = __dns
     import pulumi_volcenginecc.ecs as __ecs
     ecs = __ecs
     import pulumi_volcenginecc.escloud as __escloud
     escloud = __escloud
     import pulumi_volcenginecc.filenas as __filenas
     filenas = __filenas
+    import pulumi_volcenginecc.firewallcenter as __firewallcenter
+    firewallcenter = __firewallcenter
     import pulumi_volcenginecc.hbase as __hbase
     hbase = __hbase
     import pulumi_volcenginecc.iam as __iam
@@ -51,14 +61,20 @@ if typing.TYPE_CHECKING:
     natgateway = __natgateway
     import pulumi_volcenginecc.organization as __organization
     organization = __organization
+    import pulumi_volcenginecc.privatelink as __privatelink
+    privatelink = __privatelink
     import pulumi_volcenginecc.privatezone as __privatezone
     privatezone = __privatezone
     import pulumi_volcenginecc.rabbitmq as __rabbitmq
     rabbitmq = __rabbitmq
+    import pulumi_volcenginecc.rdsmssql as __rdsmssql
+    rdsmssql = __rdsmssql
     import pulumi_volcenginecc.rdsmysql as __rdsmysql
     rdsmysql = __rdsmysql
     import pulumi_volcenginecc.redis as __redis
     redis = __redis
+    import pulumi_volcenginecc.rocketmq as __rocketmq
+    rocketmq = __rocketmq
     import pulumi_volcenginecc.storageebs as __storageebs
     storageebs = __storageebs
     import pulumi_volcenginecc.tls as __tls
@@ -86,15 +102,20 @@ else:
     apig = _utilities.lazy_import('pulumi_volcenginecc.apig')
     ark = _utilities.lazy_import('pulumi_volcenginecc.ark')
     autoscaling = _utilities.lazy_import('pulumi_volcenginecc.autoscaling')
+    bmq = _utilities.lazy_import('pulumi_volcenginecc.bmq')
+    cbr = _utilities.lazy_import('pulumi_volcenginecc.cbr')
     cdn = _utilities.lazy_import('pulumi_volcenginecc.cdn')
     cen = _utilities.lazy_import('pulumi_volcenginecc.cen')
     clb = _utilities.lazy_import('pulumi_volcenginecc.clb')
+    cloudidentity = _utilities.lazy_import('pulumi_volcenginecc.cloudidentity')
     config = _utilities.lazy_import('pulumi_volcenginecc.config')
     cr = _utilities.lazy_import('pulumi_volcenginecc.cr')
     directconnect = _utilities.lazy_import('pulumi_volcenginecc.directconnect')
+    dns = _utilities.lazy_import('pulumi_volcenginecc.dns')
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
     escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
+    firewallcenter = _utilities.lazy_import('pulumi_volcenginecc.firewallcenter')
     hbase = _utilities.lazy_import('pulumi_volcenginecc.hbase')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
@@ -102,10 +123,13 @@ else:
     mongodb = _utilities.lazy_import('pulumi_volcenginecc.mongodb')
     natgateway = _utilities.lazy_import('pulumi_volcenginecc.natgateway')
     organization = _utilities.lazy_import('pulumi_volcenginecc.organization')
+    privatelink = _utilities.lazy_import('pulumi_volcenginecc.privatelink')
     privatezone = _utilities.lazy_import('pulumi_volcenginecc.privatezone')
     rabbitmq = _utilities.lazy_import('pulumi_volcenginecc.rabbitmq')
+    rdsmssql = _utilities.lazy_import('pulumi_volcenginecc.rdsmssql')
     rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
     redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
+    rocketmq = _utilities.lazy_import('pulumi_volcenginecc.rocketmq')
     storageebs = _utilities.lazy_import('pulumi_volcenginecc.storageebs')
     tls = _utilities.lazy_import('pulumi_volcenginecc.tls')
     tos = _utilities.lazy_import('pulumi_volcenginecc.tos')
@@ -235,6 +259,46 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "bmq/instance",
+  "fqn": "pulumi_volcenginecc.bmq",
+  "classes": {
+   "volcenginecc:bmq/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cbr/backupPlan",
+  "fqn": "pulumi_volcenginecc.cbr",
+  "classes": {
+   "volcenginecc:cbr/backupPlan:BackupPlan": "BackupPlan"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cbr/backupPolicy",
+  "fqn": "pulumi_volcenginecc.cbr",
+  "classes": {
+   "volcenginecc:cbr/backupPolicy:BackupPolicy": "BackupPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cbr/backupResource",
+  "fqn": "pulumi_volcenginecc.cbr",
+  "classes": {
+   "volcenginecc:cbr/backupResource:BackupResource": "BackupResource"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cbr/vault",
+  "fqn": "pulumi_volcenginecc.cbr",
+  "classes": {
+   "volcenginecc:cbr/vault:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cdn/shareConfig",
   "fqn": "pulumi_volcenginecc.cdn",
   "classes": {
@@ -323,6 +387,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudidentity/user",
+  "fqn": "pulumi_volcenginecc.cloudidentity",
+  "classes": {
+   "volcenginecc:cloudidentity/user:User": "User"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cr/nameSpace",
   "fqn": "pulumi_volcenginecc.cr",
   "classes": {
@@ -351,6 +423,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.directconnect",
   "classes": {
    "volcenginecc:directconnect/directConnectGateway:DirectConnectGateway": "DirectConnectGateway"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "dns/zone",
+  "fqn": "pulumi_volcenginecc.dns",
+  "classes": {
+   "volcenginecc:dns/zone:Zone": "Zone"
   }
  },
  {
@@ -419,6 +499,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "firewallcenter/dnsControlPolicy",
+  "fqn": "pulumi_volcenginecc.firewallcenter",
+  "classes": {
+   "volcenginecc:firewallcenter/dnsControlPolicy:DnsControlPolicy": "DnsControlPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "hbase/instance",
   "fqn": "pulumi_volcenginecc.hbase",
   "classes": {
@@ -451,6 +539,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "iam/project",
+  "fqn": "pulumi_volcenginecc.iam",
+  "classes": {
+   "volcenginecc:iam/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "iam/role",
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
@@ -471,6 +567,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.kafka",
   "classes": {
    "volcenginecc:kafka/topic:Topic": "Topic"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "kms/key",
+  "fqn": "pulumi_volcenginecc.kms",
+  "classes": {
+   "volcenginecc:kms/key:Key": "Key"
   }
  },
  {
@@ -523,6 +627,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "privatelink/endpointService",
+  "fqn": "pulumi_volcenginecc.privatelink",
+  "classes": {
+   "volcenginecc:privatelink/endpointService:EndpointService": "EndpointService"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "privatezone/resolverEndpoint",
   "fqn": "pulumi_volcenginecc.privatezone",
   "classes": {
@@ -543,6 +655,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rabbitmq",
   "classes": {
    "volcenginecc:rabbitmq/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmssql/instance",
+  "fqn": "pulumi_volcenginecc.rdsmssql",
+  "classes": {
+   "volcenginecc:rdsmssql/instance:Instance": "Instance"
   }
  },
  {
@@ -575,6 +695,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.redis",
   "classes": {
    "volcenginecc:redis/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rocketmq/instance",
+  "fqn": "pulumi_volcenginecc.rocketmq",
+  "classes": {
+   "volcenginecc:rocketmq/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "storageebs/snapshot",
+  "fqn": "pulumi_volcenginecc.storageebs",
+  "classes": {
+   "volcenginecc:storageebs/snapshot:Snapshot": "Snapshot"
   }
  },
  {
