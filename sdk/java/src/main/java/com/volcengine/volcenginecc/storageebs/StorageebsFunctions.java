@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.storageebs.inputs.GetSnapshotArgs;
+import com.volcengine.volcenginecc.storageebs.inputs.GetSnapshotPlainArgs;
 import com.volcengine.volcenginecc.storageebs.inputs.GetVolumeArgs;
 import com.volcengine.volcenginecc.storageebs.inputs.GetVolumePlainArgs;
+import com.volcengine.volcenginecc.storageebs.outputs.GetSnapshotResult;
+import com.volcengine.volcenginecc.storageebs.outputs.GetSnapshotsResult;
 import com.volcengine.volcenginecc.storageebs.outputs.GetVolumeResult;
 import com.volcengine.volcenginecc.storageebs.outputs.GetVolumesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class StorageebsFunctions {
+    /**
+     * Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
+        return getSnapshot(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
+        return getSnapshotPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:storageebs/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:storageebs/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:storageebs/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots() {
+        return getSnapshots(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static CompletableFuture<GetSnapshotsResult> getSnapshotsPlain() {
+        return getSnapshotsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots(InvokeArgs args) {
+        return getSnapshots(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static CompletableFuture<GetSnapshotsResult> getSnapshotsPlain(InvokeArgs args) {
+        return getSnapshotsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:storageebs/getSnapshots:getSnapshots", TypeShape.of(GetSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:storageebs/getSnapshots:getSnapshots", TypeShape.of(GetSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::StorageEBS::Snapshot
+     * 
+     */
+    public static CompletableFuture<GetSnapshotsResult> getSnapshotsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:storageebs/getSnapshots:getSnapshots", TypeShape.of(GetSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::StorageEBS::Volume
      * 

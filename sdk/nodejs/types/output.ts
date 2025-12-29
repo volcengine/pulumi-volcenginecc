@@ -2518,6 +2518,525 @@ export namespace autoscaling {
 
 }
 
+export namespace bmq {
+    export interface GetInstanceEndpoints {
+        /**
+         * 实例私网访问接入点响应数据。
+         */
+        overlay: outputs.bmq.GetInstanceEndpointsOverlay;
+        /**
+         * 实例公网访问接入点响应数据。
+         */
+        public: outputs.bmq.GetInstanceEndpointsPublic;
+    }
+
+    export interface GetInstanceEndpointsOverlay {
+        /**
+         * 域名映射地址。
+         */
+        address: string;
+        /**
+         * 实例绑定的EIP的ID。
+         */
+        eipId: string;
+        /**
+         * 私网Plain接入点。
+         */
+        plain: string;
+        /**
+         * 普通接入点端口。
+         */
+        plainPort: number;
+        /**
+         * 私网SASL认证接入点。
+         */
+        sasl: string;
+        /**
+         * 认证接入点端口。
+         */
+        saslPort: number;
+        /**
+         * 加密接入点。
+         */
+        ssl: string;
+        /**
+         * 加密接入点端口。
+         */
+        sslPort: number;
+        /**
+         * 接入点状态。
+         */
+        status: string;
+        /**
+         * 售卖区网络关联的VPC ID列表。
+         */
+        vpcIds: string[];
+    }
+
+    export interface GetInstanceEndpointsPublic {
+        /**
+         * 域名映射地址。
+         */
+        address: string;
+        /**
+         * 实例绑定的EIP的ID。
+         */
+        eipId: string;
+        /**
+         * 私网Plain接入点。
+         */
+        plain: string;
+        /**
+         * 普通接入点端口。
+         */
+        plainPort: number;
+        /**
+         * 私网SASL认证接入点。
+         */
+        sasl: string;
+        /**
+         * 认证接入点端口。
+         */
+        saslPort: number;
+        /**
+         * 加密接入点。
+         */
+        ssl: string;
+        /**
+         * 加密接入点端口。
+         */
+        sslPort: number;
+        /**
+         * 接入点状态。
+         */
+        status: string;
+        /**
+         * 售卖区网络关联的VPC ID列表。
+         */
+        vpcIds: string[];
+    }
+
+    export interface GetInstanceResourceTag {
+        /**
+         * 标签键值对。
+         */
+        tagKvs: outputs.bmq.GetInstanceResourceTagTagKv[];
+        /**
+         * 标签类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type: string;
+    }
+
+    export interface GetInstanceResourceTagTagKv {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetInstanceResources {
+        /**
+         * 资源统计响应数据。
+         */
+        storage: outputs.bmq.GetInstanceResourcesStorage;
+    }
+
+    export interface GetInstanceResourcesStorage {
+        /**
+         * 资源大小。
+         */
+        size: number;
+        /**
+         * 资源单位。
+         */
+        unit: string;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceEndpoints {
+        /**
+         * 实例私网访问接入点响应数据。
+         */
+        overlay: outputs.bmq.InstanceEndpointsOverlay;
+        /**
+         * 实例公网访问接入点响应数据。
+         */
+        public: outputs.bmq.InstanceEndpointsPublic;
+    }
+
+    export interface InstanceEndpointsOverlay {
+        /**
+         * 域名映射地址。
+         */
+        address: string;
+        /**
+         * 实例绑定的EIP的ID。
+         */
+        eipId: string;
+        /**
+         * 私网Plain接入点。
+         */
+        plain: string;
+        /**
+         * 普通接入点端口。
+         */
+        plainPort: number;
+        /**
+         * 私网SASL认证接入点。
+         */
+        sasl: string;
+        /**
+         * 认证接入点端口。
+         */
+        saslPort: number;
+        /**
+         * 加密接入点。
+         */
+        ssl: string;
+        /**
+         * 加密接入点端口。
+         */
+        sslPort: number;
+        /**
+         * 接入点状态。
+         */
+        status: string;
+        /**
+         * 售卖区网络关联的VPC ID列表。
+         */
+        vpcIds: string[];
+    }
+
+    export interface InstanceEndpointsPublic {
+        /**
+         * 域名映射地址。
+         */
+        address: string;
+        /**
+         * 实例绑定的EIP的ID。
+         */
+        eipId: string;
+        /**
+         * 私网Plain接入点。
+         */
+        plain: string;
+        /**
+         * 普通接入点端口。
+         */
+        plainPort: number;
+        /**
+         * 私网SASL认证接入点。
+         */
+        sasl: string;
+        /**
+         * 认证接入点端口。
+         */
+        saslPort: number;
+        /**
+         * 加密接入点。
+         */
+        ssl: string;
+        /**
+         * 加密接入点端口。
+         */
+        sslPort: number;
+        /**
+         * 接入点状态。
+         */
+        status: string;
+        /**
+         * 售卖区网络关联的VPC ID列表。
+         */
+        vpcIds: string[];
+    }
+
+    export interface InstanceResourceTag {
+        tagKvs: outputs.bmq.InstanceResourceTagTagKv[];
+        /**
+         * 标签类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type: string;
+    }
+
+    export interface InstanceResourceTagTagKv {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceResources {
+        /**
+         * 资源统计响应数据。
+         */
+        storage: outputs.bmq.InstanceResourcesStorage;
+    }
+
+    export interface InstanceResourcesStorage {
+        /**
+         * 资源大小。
+         */
+        size: number;
+        /**
+         * 资源单位。
+         */
+        unit: string;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace cbr {
+    export interface BackupPlanPolicy {
+        /**
+         * 创建此策略的账户 ID。
+         */
+        accountId: string;
+        /**
+         * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+         */
+        backupType: string;
+        /**
+         * 创建时间。
+         */
+        createdTime: string;
+        /**
+         * 用于指定备份周期，支持标准 crontab 表达式配置。
+         */
+        crontab: string;
+        /**
+         * 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+         */
+        enablePolicy: boolean;
+        /**
+         * 策略名称。
+         */
+        name: string;
+        /**
+         * 该策略已关联的备份计划数量。
+         */
+        planNumber: number;
+        /**
+         * 备份策略 ID。
+         */
+        policyId: string;
+        /**
+         * 恢复点保留时间，-1 表示持续保留。
+         */
+        retentionDay: number;
+        /**
+         * 更新时间。
+         */
+        updatedTime: string;
+    }
+
+    export interface BackupPlanResourceList {
+        /**
+         * 资源的meta信息，创建备份计划时，用于存储额外的配置。
+         */
+        metaInformation: outputs.cbr.BackupPlanResourceListMetaInformation;
+        /**
+         * 备份源 ID。
+         */
+        resourceId: string;
+        /**
+         * 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+         */
+        resourceType: string;
+    }
+
+    export interface BackupPlanResourceListMetaInformation {
+        /**
+         * ECS 的元数据，是一个 JSON string。
+         */
+        ecsMeta: string;
+        /**
+         * vePFS 备份源元数据，是一个 JSON string。
+         */
+        vepfsMeta: string;
+    }
+
+    export interface BackupResourceMetaInformation {
+        /**
+         * ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+         */
+        ecsMeta: string;
+        /**
+         * vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+         */
+        vepfsMeta: string;
+    }
+
+    export interface BackupResourcePlan {
+        /**
+         * 备份计划 ID
+         */
+        planId: string;
+        /**
+         * 备份计划名称
+         */
+        planName: string;
+    }
+
+    export interface GetBackupPlanPolicy {
+        /**
+         * 创建此策略的账户 ID。
+         */
+        accountId: string;
+        /**
+         * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+         */
+        backupType: string;
+        /**
+         * 创建时间。
+         */
+        createdTime: string;
+        /**
+         * 用于指定备份周期，支持标准 crontab 表达式配置。
+         */
+        crontab: string;
+        /**
+         * 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+         */
+        enablePolicy: boolean;
+        /**
+         * 策略名称。
+         */
+        name: string;
+        /**
+         * 该策略已关联的备份计划数量。
+         */
+        planNumber: number;
+        /**
+         * 备份策略 ID。
+         */
+        policyId: string;
+        /**
+         * 恢复点保留时间，-1 表示持续保留。
+         */
+        retentionDay: number;
+        /**
+         * 更新时间。
+         */
+        updatedTime: string;
+    }
+
+    export interface GetBackupPlanResourceList {
+        /**
+         * 资源的meta信息，创建备份计划时，用于存储额外的配置。
+         */
+        metaInformation: outputs.cbr.GetBackupPlanResourceListMetaInformation;
+        /**
+         * 备份源 ID。
+         */
+        resourceId: string;
+        /**
+         * 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+         */
+        resourceType: string;
+    }
+
+    export interface GetBackupPlanResourceListMetaInformation {
+        /**
+         * ECS 的元数据，是一个 JSON string。
+         */
+        ecsMeta: string;
+        /**
+         * vePFS 备份源元数据，是一个 JSON string。
+         */
+        vepfsMeta: string;
+    }
+
+    export interface GetBackupResourceMetaInformation {
+        /**
+         * ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+         */
+        ecsMeta: string;
+        /**
+         * vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+         */
+        vepfsMeta: string;
+    }
+
+    export interface GetBackupResourcePlan {
+        /**
+         * 备份计划 ID
+         */
+        planId: string;
+        /**
+         * 备份计划名称
+         */
+        planName: string;
+    }
+
+    export interface GetVaultTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface VaultTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
 export namespace cdn {
     export interface GetShareConfigAllowIpAccessRule {
         /**
@@ -3846,6 +4365,31 @@ export namespace directconnect {
         key: string;
         /**
          * 用户标签的标签值。长度取值范围为0~256字符。
+         */
+        value: string;
+    }
+
+}
+
+export namespace dns {
+    export interface GetZoneTag {
+        /**
+         * 标签的键。
+         */
+        key: string;
+        /**
+         * 标签的值。
+         */
+        value: string;
+    }
+
+    export interface ZoneTag {
+        /**
+         * 标签的键。
+         */
+        key: string;
+        /**
+         * 标签的值。
          */
         value: string;
     }
@@ -5997,6 +6541,61 @@ export namespace filenas {
 
 }
 
+export namespace firewallcenter {
+    export interface DnsControlPolicyDomainListV1 {
+        /**
+         * 具体地址信息。
+         */
+        address: string;
+        /**
+         * 描述信息。
+         */
+        description: string;
+        /**
+         * 地址类型。支持的取值如下所示。ip：IPv4 地址；ipv6：IPv6 地址；domain：域名；port：端口。
+         */
+        type: string;
+    }
+
+    export interface DnsControlPolicySource {
+        /**
+         * VPC地域信息。
+         */
+        region: string;
+        /**
+         * VPC ID。
+         */
+        vpcId: string;
+    }
+
+    export interface GetDnsControlPolicyDomainListV1 {
+        /**
+         * 具体地址信息。
+         */
+        address: string;
+        /**
+         * 描述信息。
+         */
+        description: string;
+        /**
+         * 地址类型。支持的取值如下所示。ip：IPv4 地址；ipv6：IPv6 地址；domain：域名；port：端口。
+         */
+        type: string;
+    }
+
+    export interface GetDnsControlPolicySource {
+        /**
+         * VPC地域信息。
+         */
+        region: string;
+        /**
+         * VPC ID。
+         */
+        vpcId: string;
+    }
+
+}
+
 export namespace hbase {
     export interface GetInstanceEndpoint {
         /**
@@ -6709,6 +7308,51 @@ export namespace kms {
         value: string;
     }
 
+    export interface KeyMultiRegionConfiguration {
+        /**
+         * 多区域密钥的类型。
+         */
+        multiRegionKeyType: string;
+        /**
+         * 主多区域键的事务识别号和区域 ID。
+         */
+        primaryKey: outputs.kms.KeyMultiRegionConfigurationPrimaryKey;
+        replicaKeys: outputs.kms.KeyMultiRegionConfigurationReplicaKey[];
+    }
+
+    export interface KeyMultiRegionConfigurationPrimaryKey {
+        /**
+         * 多区域密钥的区域 ID。
+         */
+        region: string;
+        /**
+         * 多区域密钥的 TRN。
+         */
+        trn: string;
+    }
+
+    export interface KeyMultiRegionConfigurationReplicaKey {
+        /**
+         * 多区域密钥的区域 ID。
+         */
+        region: string;
+        /**
+         * 多区域密钥的转换。
+         */
+        trn: string;
+    }
+
+    export interface KeyTag {
+        /**
+         * KMS密钥的标签键
+         */
+        key: string;
+        /**
+         * KMS密钥的标签值
+         */
+        value: string;
+    }
+
 }
 
 export namespace mongodb {
@@ -7198,6 +7842,99 @@ export namespace natgateway {
 
 }
 
+export namespace privatelink {
+    export interface EndpointServicePrivateDnsNameConfiguration {
+        /**
+         * 域验证名称。
+         */
+        name: string;
+        /**
+         * 域验证状态。PendingVerification：待验证Verifying：验证中Verified：验证通过Failed：验证失败
+         */
+        status: string;
+        /**
+         * 域验证类型。TXT：TXT记录。
+         */
+        type: string;
+        /**
+         * 域验证值。
+         */
+        value: string;
+    }
+
+    export interface EndpointServiceResource {
+        /**
+         * 终端节点服务ID。
+         */
+        instanceId: string;
+        /**
+         * 待添加到终端节点服务中的服务资源ID。
+         */
+        resourceId: string;
+        /**
+         * 负载均衡提供服务的可用区。
+         */
+        zoneIds: string[];
+    }
+
+    export interface EndpointServiceTag {
+        /**
+         * 终端节点服务标签的标签键。
+         */
+        key: string;
+        /**
+         * 终端节点服务标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface GetEndpointServicePrivateDnsNameConfiguration {
+        /**
+         * 域验证名称。
+         */
+        name: string;
+        /**
+         * 域验证状态。PendingVerification：待验证Verifying：验证中Verified：验证通过Failed：验证失败
+         */
+        status: string;
+        /**
+         * 域验证类型。TXT：TXT记录。
+         */
+        type: string;
+        /**
+         * 域验证值。
+         */
+        value: string;
+    }
+
+    export interface GetEndpointServiceResource {
+        /**
+         * 终端节点服务ID。
+         */
+        instanceId: string;
+        /**
+         * 待添加到终端节点服务中的服务资源ID。
+         */
+        resourceId: string;
+        /**
+         * 负载均衡提供服务的可用区。
+         */
+        zoneIds: string[];
+    }
+
+    export interface GetEndpointServiceTag {
+        /**
+         * 终端节点服务标签的标签键。
+         */
+        key: string;
+        /**
+         * 终端节点服务标签的标签值。
+         */
+        value: string;
+    }
+
+}
+
 export namespace privatezone {
     export interface GetResolverEndpointIpConfig {
         /**
@@ -7486,6 +8223,316 @@ export namespace rabbitmq {
         key: string;
         /**
          * 标签的值。
+         */
+        value: string;
+    }
+
+}
+
+export namespace rdsmssql {
+    export interface GetInstanceChargeInfo {
+        /**
+         * 预付费场景下是否自动续费。true：自动续费（默认）。false：不自动续费。
+         */
+        autoRenew: boolean;
+        /**
+         * 计费到期时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeEndTime: string;
+        /**
+         * 计费开始时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeStartTime: string;
+        /**
+         * 付费状态。取值：Normal：表示实例正常。Overdue：表示实例欠费。Unpaid：表示实例等待支付。
+         */
+        chargeStatus: string;
+        /**
+         * 付费类型。取值：PostPaid：表示按量付费。PrePaid：表示包年包月。
+         */
+        chargeType: string;
+        /**
+         * 欠费关停时预计释放时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueReclaimTime: string;
+        /**
+         * 欠费关停时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueTime: string;
+        /**
+         * 预付费场景下的购买时长。默认值：1。
+         */
+        period: number;
+        /**
+         * 预付费场景下的购买周期。Month：表示包月(默认值)。Year：表示包年。
+         */
+        periodUnit: string;
+    }
+
+    export interface GetInstanceConnectionInfo {
+        /**
+         * 地址列表。
+         */
+        addresses: outputs.rdsmssql.GetInstanceConnectionInfoAddress[];
+        /**
+         * 描述信息。
+         */
+        description: string;
+        /**
+         * 终端 ID。
+         */
+        endpointId: string;
+        /**
+         * 终端名称。
+         */
+        endpointName: string;
+        /**
+         * 终端类型。取值如下：Primary：表示主节点终端。ROCluster：表示只读集群终端。RO：表示只读节点终端。
+         */
+        endpointType: string;
+    }
+
+    export interface GetInstanceConnectionInfoAddress {
+        /**
+         * 表示是否开启私网到公网解析，取值如下：true：表示开启私网到公网解析。false：表示不开启私网到公网解析。
+         */
+        dnsVisibility: boolean;
+        /**
+         * 域名。
+         */
+        domain: string;
+        /**
+         * EIP的ID，仅对公网地址有效。
+         */
+        eipId: string;
+        /**
+         * IP地址。
+         */
+        ipAddress: string;
+        /**
+         * 网络地址类型。取值：Private：私网类型。Public：公网类型。
+         */
+        networkType: string;
+        /**
+         * 端口。
+         */
+        port: string;
+        /**
+         * 子网 ID，仅对私网地址有效。
+         */
+        subnetId: string;
+    }
+
+    export interface GetInstanceNodeDetailInfo {
+        /**
+         * 节点的创建时间。
+         */
+        createTime: string;
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+        /**
+         * 内存大小，单位为 GiB。
+         */
+        memory: number;
+        /**
+         * 节点ID。
+         */
+        nodeId: string;
+        /**
+         * 节点IP。
+         */
+        nodeIp: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态，取值为：Running：运行中。Creating：创建中。Deleting：删除中。Restarting：重启中。Updating：变更中。MasterChanging：主备切换中。Error：错误。
+         */
+        nodeStatus: string;
+        /**
+         * 节点类型。取值：Primary：表示主节点终端。ReadOnly：表示只读节点终端。Secondary：表示备节点终端。
+         */
+        nodeType: string;
+        /**
+         * 区域ID。
+         */
+        regionId: string;
+        /**
+         * 更新时间。
+         */
+        updateTime: string;
+        /**
+         * vCPU 数量。
+         */
+        vcpu: number;
+        /**
+         * 可用区ID。
+         */
+        zoneId: string;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceChargeInfo {
+        /**
+         * 预付费场景下是否自动续费。true：自动续费（默认）。false：不自动续费。
+         */
+        autoRenew: boolean;
+        /**
+         * 计费到期时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeEndTime: string;
+        /**
+         * 计费开始时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        chargeStartTime: string;
+        /**
+         * 付费状态。取值：Normal：表示实例正常。Overdue：表示实例欠费。Unpaid：表示实例等待支付。
+         */
+        chargeStatus: string;
+        /**
+         * 付费类型。取值：PostPaid：表示按量付费。PrePaid：表示包年包月。
+         */
+        chargeType: string;
+        /**
+         * 欠费关停时预计释放时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueReclaimTime: string;
+        /**
+         * 欠费关停时间，格式为 yyyy-MM-ddTHH:mm:ssZ（UTC 时间）。
+         */
+        overdueTime: string;
+        /**
+         * 预付费场景下的购买时长。默认值：1。
+         */
+        period: number;
+        /**
+         * 预付费场景下的购买周期。Month：表示包月(默认值)。Year：表示包年。
+         */
+        periodUnit: string;
+    }
+
+    export interface InstanceConnectionInfo {
+        addresses: outputs.rdsmssql.InstanceConnectionInfoAddress[];
+        /**
+         * 描述信息。
+         */
+        description: string;
+        /**
+         * 终端 ID。
+         */
+        endpointId: string;
+        /**
+         * 终端名称。
+         */
+        endpointName: string;
+        /**
+         * 终端类型。取值如下：Primary：表示主节点终端。ROCluster：表示只读集群终端。RO：表示只读节点终端。
+         */
+        endpointType: string;
+    }
+
+    export interface InstanceConnectionInfoAddress {
+        /**
+         * 表示是否开启私网到公网解析，取值如下：true：表示开启私网到公网解析。false：表示不开启私网到公网解析。
+         */
+        dnsVisibility: boolean;
+        /**
+         * 域名。
+         */
+        domain: string;
+        /**
+         * EIP的ID，仅对公网地址有效。
+         */
+        eipId: string;
+        /**
+         * IP地址。
+         */
+        ipAddress: string;
+        /**
+         * 网络地址类型。取值：Private：私网类型。Public：公网类型。
+         */
+        networkType: string;
+        /**
+         * 端口。
+         */
+        port: string;
+        /**
+         * 子网 ID，仅对私网地址有效。
+         */
+        subnetId: string;
+    }
+
+    export interface InstanceNodeDetailInfo {
+        /**
+         * 节点的创建时间。
+         */
+        createTime: string;
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+        /**
+         * 内存大小，单位为 GiB。
+         */
+        memory: number;
+        /**
+         * 节点ID。
+         */
+        nodeId: string;
+        /**
+         * 节点IP。
+         */
+        nodeIp: string;
+        /**
+         * 节点规格。
+         */
+        nodeSpec: string;
+        /**
+         * 节点状态，取值为：Running：运行中。Creating：创建中。Deleting：删除中。Restarting：重启中。Updating：变更中。MasterChanging：主备切换中。Error：错误。
+         */
+        nodeStatus: string;
+        /**
+         * 节点类型。取值：Primary：表示主节点终端。ReadOnly：表示只读节点终端。Secondary：表示备节点终端。
+         */
+        nodeType: string;
+        /**
+         * 区域ID。
+         */
+        regionId: string;
+        /**
+         * 更新时间。
+         */
+        updateTime: string;
+        /**
+         * vCPU 数量。
+         */
+        vcpu: number;
+        /**
+         * 可用区ID。
+         */
+        zoneId: string;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
          */
         value: string;
     }
@@ -8442,7 +9489,181 @@ export namespace redis {
 
 }
 
+export namespace rocketmq {
+    export interface GetInstanceChargeDetail {
+        /**
+         * 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+         */
+        autoRenew: boolean;
+        /**
+         * 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+         */
+        chargeExpireTime: string;
+        /**
+         * 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        chargeStartTime: string;
+        /**
+         * 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+         */
+        chargeStatus: string;
+        /**
+         * 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+         */
+        chargeType: string;
+        /**
+         * 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueReclaimTime: string;
+        /**
+         * 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueTime: string;
+        /**
+         * 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+         */
+        period: number;
+        /**
+         * 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+         */
+        periodUnit: string;
+    }
+
+    export interface GetInstanceConnectionInfo {
+        /**
+         * 实例的接入点 IP 地址。
+         */
+        endpointAddressIp: string;
+        /**
+         * 实例的接入点类型。
+         */
+        endpointType: string;
+        /**
+         * 实例的私网接入点地址。
+         */
+        internalEndpoint: string;
+        /**
+         * 实例的接入点类型。
+         */
+        networkType: string;
+        /**
+         * 实例的公网接入点地址。
+         */
+        publicEndpoint: string;
+    }
+
+    export interface GetInstanceProductInfo {
+        /**
+         * 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         */
+        sendReceiveRatio: number;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceChargeDetail {
+        /**
+         * 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+         */
+        autoRenew: boolean;
+        /**
+         * 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+         */
+        chargeExpireTime: string;
+        /**
+         * 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        chargeStartTime: string;
+        /**
+         * 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+         */
+        chargeStatus: string;
+        /**
+         * 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+         */
+        chargeType: string;
+        /**
+         * 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueReclaimTime: string;
+        /**
+         * 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+         */
+        overdueTime: string;
+        /**
+         * 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+         */
+        period: number;
+        /**
+         * 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+         */
+        periodUnit: string;
+    }
+
+    export interface InstanceConnectionInfo {
+        /**
+         * 实例的接入点 IP 地址。
+         */
+        endpointAddressIp: string;
+        /**
+         * 实例的接入点类型。
+         */
+        endpointType: string;
+        /**
+         * 实例的私网接入点地址。
+         */
+        internalEndpoint: string;
+        /**
+         * 实例的接入点类型。
+         */
+        networkType: string;
+        /**
+         * 实例的公网接入点地址。
+         */
+        publicEndpoint: string;
+    }
+
+    export interface InstanceProductInfo {
+        /**
+         * 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         */
+        sendReceiveRatio: number;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
 export namespace storageebs {
+    export interface GetSnapshotTag {
+        /**
+         * 为资源添加的用户标签的标签键。命名规则如下：不能以任何大小写形式的volc:或sys:开头。volc:或sys:开头为系统预留标签键禁止创建。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+         */
+        key: string;
+        /**
+         * 为资源添加的用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+         */
+        value: string;
+    }
+
     export interface GetVolumeBaselinePerformance {
         /**
          * 云盘的总IOPS，即云盘的基准IOPS和额外IOPS之和。
@@ -8489,6 +9710,17 @@ export namespace storageebs {
          * 云盘的总吞吐量，即云盘的基准吞吐量和额外吞吐量之和。
          */
         throughput: number;
+    }
+
+    export interface SnapshotTag {
+        /**
+         * 为资源添加的用户标签的标签键。命名规则如下：不能以任何大小写形式的volc:或sys:开头。volc:或sys:开头为系统预留标签键禁止创建。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+         */
+        key: string;
+        /**
+         * 为资源添加的用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+         */
+        value: string;
     }
 
     export interface VolumeBaselinePerformance {

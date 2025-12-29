@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "volcenginecc:iam/policy:Policy":
 		r = &Policy{}
+	case "volcenginecc:iam/project:Project":
+		r = &Project{}
 	case "volcenginecc:iam/role:Role":
 		r = &Role{}
 	case "volcenginecc:iam/user:User":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"iam/policy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"iam/project",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
