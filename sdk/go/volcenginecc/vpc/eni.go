@@ -52,9 +52,9 @@ type Eni struct {
 	SecondaryPrivateIpAddressCount pulumi.IntOutput `pulumi:"secondaryPrivateIpAddressCount"`
 	// 辅助网卡加入一个或多个安全组的ID。
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// 是否为火山引擎官方服务网卡，true为是，false为否。
+	// 是否为官方服务网卡，true为是，false为否。
 	ServiceManaged pulumi.BoolOutput `pulumi:"serviceManaged"`
-	// 网卡的绑定状态。
+	// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
 	Status pulumi.StringOutput `pulumi:"status"`
 	// 辅助网卡所在子网的ID。
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -132,9 +132,9 @@ type eniState struct {
 	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
 	// 辅助网卡加入一个或多个安全组的ID。
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// 是否为火山引擎官方服务网卡，true为是，false为否。
+	// 是否为官方服务网卡，true为是，false为否。
 	ServiceManaged *bool `pulumi:"serviceManaged"`
-	// 网卡的绑定状态。
+	// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
 	Status *string `pulumi:"status"`
 	// 辅助网卡所在子网的ID。
 	SubnetId *string  `pulumi:"subnetId"`
@@ -183,9 +183,9 @@ type EniState struct {
 	SecondaryPrivateIpAddressCount pulumi.IntPtrInput
 	// 辅助网卡加入一个或多个安全组的ID。
 	SecurityGroupIds pulumi.StringArrayInput
-	// 是否为火山引擎官方服务网卡，true为是，false为否。
+	// 是否为官方服务网卡，true为是，false为否。
 	ServiceManaged pulumi.BoolPtrInput
-	// 网卡的绑定状态。
+	// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
 	Status pulumi.StringPtrInput
 	// 辅助网卡所在子网的ID。
 	SubnetId pulumi.StringPtrInput
@@ -233,8 +233,6 @@ type eniArgs struct {
 	// 辅助网卡所在子网的ID。
 	SubnetId *string  `pulumi:"subnetId"`
 	Tags     []EniTag `pulumi:"tags"`
-	// 网卡所属可用区的ID。
-	ZoneId *string `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a Eni resource.
@@ -265,8 +263,6 @@ type EniArgs struct {
 	// 辅助网卡所在子网的ID。
 	SubnetId pulumi.StringPtrInput
 	Tags     EniTagArrayInput
-	// 网卡所属可用区的ID。
-	ZoneId pulumi.StringPtrInput
 }
 
 func (EniArgs) ElementType() reflect.Type {
@@ -435,12 +431,12 @@ func (o EniOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Eni) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// 是否为火山引擎官方服务网卡，true为是，false为否。
+// 是否为官方服务网卡，true为是，false为否。
 func (o EniOutput) ServiceManaged() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Eni) pulumi.BoolOutput { return v.ServiceManaged }).(pulumi.BoolOutput)
 }
 
-// 网卡的绑定状态。
+// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
 func (o EniOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eni) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

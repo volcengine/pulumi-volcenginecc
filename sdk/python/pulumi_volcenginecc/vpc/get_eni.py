@@ -248,7 +248,7 @@ class GetEniResult:
     @pulumi.getter(name="serviceManaged")
     def service_managed(self) -> builtins.bool:
         """
-        是否为火山引擎官方服务网卡，true为是，false为否。
+        是否为官方服务网卡，true为是，false为否。
         """
         return pulumi.get(self, "service_managed")
 
@@ -256,7 +256,7 @@ class GetEniResult:
     @pulumi.getter
     def status(self) -> builtins.str:
         """
-        网卡的绑定状态。
+        网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         """
         return pulumi.get(self, "status")
 
@@ -271,6 +271,9 @@ class GetEniResult:
     @property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetEniTagResult']:
+        """
+        标签。
+        """
         return pulumi.get(self, "tags")
 
     @property

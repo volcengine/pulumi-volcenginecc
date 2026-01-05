@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Vke
 {
     /// <summary>
-    /// 查询符合条件的已安装组件详情列表。
+    /// 集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。
     /// 
     /// ## Example Usage
     /// 
@@ -60,8 +60,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         /// <summary>
         /// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         /// </summary>
-        [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
@@ -90,8 +90,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         /// <summary>
         /// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         /// </summary>
-        [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        [Output("updatedTime")]
+        public Output<string> UpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// 组件版本。
@@ -177,6 +177,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// 组件状态。
+        /// </summary>
+        [Input("status")]
+        public Input<Inputs.AddonStatusArgs>? Status { get; set; }
+
+        /// <summary>
         /// 组件版本。
         /// </summary>
         [Input("version")]
@@ -205,8 +211,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         /// <summary>
         /// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         /// </summary>
-        [Input("createTime")]
-        public Input<string>? CreateTime { get; set; }
+        [Input("createdTime")]
+        public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
         /// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
@@ -235,8 +241,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         /// <summary>
         /// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         /// </summary>
-        [Input("updateTime")]
-        public Input<string>? UpdateTime { get; set; }
+        [Input("updatedTime")]
+        public Input<string>? UpdatedTime { get; set; }
 
         /// <summary>
         /// 组件版本。

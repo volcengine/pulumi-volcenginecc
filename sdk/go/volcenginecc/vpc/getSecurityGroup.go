@@ -49,8 +49,9 @@ type LookupSecurityGroupResult struct {
 	// 安全组是否为托管安全组。true为托管安全组，false为非托管安全组。
 	ServiceManaged bool `pulumi:"serviceManaged"`
 	// 安全组状态。Available为可用，Creating为创建中。
-	Status string                `pulumi:"status"`
-	Tags   []GetSecurityGroupTag `pulumi:"tags"`
+	Status string `pulumi:"status"`
+	// 标签列表。
+	Tags []GetSecurityGroupTag `pulumi:"tags"`
 	// 安全组类型。1、default：默认安全组。2、normal：自定义安全组。3、VpnGW： VPN网关安全组。4、NatGW： Nat网关安全组。 5、cidr_only：CIDR-Only安全组。
 	Type string `pulumi:"type"`
 	// 安全组所属的VPC ID。
@@ -141,6 +142,7 @@ func (o LookupSecurityGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// 标签列表。
 func (o LookupSecurityGroupResultOutput) Tags() GetSecurityGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) []GetSecurityGroupTag { return v.Tags }).(GetSecurityGroupTagArrayOutput)
 }

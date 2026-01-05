@@ -103,6 +103,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public /*out*/ readonly projectName!: pulumi.Output<string>;
     /**
+     * 只读字段，子网IPv6网段。
+     */
+    public /*out*/ readonly readIpv6CidrBlock!: pulumi.Output<string>;
+    /**
      * 路由表信息。
      */
     public /*out*/ readonly routeTable!: pulumi.Output<outputs.vpc.SubnetRouteTable>;
@@ -159,6 +163,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["isDefault"] = state ? state.isDefault : undefined;
             resourceInputs["networkAclId"] = state ? state.networkAclId : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["readIpv6CidrBlock"] = state ? state.readIpv6CidrBlock : undefined;
             resourceInputs["routeTable"] = state ? state.routeTable : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
@@ -193,6 +198,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["networkAclId"] = undefined /*out*/;
             resourceInputs["projectName"] = undefined /*out*/;
+            resourceInputs["readIpv6CidrBlock"] = undefined /*out*/;
             resourceInputs["routeTable"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
@@ -248,6 +254,10 @@ export interface SubnetState {
      * 子网所在VPC实例所属项目的名称。
      */
     projectName?: pulumi.Input<string>;
+    /**
+     * 只读字段，子网IPv6网段。
+     */
+    readIpv6CidrBlock?: pulumi.Input<string>;
     /**
      * 路由表信息。
      */

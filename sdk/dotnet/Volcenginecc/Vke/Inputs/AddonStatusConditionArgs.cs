@@ -13,12 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Inputs
 
     public sealed class AddonStatusConditionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
         public AddonStatusConditionArgs()
         {
         }

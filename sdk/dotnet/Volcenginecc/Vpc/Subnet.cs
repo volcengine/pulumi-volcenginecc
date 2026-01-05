@@ -113,6 +113,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
+        /// 只读字段，子网IPv6网段。
+        /// </summary>
+        [Output("readIpv6CidrBlock")]
+        public Output<string> ReadIpv6CidrBlock { get; private set; } = null!;
+
+        /// <summary>
         /// 路由表信息。
         /// </summary>
         [Output("routeTable")]
@@ -327,6 +333,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
+
+        /// <summary>
+        /// 只读字段，子网IPv6网段。
+        /// </summary>
+        [Input("readIpv6CidrBlock")]
+        public Input<string>? ReadIpv6CidrBlock { get; set; }
 
         /// <summary>
         /// 路由表信息。

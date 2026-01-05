@@ -64,13 +64,14 @@ type LookupEniResult struct {
 	SecondaryPrivateIpAddressCount int `pulumi:"secondaryPrivateIpAddressCount"`
 	// 辅助网卡加入一个或多个安全组的ID。
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// 是否为火山引擎官方服务网卡，true为是，false为否。
+	// 是否为官方服务网卡，true为是，false为否。
 	ServiceManaged bool `pulumi:"serviceManaged"`
-	// 网卡的绑定状态。
+	// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
 	Status string `pulumi:"status"`
 	// 辅助网卡所在子网的ID。
-	SubnetId string      `pulumi:"subnetId"`
-	Tags     []GetEniTag `pulumi:"tags"`
+	SubnetId string `pulumi:"subnetId"`
+	// 标签。
+	Tags []GetEniTag `pulumi:"tags"`
 	// 网卡类型。primary：主网卡，secondary：辅助网卡
 	Type string `pulumi:"type"`
 	// 更新网卡的时间。
@@ -202,12 +203,12 @@ func (o LookupEniResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEniResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// 是否为火山引擎官方服务网卡，true为是，false为否。
+// 是否为官方服务网卡，true为是，false为否。
 func (o LookupEniResultOutput) ServiceManaged() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupEniResult) bool { return v.ServiceManaged }).(pulumi.BoolOutput)
 }
 
-// 网卡的绑定状态。
+// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
 func (o LookupEniResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEniResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -217,6 +218,7 @@ func (o LookupEniResultOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEniResult) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// 标签。
 func (o LookupEniResultOutput) Tags() GetEniTagArrayOutput {
 	return o.ApplyT(func(v LookupEniResult) []GetEniTag { return v.Tags }).(GetEniTagArrayOutput)
 }

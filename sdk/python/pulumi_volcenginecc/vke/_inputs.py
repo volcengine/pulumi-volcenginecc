@@ -151,34 +151,14 @@ class AddonStatusArgs:
 
 if not MYPY:
     class AddonStatusConditionArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[builtins.str]]
-        """
-        组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        """
+        pass
 elif False:
     AddonStatusConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AddonStatusConditionArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        :param pulumi.Input[builtins.str] type: 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
+    def __init__(__self__):
+        pass
 
 
 if not MYPY:

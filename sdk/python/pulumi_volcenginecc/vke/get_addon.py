@@ -28,16 +28,16 @@ class GetAddonResult:
     """
     A collection of values returned by getAddon.
     """
-    def __init__(__self__, cluster_id=None, config=None, create_time=None, deploy_mode=None, deploy_node_type=None, id=None, name=None, status=None, update_time=None, version=None):
+    def __init__(__self__, cluster_id=None, config=None, created_time=None, deploy_mode=None, deploy_node_type=None, id=None, name=None, status=None, updated_time=None, version=None):
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
         if config and not isinstance(config, str):
             raise TypeError("Expected argument 'config' to be a str")
         pulumi.set(__self__, "config", config)
-        if create_time and not isinstance(create_time, str):
-            raise TypeError("Expected argument 'create_time' to be a str")
-        pulumi.set(__self__, "create_time", create_time)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
         if deploy_mode and not isinstance(deploy_mode, str):
             raise TypeError("Expected argument 'deploy_mode' to be a str")
         pulumi.set(__self__, "deploy_mode", deploy_mode)
@@ -53,9 +53,9 @@ class GetAddonResult:
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
-        if update_time and not isinstance(update_time, str):
-            raise TypeError("Expected argument 'update_time' to be a str")
-        pulumi.set(__self__, "update_time", update_time)
+        if updated_time and not isinstance(updated_time, str):
+            raise TypeError("Expected argument 'updated_time' to be a str")
+        pulumi.set(__self__, "updated_time", updated_time)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -77,12 +77,12 @@ class GetAddonResult:
         return pulumi.get(self, "config")
 
     @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> builtins.str:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> builtins.str:
         """
         安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         """
-        return pulumi.get(self, "create_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="deployMode")
@@ -125,12 +125,12 @@ class GetAddonResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> builtins.str:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> builtins.str:
         """
         更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
     @property
     @pulumi.getter
@@ -149,13 +149,13 @@ class AwaitableGetAddonResult(GetAddonResult):
         return GetAddonResult(
             cluster_id=self.cluster_id,
             config=self.config,
-            create_time=self.create_time,
+            created_time=self.created_time,
             deploy_mode=self.deploy_mode,
             deploy_node_type=self.deploy_node_type,
             id=self.id,
             name=self.name,
             status=self.status,
-            update_time=self.update_time,
+            updated_time=self.updated_time,
             version=self.version)
 
 
@@ -175,13 +175,13 @@ def get_addon(id: Optional[builtins.str] = None,
     return AwaitableGetAddonResult(
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         config=pulumi.get(__ret__, 'config'),
-        create_time=pulumi.get(__ret__, 'create_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
         deploy_mode=pulumi.get(__ret__, 'deploy_mode'),
         deploy_node_type=pulumi.get(__ret__, 'deploy_node_type'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
-        update_time=pulumi.get(__ret__, 'update_time'),
+        updated_time=pulumi.get(__ret__, 'updated_time'),
         version=pulumi.get(__ret__, 'version'))
 def get_addon_output(id: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
@@ -198,11 +198,11 @@ def get_addon_output(id: Optional[pulumi.Input[builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetAddonResult(
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         config=pulumi.get(__response__, 'config'),
-        create_time=pulumi.get(__response__, 'create_time'),
+        created_time=pulumi.get(__response__, 'created_time'),
         deploy_mode=pulumi.get(__response__, 'deploy_mode'),
         deploy_node_type=pulumi.get(__response__, 'deploy_node_type'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
-        update_time=pulumi.get(__response__, 'update_time'),
+        updated_time=pulumi.get(__response__, 'updated_time'),
         version=pulumi.get(__response__, 'version')))

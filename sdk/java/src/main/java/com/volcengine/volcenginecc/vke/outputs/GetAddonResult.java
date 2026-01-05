@@ -25,7 +25,7 @@ public final class GetAddonResult {
      * @return 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    private String createTime;
+    private String createdTime;
     /**
      * @return 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
      * 
@@ -55,7 +55,7 @@ public final class GetAddonResult {
      * @return 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    private String updateTime;
+    private String updatedTime;
     /**
      * @return 组件版本。
      * 
@@ -81,8 +81,8 @@ public final class GetAddonResult {
      * @return 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public String createdTime() {
+        return this.createdTime;
     }
     /**
      * @return 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
@@ -123,8 +123,8 @@ public final class GetAddonResult {
      * @return 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    public String updateTime() {
-        return this.updateTime;
+    public String updatedTime() {
+        return this.updatedTime;
     }
     /**
      * @return 组件版本。
@@ -145,26 +145,26 @@ public final class GetAddonResult {
     public static final class Builder {
         private String clusterId;
         private String config;
-        private String createTime;
+        private String createdTime;
         private String deployMode;
         private String deployNodeType;
         private String id;
         private String name;
         private GetAddonStatus status;
-        private String updateTime;
+        private String updatedTime;
         private String version;
         public Builder() {}
         public Builder(GetAddonResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterId = defaults.clusterId;
     	      this.config = defaults.config;
-    	      this.createTime = defaults.createTime;
+    	      this.createdTime = defaults.createdTime;
     	      this.deployMode = defaults.deployMode;
     	      this.deployNodeType = defaults.deployNodeType;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.status = defaults.status;
-    	      this.updateTime = defaults.updateTime;
+    	      this.updatedTime = defaults.updatedTime;
     	      this.version = defaults.version;
         }
 
@@ -185,11 +185,11 @@ public final class GetAddonResult {
             return this;
         }
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            if (createTime == null) {
-              throw new MissingRequiredPropertyException("GetAddonResult", "createTime");
+        public Builder createdTime(String createdTime) {
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "createdTime");
             }
-            this.createTime = createTime;
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
@@ -233,11 +233,11 @@ public final class GetAddonResult {
             return this;
         }
         @CustomType.Setter
-        public Builder updateTime(String updateTime) {
-            if (updateTime == null) {
-              throw new MissingRequiredPropertyException("GetAddonResult", "updateTime");
+        public Builder updatedTime(String updatedTime) {
+            if (updatedTime == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "updatedTime");
             }
-            this.updateTime = updateTime;
+            this.updatedTime = updatedTime;
             return this;
         }
         @CustomType.Setter
@@ -252,13 +252,13 @@ public final class GetAddonResult {
             final var _resultValue = new GetAddonResult();
             _resultValue.clusterId = clusterId;
             _resultValue.config = config;
-            _resultValue.createTime = createTime;
+            _resultValue.createdTime = createdTime;
             _resultValue.deployMode = deployMode;
             _resultValue.deployNodeType = deployNodeType;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.status = status;
-            _resultValue.updateTime = updateTime;
+            _resultValue.updatedTime = updatedTime;
             _resultValue.version = version;
             return _resultValue;
         }

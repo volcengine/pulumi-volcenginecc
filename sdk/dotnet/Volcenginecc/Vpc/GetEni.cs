@@ -133,17 +133,20 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// 是否为火山引擎官方服务网卡，true为是，false为否。
+        /// 是否为官方服务网卡，true为是，false为否。
         /// </summary>
         public readonly bool ServiceManaged;
         /// <summary>
-        /// 网卡的绑定状态。
+        /// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         /// </summary>
         public readonly string Status;
         /// <summary>
         /// 辅助网卡所在子网的ID。
         /// </summary>
         public readonly string SubnetId;
+        /// <summary>
+        /// 标签。
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetEniTagResult> Tags;
         /// <summary>
         /// 网卡类型。primary：主网卡，secondary：辅助网卡

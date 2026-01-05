@@ -132,21 +132,8 @@ class AddonStatus(dict):
 
 @pulumi.output_type
 class AddonStatusCondition(dict):
-    def __init__(__self__, *,
-                 type: Optional[builtins.str] = None):
-        """
-        :param builtins.str type: 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        """
-        组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        """
-        return pulumi.get(self, "type")
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

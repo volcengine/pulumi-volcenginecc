@@ -5,6 +5,7 @@ package com.volcengine.volcenginecc.vke;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.volcengine.volcenginecc.vke.inputs.AddonStatusArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -91,6 +92,21 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * 组件状态。
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<AddonStatusArgs> status;
+
+    /**
+     * @return 组件状态。
+     * 
+     */
+    public Optional<Output<AddonStatusArgs>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
      * 组件版本。
      * 
      */
@@ -113,6 +129,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         this.deployMode = $.deployMode;
         this.deployNodeType = $.deployNodeType;
         this.name = $.name;
+        this.status = $.status;
         this.version = $.version;
     }
 
@@ -237,6 +254,27 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param status 组件状态。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<AddonStatusArgs> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status 组件状态。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(AddonStatusArgs status) {
+            return status(Output.of(status));
         }
 
         /**

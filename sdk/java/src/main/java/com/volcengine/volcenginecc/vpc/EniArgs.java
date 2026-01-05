@@ -215,21 +215,6 @@ public final class EniArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * 网卡所属可用区的ID。
-     * 
-     */
-    @Import(name="zoneId")
-    private @Nullable Output<String> zoneId;
-
-    /**
-     * @return 网卡所属可用区的ID。
-     * 
-     */
-    public Optional<Output<String>> zoneId() {
-        return Optional.ofNullable(this.zoneId);
-    }
-
     private EniArgs() {}
 
     private EniArgs(EniArgs $) {
@@ -247,7 +232,6 @@ public final class EniArgs extends com.pulumi.resources.ResourceArgs {
         this.securityGroupIds = $.securityGroupIds;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
-        this.zoneId = $.zoneId;
     }
 
     public static Builder builder() {
@@ -564,27 +548,6 @@ public final class EniArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder tags(EniTagArgs... tags) {
             return tags(List.of(tags));
-        }
-
-        /**
-         * @param zoneId 网卡所属可用区的ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneId(@Nullable Output<String> zoneId) {
-            $.zoneId = zoneId;
-            return this;
-        }
-
-        /**
-         * @param zoneId 网卡所属可用区的ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneId(String zoneId) {
-            return zoneId(Output.of(zoneId));
         }
 
         public EniArgs build() {

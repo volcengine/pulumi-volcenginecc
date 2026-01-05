@@ -27,6 +27,7 @@ class AddonArgs:
                  deploy_mode: Optional[pulumi.Input[builtins.str]] = None,
                  deploy_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input['AddonStatusArgs']] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Addon resource.
@@ -35,124 +36,13 @@ class AddonArgs:
         :param pulumi.Input[builtins.str] deploy_mode: 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
         :param pulumi.Input[builtins.str] deploy_node_type: 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
         :param pulumi.Input[builtins.str] name: 组件名称。
-        :param pulumi.Input[builtins.str] version: 组件版本。
-        """
-        if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
-        if config is not None:
-            pulumi.set(__self__, "config", config)
-        if deploy_mode is not None:
-            pulumi.set(__self__, "deploy_mode", deploy_mode)
-        if deploy_node_type is not None:
-            pulumi.set(__self__, "deploy_node_type", deploy_node_type)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        组件所在集群 ID。
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "cluster_id", value)
-
-    @property
-    @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        组件配置。
-        """
-        return pulumi.get(self, "config")
-
-    @config.setter
-    def config(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "config", value)
-
-    @property
-    @pulumi.getter(name="deployMode")
-    def deploy_mode(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
-        """
-        return pulumi.get(self, "deploy_mode")
-
-    @deploy_mode.setter
-    def deploy_mode(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "deploy_mode", value)
-
-    @property
-    @pulumi.getter(name="deployNodeType")
-    def deploy_node_type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
-        """
-        return pulumi.get(self, "deploy_node_type")
-
-    @deploy_node_type.setter
-    def deploy_node_type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "deploy_node_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        组件名称。
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        组件版本。
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class _AddonState:
-    def __init__(__self__, *,
-                 cluster_id: Optional[pulumi.Input[builtins.str]] = None,
-                 config: Optional[pulumi.Input[builtins.str]] = None,
-                 create_time: Optional[pulumi.Input[builtins.str]] = None,
-                 deploy_mode: Optional[pulumi.Input[builtins.str]] = None,
-                 deploy_node_type: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 status: Optional[pulumi.Input['AddonStatusArgs']] = None,
-                 update_time: Optional[pulumi.Input[builtins.str]] = None,
-                 version: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        Input properties used for looking up and filtering Addon resources.
-        :param pulumi.Input[builtins.str] cluster_id: 组件所在集群 ID。
-        :param pulumi.Input[builtins.str] config: 组件配置。
-        :param pulumi.Input[builtins.str] create_time: 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-        :param pulumi.Input[builtins.str] deploy_mode: 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
-        :param pulumi.Input[builtins.str] deploy_node_type: 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
-        :param pulumi.Input[builtins.str] name: 组件名称。
         :param pulumi.Input['AddonStatusArgs'] status: 组件状态。
-        :param pulumi.Input[builtins.str] update_time: 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         :param pulumi.Input[builtins.str] version: 组件版本。
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if config is not None:
             pulumi.set(__self__, "config", config)
-        if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
         if deploy_mode is not None:
             pulumi.set(__self__, "deploy_mode", deploy_mode)
         if deploy_node_type is not None:
@@ -161,8 +51,6 @@ class _AddonState:
             pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -189,18 +77,6 @@ class _AddonState:
     @config.setter
     def config(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "config", value)
-
-    @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-        """
-        return pulumi.get(self, "create_time")
-
-    @create_time.setter
-    def create_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "create_time", value)
 
     @property
     @pulumi.getter(name="deployMode")
@@ -251,16 +127,156 @@ class _AddonState:
         pulumi.set(self, "status", value)
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        组件版本。
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class _AddonState:
+    def __init__(__self__, *,
+                 cluster_id: Optional[pulumi.Input[builtins.str]] = None,
+                 config: Optional[pulumi.Input[builtins.str]] = None,
+                 created_time: Optional[pulumi.Input[builtins.str]] = None,
+                 deploy_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 deploy_node_type: Optional[pulumi.Input[builtins.str]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input['AddonStatusArgs']] = None,
+                 updated_time: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Input properties used for looking up and filtering Addon resources.
+        :param pulumi.Input[builtins.str] cluster_id: 组件所在集群 ID。
+        :param pulumi.Input[builtins.str] config: 组件配置。
+        :param pulumi.Input[builtins.str] created_time: 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+        :param pulumi.Input[builtins.str] deploy_mode: 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
+        :param pulumi.Input[builtins.str] deploy_node_type: 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
+        :param pulumi.Input[builtins.str] name: 组件名称。
+        :param pulumi.Input['AddonStatusArgs'] status: 组件状态。
+        :param pulumi.Input[builtins.str] updated_time: 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+        :param pulumi.Input[builtins.str] version: 组件版本。
+        """
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if deploy_mode is not None:
+            pulumi.set(__self__, "deploy_mode", deploy_mode)
+        if deploy_node_type is not None:
+            pulumi.set(__self__, "deploy_node_type", deploy_node_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if updated_time is not None:
+            pulumi.set(__self__, "updated_time", updated_time)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        组件所在集群 ID。
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        组件配置。
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+        """
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter(name="deployMode")
+    def deploy_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
+        """
+        return pulumi.get(self, "deploy_mode")
+
+    @deploy_mode.setter
+    def deploy_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "deploy_mode", value)
+
+    @property
+    @pulumi.getter(name="deployNodeType")
+    def deploy_node_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
+        """
+        return pulumi.get(self, "deploy_node_type")
+
+    @deploy_node_type.setter
+    def deploy_node_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "deploy_node_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        组件名称。
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['AddonStatusArgs']]:
+        """
+        组件状态。
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['AddonStatusArgs']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
-    @update_time.setter
-    def update_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "update_time", value)
+    @updated_time.setter
+    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_time", value)
 
     @property
     @pulumi.getter
@@ -286,10 +302,11 @@ class Addon(pulumi.CustomResource):
                  deploy_mode: Optional[pulumi.Input[builtins.str]] = None,
                  deploy_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union['AddonStatusArgs', 'AddonStatusArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        查询符合条件的已安装组件详情列表。
+        集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。
 
         ## Example Usage
 
@@ -319,6 +336,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] deploy_mode: 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
         :param pulumi.Input[builtins.str] deploy_node_type: 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
         :param pulumi.Input[builtins.str] name: 组件名称。
+        :param pulumi.Input[Union['AddonStatusArgs', 'AddonStatusArgsDict']] status: 组件状态。
         :param pulumi.Input[builtins.str] version: 组件版本。
         """
         ...
@@ -328,7 +346,7 @@ class Addon(pulumi.CustomResource):
                  args: Optional[AddonArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        查询符合条件的已安装组件详情列表。
+        集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。
 
         ## Example Usage
 
@@ -371,6 +389,7 @@ class Addon(pulumi.CustomResource):
                  deploy_mode: Optional[pulumi.Input[builtins.str]] = None,
                  deploy_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union['AddonStatusArgs', 'AddonStatusArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -386,10 +405,10 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["deploy_mode"] = deploy_mode
             __props__.__dict__["deploy_node_type"] = deploy_node_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["status"] = status
             __props__.__dict__["version"] = version
-            __props__.__dict__["create_time"] = None
-            __props__.__dict__["status"] = None
-            __props__.__dict__["update_time"] = None
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["updated_time"] = None
         super(Addon, __self__).__init__(
             'volcenginecc:vke/addon:Addon',
             resource_name,
@@ -402,12 +421,12 @@ class Addon(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_id: Optional[pulumi.Input[builtins.str]] = None,
             config: Optional[pulumi.Input[builtins.str]] = None,
-            create_time: Optional[pulumi.Input[builtins.str]] = None,
+            created_time: Optional[pulumi.Input[builtins.str]] = None,
             deploy_mode: Optional[pulumi.Input[builtins.str]] = None,
             deploy_node_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[Union['AddonStatusArgs', 'AddonStatusArgsDict']]] = None,
-            update_time: Optional[pulumi.Input[builtins.str]] = None,
+            updated_time: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None) -> 'Addon':
         """
         Get an existing Addon resource's state with the given name, id, and optional extra
@@ -418,12 +437,12 @@ class Addon(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_id: 组件所在集群 ID。
         :param pulumi.Input[builtins.str] config: 组件配置。
-        :param pulumi.Input[builtins.str] create_time: 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+        :param pulumi.Input[builtins.str] created_time: 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         :param pulumi.Input[builtins.str] deploy_mode: 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
         :param pulumi.Input[builtins.str] deploy_node_type: 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
         :param pulumi.Input[builtins.str] name: 组件名称。
         :param pulumi.Input[Union['AddonStatusArgs', 'AddonStatusArgsDict']] status: 组件状态。
-        :param pulumi.Input[builtins.str] update_time: 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+        :param pulumi.Input[builtins.str] updated_time: 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         :param pulumi.Input[builtins.str] version: 组件版本。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -432,12 +451,12 @@ class Addon(pulumi.CustomResource):
 
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["config"] = config
-        __props__.__dict__["create_time"] = create_time
+        __props__.__dict__["created_time"] = created_time
         __props__.__dict__["deploy_mode"] = deploy_mode
         __props__.__dict__["deploy_node_type"] = deploy_node_type
         __props__.__dict__["name"] = name
         __props__.__dict__["status"] = status
-        __props__.__dict__["update_time"] = update_time
+        __props__.__dict__["updated_time"] = updated_time
         __props__.__dict__["version"] = version
         return Addon(resource_name, opts=opts, __props__=__props__)
 
@@ -458,12 +477,12 @@ class Addon(pulumi.CustomResource):
         return pulumi.get(self, "config")
 
     @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> pulumi.Output[builtins.str]:
         """
         安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         """
-        return pulumi.get(self, "create_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="deployMode")
@@ -498,12 +517,12 @@ class Addon(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> pulumi.Output[builtins.str]:
         """
         更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
     @property
     @pulumi.getter

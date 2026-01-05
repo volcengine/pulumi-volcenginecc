@@ -152,6 +152,9 @@ class GetSecurityGroupResult:
     @property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetSecurityGroupTagResult']:
+        """
+        标签列表。
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -70,6 +70,9 @@ export interface GetSecurityGroupResult {
      * 安全组状态。Available为可用，Creating为创建中。
      */
     readonly status: string;
+    /**
+     * 标签列表。
+     */
     readonly tags: outputs.vpc.GetSecurityGroupTag[];
     /**
      * 安全组类型。1、default：默认安全组。2、normal：自定义安全组。3、VpnGW： VPN网关安全组。4、NatGW： Nat网关安全组。 5、cidr_only：CIDR-Only安全组。

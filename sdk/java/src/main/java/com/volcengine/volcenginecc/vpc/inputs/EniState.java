@@ -254,14 +254,14 @@ public final class EniState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否为火山引擎官方服务网卡，true为是，false为否。
+     * 是否为官方服务网卡，true为是，false为否。
      * 
      */
     @Import(name="serviceManaged")
     private @Nullable Output<Boolean> serviceManaged;
 
     /**
-     * @return 是否为火山引擎官方服务网卡，true为是，false为否。
+     * @return 是否为官方服务网卡，true为是，false为否。
      * 
      */
     public Optional<Output<Boolean>> serviceManaged() {
@@ -269,14 +269,14 @@ public final class EniState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 网卡的绑定状态。
+     * 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 网卡的绑定状态。
+     * @return 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      * 
      */
     public Optional<Output<String>> status() {
@@ -777,7 +777,7 @@ public final class EniState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceManaged 是否为火山引擎官方服务网卡，true为是，false为否。
+         * @param serviceManaged 是否为官方服务网卡，true为是，false为否。
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class EniState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceManaged 是否为火山引擎官方服务网卡，true为是，false为否。
+         * @param serviceManaged 是否为官方服务网卡，true为是，false为否。
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class EniState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 网卡的绑定状态。
+         * @param status 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class EniState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 网卡的绑定状态。
+         * @param status 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
          * 
          * @return builder
          * 

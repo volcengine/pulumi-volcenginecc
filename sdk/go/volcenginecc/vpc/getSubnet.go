@@ -52,6 +52,8 @@ type LookupSubnetResult struct {
 	NetworkAclId string `pulumi:"networkAclId"`
 	// 子网所在VPC实例所属项目的名称。
 	ProjectName string `pulumi:"projectName"`
+	// 只读字段，子网IPv6网段。
+	ReadIpv6CidrBlock string `pulumi:"readIpv6CidrBlock"`
 	// 路由表信息。
 	RouteTable GetSubnetRouteTable `pulumi:"routeTable"`
 	// 子网的状态。1、Pending：表示配置中。2、Available：表示可用。
@@ -59,8 +61,9 @@ type LookupSubnetResult struct {
 	// 待修改信息的子网的ID。
 	SubnetId string `pulumi:"subnetId"`
 	// 子网的名称，长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-），不能以http://或https://开头，不填默认是子网的ID。
-	SubnetName string         `pulumi:"subnetName"`
-	Tags       []GetSubnetTag `pulumi:"tags"`
+	SubnetName string `pulumi:"subnetName"`
+	// 子网的标签信息。
+	Tags []GetSubnetTag `pulumi:"tags"`
 	// 子网下可用IP总数。
 	TotalIpv4Count int `pulumi:"totalIpv4Count"`
 	// 子网的更新时间。
@@ -160,6 +163,11 @@ func (o LookupSubnetResultOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
+// 只读字段，子网IPv6网段。
+func (o LookupSubnetResultOutput) ReadIpv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.ReadIpv6CidrBlock }).(pulumi.StringOutput)
+}
+
 // 路由表信息。
 func (o LookupSubnetResultOutput) RouteTable() GetSubnetRouteTableOutput {
 	return o.ApplyT(func(v LookupSubnetResult) GetSubnetRouteTable { return v.RouteTable }).(GetSubnetRouteTableOutput)
@@ -180,6 +188,7 @@ func (o LookupSubnetResultOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.SubnetName }).(pulumi.StringOutput)
 }
 
+// 子网的标签信息。
 func (o LookupSubnetResultOutput) Tags() GetSubnetTagArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []GetSubnetTag { return v.Tags }).(GetSubnetTagArrayOutput)
 }

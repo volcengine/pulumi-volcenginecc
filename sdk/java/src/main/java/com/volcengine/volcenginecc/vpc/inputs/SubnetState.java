@@ -171,6 +171,21 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * 只读字段，子网IPv6网段。
+     * 
+     */
+    @Import(name="readIpv6CidrBlock")
+    private @Nullable Output<String> readIpv6CidrBlock;
+
+    /**
+     * @return 只读字段，子网IPv6网段。
+     * 
+     */
+    public Optional<Output<String>> readIpv6CidrBlock() {
+        return Optional.ofNullable(this.readIpv6CidrBlock);
+    }
+
+    /**
      * 路由表信息。
      * 
      */
@@ -310,6 +325,7 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         this.isDefault = $.isDefault;
         this.networkAclId = $.networkAclId;
         this.projectName = $.projectName;
+        this.readIpv6CidrBlock = $.readIpv6CidrBlock;
         this.routeTable = $.routeTable;
         this.status = $.status;
         this.subnetId = $.subnetId;
@@ -547,6 +563,27 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        /**
+         * @param readIpv6CidrBlock 只读字段，子网IPv6网段。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readIpv6CidrBlock(@Nullable Output<String> readIpv6CidrBlock) {
+            $.readIpv6CidrBlock = readIpv6CidrBlock;
+            return this;
+        }
+
+        /**
+         * @param readIpv6CidrBlock 只读字段，子网IPv6网段。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readIpv6CidrBlock(String readIpv6CidrBlock) {
+            return readIpv6CidrBlock(Output.of(readIpv6CidrBlock));
         }
 
         /**

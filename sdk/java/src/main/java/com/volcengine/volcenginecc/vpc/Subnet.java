@@ -215,6 +215,20 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return this.projectName;
     }
     /**
+     * 只读字段，子网IPv6网段。
+     * 
+     */
+    @Export(name="readIpv6CidrBlock", refs={String.class}, tree="[0]")
+    private Output<String> readIpv6CidrBlock;
+
+    /**
+     * @return 只读字段，子网IPv6网段。
+     * 
+     */
+    public Output<String> readIpv6CidrBlock() {
+        return this.readIpv6CidrBlock;
+    }
+    /**
      * 路由表信息。
      * 
      */

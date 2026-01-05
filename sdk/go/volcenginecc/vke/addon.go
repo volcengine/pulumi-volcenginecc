@@ -11,7 +11,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 查询符合条件的已安装组件详情列表。
+// 集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。
 //
 // ## Example Usage
 //
@@ -57,7 +57,7 @@ type Addon struct {
 	// 组件配置。
 	Config pulumi.StringOutput `pulumi:"config"`
 	// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
 	DeployMode pulumi.StringOutput `pulumi:"deployMode"`
 	// 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
@@ -67,7 +67,7 @@ type Addon struct {
 	// 组件状态。
 	Status AddonStatusOutput `pulumi:"status"`
 	// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 	// 组件版本。
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -107,7 +107,7 @@ type addonState struct {
 	// 组件配置。
 	Config *string `pulumi:"config"`
 	// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	CreateTime *string `pulumi:"createTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
 	DeployMode *string `pulumi:"deployMode"`
 	// 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
@@ -117,7 +117,7 @@ type addonState struct {
 	// 组件状态。
 	Status *AddonStatus `pulumi:"status"`
 	// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	UpdateTime *string `pulumi:"updateTime"`
+	UpdatedTime *string `pulumi:"updatedTime"`
 	// 组件版本。
 	Version *string `pulumi:"version"`
 }
@@ -128,7 +128,7 @@ type AddonState struct {
 	// 组件配置。
 	Config pulumi.StringPtrInput
 	// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	CreateTime pulumi.StringPtrInput
+	CreatedTime pulumi.StringPtrInput
 	// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
 	DeployMode pulumi.StringPtrInput
 	// 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
@@ -138,7 +138,7 @@ type AddonState struct {
 	// 组件状态。
 	Status AddonStatusPtrInput
 	// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	UpdateTime pulumi.StringPtrInput
+	UpdatedTime pulumi.StringPtrInput
 	// 组件版本。
 	Version pulumi.StringPtrInput
 }
@@ -158,6 +158,8 @@ type addonArgs struct {
 	DeployNodeType *string `pulumi:"deployNodeType"`
 	// 组件名称。
 	Name *string `pulumi:"name"`
+	// 组件状态。
+	Status *AddonStatus `pulumi:"status"`
 	// 组件版本。
 	Version *string `pulumi:"version"`
 }
@@ -174,6 +176,8 @@ type AddonArgs struct {
 	DeployNodeType pulumi.StringPtrInput
 	// 组件名称。
 	Name pulumi.StringPtrInput
+	// 组件状态。
+	Status AddonStatusPtrInput
 	// 组件版本。
 	Version pulumi.StringPtrInput
 }
@@ -276,8 +280,8 @@ func (o AddonOutput) Config() pulumi.StringOutput {
 }
 
 // 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-func (o AddonOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o AddonOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
@@ -301,8 +305,8 @@ func (o AddonOutput) Status() AddonStatusOutput {
 }
 
 // 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-func (o AddonOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o AddonOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 // 组件版本。

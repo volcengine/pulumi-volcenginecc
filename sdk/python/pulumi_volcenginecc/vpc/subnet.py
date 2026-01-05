@@ -161,6 +161,7 @@ class _SubnetState:
                  is_default: Optional[pulumi.Input[builtins.bool]] = None,
                  network_acl_id: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 read_ipv6_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  route_table: Optional[pulumi.Input['SubnetRouteTableArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -182,6 +183,7 @@ class _SubnetState:
         :param pulumi.Input[builtins.bool] is_default: 该子网是否为默认子网。1、true：默认子网，表示该子网是创建ECS实例时系统自动创建的子网。2、false：非默认子网，表示该子网是用户手动创建的。
         :param pulumi.Input[builtins.str] network_acl_id: 子网关联的网络ACL的ID。
         :param pulumi.Input[builtins.str] project_name: 子网所在VPC实例所属项目的名称。
+        :param pulumi.Input[builtins.str] read_ipv6_cidr_block: 只读字段，子网IPv6网段。
         :param pulumi.Input['SubnetRouteTableArgs'] route_table: 路由表信息。
         :param pulumi.Input[builtins.str] status: 子网的状态。1、Pending：表示配置中。2、Available：表示可用。
         :param pulumi.Input[builtins.str] subnet_id: 待修改信息的子网的ID。
@@ -211,6 +213,8 @@ class _SubnetState:
             pulumi.set(__self__, "network_acl_id", network_acl_id)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
+        if read_ipv6_cidr_block is not None:
+            pulumi.set(__self__, "read_ipv6_cidr_block", read_ipv6_cidr_block)
         if route_table is not None:
             pulumi.set(__self__, "route_table", route_table)
         if status is not None:
@@ -349,6 +353,18 @@ class _SubnetState:
     @project_name.setter
     def project_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter(name="readIpv6CidrBlock")
+    def read_ipv6_cidr_block(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        只读字段，子网IPv6网段。
+        """
+        return pulumi.get(self, "read_ipv6_cidr_block")
+
+    @read_ipv6_cidr_block.setter
+    def read_ipv6_cidr_block(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "read_ipv6_cidr_block", value)
 
     @property
     @pulumi.getter(name="routeTable")
@@ -593,6 +609,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["network_acl_id"] = None
             __props__.__dict__["project_name"] = None
+            __props__.__dict__["read_ipv6_cidr_block"] = None
             __props__.__dict__["route_table"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["subnet_id"] = None
@@ -618,6 +635,7 @@ class Subnet(pulumi.CustomResource):
             is_default: Optional[pulumi.Input[builtins.bool]] = None,
             network_acl_id: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
+            read_ipv6_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
             route_table: Optional[pulumi.Input[Union['SubnetRouteTableArgs', 'SubnetRouteTableArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -644,6 +662,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_default: 该子网是否为默认子网。1、true：默认子网，表示该子网是创建ECS实例时系统自动创建的子网。2、false：非默认子网，表示该子网是用户手动创建的。
         :param pulumi.Input[builtins.str] network_acl_id: 子网关联的网络ACL的ID。
         :param pulumi.Input[builtins.str] project_name: 子网所在VPC实例所属项目的名称。
+        :param pulumi.Input[builtins.str] read_ipv6_cidr_block: 只读字段，子网IPv6网段。
         :param pulumi.Input[Union['SubnetRouteTableArgs', 'SubnetRouteTableArgsDict']] route_table: 路由表信息。
         :param pulumi.Input[builtins.str] status: 子网的状态。1、Pending：表示配置中。2、Available：表示可用。
         :param pulumi.Input[builtins.str] subnet_id: 待修改信息的子网的ID。
@@ -667,6 +686,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["is_default"] = is_default
         __props__.__dict__["network_acl_id"] = network_acl_id
         __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["read_ipv6_cidr_block"] = read_ipv6_cidr_block
         __props__.__dict__["route_table"] = route_table
         __props__.__dict__["status"] = status
         __props__.__dict__["subnet_id"] = subnet_id
@@ -757,6 +777,14 @@ class Subnet(pulumi.CustomResource):
         子网所在VPC实例所属项目的名称。
         """
         return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter(name="readIpv6CidrBlock")
+    def read_ipv6_cidr_block(self) -> pulumi.Output[builtins.str]:
+        """
+        只读字段，子网IPv6网段。
+        """
+        return pulumi.get(self, "read_ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="routeTable")

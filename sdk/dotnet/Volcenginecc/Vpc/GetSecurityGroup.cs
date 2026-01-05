@@ -104,6 +104,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         /// 安全组状态。Available为可用，Creating为创建中。
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// 标签列表。
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityGroupTagResult> Tags;
         /// <summary>
         /// 安全组类型。1、default：默认安全组。2、normal：自定义安全组。3、VpnGW： VPN网关安全组。4、NatGW： Nat网关安全组。 5、cidr_only：CIDR-Only安全组。
