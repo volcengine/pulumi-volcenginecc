@@ -35,8 +35,7 @@ class EniArgs:
                  secondary_private_ip_address_count: Optional[pulumi.Input[builtins.int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EniTagArgs']]]] = None,
-                 zone_id: Optional[pulumi.Input[builtins.str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EniTagArgs']]]] = None):
         """
         The set of arguments for constructing a Eni resource.
         :param pulumi.Input[builtins.bool] delete_on_termination: 是否开启随云服务器实例删除，true为开启，false为不开启。
@@ -51,7 +50,6 @@ class EniArgs:
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: 为辅助网卡自动分配辅助私网IPv4地址数量，取值1~49。创建时不能与PrivateIpSets同时传入。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: 辅助网卡加入一个或多个安全组的ID。
         :param pulumi.Input[builtins.str] subnet_id: 辅助网卡所在子网的ID。
-        :param pulumi.Input[builtins.str] zone_id: 网卡所属可用区的ID。
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -81,8 +79,6 @@ class EniArgs:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -246,18 +242,6 @@ class EniArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EniTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        网卡所属可用区的ID。
-        """
-        return pulumi.get(self, "zone_id")
-
-    @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "zone_id", value)
-
 
 @pulumi.input_type
 class _EniState:
@@ -304,8 +288,8 @@ class _EniState:
         :param pulumi.Input[builtins.str] project_name: 网卡所属项目的名称。
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: 为辅助网卡自动分配辅助私网IPv4地址数量，取值1~49。创建时不能与PrivateIpSets同时传入。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: 辅助网卡加入一个或多个安全组的ID。
-        :param pulumi.Input[builtins.bool] service_managed: 是否为火山引擎官方服务网卡，true为是，false为否。
-        :param pulumi.Input[builtins.str] status: 网卡的绑定状态。
+        :param pulumi.Input[builtins.bool] service_managed: 是否为官方服务网卡，true为是，false为否。
+        :param pulumi.Input[builtins.str] status: 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         :param pulumi.Input[builtins.str] subnet_id: 辅助网卡所在子网的ID。
         :param pulumi.Input[builtins.str] type: 网卡类型。primary：主网卡，secondary：辅助网卡
         :param pulumi.Input[builtins.str] updated_time: 更新网卡的时间。
@@ -557,7 +541,7 @@ class _EniState:
     @pulumi.getter(name="serviceManaged")
     def service_managed(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否为火山引擎官方服务网卡，true为是，false为否。
+        是否为官方服务网卡，true为是，false为否。
         """
         return pulumi.get(self, "service_managed")
 
@@ -569,7 +553,7 @@ class _EniState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        网卡的绑定状态。
+        网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         """
         return pulumi.get(self, "status")
 
@@ -679,7 +663,6 @@ class Eni(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EniTagArgs', 'EniTagArgsDict']]]]] = None,
-                 zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         网卡即虚拟网卡。在私有网络里，网卡是挂载在云服务器、负载均衡等云资源上的一种网络接口。每张网卡均有一个主私网IP地址。若有需要，可手动为其分配多个辅助私网IP地址。
@@ -704,7 +687,6 @@ class Eni(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: 为辅助网卡自动分配辅助私网IPv4地址数量，取值1~49。创建时不能与PrivateIpSets同时传入。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: 辅助网卡加入一个或多个安全组的ID。
         :param pulumi.Input[builtins.str] subnet_id: 辅助网卡所在子网的ID。
-        :param pulumi.Input[builtins.str] zone_id: 网卡所属可用区的ID。
         """
         ...
     @overload
@@ -750,7 +732,6 @@ class Eni(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EniTagArgs', 'EniTagArgsDict']]]]] = None,
-                 zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -774,7 +755,6 @@ class Eni(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["zone_id"] = zone_id
             __props__.__dict__["account_id"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["mac_address"] = None
@@ -785,6 +765,7 @@ class Eni(pulumi.CustomResource):
             __props__.__dict__["updated_time"] = None
             __props__.__dict__["vpc_id"] = None
             __props__.__dict__["vpc_name"] = None
+            __props__.__dict__["zone_id"] = None
         super(Eni, __self__).__init__(
             'volcenginecc:vpc/eni:Eni',
             resource_name,
@@ -842,8 +823,8 @@ class Eni(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_name: 网卡所属项目的名称。
         :param pulumi.Input[builtins.int] secondary_private_ip_address_count: 为辅助网卡自动分配辅助私网IPv4地址数量，取值1~49。创建时不能与PrivateIpSets同时传入。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: 辅助网卡加入一个或多个安全组的ID。
-        :param pulumi.Input[builtins.bool] service_managed: 是否为火山引擎官方服务网卡，true为是，false为否。
-        :param pulumi.Input[builtins.str] status: 网卡的绑定状态。
+        :param pulumi.Input[builtins.bool] service_managed: 是否为官方服务网卡，true为是，false为否。
+        :param pulumi.Input[builtins.str] status: 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         :param pulumi.Input[builtins.str] subnet_id: 辅助网卡所在子网的ID。
         :param pulumi.Input[builtins.str] type: 网卡类型。primary：主网卡，secondary：辅助网卡
         :param pulumi.Input[builtins.str] updated_time: 更新网卡的时间。
@@ -1011,7 +992,7 @@ class Eni(pulumi.CustomResource):
     @pulumi.getter(name="serviceManaged")
     def service_managed(self) -> pulumi.Output[builtins.bool]:
         """
-        是否为火山引擎官方服务网卡，true为是，false为否。
+        是否为官方服务网卡，true为是，false为否。
         """
         return pulumi.get(self, "service_managed")
 
@@ -1019,7 +1000,7 @@ class Eni(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        网卡的绑定状态。
+        网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         """
         return pulumi.get(self, "status")
 

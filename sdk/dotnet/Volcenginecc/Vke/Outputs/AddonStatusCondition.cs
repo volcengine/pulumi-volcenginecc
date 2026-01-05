@@ -14,15 +14,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Outputs
     [OutputType]
     public sealed class AddonStatusCondition
     {
-        /// <summary>
-        /// 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-        /// </summary>
-        public readonly string? Type;
-
         [OutputConstructor]
-        private AddonStatusCondition(string? type)
+        private AddonStatusCondition()
         {
-            Type = type;
         }
     }
 }

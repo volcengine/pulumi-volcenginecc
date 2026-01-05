@@ -99,17 +99,20 @@ export interface GetEniResult {
      */
     readonly securityGroupIds: string[];
     /**
-     * 是否为火山引擎官方服务网卡，true为是，false为否。
+     * 是否为官方服务网卡，true为是，false为否。
      */
     readonly serviceManaged: boolean;
     /**
-     * 网卡的绑定状态。
+     * 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      */
     readonly status: string;
     /**
      * 辅助网卡所在子网的ID。
      */
     readonly subnetId: string;
+    /**
+     * 标签。
+     */
     readonly tags: outputs.vpc.GetEniTag[];
     /**
      * 网卡类型。primary：主网卡，secondary：辅助网卡

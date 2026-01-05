@@ -253,28 +253,28 @@ public class Eni extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * 是否为火山引擎官方服务网卡，true为是，false为否。
+     * 是否为官方服务网卡，true为是，false为否。
      * 
      */
     @Export(name="serviceManaged", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> serviceManaged;
 
     /**
-     * @return 是否为火山引擎官方服务网卡，true为是，false为否。
+     * @return 是否为官方服务网卡，true为是，false为否。
      * 
      */
     public Output<Boolean> serviceManaged() {
         return this.serviceManaged;
     }
     /**
-     * 网卡的绑定状态。
+     * 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return 网卡的绑定状态。
+     * @return 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      * 
      */
     public Output<String> status() {

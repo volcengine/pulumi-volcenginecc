@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * 查询符合条件的已安装组件详情列表。
+ * 集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。
  * 
  * ## Example Usage
  * 
@@ -98,15 +98,15 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
+    private Output<String> createdTime;
 
     /**
      * @return 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<String> createdTime() {
+        return this.createdTime;
     }
     /**
      * 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
@@ -168,15 +168,15 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    @Export(name="updatedTime", refs={String.class}, tree="[0]")
+    private Output<String> updatedTime;
 
     /**
      * @return 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<String> updatedTime() {
+        return this.updatedTime;
     }
     /**
      * 组件版本。

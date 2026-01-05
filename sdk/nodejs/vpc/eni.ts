@@ -105,11 +105,11 @@ export class Eni extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * 是否为火山引擎官方服务网卡，true为是，false为否。
+     * 是否为官方服务网卡，true为是，false为否。
      */
     public /*out*/ readonly serviceManaged!: pulumi.Output<boolean>;
     /**
-     * 网卡的绑定状态。
+     * 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class Eni extends pulumi.CustomResource {
     /**
      * 网卡所属可用区的ID。
      */
-    public readonly zoneId!: pulumi.Output<string>;
+    public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a Eni resource with the given unique name, arguments, and options.
@@ -192,7 +192,6 @@ export class Eni extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["macAddress"] = undefined /*out*/;
@@ -203,6 +202,7 @@ export class Eni extends pulumi.CustomResource {
             resourceInputs["updatedTime"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
             resourceInputs["vpcName"] = undefined /*out*/;
+            resourceInputs["zoneId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Eni.__pulumiType, name, resourceInputs, opts);
@@ -275,11 +275,11 @@ export interface EniState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * 是否为火山引擎官方服务网卡，true为是，false为否。
+     * 是否为官方服务网卡，true为是，false为否。
      */
     serviceManaged?: pulumi.Input<boolean>;
     /**
-     * 网卡的绑定状态。
+     * 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      */
     status?: pulumi.Input<string>;
     /**
@@ -363,8 +363,4 @@ export interface EniArgs {
      */
     subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.vpc.EniTag>[]>;
-    /**
-     * 网卡所属可用区的ID。
-     */
-    zoneId?: pulumi.Input<string>;
 }

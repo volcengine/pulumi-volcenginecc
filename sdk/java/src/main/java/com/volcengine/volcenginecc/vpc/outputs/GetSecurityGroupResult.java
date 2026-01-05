@@ -65,6 +65,10 @@ public final class GetSecurityGroupResult {
      * 
      */
     private String status;
+    /**
+     * @return 标签列表。
+     * 
+     */
     private List<GetSecurityGroupTag> tags;
     /**
      * @return 安全组类型。1、default：默认安全组。2、normal：自定义安全组。3、VpnGW： VPN网关安全组。4、NatGW： Nat网关安全组。 5、cidr_only：CIDR-Only安全组。
@@ -148,6 +152,10 @@ public final class GetSecurityGroupResult {
     public String status() {
         return this.status;
     }
+    /**
+     * @return 标签列表。
+     * 
+     */
     public List<GetSecurityGroupTag> tags() {
         return this.tags;
     }

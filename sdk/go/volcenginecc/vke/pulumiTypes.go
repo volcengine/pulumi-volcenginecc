@@ -166,8 +166,6 @@ func (o AddonStatusPtrOutput) Phase() pulumi.StringPtrOutput {
 }
 
 type AddonStatusCondition struct {
-	// 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-	Type *string `pulumi:"type"`
 }
 
 // AddonStatusConditionInput is an input type that accepts AddonStatusConditionArgs and AddonStatusConditionOutput values.
@@ -182,8 +180,6 @@ type AddonStatusConditionInput interface {
 }
 
 type AddonStatusConditionArgs struct {
-	// 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AddonStatusConditionArgs) ElementType() reflect.Type {
@@ -235,11 +231,6 @@ func (o AddonStatusConditionOutput) ToAddonStatusConditionOutput() AddonStatusCo
 
 func (o AddonStatusConditionOutput) ToAddonStatusConditionOutputWithContext(ctx context.Context) AddonStatusConditionOutput {
 	return o
-}
-
-// 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-func (o AddonStatusConditionOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddonStatusCondition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type AddonStatusConditionArrayOutput struct{ *pulumi.OutputState }

@@ -78,6 +78,8 @@ type Subnet struct {
 	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
 	// 子网所在VPC实例所属项目的名称。
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// 只读字段，子网IPv6网段。
+	ReadIpv6CidrBlock pulumi.StringOutput `pulumi:"readIpv6CidrBlock"`
 	// 路由表信息。
 	RouteTable SubnetRouteTableOutput `pulumi:"routeTable"`
 	// 子网的状态。1、Pending：表示配置中。2、Available：表示可用。
@@ -156,6 +158,8 @@ type subnetState struct {
 	NetworkAclId *string `pulumi:"networkAclId"`
 	// 子网所在VPC实例所属项目的名称。
 	ProjectName *string `pulumi:"projectName"`
+	// 只读字段，子网IPv6网段。
+	ReadIpv6CidrBlock *string `pulumi:"readIpv6CidrBlock"`
 	// 路由表信息。
 	RouteTable *SubnetRouteTable `pulumi:"routeTable"`
 	// 子网的状态。1、Pending：表示配置中。2、Available：表示可用。
@@ -196,6 +200,8 @@ type SubnetState struct {
 	NetworkAclId pulumi.StringPtrInput
 	// 子网所在VPC实例所属项目的名称。
 	ProjectName pulumi.StringPtrInput
+	// 只读字段，子网IPv6网段。
+	ReadIpv6CidrBlock pulumi.StringPtrInput
 	// 路由表信息。
 	RouteTable SubnetRouteTablePtrInput
 	// 子网的状态。1、Pending：表示配置中。2、Available：表示可用。
@@ -391,6 +397,11 @@ func (o SubnetOutput) NetworkAclId() pulumi.StringOutput {
 // 子网所在VPC实例所属项目的名称。
 func (o SubnetOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// 只读字段，子网IPv6网段。
+func (o SubnetOutput) ReadIpv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.ReadIpv6CidrBlock }).(pulumi.StringOutput)
 }
 
 // 路由表信息。

@@ -4,27 +4,11 @@
 package com.volcengine.volcenginecc.vke.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AddonStatusCondition {
-    /**
-     * @return 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-     * 
-     */
-    private @Nullable String type;
-
     private AddonStatusCondition() {}
-    /**
-     * @return 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-     * 
-     */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -35,22 +19,13 @@ public final class AddonStatusCondition {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String type;
         public Builder() {}
         public Builder(AddonStatusCondition defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.type = defaults.type;
         }
 
-        @CustomType.Setter
-        public Builder type(@Nullable String type) {
-
-            this.type = type;
-            return this;
-        }
         public AddonStatusCondition build() {
             final var _resultValue = new AddonStatusCondition();
-            _resultValue.type = type;
             return _resultValue;
         }
     }

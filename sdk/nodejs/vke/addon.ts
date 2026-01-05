@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 查询符合条件的已安装组件详情列表。
+ * 集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。
  *
  * ## Example Usage
  *
@@ -70,7 +70,7 @@ export class Addon extends pulumi.CustomResource {
     /**
      * 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
      */
@@ -86,11 +86,11 @@ export class Addon extends pulumi.CustomResource {
     /**
      * 组件状态。
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.vke.AddonStatus>;
+    public readonly status!: pulumi.Output<outputs.vke.AddonStatus>;
     /**
      * 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
     /**
      * 组件版本。
      */
@@ -111,12 +111,12 @@ export class Addon extends pulumi.CustomResource {
             const state = argsOrState as AddonState | undefined;
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["deployMode"] = state ? state.deployMode : undefined;
             resourceInputs["deployNodeType"] = state ? state.deployNodeType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as AddonArgs | undefined;
@@ -125,10 +125,10 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["deployMode"] = args ? args.deployMode : undefined;
             resourceInputs["deployNodeType"] = args ? args.deployNodeType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["createTime"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["updateTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Addon.__pulumiType, name, resourceInputs, opts);
@@ -150,7 +150,7 @@ export interface AddonState {
     /**
      * 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      */
-    createTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
      */
@@ -170,7 +170,7 @@ export interface AddonState {
     /**
      * 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      */
-    updateTime?: pulumi.Input<string>;
+    updatedTime?: pulumi.Input<string>;
     /**
      * 组件版本。
      */
@@ -201,6 +201,10 @@ export interface AddonArgs {
      * 组件名称。
      */
     name?: pulumi.Input<string>;
+    /**
+     * 组件状态。
+     */
+    status?: pulumi.Input<inputs.vke.AddonStatus>;
     /**
      * 组件版本。
      */

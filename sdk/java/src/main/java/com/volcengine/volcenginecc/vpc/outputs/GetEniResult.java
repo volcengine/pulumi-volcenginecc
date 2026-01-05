@@ -102,12 +102,12 @@ public final class GetEniResult {
      */
     private List<String> securityGroupIds;
     /**
-     * @return 是否为火山引擎官方服务网卡，true为是，false为否。
+     * @return 是否为官方服务网卡，true为是，false为否。
      * 
      */
     private Boolean serviceManaged;
     /**
-     * @return 网卡的绑定状态。
+     * @return 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      * 
      */
     private String status;
@@ -116,6 +116,10 @@ public final class GetEniResult {
      * 
      */
     private String subnetId;
+    /**
+     * @return 标签。
+     * 
+     */
     private List<GetEniTag> tags;
     /**
      * @return 网卡类型。primary：主网卡，secondary：辅助网卡
@@ -264,14 +268,14 @@ public final class GetEniResult {
         return this.securityGroupIds;
     }
     /**
-     * @return 是否为火山引擎官方服务网卡，true为是，false为否。
+     * @return 是否为官方服务网卡，true为是，false为否。
      * 
      */
     public Boolean serviceManaged() {
         return this.serviceManaged;
     }
     /**
-     * @return 网卡的绑定状态。
+     * @return 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
      * 
      */
     public String status() {
@@ -284,6 +288,10 @@ public final class GetEniResult {
     public String subnetId() {
         return this.subnetId;
     }
+    /**
+     * @return 标签。
+     * 
+     */
     public List<GetEniTag> tags() {
         return this.tags;
     }

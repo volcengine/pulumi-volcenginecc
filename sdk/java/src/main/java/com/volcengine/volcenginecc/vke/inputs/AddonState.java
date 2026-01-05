@@ -50,15 +50,15 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
      * 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    @Import(name="createTime")
-    private @Nullable Output<String> createTime;
+    @Import(name="createdTime")
+    private @Nullable Output<String> createdTime;
 
     /**
      * @return 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    public Optional<Output<String>> createTime() {
-        return Optional.ofNullable(this.createTime);
+    public Optional<Output<String>> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
 
     /**
@@ -125,15 +125,15 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
      * 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    @Import(name="updateTime")
-    private @Nullable Output<String> updateTime;
+    @Import(name="updatedTime")
+    private @Nullable Output<String> updatedTime;
 
     /**
      * @return 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      * 
      */
-    public Optional<Output<String>> updateTime() {
-        return Optional.ofNullable(this.updateTime);
+    public Optional<Output<String>> updatedTime() {
+        return Optional.ofNullable(this.updatedTime);
     }
 
     /**
@@ -156,12 +156,12 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
     private AddonState(AddonState $) {
         this.clusterId = $.clusterId;
         this.config = $.config;
-        this.createTime = $.createTime;
+        this.createdTime = $.createdTime;
         this.deployMode = $.deployMode;
         this.deployNodeType = $.deployNodeType;
         this.name = $.name;
         this.status = $.status;
-        this.updateTime = $.updateTime;
+        this.updatedTime = $.updatedTime;
         this.version = $.version;
     }
 
@@ -226,24 +226,24 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+         * @param createdTime 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
          * 
          * @return builder
          * 
          */
-        public Builder createTime(@Nullable Output<String> createTime) {
-            $.createTime = createTime;
+        public Builder createdTime(@Nullable Output<String> createdTime) {
+            $.createdTime = createdTime;
             return this;
         }
 
         /**
-         * @param createTime 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+         * @param createdTime 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
          * 
          * @return builder
          * 
          */
-        public Builder createTime(String createTime) {
-            return createTime(Output.of(createTime));
+        public Builder createdTime(String createdTime) {
+            return createdTime(Output.of(createdTime));
         }
 
         /**
@@ -331,24 +331,24 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+         * @param updatedTime 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(@Nullable Output<String> updateTime) {
-            $.updateTime = updateTime;
+        public Builder updatedTime(@Nullable Output<String> updatedTime) {
+            $.updatedTime = updatedTime;
             return this;
         }
 
         /**
-         * @param updateTime 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
+         * @param updatedTime 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(String updateTime) {
-            return updateTime(Output.of(updateTime));
+        public Builder updatedTime(String updatedTime) {
+            return updatedTime(Output.of(updatedTime));
         }
 
         /**

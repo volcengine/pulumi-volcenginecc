@@ -109,6 +109,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         /// </summary>
         public readonly string ProjectName;
         /// <summary>
+        /// 只读字段，子网IPv6网段。
+        /// </summary>
+        public readonly string ReadIpv6CidrBlock;
+        /// <summary>
         /// 路由表信息。
         /// </summary>
         public readonly Outputs.GetSubnetRouteTableResult RouteTable;
@@ -124,6 +128,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         /// 子网的名称，长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-），不能以http://或https://开头，不填默认是子网的ID。
         /// </summary>
         public readonly string SubnetName;
+        /// <summary>
+        /// 子网的标签信息。
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSubnetTagResult> Tags;
         /// <summary>
         /// 子网下可用IP总数。
@@ -166,6 +173,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 
             string projectName,
 
+            string readIpv6CidrBlock,
+
             Outputs.GetSubnetRouteTableResult routeTable,
 
             string status,
@@ -195,6 +204,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
             IsDefault = isDefault;
             NetworkAclId = networkAclId;
             ProjectName = projectName;
+            ReadIpv6CidrBlock = readIpv6CidrBlock;
             RouteTable = routeTable;
             Status = status;
             SubnetId = subnetId;

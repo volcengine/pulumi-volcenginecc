@@ -75,6 +75,10 @@ export interface GetSubnetResult {
      */
     readonly projectName: string;
     /**
+     * 只读字段，子网IPv6网段。
+     */
+    readonly readIpv6CidrBlock: string;
+    /**
      * 路由表信息。
      */
     readonly routeTable: outputs.vpc.GetSubnetRouteTable;
@@ -90,6 +94,9 @@ export interface GetSubnetResult {
      * 子网的名称，长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-），不能以http://或https://开头，不填默认是子网的ID。
      */
     readonly subnetName: string;
+    /**
+     * 子网的标签信息。
+     */
     readonly tags: outputs.vpc.GetSubnetTag[];
     /**
      * 子网下可用IP总数。

@@ -28,7 +28,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, account_id=None, available_ip_address_count=None, cidr_block=None, created_time=None, description=None, enable_ipv6=None, id=None, ipv6_cidr_block=None, is_default=None, network_acl_id=None, project_name=None, route_table=None, status=None, subnet_id=None, subnet_name=None, tags=None, total_ipv4_count=None, updated_time=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, account_id=None, available_ip_address_count=None, cidr_block=None, created_time=None, description=None, enable_ipv6=None, id=None, ipv6_cidr_block=None, is_default=None, network_acl_id=None, project_name=None, read_ipv6_cidr_block=None, route_table=None, status=None, subnet_id=None, subnet_name=None, tags=None, total_ipv4_count=None, updated_time=None, vpc_id=None, zone_id=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -62,6 +62,9 @@ class GetSubnetResult:
         if project_name and not isinstance(project_name, str):
             raise TypeError("Expected argument 'project_name' to be a str")
         pulumi.set(__self__, "project_name", project_name)
+        if read_ipv6_cidr_block and not isinstance(read_ipv6_cidr_block, str):
+            raise TypeError("Expected argument 'read_ipv6_cidr_block' to be a str")
+        pulumi.set(__self__, "read_ipv6_cidr_block", read_ipv6_cidr_block)
         if route_table and not isinstance(route_table, dict):
             raise TypeError("Expected argument 'route_table' to be a dict")
         pulumi.set(__self__, "route_table", route_table)
@@ -179,6 +182,14 @@ class GetSubnetResult:
         return pulumi.get(self, "project_name")
 
     @property
+    @pulumi.getter(name="readIpv6CidrBlock")
+    def read_ipv6_cidr_block(self) -> builtins.str:
+        """
+        只读字段，子网IPv6网段。
+        """
+        return pulumi.get(self, "read_ipv6_cidr_block")
+
+    @property
     @pulumi.getter(name="routeTable")
     def route_table(self) -> 'outputs.GetSubnetRouteTableResult':
         """
@@ -213,6 +224,9 @@ class GetSubnetResult:
     @property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetSubnetTagResult']:
+        """
+        子网的标签信息。
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -265,6 +279,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             is_default=self.is_default,
             network_acl_id=self.network_acl_id,
             project_name=self.project_name,
+            read_ipv6_cidr_block=self.read_ipv6_cidr_block,
             route_table=self.route_table,
             status=self.status,
             subnet_id=self.subnet_id,
@@ -301,6 +316,7 @@ def get_subnet(id: Optional[builtins.str] = None,
         is_default=pulumi.get(__ret__, 'is_default'),
         network_acl_id=pulumi.get(__ret__, 'network_acl_id'),
         project_name=pulumi.get(__ret__, 'project_name'),
+        read_ipv6_cidr_block=pulumi.get(__ret__, 'read_ipv6_cidr_block'),
         route_table=pulumi.get(__ret__, 'route_table'),
         status=pulumi.get(__ret__, 'status'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
@@ -334,6 +350,7 @@ def get_subnet_output(id: Optional[pulumi.Input[builtins.str]] = None,
         is_default=pulumi.get(__response__, 'is_default'),
         network_acl_id=pulumi.get(__response__, 'network_acl_id'),
         project_name=pulumi.get(__response__, 'project_name'),
+        read_ipv6_cidr_block=pulumi.get(__response__, 'read_ipv6_cidr_block'),
         route_table=pulumi.get(__response__, 'route_table'),
         status=pulumi.get(__response__, 'status'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),

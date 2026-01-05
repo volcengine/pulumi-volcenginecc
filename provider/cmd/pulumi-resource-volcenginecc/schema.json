@@ -18741,20 +18741,7 @@
             }
         },
         "volcenginecc:vke/AddonStatusCondition:AddonStatusCondition": {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "description": "组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed\n"
-                }
-            },
-            "type": "object",
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "type"
-                    ]
-                }
-            }
+            "type": "object"
         },
         "volcenginecc:vke/ClusterClusterConfig:ClusterClusterConfig": {
             "properties": {
@@ -32612,7 +32599,7 @@
             }
         },
         "volcenginecc:ecs/image:Image": {
-            "description": "镜像是包含了云服务器实例所需的基本操作系统、应用数据的特殊文件。创建实例时，必须选择镜像。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  imageDemo:\n    type: volcenginecc:ecs:Image\n    name: ImageDemo\n    properties:\n      bootMode: UEFI\n      description: ImageDemo Example\n      imageName: image-demo\n      instanceId: i-ydzhj1el8gr9cxxdnxxxx\n      kernel: Linux\n      licenseType: BYOL\n      osName: CentOS\n      osType: Linux\n      platform: CentOS\n      platformVersion: '8.3'\n      projectName: default\n      sharePermissions:\n        - 2000000***\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:ecs/image:Image example \"image_id\"\n```\n\n",
+            "description": "镜像是包含了云服务器实例所需的基本操作系统、应用数据的特殊文件。创建实例时，必须选择镜像。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst imageDemo = new volcenginecc.ecs.Image(\"ImageDemo\", {\n    description: \"ImageDemo Example\",\n    imageName: \"image-demo\",\n    instanceId: \"i-ydzhj1el8gr9cxxdnxxxx\",\n    projectName: \"default\",\n    sharePermissions: [\"2000000***\"],\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nimage_demo = volcenginecc.ecs.Image(\"ImageDemo\",\n    description=\"ImageDemo Example\",\n    image_name=\"image-demo\",\n    instance_id=\"i-ydzhj1el8gr9cxxdnxxxx\",\n    project_name=\"default\",\n    share_permissions=[\"2000000***\"],\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var imageDemo = new Volcenginecc.Ecs.Image(\"ImageDemo\", new()\n    {\n        Description = \"ImageDemo Example\",\n        ImageName = \"image-demo\",\n        InstanceId = \"i-ydzhj1el8gr9cxxdnxxxx\",\n        ProjectName = \"default\",\n        SharePermissions = new[]\n        {\n            \"2000000***\",\n        },\n        Tags = new[]\n        {\n            new Volcenginecc.Ecs.Inputs.ImageTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/ecs\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ecs.NewImage(ctx, \"ImageDemo\", \u0026ecs.ImageArgs{\n\t\t\tDescription: pulumi.String(\"ImageDemo Example\"),\n\t\t\tImageName:   pulumi.String(\"image-demo\"),\n\t\t\tInstanceId:  pulumi.String(\"i-ydzhj1el8gr9cxxdnxxxx\"),\n\t\t\tProjectName: pulumi.String(\"default\"),\n\t\t\tSharePermissions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"2000000***\"),\n\t\t\t},\n\t\t\tTags: ecs.ImageTagArray{\n\t\t\t\t\u0026ecs.ImageTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.ecs.Image;\nimport com.volcengine.volcenginecc.ecs.ImageArgs;\nimport com.pulumi.volcenginecc.ecs.inputs.ImageTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var imageDemo = new Image(\"imageDemo\", ImageArgs.builder()\n            .description(\"ImageDemo Example\")\n            .imageName(\"image-demo\")\n            .instanceId(\"i-ydzhj1el8gr9cxxdnxxxx\")\n            .projectName(\"default\")\n            .sharePermissions(\"2000000***\")\n            .tags(ImageTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  imageDemo:\n    type: volcenginecc:ecs:Image\n    name: ImageDemo\n    properties:\n      description: ImageDemo Example\n      imageName: image-demo\n      instanceId: i-ydzhj1el8gr9cxxdnxxxx\n      projectName: default\n      sharePermissions:\n        - 2000000***\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:ecs/image:Image example \"image_id\"\n```\n\n",
             "properties": {
                 "architecture": {
                     "type": "string",
@@ -32668,7 +32655,7 @@
                 },
                 "licenseType": {
                     "type": "string",
-                    "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
+                    "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
                 },
                 "osName": {
                     "type": "string",
@@ -32779,10 +32766,6 @@
                     "type": "string",
                     "description": "镜像描述。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、英文句号“.”、中文逗号“，”、中文句号“。”和空格。长度限制为0～255个字符。不填默认为空。\n"
                 },
-                "detectionResults": {
-                    "$ref": "#/types/volcenginecc:ecs/ImageDetectionResults:ImageDetectionResults",
-                    "description": "镜像的检测结果。\n"
-                },
                 "imageName": {
                     "type": "string",
                     "description": "镜像名称。必须以字母、汉字开头。只能包含中文、字母、数字、下划线“_”、中划线“-”、英文句号“.”。长度限制为1 ~ 128个字符。\n"
@@ -32790,30 +32773,6 @@
                 "instanceId": {
                     "type": "string",
                     "description": "实例ID。本参数与SnapshotId、SnapshotGroupId参数，三选一必填。\n"
-                },
-                "kernel": {
-                    "type": "string",
-                    "description": "镜像的内核版本。\n"
-                },
-                "licenseType": {
-                    "type": "string",
-                    "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
-                },
-                "osName": {
-                    "type": "string",
-                    "description": "镜像操作系统的名称。\n"
-                },
-                "osType": {
-                    "type": "string",
-                    "description": "操作系统类型。\n"
-                },
-                "platform": {
-                    "type": "string",
-                    "description": "镜像操作系统的发行版本。可以选择CentOS、Debian、veLinux、Windows Server、Fedora、OpenSUSE、Ubuntu。\n"
-                },
-                "platformVersion": {
-                    "type": "string",
-                    "description": "镜像的发行版本。\n"
                 },
                 "projectName": {
                     "type": "string",
@@ -32901,7 +32860,7 @@
                     },
                     "licenseType": {
                         "type": "string",
-                        "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
+                        "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用官方渠道的许可证。BYOL：自带许可证（BYOL）。\n"
                     },
                     "osName": {
                         "type": "string",
@@ -42014,7 +41973,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "云盘状态\n"
+                    "description": "云盘状态，取值说明如下：available：可用。attaching：挂载中。attached：已挂载。detaching：卸载中。creating：创建中。deleting：删除中。error：错误。extending：扩容中。\n"
                 },
                 "tags": {
                     "type": "array",
@@ -42238,7 +42197,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "云盘状态\n"
+                        "description": "云盘状态，取值说明如下：available：可用。attaching：挂载中。attached：已挂载。detaching：卸载中。creating：创建中。deleting：删除中。error：错误。extending：扩容中。\n"
                     },
                     "tags": {
                         "type": "array",
@@ -44454,7 +44413,7 @@
             }
         },
         "volcenginecc:vke/addon:Addon": {
-            "description": "查询符合条件的已安装组件详情列表。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst vKEAddonDemo = new volcenginecc.vke.Addon(\"VKEAddonDemo\", {\n    clusterId: \"cd35mtki***\",\n    deployMode: \"Unmanaged\",\n    deployNodeType: \"Node\",\n    name: \"csi-nas\",\n    version: \"v1.2.7\",\n    config: \"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nv_ke_addon_demo = volcenginecc.vke.Addon(\"VKEAddonDemo\",\n    cluster_id=\"cd35mtki***\",\n    deploy_mode=\"Unmanaged\",\n    deploy_node_type=\"Node\",\n    name=\"csi-nas\",\n    version=\"v1.2.7\",\n    config=\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var vKEAddonDemo = new Volcenginecc.Vke.Addon(\"VKEAddonDemo\", new()\n    {\n        ClusterId = \"cd35mtki***\",\n        DeployMode = \"Unmanaged\",\n        DeployNodeType = \"Node\",\n        Name = \"csi-nas\",\n        Version = \"v1.2.7\",\n        Config = \"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vke\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := vke.NewAddon(ctx, \"VKEAddonDemo\", \u0026vke.AddonArgs{\n\t\t\tClusterId:      pulumi.String(\"cd35mtki***\"),\n\t\t\tDeployMode:     pulumi.String(\"Unmanaged\"),\n\t\t\tDeployNodeType: pulumi.String(\"Node\"),\n\t\t\tName:           pulumi.String(\"csi-nas\"),\n\t\t\tVersion:        pulumi.String(\"v1.2.7\"),\n\t\t\tConfig:         pulumi.String(\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.vke.Addon;\nimport com.volcengine.volcenginecc.vke.AddonArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var vKEAddonDemo = new Addon(\"vKEAddonDemo\", AddonArgs.builder()\n            .clusterId(\"cd35mtki***\")\n            .deployMode(\"Unmanaged\")\n            .deployNodeType(\"Node\")\n            .name(\"csi-nas\")\n            .version(\"v1.2.7\")\n            .config(\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  vKEAddonDemo:\n    type: volcenginecc:vke:Addon\n    name: VKEAddonDemo\n    properties:\n      clusterId: cd35mtki***\n      deployMode: Unmanaged\n      deployNodeType: Node\n      name: csi-nas\n      version: v1.2.7\n      config: '{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vke/addon:Addon example \"cluster_id|name\"\n```\n\n",
+            "description": "集群中支持安装多种类型的组件，包括 网络、存储、监控、DNS、安全、镜像、GPU 等，满足您多种业务场景需求。您可按需部署、升级或卸载组件。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst vKEAddonDemo = new volcenginecc.vke.Addon(\"VKEAddonDemo\", {\n    clusterId: \"cd35mtki***\",\n    deployMode: \"Unmanaged\",\n    deployNodeType: \"Node\",\n    name: \"csi-nas\",\n    version: \"v1.2.7\",\n    config: \"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nv_ke_addon_demo = volcenginecc.vke.Addon(\"VKEAddonDemo\",\n    cluster_id=\"cd35mtki***\",\n    deploy_mode=\"Unmanaged\",\n    deploy_node_type=\"Node\",\n    name=\"csi-nas\",\n    version=\"v1.2.7\",\n    config=\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var vKEAddonDemo = new Volcenginecc.Vke.Addon(\"VKEAddonDemo\", new()\n    {\n        ClusterId = \"cd35mtki***\",\n        DeployMode = \"Unmanaged\",\n        DeployNodeType = \"Node\",\n        Name = \"csi-nas\",\n        Version = \"v1.2.7\",\n        Config = \"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vke\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := vke.NewAddon(ctx, \"VKEAddonDemo\", \u0026vke.AddonArgs{\n\t\t\tClusterId:      pulumi.String(\"cd35mtki***\"),\n\t\t\tDeployMode:     pulumi.String(\"Unmanaged\"),\n\t\t\tDeployNodeType: pulumi.String(\"Node\"),\n\t\t\tName:           pulumi.String(\"csi-nas\"),\n\t\t\tVersion:        pulumi.String(\"v1.2.7\"),\n\t\t\tConfig:         pulumi.String(\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.vke.Addon;\nimport com.volcengine.volcenginecc.vke.AddonArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var vKEAddonDemo = new Addon(\"vKEAddonDemo\", AddonArgs.builder()\n            .clusterId(\"cd35mtki***\")\n            .deployMode(\"Unmanaged\")\n            .deployNodeType(\"Node\")\n            .name(\"csi-nas\")\n            .version(\"v1.2.7\")\n            .config(\"{\\\"CsiNasDriver\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.9\\\",\\\"Memory\\\":\\\"1900Mi\\\"}}},\\\"CsiProvisioner\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.5\\\",\\\"Memory\\\":\\\"4Gi\\\"}}},\\\"LivenessProbe\\\":{\\\"Resources\\\":{\\\"Requests\\\":{\\\"Cpu\\\":\\\"0.01\\\",\\\"Memory\\\":\\\"20Mi\\\"},\\\"Limits\\\":{\\\"Cpu\\\":\\\"0.1\\\",\\\"Memory\\\":\\\"100Mi\\\"}}}}\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  vKEAddonDemo:\n    type: volcenginecc:vke:Addon\n    name: VKEAddonDemo\n    properties:\n      clusterId: cd35mtki***\n      deployMode: Unmanaged\n      deployNodeType: Node\n      name: csi-nas\n      version: v1.2.7\n      config: '{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vke/addon:Addon example \"cluster_id|name\"\n```\n\n",
             "properties": {
                 "clusterId": {
                     "type": "string",
@@ -44464,7 +44423,7 @@
                     "type": "string",
                     "description": "组件配置。\n"
                 },
-                "createTime": {
+                "createdTime": {
                     "type": "string",
                     "description": "安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。\n"
                 },
@@ -44484,7 +44443,7 @@
                     "$ref": "#/types/volcenginecc:vke/AddonStatus:AddonStatus",
                     "description": "组件状态。\n"
                 },
-                "updateTime": {
+                "updatedTime": {
                     "type": "string",
                     "description": "更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。\n"
                 },
@@ -44496,12 +44455,12 @@
             "required": [
                 "clusterId",
                 "config",
-                "createTime",
+                "createdTime",
                 "deployMode",
                 "deployNodeType",
                 "name",
                 "status",
-                "updateTime",
+                "updatedTime",
                 "version"
             ],
             "inputProperties": {
@@ -44525,6 +44484,10 @@
                     "type": "string",
                     "description": "组件名称。\n"
                 },
+                "status": {
+                    "$ref": "#/types/volcenginecc:vke/AddonStatus:AddonStatus",
+                    "description": "组件状态。\n"
+                },
                 "version": {
                     "type": "string",
                     "description": "组件版本。\n"
@@ -44541,7 +44504,7 @@
                         "type": "string",
                         "description": "组件配置。\n"
                     },
-                    "createTime": {
+                    "createdTime": {
                         "type": "string",
                         "description": "安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。\n"
                     },
@@ -44561,7 +44524,7 @@
                         "$ref": "#/types/volcenginecc:vke/AddonStatus:AddonStatus",
                         "description": "组件状态。\n"
                     },
-                    "updateTime": {
+                    "updatedTime": {
                         "type": "string",
                         "description": "更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。\n"
                     },
@@ -46227,11 +46190,11 @@
                 },
                 "serviceManaged": {
                     "type": "boolean",
-                    "description": "是否为火山引擎官方服务网卡，true为是，false为否。\n"
+                    "description": "是否为官方服务网卡，true为是，false为否。\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "网卡的绑定状态。\n"
+                    "description": "网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。\n"
                 },
                 "subnetId": {
                     "type": "string",
@@ -46357,10 +46320,6 @@
                     "items": {
                         "$ref": "#/types/volcenginecc:vpc/EniTag:EniTag"
                     }
-                },
-                "zoneId": {
-                    "type": "string",
-                    "description": "网卡所属可用区的ID。\n"
                 }
             },
             "stateInputs": {
@@ -46440,11 +46399,11 @@
                     },
                     "serviceManaged": {
                         "type": "boolean",
-                        "description": "是否为火山引擎官方服务网卡，true为是，false为否。\n"
+                        "description": "是否为官方服务网卡，true为是，false为否。\n"
                     },
                     "status": {
                         "type": "string",
-                        "description": "网卡的绑定状态。\n"
+                        "description": "网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。\n"
                     },
                     "subnetId": {
                         "type": "string",
@@ -47335,6 +47294,10 @@
                     "type": "string",
                     "description": "子网所在VPC实例所属项目的名称。\n"
                 },
+                "readIpv6CidrBlock": {
+                    "type": "string",
+                    "description": "只读字段，子网IPv6网段。\n"
+                },
                 "routeTable": {
                     "$ref": "#/types/volcenginecc:vpc/SubnetRouteTable:SubnetRouteTable",
                     "description": "路由表信息。\n"
@@ -47385,6 +47348,7 @@
                 "isDefault",
                 "networkAclId",
                 "projectName",
+                "readIpv6CidrBlock",
                 "routeTable",
                 "status",
                 "subnetId",
@@ -47478,6 +47442,10 @@
                     "projectName": {
                         "type": "string",
                         "description": "子网所在VPC实例所属项目的名称。\n"
+                    },
+                    "readIpv6CidrBlock": {
+                        "type": "string",
+                        "description": "只读字段，子网IPv6网段。\n"
                     },
                     "routeTable": {
                         "$ref": "#/types/volcenginecc:vpc/SubnetRouteTable:SubnetRouteTable",
@@ -47668,12 +47636,6 @@
                 "vpcName"
             ],
             "inputProperties": {
-                "associateCens": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/volcenginecc:vpc/VpcAssociateCen:VpcAssociateCen"
-                    }
-                },
                 "cidrBlock": {
                     "type": "string",
                     "description": "VPC的IPv4网段。您可以使用以下网段或其子集作为VPC的IPv4网段：192.168.0.0/16 ~ 24、10.0.0.0/8 ~ 24、172.16.0.0/12 ~ 24。\n"
@@ -47708,26 +47670,12 @@
                     "type": "string",
                     "description": "VPC所属项目的名称。不填默认加入default项目。\n"
                 },
-                "routeTableIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "VPC关联的路由表ID。\n"
-                },
                 "secondaryCidrBlocks": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "VPC的辅助网段。\n"
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "VPC中安全组的列表。\n"
                 },
                 "subnetIds": {
                     "type": "array",
@@ -47745,13 +47693,6 @@
                     "items": {
                         "$ref": "#/types/volcenginecc:vpc/VpcTag:VpcTag"
                     }
-                },
-                "userCidrBlocks": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "VPC的用户网段。\n"
                 },
                 "vpcName": {
                     "type": "string",
@@ -54387,7 +54328,7 @@
                         "type": "string"
                     },
                     "licenseType": {
-                        "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用火山引擎官方渠道的许可证。BYOL：自带许可证（BYOL）。\n",
+                        "description": "镜像许可证类型。VolcanoEngine：默认，根据您设置的platform，采用官方渠道的许可证。BYOL：自带许可证（BYOL）。\n",
                         "type": "string"
                     },
                     "osName": {
@@ -60024,7 +59965,7 @@
                         "type": "string"
                     },
                     "status": {
-                        "description": "云盘状态\n",
+                        "description": "云盘状态，取值说明如下：available：可用。attaching：挂载中。attached：已挂载。detaching：卸载中。creating：创建中。deleting：删除中。error：错误。extending：扩容中。\n",
                         "type": "string"
                     },
                     "tags": {
@@ -61509,7 +61450,7 @@
                         "description": "组件配置。\n",
                         "type": "string"
                     },
-                    "createTime": {
+                    "createdTime": {
                         "description": "安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。\n",
                         "type": "string"
                     },
@@ -61533,7 +61474,7 @@
                         "$ref": "#/types/volcenginecc:vke/getAddonStatus:getAddonStatus",
                         "description": "组件状态。\n"
                     },
-                    "updateTime": {
+                    "updatedTime": {
                         "description": "更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。\n",
                         "type": "string"
                     },
@@ -61545,13 +61486,13 @@
                 "required": [
                     "clusterId",
                     "config",
-                    "createTime",
+                    "createdTime",
                     "deployMode",
                     "deployNodeType",
                     "id",
                     "name",
                     "status",
-                    "updateTime",
+                    "updatedTime",
                     "version"
                 ],
                 "type": "object"
@@ -62642,11 +62583,11 @@
                         "type": "array"
                     },
                     "serviceManaged": {
-                        "description": "是否为火山引擎官方服务网卡，true为是，false为否。\n",
+                        "description": "是否为官方服务网卡，true为是，false为否。\n",
                         "type": "boolean"
                     },
                     "status": {
-                        "description": "网卡的绑定状态。\n",
+                        "description": "网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。\n",
                         "type": "string"
                     },
                     "subnetId": {
@@ -62654,6 +62595,7 @@
                         "type": "string"
                     },
                     "tags": {
+                        "description": "标签。\n",
                         "items": {
                             "$ref": "#/types/volcenginecc:vpc/getEniTag:getEniTag"
                         },
@@ -63226,6 +63168,7 @@
                         "type": "string"
                     },
                     "tags": {
+                        "description": "标签列表。\n",
                         "items": {
                             "$ref": "#/types/volcenginecc:vpc/getSecurityGroupTag:getSecurityGroupTag"
                         },
@@ -63344,6 +63287,10 @@
                         "description": "子网所在VPC实例所属项目的名称。\n",
                         "type": "string"
                     },
+                    "readIpv6CidrBlock": {
+                        "description": "只读字段，子网IPv6网段。\n",
+                        "type": "string"
+                    },
                     "routeTable": {
                         "$ref": "#/types/volcenginecc:vpc/getSubnetRouteTable:getSubnetRouteTable",
                         "description": "路由表信息。\n"
@@ -63361,6 +63308,7 @@
                         "type": "string"
                     },
                     "tags": {
+                        "description": "子网的标签信息。\n",
                         "items": {
                             "$ref": "#/types/volcenginecc:vpc/getSubnetTag:getSubnetTag"
                         },
@@ -63395,6 +63343,7 @@
                     "isDefault",
                     "networkAclId",
                     "projectName",
+                    "readIpv6CidrBlock",
                     "routeTable",
                     "status",
                     "subnetId",

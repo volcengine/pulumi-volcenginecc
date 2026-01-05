@@ -3,44 +3,15 @@
 
 package com.volcengine.volcenginecc.vke.inputs;
 
-import com.pulumi.core.Output;
-import com.pulumi.core.annotations.Import;
-import java.lang.String;
-import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
+
 
 
 public final class AddonStatusConditionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AddonStatusConditionArgs Empty = new AddonStatusConditionArgs();
 
-    /**
-     * 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-     * 
-     */
-    @Import(name="type")
-    private @Nullable Output<String> type;
-
-    /**
-     * @return 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-     * 
-     */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    private AddonStatusConditionArgs() {}
-
-    private AddonStatusConditionArgs(AddonStatusConditionArgs $) {
-        this.type = $.type;
-    }
-
     public static Builder builder() {
         return new Builder();
-    }
-    public static Builder builder(AddonStatusConditionArgs defaults) {
-        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -49,32 +20,6 @@ public final class AddonStatusConditionArgs extends com.pulumi.resources.Resourc
         public Builder() {
             $ = new AddonStatusConditionArgs();
         }
-
-        public Builder(AddonStatusConditionArgs defaults) {
-            $ = new AddonStatusConditionArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param type 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-         * 
-         * @return builder
-         * 
-         */
-        public Builder type(@Nullable Output<String> type) {
-            $.type = type;
-            return this;
-        }
-
-        /**
-         * @param type 组件当前主状态下的状态条件，即进入该主状态的原因，可以有多个原因，参数值有：Progressing, ClusterVersionUpgrading, Unknown, Degraded, NameConflict, ClusterNotRunning, CrashLoopBackOff, SchedulingFailed, ResourceCleanupFailed
-         * 
-         * @return builder
-         * 
-         */
-        public Builder type(String type) {
-            return type(Output.of(type));
-        }
-
         public AddonStatusConditionArgs build() {
             return $;
         }

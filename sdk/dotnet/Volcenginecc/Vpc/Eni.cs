@@ -116,13 +116,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// 是否为火山引擎官方服务网卡，true为是，false为否。
+        /// 是否为官方服务网卡，true为是，false为否。
         /// </summary>
         [Output("serviceManaged")]
         public Output<bool> ServiceManaged { get; private set; } = null!;
 
         /// <summary>
-        /// 网卡的绑定状态。
+        /// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -313,12 +313,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
             set => _tags = value;
         }
 
-        /// <summary>
-        /// 网卡所属可用区的ID。
-        /// </summary>
-        [Input("zoneId")]
-        public Input<string>? ZoneId { get; set; }
-
         public EniArgs()
         {
         }
@@ -438,13 +432,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         }
 
         /// <summary>
-        /// 是否为火山引擎官方服务网卡，true为是，false为否。
+        /// 是否为官方服务网卡，true为是，false为否。
         /// </summary>
         [Input("serviceManaged")]
         public Input<bool>? ServiceManaged { get; set; }
 
         /// <summary>
-        /// 网卡的绑定状态。
+        /// 网卡的绑定状态。Creating：创建中。Available：未挂载。Attaching：挂载中。InUse：已挂载。Detaching：卸载中。Deleting：删除中。
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

@@ -71,6 +71,11 @@ public final class GetSubnetResult {
      */
     private String projectName;
     /**
+     * @return 只读字段，子网IPv6网段。
+     * 
+     */
+    private String readIpv6CidrBlock;
+    /**
      * @return 路由表信息。
      * 
      */
@@ -90,6 +95,10 @@ public final class GetSubnetResult {
      * 
      */
     private String subnetName;
+    /**
+     * @return 子网的标签信息。
+     * 
+     */
     private List<GetSubnetTag> tags;
     /**
      * @return 子网下可用IP总数。
@@ -191,6 +200,13 @@ public final class GetSubnetResult {
         return this.projectName;
     }
     /**
+     * @return 只读字段，子网IPv6网段。
+     * 
+     */
+    public String readIpv6CidrBlock() {
+        return this.readIpv6CidrBlock;
+    }
+    /**
      * @return 路由表信息。
      * 
      */
@@ -218,6 +234,10 @@ public final class GetSubnetResult {
     public String subnetName() {
         return this.subnetName;
     }
+    /**
+     * @return 子网的标签信息。
+     * 
+     */
     public List<GetSubnetTag> tags() {
         return this.tags;
     }
@@ -270,6 +290,7 @@ public final class GetSubnetResult {
         private Boolean isDefault;
         private String networkAclId;
         private String projectName;
+        private String readIpv6CidrBlock;
         private GetSubnetRouteTable routeTable;
         private String status;
         private String subnetId;
@@ -293,6 +314,7 @@ public final class GetSubnetResult {
     	      this.isDefault = defaults.isDefault;
     	      this.networkAclId = defaults.networkAclId;
     	      this.projectName = defaults.projectName;
+    	      this.readIpv6CidrBlock = defaults.readIpv6CidrBlock;
     	      this.routeTable = defaults.routeTable;
     	      this.status = defaults.status;
     	      this.subnetId = defaults.subnetId;
@@ -393,6 +415,14 @@ public final class GetSubnetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder readIpv6CidrBlock(String readIpv6CidrBlock) {
+            if (readIpv6CidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "readIpv6CidrBlock");
+            }
+            this.readIpv6CidrBlock = readIpv6CidrBlock;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routeTable(GetSubnetRouteTable routeTable) {
             if (routeTable == null) {
               throw new MissingRequiredPropertyException("GetSubnetResult", "routeTable");
@@ -480,6 +510,7 @@ public final class GetSubnetResult {
             _resultValue.isDefault = isDefault;
             _resultValue.networkAclId = networkAclId;
             _resultValue.projectName = projectName;
+            _resultValue.readIpv6CidrBlock = readIpv6CidrBlock;
             _resultValue.routeTable = routeTable;
             _resultValue.status = status;
             _resultValue.subnetId = subnetId;

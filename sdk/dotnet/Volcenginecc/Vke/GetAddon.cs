@@ -75,7 +75,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         /// <summary>
         /// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         /// </summary>
-        public readonly string CreateTime;
+        public readonly string CreatedTime;
         /// <summary>
         /// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
         /// </summary>
@@ -99,7 +99,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
         /// <summary>
         /// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string UpdatedTime;
         /// <summary>
         /// 组件版本。
         /// </summary>
@@ -111,7 +111,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
 
             string config,
 
-            string createTime,
+            string createdTime,
 
             string deployMode,
 
@@ -123,19 +123,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
 
             Outputs.GetAddonStatusResult status,
 
-            string updateTime,
+            string updatedTime,
 
             string version)
         {
             ClusterId = clusterId;
             Config = config;
-            CreateTime = createTime;
+            CreatedTime = createdTime;
             DeployMode = deployMode;
             DeployNodeType = deployNodeType;
             Id = id;
             Name = name;
             Status = status;
-            UpdateTime = updateTime;
+            UpdatedTime = updatedTime;
             Version = version;
         }
     }

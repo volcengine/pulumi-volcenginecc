@@ -35,7 +35,7 @@ type LookupAddonResult struct {
 	// 组件配置。
 	Config string `pulumi:"config"`
 	// 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	CreateTime string `pulumi:"createTime"`
+	CreatedTime string `pulumi:"createdTime"`
 	// 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
 	DeployMode string `pulumi:"deployMode"`
 	// 部署节点的类型。仅DeployModes=Unmanaged时，才需要指定该参数。取值：Node：以节点方式部署。VirtualNode：以虚拟节点方式部署。
@@ -47,7 +47,7 @@ type LookupAddonResult struct {
 	// 组件状态。
 	Status GetAddonStatus `pulumi:"status"`
 	// 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-	UpdateTime string `pulumi:"updateTime"`
+	UpdatedTime string `pulumi:"updatedTime"`
 	// 组件版本。
 	Version string `pulumi:"version"`
 }
@@ -97,8 +97,8 @@ func (o LookupAddonResultOutput) Config() pulumi.StringOutput {
 }
 
 // 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-func (o LookupAddonResultOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAddonResult) string { return v.CreateTime }).(pulumi.StringOutput)
+func (o LookupAddonResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
@@ -127,8 +127,8 @@ func (o LookupAddonResultOutput) Status() GetAddonStatusOutput {
 }
 
 // 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
-func (o LookupAddonResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAddonResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o LookupAddonResultOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 // 组件版本。

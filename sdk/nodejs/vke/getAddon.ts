@@ -41,7 +41,7 @@ export interface GetAddonResult {
     /**
      * 安装组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      */
-    readonly createTime: string;
+    readonly createdTime: string;
     /**
      * 组件部署模式，取值：Unmanaged：非托管模式部署。Managed：托管模式部署。
      */
@@ -65,7 +65,7 @@ export interface GetAddonResult {
     /**
      * 更新组件的时间。标准 RFC3339 格式的 UTC+0 时间。
      */
-    readonly updateTime: string;
+    readonly updatedTime: string;
     /**
      * 组件版本。
      */
