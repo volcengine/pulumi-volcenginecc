@@ -85,10 +85,6 @@ export class Keypair extends pulumi.CustomResource {
      */
     public readonly keyPairName!: pulumi.Output<string>;
     /**
-     * 密钥对私钥信息。
-     */
-    public readonly privateKey!: pulumi.Output<string>;
-    /**
      * 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      */
     public readonly projectName!: pulumi.Output<string>;
@@ -121,7 +117,6 @@ export class Keypair extends pulumi.CustomResource {
             resourceInputs["instanceIds"] = state ? state.instanceIds : undefined;
             resourceInputs["keyPairId"] = state ? state.keyPairId : undefined;
             resourceInputs["keyPairName"] = state ? state.keyPairName : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -134,7 +129,6 @@ export class Keypair extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["instanceIds"] = args ? args.instanceIds : undefined;
             resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -177,10 +171,6 @@ export interface KeypairState {
      */
     keyPairName?: pulumi.Input<string>;
     /**
-     * 密钥对私钥信息。
-     */
-    privateKey?: pulumi.Input<string>;
-    /**
      * 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      */
     projectName?: pulumi.Input<string>;
@@ -211,10 +201,6 @@ export interface KeypairArgs {
      * 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
      */
     keyPairName: pulumi.Input<string>;
-    /**
-     * 密钥对私钥信息。
-     */
-    privateKey?: pulumi.Input<string>;
     /**
      * 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      */

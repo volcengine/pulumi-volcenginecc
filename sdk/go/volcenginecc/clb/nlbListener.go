@@ -61,7 +61,7 @@ import (
 type NlbListener struct {
 	pulumi.CustomResourceState
 
-	// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+	// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
 	// 监听器的连接超时时间（秒）。
 	ConnectionTimeout pulumi.IntOutput `pulumi:"connectionTimeout"`
@@ -82,7 +82,7 @@ type NlbListener struct {
 	LoadBalancerId pulumi.StringOutput `pulumi:"loadBalancerId"`
 	// 监听器接收请求的端口，0表示启用全端口监听。
 	Port pulumi.IntOutput `pulumi:"port"`
-	// 监听协议类型。
+	// 监听协议类型。TCP,UDP,TLS
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
 	SecurityPolicyId pulumi.StringOutput `pulumi:"securityPolicyId"`
@@ -139,7 +139,7 @@ func GetNlbListener(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NlbListener resources.
 type nlbListenerState struct {
-	// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+	// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
 	CertificateId *string `pulumi:"certificateId"`
 	// 监听器的连接超时时间（秒）。
 	ConnectionTimeout *int `pulumi:"connectionTimeout"`
@@ -160,7 +160,7 @@ type nlbListenerState struct {
 	LoadBalancerId *string `pulumi:"loadBalancerId"`
 	// 监听器接收请求的端口，0表示启用全端口监听。
 	Port *int `pulumi:"port"`
-	// 监听协议类型。
+	// 监听协议类型。TCP,UDP,TLS
 	Protocol *string `pulumi:"protocol"`
 	// TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
 	SecurityPolicyId *string `pulumi:"securityPolicyId"`
@@ -176,7 +176,7 @@ type nlbListenerState struct {
 }
 
 type NlbListenerState struct {
-	// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+	// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
 	CertificateId pulumi.StringPtrInput
 	// 监听器的连接超时时间（秒）。
 	ConnectionTimeout pulumi.IntPtrInput
@@ -197,7 +197,7 @@ type NlbListenerState struct {
 	LoadBalancerId pulumi.StringPtrInput
 	// 监听器接收请求的端口，0表示启用全端口监听。
 	Port pulumi.IntPtrInput
-	// 监听协议类型。
+	// 监听协议类型。TCP,UDP,TLS
 	Protocol pulumi.StringPtrInput
 	// TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
 	SecurityPolicyId pulumi.StringPtrInput
@@ -217,7 +217,7 @@ func (NlbListenerState) ElementType() reflect.Type {
 }
 
 type nlbListenerArgs struct {
-	// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+	// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
 	CertificateId *string `pulumi:"certificateId"`
 	// 监听器的连接超时时间（秒）。
 	ConnectionTimeout *int `pulumi:"connectionTimeout"`
@@ -234,7 +234,7 @@ type nlbListenerArgs struct {
 	LoadBalancerId string `pulumi:"loadBalancerId"`
 	// 监听器接收请求的端口，0表示启用全端口监听。
 	Port int `pulumi:"port"`
-	// 监听协议类型。
+	// 监听协议类型。TCP,UDP,TLS
 	Protocol string `pulumi:"protocol"`
 	// TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
 	SecurityPolicyId *string `pulumi:"securityPolicyId"`
@@ -247,7 +247,7 @@ type nlbListenerArgs struct {
 
 // The set of arguments for constructing a NlbListener resource.
 type NlbListenerArgs struct {
-	// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+	// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
 	CertificateId pulumi.StringPtrInput
 	// 监听器的连接超时时间（秒）。
 	ConnectionTimeout pulumi.IntPtrInput
@@ -264,7 +264,7 @@ type NlbListenerArgs struct {
 	LoadBalancerId pulumi.StringInput
 	// 监听器接收请求的端口，0表示启用全端口监听。
 	Port pulumi.IntInput
-	// 监听协议类型。
+	// 监听协议类型。TCP,UDP,TLS
 	Protocol pulumi.StringInput
 	// TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
 	SecurityPolicyId pulumi.StringPtrInput
@@ -362,7 +362,7 @@ func (o NlbListenerOutput) ToNlbListenerOutputWithContext(ctx context.Context) N
 	return o
 }
 
-// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
 func (o NlbListenerOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NlbListener) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }
@@ -416,7 +416,7 @@ func (o NlbListenerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *NlbListener) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// 监听协议类型。
+// 监听协议类型。TCP,UDP,TLS
 func (o NlbListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NlbListener) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }

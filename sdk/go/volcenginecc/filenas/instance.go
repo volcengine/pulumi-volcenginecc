@@ -79,7 +79,7 @@ type Instance struct {
 	SnapshotCount pulumi.IntOutput `pulumi:"snapshotCount"`
 	// 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
-	// 文件系统状态
+	// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
 	Status pulumi.StringOutput `pulumi:"status"`
 	// 存储类型，取值Standard，表示标准型。
 	StorageType pulumi.StringOutput    `pulumi:"storageType"`
@@ -161,7 +161,7 @@ type instanceState struct {
 	SnapshotCount *int `pulumi:"snapshotCount"`
 	// 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
 	SnapshotId *string `pulumi:"snapshotId"`
-	// 文件系统状态
+	// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
 	Status *string `pulumi:"status"`
 	// 存储类型，取值Standard，表示标准型。
 	StorageType *string       `pulumi:"storageType"`
@@ -199,7 +199,7 @@ type InstanceState struct {
 	SnapshotCount pulumi.IntPtrInput
 	// 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
 	SnapshotId pulumi.StringPtrInput
-	// 文件系统状态
+	// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
 	Status pulumi.StringPtrInput
 	// 存储类型，取值Standard，表示标准型。
 	StorageType pulumi.StringPtrInput
@@ -225,8 +225,6 @@ type instanceArgs struct {
 	ChargeType string `pulumi:"chargeType"`
 	// 描述信息。
 	Description *string `pulumi:"description"`
-	// 文件系统 ID。
-	FileSystemId *string `pulumi:"fileSystemId"`
 	// 文件系统名称。
 	FileSystemName string `pulumi:"fileSystemName"`
 	// 文件系统类型。取值说明：Extreme：NAS 极速型；Capacity：NAS 容量型；Cache：NAS 缓存型。
@@ -242,8 +240,6 @@ type instanceArgs struct {
 	Tags        []InstanceTag `pulumi:"tags"`
 	// 可用区 ID。
 	ZoneId string `pulumi:"zoneId"`
-	// 可用区名称。
-	ZoneName *string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a Instance resource.
@@ -256,8 +252,6 @@ type InstanceArgs struct {
 	ChargeType pulumi.StringInput
 	// 描述信息。
 	Description pulumi.StringPtrInput
-	// 文件系统 ID。
-	FileSystemId pulumi.StringPtrInput
 	// 文件系统名称。
 	FileSystemName pulumi.StringInput
 	// 文件系统类型。取值说明：Extreme：NAS 极速型；Capacity：NAS 容量型；Cache：NAS 缓存型。
@@ -273,8 +267,6 @@ type InstanceArgs struct {
 	Tags        InstanceTagArrayInput
 	// 可用区 ID。
 	ZoneId pulumi.StringInput
-	// 可用区名称。
-	ZoneName pulumi.StringPtrInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -424,7 +416,7 @@ func (o InstanceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// 文件系统状态
+// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
 func (o InstanceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

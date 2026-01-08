@@ -40,14 +40,6 @@ __all__ = [
     'LoadBalancerTagArgsDict',
     'LoadBalancerZoneMappingArgs',
     'LoadBalancerZoneMappingArgsDict',
-    'LoadBalancerZoneMappingLoadBalancerAddressArgs',
-    'LoadBalancerZoneMappingLoadBalancerAddressArgsDict',
-    'LoadBalancerZoneMappingLoadBalancerAddressEipArgs',
-    'LoadBalancerZoneMappingLoadBalancerAddressEipArgsDict',
-    'LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs',
-    'LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgsDict',
-    'LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs',
-    'LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgsDict',
     'ServerGroupHealthCheckArgs',
     'ServerGroupHealthCheckArgsDict',
     'ServerGroupListenerArgs',
@@ -120,50 +112,18 @@ if not MYPY:
         """
         监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
         """
-        listener_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        监听器的ID
-        """
-        listener_name: NotRequired[pulumi.Input[builtins.str]]
-        """
-        监听器的名称
-        """
-        port: NotRequired[pulumi.Input[builtins.int]]
-        """
-        监听器的端口
-        """
-        protocol: NotRequired[pulumi.Input[builtins.str]]
-        """
-        监听器的协议
-        """
 elif False:
     AclListenerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AclListenerArgs:
     def __init__(__self__, *,
-                 acl_type: Optional[pulumi.Input[builtins.str]] = None,
-                 listener_id: Optional[pulumi.Input[builtins.str]] = None,
-                 listener_name: Optional[pulumi.Input[builtins.str]] = None,
-                 port: Optional[pulumi.Input[builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[builtins.str]] = None):
+                 acl_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] acl_type: 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
-        :param pulumi.Input[builtins.str] listener_id: 监听器的ID
-        :param pulumi.Input[builtins.str] listener_name: 监听器的名称
-        :param pulumi.Input[builtins.int] port: 监听器的端口
-        :param pulumi.Input[builtins.str] protocol: 监听器的协议
         """
         if acl_type is not None:
             pulumi.set(__self__, "acl_type", acl_type)
-        if listener_id is not None:
-            pulumi.set(__self__, "listener_id", listener_id)
-        if listener_name is not None:
-            pulumi.set(__self__, "listener_name", listener_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="aclType")
@@ -176,54 +136,6 @@ class AclListenerArgs:
     @acl_type.setter
     def acl_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "acl_type", value)
-
-    @property
-    @pulumi.getter(name="listenerId")
-    def listener_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        监听器的ID
-        """
-        return pulumi.get(self, "listener_id")
-
-    @listener_id.setter
-    def listener_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "listener_id", value)
-
-    @property
-    @pulumi.getter(name="listenerName")
-    def listener_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        监听器的名称
-        """
-        return pulumi.get(self, "listener_name")
-
-    @listener_name.setter
-    def listener_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "listener_name", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        监听器的端口
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        监听器的协议
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "protocol", value)
 
 
 if not MYPY:
@@ -856,7 +768,6 @@ class LoadBalancerTagArgs:
 
 if not MYPY:
     class LoadBalancerZoneMappingArgsDict(TypedDict):
-        load_balancer_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressArgsDict']]]]
         subnet_id: NotRequired[pulumi.Input[builtins.str]]
         """
         可用区内提供服务的子网ID。
@@ -871,28 +782,16 @@ elif False:
 @pulumi.input_type
 class LoadBalancerZoneMappingArgs:
     def __init__(__self__, *,
-                 load_balancer_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressArgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] subnet_id: 可用区内提供服务的子网ID。
         :param pulumi.Input[builtins.str] zone_id: 可用区的唯一标识符。
         """
-        if load_balancer_addresses is not None:
-            pulumi.set(__self__, "load_balancer_addresses", load_balancer_addresses)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if zone_id is not None:
             pulumi.set(__self__, "zone_id", zone_id)
-
-    @property
-    @pulumi.getter(name="loadBalancerAddresses")
-    def load_balancer_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressArgs']]]]:
-        return pulumi.get(self, "load_balancer_addresses")
-
-    @load_balancer_addresses.setter
-    def load_balancer_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressArgs']]]]):
-        pulumi.set(self, "load_balancer_addresses", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -917,447 +816,6 @@ class LoadBalancerZoneMappingArgs:
     @zone_id.setter
     def zone_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "zone_id", value)
-
-
-if not MYPY:
-    class LoadBalancerZoneMappingLoadBalancerAddressArgsDict(TypedDict):
-        eip: NotRequired[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipArgsDict']]
-        """
-        弹性公网IP（EIP）的详细信息。
-        """
-        eip_address: NotRequired[pulumi.Input[builtins.str]]
-        """
-        绑定的弹性公网IP（EIP）的地址。
-        """
-        eip_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        绑定的弹性公网IP（EIP）的ID。
-        """
-        eni_address: NotRequired[pulumi.Input[builtins.str]]
-        """
-        弹性网卡（ENI）上的私网IP地址。
-        """
-        eni_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        IP地址所属的弹性网卡（ENI）的ID。
-        """
-        eni_ipv6_address: NotRequired[pulumi.Input[builtins.str]]
-        """
-        弹性网卡（ENI）上的IPv6私网地址。
-        """
-        ipv6_eip: NotRequired[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgsDict']]
-        """
-        IPv6弹性公网IP的详细信息。
-        """
-        ipv6_eip_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        绑定的IPv6 EIP的ID。
-        """
-elif False:
-    LoadBalancerZoneMappingLoadBalancerAddressArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LoadBalancerZoneMappingLoadBalancerAddressArgs:
-    def __init__(__self__, *,
-                 eip: Optional[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipArgs']] = None,
-                 eip_address: Optional[pulumi.Input[builtins.str]] = None,
-                 eip_id: Optional[pulumi.Input[builtins.str]] = None,
-                 eni_address: Optional[pulumi.Input[builtins.str]] = None,
-                 eni_id: Optional[pulumi.Input[builtins.str]] = None,
-                 eni_ipv6_address: Optional[pulumi.Input[builtins.str]] = None,
-                 ipv6_eip: Optional[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs']] = None,
-                 ipv6_eip_id: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        :param pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipArgs'] eip: 弹性公网IP（EIP）的详细信息。
-        :param pulumi.Input[builtins.str] eip_address: 绑定的弹性公网IP（EIP）的地址。
-        :param pulumi.Input[builtins.str] eip_id: 绑定的弹性公网IP（EIP）的ID。
-        :param pulumi.Input[builtins.str] eni_address: 弹性网卡（ENI）上的私网IP地址。
-        :param pulumi.Input[builtins.str] eni_id: IP地址所属的弹性网卡（ENI）的ID。
-        :param pulumi.Input[builtins.str] eni_ipv6_address: 弹性网卡（ENI）上的IPv6私网地址。
-        :param pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs'] ipv6_eip: IPv6弹性公网IP的详细信息。
-        :param pulumi.Input[builtins.str] ipv6_eip_id: 绑定的IPv6 EIP的ID。
-        """
-        if eip is not None:
-            pulumi.set(__self__, "eip", eip)
-        if eip_address is not None:
-            pulumi.set(__self__, "eip_address", eip_address)
-        if eip_id is not None:
-            pulumi.set(__self__, "eip_id", eip_id)
-        if eni_address is not None:
-            pulumi.set(__self__, "eni_address", eni_address)
-        if eni_id is not None:
-            pulumi.set(__self__, "eni_id", eni_id)
-        if eni_ipv6_address is not None:
-            pulumi.set(__self__, "eni_ipv6_address", eni_ipv6_address)
-        if ipv6_eip is not None:
-            pulumi.set(__self__, "ipv6_eip", ipv6_eip)
-        if ipv6_eip_id is not None:
-            pulumi.set(__self__, "ipv6_eip_id", ipv6_eip_id)
-
-    @property
-    @pulumi.getter
-    def eip(self) -> Optional[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipArgs']]:
-        """
-        弹性公网IP（EIP）的详细信息。
-        """
-        return pulumi.get(self, "eip")
-
-    @eip.setter
-    def eip(self, value: Optional[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipArgs']]):
-        pulumi.set(self, "eip", value)
-
-    @property
-    @pulumi.getter(name="eipAddress")
-    def eip_address(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        绑定的弹性公网IP（EIP）的地址。
-        """
-        return pulumi.get(self, "eip_address")
-
-    @eip_address.setter
-    def eip_address(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eip_address", value)
-
-    @property
-    @pulumi.getter(name="eipId")
-    def eip_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        绑定的弹性公网IP（EIP）的ID。
-        """
-        return pulumi.get(self, "eip_id")
-
-    @eip_id.setter
-    def eip_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eip_id", value)
-
-    @property
-    @pulumi.getter(name="eniAddress")
-    def eni_address(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        弹性网卡（ENI）上的私网IP地址。
-        """
-        return pulumi.get(self, "eni_address")
-
-    @eni_address.setter
-    def eni_address(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eni_address", value)
-
-    @property
-    @pulumi.getter(name="eniId")
-    def eni_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        IP地址所属的弹性网卡（ENI）的ID。
-        """
-        return pulumi.get(self, "eni_id")
-
-    @eni_id.setter
-    def eni_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eni_id", value)
-
-    @property
-    @pulumi.getter(name="eniIpv6Address")
-    def eni_ipv6_address(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        弹性网卡（ENI）上的IPv6私网地址。
-        """
-        return pulumi.get(self, "eni_ipv6_address")
-
-    @eni_ipv6_address.setter
-    def eni_ipv6_address(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eni_ipv6_address", value)
-
-    @property
-    @pulumi.getter(name="ipv6Eip")
-    def ipv6_eip(self) -> Optional[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs']]:
-        """
-        IPv6弹性公网IP的详细信息。
-        """
-        return pulumi.get(self, "ipv6_eip")
-
-    @ipv6_eip.setter
-    def ipv6_eip(self, value: Optional[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs']]):
-        pulumi.set(self, "ipv6_eip", value)
-
-    @property
-    @pulumi.getter(name="ipv6EipId")
-    def ipv6_eip_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        绑定的IPv6 EIP的ID。
-        """
-        return pulumi.get(self, "ipv6_eip_id")
-
-    @ipv6_eip_id.setter
-    def ipv6_eip_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "ipv6_eip_id", value)
-
-
-if not MYPY:
-    class LoadBalancerZoneMappingLoadBalancerAddressEipArgsDict(TypedDict):
-        association_mode: NotRequired[pulumi.Input[builtins.str]]
-        """
-        EIP的绑定模式，例如Default或Normal。
-        """
-        bandwidth: NotRequired[pulumi.Input[builtins.int]]
-        """
-        EIP的带宽峰值，单位为Mbps。
-        """
-        eip_address: NotRequired[pulumi.Input[builtins.str]]
-        """
-        弹性公网IP（EIP）的地址。
-        """
-        eip_billing_type: NotRequired[pulumi.Input[builtins.int]]
-        """
-        EIP的计费方式，2为按带宽计费，3为按流量计费。
-        """
-        eip_type: NotRequired[pulumi.Input[builtins.str]]
-        """
-        EIP的类型，例如静态BGP。
-        """
-        isp: NotRequired[pulumi.Input[builtins.str]]
-        """
-        公网IP的线路类型，BGP表示多线。
-        """
-        pop_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgsDict']]]]
-elif False:
-    LoadBalancerZoneMappingLoadBalancerAddressEipArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LoadBalancerZoneMappingLoadBalancerAddressEipArgs:
-    def __init__(__self__, *,
-                 association_mode: Optional[pulumi.Input[builtins.str]] = None,
-                 bandwidth: Optional[pulumi.Input[builtins.int]] = None,
-                 eip_address: Optional[pulumi.Input[builtins.str]] = None,
-                 eip_billing_type: Optional[pulumi.Input[builtins.int]] = None,
-                 eip_type: Optional[pulumi.Input[builtins.str]] = None,
-                 isp: Optional[pulumi.Input[builtins.str]] = None,
-                 pop_locations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs']]]] = None):
-        """
-        :param pulumi.Input[builtins.str] association_mode: EIP的绑定模式，例如Default或Normal。
-        :param pulumi.Input[builtins.int] bandwidth: EIP的带宽峰值，单位为Mbps。
-        :param pulumi.Input[builtins.str] eip_address: 弹性公网IP（EIP）的地址。
-        :param pulumi.Input[builtins.int] eip_billing_type: EIP的计费方式，2为按带宽计费，3为按流量计费。
-        :param pulumi.Input[builtins.str] eip_type: EIP的类型，例如静态BGP。
-        :param pulumi.Input[builtins.str] isp: 公网IP的线路类型，BGP表示多线。
-        """
-        if association_mode is not None:
-            pulumi.set(__self__, "association_mode", association_mode)
-        if bandwidth is not None:
-            pulumi.set(__self__, "bandwidth", bandwidth)
-        if eip_address is not None:
-            pulumi.set(__self__, "eip_address", eip_address)
-        if eip_billing_type is not None:
-            pulumi.set(__self__, "eip_billing_type", eip_billing_type)
-        if eip_type is not None:
-            pulumi.set(__self__, "eip_type", eip_type)
-        if isp is not None:
-            pulumi.set(__self__, "isp", isp)
-        if pop_locations is not None:
-            pulumi.set(__self__, "pop_locations", pop_locations)
-
-    @property
-    @pulumi.getter(name="associationMode")
-    def association_mode(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        EIP的绑定模式，例如Default或Normal。
-        """
-        return pulumi.get(self, "association_mode")
-
-    @association_mode.setter
-    def association_mode(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "association_mode", value)
-
-    @property
-    @pulumi.getter
-    def bandwidth(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        EIP的带宽峰值，单位为Mbps。
-        """
-        return pulumi.get(self, "bandwidth")
-
-    @bandwidth.setter
-    def bandwidth(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "bandwidth", value)
-
-    @property
-    @pulumi.getter(name="eipAddress")
-    def eip_address(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        弹性公网IP（EIP）的地址。
-        """
-        return pulumi.get(self, "eip_address")
-
-    @eip_address.setter
-    def eip_address(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eip_address", value)
-
-    @property
-    @pulumi.getter(name="eipBillingType")
-    def eip_billing_type(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        EIP的计费方式，2为按带宽计费，3为按流量计费。
-        """
-        return pulumi.get(self, "eip_billing_type")
-
-    @eip_billing_type.setter
-    def eip_billing_type(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "eip_billing_type", value)
-
-    @property
-    @pulumi.getter(name="eipType")
-    def eip_type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        EIP的类型，例如静态BGP。
-        """
-        return pulumi.get(self, "eip_type")
-
-    @eip_type.setter
-    def eip_type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eip_type", value)
-
-    @property
-    @pulumi.getter
-    def isp(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        公网IP的线路类型，BGP表示多线。
-        """
-        return pulumi.get(self, "isp")
-
-    @isp.setter
-    def isp(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "isp", value)
-
-    @property
-    @pulumi.getter(name="popLocations")
-    def pop_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs']]]]:
-        return pulumi.get(self, "pop_locations")
-
-    @pop_locations.setter
-    def pop_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs']]]]):
-        pulumi.set(self, "pop_locations", value)
-
-
-if not MYPY:
-    class LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgsDict(TypedDict):
-        pop_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        接入点（PoP）的唯一ID。
-        """
-        pop_name: NotRequired[pulumi.Input[builtins.str]]
-        """
-        接入点（PoP）的名称。
-        """
-elif False:
-    LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs:
-    def __init__(__self__, *,
-                 pop_id: Optional[pulumi.Input[builtins.str]] = None,
-                 pop_name: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        :param pulumi.Input[builtins.str] pop_id: 接入点（PoP）的唯一ID。
-        :param pulumi.Input[builtins.str] pop_name: 接入点（PoP）的名称。
-        """
-        if pop_id is not None:
-            pulumi.set(__self__, "pop_id", pop_id)
-        if pop_name is not None:
-            pulumi.set(__self__, "pop_name", pop_name)
-
-    @property
-    @pulumi.getter(name="popId")
-    def pop_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        接入点（PoP）的唯一ID。
-        """
-        return pulumi.get(self, "pop_id")
-
-    @pop_id.setter
-    def pop_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "pop_id", value)
-
-    @property
-    @pulumi.getter(name="popName")
-    def pop_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        接入点（PoP）的名称。
-        """
-        return pulumi.get(self, "pop_name")
-
-    @pop_name.setter
-    def pop_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "pop_name", value)
-
-
-if not MYPY:
-    class LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgsDict(TypedDict):
-        bandwidth: NotRequired[pulumi.Input[builtins.int]]
-        """
-        IPv6 EIP的带宽峰值，单位为Mbps。
-        """
-        billing_type: NotRequired[pulumi.Input[builtins.int]]
-        """
-        IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-        """
-        isp: NotRequired[pulumi.Input[builtins.str]]
-        """
-        IPv6公网IP的线路类型，BGP表示多线。
-        """
-elif False:
-    LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs:
-    def __init__(__self__, *,
-                 bandwidth: Optional[pulumi.Input[builtins.int]] = None,
-                 billing_type: Optional[pulumi.Input[builtins.int]] = None,
-                 isp: Optional[pulumi.Input[builtins.str]] = None):
-        """
-        :param pulumi.Input[builtins.int] bandwidth: IPv6 EIP的带宽峰值，单位为Mbps。
-        :param pulumi.Input[builtins.int] billing_type: IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-        :param pulumi.Input[builtins.str] isp: IPv6公网IP的线路类型，BGP表示多线。
-        """
-        if bandwidth is not None:
-            pulumi.set(__self__, "bandwidth", bandwidth)
-        if billing_type is not None:
-            pulumi.set(__self__, "billing_type", billing_type)
-        if isp is not None:
-            pulumi.set(__self__, "isp", isp)
-
-    @property
-    @pulumi.getter
-    def bandwidth(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        IPv6 EIP的带宽峰值，单位为Mbps。
-        """
-        return pulumi.get(self, "bandwidth")
-
-    @bandwidth.setter
-    def bandwidth(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "bandwidth", value)
-
-    @property
-    @pulumi.getter(name="billingType")
-    def billing_type(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-        """
-        return pulumi.get(self, "billing_type")
-
-    @billing_type.setter
-    def billing_type(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "billing_type", value)
-
-    @property
-    @pulumi.getter
-    def isp(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        IPv6公网IP的线路类型，BGP表示多线。
-        """
-        return pulumi.get(self, "isp")
-
-    @isp.setter
-    def isp(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "isp", value)
 
 
 if not MYPY:
@@ -1911,7 +1369,13 @@ class ServerGroupStickySessionConfigArgs:
 if not MYPY:
     class ServerGroupTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        标签的标签键。同一资源的标签键不允许重复。
+        """
         value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        标签的标签值。
+        """
 elif False:
     ServerGroupTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1920,6 +1384,10 @@ class ServerGroupTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: 标签的标签键。同一资源的标签键不允许重复。
+        :param pulumi.Input[builtins.str] value: 标签的标签值。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1928,6 +1396,9 @@ class ServerGroupTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        标签的标签键。同一资源的标签键不允许重复。
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1937,6 +1408,9 @@ class ServerGroupTagArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        标签的标签值。
+        """
         return pulumi.get(self, "value")
 
     @value.setter

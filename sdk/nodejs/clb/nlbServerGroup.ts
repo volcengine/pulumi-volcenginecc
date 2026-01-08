@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 服务器组
+ * 服务器组是一组后端服务器。
  *
  * ## Import
  *
@@ -44,19 +44,19 @@ export class NlbServerGroup extends pulumi.CustomResource {
     }
 
     /**
-     * 账号ID
+     * 账号ID。
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
-     * 是否开启全端口转发
+     * 是否开启全端口转发。
      */
     public readonly anyPortEnabled!: pulumi.Output<boolean>;
     /**
-     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      */
     public readonly bypassSecurityGroupEnabled!: pulumi.Output<boolean>;
     /**
-     * 是否开启连接优雅中断
+     * 是否开启连接优雅中断。
      */
     public readonly connectionDrainEnabled!: pulumi.Output<boolean>;
     /**
@@ -64,51 +64,51 @@ export class NlbServerGroup extends pulumi.CustomResource {
      */
     public readonly connectionDrainTimeout!: pulumi.Output<number>;
     /**
-     * 后端服务器组的创建时间
+     * 后端服务器组的创建时间。
      */
-    public readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * 健康检查相关参数
+     * 健康检查相关参数。
      */
     public readonly healthCheck!: pulumi.Output<outputs.clb.NlbServerGroupHealthCheck>;
     /**
-     * 服务器组的IP地址类型
+     * 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      */
     public readonly ipAddressVersion!: pulumi.Output<string>;
     /**
-     * 是否开启源地址保持
+     * 是否开启源地址保持。
      */
     public readonly preserveClientIpEnabled!: pulumi.Output<boolean>;
     /**
-     * 项目名称
+     * 项目名称。
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
-     * NLB转发流量到后端服务器时使用的通信协议
+     * NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * 是否开启Proxy-Protocol协议
+     * 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      */
     public readonly proxyProtocolType!: pulumi.Output<string>;
     /**
-     * 服务器组关联的NLB实例
+     * 服务器组关联的NLB实例。
      */
     public /*out*/ readonly relatedLoadBalancerIds!: pulumi.Output<string[]>;
     /**
-     * NLB转发流量时遵循的规则
+     * NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      */
     public readonly scheduler!: pulumi.Output<string>;
     /**
-     * 服务器组中后端服务器的数量
+     * 服务器组中后端服务器的数量。
      */
     public /*out*/ readonly serverCount!: pulumi.Output<number>;
     /**
-     * 服务器组ID
+     * 服务器组ID。
      */
     public /*out*/ readonly serverGroupId!: pulumi.Output<string>;
     /**
@@ -117,30 +117,30 @@ export class NlbServerGroup extends pulumi.CustomResource {
     public readonly serverGroupName!: pulumi.Output<string>;
     public readonly servers!: pulumi.Output<outputs.clb.NlbServerGroupServer[]>;
     /**
-     * 是否开启会话保持
+     * 是否开启会话保持。
      */
     public readonly sessionPersistenceEnabled!: pulumi.Output<boolean>;
     /**
-     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      */
     public readonly sessionPersistenceTimeout!: pulumi.Output<number>;
     /**
-     * 服务器组的状态
+     * 服务器组的状态。
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.clb.NlbServerGroupTag[]>;
     /**
-     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      */
     public readonly timestampRemoveEnabled!: pulumi.Output<boolean>;
     /**
-     * 服务器组的类型
+     * 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * 后端服务器组的更新时间
+     * 后端服务器组的更新时间。
      */
-    public readonly updatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
     /**
      * 服务器组所属私有网络的ID。
      */
@@ -194,12 +194,10 @@ export class NlbServerGroup extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["anyPortEnabled"] = args ? args.anyPortEnabled : undefined;
             resourceInputs["bypassSecurityGroupEnabled"] = args ? args.bypassSecurityGroupEnabled : undefined;
             resourceInputs["connectionDrainEnabled"] = args ? args.connectionDrainEnabled : undefined;
             resourceInputs["connectionDrainTimeout"] = args ? args.connectionDrainTimeout : undefined;
-            resourceInputs["createdTime"] = args ? args.createdTime : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["healthCheck"] = args ? args.healthCheck : undefined;
             resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
@@ -215,12 +213,14 @@ export class NlbServerGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timestampRemoveEnabled"] = args ? args.timestampRemoveEnabled : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["updatedTime"] = args ? args.updatedTime : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["relatedLoadBalancerIds"] = undefined /*out*/;
             resourceInputs["serverCount"] = undefined /*out*/;
             resourceInputs["serverGroupId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NlbServerGroup.__pulumiType, name, resourceInputs, opts);
@@ -232,19 +232,19 @@ export class NlbServerGroup extends pulumi.CustomResource {
  */
 export interface NlbServerGroupState {
     /**
-     * 账号ID
+     * 账号ID。
      */
     accountId?: pulumi.Input<string>;
     /**
-     * 是否开启全端口转发
+     * 是否开启全端口转发。
      */
     anyPortEnabled?: pulumi.Input<boolean>;
     /**
-     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      */
     bypassSecurityGroupEnabled?: pulumi.Input<boolean>;
     /**
-     * 是否开启连接优雅中断
+     * 是否开启连接优雅中断。
      */
     connectionDrainEnabled?: pulumi.Input<boolean>;
     /**
@@ -252,7 +252,7 @@ export interface NlbServerGroupState {
      */
     connectionDrainTimeout?: pulumi.Input<number>;
     /**
-     * 后端服务器组的创建时间
+     * 后端服务器组的创建时间。
      */
     createdTime?: pulumi.Input<string>;
     /**
@@ -260,43 +260,43 @@ export interface NlbServerGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * 健康检查相关参数
+     * 健康检查相关参数。
      */
     healthCheck?: pulumi.Input<inputs.clb.NlbServerGroupHealthCheck>;
     /**
-     * 服务器组的IP地址类型
+     * 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      */
     ipAddressVersion?: pulumi.Input<string>;
     /**
-     * 是否开启源地址保持
+     * 是否开启源地址保持。
      */
     preserveClientIpEnabled?: pulumi.Input<boolean>;
     /**
-     * 项目名称
+     * 项目名称。
      */
     projectName?: pulumi.Input<string>;
     /**
-     * NLB转发流量到后端服务器时使用的通信协议
+     * NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      */
     protocol?: pulumi.Input<string>;
     /**
-     * 是否开启Proxy-Protocol协议
+     * 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      */
     proxyProtocolType?: pulumi.Input<string>;
     /**
-     * 服务器组关联的NLB实例
+     * 服务器组关联的NLB实例。
      */
     relatedLoadBalancerIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * NLB转发流量时遵循的规则
+     * NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      */
     scheduler?: pulumi.Input<string>;
     /**
-     * 服务器组中后端服务器的数量
+     * 服务器组中后端服务器的数量。
      */
     serverCount?: pulumi.Input<number>;
     /**
-     * 服务器组ID
+     * 服务器组ID。
      */
     serverGroupId?: pulumi.Input<string>;
     /**
@@ -305,28 +305,28 @@ export interface NlbServerGroupState {
     serverGroupName?: pulumi.Input<string>;
     servers?: pulumi.Input<pulumi.Input<inputs.clb.NlbServerGroupServer>[]>;
     /**
-     * 是否开启会话保持
+     * 是否开启会话保持。
      */
     sessionPersistenceEnabled?: pulumi.Input<boolean>;
     /**
-     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      */
     sessionPersistenceTimeout?: pulumi.Input<number>;
     /**
-     * 服务器组的状态
+     * 服务器组的状态。
      */
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.clb.NlbServerGroupTag>[]>;
     /**
-     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      */
     timestampRemoveEnabled?: pulumi.Input<boolean>;
     /**
-     * 服务器组的类型
+     * 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      */
     type?: pulumi.Input<string>;
     /**
-     * 后端服务器组的更新时间
+     * 后端服务器组的更新时间。
      */
     updatedTime?: pulumi.Input<string>;
     /**
@@ -340,19 +340,15 @@ export interface NlbServerGroupState {
  */
 export interface NlbServerGroupArgs {
     /**
-     * 账号ID
-     */
-    accountId?: pulumi.Input<string>;
-    /**
-     * 是否开启全端口转发
+     * 是否开启全端口转发。
      */
     anyPortEnabled?: pulumi.Input<boolean>;
     /**
-     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      */
     bypassSecurityGroupEnabled?: pulumi.Input<boolean>;
     /**
-     * 是否开启连接优雅中断
+     * 是否开启连接优雅中断。
      */
     connectionDrainEnabled?: pulumi.Input<boolean>;
     /**
@@ -360,39 +356,35 @@ export interface NlbServerGroupArgs {
      */
     connectionDrainTimeout?: pulumi.Input<number>;
     /**
-     * 后端服务器组的创建时间
-     */
-    createdTime?: pulumi.Input<string>;
-    /**
      * 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
      */
     description?: pulumi.Input<string>;
     /**
-     * 健康检查相关参数
+     * 健康检查相关参数。
      */
     healthCheck?: pulumi.Input<inputs.clb.NlbServerGroupHealthCheck>;
     /**
-     * 服务器组的IP地址类型
+     * 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      */
     ipAddressVersion?: pulumi.Input<string>;
     /**
-     * 是否开启源地址保持
+     * 是否开启源地址保持。
      */
     preserveClientIpEnabled?: pulumi.Input<boolean>;
     /**
-     * 项目名称
+     * 项目名称。
      */
     projectName?: pulumi.Input<string>;
     /**
-     * NLB转发流量到后端服务器时使用的通信协议
+     * NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      */
     protocol: pulumi.Input<string>;
     /**
-     * 是否开启Proxy-Protocol协议
+     * 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      */
     proxyProtocolType?: pulumi.Input<string>;
     /**
-     * NLB转发流量时遵循的规则
+     * NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      */
     scheduler?: pulumi.Input<string>;
     /**
@@ -401,26 +393,22 @@ export interface NlbServerGroupArgs {
     serverGroupName?: pulumi.Input<string>;
     servers?: pulumi.Input<pulumi.Input<inputs.clb.NlbServerGroupServer>[]>;
     /**
-     * 是否开启会话保持
+     * 是否开启会话保持。
      */
     sessionPersistenceEnabled?: pulumi.Input<boolean>;
     /**
-     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      */
     sessionPersistenceTimeout?: pulumi.Input<number>;
     tags?: pulumi.Input<pulumi.Input<inputs.clb.NlbServerGroupTag>[]>;
     /**
-     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      */
     timestampRemoveEnabled?: pulumi.Input<boolean>;
     /**
-     * 服务器组的类型
+     * 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      */
     type?: pulumi.Input<string>;
-    /**
-     * 后端服务器组的更新时间
-     */
-    updatedTime?: pulumi.Input<string>;
     /**
      * 服务器组所属私有网络的ID。
      */

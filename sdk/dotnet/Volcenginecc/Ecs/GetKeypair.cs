@@ -93,10 +93,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         /// </summary>
         public readonly string KeyPairName;
         /// <summary>
-        /// 密钥对私钥信息。
-        /// </summary>
-        public readonly string PrivateKey;
-        /// <summary>
         /// 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         /// </summary>
         public readonly string ProjectName;
@@ -129,8 +125,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
 
             string keyPairName,
 
-            string privateKey,
-
             string projectName,
 
             string publicKey,
@@ -146,7 +140,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
             InstanceIds = instanceIds;
             KeyPairId = keyPairId;
             KeyPairName = keyPairName;
-            PrivateKey = privateKey;
             ProjectName = projectName;
             PublicKey = publicKey;
             Tags = tags;

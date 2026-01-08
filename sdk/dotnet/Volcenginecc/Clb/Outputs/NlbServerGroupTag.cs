@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class NlbServerGroupTag
     {
         /// <summary>
-        /// 标签键
+        /// 标签键。
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// 标签值
+        /// 标签值。
         /// </summary>
         public readonly string? Value;
 

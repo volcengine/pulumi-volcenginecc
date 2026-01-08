@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetNlbServerGroupHealthCheck {
     /**
-     * @return 健康检查的域名
+     * @return 健康检查的域名。
      * 
      */
     private String domain;
     /**
-     * @return 是否开启健康检查
+     * @return 是否开启健康检查。
      * 
      */
     private Boolean enabled;
@@ -28,7 +28,7 @@ public final class GetNlbServerGroupHealthCheck {
      */
     private Integer healthyThreshold;
     /**
-     * @return 健康检查正常的HTTP状态码
+     * @return 健康检查正常的HTTP状态码。
      * 
      */
     private String httpCode;
@@ -38,7 +38,7 @@ public final class GetNlbServerGroupHealthCheck {
      */
     private Integer interval;
     /**
-     * @return 健康检查的请求方法
+     * @return 健康检查的请求方法。
      * 
      */
     private String method;
@@ -53,7 +53,7 @@ public final class GetNlbServerGroupHealthCheck {
      */
     private Integer timeout;
     /**
-     * @return 健康检查的协议类型
+     * @return 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
      * 
      */
     private String type;
@@ -63,7 +63,7 @@ public final class GetNlbServerGroupHealthCheck {
      */
     private String udpExpect;
     /**
-     * @return UDP健康检查的预期响应字符串
+     * @return UDP健康检查的预期响应字符串。
      * 
      */
     private String udpRequest;
@@ -73,21 +73,21 @@ public final class GetNlbServerGroupHealthCheck {
      */
     private Integer unhealthyThreshold;
     /**
-     * @return 健康检查的路径
+     * @return 健康检查的路径。
      * 
      */
     private String uri;
 
     private GetNlbServerGroupHealthCheck() {}
     /**
-     * @return 健康检查的域名
+     * @return 健康检查的域名。
      * 
      */
     public String domain() {
         return this.domain;
     }
     /**
-     * @return 是否开启健康检查
+     * @return 是否开启健康检查。
      * 
      */
     public Boolean enabled() {
@@ -101,7 +101,7 @@ public final class GetNlbServerGroupHealthCheck {
         return this.healthyThreshold;
     }
     /**
-     * @return 健康检查正常的HTTP状态码
+     * @return 健康检查正常的HTTP状态码。
      * 
      */
     public String httpCode() {
@@ -115,7 +115,7 @@ public final class GetNlbServerGroupHealthCheck {
         return this.interval;
     }
     /**
-     * @return 健康检查的请求方法
+     * @return 健康检查的请求方法。
      * 
      */
     public String method() {
@@ -136,7 +136,7 @@ public final class GetNlbServerGroupHealthCheck {
         return this.timeout;
     }
     /**
-     * @return 健康检查的协议类型
+     * @return 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
      * 
      */
     public String type() {
@@ -150,7 +150,7 @@ public final class GetNlbServerGroupHealthCheck {
         return this.udpExpect;
     }
     /**
-     * @return UDP健康检查的预期响应字符串
+     * @return UDP健康检查的预期响应字符串。
      * 
      */
     public String udpRequest() {
@@ -164,7 +164,7 @@ public final class GetNlbServerGroupHealthCheck {
         return this.unhealthyThreshold;
     }
     /**
-     * @return 健康检查的路径
+     * @return 健康检查的路径。
      * 
      */
     public String uri() {

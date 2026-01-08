@@ -18,14 +18,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     public static final NlbServerGroupHealthCheckArgs Empty = new NlbServerGroupHealthCheckArgs();
 
     /**
-     * 健康检查的域名
+     * 健康检查的域名。
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return 健康检查的域名
+     * @return 健康检查的域名。
      * 
      */
     public Optional<Output<String>> domain() {
@@ -33,14 +33,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * 是否开启健康检查
+     * 是否开启健康检查。
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return 是否开启健康检查
+     * @return 是否开启健康检查。
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -63,14 +63,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * 健康检查正常的HTTP状态码
+     * 健康检查正常的HTTP状态码。
      * 
      */
     @Import(name="httpCode")
     private @Nullable Output<String> httpCode;
 
     /**
-     * @return 健康检查正常的HTTP状态码
+     * @return 健康检查正常的HTTP状态码。
      * 
      */
     public Optional<Output<String>> httpCode() {
@@ -93,14 +93,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * 健康检查的请求方法
+     * 健康检查的请求方法。
      * 
      */
     @Import(name="method")
     private @Nullable Output<String> method;
 
     /**
-     * @return 健康检查的请求方法
+     * @return 健康检查的请求方法。
      * 
      */
     public Optional<Output<String>> method() {
@@ -138,14 +138,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * 健康检查的协议类型
+     * 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return 健康检查的协议类型
+     * @return 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
      * 
      */
     public Optional<Output<String>> type() {
@@ -168,14 +168,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * UDP健康检查的预期响应字符串
+     * UDP健康检查的预期响应字符串。
      * 
      */
     @Import(name="udpRequest")
     private @Nullable Output<String> udpRequest;
 
     /**
-     * @return UDP健康检查的预期响应字符串
+     * @return UDP健康检查的预期响应字符串。
      * 
      */
     public Optional<Output<String>> udpRequest() {
@@ -198,14 +198,14 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * 健康检查的路径
+     * 健康检查的路径。
      * 
      */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
     /**
-     * @return 健康检查的路径
+     * @return 健康检查的路径。
      * 
      */
     public Optional<Output<String>> uri() {
@@ -249,7 +249,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param domain 健康检查的域名
+         * @param domain 健康检查的域名。
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param domain 健康检查的域名
+         * @param domain 健康检查的域名。
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled 是否开启健康检查
+         * @param enabled 是否开启健康检查。
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled 是否开启健康检查
+         * @param enabled 是否开启健康检查。
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param httpCode 健康检查正常的HTTP状态码
+         * @param httpCode 健康检查正常的HTTP状态码。
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param httpCode 健康检查正常的HTTP状态码
+         * @param httpCode 健康检查正常的HTTP状态码。
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param method 健康检查的请求方法
+         * @param method 健康检查的请求方法。
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param method 健康检查的请求方法
+         * @param method 健康检查的请求方法。
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type 健康检查的协议类型
+         * @param type 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type 健康检查的协议类型
+         * @param type 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param udpRequest UDP健康检查的预期响应字符串
+         * @param udpRequest UDP健康检查的预期响应字符串。
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param udpRequest UDP健康检查的预期响应字符串
+         * @param udpRequest UDP健康检查的预期响应字符串。
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param uri 健康检查的路径
+         * @param uri 健康检查的路径。
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class NlbServerGroupHealthCheckArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param uri 健康检查的路径
+         * @param uri 健康检查的路径。
          * 
          * @return builder
          * 

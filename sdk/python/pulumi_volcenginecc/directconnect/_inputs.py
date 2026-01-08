@@ -26,14 +26,74 @@ MYPY = False
 
 if not MYPY:
     class DirectConnectGatewayAssociateCenArgsDict(TypedDict):
-        pass
+        cen_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        CEN的ID。
+        """
+        cen_owner_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        CEN的用户ID。
+        """
+        cen_status: NotRequired[pulumi.Input[builtins.str]]
+        """
+        实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        """
 elif False:
     DirectConnectGatewayAssociateCenArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectConnectGatewayAssociateCenArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 cen_id: Optional[pulumi.Input[builtins.str]] = None,
+                 cen_owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 cen_status: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] cen_id: CEN的ID。
+        :param pulumi.Input[builtins.str] cen_owner_id: CEN的用户ID。
+        :param pulumi.Input[builtins.str] cen_status: 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        """
+        if cen_id is not None:
+            pulumi.set(__self__, "cen_id", cen_id)
+        if cen_owner_id is not None:
+            pulumi.set(__self__, "cen_owner_id", cen_owner_id)
+        if cen_status is not None:
+            pulumi.set(__self__, "cen_status", cen_status)
+
+    @property
+    @pulumi.getter(name="cenId")
+    def cen_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        CEN的ID。
+        """
+        return pulumi.get(self, "cen_id")
+
+    @cen_id.setter
+    def cen_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cen_id", value)
+
+    @property
+    @pulumi.getter(name="cenOwnerId")
+    def cen_owner_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        CEN的用户ID。
+        """
+        return pulumi.get(self, "cen_owner_id")
+
+    @cen_owner_id.setter
+    def cen_owner_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cen_owner_id", value)
+
+    @property
+    @pulumi.getter(name="cenStatus")
+    def cen_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        """
+        return pulumi.get(self, "cen_status")
+
+    @cen_status.setter
+    def cen_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cen_status", value)
 
 
 if not MYPY:

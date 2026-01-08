@@ -56,7 +56,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public partial class NlbListener : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        /// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// 监听协议类型。
+        /// 监听协议类型。TCP,UDP,TLS
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public sealed class NlbListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        /// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
@@ -261,7 +261,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// 监听协议类型。
+        /// 监听协议类型。TCP,UDP,TLS
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -301,7 +301,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public sealed class NlbListenerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        /// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
@@ -369,7 +369,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// 监听协议类型。
+        /// 监听协议类型。TCP,UDP,TLS
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

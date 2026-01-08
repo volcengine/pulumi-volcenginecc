@@ -31,8 +31,7 @@ class RouteTableArgs:
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_name: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableTagArgs']]]] = None,
-                 vpc_name: Optional[pulumi.Input[builtins.str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
         :param pulumi.Input[builtins.str] vpc_id: 路由表所属VPC的ID。
@@ -43,7 +42,6 @@ class RouteTableArgs:
         :param pulumi.Input[builtins.str] project_name: 路由表所属项目的名称。
         :param pulumi.Input[builtins.str] route_table_name: 路由表名称。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: 关联的子网的ID列表。
-        :param pulumi.Input[builtins.str] vpc_name: VPC的名称。
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if associate_type is not None:
@@ -64,8 +62,6 @@ class RouteTableArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpc_name is not None:
-            pulumi.set(__self__, "vpc_name", vpc_name)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -180,18 +176,6 @@ class RouteTableArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableTagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="vpcName")
-    def vpc_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        VPC的名称。
-        """
-        return pulumi.get(self, "vpc_name")
-
-    @vpc_name.setter
-    def vpc_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "vpc_name", value)
 
 
 @pulumi.input_type
@@ -478,7 +462,6 @@ class RouteTable(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableTagArgs', 'RouteTableTagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
-                 vpc_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         路由表由一系列路由条目组成，为私有网络的流量指定下一跳的云资源，每个子网必须且仅支持关联一个路由表，使子网内的资源通过路由表转发流量。
@@ -499,7 +482,6 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] route_table_name: 路由表名称。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: 关联的子网的ID列表。
         :param pulumi.Input[builtins.str] vpc_id: 路由表所属VPC的ID。
-        :param pulumi.Input[builtins.str] vpc_name: VPC的名称。
         """
         ...
     @overload
@@ -541,7 +523,6 @@ class RouteTable(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableTagArgs', 'RouteTableTagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
-                 vpc_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,13 +544,13 @@ class RouteTable(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
-            __props__.__dict__["vpc_name"] = vpc_name
             __props__.__dict__["account_id"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["route_table_id"] = None
             __props__.__dict__["route_table_type"] = None
             __props__.__dict__["system_route_entries"] = None
             __props__.__dict__["updated_time"] = None
+            __props__.__dict__["vpc_name"] = None
         super(RouteTable, __self__).__init__(
             'volcenginecc:vpc/routeTable:RouteTable',
             resource_name,

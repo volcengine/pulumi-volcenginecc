@@ -14,6 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DirectConnectGatewayAssociateCen struct {
+	// CEN的ID。
+	CenId *string `pulumi:"cenId"`
+	// CEN的用户ID。
+	CenOwnerId *string `pulumi:"cenOwnerId"`
+	// 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+	CenStatus *string `pulumi:"cenStatus"`
 }
 
 // DirectConnectGatewayAssociateCenInput is an input type that accepts DirectConnectGatewayAssociateCenArgs and DirectConnectGatewayAssociateCenOutput values.
@@ -28,6 +34,12 @@ type DirectConnectGatewayAssociateCenInput interface {
 }
 
 type DirectConnectGatewayAssociateCenArgs struct {
+	// CEN的ID。
+	CenId pulumi.StringPtrInput `pulumi:"cenId"`
+	// CEN的用户ID。
+	CenOwnerId pulumi.StringPtrInput `pulumi:"cenOwnerId"`
+	// 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+	CenStatus pulumi.StringPtrInput `pulumi:"cenStatus"`
 }
 
 func (DirectConnectGatewayAssociateCenArgs) ElementType() reflect.Type {
@@ -79,6 +91,21 @@ func (o DirectConnectGatewayAssociateCenOutput) ToDirectConnectGatewayAssociateC
 
 func (o DirectConnectGatewayAssociateCenOutput) ToDirectConnectGatewayAssociateCenOutputWithContext(ctx context.Context) DirectConnectGatewayAssociateCenOutput {
 	return o
+}
+
+// CEN的ID。
+func (o DirectConnectGatewayAssociateCenOutput) CenId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAssociateCen) *string { return v.CenId }).(pulumi.StringPtrOutput)
+}
+
+// CEN的用户ID。
+func (o DirectConnectGatewayAssociateCenOutput) CenOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAssociateCen) *string { return v.CenOwnerId }).(pulumi.StringPtrOutput)
+}
+
+// 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+func (o DirectConnectGatewayAssociateCenOutput) CenStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAssociateCen) *string { return v.CenStatus }).(pulumi.StringPtrOutput)
 }
 
 type DirectConnectGatewayAssociateCenArrayOutput struct{ *pulumi.OutputState }

@@ -22,7 +22,7 @@ __all__ = ['DirectConnectGatewayArgs', 'DirectConnectGateway']
 @pulumi.input_type
 class DirectConnectGatewayArgs:
     def __init__(__self__, *,
-                 associate_cens: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAssociateCenArgs']]]] = None,
+                 bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  direct_connect_gateway_name: Optional[pulumi.Input[builtins.str]] = None,
                  enable_ipv6: Optional[pulumi.Input[builtins.bool]] = None,
@@ -30,13 +30,14 @@ class DirectConnectGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectConnectGateway resource.
+        :param pulumi.Input[builtins.int] bgp_asn: 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
         :param pulumi.Input[builtins.str] description: 专线网关的描述信息。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、空格（ ）、下划线（_）、中划线（-）、等号（=）、英文逗号（,）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] direct_connect_gateway_name: 专线网关的名称。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为专线网关的ID。
         :param pulumi.Input[builtins.bool] enable_ipv6: 是否支持IPv6。true：支持。false：不支持。
         :param pulumi.Input[builtins.str] project_name: 专线网关所属的项目。
         """
-        if associate_cens is not None:
-            pulumi.set(__self__, "associate_cens", associate_cens)
+        if bgp_asn is not None:
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if direct_connect_gateway_name is not None:
@@ -49,13 +50,16 @@ class DirectConnectGatewayArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="associateCens")
-    def associate_cens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAssociateCenArgs']]]]:
-        return pulumi.get(self, "associate_cens")
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+        """
+        return pulumi.get(self, "bgp_asn")
 
-    @associate_cens.setter
-    def associate_cens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAssociateCenArgs']]]]):
-        pulumi.set(self, "associate_cens", value)
+    @bgp_asn.setter
+    def bgp_asn(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "bgp_asn", value)
 
     @property
     @pulumi.getter
@@ -120,6 +124,7 @@ class _DirectConnectGatewayState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  associate_cens: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAssociateCenArgs']]]] = None,
+                 bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
                  business_status: Optional[pulumi.Input[builtins.str]] = None,
                  created_time: Optional[pulumi.Input[builtins.str]] = None,
                  deleted_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -136,6 +141,7 @@ class _DirectConnectGatewayState:
         """
         Input properties used for looking up and filtering DirectConnectGateway resources.
         :param pulumi.Input[builtins.str] account_id: 专线网关所属账号的ID。
+        :param pulumi.Input[builtins.int] bgp_asn: 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
         :param pulumi.Input[builtins.str] business_status: 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
         :param pulumi.Input[builtins.str] created_time: 创建专线网关的时间。
         :param pulumi.Input[builtins.str] deleted_time: 预期资源强制回收时间。仅当资源因为欠费冻结，此参数才会有返回值，否则均返回空值。
@@ -153,6 +159,8 @@ class _DirectConnectGatewayState:
             pulumi.set(__self__, "account_id", account_id)
         if associate_cens is not None:
             pulumi.set(__self__, "associate_cens", associate_cens)
+        if bgp_asn is not None:
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
         if business_status is not None:
             pulumi.set(__self__, "business_status", business_status)
         if created_time is not None:
@@ -200,6 +208,18 @@ class _DirectConnectGatewayState:
     @associate_cens.setter
     def associate_cens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAssociateCenArgs']]]]):
         pulumi.set(self, "associate_cens", value)
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "bgp_asn", value)
 
     @property
     @pulumi.getter(name="businessStatus")
@@ -361,7 +381,7 @@ class DirectConnectGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_cens: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DirectConnectGatewayAssociateCenArgs', 'DirectConnectGatewayAssociateCenArgsDict']]]]] = None,
+                 bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  direct_connect_gateway_name: Optional[pulumi.Input[builtins.str]] = None,
                  enable_ipv6: Optional[pulumi.Input[builtins.bool]] = None,
@@ -396,6 +416,7 @@ class DirectConnectGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.int] bgp_asn: 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
         :param pulumi.Input[builtins.str] description: 专线网关的描述信息。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、空格（ ）、下划线（_）、中划线（-）、等号（=）、英文逗号（,）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] direct_connect_gateway_name: 专线网关的名称。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为专线网关的ID。
         :param pulumi.Input[builtins.bool] enable_ipv6: 是否支持IPv6。true：支持。false：不支持。
@@ -448,7 +469,7 @@ class DirectConnectGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_cens: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DirectConnectGatewayAssociateCenArgs', 'DirectConnectGatewayAssociateCenArgsDict']]]]] = None,
+                 bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  direct_connect_gateway_name: Optional[pulumi.Input[builtins.str]] = None,
                  enable_ipv6: Optional[pulumi.Input[builtins.bool]] = None,
@@ -463,13 +484,14 @@ class DirectConnectGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectConnectGatewayArgs.__new__(DirectConnectGatewayArgs)
 
-            __props__.__dict__["associate_cens"] = associate_cens
+            __props__.__dict__["bgp_asn"] = bgp_asn
             __props__.__dict__["description"] = description
             __props__.__dict__["direct_connect_gateway_name"] = direct_connect_gateway_name
             __props__.__dict__["enable_ipv6"] = enable_ipv6
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_id"] = None
+            __props__.__dict__["associate_cens"] = None
             __props__.__dict__["business_status"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["deleted_time"] = None
@@ -490,6 +512,7 @@ class DirectConnectGateway(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[builtins.str]] = None,
             associate_cens: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DirectConnectGatewayAssociateCenArgs', 'DirectConnectGatewayAssociateCenArgsDict']]]]] = None,
+            bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
             business_status: Optional[pulumi.Input[builtins.str]] = None,
             created_time: Optional[pulumi.Input[builtins.str]] = None,
             deleted_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -511,6 +534,7 @@ class DirectConnectGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: 专线网关所属账号的ID。
+        :param pulumi.Input[builtins.int] bgp_asn: 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
         :param pulumi.Input[builtins.str] business_status: 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
         :param pulumi.Input[builtins.str] created_time: 创建专线网关的时间。
         :param pulumi.Input[builtins.str] deleted_time: 预期资源强制回收时间。仅当资源因为欠费冻结，此参数才会有返回值，否则均返回空值。
@@ -530,6 +554,7 @@ class DirectConnectGateway(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["associate_cens"] = associate_cens
+        __props__.__dict__["bgp_asn"] = bgp_asn
         __props__.__dict__["business_status"] = business_status
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["deleted_time"] = deleted_time
@@ -557,6 +582,14 @@ class DirectConnectGateway(pulumi.CustomResource):
     @pulumi.getter(name="associateCens")
     def associate_cens(self) -> pulumi.Output[Sequence['outputs.DirectConnectGatewayAssociateCen']]:
         return pulumi.get(self, "associate_cens")
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> pulumi.Output[builtins.int]:
+        """
+        专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+        """
+        return pulumi.get(self, "bgp_asn")
 
     @property
     @pulumi.getter(name="businessStatus")

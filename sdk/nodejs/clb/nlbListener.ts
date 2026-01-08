@@ -66,7 +66,7 @@ export class NlbListener extends pulumi.CustomResource {
     }
 
     /**
-     * TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      */
     public readonly certificateId!: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export class NlbListener extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * 监听协议类型。
+     * 监听协议类型。TCP,UDP,TLS
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export class NlbListener extends pulumi.CustomResource {
  */
 export interface NlbListenerState {
     /**
-     * TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      */
     certificateId?: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface NlbListenerState {
      */
     port?: pulumi.Input<number>;
     /**
-     * 监听协议类型。
+     * 监听协议类型。TCP,UDP,TLS
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -278,7 +278,7 @@ export interface NlbListenerState {
  */
 export interface NlbListenerArgs {
     /**
-     * TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      */
     certificateId?: pulumi.Input<string>;
     /**
@@ -311,7 +311,7 @@ export interface NlbListenerArgs {
      */
     port: pulumi.Input<number>;
     /**
-     * 监听协议类型。
+     * 监听协议类型。TCP,UDP,TLS
      */
     protocol: pulumi.Input<string>;
     /**

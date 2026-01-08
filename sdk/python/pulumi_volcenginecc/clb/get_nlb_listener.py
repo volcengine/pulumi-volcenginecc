@@ -91,7 +91,7 @@ class GetNlbListenerResult:
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> builtins.str:
         """
-        TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         """
         return pulumi.get(self, "certificate_id")
 
@@ -187,7 +187,7 @@ class GetNlbListenerResult:
     @pulumi.getter
     def protocol(self) -> builtins.str:
         """
-        监听协议类型。
+        监听协议类型。TCP,UDP,TLS
         """
         return pulumi.get(self, "protocol")
 

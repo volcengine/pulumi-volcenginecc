@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * 通过为网络实例连接或跨地域连接关联的路由表创建或删除静态路由，能够灵活地控制中转路由器中的流量走向。
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
- *
- * const transitRouterRouteEntryDemo = new volcenginecc.transitrouter.TransitRouterRouteEntry("TransitRouterRouteEntryDemo", {
- *     description: "Demo Example",
- *     destinationCidrBlock: "192.168.1.101/*",
- *     transitRouterRouteEntryName: "test-Attachmentkua",
- *     transitRouterRouteTableId: "tr-rtb-mijcn***",
- *     transitRouterRouteEntryNextHopId: "tr-attach-13fs****",
- *     transitRouterRouteEntryNextHopType: "Attachment",
- *     transitRouterRouteEntryType: "Propagated",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -65,7 +48,7 @@ export class TransitRouterRouteEntry extends pulumi.CustomResource {
     /**
      * 路由条目的创建时间。
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      */
@@ -97,7 +80,7 @@ export class TransitRouterRouteEntry extends pulumi.CustomResource {
     /**
      * 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
      */
-    public readonly transitRouterRouteEntryType!: pulumi.Output<string>;
+    public /*out*/ readonly transitRouterRouteEntryType!: pulumi.Output<string>;
     /**
      * 中转路由器实例关联的路由表的ID。
      */
@@ -105,7 +88,7 @@ export class TransitRouterRouteEntry extends pulumi.CustomResource {
     /**
      * 路由条目的更新时间。
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
 
     /**
      * Create a TransitRouterRouteEntry resource with the given unique name, arguments, and options.
@@ -121,7 +104,7 @@ export class TransitRouterRouteEntry extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TransitRouterRouteEntryState | undefined;
             resourceInputs["asPaths"] = state ? state.asPaths : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -131,7 +114,7 @@ export class TransitRouterRouteEntry extends pulumi.CustomResource {
             resourceInputs["transitRouterRouteEntryNextHopType"] = state ? state.transitRouterRouteEntryNextHopType : undefined;
             resourceInputs["transitRouterRouteEntryType"] = state ? state.transitRouterRouteEntryType : undefined;
             resourceInputs["transitRouterRouteTableId"] = state ? state.transitRouterRouteTableId : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
         } else {
             const args = argsOrState as TransitRouterRouteEntryArgs | undefined;
             if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
@@ -148,13 +131,13 @@ export class TransitRouterRouteEntry extends pulumi.CustomResource {
             resourceInputs["transitRouterRouteEntryName"] = args ? args.transitRouterRouteEntryName : undefined;
             resourceInputs["transitRouterRouteEntryNextHopId"] = args ? args.transitRouterRouteEntryNextHopId : undefined;
             resourceInputs["transitRouterRouteEntryNextHopType"] = args ? args.transitRouterRouteEntryNextHopType : undefined;
-            resourceInputs["transitRouterRouteEntryType"] = args ? args.transitRouterRouteEntryType : undefined;
             resourceInputs["transitRouterRouteTableId"] = args ? args.transitRouterRouteTableId : undefined;
             resourceInputs["asPaths"] = undefined /*out*/;
-            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["transitRouterRouteEntryId"] = undefined /*out*/;
-            resourceInputs["updateTime"] = undefined /*out*/;
+            resourceInputs["transitRouterRouteEntryType"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitRouterRouteEntry.__pulumiType, name, resourceInputs, opts);
@@ -172,7 +155,7 @@ export interface TransitRouterRouteEntryState {
     /**
      * 路由条目的创建时间。
      */
-    creationTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      */
@@ -212,7 +195,7 @@ export interface TransitRouterRouteEntryState {
     /**
      * 路由条目的更新时间。
      */
-    updateTime?: pulumi.Input<string>;
+    updatedTime?: pulumi.Input<string>;
 }
 
 /**
@@ -239,10 +222,6 @@ export interface TransitRouterRouteEntryArgs {
      * 路由条目的下一跳类型。取值如下：Attachment：网络实例，表示匹配该路由条目的流量会被转发到指定的网络实例。BlackHole：黑洞，表示匹配该路由条目的流量会被丢弃。
      */
     transitRouterRouteEntryNextHopType: pulumi.Input<string>;
-    /**
-     * 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-     */
-    transitRouterRouteEntryType?: pulumi.Input<string>;
     /**
      * 中转路由器实例关联的路由表的ID。
      */

@@ -40,9 +40,9 @@ class NlbListenerArgs:
         The set of arguments for constructing a NlbListener resource.
         :param pulumi.Input[builtins.str] load_balancer_id: 负载均衡实例ID。
         :param pulumi.Input[builtins.int] port: 监听器接收请求的端口，0表示启用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听协议类型。
+        :param pulumi.Input[builtins.str] protocol: 监听协议类型。TCP,UDP,TLS
         :param pulumi.Input[builtins.str] server_group_id: 监听器关联的服务器组ID。
-        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         :param pulumi.Input[builtins.int] connection_timeout: 监听器的连接超时时间（秒）。
         :param pulumi.Input[builtins.str] description: 监听器描述信息。
         :param pulumi.Input[builtins.bool] enabled: 是否启用监听器。true：开启；false：关闭。
@@ -104,7 +104,7 @@ class NlbListenerArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[builtins.str]:
         """
-        监听协议类型。
+        监听协议类型。TCP,UDP,TLS
         """
         return pulumi.get(self, "protocol")
 
@@ -128,7 +128,7 @@ class NlbListenerArgs:
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         """
         return pulumi.get(self, "certificate_id")
 
@@ -262,7 +262,7 @@ class _NlbListenerState:
                  updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering NlbListener resources.
-        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         :param pulumi.Input[builtins.int] connection_timeout: 监听器的连接超时时间（秒）。
         :param pulumi.Input[builtins.str] created_time: 监听器的创建时间。
         :param pulumi.Input[builtins.str] description: 监听器描述信息。
@@ -272,7 +272,7 @@ class _NlbListenerState:
         :param pulumi.Input[builtins.str] listener_name: 监听器名称。
         :param pulumi.Input[builtins.str] load_balancer_id: 负载均衡实例ID。
         :param pulumi.Input[builtins.int] port: 监听器接收请求的端口，0表示启用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听协议类型。
+        :param pulumi.Input[builtins.str] protocol: 监听协议类型。TCP,UDP,TLS
         :param pulumi.Input[builtins.str] security_policy_id: TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
         :param pulumi.Input[builtins.str] server_group_id: 监听器关联的服务器组ID。
         :param pulumi.Input[builtins.int] start_port: 全端口监听的起始端口，仅当Port为0时有效。
@@ -320,7 +320,7 @@ class _NlbListenerState:
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         """
         return pulumi.get(self, "certificate_id")
 
@@ -449,7 +449,7 @@ class _NlbListenerState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        监听协议类型。
+        监听协议类型。TCP,UDP,TLS
         """
         return pulumi.get(self, "protocol")
 
@@ -580,7 +580,7 @@ class NlbListener(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         :param pulumi.Input[builtins.int] connection_timeout: 监听器的连接超时时间（秒）。
         :param pulumi.Input[builtins.str] description: 监听器描述信息。
         :param pulumi.Input[builtins.bool] enabled: 是否启用监听器。true：开启；false：关闭。
@@ -588,7 +588,7 @@ class NlbListener(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] listener_name: 监听器名称。
         :param pulumi.Input[builtins.str] load_balancer_id: 负载均衡实例ID。
         :param pulumi.Input[builtins.int] port: 监听器接收请求的端口，0表示启用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听协议类型。
+        :param pulumi.Input[builtins.str] protocol: 监听协议类型。TCP,UDP,TLS
         :param pulumi.Input[builtins.str] security_policy_id: TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
         :param pulumi.Input[builtins.str] server_group_id: 监听器关联的服务器组ID。
         :param pulumi.Input[builtins.int] start_port: 全端口监听的起始端口，仅当Port为0时有效。
@@ -728,7 +728,7 @@ class NlbListener(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        :param pulumi.Input[builtins.str] certificate_id: TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         :param pulumi.Input[builtins.int] connection_timeout: 监听器的连接超时时间（秒）。
         :param pulumi.Input[builtins.str] created_time: 监听器的创建时间。
         :param pulumi.Input[builtins.str] description: 监听器描述信息。
@@ -738,7 +738,7 @@ class NlbListener(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] listener_name: 监听器名称。
         :param pulumi.Input[builtins.str] load_balancer_id: 负载均衡实例ID。
         :param pulumi.Input[builtins.int] port: 监听器接收请求的端口，0表示启用全端口监听。
-        :param pulumi.Input[builtins.str] protocol: 监听协议类型。
+        :param pulumi.Input[builtins.str] protocol: 监听协议类型。TCP,UDP,TLS
         :param pulumi.Input[builtins.str] security_policy_id: TLS 安全策略ID，支持系统安全策略和自定义安全策略。系统安全策略取值：.tls*cipher*policy*1*0.tls*cipher*policy*1*1.tls*cipher*policy*1*2.tls*cipher*policy*1*2*strict.tls*cipher*policy*1*2*strict*with*1_3.自定义安全策略：输入自定义安全策略 ID。当Protocol为TLS 时，该参数为必填。。
         :param pulumi.Input[builtins.str] server_group_id: 监听器关联的服务器组ID。
         :param pulumi.Input[builtins.int] start_port: 全端口监听的起始端口，仅当Port为0时有效。
@@ -773,7 +773,7 @@ class NlbListener(pulumi.CustomResource):
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Output[builtins.str]:
         """
-        TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         """
         return pulumi.get(self, "certificate_id")
 
@@ -858,7 +858,7 @@ class NlbListener(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[builtins.str]:
         """
-        监听协议类型。
+        监听协议类型。TCP,UDP,TLS
         """
         return pulumi.get(self, "protocol")
 

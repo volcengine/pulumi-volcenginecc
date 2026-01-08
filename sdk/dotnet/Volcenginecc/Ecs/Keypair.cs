@@ -87,12 +87,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         public Output<string> KeyPairName { get; private set; } = null!;
 
         /// <summary>
-        /// 密钥对私钥信息。
-        /// </summary>
-        [Output("privateKey")]
-        public Output<string> PrivateKey { get; private set; } = null!;
-
-        /// <summary>
         /// 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         /// </summary>
         [Output("projectName")]
@@ -185,12 +179,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         public Input<string> KeyPairName { get; set; } = null!;
 
         /// <summary>
-        /// 密钥对私钥信息。
-        /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
-
-        /// <summary>
         /// 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         /// </summary>
         [Input("projectName")]
@@ -259,12 +247,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         /// </summary>
         [Input("keyPairName")]
         public Input<string>? KeyPairName { get; set; }
-
-        /// <summary>
-        /// 密钥对私钥信息。
-        /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
 
         /// <summary>
         /// 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。

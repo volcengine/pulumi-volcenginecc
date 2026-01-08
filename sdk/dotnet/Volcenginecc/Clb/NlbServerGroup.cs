@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Clb
 {
     /// <summary>
-    /// 服务器组
+    /// 服务器组是一组后端服务器。
     /// 
     /// ## Import
     /// 
@@ -23,25 +23,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public partial class NlbServerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 账号ID
+        /// 账号ID。
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启全端口转发
+        /// 是否开启全端口转发。
         /// </summary>
         [Output("anyPortEnabled")]
         public Output<bool> AnyPortEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+        /// 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
         /// </summary>
         [Output("bypassSecurityGroupEnabled")]
         public Output<bool> BypassSecurityGroupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启连接优雅中断
+        /// 是否开启连接优雅中断。
         /// </summary>
         [Output("connectionDrainEnabled")]
         public Output<bool> ConnectionDrainEnabled { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<int> ConnectionDrainTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// 后端服务器组的创建时间
+        /// 后端服务器组的创建时间。
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
@@ -65,61 +65,61 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// 健康检查相关参数
+        /// 健康检查相关参数。
         /// </summary>
         [Output("healthCheck")]
         public Output<Outputs.NlbServerGroupHealthCheck> HealthCheck { get; private set; } = null!;
 
         /// <summary>
-        /// 服务器组的IP地址类型
+        /// 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
         /// </summary>
         [Output("ipAddressVersion")]
         public Output<string> IpAddressVersion { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启源地址保持
+        /// 是否开启源地址保持。
         /// </summary>
         [Output("preserveClientIpEnabled")]
         public Output<bool> PreserveClientIpEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// 项目名称
+        /// 项目名称。
         /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
-        /// NLB转发流量到后端服务器时使用的通信协议
+        /// NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启Proxy-Protocol协议
+        /// 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
         /// </summary>
         [Output("proxyProtocolType")]
         public Output<string> ProxyProtocolType { get; private set; } = null!;
 
         /// <summary>
-        /// 服务器组关联的NLB实例
+        /// 服务器组关联的NLB实例。
         /// </summary>
         [Output("relatedLoadBalancerIds")]
         public Output<ImmutableArray<string>> RelatedLoadBalancerIds { get; private set; } = null!;
 
         /// <summary>
-        /// NLB转发流量时遵循的规则
+        /// NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         /// </summary>
         [Output("scheduler")]
         public Output<string> Scheduler { get; private set; } = null!;
 
         /// <summary>
-        /// 服务器组中后端服务器的数量
+        /// 服务器组中后端服务器的数量。
         /// </summary>
         [Output("serverCount")]
         public Output<int> ServerCount { get; private set; } = null!;
 
         /// <summary>
-        /// 服务器组ID
+        /// 服务器组ID。
         /// </summary>
         [Output("serverGroupId")]
         public Output<string> ServerGroupId { get; private set; } = null!;
@@ -134,19 +134,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<ImmutableArray<Outputs.NlbServerGroupServer>> Servers { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启会话保持
+        /// 是否开启会话保持。
         /// </summary>
         [Output("sessionPersistenceEnabled")]
         public Output<bool> SessionPersistenceEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+        /// 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
         /// </summary>
         [Output("sessionPersistenceTimeout")]
         public Output<int> SessionPersistenceTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// 服务器组的状态
+        /// 服务器组的状态。
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -155,19 +155,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<ImmutableArray<Outputs.NlbServerGroupTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+        /// 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
         /// </summary>
         [Output("timestampRemoveEnabled")]
         public Output<bool> TimestampRemoveEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// 服务器组的类型
+        /// 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// 后端服务器组的更新时间
+        /// 后端服务器组的更新时间。
         /// </summary>
         [Output("updatedTime")]
         public Output<string> UpdatedTime { get; private set; } = null!;
@@ -226,25 +226,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public sealed class NlbServerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 账号ID
-        /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
-
-        /// <summary>
-        /// 是否开启全端口转发
+        /// 是否开启全端口转发。
         /// </summary>
         [Input("anyPortEnabled")]
         public Input<bool>? AnyPortEnabled { get; set; }
 
         /// <summary>
-        /// 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+        /// 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
         /// </summary>
         [Input("bypassSecurityGroupEnabled")]
         public Input<bool>? BypassSecurityGroupEnabled { get; set; }
 
         /// <summary>
-        /// 是否开启连接优雅中断
+        /// 是否开启连接优雅中断。
         /// </summary>
         [Input("connectionDrainEnabled")]
         public Input<bool>? ConnectionDrainEnabled { get; set; }
@@ -256,55 +250,49 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<int>? ConnectionDrainTimeout { get; set; }
 
         /// <summary>
-        /// 后端服务器组的创建时间
-        /// </summary>
-        [Input("createdTime")]
-        public Input<string>? CreatedTime { get; set; }
-
-        /// <summary>
         /// 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 健康检查相关参数
+        /// 健康检查相关参数。
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.NlbServerGroupHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// 服务器组的IP地址类型
+        /// 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
         /// </summary>
         [Input("ipAddressVersion")]
         public Input<string>? IpAddressVersion { get; set; }
 
         /// <summary>
-        /// 是否开启源地址保持
+        /// 是否开启源地址保持。
         /// </summary>
         [Input("preserveClientIpEnabled")]
         public Input<bool>? PreserveClientIpEnabled { get; set; }
 
         /// <summary>
-        /// 项目名称
+        /// 项目名称。
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// NLB转发流量到后端服务器时使用的通信协议
+        /// NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// 是否开启Proxy-Protocol协议
+        /// 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
         /// </summary>
         [Input("proxyProtocolType")]
         public Input<string>? ProxyProtocolType { get; set; }
 
         /// <summary>
-        /// NLB转发流量时遵循的规则
+        /// NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         /// </summary>
         [Input("scheduler")]
         public Input<string>? Scheduler { get; set; }
@@ -324,13 +312,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         }
 
         /// <summary>
-        /// 是否开启会话保持
+        /// 是否开启会话保持。
         /// </summary>
         [Input("sessionPersistenceEnabled")]
         public Input<bool>? SessionPersistenceEnabled { get; set; }
 
         /// <summary>
-        /// 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+        /// 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
         /// </summary>
         [Input("sessionPersistenceTimeout")]
         public Input<int>? SessionPersistenceTimeout { get; set; }
@@ -344,22 +332,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         }
 
         /// <summary>
-        /// 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+        /// 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
         /// </summary>
         [Input("timestampRemoveEnabled")]
         public Input<bool>? TimestampRemoveEnabled { get; set; }
 
         /// <summary>
-        /// 服务器组的类型
+        /// 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
-
-        /// <summary>
-        /// 后端服务器组的更新时间
-        /// </summary>
-        [Input("updatedTime")]
-        public Input<string>? UpdatedTime { get; set; }
 
         /// <summary>
         /// 服务器组所属私有网络的ID。
@@ -376,25 +358,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public sealed class NlbServerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 账号ID
+        /// 账号ID。
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// 是否开启全端口转发
+        /// 是否开启全端口转发。
         /// </summary>
         [Input("anyPortEnabled")]
         public Input<bool>? AnyPortEnabled { get; set; }
 
         /// <summary>
-        /// 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+        /// 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
         /// </summary>
         [Input("bypassSecurityGroupEnabled")]
         public Input<bool>? BypassSecurityGroupEnabled { get; set; }
 
         /// <summary>
-        /// 是否开启连接优雅中断
+        /// 是否开启连接优雅中断。
         /// </summary>
         [Input("connectionDrainEnabled")]
         public Input<bool>? ConnectionDrainEnabled { get; set; }
@@ -406,7 +388,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<int>? ConnectionDrainTimeout { get; set; }
 
         /// <summary>
-        /// 后端服务器组的创建时间
+        /// 后端服务器组的创建时间。
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
@@ -418,37 +400,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 健康检查相关参数
+        /// 健康检查相关参数。
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.NlbServerGroupHealthCheckGetArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// 服务器组的IP地址类型
+        /// 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
         /// </summary>
         [Input("ipAddressVersion")]
         public Input<string>? IpAddressVersion { get; set; }
 
         /// <summary>
-        /// 是否开启源地址保持
+        /// 是否开启源地址保持。
         /// </summary>
         [Input("preserveClientIpEnabled")]
         public Input<bool>? PreserveClientIpEnabled { get; set; }
 
         /// <summary>
-        /// 项目名称
+        /// 项目名称。
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// NLB转发流量到后端服务器时使用的通信协议
+        /// NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// 是否开启Proxy-Protocol协议
+        /// 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
         /// </summary>
         [Input("proxyProtocolType")]
         public Input<string>? ProxyProtocolType { get; set; }
@@ -457,7 +439,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         private InputList<string>? _relatedLoadBalancerIds;
 
         /// <summary>
-        /// 服务器组关联的NLB实例
+        /// 服务器组关联的NLB实例。
         /// </summary>
         public InputList<string> RelatedLoadBalancerIds
         {
@@ -466,19 +448,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         }
 
         /// <summary>
-        /// NLB转发流量时遵循的规则
+        /// NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         /// </summary>
         [Input("scheduler")]
         public Input<string>? Scheduler { get; set; }
 
         /// <summary>
-        /// 服务器组中后端服务器的数量
+        /// 服务器组中后端服务器的数量。
         /// </summary>
         [Input("serverCount")]
         public Input<int>? ServerCount { get; set; }
 
         /// <summary>
-        /// 服务器组ID
+        /// 服务器组ID。
         /// </summary>
         [Input("serverGroupId")]
         public Input<string>? ServerGroupId { get; set; }
@@ -498,19 +480,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         }
 
         /// <summary>
-        /// 是否开启会话保持
+        /// 是否开启会话保持。
         /// </summary>
         [Input("sessionPersistenceEnabled")]
         public Input<bool>? SessionPersistenceEnabled { get; set; }
 
         /// <summary>
-        /// 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+        /// 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
         /// </summary>
         [Input("sessionPersistenceTimeout")]
         public Input<int>? SessionPersistenceTimeout { get; set; }
 
         /// <summary>
-        /// 服务器组的状态
+        /// 服务器组的状态。
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -524,19 +506,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         }
 
         /// <summary>
-        /// 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+        /// 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
         /// </summary>
         [Input("timestampRemoveEnabled")]
         public Input<bool>? TimestampRemoveEnabled { get; set; }
 
         /// <summary>
-        /// 服务器组的类型
+        /// 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// 后端服务器组的更新时间
+        /// 后端服务器组的更新时间。
         /// </summary>
         [Input("updatedTime")]
         public Input<string>? UpdatedTime { get; set; }

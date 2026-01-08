@@ -72,7 +72,7 @@ type LookupEipResult struct {
 	Name string `pulumi:"name"`
 	// 资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。
 	OverdueTime string `pulumi:"overdueTime"`
-	// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+	// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 	Period int `pulumi:"period"`
 	// 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
 	PeriodUnit int `pulumi:"periodUnit"`
@@ -239,7 +239,7 @@ func (o LookupEipResultOutput) OverdueTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEipResult) string { return v.OverdueTime }).(pulumi.StringOutput)
 }
 
-// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 func (o LookupEipResultOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupEipResult) int { return v.Period }).(pulumi.IntOutput)
 }

@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewayAssociateCen;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewayTag;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +25,11 @@ public final class GetDirectConnectGatewayResult {
      * 
      */
     private List<GetDirectConnectGatewayAssociateCen> associateCens;
+    /**
+     * @return 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     * 
+     */
+    private Integer bgpAsn;
     /**
      * @return 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
      * 
@@ -109,6 +115,13 @@ public final class GetDirectConnectGatewayResult {
      */
     public List<GetDirectConnectGatewayAssociateCen> associateCens() {
         return this.associateCens;
+    }
+    /**
+     * @return 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     * 
+     */
+    public Integer bgpAsn() {
+        return this.bgpAsn;
     }
     /**
      * @return 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
@@ -220,6 +233,7 @@ public final class GetDirectConnectGatewayResult {
     public static final class Builder {
         private String accountId;
         private List<GetDirectConnectGatewayAssociateCen> associateCens;
+        private Integer bgpAsn;
         private String businessStatus;
         private String createdTime;
         private String deletedTime;
@@ -239,6 +253,7 @@ public final class GetDirectConnectGatewayResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
     	      this.associateCens = defaults.associateCens;
+    	      this.bgpAsn = defaults.bgpAsn;
     	      this.businessStatus = defaults.businessStatus;
     	      this.createdTime = defaults.createdTime;
     	      this.deletedTime = defaults.deletedTime;
@@ -273,6 +288,14 @@ public final class GetDirectConnectGatewayResult {
         }
         public Builder associateCens(GetDirectConnectGatewayAssociateCen... associateCens) {
             return associateCens(List.of(associateCens));
+        }
+        @CustomType.Setter
+        public Builder bgpAsn(Integer bgpAsn) {
+            if (bgpAsn == null) {
+              throw new MissingRequiredPropertyException("GetDirectConnectGatewayResult", "bgpAsn");
+            }
+            this.bgpAsn = bgpAsn;
+            return this;
         }
         @CustomType.Setter
         public Builder businessStatus(String businessStatus) {
@@ -393,6 +416,7 @@ public final class GetDirectConnectGatewayResult {
             final var _resultValue = new GetDirectConnectGatewayResult();
             _resultValue.accountId = accountId;
             _resultValue.associateCens = associateCens;
+            _resultValue.bgpAsn = bgpAsn;
             _resultValue.businessStatus = businessStatus;
             _resultValue.createdTime = createdTime;
             _resultValue.deletedTime = deletedTime;

@@ -120,7 +120,7 @@ public final class GetEipResult {
      */
     private String overdueTime;
     /**
-     * @return 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * @return 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      * 
      */
     private Integer period;
@@ -334,7 +334,7 @@ public final class GetEipResult {
         return this.overdueTime;
     }
     /**
-     * @return 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * @return 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      * 
      */
     public Integer period() {

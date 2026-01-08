@@ -19,6 +19,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * ALB提供监听级别的访问控制，如果您希望仅允许某些IP、或仅拒绝某些IP通过监听端口访问ALB实例，可以对该监听器设置访问控制策略。您可以在创建监听器时配置访问控制，也可以在监听器创建后修改或重新配置访问控制。
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -126,15 +128,15 @@ public class Acl extends com.pulumi.resources.CustomResource {
      * 访问控制策略组的创建时间。
      * 
      */
-    @Export(name="createTime", refs={String.class}, tree="[0]")
-    private Output<String> createTime;
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
+    private Output<String> createdTime;
 
     /**
      * @return 访问控制策略组的创建时间。
      * 
      */
-    public Output<String> createTime() {
-        return this.createTime;
+    public Output<String> createdTime() {
+        return this.createdTime;
     }
     /**
      * 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
@@ -194,15 +196,15 @@ public class Acl extends com.pulumi.resources.CustomResource {
      * 访问控制策略组的最近操作时间。
      * 
      */
-    @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    @Export(name="updatedTime", refs={String.class}, tree="[0]")
+    private Output<String> updatedTime;
 
     /**
      * @return 访问控制策略组的最近操作时间。
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<String> updatedTime() {
+        return this.updatedTime;
     }
 
     /**

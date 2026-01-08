@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ALB提供监听级别的访问控制，如果您希望仅允许某些IP、或仅拒绝某些IP通过监听端口访问ALB实例，可以对该监听器设置访问控制策略。您可以在创建监听器时配置访问控制，也可以在监听器创建后修改或重新配置访问控制。
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -77,12 +79,12 @@ export class Acl extends pulumi.CustomResource {
     /**
      * 访问控制策略组的创建时间。
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
      */
     public readonly description!: pulumi.Output<string>;
-    public /*out*/ readonly listeners!: pulumi.Output<outputs.alb.AclListener[]>;
+    public readonly listeners!: pulumi.Output<outputs.alb.AclListener[]>;
     /**
      * 访问控制策略组所属项目名称。
      */
@@ -95,7 +97,7 @@ export class Acl extends pulumi.CustomResource {
     /**
      * 访问控制策略组的最近操作时间。
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
 
     /**
      * Create a Acl resource with the given unique name, arguments, and options.
@@ -114,26 +116,26 @@ export class Acl extends pulumi.CustomResource {
             resourceInputs["aclEntryCount"] = state ? state.aclEntryCount : undefined;
             resourceInputs["aclId"] = state ? state.aclId : undefined;
             resourceInputs["aclName"] = state ? state.aclName : undefined;
-            resourceInputs["createTime"] = state ? state.createTime : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["listeners"] = state ? state.listeners : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
         } else {
             const args = argsOrState as AclArgs | undefined;
             resourceInputs["aclEntries"] = args ? args.aclEntries : undefined;
             resourceInputs["aclName"] = args ? args.aclName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["listeners"] = args ? args.listeners : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["aclEntryCount"] = undefined /*out*/;
             resourceInputs["aclId"] = undefined /*out*/;
-            resourceInputs["createTime"] = undefined /*out*/;
-            resourceInputs["listeners"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["updateTime"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Acl.__pulumiType, name, resourceInputs, opts);
@@ -160,7 +162,7 @@ export interface AclState {
     /**
      * 访问控制策略组的创建时间。
      */
-    createTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
      */
@@ -178,7 +180,7 @@ export interface AclState {
     /**
      * 访问控制策略组的最近操作时间。
      */
-    updateTime?: pulumi.Input<string>;
+    updatedTime?: pulumi.Input<string>;
 }
 
 /**
@@ -194,6 +196,7 @@ export interface AclArgs {
      * 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
      */
     description?: pulumi.Input<string>;
+    listeners?: pulumi.Input<pulumi.Input<inputs.alb.AclListener>[]>;
     /**
      * 访问控制策略组所属项目名称。
      */

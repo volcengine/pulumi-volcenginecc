@@ -76,15 +76,15 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
      * 访问控制策略组的创建时间。
      * 
      */
-    @Import(name="createTime")
-    private @Nullable Output<String> createTime;
+    @Import(name="createdTime")
+    private @Nullable Output<String> createdTime;
 
     /**
      * @return 访问控制策略组的创建时间。
      * 
      */
-    public Optional<Output<String>> createTime() {
-        return Optional.ofNullable(this.createTime);
+    public Optional<Output<String>> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
 
     /**
@@ -150,15 +150,15 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
      * 访问控制策略组的最近操作时间。
      * 
      */
-    @Import(name="updateTime")
-    private @Nullable Output<String> updateTime;
+    @Import(name="updatedTime")
+    private @Nullable Output<String> updatedTime;
 
     /**
      * @return 访问控制策略组的最近操作时间。
      * 
      */
-    public Optional<Output<String>> updateTime() {
-        return Optional.ofNullable(this.updateTime);
+    public Optional<Output<String>> updatedTime() {
+        return Optional.ofNullable(this.updatedTime);
     }
 
     private AclState() {}
@@ -168,13 +168,13 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         this.aclEntryCount = $.aclEntryCount;
         this.aclId = $.aclId;
         this.aclName = $.aclName;
-        this.createTime = $.createTime;
+        this.createdTime = $.createdTime;
         this.description = $.description;
         this.listeners = $.listeners;
         this.projectName = $.projectName;
         this.status = $.status;
         this.tags = $.tags;
-        this.updateTime = $.updateTime;
+        this.updatedTime = $.updatedTime;
     }
 
     public static Builder builder() {
@@ -272,24 +272,24 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 访问控制策略组的创建时间。
+         * @param createdTime 访问控制策略组的创建时间。
          * 
          * @return builder
          * 
          */
-        public Builder createTime(@Nullable Output<String> createTime) {
-            $.createTime = createTime;
+        public Builder createdTime(@Nullable Output<String> createdTime) {
+            $.createdTime = createdTime;
             return this;
         }
 
         /**
-         * @param createTime 访问控制策略组的创建时间。
+         * @param createdTime 访问控制策略组的创建时间。
          * 
          * @return builder
          * 
          */
-        public Builder createTime(String createTime) {
-            return createTime(Output.of(createTime));
+        public Builder createdTime(String createdTime) {
+            return createdTime(Output.of(createdTime));
         }
 
         /**
@@ -382,24 +382,24 @@ public final class AclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime 访问控制策略组的最近操作时间。
+         * @param updatedTime 访问控制策略组的最近操作时间。
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(@Nullable Output<String> updateTime) {
-            $.updateTime = updateTime;
+        public Builder updatedTime(@Nullable Output<String> updatedTime) {
+            $.updatedTime = updatedTime;
             return this;
         }
 
         /**
-         * @param updateTime 访问控制策略组的最近操作时间。
+         * @param updatedTime 访问控制策略组的最近操作时间。
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(String updateTime) {
-            return updateTime(Output.of(updateTime));
+        public Builder updatedTime(String updatedTime) {
+            return updatedTime(Output.of(updatedTime));
         }
 
         public AclState build() {

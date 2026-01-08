@@ -153,21 +153,6 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
         return this.vpcId;
     }
 
-    /**
-     * VPC的名称。
-     * 
-     */
-    @Import(name="vpcName")
-    private @Nullable Output<String> vpcName;
-
-    /**
-     * @return VPC的名称。
-     * 
-     */
-    public Optional<Output<String>> vpcName() {
-        return Optional.ofNullable(this.vpcName);
-    }
-
     private RouteTableArgs() {}
 
     private RouteTableArgs(RouteTableArgs $) {
@@ -181,7 +166,6 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
-        this.vpcName = $.vpcName;
     }
 
     public static Builder builder() {
@@ -404,27 +388,6 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
-        }
-
-        /**
-         * @param vpcName VPC的名称。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcName(@Nullable Output<String> vpcName) {
-            $.vpcName = vpcName;
-            return this;
-        }
-
-        /**
-         * @param vpcName VPC的名称。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vpcName(String vpcName) {
-            return vpcName(Output.of(vpcName));
         }
 
         public RouteTableArgs build() {

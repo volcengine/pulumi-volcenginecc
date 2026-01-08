@@ -14,9 +14,30 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect.Outputs
     [OutputType]
     public sealed class DirectConnectGatewayAssociateCen
     {
+        /// <summary>
+        /// CEN的ID。
+        /// </summary>
+        public readonly string? CenId;
+        /// <summary>
+        /// CEN的用户ID。
+        /// </summary>
+        public readonly string? CenOwnerId;
+        /// <summary>
+        /// 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        /// </summary>
+        public readonly string? CenStatus;
+
         [OutputConstructor]
-        private DirectConnectGatewayAssociateCen()
+        private DirectConnectGatewayAssociateCen(
+            string? cenId,
+
+            string? cenOwnerId,
+
+            string? cenStatus)
         {
+            CenId = cenId;
+            CenOwnerId = cenOwnerId;
+            CenStatus = cenStatus;
         }
     }
 }

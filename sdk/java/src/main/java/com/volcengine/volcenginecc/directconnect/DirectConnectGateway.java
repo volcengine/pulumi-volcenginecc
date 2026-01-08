@@ -13,6 +13,7 @@ import com.volcengine.volcenginecc.directconnect.inputs.DirectConnectGatewayStat
 import com.volcengine.volcenginecc.directconnect.outputs.DirectConnectGatewayAssociateCen;
 import com.volcengine.volcenginecc.directconnect.outputs.DirectConnectGatewayTag;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -91,6 +92,20 @@ public class DirectConnectGateway extends com.pulumi.resources.CustomResource {
 
     public Output<List<DirectConnectGatewayAssociateCen>> associateCens() {
         return this.associateCens;
+    }
+    /**
+     * 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     * 
+     */
+    @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
+    private Output<Integer> bgpAsn;
+
+    /**
+     * @return 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     * 
+     */
+    public Output<Integer> bgpAsn() {
+        return this.bgpAsn;
     }
     /**
      * 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。

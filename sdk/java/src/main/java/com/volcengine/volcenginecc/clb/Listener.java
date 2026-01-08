@@ -525,6 +525,20 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.proxySendTimeout;
     }
     /**
+     * 监听器绑定的规则ID列表。
+     * 
+     */
+    @Export(name="ruleIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> ruleIds;
+
+    /**
+     * @return 监听器绑定的规则ID列表。
+     * 
+     */
+    public Output<List<String>> ruleIds() {
+        return this.ruleIds;
+    }
+    /**
      * 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
      * 
      */

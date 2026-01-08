@@ -31,19 +31,19 @@ export interface GetNlbServerGroupArgs {
  */
 export interface GetNlbServerGroupResult {
     /**
-     * 账号ID
+     * 账号ID。
      */
     readonly accountId: string;
     /**
-     * 是否开启全端口转发
+     * 是否开启全端口转发。
      */
     readonly anyPortEnabled: boolean;
     /**
-     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      */
     readonly bypassSecurityGroupEnabled: boolean;
     /**
-     * 是否开启连接优雅中断
+     * 是否开启连接优雅中断。
      */
     readonly connectionDrainEnabled: boolean;
     /**
@@ -51,7 +51,7 @@ export interface GetNlbServerGroupResult {
      */
     readonly connectionDrainTimeout: number;
     /**
-     * 后端服务器组的创建时间
+     * 后端服务器组的创建时间。
      */
     readonly createdTime: string;
     /**
@@ -59,7 +59,7 @@ export interface GetNlbServerGroupResult {
      */
     readonly description: string;
     /**
-     * 健康检查相关参数
+     * 健康检查相关参数。
      */
     readonly healthCheck: outputs.clb.GetNlbServerGroupHealthCheck;
     /**
@@ -67,39 +67,39 @@ export interface GetNlbServerGroupResult {
      */
     readonly id: string;
     /**
-     * 服务器组的IP地址类型
+     * 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      */
     readonly ipAddressVersion: string;
     /**
-     * 是否开启源地址保持
+     * 是否开启源地址保持。
      */
     readonly preserveClientIpEnabled: boolean;
     /**
-     * 项目名称
+     * 项目名称。
      */
     readonly projectName: string;
     /**
-     * NLB转发流量到后端服务器时使用的通信协议
+     * NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      */
     readonly protocol: string;
     /**
-     * 是否开启Proxy-Protocol协议
+     * 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      */
     readonly proxyProtocolType: string;
     /**
-     * 服务器组关联的NLB实例
+     * 服务器组关联的NLB实例。
      */
     readonly relatedLoadBalancerIds: string[];
     /**
-     * NLB转发流量时遵循的规则
+     * NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      */
     readonly scheduler: string;
     /**
-     * 服务器组中后端服务器的数量
+     * 服务器组中后端服务器的数量。
      */
     readonly serverCount: number;
     /**
-     * 服务器组ID
+     * 服务器组ID。
      */
     readonly serverGroupId: string;
     /**
@@ -107,35 +107,35 @@ export interface GetNlbServerGroupResult {
      */
     readonly serverGroupName: string;
     /**
-     * 服务器组中待添加后端服务器的信息
+     * 服务器组中待添加后端服务器的信息。
      */
     readonly servers: outputs.clb.GetNlbServerGroupServer[];
     /**
-     * 是否开启会话保持
+     * 是否开启会话保持。
      */
     readonly sessionPersistenceEnabled: boolean;
     /**
-     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      */
     readonly sessionPersistenceTimeout: number;
     /**
-     * 服务器组的状态
+     * 服务器组的状态。
      */
     readonly status: string;
     /**
-     * 标签
+     * 标签。
      */
     readonly tags: outputs.clb.GetNlbServerGroupTag[];
     /**
-     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      */
     readonly timestampRemoveEnabled: boolean;
     /**
-     * 服务器组的类型
+     * 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      */
     readonly type: string;
     /**
-     * 后端服务器组的更新时间
+     * 后端服务器组的更新时间。
      */
     readonly updatedTime: string;
     /**

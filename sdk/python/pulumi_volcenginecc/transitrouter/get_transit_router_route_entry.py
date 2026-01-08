@@ -27,13 +27,13 @@ class GetTransitRouterRouteEntryResult:
     """
     A collection of values returned by getTransitRouterRouteEntry.
     """
-    def __init__(__self__, as_paths=None, creation_time=None, description=None, destination_cidr_block=None, id=None, status=None, transit_router_route_entry_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_type=None, transit_router_route_entry_type=None, transit_router_route_table_id=None, update_time=None):
+    def __init__(__self__, as_paths=None, created_time=None, description=None, destination_cidr_block=None, id=None, status=None, transit_router_route_entry_id=None, transit_router_route_entry_name=None, transit_router_route_entry_next_hop_id=None, transit_router_route_entry_next_hop_type=None, transit_router_route_entry_type=None, transit_router_route_table_id=None, updated_time=None):
         if as_paths and not isinstance(as_paths, list):
             raise TypeError("Expected argument 'as_paths' to be a list")
         pulumi.set(__self__, "as_paths", as_paths)
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        pulumi.set(__self__, "creation_time", creation_time)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,9 +64,9 @@ class GetTransitRouterRouteEntryResult:
         if transit_router_route_table_id and not isinstance(transit_router_route_table_id, str):
             raise TypeError("Expected argument 'transit_router_route_table_id' to be a str")
         pulumi.set(__self__, "transit_router_route_table_id", transit_router_route_table_id)
-        if update_time and not isinstance(update_time, str):
-            raise TypeError("Expected argument 'update_time' to be a str")
-        pulumi.set(__self__, "update_time", update_time)
+        if updated_time and not isinstance(updated_time, str):
+            raise TypeError("Expected argument 'updated_time' to be a str")
+        pulumi.set(__self__, "updated_time", updated_time)
 
     @property
     @pulumi.getter(name="asPaths")
@@ -77,12 +77,12 @@ class GetTransitRouterRouteEntryResult:
         return pulumi.get(self, "as_paths")
 
     @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> builtins.str:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> builtins.str:
         """
         路由条目的创建时间。
         """
-        return pulumi.get(self, "creation_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -165,12 +165,12 @@ class GetTransitRouterRouteEntryResult:
         return pulumi.get(self, "transit_router_route_table_id")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> builtins.str:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> builtins.str:
         """
         路由条目的更新时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
 
 class AwaitableGetTransitRouterRouteEntryResult(GetTransitRouterRouteEntryResult):
@@ -180,7 +180,7 @@ class AwaitableGetTransitRouterRouteEntryResult(GetTransitRouterRouteEntryResult
             yield self
         return GetTransitRouterRouteEntryResult(
             as_paths=self.as_paths,
-            creation_time=self.creation_time,
+            created_time=self.created_time,
             description=self.description,
             destination_cidr_block=self.destination_cidr_block,
             id=self.id,
@@ -191,7 +191,7 @@ class AwaitableGetTransitRouterRouteEntryResult(GetTransitRouterRouteEntryResult
             transit_router_route_entry_next_hop_type=self.transit_router_route_entry_next_hop_type,
             transit_router_route_entry_type=self.transit_router_route_entry_type,
             transit_router_route_table_id=self.transit_router_route_table_id,
-            update_time=self.update_time)
+            updated_time=self.updated_time)
 
 
 def get_transit_router_route_entry(id: Optional[builtins.str] = None,
@@ -209,7 +209,7 @@ def get_transit_router_route_entry(id: Optional[builtins.str] = None,
 
     return AwaitableGetTransitRouterRouteEntryResult(
         as_paths=pulumi.get(__ret__, 'as_paths'),
-        creation_time=pulumi.get(__ret__, 'creation_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         destination_cidr_block=pulumi.get(__ret__, 'destination_cidr_block'),
         id=pulumi.get(__ret__, 'id'),
@@ -220,7 +220,7 @@ def get_transit_router_route_entry(id: Optional[builtins.str] = None,
         transit_router_route_entry_next_hop_type=pulumi.get(__ret__, 'transit_router_route_entry_next_hop_type'),
         transit_router_route_entry_type=pulumi.get(__ret__, 'transit_router_route_entry_type'),
         transit_router_route_table_id=pulumi.get(__ret__, 'transit_router_route_table_id'),
-        update_time=pulumi.get(__ret__, 'update_time'))
+        updated_time=pulumi.get(__ret__, 'updated_time'))
 def get_transit_router_route_entry_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitRouterRouteEntryResult]:
     """
@@ -235,7 +235,7 @@ def get_transit_router_route_entry_output(id: Optional[pulumi.Input[builtins.str
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:transitrouter/getTransitRouterRouteEntry:getTransitRouterRouteEntry', __args__, opts=opts, typ=GetTransitRouterRouteEntryResult)
     return __ret__.apply(lambda __response__: GetTransitRouterRouteEntryResult(
         as_paths=pulumi.get(__response__, 'as_paths'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
+        created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         destination_cidr_block=pulumi.get(__response__, 'destination_cidr_block'),
         id=pulumi.get(__response__, 'id'),
@@ -246,4 +246,4 @@ def get_transit_router_route_entry_output(id: Optional[pulumi.Input[builtins.str
         transit_router_route_entry_next_hop_type=pulumi.get(__response__, 'transit_router_route_entry_next_hop_type'),
         transit_router_route_entry_type=pulumi.get(__response__, 'transit_router_route_entry_type'),
         transit_router_route_table_id=pulumi.get(__response__, 'transit_router_route_table_id'),
-        update_time=pulumi.get(__response__, 'update_time')))
+        updated_time=pulumi.get(__response__, 'updated_time')))

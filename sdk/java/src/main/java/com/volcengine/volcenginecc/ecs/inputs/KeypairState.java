@@ -108,21 +108,6 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 密钥对私钥信息。
-     * 
-     */
-    @Import(name="privateKey")
-    private @Nullable Output<String> privateKey;
-
-    /**
-     * @return 密钥对私钥信息。
-     * 
-     */
-    public Optional<Output<String>> privateKey() {
-        return Optional.ofNullable(this.privateKey);
-    }
-
-    /**
      * 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      * 
      */
@@ -183,7 +168,6 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         this.instanceIds = $.instanceIds;
         this.keyPairId = $.keyPairId;
         this.keyPairName = $.keyPairName;
-        this.privateKey = $.privateKey;
         this.projectName = $.projectName;
         this.publicKey = $.publicKey;
         this.tags = $.tags;
@@ -342,27 +326,6 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyPairName(String keyPairName) {
             return keyPairName(Output.of(keyPairName));
-        }
-
-        /**
-         * @param privateKey 密钥对私钥信息。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder privateKey(@Nullable Output<String> privateKey) {
-            $.privateKey = privateKey;
-            return this;
-        }
-
-        /**
-         * @param privateKey 密钥对私钥信息。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder privateKey(String privateKey) {
-            return privateKey(Output.of(privateKey));
         }
 
         /**

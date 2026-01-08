@@ -13,14 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
 
     public sealed class LoadBalancerZoneMappingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("loadBalancerAddresses")]
-        private InputList<Inputs.LoadBalancerZoneMappingLoadBalancerAddressArgs>? _loadBalancerAddresses;
-        public InputList<Inputs.LoadBalancerZoneMappingLoadBalancerAddressArgs> LoadBalancerAddresses
-        {
-            get => _loadBalancerAddresses ?? (_loadBalancerAddresses = new InputList<Inputs.LoadBalancerZoneMappingLoadBalancerAddressArgs>());
-            set => _loadBalancerAddresses = value;
-        }
-
         /// <summary>
         /// 可用区内提供服务的子网ID。
         /// </summary>

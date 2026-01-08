@@ -31,7 +31,7 @@ type LookupTransitRouterRouteTableArgs struct {
 // A collection of values returned by getTransitRouterRouteTable.
 type LookupTransitRouterRouteTableResult struct {
 	// TR路由表的创建时间
-	CreationTime string `pulumi:"creationTime"`
+	CreatedTime string `pulumi:"createdTime"`
 	// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description string `pulumi:"description"`
 	// Uniquely identifies the resource.
@@ -53,7 +53,7 @@ type LookupTransitRouterRouteTableResult struct {
 	// TR路由表的类型。System：系统路由表。Custom：自定义路由表。
 	TransitRouterRouteTableType string `pulumi:"transitRouterRouteTableType"`
 	// TR路由表的最近操作时间
-	UpdateTime string `pulumi:"updateTime"`
+	UpdatedTime string `pulumi:"updatedTime"`
 }
 
 func LookupTransitRouterRouteTableOutput(ctx *pulumi.Context, args LookupTransitRouterRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupTransitRouterRouteTableResultOutput {
@@ -91,8 +91,8 @@ func (o LookupTransitRouterRouteTableResultOutput) ToLookupTransitRouterRouteTab
 }
 
 // TR路由表的创建时间
-func (o LookupTransitRouterRouteTableResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTransitRouterRouteTableResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupTransitRouterRouteTableResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitRouterRouteTableResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -146,8 +146,8 @@ func (o LookupTransitRouterRouteTableResultOutput) TransitRouterRouteTableType()
 }
 
 // TR路由表的最近操作时间
-func (o LookupTransitRouterRouteTableResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTransitRouterRouteTableResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o LookupTransitRouterRouteTableResultOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitRouterRouteTableResult) string { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 func init() {

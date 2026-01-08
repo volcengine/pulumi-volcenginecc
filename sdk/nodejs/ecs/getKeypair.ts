@@ -59,10 +59,6 @@ export interface GetKeypairResult {
      */
     readonly keyPairName: string;
     /**
-     * 密钥对私钥信息。
-     */
-    readonly privateKey: string;
-    /**
      * 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      */
     readonly projectName: string;

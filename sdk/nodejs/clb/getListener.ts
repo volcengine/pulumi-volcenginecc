@@ -175,6 +175,10 @@ export interface GetListenerResult {
      */
     readonly proxySendTimeout: number;
     /**
+     * 监听器绑定的规则ID列表。
+     */
+    readonly ruleIds: string[];
+    /**
      * 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
      */
     readonly scheduler: string;

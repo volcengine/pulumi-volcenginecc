@@ -25,8 +25,7 @@ class TransitRouterRouteEntryArgs:
                  transit_router_route_table_id: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_entry_name: Optional[pulumi.Input[builtins.str]] = None,
-                 transit_router_route_entry_next_hop_id: Optional[pulumi.Input[builtins.str]] = None,
-                 transit_router_route_entry_type: Optional[pulumi.Input[builtins.str]] = None):
+                 transit_router_route_entry_next_hop_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TransitRouterRouteEntry resource.
         :param pulumi.Input[builtins.str] destination_cidr_block: 路由条目的目标网段。
@@ -35,7 +34,6 @@ class TransitRouterRouteEntryArgs:
         :param pulumi.Input[builtins.str] description: TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] transit_router_route_entry_name: 路由条目的名称。
         :param pulumi.Input[builtins.str] transit_router_route_entry_next_hop_id: 路由条目的下一跳ID。
-        :param pulumi.Input[builtins.str] transit_router_route_entry_type: 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "transit_router_route_entry_next_hop_type", transit_router_route_entry_next_hop_type)
@@ -46,8 +44,6 @@ class TransitRouterRouteEntryArgs:
             pulumi.set(__self__, "transit_router_route_entry_name", transit_router_route_entry_name)
         if transit_router_route_entry_next_hop_id is not None:
             pulumi.set(__self__, "transit_router_route_entry_next_hop_id", transit_router_route_entry_next_hop_id)
-        if transit_router_route_entry_type is not None:
-            pulumi.set(__self__, "transit_router_route_entry_type", transit_router_route_entry_type)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -121,24 +117,12 @@ class TransitRouterRouteEntryArgs:
     def transit_router_route_entry_next_hop_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "transit_router_route_entry_next_hop_id", value)
 
-    @property
-    @pulumi.getter(name="transitRouterRouteEntryType")
-    def transit_router_route_entry_type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-        """
-        return pulumi.get(self, "transit_router_route_entry_type")
-
-    @transit_router_route_entry_type.setter
-    def transit_router_route_entry_type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "transit_router_route_entry_type", value)
-
 
 @pulumi.input_type
 class _TransitRouterRouteEntryState:
     def __init__(__self__, *,
                  as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 creation_time: Optional[pulumi.Input[builtins.str]] = None,
+                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -148,11 +132,11 @@ class _TransitRouterRouteEntryState:
                  transit_router_route_entry_next_hop_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_entry_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
-                 update_time: Optional[pulumi.Input[builtins.str]] = None):
+                 updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitRouterRouteEntry resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] as_paths: 路由条目的AS路径。
-        :param pulumi.Input[builtins.str] creation_time: 路由条目的创建时间。
+        :param pulumi.Input[builtins.str] created_time: 路由条目的创建时间。
         :param pulumi.Input[builtins.str] description: TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] destination_cidr_block: 路由条目的目标网段。
         :param pulumi.Input[builtins.str] status: 路由条目的状态。Available：可用。Creating：创建中。Pending：配置中。Deleting：删除中。Conflicted：未生效。
@@ -162,12 +146,12 @@ class _TransitRouterRouteEntryState:
         :param pulumi.Input[builtins.str] transit_router_route_entry_next_hop_type: 路由条目的下一跳类型。取值如下：Attachment：网络实例，表示匹配该路由条目的流量会被转发到指定的网络实例。BlackHole：黑洞，表示匹配该路由条目的流量会被丢弃。
         :param pulumi.Input[builtins.str] transit_router_route_entry_type: 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
         :param pulumi.Input[builtins.str] transit_router_route_table_id: 中转路由器实例关联的路由表的ID。
-        :param pulumi.Input[builtins.str] update_time: 路由条目的更新时间。
+        :param pulumi.Input[builtins.str] updated_time: 路由条目的更新时间。
         """
         if as_paths is not None:
             pulumi.set(__self__, "as_paths", as_paths)
-        if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if destination_cidr_block is not None:
@@ -186,8 +170,8 @@ class _TransitRouterRouteEntryState:
             pulumi.set(__self__, "transit_router_route_entry_type", transit_router_route_entry_type)
         if transit_router_route_table_id is not None:
             pulumi.set(__self__, "transit_router_route_table_id", transit_router_route_table_id)
-        if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+        if updated_time is not None:
+            pulumi.set(__self__, "updated_time", updated_time)
 
     @property
     @pulumi.getter(name="asPaths")
@@ -202,16 +186,16 @@ class _TransitRouterRouteEntryState:
         pulumi.set(self, "as_paths", value)
 
     @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         路由条目的创建时间。
         """
-        return pulumi.get(self, "creation_time")
+        return pulumi.get(self, "created_time")
 
-    @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "creation_time", value)
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_time", value)
 
     @property
     @pulumi.getter
@@ -322,16 +306,16 @@ class _TransitRouterRouteEntryState:
         pulumi.set(self, "transit_router_route_table_id", value)
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         路由条目的更新时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
-    @update_time.setter
-    def update_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "update_time", value)
+    @updated_time.setter
+    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_time", value)
 
 
 @pulumi.type_token("volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry")
@@ -345,27 +329,10 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
                  transit_router_route_entry_name: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_entry_next_hop_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_entry_next_hop_type: Optional[pulumi.Input[builtins.str]] = None,
-                 transit_router_route_entry_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         通过为网络实例连接或跨地域连接关联的路由表创建或删除静态路由，能够灵活地控制中转路由器中的流量走向。
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_volcenginecc as volcenginecc
-
-        transit_router_route_entry_demo = volcenginecc.transitrouter.TransitRouterRouteEntry("TransitRouterRouteEntryDemo",
-            description="Demo Example",
-            destination_cidr_block="192.168.1.101/*",
-            transit_router_route_entry_name="test-Attachmentkua",
-            transit_router_route_table_id="tr-rtb-mijcn***",
-            transit_router_route_entry_next_hop_id="tr-attach-13fs****",
-            transit_router_route_entry_next_hop_type="Attachment",
-            transit_router_route_entry_type="Propagated")
-        ```
 
         ## Import
 
@@ -380,7 +347,6 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] transit_router_route_entry_name: 路由条目的名称。
         :param pulumi.Input[builtins.str] transit_router_route_entry_next_hop_id: 路由条目的下一跳ID。
         :param pulumi.Input[builtins.str] transit_router_route_entry_next_hop_type: 路由条目的下一跳类型。取值如下：Attachment：网络实例，表示匹配该路由条目的流量会被转发到指定的网络实例。BlackHole：黑洞，表示匹配该路由条目的流量会被丢弃。
-        :param pulumi.Input[builtins.str] transit_router_route_entry_type: 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
         :param pulumi.Input[builtins.str] transit_router_route_table_id: 中转路由器实例关联的路由表的ID。
         """
         ...
@@ -391,22 +357,6 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         通过为网络实例连接或跨地域连接关联的路由表创建或删除静态路由，能够灵活地控制中转路由器中的流量走向。
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_volcenginecc as volcenginecc
-
-        transit_router_route_entry_demo = volcenginecc.transitrouter.TransitRouterRouteEntry("TransitRouterRouteEntryDemo",
-            description="Demo Example",
-            destination_cidr_block="192.168.1.101/*",
-            transit_router_route_entry_name="test-Attachmentkua",
-            transit_router_route_table_id="tr-rtb-mijcn***",
-            transit_router_route_entry_next_hop_id="tr-attach-13fs****",
-            transit_router_route_entry_next_hop_type="Attachment",
-            transit_router_route_entry_type="Propagated")
-        ```
 
         ## Import
 
@@ -434,7 +384,6 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
                  transit_router_route_entry_name: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_entry_next_hop_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_entry_next_hop_type: Optional[pulumi.Input[builtins.str]] = None,
-                 transit_router_route_entry_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -454,15 +403,15 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
             if transit_router_route_entry_next_hop_type is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_router_route_entry_next_hop_type'")
             __props__.__dict__["transit_router_route_entry_next_hop_type"] = transit_router_route_entry_next_hop_type
-            __props__.__dict__["transit_router_route_entry_type"] = transit_router_route_entry_type
             if transit_router_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_router_route_table_id'")
             __props__.__dict__["transit_router_route_table_id"] = transit_router_route_table_id
             __props__.__dict__["as_paths"] = None
-            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["created_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["transit_router_route_entry_id"] = None
-            __props__.__dict__["update_time"] = None
+            __props__.__dict__["transit_router_route_entry_type"] = None
+            __props__.__dict__["updated_time"] = None
         super(TransitRouterRouteEntry, __self__).__init__(
             'volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry',
             resource_name,
@@ -474,7 +423,7 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            creation_time: Optional[pulumi.Input[builtins.str]] = None,
+            created_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -484,7 +433,7 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
             transit_router_route_entry_next_hop_type: Optional[pulumi.Input[builtins.str]] = None,
             transit_router_route_entry_type: Optional[pulumi.Input[builtins.str]] = None,
             transit_router_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
-            update_time: Optional[pulumi.Input[builtins.str]] = None) -> 'TransitRouterRouteEntry':
+            updated_time: Optional[pulumi.Input[builtins.str]] = None) -> 'TransitRouterRouteEntry':
         """
         Get an existing TransitRouterRouteEntry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -493,7 +442,7 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] as_paths: 路由条目的AS路径。
-        :param pulumi.Input[builtins.str] creation_time: 路由条目的创建时间。
+        :param pulumi.Input[builtins.str] created_time: 路由条目的创建时间。
         :param pulumi.Input[builtins.str] description: TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] destination_cidr_block: 路由条目的目标网段。
         :param pulumi.Input[builtins.str] status: 路由条目的状态。Available：可用。Creating：创建中。Pending：配置中。Deleting：删除中。Conflicted：未生效。
@@ -503,14 +452,14 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] transit_router_route_entry_next_hop_type: 路由条目的下一跳类型。取值如下：Attachment：网络实例，表示匹配该路由条目的流量会被转发到指定的网络实例。BlackHole：黑洞，表示匹配该路由条目的流量会被丢弃。
         :param pulumi.Input[builtins.str] transit_router_route_entry_type: 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
         :param pulumi.Input[builtins.str] transit_router_route_table_id: 中转路由器实例关联的路由表的ID。
-        :param pulumi.Input[builtins.str] update_time: 路由条目的更新时间。
+        :param pulumi.Input[builtins.str] updated_time: 路由条目的更新时间。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _TransitRouterRouteEntryState.__new__(_TransitRouterRouteEntryState)
 
         __props__.__dict__["as_paths"] = as_paths
-        __props__.__dict__["creation_time"] = creation_time
+        __props__.__dict__["created_time"] = created_time
         __props__.__dict__["description"] = description
         __props__.__dict__["destination_cidr_block"] = destination_cidr_block
         __props__.__dict__["status"] = status
@@ -520,7 +469,7 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
         __props__.__dict__["transit_router_route_entry_next_hop_type"] = transit_router_route_entry_next_hop_type
         __props__.__dict__["transit_router_route_entry_type"] = transit_router_route_entry_type
         __props__.__dict__["transit_router_route_table_id"] = transit_router_route_table_id
-        __props__.__dict__["update_time"] = update_time
+        __props__.__dict__["updated_time"] = updated_time
         return TransitRouterRouteEntry(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -532,12 +481,12 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
         return pulumi.get(self, "as_paths")
 
     @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> pulumi.Output[builtins.str]:
         """
         路由条目的创建时间。
         """
-        return pulumi.get(self, "creation_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -612,10 +561,10 @@ class TransitRouterRouteEntry(pulumi.CustomResource):
         return pulumi.get(self, "transit_router_route_table_id")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> pulumi.Output[builtins.str]:
         """
         路由条目的更新时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 

@@ -26,7 +26,6 @@ class EipArgs:
                  bandwidth: Optional[pulumi.Input[builtins.int]] = None,
                  bandwidth_package_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 direct_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,7 +41,6 @@ class EipArgs:
                  renew_type: Optional[pulumi.Input[builtins.int]] = None,
                  security_protection_instance_id: Optional[pulumi.Input[builtins.int]] = None,
                  security_protection_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 service_managed: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EipTagArgs']]]] = None):
         """
         The set of arguments for constructing a Eip resource.
@@ -50,14 +48,13 @@ class EipArgs:
         :param pulumi.Input[builtins.int] bandwidth: 公网IP的带宽上限，默认为“1”，单位：Mbps,BillingType传入1：取值范围1 ~ 500。BillingType传入2：取值范围1 ~ 500。BillingType传入3：取值范围1 ~ 200。
         :param pulumi.Input[builtins.str] bandwidth_package_id: 共享带宽包的ID，表示将公网IP加入到共享带宽包。公网IP加入到共享带宽包必须同时满足如下条件：二者的安全防护类型相同。二者的地域相同。公网IP的计费方式必须是按量计费。共享带宽包为IPv4类型。
         :param pulumi.Input[builtins.str] description: 公网IP的描述信息。
-        :param pulumi.Input[builtins.bool] direct_mode: 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
         :param pulumi.Input[builtins.str] instance_id: 当前绑定的实例ID。
         :param pulumi.Input[builtins.str] instance_type: 当前绑定的实例类型。Nat：公网NAT网关。NetworkInterface: 弹性网卡。ClbInstance: 负载均衡。EcsInstance：云服务器。HaVip：高可用虚拟IP。
         :param pulumi.Input[builtins.str] ip_address: 申请申请指定的公网IP地址。仅支持填写使用后释放的IP地址，不填则表示自动分配。指定的公网IP地址
         :param pulumi.Input[builtins.str] ip_address_pool_id: IP地址池的ID。
         :param pulumi.Input[builtins.str] isp: 线路类型。BGP：BGP（多线）。ChinaMobile：中国移动静态单线。ChinaTelecom：中国电信静态单线。ChinaUnicom：中国联通静态单线。SingleLine*BGP：BGP单线。Fusion*BGP：融合BGP。ChinaMobile*Value：中国移动惠选型静态单线。ChinaUnicom*Value：中国联通惠选型静态单线。ChinaTelecom_Value：中国电信惠选型静态单线。
         :param pulumi.Input[builtins.str] name: 公网IP的名称。
-        :param pulumi.Input[builtins.int] period: 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        :param pulumi.Input[builtins.int] period: 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         :param pulumi.Input[builtins.int] period_unit: 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
         :param pulumi.Input[builtins.str] private_ip_address: 要绑定公网IP的实例的私网IP地址。只支持传入云服务ECS主网卡的私网IP地址和辅助网卡IP地址。若不填写：InstanceType传入EcsInstance，则绑定云服务器ECS主网卡的主私网IP地址。InstanceType传入NetworkInterface，则绑定辅助网卡主私网IP地址。
         :param pulumi.Input[builtins.str] project_name: 公网IP所属项目的名称。
@@ -66,7 +63,6 @@ class EipArgs:
         :param pulumi.Input[builtins.int] renew_type: 包年包月公网IP续费的方式。取值如下：1（默认值）：手动续费。2：自动续费。3：到期不续费。
         :param pulumi.Input[builtins.int] security_protection_instance_id: DDoS原生防护（企业版）ID。您可以调用 DescInstanceList 接口，查询DDoS原生防护（企业版）的ID。当SecurityProtectionTypes传入AntiDDoS_Enhanced时，此参数必须传入。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_protection_types: 防护类型。AntiDDoS_Enhanced：增强防护类型的公网IP，可以加入到DDoS原生防护（企业版）实例。空值：默认防护类型的公网IP。
-        :param pulumi.Input[builtins.bool] service_managed: 是否由服务管理
         """
         pulumi.set(__self__, "billing_type", billing_type)
         if bandwidth is not None:
@@ -75,8 +71,6 @@ class EipArgs:
             pulumi.set(__self__, "bandwidth_package_id", bandwidth_package_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if direct_mode is not None:
-            pulumi.set(__self__, "direct_mode", direct_mode)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if instance_type is not None:
@@ -107,8 +101,6 @@ class EipArgs:
             pulumi.set(__self__, "security_protection_instance_id", security_protection_instance_id)
         if security_protection_types is not None:
             pulumi.set(__self__, "security_protection_types", security_protection_types)
-        if service_managed is not None:
-            pulumi.set(__self__, "service_managed", service_managed)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -159,18 +151,6 @@ class EipArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="directMode")
-    def direct_mode(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-        """
-        return pulumi.get(self, "direct_mode")
-
-    @direct_mode.setter
-    def direct_mode(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "direct_mode", value)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -248,7 +228,7 @@ class EipArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         """
         return pulumi.get(self, "period")
 
@@ -353,18 +333,6 @@ class EipArgs:
         pulumi.set(self, "security_protection_types", value)
 
     @property
-    @pulumi.getter(name="serviceManaged")
-    def service_managed(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        是否由服务管理
-        """
-        return pulumi.get(self, "service_managed")
-
-    @service_managed.setter
-    def service_managed(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "service_managed", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EipTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -432,7 +400,7 @@ class _EipState:
         :param pulumi.Input[builtins.str] lock_reason: 公网IP被锁定的原因。financial: 因欠费被锁定。unlock: 欠费关停后充值恢复过程中。空值 : 没有被锁定。
         :param pulumi.Input[builtins.str] name: 公网IP的名称。
         :param pulumi.Input[builtins.str] overdue_time: 资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。
-        :param pulumi.Input[builtins.int] period: 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        :param pulumi.Input[builtins.int] period: 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         :param pulumi.Input[builtins.int] period_unit: 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
         :param pulumi.Input[builtins.str] private_ip_address: 要绑定公网IP的实例的私网IP地址。只支持传入云服务ECS主网卡的私网IP地址和辅助网卡IP地址。若不填写：InstanceType传入EcsInstance，则绑定云服务器ECS主网卡的主私网IP地址。InstanceType传入NetworkInterface，则绑定辅助网卡主私网IP地址。
         :param pulumi.Input[builtins.str] project_name: 公网IP所属项目的名称。
@@ -756,7 +724,7 @@ class _EipState:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         """
         return pulumi.get(self, "period")
 
@@ -916,7 +884,6 @@ class Eip(pulumi.CustomResource):
                  bandwidth_package_id: Optional[pulumi.Input[builtins.str]] = None,
                  billing_type: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 direct_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
@@ -932,35 +899,10 @@ class Eip(pulumi.CustomResource):
                  renew_type: Optional[pulumi.Input[builtins.int]] = None,
                  security_protection_instance_id: Optional[pulumi.Input[builtins.int]] = None,
                  security_protection_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 service_managed: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EipTagArgs', 'EipTagArgsDict']]]]] = None,
                  __props__=None):
         """
         公网IP（Elastic IP Address，EIP）及其公网出口带宽，是火山引擎为云资源提供的可独立购买和持有的IP连通服务。公网IP支持直接绑定云服务器（包括ECS云服务器、EBM裸金属服务器、GPU云服务器），还支持绑定公网NAT网关、负载均衡、辅助网卡等组件，为云服务器提供公网互通能力。
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_volcenginecc as volcenginecc
-
-        eip_demo = volcenginecc.vpc.Eip("EipDemo",
-            name="EipDemo",
-            description="EipDemo description",
-            isp="BGP",
-            billing_type=2,
-            bandwidth=3,
-            period=5,
-            project_name="default",
-            bandwidth_package_id="bwp-ij5gz1lf66m874o8cth*****",
-            tags=[{
-                "key": "env",
-                "value": "test",
-            }],
-            instance_id="i-ye48ymyy9s5i3z4*****",
-            instance_type="EcsInstance",
-            direct_mode=True)
-        ```
 
         ## Import
 
@@ -974,14 +916,13 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bandwidth_package_id: 共享带宽包的ID，表示将公网IP加入到共享带宽包。公网IP加入到共享带宽包必须同时满足如下条件：二者的安全防护类型相同。二者的地域相同。公网IP的计费方式必须是按量计费。共享带宽包为IPv4类型。
         :param pulumi.Input[builtins.int] billing_type: 公网IP的计费方式。取值如下：1：包年包月。2：按量计费-按带宽上限计费。3：按量计费-按实际流量计费。
         :param pulumi.Input[builtins.str] description: 公网IP的描述信息。
-        :param pulumi.Input[builtins.bool] direct_mode: 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
         :param pulumi.Input[builtins.str] instance_id: 当前绑定的实例ID。
         :param pulumi.Input[builtins.str] instance_type: 当前绑定的实例类型。Nat：公网NAT网关。NetworkInterface: 弹性网卡。ClbInstance: 负载均衡。EcsInstance：云服务器。HaVip：高可用虚拟IP。
         :param pulumi.Input[builtins.str] ip_address: 申请申请指定的公网IP地址。仅支持填写使用后释放的IP地址，不填则表示自动分配。指定的公网IP地址
         :param pulumi.Input[builtins.str] ip_address_pool_id: IP地址池的ID。
         :param pulumi.Input[builtins.str] isp: 线路类型。BGP：BGP（多线）。ChinaMobile：中国移动静态单线。ChinaTelecom：中国电信静态单线。ChinaUnicom：中国联通静态单线。SingleLine*BGP：BGP单线。Fusion*BGP：融合BGP。ChinaMobile*Value：中国移动惠选型静态单线。ChinaUnicom*Value：中国联通惠选型静态单线。ChinaTelecom_Value：中国电信惠选型静态单线。
         :param pulumi.Input[builtins.str] name: 公网IP的名称。
-        :param pulumi.Input[builtins.int] period: 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        :param pulumi.Input[builtins.int] period: 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         :param pulumi.Input[builtins.int] period_unit: 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
         :param pulumi.Input[builtins.str] private_ip_address: 要绑定公网IP的实例的私网IP地址。只支持传入云服务ECS主网卡的私网IP地址和辅助网卡IP地址。若不填写：InstanceType传入EcsInstance，则绑定云服务器ECS主网卡的主私网IP地址。InstanceType传入NetworkInterface，则绑定辅助网卡主私网IP地址。
         :param pulumi.Input[builtins.str] project_name: 公网IP所属项目的名称。
@@ -990,7 +931,6 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] renew_type: 包年包月公网IP续费的方式。取值如下：1（默认值）：手动续费。2：自动续费。3：到期不续费。
         :param pulumi.Input[builtins.int] security_protection_instance_id: DDoS原生防护（企业版）ID。您可以调用 DescInstanceList 接口，查询DDoS原生防护（企业版）的ID。当SecurityProtectionTypes传入AntiDDoS_Enhanced时，此参数必须传入。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_protection_types: 防护类型。AntiDDoS_Enhanced：增强防护类型的公网IP，可以加入到DDoS原生防护（企业版）实例。空值：默认防护类型的公网IP。
-        :param pulumi.Input[builtins.bool] service_managed: 是否由服务管理
         """
         ...
     @overload
@@ -1000,30 +940,6 @@ class Eip(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         公网IP（Elastic IP Address，EIP）及其公网出口带宽，是火山引擎为云资源提供的可独立购买和持有的IP连通服务。公网IP支持直接绑定云服务器（包括ECS云服务器、EBM裸金属服务器、GPU云服务器），还支持绑定公网NAT网关、负载均衡、辅助网卡等组件，为云服务器提供公网互通能力。
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_volcenginecc as volcenginecc
-
-        eip_demo = volcenginecc.vpc.Eip("EipDemo",
-            name="EipDemo",
-            description="EipDemo description",
-            isp="BGP",
-            billing_type=2,
-            bandwidth=3,
-            period=5,
-            project_name="default",
-            bandwidth_package_id="bwp-ij5gz1lf66m874o8cth*****",
-            tags=[{
-                "key": "env",
-                "value": "test",
-            }],
-            instance_id="i-ye48ymyy9s5i3z4*****",
-            instance_type="EcsInstance",
-            direct_mode=True)
-        ```
 
         ## Import
 
@@ -1050,7 +966,6 @@ class Eip(pulumi.CustomResource):
                  bandwidth_package_id: Optional[pulumi.Input[builtins.str]] = None,
                  billing_type: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 direct_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
@@ -1066,7 +981,6 @@ class Eip(pulumi.CustomResource):
                  renew_type: Optional[pulumi.Input[builtins.int]] = None,
                  security_protection_instance_id: Optional[pulumi.Input[builtins.int]] = None,
                  security_protection_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 service_managed: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EipTagArgs', 'EipTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1083,7 +997,6 @@ class Eip(pulumi.CustomResource):
                 raise TypeError("Missing required property 'billing_type'")
             __props__.__dict__["billing_type"] = billing_type
             __props__.__dict__["description"] = description
-            __props__.__dict__["direct_mode"] = direct_mode
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ip_address"] = ip_address
@@ -1099,17 +1012,18 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["renew_type"] = renew_type
             __props__.__dict__["security_protection_instance_id"] = security_protection_instance_id
             __props__.__dict__["security_protection_types"] = security_protection_types
-            __props__.__dict__["service_managed"] = service_managed
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["business_status"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["deleted_time"] = None
+            __props__.__dict__["direct_mode"] = None
             __props__.__dict__["eip_address"] = None
             __props__.__dict__["expired_time"] = None
             __props__.__dict__["is_blocked"] = None
             __props__.__dict__["lock_reason"] = None
             __props__.__dict__["overdue_time"] = None
+            __props__.__dict__["service_managed"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_time"] = None
         super(Eip, __self__).__init__(
@@ -1182,7 +1096,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] lock_reason: 公网IP被锁定的原因。financial: 因欠费被锁定。unlock: 欠费关停后充值恢复过程中。空值 : 没有被锁定。
         :param pulumi.Input[builtins.str] name: 公网IP的名称。
         :param pulumi.Input[builtins.str] overdue_time: 资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。
-        :param pulumi.Input[builtins.int] period: 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        :param pulumi.Input[builtins.int] period: 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         :param pulumi.Input[builtins.int] period_unit: 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
         :param pulumi.Input[builtins.str] private_ip_address: 要绑定公网IP的实例的私网IP地址。只支持传入云服务ECS主网卡的私网IP地址和辅助网卡IP地址。若不填写：InstanceType传入EcsInstance，则绑定云服务器ECS主网卡的主私网IP地址。InstanceType传入NetworkInterface，则绑定辅助网卡主私网IP地址。
         :param pulumi.Input[builtins.str] project_name: 公网IP所属项目的名称。
@@ -1398,7 +1312,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def period(self) -> pulumi.Output[builtins.int]:
         """
-        购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         """
         return pulumi.get(self, "period")
 

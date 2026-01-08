@@ -49,7 +49,7 @@ export interface GetAclResult {
     /**
      * 访问控制策略组的创建时间。
      */
-    readonly createTime: string;
+    readonly createdTime: string;
     /**
      * 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
      */
@@ -77,7 +77,7 @@ export interface GetAclResult {
     /**
      * 访问控制策略组的最近操作时间。
      */
-    readonly updateTime: string;
+    readonly updatedTime: string;
 }
 /**
  * Data Source schema for Volcengine::ALB::ACL

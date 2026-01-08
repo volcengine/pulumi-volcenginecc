@@ -17,14 +17,14 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
     public static final NlbServerGroupServerArgs Empty = new NlbServerGroupServerArgs();
 
     /**
-     * 后端服务器的描述，默认值为空字符串
+     * 后端服务器的描述，默认值为空字符串。
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return 后端服务器的描述，默认值为空字符串
+     * @return 后端服务器的描述，默认值为空字符串。
      * 
      */
     public Optional<Output<String>> description() {
@@ -77,14 +77,14 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 后端服务器 ID
+     * 后端服务器 ID。
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
     /**
-     * @return 后端服务器 ID
+     * @return 后端服务器 ID。
      * 
      */
     public Optional<Output<String>> serverId() {
@@ -92,14 +92,14 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 后端服务器的类型
+     * 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return 后端服务器的类型
+     * @return 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
      * 
      */
     public Optional<Output<String>> type() {
@@ -107,14 +107,14 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+     * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
      * 
      */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
     /**
-     * @return 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+     * @return 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
      * 
      */
     public Optional<Output<Integer>> weight() {
@@ -168,7 +168,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description 后端服务器的描述，默认值为空字符串
+         * @param description 后端服务器的描述，默认值为空字符串。
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description 后端服务器的描述，默认值为空字符串
+         * @param description 后端服务器的描述，默认值为空字符串。
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serverId 后端服务器 ID
+         * @param serverId 后端服务器 ID。
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serverId 后端服务器 ID
+         * @param serverId 后端服务器 ID。
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type 后端服务器的类型
+         * @param type 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type 后端服务器的类型
+         * @param type 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param weight 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+         * @param weight 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class NlbServerGroupServerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param weight 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+         * @param weight 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
          * 
          * @return builder
          * 

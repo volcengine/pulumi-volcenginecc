@@ -22,22 +22,6 @@ export namespace alb {
          * 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
          */
         aclType: string;
-        /**
-         * 监听器的ID
-         */
-        listenerId: string;
-        /**
-         * 监听器的名称
-         */
-        listenerName: string;
-        /**
-         * 监听器的端口
-         */
-        port: number;
-        /**
-         * 监听器的协议
-         */
-        protocol: string;
     }
 
     export interface AclTag {
@@ -455,7 +439,13 @@ export namespace alb {
     }
 
     export interface GetServerGroupTag {
+        /**
+         * 标签的标签键。同一资源的标签键不允许重复。
+         */
         key: string;
+        /**
+         * 标签的标签值。
+         */
         value: string;
     }
 
@@ -569,7 +559,6 @@ export namespace alb {
     }
 
     export interface LoadBalancerZoneMapping {
-        loadBalancerAddresses: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddress[];
         /**
          * 可用区内提供服务的子网ID。
          */
@@ -578,95 +567,6 @@ export namespace alb {
          * 可用区的唯一标识符。
          */
         zoneId: string;
-    }
-
-    export interface LoadBalancerZoneMappingLoadBalancerAddress {
-        /**
-         * 弹性公网IP（EIP）的详细信息。
-         */
-        eip: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddressEip;
-        /**
-         * 绑定的弹性公网IP（EIP）的地址。
-         */
-        eipAddress: string;
-        /**
-         * 绑定的弹性公网IP（EIP）的ID。
-         */
-        eipId: string;
-        /**
-         * 弹性网卡（ENI）上的私网IP地址。
-         */
-        eniAddress: string;
-        /**
-         * IP地址所属的弹性网卡（ENI）的ID。
-         */
-        eniId: string;
-        /**
-         * 弹性网卡（ENI）上的IPv6私网地址。
-         */
-        eniIpv6Address: string;
-        /**
-         * IPv6弹性公网IP的详细信息。
-         */
-        ipv6Eip: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip;
-        /**
-         * 绑定的IPv6 EIP的ID。
-         */
-        ipv6EipId: string;
-    }
-
-    export interface LoadBalancerZoneMappingLoadBalancerAddressEip {
-        /**
-         * EIP的绑定模式，例如Default或Normal。
-         */
-        associationMode: string;
-        /**
-         * EIP的带宽峰值，单位为Mbps。
-         */
-        bandwidth: number;
-        /**
-         * 弹性公网IP（EIP）的地址。
-         */
-        eipAddress: string;
-        /**
-         * EIP的计费方式，2为按带宽计费，3为按流量计费。
-         */
-        eipBillingType: number;
-        /**
-         * EIP的类型，例如静态BGP。
-         */
-        eipType: string;
-        /**
-         * 公网IP的线路类型，BGP表示多线。
-         */
-        isp: string;
-        popLocations: outputs.alb.LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation[];
-    }
-
-    export interface LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation {
-        /**
-         * 接入点（PoP）的唯一ID。
-         */
-        popId: string;
-        /**
-         * 接入点（PoP）的名称。
-         */
-        popName: string;
-    }
-
-    export interface LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip {
-        /**
-         * IPv6 EIP的带宽峰值，单位为Mbps。
-         */
-        bandwidth: number;
-        /**
-         * IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-         */
-        billingType: number;
-        /**
-         * IPv6公网IP的线路类型，BGP表示多线。
-         */
-        isp: string;
     }
 
     export interface ServerGroupHealthCheck {
@@ -782,7 +682,13 @@ export namespace alb {
     }
 
     export interface ServerGroupTag {
+        /**
+         * 标签的标签键。同一资源的标签键不允许重复。
+         */
         key: string;
+        /**
+         * 标签的标签值。
+         */
         value: string;
     }
 
@@ -2168,15 +2074,15 @@ export namespace autoscaling {
 
     export interface GetScalingConfigurationVolume {
         /**
-         * 云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+         * 云盘是否随实例释放：true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
          */
         deleteWithInstance: boolean;
         /**
-         * 云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
+         * 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
          */
         size: number;
         /**
-         * 云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+         * 云盘的类型：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。
          */
         volumeType: string;
     }
@@ -2369,15 +2275,15 @@ export namespace autoscaling {
 
     export interface ScalingConfigurationVolume {
         /**
-         * 云盘是否随实例释放：参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1   - 15。参数   - DeleteWithInstance：云盘是否随实例释放。true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
+         * 云盘是否随实例释放：true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
          */
         deleteWithInstance: boolean;
         /**
-         * 云盘的容量，单位为GiB。参数   - N：表示云盘的序号，序号为“1”表示系统盘；序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。取值   - Size：表述第N个云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。多个云盘之间用&分隔。
+         * 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
          */
         size: number;
         /**
-         * 云盘的类型：参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘。取值：1 ～ 15。参数   - VolumeType：表示第N个云盘的类型，取值：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。多个云盘之间用&分隔。
+         * 云盘的类型：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。
          */
         volumeType: string;
     }
@@ -2519,6 +2425,95 @@ export namespace autoscaling {
 }
 
 export namespace bmq {
+    export interface GetGroupResetInfo {
+        /**
+         * 重置方式为 OFFSET 时，该参数必传，指定重新消费的基准消费位置，取值如下：EARLIEST：基准消费位置为最早消费位点。CURRENT：基准消费位置为当前消费位点。LATEST：基准消费位置为最近消费位点。
+         */
+        offsetType: string;
+        /**
+         * 分区序号。
+         */
+        partitionId: number;
+        /**
+         * 重置方式，取值如下：TIMESTAMP：根据时间点重置消费位点，指定过去或将来的时间点，直接跳转到该时间点的位点开始消费。OFFSET：根据指定的 offset 重置消费位点，即从指定的位点开始消费，可以通过 offsetType 参数指定 offset。
+         */
+        resetBy: string;
+        /**
+         * 重置值。选择重置方式为 TIMESTAMP 时，该值为重新消费的时间点。例如 1722224612000。选择重置方式为 OFFSET 时，该值为相对于 OffsetType 中基准位点的 相对偏移量。例如 100。
+         */
+        resetValue: number;
+        /**
+         * Topic ID。
+         */
+        topicId: string;
+    }
+
+    export interface GetGroupTopicInfo {
+        /**
+         * Topic 的创建时间。
+         */
+        createTime: string;
+        /**
+         * Topic 的描述语句。
+         */
+        description: string;
+        /**
+         * Topic 中未被消费的消息条数。
+         */
+        lag: number;
+        /**
+         * 分区列表。
+         */
+        partitionInfos: outputs.bmq.GetGroupTopicInfoPartitionInfo[];
+        /**
+         * Topic 分区数。
+         */
+        partitions: number;
+        /**
+         * 数据在 Topic 中的保留时长，单位为小时。
+         */
+        retention: number;
+        /**
+         * Topic 的状态。
+         */
+        status: string;
+        /**
+         * Topic ID。
+         */
+        topicId: string;
+        /**
+         * Topic 的名称。
+         */
+        topicName: string;
+    }
+
+    export interface GetGroupTopicInfoPartitionInfo {
+        /**
+         * 当前消费位点。
+         */
+        currentOffset: number;
+        /**
+         * Consumer Group 的名称。
+         */
+        groupName: string;
+        /**
+         * 分区中未被消费的消息条数。
+         */
+        lag: number;
+        /**
+         * 最新消费位点。
+         */
+        latestOffset: number;
+        /**
+         * 分区序号。
+         */
+        partitionId: number;
+        /**
+         * Consumer Group 订阅的 Topic 名称。
+         */
+        topicName: string;
+    }
+
     export interface GetInstanceEndpoints {
         /**
          * 实例私网访问接入点响应数据。
@@ -2673,6 +2668,92 @@ export namespace bmq {
          * 标签值。
          */
         value: string;
+    }
+
+    export interface GroupResetInfo {
+        /**
+         * 重置方式为 OFFSET 时，该参数必传，指定重新消费的基准消费位置，取值如下：EARLIEST：基准消费位置为最早消费位点。CURRENT：基准消费位置为当前消费位点。LATEST：基准消费位置为最近消费位点。
+         */
+        offsetType: string;
+        /**
+         * 分区序号。
+         */
+        partitionId: number;
+        /**
+         * 重置方式，取值如下：TIMESTAMP：根据时间点重置消费位点，指定过去或将来的时间点，直接跳转到该时间点的位点开始消费。OFFSET：根据指定的 offset 重置消费位点，即从指定的位点开始消费，可以通过 offsetType 参数指定 offset。
+         */
+        resetBy: string;
+        /**
+         * 重置值。选择重置方式为 TIMESTAMP 时，该值为重新消费的时间点。例如 1722224612000。选择重置方式为 OFFSET 时，该值为相对于 OffsetType 中基准位点的 相对偏移量。例如 100。
+         */
+        resetValue: number;
+        /**
+         * Topic ID。
+         */
+        topicId: string;
+    }
+
+    export interface GroupTopicInfo {
+        /**
+         * Topic 的创建时间。
+         */
+        createTime: string;
+        /**
+         * Topic 的描述语句。
+         */
+        description: string;
+        /**
+         * Topic 中未被消费的消息条数。
+         */
+        lag: number;
+        partitionInfos: outputs.bmq.GroupTopicInfoPartitionInfo[];
+        /**
+         * Topic 分区数。
+         */
+        partitions: number;
+        /**
+         * 数据在 Topic 中的保留时长，单位为小时。
+         */
+        retention: number;
+        /**
+         * Topic 的状态。
+         */
+        status: string;
+        /**
+         * Topic ID。
+         */
+        topicId: string;
+        /**
+         * Topic 的名称。
+         */
+        topicName: string;
+    }
+
+    export interface GroupTopicInfoPartitionInfo {
+        /**
+         * 当前消费位点。
+         */
+        currentOffset: number;
+        /**
+         * Consumer Group 的名称。
+         */
+        groupName: string;
+        /**
+         * 分区中未被消费的消息条数。
+         */
+        lag: number;
+        /**
+         * 最新消费位点。
+         */
+        latestOffset: number;
+        /**
+         * 分区序号。
+         */
+        partitionId: number;
+        /**
+         * Consumer Group 订阅的 Topic 名称。
+         */
+        topicName: string;
     }
 
     export interface InstanceEndpoints {
@@ -3638,11 +3719,11 @@ export namespace clb {
 
     export interface GetNlbServerGroupHealthCheck {
         /**
-         * 健康检查的域名
+         * 健康检查的域名。
          */
         domain: string;
         /**
-         * 是否开启健康检查
+         * 是否开启健康检查。
          */
         enabled: boolean;
         /**
@@ -3650,7 +3731,7 @@ export namespace clb {
          */
         healthyThreshold: number;
         /**
-         * 健康检查正常的HTTP状态码
+         * 健康检查正常的HTTP状态码。
          */
         httpCode: string;
         /**
@@ -3658,7 +3739,7 @@ export namespace clb {
          */
         interval: number;
         /**
-         * 健康检查的请求方法
+         * 健康检查的请求方法。
          */
         method: string;
         /**
@@ -3670,7 +3751,7 @@ export namespace clb {
          */
         timeout: number;
         /**
-         * 健康检查的协议类型
+         * 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
          */
         type: string;
         /**
@@ -3678,7 +3759,7 @@ export namespace clb {
          */
         udpExpect: string;
         /**
-         * UDP健康检查的预期响应字符串
+         * UDP健康检查的预期响应字符串。
          */
         udpRequest: string;
         /**
@@ -3686,14 +3767,14 @@ export namespace clb {
          */
         unhealthyThreshold: number;
         /**
-         * 健康检查的路径
+         * 健康检查的路径。
          */
         uri: string;
     }
 
     export interface GetNlbServerGroupServer {
         /**
-         * 后端服务器的描述，默认值为空字符串
+         * 后端服务器的描述，默认值为空字符串。
          */
         description: string;
         /**
@@ -3709,15 +3790,15 @@ export namespace clb {
          */
         port: number;
         /**
-         * 后端服务器 ID
+         * 后端服务器 ID。
          */
         serverId: string;
         /**
-         * 后端服务器的类型
+         * 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
          */
         type: string;
         /**
-         * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+         * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
          */
         weight: number;
         /**
@@ -3728,11 +3809,11 @@ export namespace clb {
 
     export interface GetNlbServerGroupTag {
         /**
-         * 标签键
+         * 标签键。
          */
         key: string;
         /**
-         * 标签值
+         * 标签值。
          */
         value: string;
     }
@@ -3996,11 +4077,11 @@ export namespace clb {
 
     export interface NlbServerGroupHealthCheck {
         /**
-         * 健康检查的域名
+         * 健康检查的域名。
          */
         domain: string;
         /**
-         * 是否开启健康检查
+         * 是否开启健康检查。
          */
         enabled: boolean;
         /**
@@ -4008,7 +4089,7 @@ export namespace clb {
          */
         healthyThreshold: number;
         /**
-         * 健康检查正常的HTTP状态码
+         * 健康检查正常的HTTP状态码。
          */
         httpCode: string;
         /**
@@ -4016,7 +4097,7 @@ export namespace clb {
          */
         interval: number;
         /**
-         * 健康检查的请求方法
+         * 健康检查的请求方法。
          */
         method: string;
         /**
@@ -4028,7 +4109,7 @@ export namespace clb {
          */
         timeout: number;
         /**
-         * 健康检查的协议类型
+         * 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
          */
         type: string;
         /**
@@ -4036,7 +4117,7 @@ export namespace clb {
          */
         udpExpect: string;
         /**
-         * UDP健康检查的预期响应字符串
+         * UDP健康检查的预期响应字符串。
          */
         udpRequest: string;
         /**
@@ -4044,14 +4125,14 @@ export namespace clb {
          */
         unhealthyThreshold: number;
         /**
-         * 健康检查的路径
+         * 健康检查的路径。
          */
         uri: string;
     }
 
     export interface NlbServerGroupServer {
         /**
-         * 后端服务器的描述，默认值为空字符串
+         * 后端服务器的描述，默认值为空字符串。
          */
         description: string;
         /**
@@ -4067,15 +4148,15 @@ export namespace clb {
          */
         port: number;
         /**
-         * 后端服务器 ID
+         * 后端服务器 ID。
          */
         serverId: string;
         /**
-         * 后端服务器的类型
+         * 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
          */
         type: string;
         /**
-         * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+         * 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
          */
         weight: number;
         /**
@@ -4086,11 +4167,11 @@ export namespace clb {
 
     export interface NlbServerGroupTag {
         /**
-         * 标签键
+         * 标签键。
          */
         key: string;
         /**
-         * 标签值
+         * 标签值。
          */
         value: string;
     }
@@ -4238,6 +4319,404 @@ export namespace clb {
 
 }
 
+export namespace cloudmonitor {
+    export interface GetRuleCondition {
+        /**
+         * 比较符号。支持普通阈值告警： >、>=、<、<=、!=、= ，以及以下同环比告警：last*period*increase*pct：环比上周期上涨。last*period*decrease*pct：环比上周起下降。last*period*abs*pct：环比上周期上涨或下降。last*day*increase*pct：同比昨天同一时段上涨。last*day*decrease*pct：同比昨天同一时段下降。last*day*abs*pct：同比昨天同一时段上涨或下降。last*week*increase*pct：同比上周同一时段上涨。last*week*decrease*pct：同比上周同一时段下降。last*week*abs_pct：同比上周同一时段上涨或下降。
+         */
+        comparisonOperator: string;
+        /**
+         * 指标显示名称。
+         */
+        displayName: string;
+        /**
+         * 监控指标的名称。详情请参见 云监控指标查询 下各产品的 MetricName。
+         */
+        metricName: string;
+        /**
+         * 监控指标的单位。详情请参见 云监控指标查询 下各产品的 MetricUnit。说明同环比告警，MetricUnit 需要填写为 "Percent"。MetricUnit 中是否带有 IEC 表示不同的进位：带有 IEC：进位是 1024不带 IEC：进位是 1000。
+         */
+        metricUnit: string;
+        /**
+         * 监控指标的统计周期。详情请参见 云监控指标查询 下各产品的 Period。
+         */
+        period: string;
+        /**
+         * 统计方法，取值：avg：平均值。max：最大值。min：最小值。说明统计方法会应用到检测时间段内的数据上。例如，默认每次检测数据的时间跨度是 1 分钟，如果统计方法为 avg，那就是对 1 分钟内的数据取平均值。
+         */
+        statistics: string;
+        /**
+         * 指标阈值。支持输入正数或 0。最多支持三位小数。
+         */
+        threshold: string;
+    }
+
+    export interface GetRuleDimensionConditions {
+        /**
+         * 根据资源名称选择告警对象的条件。当Type为meta时必填。
+         */
+        metaCondition: outputs.cloudmonitor.GetRuleDimensionConditionsMetaCondition;
+        /**
+         * 根据项目选择告警对象的条件。当Type为project时必填。
+         */
+        projectCondition: outputs.cloudmonitor.GetRuleDimensionConditionsProjectCondition;
+        /**
+         * 根据标签选择告警对象的条件。当Type为tag时必填。
+         */
+        tagCondition: outputs.cloudmonitor.GetRuleDimensionConditionsTagCondition;
+        /**
+         * Dimensions 类型。取值：project：根据项目选择告警对象。tag：根据标签选择告警对象。meta：根据资源名称选择告警对象。
+         */
+        type: string;
+    }
+
+    export interface GetRuleDimensionConditionsMetaCondition {
+        /**
+         * 是否为全量资源。true：全部资源。false：部分资源。
+         */
+        allDimensions: boolean;
+        /**
+         * 判断条件。and：全部满足。or：任意满足。
+         */
+        condition: string;
+        /**
+         * 判断条件。and：全部满足。or：任意满足。
+         */
+        metas: outputs.cloudmonitor.GetRuleDimensionConditionsMetaConditionMeta[];
+    }
+
+    export interface GetRuleDimensionConditionsMetaConditionMeta {
+        /**
+         * 标签匹配时的比较符。contain：包含not*contain：不包含prefix*match：前缀匹配suffix*match：后缀匹配equal：等于not*equal：不等于exist：存在。
+         */
+        comparator: string;
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签的值（Value）。当Comparator为exist时，包含 Key 对应的所有 Value，不支持输入。当Comparator为equal或not*equal时，支持输入多个 Value。当Comparator为contain、not*contain、prefix*match或suffix*match时，仅支持输入 1 个 Value。
+         */
+        values: string[];
+    }
+
+    export interface GetRuleDimensionConditionsProjectCondition {
+        /**
+         * 项目名称列表。数组形式。多个值之间使用英文半角逗号,分割。
+         */
+        projects: string[];
+    }
+
+    export interface GetRuleDimensionConditionsTagCondition {
+        /**
+         * 判断条件。and：全部满足。or：任意满足。
+         */
+        condition: string;
+        /**
+         * 标签列表。最多支持配置 10 个标签列表。标签值不能超过 50 个字符。
+         */
+        tags: outputs.cloudmonitor.GetRuleDimensionConditionsTagConditionTag[];
+    }
+
+    export interface GetRuleDimensionConditionsTagConditionTag {
+        /**
+         * 标签匹配时的比较符。contain：包含not*contain：不包含prefix*match：前缀匹配suffix*match：后缀匹配equal：等于not*equal：不等于exist：存在。
+         */
+        comparator: string;
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签的值（Value）。当Comparator为exist时，包含 Key 对应的所有 Value，不支持输入。当Comparator为equal或not*equal时，支持输入多个 Value。当Comparator为contain、not*contain、prefix*match或suffix*match时，仅支持输入 1 个 Value。
+         */
+        values: string[];
+    }
+
+    export interface GetRuleLevelCondition {
+        /**
+         * 告警分级配置。
+         */
+        conditions: outputs.cloudmonitor.GetRuleLevelConditionCondition[];
+        /**
+         * 告警通知等级，取值：notice：通知warning：警告critical：严重recovery：恢复。
+         */
+        level: string;
+    }
+
+    export interface GetRuleLevelConditionCondition {
+        /**
+         * 比较符号。支持普通阈值告警： >、>=、<、<=、!=、= ，以及以下同环比告警：last*period*increase*pct：环比上周期上涨。last*period*decrease*pct：环比上周起下降。last*period*abs*pct：环比上周期上涨或下降。last*day*increase*pct：同比昨天同一时段上涨。last*day*decrease*pct：同比昨天同一时段下降。last*day*abs*pct：同比昨天同一时段上涨或下降。last*week*increase*pct：同比上周同一时段上涨。last*week*decrease*pct：同比上周同一时段下降。last*week*abs_pct：同比上周同一时段上涨或下降。
+         */
+        comparisonOperator: string;
+        /**
+         * 指标显示名称。
+         */
+        displayName: string;
+        /**
+         * 监控指标的名称。详情请参见 云监控指标查询 下各产品的 MetricName。
+         */
+        metricName: string;
+        /**
+         * 监控指标的单位。详情请参见 云监控指标查询 下各产品的 MetricUnit。说明同环比告警，MetricUnit 需要填写为 "Percent"。MetricUnit 中是否带有 IEC 表示不同的进位：带有 IEC：进位是 1024不带 IEC：进位是 1000。
+         */
+        metricUnit: string;
+        /**
+         * 监控指标的统计周期。详情请参见 云监控指标查询 下各产品的 Period。
+         */
+        period: string;
+        /**
+         * 统计方法，取值：avg：平均值。max：最大值。min：最小值。说明统计方法会应用到检测时间段内的数据上。例如，默认每次检测数据的时间跨度是 1 分钟，如果统计方法为 avg，那就是对 1 分钟内的数据取平均值。
+         */
+        statistics: string;
+        /**
+         * 指标阈值。支持输入正数或 0。最多支持三位小数。
+         */
+        threshold: string;
+    }
+
+    export interface GetRuleNoData {
+        /**
+         * 是否开启无数据告警。取值：true：开启无数据告警。false：（默认）关闭无数据告警。
+         */
+        enable: boolean;
+        /**
+         * 无数据告警触发阈值，如果在配置的阈值周期内检测无数据上报，则会触发无数据告警。当Enable配置为true时，该字段为必填。整数形式，取值范围为 3～20。
+         */
+        evaluationCount: number;
+    }
+
+    export interface GetRuleNotifyTemplate {
+        /**
+         * 通知渠道，取值：email：邮箱sms：短信phone：电话lark：飞书dingtalk：钉钉wecom：企业微信slack：Slackapi：回调地址。
+         */
+        channel: string;
+        /**
+         * 通知模版 ID。注意每种通知渠道仅支持配置 1 个通知模版 ID。
+         */
+        notifyTemplateId: string;
+    }
+
+    export interface GetRuleOriginalDimensions {
+        /**
+         * 指标 Dimension 名称，例如ResourceID、NodeName等。不同云产品的 Dimensions 名称不同，详情请参见 云监控指标查询。ResourceID为必填项，且大小写必须与 云监控指标查询 中的一致。支持同时填写多个 Dimension 名称，并基于多个 Dimension 名称进行分组。举例如下：当您仅填写ResourceID时，系统会按照ResourceID进行告警分组。当您同时填写ResourceID和NodeName时，系统会首先按照ResourceID进行告警分组。然后在每个分组内，再按照NodeName进行分组。
+         */
+        key: string;
+        /**
+         * 指标 Dimension 值，数组形式。多个值之间使用英文半角逗号,分割。允许使用通配符*选择全部实例的值。例如：["*"] 。
+         */
+        values: string[];
+    }
+
+    export interface GetRuleRecoveryNotify {
+        /**
+         * 是否开启告警恢复通知。取值：true：（默认）开启告警恢复通知。false：关闭告警恢复通知。
+         */
+        enable: boolean;
+    }
+
+    export interface GetRuleTag {
+        /**
+         * 标签键。支持中文、英文大写字母、英文小写字母、数字和空格。支持以下特殊字符_.:/=+-@。不能以空格为开头或结尾。volc:和/sys:为系统预留的标签键，添加标签时，标签键的开头不能设置为任何大小写形式的volc:和/sys:。标签键的长度需为 1～128 个字符。
+         */
+        key: string;
+        /**
+         * 标签值。支持中文、英文大写字母、英文小写字母、数字和空格。支持以下特殊字符_.:/=+-@。不能以空格为开头或结尾。标签键的长度需为 0～255 个字符。
+         */
+        value: string;
+    }
+
+    export interface RuleCondition {
+        /**
+         * 比较符号。支持普通阈值告警： >、>=、<、<=、!=、= ，以及以下同环比告警：last*period*increase*pct：环比上周期上涨。last*period*decrease*pct：环比上周起下降。last*period*abs*pct：环比上周期上涨或下降。last*day*increase*pct：同比昨天同一时段上涨。last*day*decrease*pct：同比昨天同一时段下降。last*day*abs*pct：同比昨天同一时段上涨或下降。last*week*increase*pct：同比上周同一时段上涨。last*week*decrease*pct：同比上周同一时段下降。last*week*abs_pct：同比上周同一时段上涨或下降。
+         */
+        comparisonOperator: string;
+        /**
+         * 监控指标的名称。详情请参见 云监控指标查询 下各产品的 MetricName。
+         */
+        metricName: string;
+        /**
+         * 监控指标的单位。详情请参见 云监控指标查询 下各产品的 MetricUnit。说明同环比告警，MetricUnit 需要填写为 "Percent"。MetricUnit 中是否带有 IEC 表示不同的进位：带有 IEC：进位是 1024不带 IEC：进位是 1000。
+         */
+        metricUnit: string;
+        /**
+         * 监控指标的统计周期。详情请参见 云监控指标查询 下各产品的 Period。
+         */
+        period: string;
+        /**
+         * 统计方法，取值：avg：平均值。max：最大值。min：最小值。说明统计方法会应用到检测时间段内的数据上。例如，默认每次检测数据的时间跨度是 1 分钟，如果统计方法为 avg，那就是对 1 分钟内的数据取平均值。
+         */
+        statistics: string;
+        /**
+         * 指标阈值。支持输入正数或 0。最多支持三位小数。
+         */
+        threshold: string;
+    }
+
+    export interface RuleDimensionConditions {
+        /**
+         * 根据资源名称选择告警对象的条件。当Type为meta时必填。
+         */
+        metaCondition: outputs.cloudmonitor.RuleDimensionConditionsMetaCondition;
+        /**
+         * 根据项目选择告警对象的条件。当Type为project时必填。
+         */
+        projectCondition: outputs.cloudmonitor.RuleDimensionConditionsProjectCondition;
+        /**
+         * 根据标签选择告警对象的条件。当Type为tag时必填。
+         */
+        tagCondition: outputs.cloudmonitor.RuleDimensionConditionsTagCondition;
+        /**
+         * Dimensions 类型。取值：project：根据项目选择告警对象。tag：根据标签选择告警对象。meta：根据资源名称选择告警对象。
+         */
+        type: string;
+    }
+
+    export interface RuleDimensionConditionsMetaCondition {
+        /**
+         * 是否为全量资源。true：全部资源。false：部分资源。
+         */
+        allDimensions: boolean;
+        /**
+         * 判断条件。and：全部满足。or：任意满足。
+         */
+        condition: string;
+        metas: outputs.cloudmonitor.RuleDimensionConditionsMetaConditionMeta[];
+    }
+
+    export interface RuleDimensionConditionsMetaConditionMeta {
+        /**
+         * 标签匹配时的比较符。contain：包含not*contain：不包含prefix*match：前缀匹配suffix*match：后缀匹配equal：等于not*equal：不等于exist：存在。
+         */
+        comparator: string;
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签的值（Value）。当Comparator为exist时，包含 Key 对应的所有 Value，不支持输入。当Comparator为equal或not*equal时，支持输入多个 Value。当Comparator为contain、not*contain、prefix*match或suffix*match时，仅支持输入 1 个 Value。
+         */
+        values: string[];
+    }
+
+    export interface RuleDimensionConditionsProjectCondition {
+        /**
+         * 项目名称列表。数组形式。多个值之间使用英文半角逗号,分割。
+         */
+        projects: string[];
+    }
+
+    export interface RuleDimensionConditionsTagCondition {
+        /**
+         * 判断条件。and：全部满足。or：任意满足。
+         */
+        condition: string;
+        tags: outputs.cloudmonitor.RuleDimensionConditionsTagConditionTag[];
+    }
+
+    export interface RuleDimensionConditionsTagConditionTag {
+        /**
+         * 标签匹配时的比较符。contain：包含not*contain：不包含prefix*match：前缀匹配suffix*match：后缀匹配equal：等于not*equal：不等于exist：存在。
+         */
+        comparator: string;
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签的值（Value）。当Comparator为exist时，包含 Key 对应的所有 Value，不支持输入。当Comparator为equal或not*equal时，支持输入多个 Value。当Comparator为contain、not*contain、prefix*match或suffix*match时，仅支持输入 1 个 Value。
+         */
+        values: string[];
+    }
+
+    export interface RuleLevelCondition {
+        conditions: outputs.cloudmonitor.RuleLevelConditionCondition[];
+        /**
+         * 告警通知等级，取值：notice：通知warning：警告critical：严重recovery：恢复。
+         */
+        level: string;
+    }
+
+    export interface RuleLevelConditionCondition {
+        /**
+         * 比较符号。支持普通阈值告警： >、>=、<、<=、!=、= ，以及以下同环比告警：last*period*increase*pct：环比上周期上涨。last*period*decrease*pct：环比上周起下降。last*period*abs*pct：环比上周期上涨或下降。last*day*increase*pct：同比昨天同一时段上涨。last*day*decrease*pct：同比昨天同一时段下降。last*day*abs*pct：同比昨天同一时段上涨或下降。last*week*increase*pct：同比上周同一时段上涨。last*week*decrease*pct：同比上周同一时段下降。last*week*abs_pct：同比上周同一时段上涨或下降。
+         */
+        comparisonOperator: string;
+        /**
+         * 监控指标的名称。详情请参见 云监控指标查询 下各产品的 MetricName。
+         */
+        metricName: string;
+        /**
+         * 监控指标的单位。详情请参见 云监控指标查询 下各产品的 MetricUnit。说明同环比告警，MetricUnit 需要填写为 "Percent"。MetricUnit 中是否带有 IEC 表示不同的进位：带有 IEC：进位是 1024不带 IEC：进位是 1000。
+         */
+        metricUnit: string;
+        /**
+         * 监控指标的统计周期。详情请参见 云监控指标查询 下各产品的 Period。
+         */
+        period: string;
+        /**
+         * 统计方法，取值：avg：平均值。max：最大值。min：最小值。说明统计方法会应用到检测时间段内的数据上。例如，默认每次检测数据的时间跨度是 1 分钟，如果统计方法为 avg，那就是对 1 分钟内的数据取平均值。
+         */
+        statistics: string;
+        /**
+         * 指标阈值。支持输入正数或 0。最多支持三位小数。
+         */
+        threshold: string;
+    }
+
+    export interface RuleNoData {
+        /**
+         * 是否开启无数据告警。取值：true：开启无数据告警。false：（默认）关闭无数据告警。
+         */
+        enable: boolean;
+        /**
+         * 无数据告警触发阈值，如果在配置的阈值周期内检测无数据上报，则会触发无数据告警。当Enable配置为true时，该字段为必填。整数形式，取值范围为 3～20。
+         */
+        evaluationCount: number;
+    }
+
+    export interface RuleNotifyTemplate {
+        /**
+         * 通知渠道，取值：email：邮箱sms：短信phone：电话lark：飞书dingtalk：钉钉wecom：企业微信slack：Slackapi：回调地址。
+         */
+        channel: string;
+        /**
+         * 通知模版 ID。注意每种通知渠道仅支持配置 1 个通知模版 ID。
+         */
+        notifyTemplateId: string;
+    }
+
+    export interface RuleOriginalDimensions {
+        /**
+         * 指标 Dimension 名称，例如ResourceID、NodeName等。不同云产品的 Dimensions 名称不同，详情请参见 云监控指标查询。ResourceID为必填项，且大小写必须与 云监控指标查询 中的一致。支持同时填写多个 Dimension 名称，并基于多个 Dimension 名称进行分组。举例如下：当您仅填写ResourceID时，系统会按照ResourceID进行告警分组。当您同时填写ResourceID和NodeName时，系统会首先按照ResourceID进行告警分组。然后在每个分组内，再按照NodeName进行分组。
+         */
+        key: string;
+        /**
+         * 指标 Dimension 值，数组形式。多个值之间使用英文半角逗号,分割。允许使用通配符*选择全部实例的值。例如：["*"] 。
+         */
+        values: string[];
+    }
+
+    export interface RuleRecoveryNotify {
+        /**
+         * 是否开启告警恢复通知。取值：true：（默认）开启告警恢复通知。false：关闭告警恢复通知。
+         */
+        enable: boolean;
+    }
+
+    export interface RuleTag {
+        /**
+         * 标签键。支持中文、英文大写字母、英文小写字母、数字和空格。支持以下特殊字符_.:/=+-@。不能以空格为开头或结尾。volc:和/sys:为系统预留的标签键，添加标签时，标签键的开头不能设置为任何大小写形式的volc:和/sys:。标签键的长度需为 1～128 个字符。
+         */
+        key: string;
+        /**
+         * 标签值。支持中文、英文大写字母、英文小写字母、数字和空格。支持以下特殊字符_.:/=+-@。不能以空格为开头或结尾。标签键的长度需为 0～255 个字符。
+         */
+        value: string;
+    }
+
+}
+
 export namespace config {
     export interface AssumeRole {
         /**
@@ -4330,6 +4809,18 @@ export namespace cr {
 
 export namespace directconnect {
     export interface DirectConnectGatewayAssociateCen {
+        /**
+         * CEN的ID。
+         */
+        cenId: string;
+        /**
+         * CEN的用户ID。
+         */
+        cenOwnerId: string;
+        /**
+         * 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+         */
+        cenStatus: string;
     }
 
     export interface DirectConnectGatewayTag {
@@ -6541,7 +7032,7 @@ export namespace filenas {
 
 }
 
-export namespace firewallcenter {
+export namespace fwcenter {
     export interface DnsControlPolicyDomainListV1 {
         /**
          * 具体地址信息。
@@ -12589,10 +13080,6 @@ export namespace vpc {
          * 分配ID
          */
         allocationId: string;
-        /**
-         * 弹性IP地址
-         */
-        eipAddress: string;
     }
 
     export interface BandwidthPackageTag {

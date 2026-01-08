@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:clb/nlbListener:NlbListener")
 public class NlbListener extends com.pulumi.resources.CustomResource {
     /**
-     * TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
-     * @return TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * @return TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      * 
      */
     public Output<String> certificateId() {
@@ -224,14 +224,14 @@ public class NlbListener extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * 监听协议类型。
+     * 监听协议类型。TCP,UDP,TLS
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return 监听协议类型。
+     * @return 监听协议类型。TCP,UDP,TLS
      * 
      */
     public Output<String> protocol() {

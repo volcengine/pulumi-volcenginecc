@@ -73,15 +73,15 @@ public class TransitRouterRouteTable extends com.pulumi.resources.CustomResource
      * TR路由表的创建时间
      * 
      */
-    @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
+    private Output<String> createdTime;
 
     /**
      * @return TR路由表的创建时间
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<String> createdTime() {
+        return this.createdTime;
     }
     /**
      * TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -205,15 +205,15 @@ public class TransitRouterRouteTable extends com.pulumi.resources.CustomResource
      * TR路由表的最近操作时间
      * 
      */
-    @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    @Export(name="updatedTime", refs={String.class}, tree="[0]")
+    private Output<String> updatedTime;
 
     /**
      * @return TR路由表的最近操作时间
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<String> updatedTime() {
+        return this.updatedTime;
     }
 
     /**

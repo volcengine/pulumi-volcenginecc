@@ -14,48 +14,6 @@ import (
 
 // 公网IP（Elastic IP Address，EIP）及其公网出口带宽，是火山引擎为云资源提供的可独立购买和持有的IP连通服务。公网IP支持直接绑定云服务器（包括ECS云服务器、EBM裸金属服务器、GPU云服务器），还支持绑定公网NAT网关、负载均衡、辅助网卡等组件，为云服务器提供公网互通能力。
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vpc"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewEip(ctx, "EipDemo", &vpc.EipArgs{
-//				Name:               pulumi.String("EipDemo"),
-//				Description:        pulumi.String("EipDemo description"),
-//				Isp:                pulumi.String("BGP"),
-//				BillingType:        pulumi.Int(2),
-//				Bandwidth:          pulumi.Int(3),
-//				Period:             pulumi.Int(5),
-//				ProjectName:        pulumi.String("default"),
-//				BandwidthPackageId: pulumi.String("bwp-ij5gz1lf66m874o8cth*****"),
-//				Tags: vpc.EipTagArray{
-//					&vpc.EipTagArgs{
-//						Key:   pulumi.String("env"),
-//						Value: pulumi.String("test"),
-//					},
-//				},
-//				InstanceId:   pulumi.String("i-ye48ymyy9s5i3z4*****"),
-//				InstanceType: pulumi.String("EcsInstance"),
-//				DirectMode:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -104,7 +62,7 @@ type Eip struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// 资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。
 	OverdueTime pulumi.StringOutput `pulumi:"overdueTime"`
-	// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+	// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 	Period pulumi.IntOutput `pulumi:"period"`
 	// 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
 	PeriodUnit pulumi.IntOutput `pulumi:"periodUnit"`
@@ -204,7 +162,7 @@ type eipState struct {
 	Name *string `pulumi:"name"`
 	// 资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。
 	OverdueTime *string `pulumi:"overdueTime"`
-	// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+	// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 	Period *int `pulumi:"period"`
 	// 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
 	PeriodUnit *int `pulumi:"periodUnit"`
@@ -272,7 +230,7 @@ type EipState struct {
 	Name pulumi.StringPtrInput
 	// 资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值。
 	OverdueTime pulumi.StringPtrInput
-	// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+	// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 	Period pulumi.IntPtrInput
 	// 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
 	PeriodUnit pulumi.IntPtrInput
@@ -312,8 +270,6 @@ type eipArgs struct {
 	BillingType int `pulumi:"billingType"`
 	// 公网IP的描述信息。
 	Description *string `pulumi:"description"`
-	// 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-	DirectMode *bool `pulumi:"directMode"`
 	// 当前绑定的实例ID。
 	InstanceId *string `pulumi:"instanceId"`
 	// 当前绑定的实例类型。Nat：公网NAT网关。NetworkInterface: 弹性网卡。ClbInstance: 负载均衡。EcsInstance：云服务器。HaVip：高可用虚拟IP。
@@ -326,7 +282,7 @@ type eipArgs struct {
 	Isp *string `pulumi:"isp"`
 	// 公网IP的名称。
 	Name *string `pulumi:"name"`
-	// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+	// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 	Period *int `pulumi:"period"`
 	// 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
 	PeriodUnit *int `pulumi:"periodUnit"`
@@ -344,9 +300,7 @@ type eipArgs struct {
 	SecurityProtectionInstanceId *int `pulumi:"securityProtectionInstanceId"`
 	// 防护类型。AntiDDoS_Enhanced：增强防护类型的公网IP，可以加入到DDoS原生防护（企业版）实例。空值：默认防护类型的公网IP。
 	SecurityProtectionTypes []string `pulumi:"securityProtectionTypes"`
-	// 是否由服务管理
-	ServiceManaged *bool    `pulumi:"serviceManaged"`
-	Tags           []EipTag `pulumi:"tags"`
+	Tags                    []EipTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Eip resource.
@@ -359,8 +313,6 @@ type EipArgs struct {
 	BillingType pulumi.IntInput
 	// 公网IP的描述信息。
 	Description pulumi.StringPtrInput
-	// 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-	DirectMode pulumi.BoolPtrInput
 	// 当前绑定的实例ID。
 	InstanceId pulumi.StringPtrInput
 	// 当前绑定的实例类型。Nat：公网NAT网关。NetworkInterface: 弹性网卡。ClbInstance: 负载均衡。EcsInstance：云服务器。HaVip：高可用虚拟IP。
@@ -373,7 +325,7 @@ type EipArgs struct {
 	Isp pulumi.StringPtrInput
 	// 公网IP的名称。
 	Name pulumi.StringPtrInput
-	// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+	// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 	Period pulumi.IntPtrInput
 	// 购买包年包月公网IP时长的单位。取值如下：1（默认值）：月。2 ：年。
 	PeriodUnit pulumi.IntPtrInput
@@ -391,9 +343,7 @@ type EipArgs struct {
 	SecurityProtectionInstanceId pulumi.IntPtrInput
 	// 防护类型。AntiDDoS_Enhanced：增强防护类型的公网IP，可以加入到DDoS原生防护（企业版）实例。空值：默认防护类型的公网IP。
 	SecurityProtectionTypes pulumi.StringArrayInput
-	// 是否由服务管理
-	ServiceManaged pulumi.BoolPtrInput
-	Tags           EipTagArrayInput
+	Tags                    EipTagArrayInput
 }
 
 func (EipArgs) ElementType() reflect.Type {
@@ -583,7 +533,7 @@ func (o EipOutput) OverdueTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.OverdueTime }).(pulumi.StringOutput)
 }
 
-// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
 func (o EipOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v *Eip) pulumi.IntOutput { return v.Period }).(pulumi.IntOutput)
 }

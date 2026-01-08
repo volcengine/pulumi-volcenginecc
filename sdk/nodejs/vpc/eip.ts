@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
 /**
  * 公网IP（Elastic IP Address，EIP）及其公网出口带宽，是火山引擎为云资源提供的可独立购买和持有的IP连通服务。公网IP支持直接绑定云服务器（包括ECS云服务器、EBM裸金属服务器、GPU云服务器），还支持绑定公网NAT网关、负载均衡、辅助网卡等组件，为云服务器提供公网互通能力。
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
- *
- * const eipDemo = new volcenginecc.vpc.Eip("EipDemo", {
- *     name: "EipDemo",
- *     description: "EipDemo description",
- *     isp: "BGP",
- *     billingType: 2,
- *     bandwidth: 3,
- *     period: 5,
- *     projectName: "default",
- *     bandwidthPackageId: "bwp-ij5gz1lf66m874o8cth*****",
- *     tags: [{
- *         key: "env",
- *         value: "test",
- *     }],
- *     instanceId: "i-ye48ymyy9s5i3z4*****",
- *     instanceType: "EcsInstance",
- *     directMode: true,
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -103,7 +78,7 @@ export class Eip extends pulumi.CustomResource {
     /**
      * 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
      */
-    public readonly directMode!: pulumi.Output<boolean>;
+    public /*out*/ readonly directMode!: pulumi.Output<boolean>;
     /**
      * 公网IP地址。
      */
@@ -149,7 +124,7 @@ export class Eip extends pulumi.CustomResource {
      */
     public /*out*/ readonly overdueTime!: pulumi.Output<string>;
     /**
-     * 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      */
     public readonly period!: pulumi.Output<number>;
     /**
@@ -187,7 +162,7 @@ export class Eip extends pulumi.CustomResource {
     /**
      * 是否由服务管理
      */
-    public readonly serviceManaged!: pulumi.Output<boolean>;
+    public /*out*/ readonly serviceManaged!: pulumi.Output<boolean>;
     /**
      * 公网IP的状态。Attaching：绑定中。Detaching：解绑中。Attached：已绑定。Available：可用。Deleting：删除中。
      */
@@ -253,7 +228,6 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["bandwidthPackageId"] = args ? args.bandwidthPackageId : undefined;
             resourceInputs["billingType"] = args ? args.billingType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["directMode"] = args ? args.directMode : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
@@ -269,17 +243,18 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["renewType"] = args ? args.renewType : undefined;
             resourceInputs["securityProtectionInstanceId"] = args ? args.securityProtectionInstanceId : undefined;
             resourceInputs["securityProtectionTypes"] = args ? args.securityProtectionTypes : undefined;
-            resourceInputs["serviceManaged"] = args ? args.serviceManaged : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["businessStatus"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;
+            resourceInputs["directMode"] = undefined /*out*/;
             resourceInputs["eipAddress"] = undefined /*out*/;
             resourceInputs["expiredTime"] = undefined /*out*/;
             resourceInputs["isBlocked"] = undefined /*out*/;
             resourceInputs["lockReason"] = undefined /*out*/;
             resourceInputs["overdueTime"] = undefined /*out*/;
+            resourceInputs["serviceManaged"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedTime"] = undefined /*out*/;
         }
@@ -373,7 +348,7 @@ export interface EipState {
      */
     overdueTime?: pulumi.Input<string>;
     /**
-     * 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      */
     period?: pulumi.Input<number>;
     /**
@@ -444,10 +419,6 @@ export interface EipArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-     */
-    directMode?: pulumi.Input<boolean>;
-    /**
      * 当前绑定的实例ID。
      */
     instanceId?: pulumi.Input<string>;
@@ -472,7 +443,7 @@ export interface EipArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      */
     period?: pulumi.Input<number>;
     /**
@@ -507,9 +478,5 @@ export interface EipArgs {
      * 防护类型。AntiDDoS_Enhanced：增强防护类型的公网IP，可以加入到DDoS原生防护（企业版）实例。空值：默认防护类型的公网IP。
      */
     securityProtectionTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * 是否由服务管理
-     */
-    serviceManaged?: pulumi.Input<boolean>;
     tags?: pulumi.Input<pulumi.Input<inputs.vpc.EipTag>[]>;
 }

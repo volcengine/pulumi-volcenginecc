@@ -18,40 +18,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
         /// 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
         /// </summary>
         public readonly string? AclType;
-        /// <summary>
-        /// 监听器的ID
-        /// </summary>
-        public readonly string? ListenerId;
-        /// <summary>
-        /// 监听器的名称
-        /// </summary>
-        public readonly string? ListenerName;
-        /// <summary>
-        /// 监听器的端口
-        /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// 监听器的协议
-        /// </summary>
-        public readonly string? Protocol;
 
         [OutputConstructor]
-        private AclListener(
-            string? aclType,
-
-            string? listenerId,
-
-            string? listenerName,
-
-            int? port,
-
-            string? protocol)
+        private AclListener(string? aclType)
         {
             AclType = aclType;
-            ListenerId = listenerId;
-            ListenerName = listenerName;
-            Port = port;
-            Protocol = protocol;
         }
     }
 }

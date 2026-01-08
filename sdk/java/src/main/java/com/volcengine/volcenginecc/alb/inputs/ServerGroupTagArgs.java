@@ -15,16 +15,32 @@ public final class ServerGroupTagArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ServerGroupTagArgs Empty = new ServerGroupTagArgs();
 
+    /**
+     * 标签的标签键。同一资源的标签键不允许重复。
+     * 
+     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
+    /**
+     * @return 标签的标签键。同一资源的标签键不允许重复。
+     * 
+     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * 标签的标签值。
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return 标签的标签值。
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -54,20 +70,44 @@ public final class ServerGroupTagArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ServerGroupTagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key 标签的标签键。同一资源的标签键不允许重复。
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key 标签的标签键。同一资源的标签键不允许重复。
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value 标签的标签值。
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value 标签的标签值。
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

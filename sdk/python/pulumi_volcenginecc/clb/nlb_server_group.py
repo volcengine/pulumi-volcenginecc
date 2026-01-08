@@ -24,12 +24,10 @@ class NlbServerGroupArgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[builtins.str],
                  vpc_id: pulumi.Input[builtins.str],
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  any_port_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  bypass_security_group_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_drain_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_drain_timeout: Optional[pulumi.Input[builtins.int]] = None,
-                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  health_check: Optional[pulumi.Input['NlbServerGroupHealthCheckArgs']] = None,
                  ip_address_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -43,36 +41,30 @@ class NlbServerGroupArgs:
                  session_persistence_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NlbServerGroupTagArgs']]]] = None,
                  timestamp_remove_enabled: Optional[pulumi.Input[builtins.bool]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[builtins.str]] = None):
+                 type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a NlbServerGroup resource.
-        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议
+        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         :param pulumi.Input[builtins.str] vpc_id: 服务器组所属私有网络的ID。
-        :param pulumi.Input[builtins.str] account_id: 账号ID
-        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发
-        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
-        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断
+        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发。
+        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
+        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断。
         :param pulumi.Input[builtins.int] connection_drain_timeout: 连接优雅中断超时时间，取值范围为0～900秒。参数ConnectionDrainEnabled为“true”时，该参数为必填。
-        :param pulumi.Input[builtins.str] created_time: 后端服务器组的创建时间
         :param pulumi.Input[builtins.str] description: 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
-        :param pulumi.Input['NlbServerGroupHealthCheckArgs'] health_check: 健康检查相关参数
-        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型
-        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持
-        :param pulumi.Input[builtins.str] project_name: 项目名称
-        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议
-        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则
+        :param pulumi.Input['NlbServerGroupHealthCheckArgs'] health_check: 健康检查相关参数。
+        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
+        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
+        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
+        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         :param pulumi.Input[builtins.str] server_group_name: 服务器组名称, 必须以字母、数字或中文开头，可包含以下特殊字符：点号（.）、下划线（_）和中划线（-）。限制为1 ～ 128个字符。该参数不传入，则默认为服务器组ID。
-        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持
-        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
-        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
-        :param pulumi.Input[builtins.str] type: 服务器组的类型
-        :param pulumi.Input[builtins.str] updated_time: 后端服务器组的更新时间
+        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持。
+        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
+        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
+        :param pulumi.Input[builtins.str] type: 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         """
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "vpc_id", vpc_id)
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if any_port_enabled is not None:
             pulumi.set(__self__, "any_port_enabled", any_port_enabled)
         if bypass_security_group_enabled is not None:
@@ -81,8 +73,6 @@ class NlbServerGroupArgs:
             pulumi.set(__self__, "connection_drain_enabled", connection_drain_enabled)
         if connection_drain_timeout is not None:
             pulumi.set(__self__, "connection_drain_timeout", connection_drain_timeout)
-        if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if health_check is not None:
@@ -111,14 +101,12 @@ class NlbServerGroupArgs:
             pulumi.set(__self__, "timestamp_remove_enabled", timestamp_remove_enabled)
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if updated_time is not None:
-            pulumi.set(__self__, "updated_time", updated_time)
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[builtins.str]:
         """
-        NLB转发流量到后端服务器时使用的通信协议
+        NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         """
         return pulumi.get(self, "protocol")
 
@@ -139,22 +127,10 @@ class NlbServerGroupArgs:
         pulumi.set(self, "vpc_id", value)
 
     @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        账号ID
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_id", value)
-
-    @property
     @pulumi.getter(name="anyPortEnabled")
     def any_port_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启全端口转发
+        是否开启全端口转发。
         """
         return pulumi.get(self, "any_port_enabled")
 
@@ -166,7 +142,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="bypassSecurityGroupEnabled")
     def bypass_security_group_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+        是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
         """
         return pulumi.get(self, "bypass_security_group_enabled")
 
@@ -178,7 +154,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="connectionDrainEnabled")
     def connection_drain_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启连接优雅中断
+        是否开启连接优雅中断。
         """
         return pulumi.get(self, "connection_drain_enabled")
 
@@ -199,18 +175,6 @@ class NlbServerGroupArgs:
         pulumi.set(self, "connection_drain_timeout", value)
 
     @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        后端服务器组的创建时间
-        """
-        return pulumi.get(self, "created_time")
-
-    @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "created_time", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -226,7 +190,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['NlbServerGroupHealthCheckArgs']]:
         """
-        健康检查相关参数
+        健康检查相关参数。
         """
         return pulumi.get(self, "health_check")
 
@@ -238,7 +202,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        服务器组的IP地址类型
+        服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
         """
         return pulumi.get(self, "ip_address_version")
 
@@ -250,7 +214,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="preserveClientIpEnabled")
     def preserve_client_ip_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启源地址保持
+        是否开启源地址保持。
         """
         return pulumi.get(self, "preserve_client_ip_enabled")
 
@@ -262,7 +226,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        项目名称
+        项目名称。
         """
         return pulumi.get(self, "project_name")
 
@@ -274,7 +238,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="proxyProtocolType")
     def proxy_protocol_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        是否开启Proxy-Protocol协议
+        是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
         """
         return pulumi.get(self, "proxy_protocol_type")
 
@@ -286,7 +250,7 @@ class NlbServerGroupArgs:
     @pulumi.getter
     def scheduler(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        NLB转发流量时遵循的规则
+        NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         """
         return pulumi.get(self, "scheduler")
 
@@ -319,7 +283,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="sessionPersistenceEnabled")
     def session_persistence_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启会话保持
+        是否开启会话保持。
         """
         return pulumi.get(self, "session_persistence_enabled")
 
@@ -331,7 +295,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="sessionPersistenceTimeout")
     def session_persistence_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+        会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
         """
         return pulumi.get(self, "session_persistence_timeout")
 
@@ -352,7 +316,7 @@ class NlbServerGroupArgs:
     @pulumi.getter(name="timestampRemoveEnabled")
     def timestamp_remove_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+        是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
         """
         return pulumi.get(self, "timestamp_remove_enabled")
 
@@ -364,25 +328,13 @@ class NlbServerGroupArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        服务器组的类型
+        服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="updatedTime")
-    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        后端服务器组的更新时间
-        """
-        return pulumi.get(self, "updated_time")
-
-    @updated_time.setter
-    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "updated_time", value)
 
 
 @pulumi.input_type
@@ -417,30 +369,30 @@ class _NlbServerGroupState:
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering NlbServerGroup resources.
-        :param pulumi.Input[builtins.str] account_id: 账号ID
-        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发
-        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
-        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断
+        :param pulumi.Input[builtins.str] account_id: 账号ID。
+        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发。
+        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
+        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断。
         :param pulumi.Input[builtins.int] connection_drain_timeout: 连接优雅中断超时时间，取值范围为0～900秒。参数ConnectionDrainEnabled为“true”时，该参数为必填。
-        :param pulumi.Input[builtins.str] created_time: 后端服务器组的创建时间
+        :param pulumi.Input[builtins.str] created_time: 后端服务器组的创建时间。
         :param pulumi.Input[builtins.str] description: 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
-        :param pulumi.Input['NlbServerGroupHealthCheckArgs'] health_check: 健康检查相关参数
-        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型
-        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持
-        :param pulumi.Input[builtins.str] project_name: 项目名称
-        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议
-        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] related_load_balancer_ids: 服务器组关联的NLB实例
-        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则
-        :param pulumi.Input[builtins.int] server_count: 服务器组中后端服务器的数量
-        :param pulumi.Input[builtins.str] server_group_id: 服务器组ID
+        :param pulumi.Input['NlbServerGroupHealthCheckArgs'] health_check: 健康检查相关参数。
+        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
+        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
+        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
+        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] related_load_balancer_ids: 服务器组关联的NLB实例。
+        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
+        :param pulumi.Input[builtins.int] server_count: 服务器组中后端服务器的数量。
+        :param pulumi.Input[builtins.str] server_group_id: 服务器组ID。
         :param pulumi.Input[builtins.str] server_group_name: 服务器组名称, 必须以字母、数字或中文开头，可包含以下特殊字符：点号（.）、下划线（_）和中划线（-）。限制为1 ～ 128个字符。该参数不传入，则默认为服务器组ID。
-        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持
-        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
-        :param pulumi.Input[builtins.str] status: 服务器组的状态
-        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
-        :param pulumi.Input[builtins.str] type: 服务器组的类型
-        :param pulumi.Input[builtins.str] updated_time: 后端服务器组的更新时间
+        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持。
+        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
+        :param pulumi.Input[builtins.str] status: 服务器组的状态。
+        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
+        :param pulumi.Input[builtins.str] type: 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
+        :param pulumi.Input[builtins.str] updated_time: 后端服务器组的更新时间。
         :param pulumi.Input[builtins.str] vpc_id: 服务器组所属私有网络的ID。
         """
         if account_id is not None:
@@ -502,7 +454,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        账号ID
+        账号ID。
         """
         return pulumi.get(self, "account_id")
 
@@ -514,7 +466,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="anyPortEnabled")
     def any_port_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启全端口转发
+        是否开启全端口转发。
         """
         return pulumi.get(self, "any_port_enabled")
 
@@ -526,7 +478,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="bypassSecurityGroupEnabled")
     def bypass_security_group_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+        是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
         """
         return pulumi.get(self, "bypass_security_group_enabled")
 
@@ -538,7 +490,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="connectionDrainEnabled")
     def connection_drain_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启连接优雅中断
+        是否开启连接优雅中断。
         """
         return pulumi.get(self, "connection_drain_enabled")
 
@@ -562,7 +514,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        后端服务器组的创建时间
+        后端服务器组的创建时间。
         """
         return pulumi.get(self, "created_time")
 
@@ -586,7 +538,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['NlbServerGroupHealthCheckArgs']]:
         """
-        健康检查相关参数
+        健康检查相关参数。
         """
         return pulumi.get(self, "health_check")
 
@@ -598,7 +550,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        服务器组的IP地址类型
+        服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
         """
         return pulumi.get(self, "ip_address_version")
 
@@ -610,7 +562,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="preserveClientIpEnabled")
     def preserve_client_ip_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启源地址保持
+        是否开启源地址保持。
         """
         return pulumi.get(self, "preserve_client_ip_enabled")
 
@@ -622,7 +574,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        项目名称
+        项目名称。
         """
         return pulumi.get(self, "project_name")
 
@@ -634,7 +586,7 @@ class _NlbServerGroupState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        NLB转发流量到后端服务器时使用的通信协议
+        NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         """
         return pulumi.get(self, "protocol")
 
@@ -646,7 +598,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="proxyProtocolType")
     def proxy_protocol_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        是否开启Proxy-Protocol协议
+        是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
         """
         return pulumi.get(self, "proxy_protocol_type")
 
@@ -658,7 +610,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="relatedLoadBalancerIds")
     def related_load_balancer_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        服务器组关联的NLB实例
+        服务器组关联的NLB实例。
         """
         return pulumi.get(self, "related_load_balancer_ids")
 
@@ -670,7 +622,7 @@ class _NlbServerGroupState:
     @pulumi.getter
     def scheduler(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        NLB转发流量时遵循的规则
+        NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         """
         return pulumi.get(self, "scheduler")
 
@@ -682,7 +634,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="serverCount")
     def server_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        服务器组中后端服务器的数量
+        服务器组中后端服务器的数量。
         """
         return pulumi.get(self, "server_count")
 
@@ -694,7 +646,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="serverGroupId")
     def server_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        服务器组ID
+        服务器组ID。
         """
         return pulumi.get(self, "server_group_id")
 
@@ -727,7 +679,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="sessionPersistenceEnabled")
     def session_persistence_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启会话保持
+        是否开启会话保持。
         """
         return pulumi.get(self, "session_persistence_enabled")
 
@@ -739,7 +691,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="sessionPersistenceTimeout")
     def session_persistence_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+        会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
         """
         return pulumi.get(self, "session_persistence_timeout")
 
@@ -751,7 +703,7 @@ class _NlbServerGroupState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        服务器组的状态
+        服务器组的状态。
         """
         return pulumi.get(self, "status")
 
@@ -772,7 +724,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="timestampRemoveEnabled")
     def timestamp_remove_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+        是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
         """
         return pulumi.get(self, "timestamp_remove_enabled")
 
@@ -784,7 +736,7 @@ class _NlbServerGroupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        服务器组的类型
+        服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         """
         return pulumi.get(self, "type")
 
@@ -796,7 +748,7 @@ class _NlbServerGroupState:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        后端服务器组的更新时间
+        后端服务器组的更新时间。
         """
         return pulumi.get(self, "updated_time")
 
@@ -823,12 +775,10 @@ class NlbServerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  any_port_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  bypass_security_group_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_drain_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_drain_timeout: Optional[pulumi.Input[builtins.int]] = None,
-                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  health_check: Optional[pulumi.Input[Union['NlbServerGroupHealthCheckArgs', 'NlbServerGroupHealthCheckArgsDict']]] = None,
                  ip_address_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -844,11 +794,10 @@ class NlbServerGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NlbServerGroupTagArgs', 'NlbServerGroupTagArgsDict']]]]] = None,
                  timestamp_remove_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        服务器组
+        服务器组是一组后端服务器。
 
         ## Import
 
@@ -858,26 +807,23 @@ class NlbServerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_id: 账号ID
-        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发
-        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
-        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断
+        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发。
+        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
+        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断。
         :param pulumi.Input[builtins.int] connection_drain_timeout: 连接优雅中断超时时间，取值范围为0～900秒。参数ConnectionDrainEnabled为“true”时，该参数为必填。
-        :param pulumi.Input[builtins.str] created_time: 后端服务器组的创建时间
         :param pulumi.Input[builtins.str] description: 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
-        :param pulumi.Input[Union['NlbServerGroupHealthCheckArgs', 'NlbServerGroupHealthCheckArgsDict']] health_check: 健康检查相关参数
-        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型
-        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持
-        :param pulumi.Input[builtins.str] project_name: 项目名称
-        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议
-        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议
-        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则
+        :param pulumi.Input[Union['NlbServerGroupHealthCheckArgs', 'NlbServerGroupHealthCheckArgsDict']] health_check: 健康检查相关参数。
+        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
+        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
+        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
+        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
+        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         :param pulumi.Input[builtins.str] server_group_name: 服务器组名称, 必须以字母、数字或中文开头，可包含以下特殊字符：点号（.）、下划线（_）和中划线（-）。限制为1 ～ 128个字符。该参数不传入，则默认为服务器组ID。
-        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持
-        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
-        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
-        :param pulumi.Input[builtins.str] type: 服务器组的类型
-        :param pulumi.Input[builtins.str] updated_time: 后端服务器组的更新时间
+        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持。
+        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
+        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
+        :param pulumi.Input[builtins.str] type: 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         :param pulumi.Input[builtins.str] vpc_id: 服务器组所属私有网络的ID。
         """
         ...
@@ -887,7 +833,7 @@ class NlbServerGroup(pulumi.CustomResource):
                  args: NlbServerGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        服务器组
+        服务器组是一组后端服务器。
 
         ## Import
 
@@ -910,12 +856,10 @@ class NlbServerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  any_port_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  bypass_security_group_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_drain_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  connection_drain_timeout: Optional[pulumi.Input[builtins.int]] = None,
-                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  health_check: Optional[pulumi.Input[Union['NlbServerGroupHealthCheckArgs', 'NlbServerGroupHealthCheckArgsDict']]] = None,
                  ip_address_version: Optional[pulumi.Input[builtins.str]] = None,
@@ -931,7 +875,6 @@ class NlbServerGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NlbServerGroupTagArgs', 'NlbServerGroupTagArgsDict']]]]] = None,
                  timestamp_remove_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -942,12 +885,10 @@ class NlbServerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NlbServerGroupArgs.__new__(NlbServerGroupArgs)
 
-            __props__.__dict__["account_id"] = account_id
             __props__.__dict__["any_port_enabled"] = any_port_enabled
             __props__.__dict__["bypass_security_group_enabled"] = bypass_security_group_enabled
             __props__.__dict__["connection_drain_enabled"] = connection_drain_enabled
             __props__.__dict__["connection_drain_timeout"] = connection_drain_timeout
-            __props__.__dict__["created_time"] = created_time
             __props__.__dict__["description"] = description
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["ip_address_version"] = ip_address_version
@@ -965,14 +906,16 @@ class NlbServerGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timestamp_remove_enabled"] = timestamp_remove_enabled
             __props__.__dict__["type"] = type
-            __props__.__dict__["updated_time"] = updated_time
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["account_id"] = None
+            __props__.__dict__["created_time"] = None
             __props__.__dict__["related_load_balancer_ids"] = None
             __props__.__dict__["server_count"] = None
             __props__.__dict__["server_group_id"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["updated_time"] = None
         super(NlbServerGroup, __self__).__init__(
             'volcenginecc:clb/nlbServerGroup:NlbServerGroup',
             resource_name,
@@ -1017,30 +960,30 @@ class NlbServerGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_id: 账号ID
-        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发
-        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
-        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断
+        :param pulumi.Input[builtins.str] account_id: 账号ID。
+        :param pulumi.Input[builtins.bool] any_port_enabled: 是否开启全端口转发。
+        :param pulumi.Input[builtins.bool] bypass_security_group_enabled: 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
+        :param pulumi.Input[builtins.bool] connection_drain_enabled: 是否开启连接优雅中断。
         :param pulumi.Input[builtins.int] connection_drain_timeout: 连接优雅中断超时时间，取值范围为0～900秒。参数ConnectionDrainEnabled为“true”时，该参数为必填。
-        :param pulumi.Input[builtins.str] created_time: 后端服务器组的创建时间
+        :param pulumi.Input[builtins.str] created_time: 后端服务器组的创建时间。
         :param pulumi.Input[builtins.str] description: 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
-        :param pulumi.Input[Union['NlbServerGroupHealthCheckArgs', 'NlbServerGroupHealthCheckArgsDict']] health_check: 健康检查相关参数
-        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型
-        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持
-        :param pulumi.Input[builtins.str] project_name: 项目名称
-        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议
-        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] related_load_balancer_ids: 服务器组关联的NLB实例
-        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则
-        :param pulumi.Input[builtins.int] server_count: 服务器组中后端服务器的数量
-        :param pulumi.Input[builtins.str] server_group_id: 服务器组ID
+        :param pulumi.Input[Union['NlbServerGroupHealthCheckArgs', 'NlbServerGroupHealthCheckArgsDict']] health_check: 健康检查相关参数。
+        :param pulumi.Input[builtins.str] ip_address_version: 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
+        :param pulumi.Input[builtins.bool] preserve_client_ip_enabled: 是否开启源地址保持。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
+        :param pulumi.Input[builtins.str] protocol: NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
+        :param pulumi.Input[builtins.str] proxy_protocol_type: 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] related_load_balancer_ids: 服务器组关联的NLB实例。
+        :param pulumi.Input[builtins.str] scheduler: NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
+        :param pulumi.Input[builtins.int] server_count: 服务器组中后端服务器的数量。
+        :param pulumi.Input[builtins.str] server_group_id: 服务器组ID。
         :param pulumi.Input[builtins.str] server_group_name: 服务器组名称, 必须以字母、数字或中文开头，可包含以下特殊字符：点号（.）、下划线（_）和中划线（-）。限制为1 ～ 128个字符。该参数不传入，则默认为服务器组ID。
-        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持
-        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
-        :param pulumi.Input[builtins.str] status: 服务器组的状态
-        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
-        :param pulumi.Input[builtins.str] type: 服务器组的类型
-        :param pulumi.Input[builtins.str] updated_time: 后端服务器组的更新时间
+        :param pulumi.Input[builtins.bool] session_persistence_enabled: 是否开启会话保持。
+        :param pulumi.Input[builtins.int] session_persistence_timeout: 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
+        :param pulumi.Input[builtins.str] status: 服务器组的状态。
+        :param pulumi.Input[builtins.bool] timestamp_remove_enabled: 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
+        :param pulumi.Input[builtins.str] type: 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
+        :param pulumi.Input[builtins.str] updated_time: 后端服务器组的更新时间。
         :param pulumi.Input[builtins.str] vpc_id: 服务器组所属私有网络的ID。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1080,7 +1023,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[builtins.str]:
         """
-        账号ID
+        账号ID。
         """
         return pulumi.get(self, "account_id")
 
@@ -1088,7 +1031,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="anyPortEnabled")
     def any_port_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        是否开启全端口转发
+        是否开启全端口转发。
         """
         return pulumi.get(self, "any_port_enabled")
 
@@ -1096,7 +1039,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="bypassSecurityGroupEnabled")
     def bypass_security_group_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+        是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
         """
         return pulumi.get(self, "bypass_security_group_enabled")
 
@@ -1104,7 +1047,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="connectionDrainEnabled")
     def connection_drain_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        是否开启连接优雅中断
+        是否开启连接优雅中断。
         """
         return pulumi.get(self, "connection_drain_enabled")
 
@@ -1120,7 +1063,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
         """
-        后端服务器组的创建时间
+        后端服务器组的创建时间。
         """
         return pulumi.get(self, "created_time")
 
@@ -1136,7 +1079,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> pulumi.Output['outputs.NlbServerGroupHealthCheck']:
         """
-        健康检查相关参数
+        健康检查相关参数。
         """
         return pulumi.get(self, "health_check")
 
@@ -1144,7 +1087,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> pulumi.Output[builtins.str]:
         """
-        服务器组的IP地址类型
+        服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
         """
         return pulumi.get(self, "ip_address_version")
 
@@ -1152,7 +1095,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="preserveClientIpEnabled")
     def preserve_client_ip_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        是否开启源地址保持
+        是否开启源地址保持。
         """
         return pulumi.get(self, "preserve_client_ip_enabled")
 
@@ -1160,7 +1103,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[builtins.str]:
         """
-        项目名称
+        项目名称。
         """
         return pulumi.get(self, "project_name")
 
@@ -1168,7 +1111,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[builtins.str]:
         """
-        NLB转发流量到后端服务器时使用的通信协议
+        NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
         """
         return pulumi.get(self, "protocol")
 
@@ -1176,7 +1119,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="proxyProtocolType")
     def proxy_protocol_type(self) -> pulumi.Output[builtins.str]:
         """
-        是否开启Proxy-Protocol协议
+        是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
         """
         return pulumi.get(self, "proxy_protocol_type")
 
@@ -1184,7 +1127,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="relatedLoadBalancerIds")
     def related_load_balancer_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        服务器组关联的NLB实例
+        服务器组关联的NLB实例。
         """
         return pulumi.get(self, "related_load_balancer_ids")
 
@@ -1192,7 +1135,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def scheduler(self) -> pulumi.Output[builtins.str]:
         """
-        NLB转发流量时遵循的规则
+        NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
         """
         return pulumi.get(self, "scheduler")
 
@@ -1200,7 +1143,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="serverCount")
     def server_count(self) -> pulumi.Output[builtins.int]:
         """
-        服务器组中后端服务器的数量
+        服务器组中后端服务器的数量。
         """
         return pulumi.get(self, "server_count")
 
@@ -1208,7 +1151,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="serverGroupId")
     def server_group_id(self) -> pulumi.Output[builtins.str]:
         """
-        服务器组ID
+        服务器组ID。
         """
         return pulumi.get(self, "server_group_id")
 
@@ -1229,7 +1172,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="sessionPersistenceEnabled")
     def session_persistence_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        是否开启会话保持
+        是否开启会话保持。
         """
         return pulumi.get(self, "session_persistence_enabled")
 
@@ -1237,7 +1180,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="sessionPersistenceTimeout")
     def session_persistence_timeout(self) -> pulumi.Output[builtins.int]:
         """
-        会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+        会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
         """
         return pulumi.get(self, "session_persistence_timeout")
 
@@ -1245,7 +1188,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        服务器组的状态
+        服务器组的状态。
         """
         return pulumi.get(self, "status")
 
@@ -1258,7 +1201,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="timestampRemoveEnabled")
     def timestamp_remove_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+        是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
         """
         return pulumi.get(self, "timestamp_remove_enabled")
 
@@ -1266,7 +1209,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        服务器组的类型
+        服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
         """
         return pulumi.get(self, "type")
 
@@ -1274,7 +1217,7 @@ class NlbServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> pulumi.Output[builtins.str]:
         """
-        后端服务器组的更新时间
+        后端服务器组的更新时间。
         """
         return pulumi.get(self, "updated_time")
 

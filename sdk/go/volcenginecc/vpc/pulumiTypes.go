@@ -16,8 +16,6 @@ var _ = internal.GetEnvOrDefault
 type BandwidthPackageEipAddress struct {
 	// 分配ID
 	AllocationId *string `pulumi:"allocationId"`
-	// 弹性IP地址
-	EipAddress *string `pulumi:"eipAddress"`
 }
 
 // BandwidthPackageEipAddressInput is an input type that accepts BandwidthPackageEipAddressArgs and BandwidthPackageEipAddressOutput values.
@@ -34,8 +32,6 @@ type BandwidthPackageEipAddressInput interface {
 type BandwidthPackageEipAddressArgs struct {
 	// 分配ID
 	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
-	// 弹性IP地址
-	EipAddress pulumi.StringPtrInput `pulumi:"eipAddress"`
 }
 
 func (BandwidthPackageEipAddressArgs) ElementType() reflect.Type {
@@ -92,11 +88,6 @@ func (o BandwidthPackageEipAddressOutput) ToBandwidthPackageEipAddressOutputWith
 // 分配ID
 func (o BandwidthPackageEipAddressOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BandwidthPackageEipAddress) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
-}
-
-// 弹性IP地址
-func (o BandwidthPackageEipAddressOutput) EipAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BandwidthPackageEipAddress) *string { return v.EipAddress }).(pulumi.StringPtrOutput)
 }
 
 type BandwidthPackageEipAddressArrayOutput struct{ *pulumi.OutputState }

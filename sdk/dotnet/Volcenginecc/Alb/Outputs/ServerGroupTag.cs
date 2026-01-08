@@ -14,7 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
     [OutputType]
     public sealed class ServerGroupTag
     {
+        /// <summary>
+        /// 标签的标签键。同一资源的标签键不允许重复。
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// 标签的标签值。
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

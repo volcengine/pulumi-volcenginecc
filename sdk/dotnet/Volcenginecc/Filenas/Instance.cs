@@ -121,7 +121,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Filenas
         public Output<string> SnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统状态
+        /// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -225,12 +225,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Filenas
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 文件系统 ID。
-        /// </summary>
-        [Input("fileSystemId")]
-        public Input<string>? FileSystemId { get; set; }
-
-        /// <summary>
         /// 文件系统名称。
         /// </summary>
         [Input("fileSystemName", required: true)]
@@ -279,12 +273,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Filenas
         /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
-
-        /// <summary>
-        /// 可用区名称。
-        /// </summary>
-        [Input("zoneName")]
-        public Input<string>? ZoneName { get; set; }
 
         public InstanceArgs()
         {
@@ -367,7 +355,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Filenas
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// 文件系统状态
+        /// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

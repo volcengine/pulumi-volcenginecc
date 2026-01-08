@@ -184,6 +184,10 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly proxySendTimeout!: pulumi.Output<number>;
     /**
+     * 监听器绑定的规则ID列表。
+     */
+    public /*out*/ readonly ruleIds!: pulumi.Output<string[]>;
+    /**
      * 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
      */
     public readonly scheduler!: pulumi.Output<string>;
@@ -265,6 +269,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["proxyProtocolType"] = state ? state.proxyProtocolType : undefined;
             resourceInputs["proxyReadTimeout"] = state ? state.proxyReadTimeout : undefined;
             resourceInputs["proxySendTimeout"] = state ? state.proxySendTimeout : undefined;
+            resourceInputs["ruleIds"] = state ? state.ruleIds : undefined;
             resourceInputs["scheduler"] = state ? state.scheduler : undefined;
             resourceInputs["securityPolicyId"] = state ? state.securityPolicyId : undefined;
             resourceInputs["sendTimeout"] = state ? state.sendTimeout : undefined;
@@ -329,6 +334,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["listenerId"] = undefined /*out*/;
+            resourceInputs["ruleIds"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedTime"] = undefined /*out*/;
             resourceInputs["wafProtectionEnabled"] = undefined /*out*/;
@@ -482,6 +488,10 @@ export interface ListenerState {
      * CLB将请求传输到后端服务器的超时时间。此超时仅针对两个连续的写操作之间设置，而非整个请求的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
      */
     proxySendTimeout?: pulumi.Input<number>;
+    /**
+     * 监听器绑定的规则ID列表。
+     */
+    ruleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
      */

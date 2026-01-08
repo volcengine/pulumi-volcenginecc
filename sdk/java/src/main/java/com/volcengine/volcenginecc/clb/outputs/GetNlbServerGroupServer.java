@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNlbServerGroupServer {
     /**
-     * @return 后端服务器的描述，默认值为空字符串
+     * @return 后端服务器的描述，默认值为空字符串。
      * 
      */
     private String description;
@@ -32,17 +32,17 @@ public final class GetNlbServerGroupServer {
      */
     private Integer port;
     /**
-     * @return 后端服务器 ID
+     * @return 后端服务器 ID。
      * 
      */
     private String serverId;
     /**
-     * @return 后端服务器的类型
+     * @return 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
      * 
      */
     private String type;
     /**
-     * @return 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+     * @return 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
      * 
      */
     private Integer weight;
@@ -54,7 +54,7 @@ public final class GetNlbServerGroupServer {
 
     private GetNlbServerGroupServer() {}
     /**
-     * @return 后端服务器的描述，默认值为空字符串
+     * @return 后端服务器的描述，默认值为空字符串。
      * 
      */
     public String description() {
@@ -82,21 +82,21 @@ public final class GetNlbServerGroupServer {
         return this.port;
     }
     /**
-     * @return 后端服务器 ID
+     * @return 后端服务器 ID。
      * 
      */
     public String serverId() {
         return this.serverId;
     }
     /**
-     * @return 后端服务器的类型
+     * @return 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+     * @return 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
      * 
      */
     public Integer weight() {

@@ -48,11 +48,6 @@ public final class GetKeypairResult {
      */
     private String keyPairName;
     /**
-     * @return 密钥对私钥信息。
-     * 
-     */
-    private String privateKey;
-    /**
      * @return 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      * 
      */
@@ -124,13 +119,6 @@ public final class GetKeypairResult {
         return this.keyPairName;
     }
     /**
-     * @return 密钥对私钥信息。
-     * 
-     */
-    public String privateKey() {
-        return this.privateKey;
-    }
-    /**
      * @return 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
      * 
      */
@@ -175,7 +163,6 @@ public final class GetKeypairResult {
         private List<String> instanceIds;
         private String keyPairId;
         private String keyPairName;
-        private String privateKey;
         private String projectName;
         private String publicKey;
         private List<GetKeypairTag> tags;
@@ -190,7 +177,6 @@ public final class GetKeypairResult {
     	      this.instanceIds = defaults.instanceIds;
     	      this.keyPairId = defaults.keyPairId;
     	      this.keyPairName = defaults.keyPairName;
-    	      this.privateKey = defaults.privateKey;
     	      this.projectName = defaults.projectName;
     	      this.publicKey = defaults.publicKey;
     	      this.tags = defaults.tags;
@@ -257,14 +243,6 @@ public final class GetKeypairResult {
             return this;
         }
         @CustomType.Setter
-        public Builder privateKey(String privateKey) {
-            if (privateKey == null) {
-              throw new MissingRequiredPropertyException("GetKeypairResult", "privateKey");
-            }
-            this.privateKey = privateKey;
-            return this;
-        }
-        @CustomType.Setter
         public Builder projectName(String projectName) {
             if (projectName == null) {
               throw new MissingRequiredPropertyException("GetKeypairResult", "projectName");
@@ -308,7 +286,6 @@ public final class GetKeypairResult {
             _resultValue.instanceIds = instanceIds;
             _resultValue.keyPairId = keyPairId;
             _resultValue.keyPairName = keyPairName;
-            _resultValue.privateKey = privateKey;
             _resultValue.projectName = projectName;
             _resultValue.publicKey = publicKey;
             _resultValue.tags = tags;

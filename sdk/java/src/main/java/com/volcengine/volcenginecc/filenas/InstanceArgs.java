@@ -81,21 +81,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统 ID。
-     * 
-     */
-    @Import(name="fileSystemId")
-    private @Nullable Output<String> fileSystemId;
-
-    /**
-     * @return 文件系统 ID。
-     * 
-     */
-    public Optional<Output<String>> fileSystemId() {
-        return Optional.ofNullable(this.fileSystemId);
-    }
-
-    /**
      * 文件系统名称。
      * 
      */
@@ -207,21 +192,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         return this.zoneId;
     }
 
-    /**
-     * 可用区名称。
-     * 
-     */
-    @Import(name="zoneName")
-    private @Nullable Output<String> zoneName;
-
-    /**
-     * @return 可用区名称。
-     * 
-     */
-    public Optional<Output<String>> zoneName() {
-        return Optional.ofNullable(this.zoneName);
-    }
-
     private InstanceArgs() {}
 
     private InstanceArgs(InstanceArgs $) {
@@ -229,7 +199,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.capacity = $.capacity;
         this.chargeType = $.chargeType;
         this.description = $.description;
-        this.fileSystemId = $.fileSystemId;
         this.fileSystemName = $.fileSystemName;
         this.fileSystemType = $.fileSystemType;
         this.projectName = $.projectName;
@@ -238,7 +207,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.storageType = $.storageType;
         this.tags = $.tags;
         this.zoneId = $.zoneId;
-        this.zoneName = $.zoneName;
     }
 
     public static Builder builder() {
@@ -341,27 +309,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
-        }
-
-        /**
-         * @param fileSystemId 文件系统 ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
-            $.fileSystemId = fileSystemId;
-            return this;
-        }
-
-        /**
-         * @param fileSystemId 文件系统 ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fileSystemId(String fileSystemId) {
-            return fileSystemId(Output.of(fileSystemId));
         }
 
         /**
@@ -522,27 +469,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
-        }
-
-        /**
-         * @param zoneName 可用区名称。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(@Nullable Output<String> zoneName) {
-            $.zoneName = zoneName;
-            return this;
-        }
-
-        /**
-         * @param zoneName 可用区名称。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(String zoneName) {
-            return zoneName(Output.of(zoneName));
         }
 
         public InstanceArgs build() {

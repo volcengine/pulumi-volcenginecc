@@ -30,12 +30,10 @@ class InstanceArgs:
                  cache_performance: Optional[pulumi.Input['InstanceCachePerformanceArgs']] = None,
                  capacity: Optional[pulumi.Input['InstanceCapacityArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
-                 zone_name: Optional[pulumi.Input[builtins.str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[builtins.str] charge_type: 计费类型，取值 PayAsYouGo，表示按量计费。
@@ -46,11 +44,9 @@ class InstanceArgs:
         :param pulumi.Input['InstanceCachePerformanceArgs'] cache_performance: 缓存型性能信息。
         :param pulumi.Input['InstanceCapacityArgs'] capacity: 文件系统容量。
         :param pulumi.Input[builtins.str] description: 描述信息。
-        :param pulumi.Input[builtins.str] file_system_id: 文件系统 ID。
         :param pulumi.Input[builtins.str] project_name: 所属项目，默认值为 default 项目。
         :param pulumi.Input[builtins.str] snapshot_id: 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
         :param pulumi.Input[builtins.str] storage_type: 存储类型，取值Standard，表示标准型。
-        :param pulumi.Input[builtins.str] zone_name: 可用区名称。
         """
         pulumi.set(__self__, "charge_type", charge_type)
         pulumi.set(__self__, "file_system_name", file_system_name)
@@ -63,8 +59,6 @@ class InstanceArgs:
             pulumi.set(__self__, "capacity", capacity)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if snapshot_id is not None:
@@ -73,8 +67,6 @@ class InstanceArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_name is not None:
-            pulumi.set(__self__, "zone_name", zone_name)
 
     @property
     @pulumi.getter(name="chargeType")
@@ -173,18 +165,6 @@ class InstanceArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        文件系统 ID。
-        """
-        return pulumi.get(self, "file_system_id")
-
-    @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "file_system_id", value)
-
-    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -229,18 +209,6 @@ class InstanceArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="zoneName")
-    def zone_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        可用区名称。
-        """
-        return pulumi.get(self, "zone_name")
-
-    @zone_name.setter
-    def zone_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "zone_name", value)
-
 
 @pulumi.input_type
 class _InstanceState:
@@ -277,7 +245,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.str] protocol_type: 文件系统协议类型。取值 NFS，表示 NFS 协议，常用于 Linux 客户端。
         :param pulumi.Input[builtins.int] snapshot_count: 快照数量
         :param pulumi.Input[builtins.str] snapshot_id: 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
-        :param pulumi.Input[builtins.str] status: 文件系统状态
+        :param pulumi.Input[builtins.str] status: 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         :param pulumi.Input[builtins.str] storage_type: 存储类型，取值Standard，表示标准型。
         :param pulumi.Input[builtins.str] update_time: 更新时间
         :param pulumi.Input[builtins.str] zone_id: 可用区 ID。
@@ -468,7 +436,7 @@ class _InstanceState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        文件系统状态
+        文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         """
         return pulumi.get(self, "status")
 
@@ -544,7 +512,6 @@ class Instance(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[Union['InstanceCapacityArgs', 'InstanceCapacityArgsDict']]] = None,
                  charge_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  file_system_name: Optional[pulumi.Input[builtins.str]] = None,
                  file_system_type: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -553,7 +520,6 @@ class Instance(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceTagArgs', 'InstanceTagArgsDict']]]]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None,
-                 zone_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         文件系统通过标准的 NFS 协议为您提供文件存储服务，用于网络文件远程访问，通过管理控制台创建挂载地址后，即可按需在客户端中通过标准的 POSIX 接口对文件系统进行访问。
@@ -587,7 +553,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Union['InstanceCapacityArgs', 'InstanceCapacityArgsDict']] capacity: 文件系统容量。
         :param pulumi.Input[builtins.str] charge_type: 计费类型，取值 PayAsYouGo，表示按量计费。
         :param pulumi.Input[builtins.str] description: 描述信息。
-        :param pulumi.Input[builtins.str] file_system_id: 文件系统 ID。
         :param pulumi.Input[builtins.str] file_system_name: 文件系统名称。
         :param pulumi.Input[builtins.str] file_system_type: 文件系统类型。取值说明：Extreme：NAS 极速型；Capacity：NAS 容量型；Cache：NAS 缓存型。
         :param pulumi.Input[builtins.str] project_name: 所属项目，默认值为 default 项目。
@@ -595,7 +560,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] snapshot_id: 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
         :param pulumi.Input[builtins.str] storage_type: 存储类型，取值Standard，表示标准型。
         :param pulumi.Input[builtins.str] zone_id: 可用区 ID。
-        :param pulumi.Input[builtins.str] zone_name: 可用区名称。
         """
         ...
     @overload
@@ -648,7 +612,6 @@ class Instance(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[Union['InstanceCapacityArgs', 'InstanceCapacityArgsDict']]] = None,
                  charge_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  file_system_name: Optional[pulumi.Input[builtins.str]] = None,
                  file_system_type: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -657,7 +620,6 @@ class Instance(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceTagArgs', 'InstanceTagArgsDict']]]]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None,
-                 zone_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -673,7 +635,6 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'charge_type'")
             __props__.__dict__["charge_type"] = charge_type
             __props__.__dict__["description"] = description
-            __props__.__dict__["file_system_id"] = file_system_id
             if file_system_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_name'")
             __props__.__dict__["file_system_name"] = file_system_name
@@ -690,11 +651,12 @@ class Instance(pulumi.CustomResource):
             if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__.__dict__["zone_id"] = zone_id
-            __props__.__dict__["zone_name"] = zone_name
             __props__.__dict__["create_time"] = None
+            __props__.__dict__["file_system_id"] = None
             __props__.__dict__["snapshot_count"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["update_time"] = None
+            __props__.__dict__["zone_name"] = None
         super(Instance, __self__).__init__(
             'volcenginecc:filenas/instance:Instance',
             resource_name,
@@ -742,7 +704,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] protocol_type: 文件系统协议类型。取值 NFS，表示 NFS 协议，常用于 Linux 客户端。
         :param pulumi.Input[builtins.int] snapshot_count: 快照数量
         :param pulumi.Input[builtins.str] snapshot_id: 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
-        :param pulumi.Input[builtins.str] status: 文件系统状态
+        :param pulumi.Input[builtins.str] status: 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         :param pulumi.Input[builtins.str] storage_type: 存储类型，取值Standard，表示标准型。
         :param pulumi.Input[builtins.str] update_time: 更新时间
         :param pulumi.Input[builtins.str] zone_id: 可用区 ID。
@@ -872,7 +834,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        文件系统状态
+        文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         """
         return pulumi.get(self, "status")
 

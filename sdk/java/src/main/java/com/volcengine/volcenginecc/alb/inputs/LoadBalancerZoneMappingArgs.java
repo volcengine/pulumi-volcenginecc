@@ -5,9 +5,7 @@ package com.volcengine.volcenginecc.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.volcengine.volcenginecc.alb.inputs.LoadBalancerZoneMappingLoadBalancerAddressArgs;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,13 +14,6 @@ import javax.annotation.Nullable;
 public final class LoadBalancerZoneMappingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LoadBalancerZoneMappingArgs Empty = new LoadBalancerZoneMappingArgs();
-
-    @Import(name="loadBalancerAddresses")
-    private @Nullable Output<List<LoadBalancerZoneMappingLoadBalancerAddressArgs>> loadBalancerAddresses;
-
-    public Optional<Output<List<LoadBalancerZoneMappingLoadBalancerAddressArgs>>> loadBalancerAddresses() {
-        return Optional.ofNullable(this.loadBalancerAddresses);
-    }
 
     /**
      * 可用区内提供服务的子网ID。
@@ -57,7 +48,6 @@ public final class LoadBalancerZoneMappingArgs extends com.pulumi.resources.Reso
     private LoadBalancerZoneMappingArgs() {}
 
     private LoadBalancerZoneMappingArgs(LoadBalancerZoneMappingArgs $) {
-        this.loadBalancerAddresses = $.loadBalancerAddresses;
         this.subnetId = $.subnetId;
         this.zoneId = $.zoneId;
     }
@@ -78,19 +68,6 @@ public final class LoadBalancerZoneMappingArgs extends com.pulumi.resources.Reso
 
         public Builder(LoadBalancerZoneMappingArgs defaults) {
             $ = new LoadBalancerZoneMappingArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder loadBalancerAddresses(@Nullable Output<List<LoadBalancerZoneMappingLoadBalancerAddressArgs>> loadBalancerAddresses) {
-            $.loadBalancerAddresses = loadBalancerAddresses;
-            return this;
-        }
-
-        public Builder loadBalancerAddresses(List<LoadBalancerZoneMappingLoadBalancerAddressArgs> loadBalancerAddresses) {
-            return loadBalancerAddresses(Output.of(loadBalancerAddresses));
-        }
-
-        public Builder loadBalancerAddresses(LoadBalancerZoneMappingLoadBalancerAddressArgs... loadBalancerAddresses) {
-            return loadBalancerAddresses(List.of(loadBalancerAddresses));
         }
 
         /**

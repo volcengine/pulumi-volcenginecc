@@ -28,10 +28,10 @@ class GetTransitRouterRouteTableResult:
     """
     A collection of values returned by getTransitRouterRouteTable.
     """
-    def __init__(__self__, creation_time=None, description=None, id=None, in_route_policy_table_id=None, out_route_policy_table_id=None, status=None, tags=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_route_table_name=None, transit_router_route_table_type=None, update_time=None):
-        if creation_time and not isinstance(creation_time, str):
-            raise TypeError("Expected argument 'creation_time' to be a str")
-        pulumi.set(__self__, "creation_time", creation_time)
+    def __init__(__self__, created_time=None, description=None, id=None, in_route_policy_table_id=None, out_route_policy_table_id=None, status=None, tags=None, transit_router_id=None, transit_router_route_table_id=None, transit_router_route_table_name=None, transit_router_route_table_type=None, updated_time=None):
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -62,17 +62,17 @@ class GetTransitRouterRouteTableResult:
         if transit_router_route_table_type and not isinstance(transit_router_route_table_type, str):
             raise TypeError("Expected argument 'transit_router_route_table_type' to be a str")
         pulumi.set(__self__, "transit_router_route_table_type", transit_router_route_table_type)
-        if update_time and not isinstance(update_time, str):
-            raise TypeError("Expected argument 'update_time' to be a str")
-        pulumi.set(__self__, "update_time", update_time)
+        if updated_time and not isinstance(updated_time, str):
+            raise TypeError("Expected argument 'updated_time' to be a str")
+        pulumi.set(__self__, "updated_time", updated_time)
 
     @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> builtins.str:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> builtins.str:
         """
         TR路由表的创建时间
         """
-        return pulumi.get(self, "creation_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -155,12 +155,12 @@ class GetTransitRouterRouteTableResult:
         return pulumi.get(self, "transit_router_route_table_type")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> builtins.str:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> builtins.str:
         """
         TR路由表的最近操作时间
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
 
 class AwaitableGetTransitRouterRouteTableResult(GetTransitRouterRouteTableResult):
@@ -169,7 +169,7 @@ class AwaitableGetTransitRouterRouteTableResult(GetTransitRouterRouteTableResult
         if False:
             yield self
         return GetTransitRouterRouteTableResult(
-            creation_time=self.creation_time,
+            created_time=self.created_time,
             description=self.description,
             id=self.id,
             in_route_policy_table_id=self.in_route_policy_table_id,
@@ -180,7 +180,7 @@ class AwaitableGetTransitRouterRouteTableResult(GetTransitRouterRouteTableResult
             transit_router_route_table_id=self.transit_router_route_table_id,
             transit_router_route_table_name=self.transit_router_route_table_name,
             transit_router_route_table_type=self.transit_router_route_table_type,
-            update_time=self.update_time)
+            updated_time=self.updated_time)
 
 
 def get_transit_router_route_table(id: Optional[builtins.str] = None,
@@ -197,7 +197,7 @@ def get_transit_router_route_table(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('volcenginecc:transitrouter/getTransitRouterRouteTable:getTransitRouterRouteTable', __args__, opts=opts, typ=GetTransitRouterRouteTableResult).value
 
     return AwaitableGetTransitRouterRouteTableResult(
-        creation_time=pulumi.get(__ret__, 'creation_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         in_route_policy_table_id=pulumi.get(__ret__, 'in_route_policy_table_id'),
@@ -208,7 +208,7 @@ def get_transit_router_route_table(id: Optional[builtins.str] = None,
         transit_router_route_table_id=pulumi.get(__ret__, 'transit_router_route_table_id'),
         transit_router_route_table_name=pulumi.get(__ret__, 'transit_router_route_table_name'),
         transit_router_route_table_type=pulumi.get(__ret__, 'transit_router_route_table_type'),
-        update_time=pulumi.get(__ret__, 'update_time'))
+        updated_time=pulumi.get(__ret__, 'updated_time'))
 def get_transit_router_route_table_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitRouterRouteTableResult]:
     """
@@ -222,7 +222,7 @@ def get_transit_router_route_table_output(id: Optional[pulumi.Input[builtins.str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:transitrouter/getTransitRouterRouteTable:getTransitRouterRouteTable', __args__, opts=opts, typ=GetTransitRouterRouteTableResult)
     return __ret__.apply(lambda __response__: GetTransitRouterRouteTableResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
+        created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         in_route_policy_table_id=pulumi.get(__response__, 'in_route_policy_table_id'),
@@ -233,4 +233,4 @@ def get_transit_router_route_table_output(id: Optional[pulumi.Input[builtins.str
         transit_router_route_table_id=pulumi.get(__response__, 'transit_router_route_table_id'),
         transit_router_route_table_name=pulumi.get(__response__, 'transit_router_route_table_name'),
         transit_router_route_table_type=pulumi.get(__response__, 'transit_router_route_table_type'),
-        update_time=pulumi.get(__response__, 'update_time')))
+        updated_time=pulumi.get(__response__, 'updated_time')))

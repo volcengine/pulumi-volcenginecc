@@ -65,7 +65,11 @@ export class DirectConnectGateway extends pulumi.CustomResource {
      * 专线网关所属账号的ID。
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
-    public readonly associateCens!: pulumi.Output<outputs.directconnect.DirectConnectGatewayAssociateCen[]>;
+    public /*out*/ readonly associateCens!: pulumi.Output<outputs.directconnect.DirectConnectGatewayAssociateCen[]>;
+    /**
+     * 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     */
+    public readonly bgpAsn!: pulumi.Output<number>;
     /**
      * 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
      */
@@ -131,6 +135,7 @@ export class DirectConnectGateway extends pulumi.CustomResource {
             const state = argsOrState as DirectConnectGatewayState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["associateCens"] = state ? state.associateCens : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
             resourceInputs["businessStatus"] = state ? state.businessStatus : undefined;
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["deletedTime"] = state ? state.deletedTime : undefined;
@@ -146,13 +151,14 @@ export class DirectConnectGateway extends pulumi.CustomResource {
             resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
         } else {
             const args = argsOrState as DirectConnectGatewayArgs | undefined;
-            resourceInputs["associateCens"] = args ? args.associateCens : undefined;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["directConnectGatewayName"] = args ? args.directConnectGatewayName : undefined;
             resourceInputs["enableIpv6"] = args ? args.enableIpv6 : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["associateCens"] = undefined /*out*/;
             resourceInputs["businessStatus"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;
@@ -176,6 +182,10 @@ export interface DirectConnectGatewayState {
      */
     accountId?: pulumi.Input<string>;
     associateCens?: pulumi.Input<pulumi.Input<inputs.directconnect.DirectConnectGatewayAssociateCen>[]>;
+    /**
+     * 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     */
+    bgpAsn?: pulumi.Input<number>;
     /**
      * 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
      */
@@ -231,7 +241,10 @@ export interface DirectConnectGatewayState {
  * The set of arguments for constructing a DirectConnectGateway resource.
  */
 export interface DirectConnectGatewayArgs {
-    associateCens?: pulumi.Input<pulumi.Input<inputs.directconnect.DirectConnectGatewayAssociateCen>[]>;
+    /**
+     * 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+     */
+    bgpAsn?: pulumi.Input<number>;
     /**
      * 专线网关的描述信息。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、空格（ ）、下划线（_）、中划线（-）、等号（=）、英文逗号（,）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      */

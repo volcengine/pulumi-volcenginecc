@@ -5,7 +5,6 @@ package com.volcengine.volcenginecc.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,74 +30,10 @@ public final class AclListenerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.aclType);
     }
 
-    /**
-     * 监听器的ID
-     * 
-     */
-    @Import(name="listenerId")
-    private @Nullable Output<String> listenerId;
-
-    /**
-     * @return 监听器的ID
-     * 
-     */
-    public Optional<Output<String>> listenerId() {
-        return Optional.ofNullable(this.listenerId);
-    }
-
-    /**
-     * 监听器的名称
-     * 
-     */
-    @Import(name="listenerName")
-    private @Nullable Output<String> listenerName;
-
-    /**
-     * @return 监听器的名称
-     * 
-     */
-    public Optional<Output<String>> listenerName() {
-        return Optional.ofNullable(this.listenerName);
-    }
-
-    /**
-     * 监听器的端口
-     * 
-     */
-    @Import(name="port")
-    private @Nullable Output<Integer> port;
-
-    /**
-     * @return 监听器的端口
-     * 
-     */
-    public Optional<Output<Integer>> port() {
-        return Optional.ofNullable(this.port);
-    }
-
-    /**
-     * 监听器的协议
-     * 
-     */
-    @Import(name="protocol")
-    private @Nullable Output<String> protocol;
-
-    /**
-     * @return 监听器的协议
-     * 
-     */
-    public Optional<Output<String>> protocol() {
-        return Optional.ofNullable(this.protocol);
-    }
-
     private AclListenerArgs() {}
 
     private AclListenerArgs(AclListenerArgs $) {
         this.aclType = $.aclType;
-        this.listenerId = $.listenerId;
-        this.listenerName = $.listenerName;
-        this.port = $.port;
-        this.protocol = $.protocol;
     }
 
     public static Builder builder() {
@@ -138,90 +73,6 @@ public final class AclListenerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder aclType(String aclType) {
             return aclType(Output.of(aclType));
-        }
-
-        /**
-         * @param listenerId 监听器的ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder listenerId(@Nullable Output<String> listenerId) {
-            $.listenerId = listenerId;
-            return this;
-        }
-
-        /**
-         * @param listenerId 监听器的ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder listenerId(String listenerId) {
-            return listenerId(Output.of(listenerId));
-        }
-
-        /**
-         * @param listenerName 监听器的名称
-         * 
-         * @return builder
-         * 
-         */
-        public Builder listenerName(@Nullable Output<String> listenerName) {
-            $.listenerName = listenerName;
-            return this;
-        }
-
-        /**
-         * @param listenerName 监听器的名称
-         * 
-         * @return builder
-         * 
-         */
-        public Builder listenerName(String listenerName) {
-            return listenerName(Output.of(listenerName));
-        }
-
-        /**
-         * @param port 监听器的端口
-         * 
-         * @return builder
-         * 
-         */
-        public Builder port(@Nullable Output<Integer> port) {
-            $.port = port;
-            return this;
-        }
-
-        /**
-         * @param port 监听器的端口
-         * 
-         * @return builder
-         * 
-         */
-        public Builder port(Integer port) {
-            return port(Output.of(port));
-        }
-
-        /**
-         * @param protocol 监听器的协议
-         * 
-         * @return builder
-         * 
-         */
-        public Builder protocol(@Nullable Output<String> protocol) {
-            $.protocol = protocol;
-            return this;
-        }
-
-        /**
-         * @param protocol 监听器的协议
-         * 
-         * @return builder
-         * 
-         */
-        public Builder protocol(String protocol) {
-            return protocol(Output.of(protocol));
         }
 
         public AclListenerArgs build() {

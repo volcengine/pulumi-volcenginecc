@@ -67,7 +67,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// TR路由表的创建时间
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string CreatedTime;
         /// <summary>
         /// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         /// </summary>
@@ -111,11 +111,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// TR路由表的最近操作时间
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string UpdatedTime;
 
         [OutputConstructor]
         private GetTransitRouterRouteTableResult(
-            string creationTime,
+            string createdTime,
 
             string description,
 
@@ -137,9 +137,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 
             string transitRouterRouteTableType,
 
-            string updateTime)
+            string updatedTime)
         {
-            CreationTime = creationTime;
+            CreatedTime = createdTime;
             Description = description;
             Id = id;
             InRoutePolicyTableId = inRoutePolicyTableId;
@@ -150,7 +150,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
             TransitRouterRouteTableId = transitRouterRouteTableId;
             TransitRouterRouteTableName = transitRouterRouteTableName;
             TransitRouterRouteTableType = transitRouterRouteTableType;
-            UpdateTime = updateTime;
+            UpdatedTime = updatedTime;
         }
     }
 }

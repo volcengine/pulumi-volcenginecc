@@ -44,8 +44,6 @@ type LookupKeypairResult struct {
 	KeyPairId string `pulumi:"keyPairId"`
 	// 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
 	KeyPairName string `pulumi:"keyPairName"`
-	// 密钥对私钥信息。
-	PrivateKey string `pulumi:"privateKey"`
 	// 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
 	ProjectName string `pulumi:"projectName"`
 	// 密钥对的公钥信息。
@@ -123,11 +121,6 @@ func (o LookupKeypairResultOutput) KeyPairId() pulumi.StringOutput {
 // 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
 func (o LookupKeypairResultOutput) KeyPairName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeypairResult) string { return v.KeyPairName }).(pulumi.StringOutput)
-}
-
-// 密钥对私钥信息。
-func (o LookupKeypairResultOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupKeypairResult) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
 // 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。

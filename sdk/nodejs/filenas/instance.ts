@@ -84,7 +84,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * 文件系统 ID。
      */
-    public readonly fileSystemId!: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
     /**
      * 文件系统名称。
      */
@@ -110,7 +110,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string>;
     /**
-     * 文件系统状态
+     * 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * 可用区名称。
      */
-    public readonly zoneName!: pulumi.Output<string>;
+    public /*out*/ readonly zoneName!: pulumi.Output<string>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -183,7 +183,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["chargeType"] = args ? args.chargeType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["fileSystemName"] = args ? args.fileSystemName : undefined;
             resourceInputs["fileSystemType"] = args ? args.fileSystemType : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
@@ -192,11 +191,12 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneId"] = args ? args.zoneId : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
             resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["snapshotCount"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
+            resourceInputs["zoneName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
@@ -256,7 +256,7 @@ export interface InstanceState {
      */
     snapshotId?: pulumi.Input<string>;
     /**
-     * 文件系统状态
+     * 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
      */
     status?: pulumi.Input<string>;
     /**
@@ -299,10 +299,6 @@ export interface InstanceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * 文件系统 ID。
-     */
-    fileSystemId?: pulumi.Input<string>;
-    /**
      * 文件系统名称。
      */
     fileSystemName: pulumi.Input<string>;
@@ -331,8 +327,4 @@ export interface InstanceArgs {
      * 可用区 ID。
      */
     zoneId: pulumi.Input<string>;
-    /**
-     * 可用区名称。
-     */
-    zoneName?: pulumi.Input<string>;
 }

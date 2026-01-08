@@ -23,29 +23,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     public static final NlbServerGroupArgs Empty = new NlbServerGroupArgs();
 
     /**
-     * 账号ID
-     * 
-     */
-    @Import(name="accountId")
-    private @Nullable Output<String> accountId;
-
-    /**
-     * @return 账号ID
-     * 
-     */
-    public Optional<Output<String>> accountId() {
-        return Optional.ofNullable(this.accountId);
-    }
-
-    /**
-     * 是否开启全端口转发
+     * 是否开启全端口转发。
      * 
      */
     @Import(name="anyPortEnabled")
     private @Nullable Output<Boolean> anyPortEnabled;
 
     /**
-     * @return 是否开启全端口转发
+     * @return 是否开启全端口转发。
      * 
      */
     public Optional<Output<Boolean>> anyPortEnabled() {
@@ -53,14 +38,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      * 
      */
     @Import(name="bypassSecurityGroupEnabled")
     private @Nullable Output<Boolean> bypassSecurityGroupEnabled;
 
     /**
-     * @return 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * @return 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      * 
      */
     public Optional<Output<Boolean>> bypassSecurityGroupEnabled() {
@@ -68,14 +53,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 是否开启连接优雅中断
+     * 是否开启连接优雅中断。
      * 
      */
     @Import(name="connectionDrainEnabled")
     private @Nullable Output<Boolean> connectionDrainEnabled;
 
     /**
-     * @return 是否开启连接优雅中断
+     * @return 是否开启连接优雅中断。
      * 
      */
     public Optional<Output<Boolean>> connectionDrainEnabled() {
@@ -98,21 +83,6 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 后端服务器组的创建时间
-     * 
-     */
-    @Import(name="createdTime")
-    private @Nullable Output<String> createdTime;
-
-    /**
-     * @return 后端服务器组的创建时间
-     * 
-     */
-    public Optional<Output<String>> createdTime() {
-        return Optional.ofNullable(this.createdTime);
-    }
-
-    /**
      * 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
      * 
      */
@@ -128,14 +98,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 健康检查相关参数
+     * 健康检查相关参数。
      * 
      */
     @Import(name="healthCheck")
     private @Nullable Output<NlbServerGroupHealthCheckArgs> healthCheck;
 
     /**
-     * @return 健康检查相关参数
+     * @return 健康检查相关参数。
      * 
      */
     public Optional<Output<NlbServerGroupHealthCheckArgs>> healthCheck() {
@@ -143,14 +113,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 服务器组的IP地址类型
+     * 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      * 
      */
     @Import(name="ipAddressVersion")
     private @Nullable Output<String> ipAddressVersion;
 
     /**
-     * @return 服务器组的IP地址类型
+     * @return 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      * 
      */
     public Optional<Output<String>> ipAddressVersion() {
@@ -158,14 +128,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 是否开启源地址保持
+     * 是否开启源地址保持。
      * 
      */
     @Import(name="preserveClientIpEnabled")
     private @Nullable Output<Boolean> preserveClientIpEnabled;
 
     /**
-     * @return 是否开启源地址保持
+     * @return 是否开启源地址保持。
      * 
      */
     public Optional<Output<Boolean>> preserveClientIpEnabled() {
@@ -173,14 +143,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 项目名称
+     * 项目名称。
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 项目名称
+     * @return 项目名称。
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -188,14 +158,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * NLB转发流量到后端服务器时使用的通信协议
+     * NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return NLB转发流量到后端服务器时使用的通信协议
+     * @return NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      * 
      */
     public Output<String> protocol() {
@@ -203,14 +173,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 是否开启Proxy-Protocol协议
+     * 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      * 
      */
     @Import(name="proxyProtocolType")
     private @Nullable Output<String> proxyProtocolType;
 
     /**
-     * @return 是否开启Proxy-Protocol协议
+     * @return 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      * 
      */
     public Optional<Output<String>> proxyProtocolType() {
@@ -218,14 +188,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * NLB转发流量时遵循的规则
+     * NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      * 
      */
     @Import(name="scheduler")
     private @Nullable Output<String> scheduler;
 
     /**
-     * @return NLB转发流量时遵循的规则
+     * @return NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      * 
      */
     public Optional<Output<String>> scheduler() {
@@ -255,14 +225,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 是否开启会话保持
+     * 是否开启会话保持。
      * 
      */
     @Import(name="sessionPersistenceEnabled")
     private @Nullable Output<Boolean> sessionPersistenceEnabled;
 
     /**
-     * @return 是否开启会话保持
+     * @return 是否开启会话保持。
      * 
      */
     public Optional<Output<Boolean>> sessionPersistenceEnabled() {
@@ -270,14 +240,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      * 
      */
     @Import(name="sessionPersistenceTimeout")
     private @Nullable Output<Integer> sessionPersistenceTimeout;
 
     /**
-     * @return 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * @return 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      * 
      */
     public Optional<Output<Integer>> sessionPersistenceTimeout() {
@@ -292,14 +262,14 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      * 
      */
     @Import(name="timestampRemoveEnabled")
     private @Nullable Output<Boolean> timestampRemoveEnabled;
 
     /**
-     * @return 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * @return 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      * 
      */
     public Optional<Output<Boolean>> timestampRemoveEnabled() {
@@ -307,33 +277,18 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 服务器组的类型
+     * 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return 服务器组的类型
+     * @return 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
-    }
-
-    /**
-     * 后端服务器组的更新时间
-     * 
-     */
-    @Import(name="updatedTime")
-    private @Nullable Output<String> updatedTime;
-
-    /**
-     * @return 后端服务器组的更新时间
-     * 
-     */
-    public Optional<Output<String>> updatedTime() {
-        return Optional.ofNullable(this.updatedTime);
     }
 
     /**
@@ -354,12 +309,10 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     private NlbServerGroupArgs() {}
 
     private NlbServerGroupArgs(NlbServerGroupArgs $) {
-        this.accountId = $.accountId;
         this.anyPortEnabled = $.anyPortEnabled;
         this.bypassSecurityGroupEnabled = $.bypassSecurityGroupEnabled;
         this.connectionDrainEnabled = $.connectionDrainEnabled;
         this.connectionDrainTimeout = $.connectionDrainTimeout;
-        this.createdTime = $.createdTime;
         this.description = $.description;
         this.healthCheck = $.healthCheck;
         this.ipAddressVersion = $.ipAddressVersion;
@@ -375,7 +328,6 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         this.tags = $.tags;
         this.timestampRemoveEnabled = $.timestampRemoveEnabled;
         this.type = $.type;
-        this.updatedTime = $.updatedTime;
         this.vpcId = $.vpcId;
     }
 
@@ -398,28 +350,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountId 账号ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(@Nullable Output<String> accountId) {
-            $.accountId = accountId;
-            return this;
-        }
-
-        /**
-         * @param accountId 账号ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(String accountId) {
-            return accountId(Output.of(accountId));
-        }
-
-        /**
-         * @param anyPortEnabled 是否开启全端口转发
+         * @param anyPortEnabled 是否开启全端口转发。
          * 
          * @return builder
          * 
@@ -430,7 +361,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param anyPortEnabled 是否开启全端口转发
+         * @param anyPortEnabled 是否开启全端口转发。
          * 
          * @return builder
          * 
@@ -440,7 +371,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param bypassSecurityGroupEnabled 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+         * @param bypassSecurityGroupEnabled 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
          * 
          * @return builder
          * 
@@ -451,7 +382,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param bypassSecurityGroupEnabled 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+         * @param bypassSecurityGroupEnabled 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
          * 
          * @return builder
          * 
@@ -461,7 +392,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionDrainEnabled 是否开启连接优雅中断
+         * @param connectionDrainEnabled 是否开启连接优雅中断。
          * 
          * @return builder
          * 
@@ -472,7 +403,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionDrainEnabled 是否开启连接优雅中断
+         * @param connectionDrainEnabled 是否开启连接优雅中断。
          * 
          * @return builder
          * 
@@ -503,27 +434,6 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createdTime 后端服务器组的创建时间
-         * 
-         * @return builder
-         * 
-         */
-        public Builder createdTime(@Nullable Output<String> createdTime) {
-            $.createdTime = createdTime;
-            return this;
-        }
-
-        /**
-         * @param createdTime 后端服务器组的创建时间
-         * 
-         * @return builder
-         * 
-         */
-        public Builder createdTime(String createdTime) {
-            return createdTime(Output.of(createdTime));
-        }
-
-        /**
          * @param description 后端服务器组的描述,服务器组的描述。必须以字母、数字或中文开头，可包含以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、中划线（-）、中文逗号（，）、中文句号（。）长度限制为0 ～ 255个字符。该参数不传入，则默认为空字符串。
          * 
          * @return builder
@@ -545,7 +455,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheck 健康检查相关参数
+         * @param healthCheck 健康检查相关参数。
          * 
          * @return builder
          * 
@@ -556,7 +466,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheck 健康检查相关参数
+         * @param healthCheck 健康检查相关参数。
          * 
          * @return builder
          * 
@@ -566,7 +476,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipAddressVersion 服务器组的IP地址类型
+         * @param ipAddressVersion 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
          * 
          * @return builder
          * 
@@ -577,7 +487,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ipAddressVersion 服务器组的IP地址类型
+         * @param ipAddressVersion 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
          * 
          * @return builder
          * 
@@ -587,7 +497,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param preserveClientIpEnabled 是否开启源地址保持
+         * @param preserveClientIpEnabled 是否开启源地址保持。
          * 
          * @return builder
          * 
@@ -598,7 +508,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param preserveClientIpEnabled 是否开启源地址保持
+         * @param preserveClientIpEnabled 是否开启源地址保持。
          * 
          * @return builder
          * 
@@ -608,7 +518,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param projectName 项目名称
+         * @param projectName 项目名称。
          * 
          * @return builder
          * 
@@ -619,7 +529,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param projectName 项目名称
+         * @param projectName 项目名称。
          * 
          * @return builder
          * 
@@ -629,7 +539,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param protocol NLB转发流量到后端服务器时使用的通信协议
+         * @param protocol NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
          * 
          * @return builder
          * 
@@ -640,7 +550,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param protocol NLB转发流量到后端服务器时使用的通信协议
+         * @param protocol NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
          * 
          * @return builder
          * 
@@ -650,7 +560,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param proxyProtocolType 是否开启Proxy-Protocol协议
+         * @param proxyProtocolType 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
          * 
          * @return builder
          * 
@@ -661,7 +571,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param proxyProtocolType 是否开启Proxy-Protocol协议
+         * @param proxyProtocolType 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
          * 
          * @return builder
          * 
@@ -671,7 +581,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scheduler NLB转发流量时遵循的规则
+         * @param scheduler NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
          * 
          * @return builder
          * 
@@ -682,7 +592,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scheduler NLB转发流量时遵循的规则
+         * @param scheduler NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
          * 
          * @return builder
          * 
@@ -726,7 +636,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sessionPersistenceEnabled 是否开启会话保持
+         * @param sessionPersistenceEnabled 是否开启会话保持。
          * 
          * @return builder
          * 
@@ -737,7 +647,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sessionPersistenceEnabled 是否开启会话保持
+         * @param sessionPersistenceEnabled 是否开启会话保持。
          * 
          * @return builder
          * 
@@ -747,7 +657,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sessionPersistenceTimeout 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+         * @param sessionPersistenceTimeout 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
          * 
          * @return builder
          * 
@@ -758,7 +668,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sessionPersistenceTimeout 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+         * @param sessionPersistenceTimeout 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
          * 
          * @return builder
          * 
@@ -781,7 +691,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timestampRemoveEnabled 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+         * @param timestampRemoveEnabled 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
          * 
          * @return builder
          * 
@@ -792,7 +702,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timestampRemoveEnabled 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+         * @param timestampRemoveEnabled 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
          * 
          * @return builder
          * 
@@ -802,7 +712,7 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type 服务器组的类型
+         * @param type 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
          * 
          * @return builder
          * 
@@ -813,34 +723,13 @@ public final class NlbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type 服务器组的类型
+         * @param type 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
          * 
          * @return builder
          * 
          */
         public Builder type(String type) {
             return type(Output.of(type));
-        }
-
-        /**
-         * @param updatedTime 后端服务器组的更新时间
-         * 
-         * @return builder
-         * 
-         */
-        public Builder updatedTime(@Nullable Output<String> updatedTime) {
-            $.updatedTime = updatedTime;
-            return this;
-        }
-
-        /**
-         * @param updatedTime 后端服务器组的更新时间
-         * 
-         * @return builder
-         * 
-         */
-        public Builder updatedTime(String updatedTime) {
-            return updatedTime(Output.of(updatedTime));
         }
 
         /**

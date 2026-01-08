@@ -33,7 +33,7 @@ type LookupTransitRouterRouteEntryResult struct {
 	// 路由条目的AS路径。
 	AsPaths []string `pulumi:"asPaths"`
 	// 路由条目的创建时间。
-	CreationTime string `pulumi:"creationTime"`
+	CreatedTime string `pulumi:"createdTime"`
 	// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description string `pulumi:"description"`
 	// 路由条目的目标网段。
@@ -55,7 +55,7 @@ type LookupTransitRouterRouteEntryResult struct {
 	// 中转路由器实例关联的路由表的ID。
 	TransitRouterRouteTableId string `pulumi:"transitRouterRouteTableId"`
 	// 路由条目的更新时间。
-	UpdateTime string `pulumi:"updateTime"`
+	UpdatedTime string `pulumi:"updatedTime"`
 }
 
 func LookupTransitRouterRouteEntryOutput(ctx *pulumi.Context, args LookupTransitRouterRouteEntryOutputArgs, opts ...pulumi.InvokeOption) LookupTransitRouterRouteEntryResultOutput {
@@ -98,8 +98,8 @@ func (o LookupTransitRouterRouteEntryResultOutput) AsPaths() pulumi.StringArrayO
 }
 
 // 路由条目的创建时间。
-func (o LookupTransitRouterRouteEntryResultOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTransitRouterRouteEntryResult) string { return v.CreationTime }).(pulumi.StringOutput)
+func (o LookupTransitRouterRouteEntryResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitRouterRouteEntryResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -153,8 +153,8 @@ func (o LookupTransitRouterRouteEntryResultOutput) TransitRouterRouteTableId() p
 }
 
 // 路由条目的更新时间。
-func (o LookupTransitRouterRouteEntryResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTransitRouterRouteEntryResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o LookupTransitRouterRouteEntryResultOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitRouterRouteEntryResult) string { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 func init() {

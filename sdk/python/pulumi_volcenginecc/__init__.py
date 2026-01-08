@@ -31,6 +31,8 @@ if typing.TYPE_CHECKING:
     clb = __clb
     import pulumi_volcenginecc.cloudidentity as __cloudidentity
     cloudidentity = __cloudidentity
+    import pulumi_volcenginecc.cloudmonitor as __cloudmonitor
+    cloudmonitor = __cloudmonitor
     import pulumi_volcenginecc.config as __config
     config = __config
     import pulumi_volcenginecc.cr as __cr
@@ -45,8 +47,8 @@ if typing.TYPE_CHECKING:
     escloud = __escloud
     import pulumi_volcenginecc.filenas as __filenas
     filenas = __filenas
-    import pulumi_volcenginecc.firewallcenter as __firewallcenter
-    firewallcenter = __firewallcenter
+    import pulumi_volcenginecc.fwcenter as __fwcenter
+    fwcenter = __fwcenter
     import pulumi_volcenginecc.hbase as __hbase
     hbase = __hbase
     import pulumi_volcenginecc.iam as __iam
@@ -108,6 +110,7 @@ else:
     cen = _utilities.lazy_import('pulumi_volcenginecc.cen')
     clb = _utilities.lazy_import('pulumi_volcenginecc.clb')
     cloudidentity = _utilities.lazy_import('pulumi_volcenginecc.cloudidentity')
+    cloudmonitor = _utilities.lazy_import('pulumi_volcenginecc.cloudmonitor')
     config = _utilities.lazy_import('pulumi_volcenginecc.config')
     cr = _utilities.lazy_import('pulumi_volcenginecc.cr')
     directconnect = _utilities.lazy_import('pulumi_volcenginecc.directconnect')
@@ -115,7 +118,7 @@ else:
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
     escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
-    firewallcenter = _utilities.lazy_import('pulumi_volcenginecc.firewallcenter')
+    fwcenter = _utilities.lazy_import('pulumi_volcenginecc.fwcenter')
     hbase = _utilities.lazy_import('pulumi_volcenginecc.hbase')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
@@ -259,6 +262,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "bmq/group",
+  "fqn": "pulumi_volcenginecc.bmq",
+  "classes": {
+   "volcenginecc:bmq/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "bmq/instance",
   "fqn": "pulumi_volcenginecc.bmq",
   "classes": {
@@ -395,6 +406,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudmonitor/rule",
+  "fqn": "pulumi_volcenginecc.cloudmonitor",
+  "classes": {
+   "volcenginecc:cloudmonitor/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cr/nameSpace",
   "fqn": "pulumi_volcenginecc.cr",
   "classes": {
@@ -499,10 +518,10 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
-  "mod": "firewallcenter/dnsControlPolicy",
-  "fqn": "pulumi_volcenginecc.firewallcenter",
+  "mod": "fwcenter/dnsControlPolicy",
+  "fqn": "pulumi_volcenginecc.fwcenter",
   "classes": {
-   "volcenginecc:firewallcenter/dnsControlPolicy:DnsControlPolicy": "DnsControlPolicy"
+   "volcenginecc:fwcenter/dnsControlPolicy:DnsControlPolicy": "DnsControlPolicy"
   }
  },
  {
