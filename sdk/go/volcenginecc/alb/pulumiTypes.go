@@ -122,14 +122,6 @@ func (o AclAclEntryArrayOutput) Index(i pulumi.IntInput) AclAclEntryOutput {
 type AclListener struct {
 	// 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
 	AclType *string `pulumi:"aclType"`
-	// 监听器的ID
-	ListenerId *string `pulumi:"listenerId"`
-	// 监听器的名称
-	ListenerName *string `pulumi:"listenerName"`
-	// 监听器的端口
-	Port *int `pulumi:"port"`
-	// 监听器的协议
-	Protocol *string `pulumi:"protocol"`
 }
 
 // AclListenerInput is an input type that accepts AclListenerArgs and AclListenerOutput values.
@@ -146,14 +138,6 @@ type AclListenerInput interface {
 type AclListenerArgs struct {
 	// 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
 	AclType pulumi.StringPtrInput `pulumi:"aclType"`
-	// 监听器的ID
-	ListenerId pulumi.StringPtrInput `pulumi:"listenerId"`
-	// 监听器的名称
-	ListenerName pulumi.StringPtrInput `pulumi:"listenerName"`
-	// 监听器的端口
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// 监听器的协议
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (AclListenerArgs) ElementType() reflect.Type {
@@ -210,26 +194,6 @@ func (o AclListenerOutput) ToAclListenerOutputWithContext(ctx context.Context) A
 // 监听器对本访问控制策略组的控制方式。white：白名单方式；black：黑名单方式
 func (o AclListenerOutput) AclType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AclListener) *string { return v.AclType }).(pulumi.StringPtrOutput)
-}
-
-// 监听器的ID
-func (o AclListenerOutput) ListenerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AclListener) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
-}
-
-// 监听器的名称
-func (o AclListenerOutput) ListenerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AclListener) *string { return v.ListenerName }).(pulumi.StringPtrOutput)
-}
-
-// 监听器的端口
-func (o AclListenerOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AclListener) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-// 监听器的协议
-func (o AclListenerOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AclListener) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 type AclListenerArrayOutput struct{ *pulumi.OutputState }
@@ -1469,7 +1433,6 @@ func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutp
 }
 
 type LoadBalancerZoneMapping struct {
-	LoadBalancerAddresses []LoadBalancerZoneMappingLoadBalancerAddress `pulumi:"loadBalancerAddresses"`
 	// 可用区内提供服务的子网ID。
 	SubnetId *string `pulumi:"subnetId"`
 	// 可用区的唯一标识符。
@@ -1488,7 +1451,6 @@ type LoadBalancerZoneMappingInput interface {
 }
 
 type LoadBalancerZoneMappingArgs struct {
-	LoadBalancerAddresses LoadBalancerZoneMappingLoadBalancerAddressArrayInput `pulumi:"loadBalancerAddresses"`
 	// 可用区内提供服务的子网ID。
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// 可用区的唯一标识符。
@@ -1546,12 +1508,6 @@ func (o LoadBalancerZoneMappingOutput) ToLoadBalancerZoneMappingOutputWithContex
 	return o
 }
 
-func (o LoadBalancerZoneMappingOutput) LoadBalancerAddresses() LoadBalancerZoneMappingLoadBalancerAddressArrayOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMapping) []LoadBalancerZoneMappingLoadBalancerAddress {
-		return v.LoadBalancerAddresses
-	}).(LoadBalancerZoneMappingLoadBalancerAddressArrayOutput)
-}
-
 // 可用区内提供服务的子网ID。
 func (o LoadBalancerZoneMappingOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerZoneMapping) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
@@ -1580,700 +1536,6 @@ func (o LoadBalancerZoneMappingArrayOutput) Index(i pulumi.IntInput) LoadBalance
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerZoneMapping {
 		return vs[0].([]LoadBalancerZoneMapping)[vs[1].(int)]
 	}).(LoadBalancerZoneMappingOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddress struct {
-	// 弹性公网IP（EIP）的详细信息。
-	Eip *LoadBalancerZoneMappingLoadBalancerAddressEip `pulumi:"eip"`
-	// 绑定的弹性公网IP（EIP）的地址。
-	EipAddress *string `pulumi:"eipAddress"`
-	// 绑定的弹性公网IP（EIP）的ID。
-	EipId *string `pulumi:"eipId"`
-	// 弹性网卡（ENI）上的私网IP地址。
-	EniAddress *string `pulumi:"eniAddress"`
-	// IP地址所属的弹性网卡（ENI）的ID。
-	EniId *string `pulumi:"eniId"`
-	// 弹性网卡（ENI）上的IPv6私网地址。
-	EniIpv6Address *string `pulumi:"eniIpv6Address"`
-	// IPv6弹性公网IP的详细信息。
-	Ipv6Eip *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip `pulumi:"ipv6Eip"`
-	// 绑定的IPv6 EIP的ID。
-	Ipv6EipId *string `pulumi:"ipv6EipId"`
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressArgs and LoadBalancerZoneMappingLoadBalancerAddressOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressInput` via:
-//
-//	LoadBalancerZoneMappingLoadBalancerAddressArgs{...}
-type LoadBalancerZoneMappingLoadBalancerAddressInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressOutput() LoadBalancerZoneMappingLoadBalancerAddressOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressOutput
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressArgs struct {
-	// 弹性公网IP（EIP）的详细信息。
-	Eip LoadBalancerZoneMappingLoadBalancerAddressEipPtrInput `pulumi:"eip"`
-	// 绑定的弹性公网IP（EIP）的地址。
-	EipAddress pulumi.StringPtrInput `pulumi:"eipAddress"`
-	// 绑定的弹性公网IP（EIP）的ID。
-	EipId pulumi.StringPtrInput `pulumi:"eipId"`
-	// 弹性网卡（ENI）上的私网IP地址。
-	EniAddress pulumi.StringPtrInput `pulumi:"eniAddress"`
-	// IP地址所属的弹性网卡（ENI）的ID。
-	EniId pulumi.StringPtrInput `pulumi:"eniId"`
-	// 弹性网卡（ENI）上的IPv6私网地址。
-	EniIpv6Address pulumi.StringPtrInput `pulumi:"eniIpv6Address"`
-	// IPv6弹性公网IP的详细信息。
-	Ipv6Eip LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrInput `pulumi:"ipv6Eip"`
-	// 绑定的IPv6 EIP的ID。
-	Ipv6EipId pulumi.StringPtrInput `pulumi:"ipv6EipId"`
-}
-
-func (LoadBalancerZoneMappingLoadBalancerAddressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddress)(nil)).Elem()
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressArgs) ToLoadBalancerZoneMappingLoadBalancerAddressOutput() LoadBalancerZoneMappingLoadBalancerAddressOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressArgs) ToLoadBalancerZoneMappingLoadBalancerAddressOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressOutput)
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressArrayInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressArray and LoadBalancerZoneMappingLoadBalancerAddressArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressArrayInput` via:
-//
-//	LoadBalancerZoneMappingLoadBalancerAddressArray{ LoadBalancerZoneMappingLoadBalancerAddressArgs{...} }
-type LoadBalancerZoneMappingLoadBalancerAddressArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutput() LoadBalancerZoneMappingLoadBalancerAddressArrayOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressArrayOutput
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressArray []LoadBalancerZoneMappingLoadBalancerAddressInput
-
-func (LoadBalancerZoneMappingLoadBalancerAddressArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerZoneMappingLoadBalancerAddress)(nil)).Elem()
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressArray) ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutput() LoadBalancerZoneMappingLoadBalancerAddressArrayOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressArray) ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressArrayOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddress)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) ToLoadBalancerZoneMappingLoadBalancerAddressOutput() LoadBalancerZoneMappingLoadBalancerAddressOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) ToLoadBalancerZoneMappingLoadBalancerAddressOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressOutput {
-	return o
-}
-
-// 弹性公网IP（EIP）的详细信息。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) Eip() LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *LoadBalancerZoneMappingLoadBalancerAddressEip {
-		return v.Eip
-	}).(LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput)
-}
-
-// 绑定的弹性公网IP（EIP）的地址。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) EipAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *string { return v.EipAddress }).(pulumi.StringPtrOutput)
-}
-
-// 绑定的弹性公网IP（EIP）的ID。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) EipId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *string { return v.EipId }).(pulumi.StringPtrOutput)
-}
-
-// 弹性网卡（ENI）上的私网IP地址。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) EniAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *string { return v.EniAddress }).(pulumi.StringPtrOutput)
-}
-
-// IP地址所属的弹性网卡（ENI）的ID。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) EniId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *string { return v.EniId }).(pulumi.StringPtrOutput)
-}
-
-// 弹性网卡（ENI）上的IPv6私网地址。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) EniIpv6Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *string { return v.EniIpv6Address }).(pulumi.StringPtrOutput)
-}
-
-// IPv6弹性公网IP的详细信息。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) Ipv6Eip() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip {
-		return v.Ipv6Eip
-	}).(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput)
-}
-
-// 绑定的IPv6 EIP的ID。
-func (o LoadBalancerZoneMappingLoadBalancerAddressOutput) Ipv6EipId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddress) *string { return v.Ipv6EipId }).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressArrayOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerZoneMappingLoadBalancerAddress)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressArrayOutput) ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutput() LoadBalancerZoneMappingLoadBalancerAddressArrayOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressArrayOutput) ToLoadBalancerZoneMappingLoadBalancerAddressArrayOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressArrayOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressArrayOutput) Index(i pulumi.IntInput) LoadBalancerZoneMappingLoadBalancerAddressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerZoneMappingLoadBalancerAddress {
-		return vs[0].([]LoadBalancerZoneMappingLoadBalancerAddress)[vs[1].(int)]
-	}).(LoadBalancerZoneMappingLoadBalancerAddressOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEip struct {
-	// EIP的绑定模式，例如Default或Normal。
-	AssociationMode *string `pulumi:"associationMode"`
-	// EIP的带宽峰值，单位为Mbps。
-	Bandwidth *int `pulumi:"bandwidth"`
-	// 弹性公网IP（EIP）的地址。
-	EipAddress *string `pulumi:"eipAddress"`
-	// EIP的计费方式，2为按带宽计费，3为按流量计费。
-	EipBillingType *int `pulumi:"eipBillingType"`
-	// EIP的类型，例如静态BGP。
-	EipType *string `pulumi:"eipType"`
-	// 公网IP的线路类型，BGP表示多线。
-	Isp          *string                                                    `pulumi:"isp"`
-	PopLocations []LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation `pulumi:"popLocations"`
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressEipInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressEipArgs and LoadBalancerZoneMappingLoadBalancerAddressEipOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressEipInput` via:
-//
-//	LoadBalancerZoneMappingLoadBalancerAddressEipArgs{...}
-type LoadBalancerZoneMappingLoadBalancerAddressEipInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipOutput() LoadBalancerZoneMappingLoadBalancerAddressEipOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipOutput
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipArgs struct {
-	// EIP的绑定模式，例如Default或Normal。
-	AssociationMode pulumi.StringPtrInput `pulumi:"associationMode"`
-	// EIP的带宽峰值，单位为Mbps。
-	Bandwidth pulumi.IntPtrInput `pulumi:"bandwidth"`
-	// 弹性公网IP（EIP）的地址。
-	EipAddress pulumi.StringPtrInput `pulumi:"eipAddress"`
-	// EIP的计费方式，2为按带宽计费，3为按流量计费。
-	EipBillingType pulumi.IntPtrInput `pulumi:"eipBillingType"`
-	// EIP的类型，例如静态BGP。
-	EipType pulumi.StringPtrInput `pulumi:"eipType"`
-	// 公网IP的线路类型，BGP表示多线。
-	Isp          pulumi.StringPtrInput                                              `pulumi:"isp"`
-	PopLocations LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayInput `pulumi:"popLocations"`
-}
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEip)(nil)).Elem()
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressEipOutput() LoadBalancerZoneMappingLoadBalancerAddressEipOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressEipOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressEipOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressEipOutput)
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressEipOutput).ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(ctx)
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressEipPtrInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressEipArgs, LoadBalancerZoneMappingLoadBalancerAddressEipPtr and LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressEipPtrInput` via:
-//
-//	        LoadBalancerZoneMappingLoadBalancerAddressEipArgs{...}
-//
-//	or:
-//
-//	        nil
-type LoadBalancerZoneMappingLoadBalancerAddressEipPtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput
-}
-
-type loadBalancerZoneMappingLoadBalancerAddressEipPtrType LoadBalancerZoneMappingLoadBalancerAddressEipArgs
-
-func LoadBalancerZoneMappingLoadBalancerAddressEipPtr(v *LoadBalancerZoneMappingLoadBalancerAddressEipArgs) LoadBalancerZoneMappingLoadBalancerAddressEipPtrInput {
-	return (*loadBalancerZoneMappingLoadBalancerAddressEipPtrType)(v)
-}
-
-func (*loadBalancerZoneMappingLoadBalancerAddressEipPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerZoneMappingLoadBalancerAddressEip)(nil)).Elem()
-}
-
-func (i *loadBalancerZoneMappingLoadBalancerAddressEipPtrType) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerZoneMappingLoadBalancerAddressEipPtrType) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEip)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipOutput() LoadBalancerZoneMappingLoadBalancerAddressEipOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return o.ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerZoneMappingLoadBalancerAddressEip) *LoadBalancerZoneMappingLoadBalancerAddressEip {
-		return &v
-	}).(LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput)
-}
-
-// EIP的绑定模式，例如Default或Normal。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) AssociationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) *string { return v.AssociationMode }).(pulumi.StringPtrOutput)
-}
-
-// EIP的带宽峰值，单位为Mbps。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) Bandwidth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) *int { return v.Bandwidth }).(pulumi.IntPtrOutput)
-}
-
-// 弹性公网IP（EIP）的地址。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) EipAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) *string { return v.EipAddress }).(pulumi.StringPtrOutput)
-}
-
-// EIP的计费方式，2为按带宽计费，3为按流量计费。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) EipBillingType() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) *int { return v.EipBillingType }).(pulumi.IntPtrOutput)
-}
-
-// EIP的类型，例如静态BGP。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) EipType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) *string { return v.EipType }).(pulumi.StringPtrOutput)
-}
-
-// 公网IP的线路类型，BGP表示多线。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) Isp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) *string { return v.Isp }).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipOutput) PopLocations() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEip) []LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation {
-		return v.PopLocations
-	}).(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerZoneMappingLoadBalancerAddressEip)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) Elem() LoadBalancerZoneMappingLoadBalancerAddressEipOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) LoadBalancerZoneMappingLoadBalancerAddressEip {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerZoneMappingLoadBalancerAddressEip
-		return ret
-	}).(LoadBalancerZoneMappingLoadBalancerAddressEipOutput)
-}
-
-// EIP的绑定模式，例如Default或Normal。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) AssociationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AssociationMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// EIP的带宽峰值，单位为Mbps。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) Bandwidth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Bandwidth
-	}).(pulumi.IntPtrOutput)
-}
-
-// 弹性公网IP（EIP）的地址。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) EipAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EipAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// EIP的计费方式，2为按带宽计费，3为按流量计费。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) EipBillingType() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) *int {
-		if v == nil {
-			return nil
-		}
-		return v.EipBillingType
-	}).(pulumi.IntPtrOutput)
-}
-
-// EIP的类型，例如静态BGP。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) EipType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EipType
-	}).(pulumi.StringPtrOutput)
-}
-
-// 公网IP的线路类型，BGP表示多线。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) Isp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Isp
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput) PopLocations() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressEip) []LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation {
-		if v == nil {
-			return nil
-		}
-		return v.PopLocations
-	}).(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation struct {
-	// 接入点（PoP）的唯一ID。
-	PopId *string `pulumi:"popId"`
-	// 接入点（PoP）的名称。
-	PopName *string `pulumi:"popName"`
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs and LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationInput` via:
-//
-//	LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs{...}
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs struct {
-	// 接入点（PoP）的唯一ID。
-	PopId pulumi.StringPtrInput `pulumi:"popId"`
-	// 接入点（PoP）的名称。
-	PopName pulumi.StringPtrInput `pulumi:"popName"`
-}
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation)(nil)).Elem()
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput)
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray and LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayInput` via:
-//
-//	LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray{ LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs{...} }
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray []LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationInput
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation)(nil)).Elem()
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput {
-	return o
-}
-
-// 接入点（PoP）的唯一ID。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput) PopId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation) *string { return v.PopId }).(pulumi.StringPtrOutput)
-}
-
-// 接入点（PoP）的名称。
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput) PopName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation) *string { return v.PopName }).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput() LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput) ToLoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput) Index(i pulumi.IntInput) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation {
-		return vs[0].([]LoadBalancerZoneMappingLoadBalancerAddressEipPopLocation)[vs[1].(int)]
-	}).(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip struct {
-	// IPv6 EIP的带宽峰值，单位为Mbps。
-	Bandwidth *int `pulumi:"bandwidth"`
-	// IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-	BillingType *int `pulumi:"billingType"`
-	// IPv6公网IP的线路类型，BGP表示多线。
-	Isp *string `pulumi:"isp"`
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressIpv6EipInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs and LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressIpv6EipInput` via:
-//
-//	LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs{...}
-type LoadBalancerZoneMappingLoadBalancerAddressIpv6EipInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs struct {
-	// IPv6 EIP的带宽峰值，单位为Mbps。
-	Bandwidth pulumi.IntPtrInput `pulumi:"bandwidth"`
-	// IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-	BillingType pulumi.IntPtrInput `pulumi:"billingType"`
-	// IPv6公网IP的线路类型，BGP表示多线。
-	Isp pulumi.StringPtrInput `pulumi:"isp"`
-}
-
-func (LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip)(nil)).Elem()
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput)
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput).ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(ctx)
-}
-
-// LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrInput is an input type that accepts LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs, LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtr and LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput values.
-// You can construct a concrete instance of `LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrInput` via:
-//
-//	        LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs{...}
-//
-//	or:
-//
-//	        nil
-type LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput
-	ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput
-}
-
-type loadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrType LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs
-
-func LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtr(v *LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrInput {
-	return (*loadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrType)(v)
-}
-
-func (*loadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip)(nil)).Elem()
-}
-
-func (i *loadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrType) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return i.ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrType) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return o.ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip {
-		return &v
-	}).(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput)
-}
-
-// IPv6 EIP的带宽峰值，单位为Mbps。
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) Bandwidth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *int { return v.Bandwidth }).(pulumi.IntPtrOutput)
-}
-
-// IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) BillingType() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *int { return v.BillingType }).(pulumi.IntPtrOutput)
-}
-
-// IPv6公网IP的线路类型，BGP表示多线。
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput) Isp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *string { return v.Isp }).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip)(nil)).Elem()
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) ToLoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutputWithContext(ctx context.Context) LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput {
-	return o
-}
-
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) Elem() LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip
-		return ret
-	}).(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput)
-}
-
-// IPv6 EIP的带宽峰值，单位为Mbps。
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) Bandwidth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Bandwidth
-	}).(pulumi.IntPtrOutput)
-}
-
-// IPv6 EIP的计费方式，2为按带宽计费，3为按流量计费。
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) BillingType() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BillingType
-	}).(pulumi.IntPtrOutput)
-}
-
-// IPv6公网IP的线路类型，BGP表示多线。
-func (o LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput) Isp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerZoneMappingLoadBalancerAddressIpv6Eip) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Isp
-	}).(pulumi.StringPtrOutput)
 }
 
 type ServerGroupHealthCheck struct {
@@ -3074,7 +2336,9 @@ func (o ServerGroupStickySessionConfigPtrOutput) StickySessionType() pulumi.Stri
 }
 
 type ServerGroupTag struct {
-	Key   *string `pulumi:"key"`
+	// 标签的标签键。同一资源的标签键不允许重复。
+	Key *string `pulumi:"key"`
+	// 标签的标签值。
 	Value *string `pulumi:"value"`
 }
 
@@ -3090,7 +2354,9 @@ type ServerGroupTagInput interface {
 }
 
 type ServerGroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// 标签的标签键。同一资源的标签键不允许重复。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 标签的标签值。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3145,10 +2411,12 @@ func (o ServerGroupTagOutput) ToServerGroupTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// 标签的标签键。同一资源的标签键不允许重复。
 func (o ServerGroupTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// 标签的标签值。
 func (o ServerGroupTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5374,7 +4642,9 @@ func (o GetServerGroupStickySessionConfigOutput) StickySessionType() pulumi.Stri
 }
 
 type GetServerGroupTag struct {
-	Key   string `pulumi:"key"`
+	// 标签的标签键。同一资源的标签键不允许重复。
+	Key string `pulumi:"key"`
+	// 标签的标签值。
 	Value string `pulumi:"value"`
 }
 
@@ -5390,7 +4660,9 @@ type GetServerGroupTagInput interface {
 }
 
 type GetServerGroupTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// 标签的标签键。同一资源的标签键不允许重复。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 标签的标签值。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5445,10 +4717,12 @@ func (o GetServerGroupTagOutput) ToGetServerGroupTagOutputWithContext(ctx contex
 	return o
 }
 
+// 标签的标签键。同一资源的标签键不允许重复。
 func (o GetServerGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// 标签的标签值。
 func (o GetServerGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5498,14 +4772,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTagArrayInput)(nil)).Elem(), LoadBalancerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingInput)(nil)).Elem(), LoadBalancerZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingArrayInput)(nil)).Elem(), LoadBalancerZoneMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressArrayInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEipInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressEipArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEipPtrInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressEipArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressIpv6EipInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrInput)(nil)).Elem(), LoadBalancerZoneMappingLoadBalancerAddressIpv6EipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupHealthCheckInput)(nil)).Elem(), ServerGroupHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupHealthCheckPtrInput)(nil)).Elem(), ServerGroupHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerGroupListenerInput)(nil)).Elem(), ServerGroupListenerArgs{})
@@ -5575,14 +4841,6 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerTagArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerZoneMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerZoneMappingArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressEipOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressEipPtrOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressEipPopLocationArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipOutput{})
-	pulumi.RegisterOutputType(LoadBalancerZoneMappingLoadBalancerAddressIpv6EipPtrOutput{})
 	pulumi.RegisterOutputType(ServerGroupHealthCheckOutput{})
 	pulumi.RegisterOutputType(ServerGroupHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(ServerGroupListenerOutput{})

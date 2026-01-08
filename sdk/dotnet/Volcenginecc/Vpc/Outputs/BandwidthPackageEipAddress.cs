@@ -18,19 +18,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Outputs
         /// 分配ID
         /// </summary>
         public readonly string? AllocationId;
-        /// <summary>
-        /// 弹性IP地址
-        /// </summary>
-        public readonly string? EipAddress;
 
         [OutputConstructor]
-        private BandwidthPackageEipAddress(
-            string? allocationId,
-
-            string? eipAddress)
+        private BandwidthPackageEipAddress(string? allocationId)
         {
             AllocationId = allocationId;
-            EipAddress = eipAddress;
         }
     }
 }

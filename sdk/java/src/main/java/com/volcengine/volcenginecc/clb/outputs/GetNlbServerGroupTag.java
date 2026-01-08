@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetNlbServerGroupTag {
     /**
-     * @return 标签键
+     * @return 标签键。
      * 
      */
     private String key;
     /**
-     * @return 标签值
+     * @return 标签值。
      * 
      */
     private String value;
 
     private GetNlbServerGroupTag() {}
     /**
-     * @return 标签键
+     * @return 标签键。
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return 标签值
+     * @return 标签值。
      * 
      */
     public String value() {

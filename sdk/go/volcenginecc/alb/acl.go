@@ -11,6 +11,8 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
+// ALB提供监听级别的访问控制，如果您希望仅允许某些IP、或仅拒绝某些IP通过监听端口访问ALB实例，可以对该监听器设置访问控制策略。您可以在创建监听器时配置访问控制，也可以在监听器创建后修改或重新配置访问控制。
+//
 // ## Example Usage
 //
 // ```go
@@ -66,7 +68,7 @@ type Acl struct {
 	// 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
 	AclName pulumi.StringOutput `pulumi:"aclName"`
 	// 访问控制策略组的创建时间。
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
 	Description pulumi.StringOutput    `pulumi:"description"`
 	Listeners   AclListenerArrayOutput `pulumi:"listeners"`
@@ -76,7 +78,7 @@ type Acl struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	Tags   AclTagArrayOutput   `pulumi:"tags"`
 	// 访问控制策略组的最近操作时间。
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 }
 
 // NewAcl registers a new resource with the given unique name, arguments, and options.
@@ -117,7 +119,7 @@ type aclState struct {
 	// 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
 	AclName *string `pulumi:"aclName"`
 	// 访问控制策略组的创建时间。
-	CreateTime *string `pulumi:"createTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
 	Description *string       `pulumi:"description"`
 	Listeners   []AclListener `pulumi:"listeners"`
@@ -127,7 +129,7 @@ type aclState struct {
 	Status *string  `pulumi:"status"`
 	Tags   []AclTag `pulumi:"tags"`
 	// 访问控制策略组的最近操作时间。
-	UpdateTime *string `pulumi:"updateTime"`
+	UpdatedTime *string `pulumi:"updatedTime"`
 }
 
 type AclState struct {
@@ -139,7 +141,7 @@ type AclState struct {
 	// 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
 	AclName pulumi.StringPtrInput
 	// 访问控制策略组的创建时间。
-	CreateTime pulumi.StringPtrInput
+	CreatedTime pulumi.StringPtrInput
 	// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
 	Description pulumi.StringPtrInput
 	Listeners   AclListenerArrayInput
@@ -149,7 +151,7 @@ type AclState struct {
 	Status pulumi.StringPtrInput
 	Tags   AclTagArrayInput
 	// 访问控制策略组的最近操作时间。
-	UpdateTime pulumi.StringPtrInput
+	UpdatedTime pulumi.StringPtrInput
 }
 
 func (AclState) ElementType() reflect.Type {
@@ -161,7 +163,8 @@ type aclArgs struct {
 	// 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
 	AclName *string `pulumi:"aclName"`
 	// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
-	Description *string `pulumi:"description"`
+	Description *string       `pulumi:"description"`
+	Listeners   []AclListener `pulumi:"listeners"`
 	// 访问控制策略组所属项目名称。
 	ProjectName *string  `pulumi:"projectName"`
 	Tags        []AclTag `pulumi:"tags"`
@@ -174,6 +177,7 @@ type AclArgs struct {
 	AclName pulumi.StringPtrInput
 	// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
 	Description pulumi.StringPtrInput
+	Listeners   AclListenerArrayInput
 	// 访问控制策略组所属项目名称。
 	ProjectName pulumi.StringPtrInput
 	Tags        AclTagArrayInput
@@ -286,8 +290,8 @@ func (o AclOutput) AclName() pulumi.StringOutput {
 }
 
 // 访问控制策略组的创建时间。
-func (o AclOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+func (o AclOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
@@ -314,8 +318,8 @@ func (o AclOutput) Tags() AclTagArrayOutput {
 }
 
 // 访问控制策略组的最近操作时间。
-func (o AclOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o AclOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Acl) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 type AclArrayOutput struct{ *pulumi.OutputState }

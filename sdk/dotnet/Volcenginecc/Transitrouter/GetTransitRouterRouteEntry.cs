@@ -71,7 +71,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// 路由条目的创建时间。
         /// </summary>
-        public readonly string CreationTime;
+        public readonly string CreatedTime;
         /// <summary>
         /// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         /// </summary>
@@ -115,13 +115,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// 路由条目的更新时间。
         /// </summary>
-        public readonly string UpdateTime;
+        public readonly string UpdatedTime;
 
         [OutputConstructor]
         private GetTransitRouterRouteEntryResult(
             ImmutableArray<string> asPaths,
 
-            string creationTime,
+            string createdTime,
 
             string description,
 
@@ -143,10 +143,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 
             string transitRouterRouteTableId,
 
-            string updateTime)
+            string updatedTime)
         {
             AsPaths = asPaths;
-            CreationTime = creationTime;
+            CreatedTime = createdTime;
             Description = description;
             DestinationCidrBlock = destinationCidrBlock;
             Id = id;
@@ -157,7 +157,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
             TransitRouterRouteEntryNextHopType = transitRouterRouteEntryNextHopType;
             TransitRouterRouteEntryType = transitRouterRouteEntryType;
             TransitRouterRouteTableId = transitRouterRouteTableId;
-            UpdateTime = updateTime;
+            UpdatedTime = updatedTime;
         }
     }
 }

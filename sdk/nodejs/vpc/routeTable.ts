@@ -101,7 +101,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * VPC的名称。
      */
-    public readonly vpcName!: pulumi.Output<string>;
+    public /*out*/ readonly vpcName!: pulumi.Output<string>;
 
     /**
      * Create a RouteTable resource with the given unique name, arguments, and options.
@@ -148,13 +148,13 @@ export class RouteTable extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["vpcName"] = args ? args.vpcName : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["routeTableId"] = undefined /*out*/;
             resourceInputs["routeTableType"] = undefined /*out*/;
             resourceInputs["systemRouteEntries"] = undefined /*out*/;
             resourceInputs["updatedTime"] = undefined /*out*/;
+            resourceInputs["vpcName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteTable.__pulumiType, name, resourceInputs, opts);
@@ -264,8 +264,4 @@ export interface RouteTableArgs {
      * 路由表所属VPC的ID。
      */
     vpcId: pulumi.Input<string>;
-    /**
-     * VPC的名称。
-     */
-    vpcName?: pulumi.Input<string>;
 }

@@ -45,18 +45,18 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import volcenginecc:cr/nameSpace:NameSpace example "name|registry"
+// $ pulumi import volcenginecc:cr/nameSpace:NameSpace example "registry|name"
 // ```
 type NameSpace struct {
 	pulumi.CustomResourceState
 
 	// 命名空间的创建时间。
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有火山引擎账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
+	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
 	Name pulumi.StringOutput `pulumi:"name"`
 	// 命名空间所属项目的名称。参数值大小写敏感，不得超过 64 个字符。参数为空时，命名空间关联默认的 default项目。
 	Project pulumi.StringOutput `pulumi:"project"`
-	// 命名空间下新建 OCI 制品仓库的默认公开属性，默认 Private。公开属性支持后续变更。Public：公开，不需要访问密钥，支持直接访问。Private：私有，需要输入访问密钥后才能够访问。
+	// 指定的镜像仓库实例名称。通过 ListRegistries 或在 镜像仓库控制台 的 实例列表页面获取。
 	Registry pulumi.StringOutput `pulumi:"registry"`
 }
 
@@ -98,22 +98,22 @@ func GetNameSpace(ctx *pulumi.Context,
 type nameSpaceState struct {
 	// 命名空间的创建时间。
 	CreatedTime *string `pulumi:"createdTime"`
-	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有火山引擎账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
+	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
 	Name *string `pulumi:"name"`
 	// 命名空间所属项目的名称。参数值大小写敏感，不得超过 64 个字符。参数为空时，命名空间关联默认的 default项目。
 	Project *string `pulumi:"project"`
-	// 命名空间下新建 OCI 制品仓库的默认公开属性，默认 Private。公开属性支持后续变更。Public：公开，不需要访问密钥，支持直接访问。Private：私有，需要输入访问密钥后才能够访问。
+	// 指定的镜像仓库实例名称。通过 ListRegistries 或在 镜像仓库控制台 的 实例列表页面获取。
 	Registry *string `pulumi:"registry"`
 }
 
 type NameSpaceState struct {
 	// 命名空间的创建时间。
 	CreatedTime pulumi.StringPtrInput
-	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有火山引擎账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
+	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
 	Name pulumi.StringPtrInput
 	// 命名空间所属项目的名称。参数值大小写敏感，不得超过 64 个字符。参数为空时，命名空间关联默认的 default项目。
 	Project pulumi.StringPtrInput
-	// 命名空间下新建 OCI 制品仓库的默认公开属性，默认 Private。公开属性支持后续变更。Public：公开，不需要访问密钥，支持直接访问。Private：私有，需要输入访问密钥后才能够访问。
+	// 指定的镜像仓库实例名称。通过 ListRegistries 或在 镜像仓库控制台 的 实例列表页面获取。
 	Registry pulumi.StringPtrInput
 }
 
@@ -122,21 +122,21 @@ func (NameSpaceState) ElementType() reflect.Type {
 }
 
 type nameSpaceArgs struct {
-	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有火山引擎账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
+	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
 	Name string `pulumi:"name"`
 	// 命名空间所属项目的名称。参数值大小写敏感，不得超过 64 个字符。参数为空时，命名空间关联默认的 default项目。
 	Project *string `pulumi:"project"`
-	// 命名空间下新建 OCI 制品仓库的默认公开属性，默认 Private。公开属性支持后续变更。Public：公开，不需要访问密钥，支持直接访问。Private：私有，需要输入访问密钥后才能够访问。
+	// 指定的镜像仓库实例名称。通过 ListRegistries 或在 镜像仓库控制台 的 实例列表页面获取。
 	Registry string `pulumi:"registry"`
 }
 
 // The set of arguments for constructing a NameSpace resource.
 type NameSpaceArgs struct {
-	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有火山引擎账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
+	// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
 	Name pulumi.StringInput
 	// 命名空间所属项目的名称。参数值大小写敏感，不得超过 64 个字符。参数为空时，命名空间关联默认的 default项目。
 	Project pulumi.StringPtrInput
-	// 命名空间下新建 OCI 制品仓库的默认公开属性，默认 Private。公开属性支持后续变更。Public：公开，不需要访问密钥，支持直接访问。Private：私有，需要输入访问密钥后才能够访问。
+	// 指定的镜像仓库实例名称。通过 ListRegistries 或在 镜像仓库控制台 的 实例列表页面获取。
 	Registry pulumi.StringInput
 }
 
@@ -232,7 +232,7 @@ func (o NameSpaceOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *NameSpace) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有火山引擎账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
+// 命名空间名称。支持小写英文、数字、英文句号（.）、短划线（-）、下划线（_），标点符号不能出现在首位或末位，也不能连续输入。长度限制为 2～90 个字符。标准版实例：同一个镜像仓库实例下，名称必须唯一。体验版实例：同一地域下，所有账号范围内的命名空间名称需要保持唯一。如果您设置的命名空间名称已被占用，请尝试其他名称或者 购买标准版实例。
 func (o NameSpaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NameSpace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -242,7 +242,7 @@ func (o NameSpaceOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *NameSpace) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
-// 命名空间下新建 OCI 制品仓库的默认公开属性，默认 Private。公开属性支持后续变更。Public：公开，不需要访问密钥，支持直接访问。Private：私有，需要输入访问密钥后才能够访问。
+// 指定的镜像仓库实例名称。通过 ListRegistries 或在 镜像仓库控制台 的 实例列表页面获取。
 func (o NameSpaceOutput) Registry() pulumi.StringOutput {
 	return o.ApplyT(func(v *NameSpace) pulumi.StringOutput { return v.Registry }).(pulumi.StringOutput)
 }

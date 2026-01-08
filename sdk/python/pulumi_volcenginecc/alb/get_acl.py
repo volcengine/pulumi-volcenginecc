@@ -28,7 +28,7 @@ class GetAclResult:
     """
     A collection of values returned by getAcl.
     """
-    def __init__(__self__, acl_entries=None, acl_entry_count=None, acl_id=None, acl_name=None, create_time=None, description=None, id=None, listeners=None, project_name=None, status=None, tags=None, update_time=None):
+    def __init__(__self__, acl_entries=None, acl_entry_count=None, acl_id=None, acl_name=None, created_time=None, description=None, id=None, listeners=None, project_name=None, status=None, tags=None, updated_time=None):
         if acl_entries and not isinstance(acl_entries, list):
             raise TypeError("Expected argument 'acl_entries' to be a list")
         pulumi.set(__self__, "acl_entries", acl_entries)
@@ -41,9 +41,9 @@ class GetAclResult:
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
-        if create_time and not isinstance(create_time, str):
-            raise TypeError("Expected argument 'create_time' to be a str")
-        pulumi.set(__self__, "create_time", create_time)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -62,9 +62,9 @@ class GetAclResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if update_time and not isinstance(update_time, str):
-            raise TypeError("Expected argument 'update_time' to be a str")
-        pulumi.set(__self__, "update_time", update_time)
+        if updated_time and not isinstance(updated_time, str):
+            raise TypeError("Expected argument 'updated_time' to be a str")
+        pulumi.set(__self__, "updated_time", updated_time)
 
     @property
     @pulumi.getter(name="aclEntries")
@@ -99,12 +99,12 @@ class GetAclResult:
         return pulumi.get(self, "acl_name")
 
     @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> builtins.str:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> builtins.str:
         """
         访问控制策略组的创建时间。
         """
-        return pulumi.get(self, "create_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -155,12 +155,12 @@ class GetAclResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> builtins.str:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> builtins.str:
         """
         访问控制策略组的最近操作时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
 
 class AwaitableGetAclResult(GetAclResult):
@@ -173,14 +173,14 @@ class AwaitableGetAclResult(GetAclResult):
             acl_entry_count=self.acl_entry_count,
             acl_id=self.acl_id,
             acl_name=self.acl_name,
-            create_time=self.create_time,
+            created_time=self.created_time,
             description=self.description,
             id=self.id,
             listeners=self.listeners,
             project_name=self.project_name,
             status=self.status,
             tags=self.tags,
-            update_time=self.update_time)
+            updated_time=self.updated_time)
 
 
 def get_acl(id: Optional[builtins.str] = None,
@@ -201,14 +201,14 @@ def get_acl(id: Optional[builtins.str] = None,
         acl_entry_count=pulumi.get(__ret__, 'acl_entry_count'),
         acl_id=pulumi.get(__ret__, 'acl_id'),
         acl_name=pulumi.get(__ret__, 'acl_name'),
-        create_time=pulumi.get(__ret__, 'create_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         listeners=pulumi.get(__ret__, 'listeners'),
         project_name=pulumi.get(__ret__, 'project_name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
-        update_time=pulumi.get(__ret__, 'update_time'))
+        updated_time=pulumi.get(__ret__, 'updated_time'))
 def get_acl_output(id: Optional[pulumi.Input[builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAclResult]:
     """
@@ -226,11 +226,11 @@ def get_acl_output(id: Optional[pulumi.Input[builtins.str]] = None,
         acl_entry_count=pulumi.get(__response__, 'acl_entry_count'),
         acl_id=pulumi.get(__response__, 'acl_id'),
         acl_name=pulumi.get(__response__, 'acl_name'),
-        create_time=pulumi.get(__response__, 'create_time'),
+        created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         listeners=pulumi.get(__response__, 'listeners'),
         project_name=pulumi.get(__response__, 'project_name'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
-        update_time=pulumi.get(__response__, 'update_time')))
+        updated_time=pulumi.get(__response__, 'updated_time')))

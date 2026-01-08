@@ -232,12 +232,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
-        /// <summary>
-        /// VPC的名称。
-        /// </summary>
-        [Input("vpcName")]
-        public Input<string>? VpcName { get; set; }
-
         public RouteTableArgs()
         {
         }

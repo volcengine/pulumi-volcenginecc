@@ -14,7 +14,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
     [OutputType]
     public sealed class LoadBalancerZoneMapping
     {
-        public readonly ImmutableArray<Outputs.LoadBalancerZoneMappingLoadBalancerAddress> LoadBalancerAddresses;
         /// <summary>
         /// 可用区内提供服务的子网ID。
         /// </summary>
@@ -26,13 +25,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
 
         [OutputConstructor]
         private LoadBalancerZoneMapping(
-            ImmutableArray<Outputs.LoadBalancerZoneMappingLoadBalancerAddress> loadBalancerAddresses,
-
             string? subnetId,
 
             string? zoneId)
         {
-            LoadBalancerAddresses = loadBalancerAddresses;
             SubnetId = subnetId;
             ZoneId = zoneId;
         }

@@ -56,7 +56,7 @@ type LookupInstanceResult struct {
 	SnapshotCount int `pulumi:"snapshotCount"`
 	// 创建时使用的快照 ID。传入该参数后，将使用该快照新建文件系统。
 	SnapshotId string `pulumi:"snapshotId"`
-	// 文件系统状态
+	// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
 	Status string `pulumi:"status"`
 	// 存储类型，取值Standard，表示标准型。
 	StorageType string `pulumi:"storageType"`
@@ -169,7 +169,7 @@ func (o LookupInstanceResultOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
 
-// 文件系统状态
+// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
 func (o LookupInstanceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.Status }).(pulumi.StringOutput)
 }

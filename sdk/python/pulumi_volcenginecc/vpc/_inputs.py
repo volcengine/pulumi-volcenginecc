@@ -82,26 +82,18 @@ if not MYPY:
         """
         分配ID
         """
-        eip_address: NotRequired[pulumi.Input[builtins.str]]
-        """
-        弹性IP地址
-        """
 elif False:
     BandwidthPackageEipAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BandwidthPackageEipAddressArgs:
     def __init__(__self__, *,
-                 allocation_id: Optional[pulumi.Input[builtins.str]] = None,
-                 eip_address: Optional[pulumi.Input[builtins.str]] = None):
+                 allocation_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] allocation_id: 分配ID
-        :param pulumi.Input[builtins.str] eip_address: 弹性IP地址
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
-        if eip_address is not None:
-            pulumi.set(__self__, "eip_address", eip_address)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -114,18 +106,6 @@ class BandwidthPackageEipAddressArgs:
     @allocation_id.setter
     def allocation_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "allocation_id", value)
-
-    @property
-    @pulumi.getter(name="eipAddress")
-    def eip_address(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        弹性IP地址
-        """
-        return pulumi.get(self, "eip_address")
-
-    @eip_address.setter
-    def eip_address(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "eip_address", value)
 
 
 if not MYPY:

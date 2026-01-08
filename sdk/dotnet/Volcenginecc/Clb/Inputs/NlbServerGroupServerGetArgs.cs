@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class NlbServerGroupServerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 后端服务器的描述，默认值为空字符串
+        /// 后端服务器的描述，默认值为空字符串。
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -38,19 +38,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// 后端服务器 ID
+        /// 后端服务器 ID。
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
         /// <summary>
-        /// 后端服务器的类型
+        /// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+        /// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
         /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }

@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class NlbServerGroupHealthCheckGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 健康检查的域名
+        /// 健康检查的域名。
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// 是否开启健康检查
+        /// 是否开启健康检查。
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -32,7 +32,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<int>? HealthyThreshold { get; set; }
 
         /// <summary>
-        /// 健康检查正常的HTTP状态码
+        /// 健康检查正常的HTTP状态码。
         /// </summary>
         [Input("httpCode")]
         public Input<string>? HttpCode { get; set; }
@@ -44,7 +44,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<int>? Interval { get; set; }
 
         /// <summary>
-        /// 健康检查的请求方法
+        /// 健康检查的请求方法。
         /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
@@ -62,7 +62,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// 健康检查的协议类型
+        /// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -74,7 +74,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<string>? UdpExpect { get; set; }
 
         /// <summary>
-        /// UDP健康检查的预期响应字符串
+        /// UDP健康检查的预期响应字符串。
         /// </summary>
         [Input("udpRequest")]
         public Input<string>? UdpRequest { get; set; }
@@ -86,7 +86,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<int>? UnhealthyThreshold { get; set; }
 
         /// <summary>
-        /// 健康检查的路径
+        /// 健康检查的路径。
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

@@ -209,6 +209,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         /// </summary>
         public readonly int ProxySendTimeout;
         /// <summary>
+        /// 监听器绑定的规则ID列表。
+        /// </summary>
+        public readonly ImmutableArray<string> RuleIds;
+        /// <summary>
         /// 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
         /// </summary>
         public readonly string Scheduler;
@@ -319,6 +323,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 
             int proxySendTimeout,
 
+            ImmutableArray<string> ruleIds,
+
             string scheduler,
 
             string securityPolicyId,
@@ -373,6 +379,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
             ProxyProtocolType = proxyProtocolType;
             ProxyReadTimeout = proxyReadTimeout;
             ProxySendTimeout = proxySendTimeout;
+            RuleIds = ruleIds;
             Scheduler = scheduler;
             SecurityPolicyId = securityPolicyId;
             SendTimeout = sendTimeout;

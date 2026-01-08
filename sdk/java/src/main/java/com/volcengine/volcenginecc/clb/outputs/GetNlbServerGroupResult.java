@@ -17,22 +17,22 @@ import java.util.Objects;
 @CustomType
 public final class GetNlbServerGroupResult {
     /**
-     * @return 账号ID
+     * @return 账号ID。
      * 
      */
     private String accountId;
     /**
-     * @return 是否开启全端口转发
+     * @return 是否开启全端口转发。
      * 
      */
     private Boolean anyPortEnabled;
     /**
-     * @return 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * @return 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      * 
      */
     private Boolean bypassSecurityGroupEnabled;
     /**
-     * @return 是否开启连接优雅中断
+     * @return 是否开启连接优雅中断。
      * 
      */
     private Boolean connectionDrainEnabled;
@@ -42,7 +42,7 @@ public final class GetNlbServerGroupResult {
      */
     private Integer connectionDrainTimeout;
     /**
-     * @return 后端服务器组的创建时间
+     * @return 后端服务器组的创建时间。
      * 
      */
     private String createdTime;
@@ -52,7 +52,7 @@ public final class GetNlbServerGroupResult {
      */
     private String description;
     /**
-     * @return 健康检查相关参数
+     * @return 健康检查相关参数。
      * 
      */
     private GetNlbServerGroupHealthCheck healthCheck;
@@ -62,47 +62,47 @@ public final class GetNlbServerGroupResult {
      */
     private String id;
     /**
-     * @return 服务器组的IP地址类型
+     * @return 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      * 
      */
     private String ipAddressVersion;
     /**
-     * @return 是否开启源地址保持
+     * @return 是否开启源地址保持。
      * 
      */
     private Boolean preserveClientIpEnabled;
     /**
-     * @return 项目名称
+     * @return 项目名称。
      * 
      */
     private String projectName;
     /**
-     * @return NLB转发流量到后端服务器时使用的通信协议
+     * @return NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      * 
      */
     private String protocol;
     /**
-     * @return 是否开启Proxy-Protocol协议
+     * @return 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      * 
      */
     private String proxyProtocolType;
     /**
-     * @return 服务器组关联的NLB实例
+     * @return 服务器组关联的NLB实例。
      * 
      */
     private List<String> relatedLoadBalancerIds;
     /**
-     * @return NLB转发流量时遵循的规则
+     * @return NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      * 
      */
     private String scheduler;
     /**
-     * @return 服务器组中后端服务器的数量
+     * @return 服务器组中后端服务器的数量。
      * 
      */
     private Integer serverCount;
     /**
-     * @return 服务器组ID
+     * @return 服务器组ID。
      * 
      */
     private String serverGroupId;
@@ -112,42 +112,42 @@ public final class GetNlbServerGroupResult {
      */
     private String serverGroupName;
     /**
-     * @return 服务器组中待添加后端服务器的信息
+     * @return 服务器组中待添加后端服务器的信息。
      * 
      */
     private List<GetNlbServerGroupServer> servers;
     /**
-     * @return 是否开启会话保持
+     * @return 是否开启会话保持。
      * 
      */
     private Boolean sessionPersistenceEnabled;
     /**
-     * @return 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * @return 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      * 
      */
     private Integer sessionPersistenceTimeout;
     /**
-     * @return 服务器组的状态
+     * @return 服务器组的状态。
      * 
      */
     private String status;
     /**
-     * @return 标签
+     * @return 标签。
      * 
      */
     private List<GetNlbServerGroupTag> tags;
     /**
-     * @return 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * @return 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      * 
      */
     private Boolean timestampRemoveEnabled;
     /**
-     * @return 服务器组的类型
+     * @return 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      * 
      */
     private String type;
     /**
-     * @return 后端服务器组的更新时间
+     * @return 后端服务器组的更新时间。
      * 
      */
     private String updatedTime;
@@ -159,28 +159,28 @@ public final class GetNlbServerGroupResult {
 
     private GetNlbServerGroupResult() {}
     /**
-     * @return 账号ID
+     * @return 账号ID。
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 是否开启全端口转发
+     * @return 是否开启全端口转发。
      * 
      */
     public Boolean anyPortEnabled() {
         return this.anyPortEnabled;
     }
     /**
-     * @return 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数
+     * @return 是否开启放通后端安全组功能。仅参数Type为“instance”时，可以配置此参数。
      * 
      */
     public Boolean bypassSecurityGroupEnabled() {
         return this.bypassSecurityGroupEnabled;
     }
     /**
-     * @return 是否开启连接优雅中断
+     * @return 是否开启连接优雅中断。
      * 
      */
     public Boolean connectionDrainEnabled() {
@@ -194,7 +194,7 @@ public final class GetNlbServerGroupResult {
         return this.connectionDrainTimeout;
     }
     /**
-     * @return 后端服务器组的创建时间
+     * @return 后端服务器组的创建时间。
      * 
      */
     public String createdTime() {
@@ -208,7 +208,7 @@ public final class GetNlbServerGroupResult {
         return this.description;
     }
     /**
-     * @return 健康检查相关参数
+     * @return 健康检查相关参数。
      * 
      */
     public GetNlbServerGroupHealthCheck healthCheck() {
@@ -222,63 +222,63 @@ public final class GetNlbServerGroupResult {
         return this.id;
     }
     /**
-     * @return 服务器组的IP地址类型
+     * @return 服务器组的IP地址类型。取值如下：ipv4（默认值）：表示该服务器组仅支持添加IPv4类型的后端服务器。ipv6：表示该服务器组仅支持添加IPv6类型的后端服务器。
      * 
      */
     public String ipAddressVersion() {
         return this.ipAddressVersion;
     }
     /**
-     * @return 是否开启源地址保持
+     * @return 是否开启源地址保持。
      * 
      */
     public Boolean preserveClientIpEnabled() {
         return this.preserveClientIpEnabled;
     }
     /**
-     * @return 项目名称
+     * @return 项目名称。
      * 
      */
     public String projectName() {
         return this.projectName;
     }
     /**
-     * @return NLB转发流量到后端服务器时使用的通信协议
+     * @return NLB转发流量到后端服务器时使用的通信协议。取值如下：TCP。UDP。
      * 
      */
     public String protocol() {
         return this.protocol;
     }
     /**
-     * @return 是否开启Proxy-Protocol协议
+     * @return 是否开启Proxy-Protocol协议。取值如下：off（默认值）：关闭。standard：开启。NLB将通过Proxy-Protocol协议携带客户端源IP地址转发至后端服务器，还需要在后端服务器上配置Proxy-Protocol。
      * 
      */
     public String proxyProtocolType() {
         return this.proxyProtocolType;
     }
     /**
-     * @return 服务器组关联的NLB实例
+     * @return 服务器组关联的NLB实例。
      * 
      */
     public List<String> relatedLoadBalancerIds() {
         return this.relatedLoadBalancerIds;
     }
     /**
-     * @return NLB转发流量时遵循的规则
+     * @return NLB转发流量时遵循的规则。取值如下：wrr（默认值）：加权轮询，权重值越高的后端服务器，被轮询到的次数（概率）越高。wlc：加权最小连接数，在最少连接数的基础上，根据后端服务器的不同处理能力，给每个服务器分配不同的权重，使其能够接受相应权值数的服务请求。sh：源地址哈希，基于源IP地址的一致性哈希，相同的源地址会调度到相同的后端服务器。
      * 
      */
     public String scheduler() {
         return this.scheduler;
     }
     /**
-     * @return 服务器组中后端服务器的数量
+     * @return 服务器组中后端服务器的数量。
      * 
      */
     public Integer serverCount() {
         return this.serverCount;
     }
     /**
-     * @return 服务器组ID
+     * @return 服务器组ID。
      * 
      */
     public String serverGroupId() {
@@ -292,56 +292,56 @@ public final class GetNlbServerGroupResult {
         return this.serverGroupName;
     }
     /**
-     * @return 服务器组中待添加后端服务器的信息
+     * @return 服务器组中待添加后端服务器的信息。
      * 
      */
     public List<GetNlbServerGroupServer> servers() {
         return this.servers;
     }
     /**
-     * @return 是否开启会话保持
+     * @return 是否开启会话保持。
      * 
      */
     public Boolean sessionPersistenceEnabled() {
         return this.sessionPersistenceEnabled;
     }
     /**
-     * @return 会话保持的超时时间，取值范围为1～3600秒，默认1000秒
+     * @return 会话保持的超时时间，取值范围为1～3600秒，默认1000秒。
      * 
      */
     public Integer sessionPersistenceTimeout() {
         return this.sessionPersistenceTimeout;
     }
     /**
-     * @return 服务器组的状态
+     * @return 服务器组的状态。
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return 标签
+     * @return 标签。
      * 
      */
     public List<GetNlbServerGroupTag> tags() {
         return this.tags;
     }
     /**
-     * @return 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能
+     * @return 是否开启清除TCP/HTTP/HTTPS报文的timestamp（即时间戳）的功能。
      * 
      */
     public Boolean timestampRemoveEnabled() {
         return this.timestampRemoveEnabled;
     }
     /**
-     * @return 服务器组的类型
+     * @return 服务器组的类型。取值如下：instance（默认值）：服务器类型。支持添加云服务器实例和已绑定云服务器实例的辅助网卡作为后端服务器。ip：IP地址类型。支持添加任何网络可达的VPC或IDC中的服务器作为后端服务器。
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return 后端服务器组的更新时间
+     * @return 后端服务器组的更新时间。
      * 
      */
     public String updatedTime() {

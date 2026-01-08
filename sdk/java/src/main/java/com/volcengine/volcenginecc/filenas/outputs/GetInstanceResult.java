@@ -81,7 +81,7 @@ public final class GetInstanceResult {
      */
     private String snapshotId;
     /**
-     * @return 文件系统状态
+     * @return 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
      * 
      */
     private String status;
@@ -204,7 +204,7 @@ public final class GetInstanceResult {
         return this.snapshotId;
     }
     /**
-     * @return 文件系统状态
+     * @return 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
      * 
      */
     public String status() {

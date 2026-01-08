@@ -89,7 +89,7 @@ class TransitRouterRouteTableArgs:
 @pulumi.input_type
 class _TransitRouterRouteTableState:
     def __init__(__self__, *,
-                 creation_time: Optional[pulumi.Input[builtins.str]] = None,
+                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  in_route_policy_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  out_route_policy_table_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -99,10 +99,10 @@ class _TransitRouterRouteTableState:
                  transit_router_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_table_name: Optional[pulumi.Input[builtins.str]] = None,
                  transit_router_route_table_type: Optional[pulumi.Input[builtins.str]] = None,
-                 update_time: Optional[pulumi.Input[builtins.str]] = None):
+                 updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitRouterRouteTable resources.
-        :param pulumi.Input[builtins.str] creation_time: TR路由表的创建时间
+        :param pulumi.Input[builtins.str] created_time: TR路由表的创建时间
         :param pulumi.Input[builtins.str] description: TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] in_route_policy_table_id: TR路由表关联的收方向路由策略的ID
         :param pulumi.Input[builtins.str] out_route_policy_table_id: TR路由表关联的发方向路由策略的ID
@@ -111,10 +111,10 @@ class _TransitRouterRouteTableState:
         :param pulumi.Input[builtins.str] transit_router_route_table_id: TR路由表的ID
         :param pulumi.Input[builtins.str] transit_router_route_table_name: TR路由表的名称。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为TR路由表的ID
         :param pulumi.Input[builtins.str] transit_router_route_table_type: TR路由表的类型。System：系统路由表。Custom：自定义路由表。
-        :param pulumi.Input[builtins.str] update_time: TR路由表的最近操作时间
+        :param pulumi.Input[builtins.str] updated_time: TR路由表的最近操作时间
         """
-        if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if in_route_policy_table_id is not None:
@@ -133,20 +133,20 @@ class _TransitRouterRouteTableState:
             pulumi.set(__self__, "transit_router_route_table_name", transit_router_route_table_name)
         if transit_router_route_table_type is not None:
             pulumi.set(__self__, "transit_router_route_table_type", transit_router_route_table_type)
-        if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+        if updated_time is not None:
+            pulumi.set(__self__, "updated_time", updated_time)
 
     @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         TR路由表的创建时间
         """
-        return pulumi.get(self, "creation_time")
+        return pulumi.get(self, "created_time")
 
-    @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "creation_time", value)
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_time", value)
 
     @property
     @pulumi.getter
@@ -254,16 +254,16 @@ class _TransitRouterRouteTableState:
         pulumi.set(self, "transit_router_route_table_type", value)
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         TR路由表的最近操作时间
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
-    @update_time.setter
-    def update_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "update_time", value)
+    @updated_time.setter
+    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_time", value)
 
 
 @pulumi.type_token("volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable")
@@ -373,13 +373,13 @@ class TransitRouterRouteTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transit_router_id'")
             __props__.__dict__["transit_router_id"] = transit_router_id
             __props__.__dict__["transit_router_route_table_name"] = transit_router_route_table_name
-            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["created_time"] = None
             __props__.__dict__["in_route_policy_table_id"] = None
             __props__.__dict__["out_route_policy_table_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["transit_router_route_table_id"] = None
             __props__.__dict__["transit_router_route_table_type"] = None
-            __props__.__dict__["update_time"] = None
+            __props__.__dict__["updated_time"] = None
         super(TransitRouterRouteTable, __self__).__init__(
             'volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable',
             resource_name,
@@ -390,7 +390,7 @@ class TransitRouterRouteTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            creation_time: Optional[pulumi.Input[builtins.str]] = None,
+            created_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             in_route_policy_table_id: Optional[pulumi.Input[builtins.str]] = None,
             out_route_policy_table_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -400,7 +400,7 @@ class TransitRouterRouteTable(pulumi.CustomResource):
             transit_router_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
             transit_router_route_table_name: Optional[pulumi.Input[builtins.str]] = None,
             transit_router_route_table_type: Optional[pulumi.Input[builtins.str]] = None,
-            update_time: Optional[pulumi.Input[builtins.str]] = None) -> 'TransitRouterRouteTable':
+            updated_time: Optional[pulumi.Input[builtins.str]] = None) -> 'TransitRouterRouteTable':
         """
         Get an existing TransitRouterRouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -408,7 +408,7 @@ class TransitRouterRouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] creation_time: TR路由表的创建时间
+        :param pulumi.Input[builtins.str] created_time: TR路由表的创建时间
         :param pulumi.Input[builtins.str] description: TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] in_route_policy_table_id: TR路由表关联的收方向路由策略的ID
         :param pulumi.Input[builtins.str] out_route_policy_table_id: TR路由表关联的发方向路由策略的ID
@@ -417,13 +417,13 @@ class TransitRouterRouteTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] transit_router_route_table_id: TR路由表的ID
         :param pulumi.Input[builtins.str] transit_router_route_table_name: TR路由表的名称。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为TR路由表的ID
         :param pulumi.Input[builtins.str] transit_router_route_table_type: TR路由表的类型。System：系统路由表。Custom：自定义路由表。
-        :param pulumi.Input[builtins.str] update_time: TR路由表的最近操作时间
+        :param pulumi.Input[builtins.str] updated_time: TR路由表的最近操作时间
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _TransitRouterRouteTableState.__new__(_TransitRouterRouteTableState)
 
-        __props__.__dict__["creation_time"] = creation_time
+        __props__.__dict__["created_time"] = created_time
         __props__.__dict__["description"] = description
         __props__.__dict__["in_route_policy_table_id"] = in_route_policy_table_id
         __props__.__dict__["out_route_policy_table_id"] = out_route_policy_table_id
@@ -433,16 +433,16 @@ class TransitRouterRouteTable(pulumi.CustomResource):
         __props__.__dict__["transit_router_route_table_id"] = transit_router_route_table_id
         __props__.__dict__["transit_router_route_table_name"] = transit_router_route_table_name
         __props__.__dict__["transit_router_route_table_type"] = transit_router_route_table_type
-        __props__.__dict__["update_time"] = update_time
+        __props__.__dict__["updated_time"] = updated_time
         return TransitRouterRouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="creationTime")
-    def creation_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> pulumi.Output[builtins.str]:
         """
         TR路由表的创建时间
         """
-        return pulumi.get(self, "creation_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -514,10 +514,10 @@ class TransitRouterRouteTable(pulumi.CustomResource):
         return pulumi.get(self, "transit_router_route_table_type")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> pulumi.Output[builtins.str]:
         """
         TR路由表的最近操作时间
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 

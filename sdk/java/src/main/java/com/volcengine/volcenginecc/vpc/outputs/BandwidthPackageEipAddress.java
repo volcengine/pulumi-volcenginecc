@@ -16,11 +16,6 @@ public final class BandwidthPackageEipAddress {
      * 
      */
     private @Nullable String allocationId;
-    /**
-     * @return 弹性IP地址
-     * 
-     */
-    private @Nullable String eipAddress;
 
     private BandwidthPackageEipAddress() {}
     /**
@@ -29,13 +24,6 @@ public final class BandwidthPackageEipAddress {
      */
     public Optional<String> allocationId() {
         return Optional.ofNullable(this.allocationId);
-    }
-    /**
-     * @return 弹性IP地址
-     * 
-     */
-    public Optional<String> eipAddress() {
-        return Optional.ofNullable(this.eipAddress);
     }
 
     public static Builder builder() {
@@ -48,12 +36,10 @@ public final class BandwidthPackageEipAddress {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationId;
-        private @Nullable String eipAddress;
         public Builder() {}
         public Builder(BandwidthPackageEipAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationId = defaults.allocationId;
-    	      this.eipAddress = defaults.eipAddress;
         }
 
         @CustomType.Setter
@@ -62,16 +48,9 @@ public final class BandwidthPackageEipAddress {
             this.allocationId = allocationId;
             return this;
         }
-        @CustomType.Setter
-        public Builder eipAddress(@Nullable String eipAddress) {
-
-            this.eipAddress = eipAddress;
-            return this;
-        }
         public BandwidthPackageEipAddress build() {
             final var _resultValue = new BandwidthPackageEipAddress();
             _resultValue.allocationId = allocationId;
-            _resultValue.eipAddress = eipAddress;
             return _resultValue;
         }
     }

@@ -65,7 +65,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public sealed class GetNlbListenerResult
     {
         /// <summary>
-        /// TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+        /// TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
         /// </summary>
         public readonly string CertificateId;
         /// <summary>
@@ -113,7 +113,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// 监听协议类型。
+        /// 监听协议类型。TCP,UDP,TLS
         /// </summary>
         public readonly string Protocol;
         /// <summary>

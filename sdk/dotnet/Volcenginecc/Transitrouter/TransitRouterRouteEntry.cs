@@ -13,30 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     /// <summary>
     /// 通过为网络实例连接或跨地域连接关联的路由表创建或删除静态路由，能够灵活地控制中转路由器中的流量走向。
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var transitRouterRouteEntryDemo = new Volcenginecc.Transitrouter.TransitRouterRouteEntry("TransitRouterRouteEntryDemo", new()
-    ///     {
-    ///         Description = "Demo Example",
-    ///         DestinationCidrBlock = "192.168.1.101/*",
-    ///         TransitRouterRouteEntryName = "test-Attachmentkua",
-    ///         TransitRouterRouteTableId = "tr-rtb-mijcn***",
-    ///         TransitRouterRouteEntryNextHopId = "tr-attach-13fs****",
-    ///         TransitRouterRouteEntryNextHopType = "Attachment",
-    ///         TransitRouterRouteEntryType = "Propagated",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -55,8 +31,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// 路由条目的创建时间。
         /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -115,8 +91,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// 路由条目的更新时间。
         /// </summary>
-        [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        [Output("updatedTime")]
+        public Output<string> UpdatedTime { get; private set; } = null!;
 
 
         /// <summary>
@@ -196,12 +172,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         public Input<string> TransitRouterRouteEntryNextHopType { get; set; } = null!;
 
         /// <summary>
-        /// 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-        /// </summary>
-        [Input("transitRouterRouteEntryType")]
-        public Input<string>? TransitRouterRouteEntryType { get; set; }
-
-        /// <summary>
         /// 中转路由器实例关联的路由表的ID。
         /// </summary>
         [Input("transitRouterRouteTableId", required: true)]
@@ -230,8 +200,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// 路由条目的创建时间。
         /// </summary>
-        [Input("creationTime")]
-        public Input<string>? CreationTime { get; set; }
+        [Input("createdTime")]
+        public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
         /// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -290,8 +260,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// 路由条目的更新时间。
         /// </summary>
-        [Input("updateTime")]
-        public Input<string>? UpdateTime { get; set; }
+        [Input("updatedTime")]
+        public Input<string>? UpdatedTime { get; set; }
 
         public TransitRouterRouteEntryState()
         {

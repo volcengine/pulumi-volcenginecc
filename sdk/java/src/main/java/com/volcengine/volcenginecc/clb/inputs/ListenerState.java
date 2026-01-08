@@ -545,6 +545,21 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * 监听器绑定的规则ID列表。
+     * 
+     */
+    @Import(name="ruleIds")
+    private @Nullable Output<List<String>> ruleIds;
+
+    /**
+     * @return 监听器绑定的规则ID列表。
+     * 
+     */
+    public Optional<Output<List<String>>> ruleIds() {
+        return Optional.ofNullable(this.ruleIds);
+    }
+
+    /**
      * 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
      * 
      */
@@ -709,6 +724,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         this.proxyProtocolType = $.proxyProtocolType;
         this.proxyReadTimeout = $.proxyReadTimeout;
         this.proxySendTimeout = $.proxySendTimeout;
+        this.ruleIds = $.ruleIds;
         this.scheduler = $.scheduler;
         this.securityPolicyId = $.securityPolicyId;
         this.sendTimeout = $.sendTimeout;
@@ -1481,6 +1497,37 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder proxySendTimeout(Integer proxySendTimeout) {
             return proxySendTimeout(Output.of(proxySendTimeout));
+        }
+
+        /**
+         * @param ruleIds 监听器绑定的规则ID列表。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleIds(@Nullable Output<List<String>> ruleIds) {
+            $.ruleIds = ruleIds;
+            return this;
+        }
+
+        /**
+         * @param ruleIds 监听器绑定的规则ID列表。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleIds(List<String> ruleIds) {
+            return ruleIds(Output.of(ruleIds));
+        }
+
+        /**
+         * @param ruleIds 监听器绑定的规则ID列表。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleIds(String... ruleIds) {
+            return ruleIds(List.of(ruleIds));
         }
 
         /**

@@ -681,6 +681,7 @@ class _ListenerState:
                  proxy_protocol_type: Optional[pulumi.Input[builtins.str]] = None,
                  proxy_read_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  proxy_send_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  scheduler: Optional[pulumi.Input[builtins.str]] = None,
                  security_policy_id: Optional[pulumi.Input[builtins.str]] = None,
                  send_timeout: Optional[pulumi.Input[builtins.int]] = None,
@@ -727,6 +728,7 @@ class _ListenerState:
         :param pulumi.Input[builtins.str] proxy_protocol_type: 是否启用Proxy-Protocol协议。仅参数Protocol取TCP或UDP时，本参数有效。取值如下：off（默认值）：关闭。standard：开启。
         :param pulumi.Input[builtins.int] proxy_read_timeout: CLB从后端服务器读取响应的超时时间。此超时时间仅针对两个连续的读操作之间设置，而非整个响应的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
         :param pulumi.Input[builtins.int] proxy_send_timeout: CLB将请求传输到后端服务器的超时时间。此超时仅针对两个连续的写操作之间设置，而非整个请求的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rule_ids: 监听器绑定的规则ID列表。
         :param pulumi.Input[builtins.str] scheduler: 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
         :param pulumi.Input[builtins.str] security_policy_id: HTTPS监听器的TLS安全策略。仅参数Protocol取HTTPS时，本参数有效。 取值如下：default*policy（默认值）：支持SSL v3、TLS v1.0、TLS v1.1、TLS v1.2。tls*cipher*policy*1*0：支持TLS v1.0、TLS v1.1、TLS v1.2。tls*cipher*policy*1*1：支持TLS v1.1、TLS v1.2。tls*cipher*policy*1*2：支持TLS v1.2。tls*cipher*policy*1*2*strict：支持TLS v1.2。
         :param pulumi.Input[builtins.int] send_timeout: CLB向客户端发送响应的超时时间。此超时仅针对两个连续的写操作之间设置，而非整响应的传输过程。取值范围为 1-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
@@ -806,6 +808,8 @@ class _ListenerState:
             pulumi.set(__self__, "proxy_read_timeout", proxy_read_timeout)
         if proxy_send_timeout is not None:
             pulumi.set(__self__, "proxy_send_timeout", proxy_send_timeout)
+        if rule_ids is not None:
+            pulumi.set(__self__, "rule_ids", rule_ids)
         if scheduler is not None:
             pulumi.set(__self__, "scheduler", scheduler)
         if security_policy_id is not None:
@@ -1246,6 +1250,18 @@ class _ListenerState:
         pulumi.set(self, "proxy_send_timeout", value)
 
     @property
+    @pulumi.getter(name="ruleIds")
+    def rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        监听器绑定的规则ID列表。
+        """
+        return pulumi.get(self, "rule_ids")
+
+    @rule_ids.setter
+    def rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "rule_ids", value)
+
+    @property
     @pulumi.getter
     def scheduler(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1574,6 +1590,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_time"] = None
             __props__.__dict__["listener_id"] = None
+            __props__.__dict__["rule_ids"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_time"] = None
             __props__.__dict__["waf_protection_enabled"] = None
@@ -1622,6 +1639,7 @@ class Listener(pulumi.CustomResource):
             proxy_protocol_type: Optional[pulumi.Input[builtins.str]] = None,
             proxy_read_timeout: Optional[pulumi.Input[builtins.int]] = None,
             proxy_send_timeout: Optional[pulumi.Input[builtins.int]] = None,
+            rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             scheduler: Optional[pulumi.Input[builtins.str]] = None,
             security_policy_id: Optional[pulumi.Input[builtins.str]] = None,
             send_timeout: Optional[pulumi.Input[builtins.int]] = None,
@@ -1673,6 +1691,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] proxy_protocol_type: 是否启用Proxy-Protocol协议。仅参数Protocol取TCP或UDP时，本参数有效。取值如下：off（默认值）：关闭。standard：开启。
         :param pulumi.Input[builtins.int] proxy_read_timeout: CLB从后端服务器读取响应的超时时间。此超时时间仅针对两个连续的读操作之间设置，而非整个响应的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
         :param pulumi.Input[builtins.int] proxy_send_timeout: CLB将请求传输到后端服务器的超时时间。此超时仅针对两个连续的写操作之间设置，而非整个请求的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rule_ids: 监听器绑定的规则ID列表。
         :param pulumi.Input[builtins.str] scheduler: 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
         :param pulumi.Input[builtins.str] security_policy_id: HTTPS监听器的TLS安全策略。仅参数Protocol取HTTPS时，本参数有效。 取值如下：default*policy（默认值）：支持SSL v3、TLS v1.0、TLS v1.1、TLS v1.2。tls*cipher*policy*1*0：支持TLS v1.0、TLS v1.1、TLS v1.2。tls*cipher*policy*1*1：支持TLS v1.1、TLS v1.2。tls*cipher*policy*1*2：支持TLS v1.2。tls*cipher*policy*1*2*strict：支持TLS v1.2。
         :param pulumi.Input[builtins.int] send_timeout: CLB向客户端发送响应的超时时间。此超时仅针对两个连续的写操作之间设置，而非整响应的传输过程。取值范围为 1-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
@@ -1721,6 +1740,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["proxy_protocol_type"] = proxy_protocol_type
         __props__.__dict__["proxy_read_timeout"] = proxy_read_timeout
         __props__.__dict__["proxy_send_timeout"] = proxy_send_timeout
+        __props__.__dict__["rule_ids"] = rule_ids
         __props__.__dict__["scheduler"] = scheduler
         __props__.__dict__["security_policy_id"] = security_policy_id
         __props__.__dict__["send_timeout"] = send_timeout
@@ -2011,6 +2031,14 @@ class Listener(pulumi.CustomResource):
         CLB将请求传输到后端服务器的超时时间。此超时仅针对两个连续的写操作之间设置，而非整个请求的传输过程。取值范围为30-3600秒，默认为60秒。仅参数Protocol取HTTP或HTTPS时，本参数有效。
         """
         return pulumi.get(self, "proxy_send_timeout")
+
+    @property
+    @pulumi.getter(name="ruleIds")
+    def rule_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
+        """
+        监听器绑定的规则ID列表。
+        """
+        return pulumi.get(self, "rule_ids")
 
     @property
     @pulumi.getter

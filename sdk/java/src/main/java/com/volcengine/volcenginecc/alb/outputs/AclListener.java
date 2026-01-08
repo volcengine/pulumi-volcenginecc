@@ -4,7 +4,6 @@
 package com.volcengine.volcenginecc.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,26 +16,6 @@ public final class AclListener {
      * 
      */
     private @Nullable String aclType;
-    /**
-     * @return 监听器的ID
-     * 
-     */
-    private @Nullable String listenerId;
-    /**
-     * @return 监听器的名称
-     * 
-     */
-    private @Nullable String listenerName;
-    /**
-     * @return 监听器的端口
-     * 
-     */
-    private @Nullable Integer port;
-    /**
-     * @return 监听器的协议
-     * 
-     */
-    private @Nullable String protocol;
 
     private AclListener() {}
     /**
@@ -45,34 +24,6 @@ public final class AclListener {
      */
     public Optional<String> aclType() {
         return Optional.ofNullable(this.aclType);
-    }
-    /**
-     * @return 监听器的ID
-     * 
-     */
-    public Optional<String> listenerId() {
-        return Optional.ofNullable(this.listenerId);
-    }
-    /**
-     * @return 监听器的名称
-     * 
-     */
-    public Optional<String> listenerName() {
-        return Optional.ofNullable(this.listenerName);
-    }
-    /**
-     * @return 监听器的端口
-     * 
-     */
-    public Optional<Integer> port() {
-        return Optional.ofNullable(this.port);
-    }
-    /**
-     * @return 监听器的协议
-     * 
-     */
-    public Optional<String> protocol() {
-        return Optional.ofNullable(this.protocol);
     }
 
     public static Builder builder() {
@@ -85,18 +36,10 @@ public final class AclListener {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aclType;
-        private @Nullable String listenerId;
-        private @Nullable String listenerName;
-        private @Nullable Integer port;
-        private @Nullable String protocol;
         public Builder() {}
         public Builder(AclListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aclType = defaults.aclType;
-    	      this.listenerId = defaults.listenerId;
-    	      this.listenerName = defaults.listenerName;
-    	      this.port = defaults.port;
-    	      this.protocol = defaults.protocol;
         }
 
         @CustomType.Setter
@@ -105,37 +48,9 @@ public final class AclListener {
             this.aclType = aclType;
             return this;
         }
-        @CustomType.Setter
-        public Builder listenerId(@Nullable String listenerId) {
-
-            this.listenerId = listenerId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder listenerName(@Nullable String listenerName) {
-
-            this.listenerName = listenerName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder port(@Nullable Integer port) {
-
-            this.port = port;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder protocol(@Nullable String protocol) {
-
-            this.protocol = protocol;
-            return this;
-        }
         public AclListener build() {
             final var _resultValue = new AclListener();
             _resultValue.aclType = aclType;
-            _resultValue.listenerId = listenerId;
-            _resultValue.listenerName = listenerName;
-            _resultValue.port = port;
-            _resultValue.protocol = protocol;
             return _resultValue;
         }
     }

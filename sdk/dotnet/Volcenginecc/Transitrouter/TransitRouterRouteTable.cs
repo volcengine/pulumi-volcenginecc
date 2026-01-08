@@ -53,8 +53,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// TR路由表的创建时间
         /// </summary>
-        [Output("creationTime")]
-        public Output<string> CreationTime { get; private set; } = null!;
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -110,8 +110,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// TR路由表的最近操作时间
         /// </summary>
-        [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        [Output("updatedTime")]
+        public Output<string> UpdatedTime { get; private set; } = null!;
 
 
         /// <summary>
@@ -197,8 +197,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// TR路由表的创建时间
         /// </summary>
-        [Input("creationTime")]
-        public Input<string>? CreationTime { get; set; }
+        [Input("createdTime")]
+        public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
         /// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -259,8 +259,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
         /// <summary>
         /// TR路由表的最近操作时间
         /// </summary>
-        [Input("updateTime")]
-        public Input<string>? UpdateTime { get; set; }
+        [Input("updatedTime")]
+        public Input<string>? UpdatedTime { get; set; }
 
         public TransitRouterRouteTableState()
         {

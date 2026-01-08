@@ -21,15 +21,15 @@ public final class TransitRouterRouteTableState extends com.pulumi.resources.Res
      * TR路由表的创建时间
      * 
      */
-    @Import(name="creationTime")
-    private @Nullable Output<String> creationTime;
+    @Import(name="createdTime")
+    private @Nullable Output<String> createdTime;
 
     /**
      * @return TR路由表的创建时间
      * 
      */
-    public Optional<Output<String>> creationTime() {
-        return Optional.ofNullable(this.creationTime);
+    public Optional<Output<String>> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
 
     /**
@@ -163,21 +163,21 @@ public final class TransitRouterRouteTableState extends com.pulumi.resources.Res
      * TR路由表的最近操作时间
      * 
      */
-    @Import(name="updateTime")
-    private @Nullable Output<String> updateTime;
+    @Import(name="updatedTime")
+    private @Nullable Output<String> updatedTime;
 
     /**
      * @return TR路由表的最近操作时间
      * 
      */
-    public Optional<Output<String>> updateTime() {
-        return Optional.ofNullable(this.updateTime);
+    public Optional<Output<String>> updatedTime() {
+        return Optional.ofNullable(this.updatedTime);
     }
 
     private TransitRouterRouteTableState() {}
 
     private TransitRouterRouteTableState(TransitRouterRouteTableState $) {
-        this.creationTime = $.creationTime;
+        this.createdTime = $.createdTime;
         this.description = $.description;
         this.inRoutePolicyTableId = $.inRoutePolicyTableId;
         this.outRoutePolicyTableId = $.outRoutePolicyTableId;
@@ -187,7 +187,7 @@ public final class TransitRouterRouteTableState extends com.pulumi.resources.Res
         this.transitRouterRouteTableId = $.transitRouterRouteTableId;
         this.transitRouterRouteTableName = $.transitRouterRouteTableName;
         this.transitRouterRouteTableType = $.transitRouterRouteTableType;
-        this.updateTime = $.updateTime;
+        this.updatedTime = $.updatedTime;
     }
 
     public static Builder builder() {
@@ -209,24 +209,24 @@ public final class TransitRouterRouteTableState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param creationTime TR路由表的创建时间
+         * @param createdTime TR路由表的创建时间
          * 
          * @return builder
          * 
          */
-        public Builder creationTime(@Nullable Output<String> creationTime) {
-            $.creationTime = creationTime;
+        public Builder createdTime(@Nullable Output<String> createdTime) {
+            $.createdTime = createdTime;
             return this;
         }
 
         /**
-         * @param creationTime TR路由表的创建时间
+         * @param createdTime TR路由表的创建时间
          * 
          * @return builder
          * 
          */
-        public Builder creationTime(String creationTime) {
-            return creationTime(Output.of(creationTime));
+        public Builder createdTime(String createdTime) {
+            return createdTime(Output.of(createdTime));
         }
 
         /**
@@ -411,24 +411,24 @@ public final class TransitRouterRouteTableState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param updateTime TR路由表的最近操作时间
+         * @param updatedTime TR路由表的最近操作时间
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(@Nullable Output<String> updateTime) {
-            $.updateTime = updateTime;
+        public Builder updatedTime(@Nullable Output<String> updatedTime) {
+            $.updatedTime = updatedTime;
             return this;
         }
 
         /**
-         * @param updateTime TR路由表的最近操作时间
+         * @param updatedTime TR路由表的最近操作时间
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(String updateTime) {
-            return updateTime(Output.of(updateTime));
+        public Builder updatedTime(String updatedTime) {
+            return updatedTime(Output.of(updatedTime));
         }
 
         public TransitRouterRouteTableState build() {

@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class NlbServerGroupTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 标签键
+        /// 标签键。
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// 标签值
+        /// 标签值。
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

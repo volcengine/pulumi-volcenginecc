@@ -24,8 +24,66 @@ __all__ = [
 
 @pulumi.output_type
 class DirectConnectGatewayAssociateCen(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cenId":
+            suggest = "cen_id"
+        elif key == "cenOwnerId":
+            suggest = "cen_owner_id"
+        elif key == "cenStatus":
+            suggest = "cen_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectConnectGatewayAssociateCen. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectConnectGatewayAssociateCen.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectConnectGatewayAssociateCen.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cen_id: Optional[builtins.str] = None,
+                 cen_owner_id: Optional[builtins.str] = None,
+                 cen_status: Optional[builtins.str] = None):
+        """
+        :param builtins.str cen_id: CEN的ID。
+        :param builtins.str cen_owner_id: CEN的用户ID。
+        :param builtins.str cen_status: 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        """
+        if cen_id is not None:
+            pulumi.set(__self__, "cen_id", cen_id)
+        if cen_owner_id is not None:
+            pulumi.set(__self__, "cen_owner_id", cen_owner_id)
+        if cen_status is not None:
+            pulumi.set(__self__, "cen_status", cen_status)
+
+    @property
+    @pulumi.getter(name="cenId")
+    def cen_id(self) -> Optional[builtins.str]:
+        """
+        CEN的ID。
+        """
+        return pulumi.get(self, "cen_id")
+
+    @property
+    @pulumi.getter(name="cenOwnerId")
+    def cen_owner_id(self) -> Optional[builtins.str]:
+        """
+        CEN的用户ID。
+        """
+        return pulumi.get(self, "cen_owner_id")
+
+    @property
+    @pulumi.getter(name="cenStatus")
+    def cen_status(self) -> Optional[builtins.str]:
+        """
+        实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        """
+        return pulumi.get(self, "cen_status")
 
 
 @pulumi.output_type

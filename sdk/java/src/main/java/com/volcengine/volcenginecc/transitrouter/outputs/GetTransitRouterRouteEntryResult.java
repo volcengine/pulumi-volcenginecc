@@ -20,7 +20,7 @@ public final class GetTransitRouterRouteEntryResult {
      * @return 路由条目的创建时间。
      * 
      */
-    private String creationTime;
+    private String createdTime;
     /**
      * @return TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      * 
@@ -75,7 +75,7 @@ public final class GetTransitRouterRouteEntryResult {
      * @return 路由条目的更新时间。
      * 
      */
-    private String updateTime;
+    private String updatedTime;
 
     private GetTransitRouterRouteEntryResult() {}
     /**
@@ -89,8 +89,8 @@ public final class GetTransitRouterRouteEntryResult {
      * @return 路由条目的创建时间。
      * 
      */
-    public String creationTime() {
-        return this.creationTime;
+    public String createdTime() {
+        return this.createdTime;
     }
     /**
      * @return TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -166,8 +166,8 @@ public final class GetTransitRouterRouteEntryResult {
      * @return 路由条目的更新时间。
      * 
      */
-    public String updateTime() {
-        return this.updateTime;
+    public String updatedTime() {
+        return this.updatedTime;
     }
 
     public static Builder builder() {
@@ -180,7 +180,7 @@ public final class GetTransitRouterRouteEntryResult {
     @CustomType.Builder
     public static final class Builder {
         private List<String> asPaths;
-        private String creationTime;
+        private String createdTime;
         private String description;
         private String destinationCidrBlock;
         private String id;
@@ -191,12 +191,12 @@ public final class GetTransitRouterRouteEntryResult {
         private String transitRouterRouteEntryNextHopType;
         private String transitRouterRouteEntryType;
         private String transitRouterRouteTableId;
-        private String updateTime;
+        private String updatedTime;
         public Builder() {}
         public Builder(GetTransitRouterRouteEntryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asPaths = defaults.asPaths;
-    	      this.creationTime = defaults.creationTime;
+    	      this.createdTime = defaults.createdTime;
     	      this.description = defaults.description;
     	      this.destinationCidrBlock = defaults.destinationCidrBlock;
     	      this.id = defaults.id;
@@ -207,7 +207,7 @@ public final class GetTransitRouterRouteEntryResult {
     	      this.transitRouterRouteEntryNextHopType = defaults.transitRouterRouteEntryNextHopType;
     	      this.transitRouterRouteEntryType = defaults.transitRouterRouteEntryType;
     	      this.transitRouterRouteTableId = defaults.transitRouterRouteTableId;
-    	      this.updateTime = defaults.updateTime;
+    	      this.updatedTime = defaults.updatedTime;
         }
 
         @CustomType.Setter
@@ -222,11 +222,11 @@ public final class GetTransitRouterRouteEntryResult {
             return asPaths(List.of(asPaths));
         }
         @CustomType.Setter
-        public Builder creationTime(String creationTime) {
-            if (creationTime == null) {
-              throw new MissingRequiredPropertyException("GetTransitRouterRouteEntryResult", "creationTime");
+        public Builder createdTime(String createdTime) {
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetTransitRouterRouteEntryResult", "createdTime");
             }
-            this.creationTime = creationTime;
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
@@ -310,17 +310,17 @@ public final class GetTransitRouterRouteEntryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder updateTime(String updateTime) {
-            if (updateTime == null) {
-              throw new MissingRequiredPropertyException("GetTransitRouterRouteEntryResult", "updateTime");
+        public Builder updatedTime(String updatedTime) {
+            if (updatedTime == null) {
+              throw new MissingRequiredPropertyException("GetTransitRouterRouteEntryResult", "updatedTime");
             }
-            this.updateTime = updateTime;
+            this.updatedTime = updatedTime;
             return this;
         }
         public GetTransitRouterRouteEntryResult build() {
             final var _resultValue = new GetTransitRouterRouteEntryResult();
             _resultValue.asPaths = asPaths;
-            _resultValue.creationTime = creationTime;
+            _resultValue.createdTime = createdTime;
             _resultValue.description = description;
             _resultValue.destinationCidrBlock = destinationCidrBlock;
             _resultValue.id = id;
@@ -331,7 +331,7 @@ public final class GetTransitRouterRouteEntryResult {
             _resultValue.transitRouterRouteEntryNextHopType = transitRouterRouteEntryNextHopType;
             _resultValue.transitRouterRouteEntryType = transitRouterRouteEntryType;
             _resultValue.transitRouterRouteTableId = transitRouterRouteTableId;
-            _resultValue.updateTime = updateTime;
+            _resultValue.updatedTime = updatedTime;
             return _resultValue;
         }
     }

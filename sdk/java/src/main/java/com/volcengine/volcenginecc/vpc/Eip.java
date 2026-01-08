@@ -23,51 +23,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.volcengine.volcenginecc.vpc.Eip;
- * import com.volcengine.volcenginecc.vpc.EipArgs;
- * import com.pulumi.volcenginecc.vpc.inputs.EipTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var eipDemo = new Eip("eipDemo", EipArgs.builder()
- *             .name("EipDemo")
- *             .description("EipDemo description")
- *             .isp("BGP")
- *             .billingType(2)
- *             .bandwidth(3)
- *             .period(5)
- *             .projectName("default")
- *             .bandwidthPackageId("bwp-ij5gz1lf66m874o8cth*****")
- *             .tags(EipTagArgs.builder()
- *                 .key("env")
- *                 .value("test")
- *                 .build())
- *             .instanceId("i-ye48ymyy9s5i3z4*****")
- *             .instanceType("EcsInstance")
- *             .directMode(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -360,14 +315,14 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return this.overdueTime;
     }
     /**
-     * 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      * 
      */
     @Export(name="period", refs={Integer.class}, tree="[0]")
     private Output<Integer> period;
 
     /**
-     * @return 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * @return 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      * 
      */
     public Output<Integer> period() {

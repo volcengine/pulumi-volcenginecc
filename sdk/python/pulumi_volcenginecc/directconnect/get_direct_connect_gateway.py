@@ -28,13 +28,16 @@ class GetDirectConnectGatewayResult:
     """
     A collection of values returned by getDirectConnectGateway.
     """
-    def __init__(__self__, account_id=None, associate_cens=None, business_status=None, created_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, id=None, lock_reason=None, overdue_time=None, project_name=None, status=None, tags=None, updated_time=None):
+    def __init__(__self__, account_id=None, associate_cens=None, bgp_asn=None, business_status=None, created_time=None, deleted_time=None, description=None, direct_connect_gateway_id=None, direct_connect_gateway_name=None, enable_ipv6=None, id=None, lock_reason=None, overdue_time=None, project_name=None, status=None, tags=None, updated_time=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if associate_cens and not isinstance(associate_cens, list):
             raise TypeError("Expected argument 'associate_cens' to be a list")
         pulumi.set(__self__, "associate_cens", associate_cens)
+        if bgp_asn and not isinstance(bgp_asn, int):
+            raise TypeError("Expected argument 'bgp_asn' to be a int")
+        pulumi.set(__self__, "bgp_asn", bgp_asn)
         if business_status and not isinstance(business_status, str):
             raise TypeError("Expected argument 'business_status' to be a str")
         pulumi.set(__self__, "business_status", business_status)
@@ -93,6 +96,14 @@ class GetDirectConnectGatewayResult:
         关联的CEN信息。
         """
         return pulumi.get(self, "associate_cens")
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> builtins.int:
+        """
+        专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+        """
+        return pulumi.get(self, "bgp_asn")
 
     @property
     @pulumi.getter(name="businessStatus")
@@ -215,6 +226,7 @@ class AwaitableGetDirectConnectGatewayResult(GetDirectConnectGatewayResult):
         return GetDirectConnectGatewayResult(
             account_id=self.account_id,
             associate_cens=self.associate_cens,
+            bgp_asn=self.bgp_asn,
             business_status=self.business_status,
             created_time=self.created_time,
             deleted_time=self.deleted_time,
@@ -247,6 +259,7 @@ def get_direct_connect_gateway(id: Optional[builtins.str] = None,
     return AwaitableGetDirectConnectGatewayResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         associate_cens=pulumi.get(__ret__, 'associate_cens'),
+        bgp_asn=pulumi.get(__ret__, 'bgp_asn'),
         business_status=pulumi.get(__ret__, 'business_status'),
         created_time=pulumi.get(__ret__, 'created_time'),
         deleted_time=pulumi.get(__ret__, 'deleted_time'),
@@ -276,6 +289,7 @@ def get_direct_connect_gateway_output(id: Optional[pulumi.Input[builtins.str]] =
     return __ret__.apply(lambda __response__: GetDirectConnectGatewayResult(
         account_id=pulumi.get(__response__, 'account_id'),
         associate_cens=pulumi.get(__response__, 'associate_cens'),
+        bgp_asn=pulumi.get(__response__, 'bgp_asn'),
         business_status=pulumi.get(__response__, 'business_status'),
         created_time=pulumi.get(__response__, 'created_time'),
         deleted_time=pulumi.get(__response__, 'deleted_time'),

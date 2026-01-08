@@ -19,12 +19,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Inputs
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
-        /// <summary>
-        /// 弹性IP地址
-        /// </summary>
-        [Input("eipAddress")]
-        public Input<string>? EipAddress { get; set; }
-
         public BandwidthPackageEipAddressArgs()
         {
         }

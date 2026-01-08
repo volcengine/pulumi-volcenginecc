@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNlbListenerResult {
     /**
-     * @return TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * @return TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      * 
      */
     private String certificateId;
@@ -76,7 +76,7 @@ public final class GetNlbListenerResult {
      */
     private Integer port;
     /**
-     * @return 监听协议类型。
+     * @return 监听协议类型。TCP,UDP,TLS
      * 
      */
     private String protocol;
@@ -113,7 +113,7 @@ public final class GetNlbListenerResult {
 
     private GetNlbListenerResult() {}
     /**
-     * @return TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * @return TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      * 
      */
     public String certificateId() {
@@ -197,7 +197,7 @@ public final class GetNlbListenerResult {
         return this.port;
     }
     /**
-     * @return 监听协议类型。
+     * @return 监听协议类型。TCP,UDP,TLS
      * 
      */
     public String protocol() {

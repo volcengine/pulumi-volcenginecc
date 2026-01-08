@@ -16,14 +16,14 @@ public final class NlbServerGroupTagArgs extends com.pulumi.resources.ResourceAr
     public static final NlbServerGroupTagArgs Empty = new NlbServerGroupTagArgs();
 
     /**
-     * 标签键
+     * 标签键。
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return 标签键
+     * @return 标签键。
      * 
      */
     public Optional<Output<String>> key() {
@@ -31,14 +31,14 @@ public final class NlbServerGroupTagArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * 标签值
+     * 标签值。
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return 标签值
+     * @return 标签值。
      * 
      */
     public Optional<Output<String>> value() {
@@ -71,7 +71,7 @@ public final class NlbServerGroupTagArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key 标签键
+         * @param key 标签键。
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class NlbServerGroupTagArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key 标签键
+         * @param key 标签键。
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class NlbServerGroupTagArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param value 标签值
+         * @param value 标签值。
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class NlbServerGroupTagArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param value 标签值
+         * @param value 标签值。
          * 
          * @return builder
          * 

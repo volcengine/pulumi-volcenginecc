@@ -39,7 +39,7 @@ type LookupAclResult struct {
 	// 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
 	AclName string `pulumi:"aclName"`
 	// 访问控制策略组的创建时间。
-	CreateTime string `pulumi:"createTime"`
+	CreatedTime string `pulumi:"createdTime"`
 	// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
 	Description string `pulumi:"description"`
 	// Uniquely identifies the resource.
@@ -53,7 +53,7 @@ type LookupAclResult struct {
 	// 访问控制策略组绑定的标签。
 	Tags []GetAclTag `pulumi:"tags"`
 	// 访问控制策略组的最近操作时间。
-	UpdateTime string `pulumi:"updateTime"`
+	UpdatedTime string `pulumi:"updatedTime"`
 }
 
 func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulumi.InvokeOption) LookupAclResultOutput {
@@ -111,8 +111,8 @@ func (o LookupAclResultOutput) AclName() pulumi.StringOutput {
 }
 
 // 访问控制策略组的创建时间。
-func (o LookupAclResultOutput) CreateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAclResult) string { return v.CreateTime }).(pulumi.StringOutput)
+func (o LookupAclResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAclResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
@@ -146,8 +146,8 @@ func (o LookupAclResultOutput) Tags() GetAclTagArrayOutput {
 }
 
 // 访问控制策略组的最近操作时间。
-func (o LookupAclResultOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAclResult) string { return v.UpdateTime }).(pulumi.StringOutput)
+func (o LookupAclResultOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAclResult) string { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 func init() {

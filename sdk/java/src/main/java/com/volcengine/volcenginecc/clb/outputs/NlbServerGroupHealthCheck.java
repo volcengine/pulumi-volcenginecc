@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NlbServerGroupHealthCheck {
     /**
-     * @return 健康检查的域名
+     * @return 健康检查的域名。
      * 
      */
     private @Nullable String domain;
     /**
-     * @return 是否开启健康检查
+     * @return 是否开启健康检查。
      * 
      */
     private @Nullable Boolean enabled;
@@ -29,7 +29,7 @@ public final class NlbServerGroupHealthCheck {
      */
     private @Nullable Integer healthyThreshold;
     /**
-     * @return 健康检查正常的HTTP状态码
+     * @return 健康检查正常的HTTP状态码。
      * 
      */
     private @Nullable String httpCode;
@@ -39,7 +39,7 @@ public final class NlbServerGroupHealthCheck {
      */
     private @Nullable Integer interval;
     /**
-     * @return 健康检查的请求方法
+     * @return 健康检查的请求方法。
      * 
      */
     private @Nullable String method;
@@ -54,7 +54,7 @@ public final class NlbServerGroupHealthCheck {
      */
     private @Nullable Integer timeout;
     /**
-     * @return 健康检查的协议类型
+     * @return 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
      * 
      */
     private @Nullable String type;
@@ -64,7 +64,7 @@ public final class NlbServerGroupHealthCheck {
      */
     private @Nullable String udpExpect;
     /**
-     * @return UDP健康检查的预期响应字符串
+     * @return UDP健康检查的预期响应字符串。
      * 
      */
     private @Nullable String udpRequest;
@@ -74,21 +74,21 @@ public final class NlbServerGroupHealthCheck {
      */
     private @Nullable Integer unhealthyThreshold;
     /**
-     * @return 健康检查的路径
+     * @return 健康检查的路径。
      * 
      */
     private @Nullable String uri;
 
     private NlbServerGroupHealthCheck() {}
     /**
-     * @return 健康检查的域名
+     * @return 健康检查的域名。
      * 
      */
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
     }
     /**
-     * @return 是否开启健康检查
+     * @return 是否开启健康检查。
      * 
      */
     public Optional<Boolean> enabled() {
@@ -102,7 +102,7 @@ public final class NlbServerGroupHealthCheck {
         return Optional.ofNullable(this.healthyThreshold);
     }
     /**
-     * @return 健康检查正常的HTTP状态码
+     * @return 健康检查正常的HTTP状态码。
      * 
      */
     public Optional<String> httpCode() {
@@ -116,7 +116,7 @@ public final class NlbServerGroupHealthCheck {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return 健康检查的请求方法
+     * @return 健康检查的请求方法。
      * 
      */
     public Optional<String> method() {
@@ -137,7 +137,7 @@ public final class NlbServerGroupHealthCheck {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return 健康检查的协议类型
+     * @return 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
      * 
      */
     public Optional<String> type() {
@@ -151,7 +151,7 @@ public final class NlbServerGroupHealthCheck {
         return Optional.ofNullable(this.udpExpect);
     }
     /**
-     * @return UDP健康检查的预期响应字符串
+     * @return UDP健康检查的预期响应字符串。
      * 
      */
     public Optional<String> udpRequest() {
@@ -165,7 +165,7 @@ public final class NlbServerGroupHealthCheck {
         return Optional.ofNullable(this.unhealthyThreshold);
     }
     /**
-     * @return 健康检查的路径
+     * @return 健康检查的路径。
      * 
      */
     public Optional<String> uri() {

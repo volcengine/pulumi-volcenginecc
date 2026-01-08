@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.alb;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.alb.inputs.AclAclEntryArgs;
+import com.volcengine.volcenginecc.alb.inputs.AclListenerArgs;
 import com.volcengine.volcenginecc.alb.inputs.AclTagArgs;
 import java.lang.String;
 import java.util.List;
@@ -55,6 +56,13 @@ public final class AclArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="listeners")
+    private @Nullable Output<List<AclListenerArgs>> listeners;
+
+    public Optional<Output<List<AclListenerArgs>>> listeners() {
+        return Optional.ofNullable(this.listeners);
+    }
+
     /**
      * 访问控制策略组所属项目名称。
      * 
@@ -83,6 +91,7 @@ public final class AclArgs extends com.pulumi.resources.ResourceArgs {
         this.aclEntries = $.aclEntries;
         this.aclName = $.aclName;
         this.description = $.description;
+        this.listeners = $.listeners;
         this.projectName = $.projectName;
         this.tags = $.tags;
     }
@@ -158,6 +167,19 @@ public final class AclArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder listeners(@Nullable Output<List<AclListenerArgs>> listeners) {
+            $.listeners = listeners;
+            return this;
+        }
+
+        public Builder listeners(List<AclListenerArgs> listeners) {
+            return listeners(Output.of(listeners));
+        }
+
+        public Builder listeners(AclListenerArgs... listeners) {
+            return listeners(List.of(listeners));
         }
 
         /**

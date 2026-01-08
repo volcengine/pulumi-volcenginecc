@@ -117,7 +117,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Filenas
         /// </summary>
         public readonly string SnapshotId;
         /// <summary>
-        /// 文件系统状态
+        /// 文件系统状态。取值说明如下：Unknown：状态未知。Running：文件系统运行中。Creating：文件系统创建中。Expanding：文件系统升级中。Error：文件系统错误。Deleting：文件系统删除中。DeleteError：文件系统删除失败。Deleted：文件系统已删除。Stopped：文件系统已停服。
         /// </summary>
         public readonly string Status;
         /// <summary>

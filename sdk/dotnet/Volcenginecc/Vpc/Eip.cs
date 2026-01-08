@@ -13,42 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     /// <summary>
     /// 公网IP（Elastic IP Address，EIP）及其公网出口带宽，是火山引擎为云资源提供的可独立购买和持有的IP连通服务。公网IP支持直接绑定云服务器（包括ECS云服务器、EBM裸金属服务器、GPU云服务器），还支持绑定公网NAT网关、负载均衡、辅助网卡等组件，为云服务器提供公网互通能力。
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var eipDemo = new Volcenginecc.Vpc.Eip("EipDemo", new()
-    ///     {
-    ///         Name = "EipDemo",
-    ///         Description = "EipDemo description",
-    ///         Isp = "BGP",
-    ///         BillingType = 2,
-    ///         Bandwidth = 3,
-    ///         Period = 5,
-    ///         ProjectName = "default",
-    ///         BandwidthPackageId = "bwp-ij5gz1lf66m874o8cth*****",
-    ///         Tags = new[]
-    ///         {
-    ///             new Volcenginecc.Vpc.Inputs.EipTagArgs
-    ///             {
-    ///                 Key = "env",
-    ///                 Value = "test",
-    ///             },
-    ///         },
-    ///         InstanceId = "i-ye48ymyy9s5i3z4*****",
-    ///         InstanceType = "EcsInstance",
-    ///         DirectMode = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -179,7 +143,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         public Output<string> OverdueTime { get; private set; } = null!;
 
         /// <summary>
-        /// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        /// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         /// </summary>
         [Output("period")]
         public Output<int> Period { get; private set; } = null!;
@@ -325,12 +289,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-        /// </summary>
-        [Input("directMode")]
-        public Input<bool>? DirectMode { get; set; }
-
-        /// <summary>
         /// 当前绑定的实例ID。
         /// </summary>
         [Input("instanceId")]
@@ -367,7 +325,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        /// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
@@ -425,12 +383,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
             get => _securityProtectionTypes ?? (_securityProtectionTypes = new InputList<string>());
             set => _securityProtectionTypes = value;
         }
-
-        /// <summary>
-        /// 是否由服务管理
-        /// </summary>
-        [Input("serviceManaged")]
-        public Input<bool>? ServiceManaged { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EipTagArgs>? _tags;
@@ -569,7 +521,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         public Input<string>? OverdueTime { get; set; }
 
         /// <summary>
-        /// 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+        /// 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }

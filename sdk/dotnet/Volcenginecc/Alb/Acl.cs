@@ -11,6 +11,8 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Alb
 {
     /// <summary>
+    /// ALB提供监听级别的访问控制，如果您希望仅允许某些IP、或仅拒绝某些IP通过监听端口访问ALB实例，可以对该监听器设置访问控制策略。您可以在创建监听器时配置访问控制，也可以在监听器创建后修改或重新配置访问控制。
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -79,8 +81,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         /// <summary>
         /// 访问控制策略组的创建时间。
         /// </summary>
-        [Output("createTime")]
-        public Output<string> CreateTime { get; private set; } = null!;
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
@@ -109,8 +111,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         /// <summary>
         /// 访问控制策略组的最近操作时间。
         /// </summary>
-        [Output("updateTime")]
-        public Output<string> UpdateTime { get; private set; } = null!;
+        [Output("updatedTime")]
+        public Output<string> UpdatedTime { get; private set; } = null!;
 
 
         /// <summary>
@@ -179,6 +181,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("listeners")]
+        private InputList<Inputs.AclListenerArgs>? _listeners;
+        public InputList<Inputs.AclListenerArgs> Listeners
+        {
+            get => _listeners ?? (_listeners = new InputList<Inputs.AclListenerArgs>());
+            set => _listeners = value;
+        }
+
         /// <summary>
         /// 访问控制策略组所属项目名称。
         /// </summary>
@@ -230,8 +240,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         /// <summary>
         /// 访问控制策略组的创建时间。
         /// </summary>
-        [Input("createTime")]
-        public Input<string>? CreateTime { get; set; }
+        [Input("createdTime")]
+        public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
         /// 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
@@ -270,8 +280,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         /// <summary>
         /// 访问控制策略组的最近操作时间。
         /// </summary>
-        [Input("updateTime")]
-        public Input<string>? UpdateTime { get; set; }
+        [Input("updatedTime")]
+        public Input<string>? UpdatedTime { get; set; }
 
         public AclState()
         {

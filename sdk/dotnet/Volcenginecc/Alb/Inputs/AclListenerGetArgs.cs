@@ -19,30 +19,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
         [Input("aclType")]
         public Input<string>? AclType { get; set; }
 
-        /// <summary>
-        /// 监听器的ID
-        /// </summary>
-        [Input("listenerId")]
-        public Input<string>? ListenerId { get; set; }
-
-        /// <summary>
-        /// 监听器的名称
-        /// </summary>
-        [Input("listenerName")]
-        public Input<string>? ListenerName { get; set; }
-
-        /// <summary>
-        /// 监听器的端口
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// 监听器的协议
-        /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
-
         public AclListenerGetArgs()
         {
         }

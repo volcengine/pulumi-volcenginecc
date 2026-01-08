@@ -25,6 +25,7 @@ class AclArgs:
                  acl_entries: Optional[pulumi.Input[Sequence[pulumi.Input['AclAclEntryArgs']]]] = None,
                  acl_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['AclListenerArgs']]]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]] = None):
         """
@@ -39,6 +40,8 @@ class AclArgs:
             pulumi.set(__self__, "acl_name", acl_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if tags is not None:
@@ -78,6 +81,15 @@ class AclArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AclListenerArgs']]]]:
+        return pulumi.get(self, "listeners")
+
+    @listeners.setter
+    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AclListenerArgs']]]]):
+        pulumi.set(self, "listeners", value)
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -106,23 +118,23 @@ class _AclState:
                  acl_entry_count: Optional[pulumi.Input[builtins.int]] = None,
                  acl_id: Optional[pulumi.Input[builtins.str]] = None,
                  acl_name: Optional[pulumi.Input[builtins.str]] = None,
-                 create_time: Optional[pulumi.Input[builtins.str]] = None,
+                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  listeners: Optional[pulumi.Input[Sequence[pulumi.Input['AclListenerArgs']]]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]] = None,
-                 update_time: Optional[pulumi.Input[builtins.str]] = None):
+                 updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Acl resources.
         :param pulumi.Input[builtins.int] acl_entry_count: 访问控制策略组包含的IP条目数量。
         :param pulumi.Input[builtins.str] acl_id: 访问控制策略组的ID。
         :param pulumi.Input[builtins.str] acl_name: 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
-        :param pulumi.Input[builtins.str] create_time: 访问控制策略组的创建时间。
+        :param pulumi.Input[builtins.str] created_time: 访问控制策略组的创建时间。
         :param pulumi.Input[builtins.str] description: 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
         :param pulumi.Input[builtins.str] project_name: 访问控制策略组所属项目名称。
         :param pulumi.Input[builtins.str] status: 访问控制策略组的状态。Creating：创建中。Active：正常可用。Configuring：配置中。Deleting：删除中。
-        :param pulumi.Input[builtins.str] update_time: 访问控制策略组的最近操作时间。
+        :param pulumi.Input[builtins.str] updated_time: 访问控制策略组的最近操作时间。
         """
         if acl_entries is not None:
             pulumi.set(__self__, "acl_entries", acl_entries)
@@ -132,8 +144,8 @@ class _AclState:
             pulumi.set(__self__, "acl_id", acl_id)
         if acl_name is not None:
             pulumi.set(__self__, "acl_name", acl_name)
-        if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if listeners is not None:
@@ -144,8 +156,8 @@ class _AclState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+        if updated_time is not None:
+            pulumi.set(__self__, "updated_time", updated_time)
 
     @property
     @pulumi.getter(name="aclEntries")
@@ -193,16 +205,16 @@ class _AclState:
         pulumi.set(self, "acl_name", value)
 
     @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         访问控制策略组的创建时间。
         """
-        return pulumi.get(self, "create_time")
+        return pulumi.get(self, "created_time")
 
-    @create_time.setter
-    def create_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "create_time", value)
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_time", value)
 
     @property
     @pulumi.getter
@@ -259,16 +271,16 @@ class _AclState:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         访问控制策略组的最近操作时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 
-    @update_time.setter
-    def update_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "update_time", value)
+    @updated_time.setter
+    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_time", value)
 
 
 @pulumi.type_token("volcenginecc:alb/acl:Acl")
@@ -280,10 +292,13 @@ class Acl(pulumi.CustomResource):
                  acl_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclAclEntryArgs', 'AclAclEntryArgsDict']]]]] = None,
                  acl_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclListenerArgs', 'AclListenerArgsDict']]]]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclTagArgs', 'AclTagArgsDict']]]]] = None,
                  __props__=None):
         """
+        ALB提供监听级别的访问控制，如果您希望仅允许某些IP、或仅拒绝某些IP通过监听端口访问ALB实例，可以对该监听器设置访问控制策略。您可以在创建监听器时配置访问控制，也可以在监听器创建后修改或重新配置访问控制。
+
         ## Example Usage
 
         ```python
@@ -322,6 +337,8 @@ class Acl(pulumi.CustomResource):
                  args: Optional[AclArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ALB提供监听级别的访问控制，如果您希望仅允许某些IP、或仅拒绝某些IP通过监听端口访问ALB实例，可以对该监听器设置访问控制策略。您可以在创建监听器时配置访问控制，也可以在监听器创建后修改或重新配置访问控制。
+
         ## Example Usage
 
         ```python
@@ -365,6 +382,7 @@ class Acl(pulumi.CustomResource):
                  acl_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclAclEntryArgs', 'AclAclEntryArgsDict']]]]] = None,
                  acl_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclListenerArgs', 'AclListenerArgsDict']]]]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclTagArgs', 'AclTagArgsDict']]]]] = None,
                  __props__=None):
@@ -379,14 +397,14 @@ class Acl(pulumi.CustomResource):
             __props__.__dict__["acl_entries"] = acl_entries
             __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["listeners"] = listeners
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["acl_entry_count"] = None
             __props__.__dict__["acl_id"] = None
-            __props__.__dict__["create_time"] = None
-            __props__.__dict__["listeners"] = None
+            __props__.__dict__["created_time"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["update_time"] = None
+            __props__.__dict__["updated_time"] = None
         super(Acl, __self__).__init__(
             'volcenginecc:alb/acl:Acl',
             resource_name,
@@ -401,13 +419,13 @@ class Acl(pulumi.CustomResource):
             acl_entry_count: Optional[pulumi.Input[builtins.int]] = None,
             acl_id: Optional[pulumi.Input[builtins.str]] = None,
             acl_name: Optional[pulumi.Input[builtins.str]] = None,
-            create_time: Optional[pulumi.Input[builtins.str]] = None,
+            created_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             listeners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclListenerArgs', 'AclListenerArgsDict']]]]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AclTagArgs', 'AclTagArgsDict']]]]] = None,
-            update_time: Optional[pulumi.Input[builtins.str]] = None) -> 'Acl':
+            updated_time: Optional[pulumi.Input[builtins.str]] = None) -> 'Acl':
         """
         Get an existing Acl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -418,11 +436,11 @@ class Acl(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] acl_entry_count: 访问控制策略组包含的IP条目数量。
         :param pulumi.Input[builtins.str] acl_id: 访问控制策略组的ID。
         :param pulumi.Input[builtins.str] acl_name: 访问控制策略组的名字。不能以http://或https://开头。必须以字母或中文开头，可包含数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ～ 128个字符。不填默认为访问控制策略组ID。
-        :param pulumi.Input[builtins.str] create_time: 访问控制策略组的创建时间。
+        :param pulumi.Input[builtins.str] created_time: 访问控制策略组的创建时间。
         :param pulumi.Input[builtins.str] description: 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
         :param pulumi.Input[builtins.str] project_name: 访问控制策略组所属项目名称。
         :param pulumi.Input[builtins.str] status: 访问控制策略组的状态。Creating：创建中。Active：正常可用。Configuring：配置中。Deleting：删除中。
-        :param pulumi.Input[builtins.str] update_time: 访问控制策略组的最近操作时间。
+        :param pulumi.Input[builtins.str] updated_time: 访问控制策略组的最近操作时间。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,13 +450,13 @@ class Acl(pulumi.CustomResource):
         __props__.__dict__["acl_entry_count"] = acl_entry_count
         __props__.__dict__["acl_id"] = acl_id
         __props__.__dict__["acl_name"] = acl_name
-        __props__.__dict__["create_time"] = create_time
+        __props__.__dict__["created_time"] = created_time
         __props__.__dict__["description"] = description
         __props__.__dict__["listeners"] = listeners
         __props__.__dict__["project_name"] = project_name
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["update_time"] = update_time
+        __props__.__dict__["updated_time"] = updated_time
         return Acl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -471,12 +489,12 @@ class Acl(pulumi.CustomResource):
         return pulumi.get(self, "acl_name")
 
     @property
-    @pulumi.getter(name="createTime")
-    def create_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> pulumi.Output[builtins.str]:
         """
         访问控制策略组的创建时间。
         """
-        return pulumi.get(self, "create_time")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -513,10 +531,10 @@ class Acl(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="updateTime")
-    def update_time(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> pulumi.Output[builtins.str]:
         """
         访问控制策略组的最近操作时间。
         """
-        return pulumi.get(self, "update_time")
+        return pulumi.get(self, "updated_time")
 

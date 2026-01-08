@@ -13,6 +13,24 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect.Inputs
 
     public sealed class DirectConnectGatewayAssociateCenArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// CEN的ID。
+        /// </summary>
+        [Input("cenId")]
+        public Input<string>? CenId { get; set; }
+
+        /// <summary>
+        /// CEN的用户ID。
+        /// </summary>
+        [Input("cenOwnerId")]
+        public Input<string>? CenOwnerId { get; set; }
+
+        /// <summary>
+        /// 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
+        /// </summary>
+        [Input("cenStatus")]
+        public Input<string>? CenStatus { get; set; }
+
         public DirectConnectGatewayAssociateCenArgs()
         {
         }

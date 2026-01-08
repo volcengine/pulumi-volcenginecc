@@ -1358,11 +1358,11 @@ if not MYPY:
     class NlbServerGroupHealthCheckArgsDict(TypedDict):
         domain: NotRequired[pulumi.Input[builtins.str]]
         """
-        健康检查的域名
+        健康检查的域名。
         """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        是否开启健康检查
+        是否开启健康检查。
         """
         healthy_threshold: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -1370,7 +1370,7 @@ if not MYPY:
         """
         http_code: NotRequired[pulumi.Input[builtins.str]]
         """
-        健康检查正常的HTTP状态码
+        健康检查正常的HTTP状态码。
         """
         interval: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -1378,7 +1378,7 @@ if not MYPY:
         """
         method: NotRequired[pulumi.Input[builtins.str]]
         """
-        健康检查的请求方法
+        健康检查的请求方法。
         """
         port: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -1390,7 +1390,7 @@ if not MYPY:
         """
         type: NotRequired[pulumi.Input[builtins.str]]
         """
-        健康检查的协议类型
+        健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
         """
         udp_expect: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1398,7 +1398,7 @@ if not MYPY:
         """
         udp_request: NotRequired[pulumi.Input[builtins.str]]
         """
-        UDP健康检查的预期响应字符串
+        UDP健康检查的预期响应字符串。
         """
         unhealthy_threshold: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -1406,7 +1406,7 @@ if not MYPY:
         """
         uri: NotRequired[pulumi.Input[builtins.str]]
         """
-        健康检查的路径
+        健康检查的路径。
         """
 elif False:
     NlbServerGroupHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
@@ -1428,19 +1428,19 @@ class NlbServerGroupHealthCheckArgs:
                  unhealthy_threshold: Optional[pulumi.Input[builtins.int]] = None,
                  uri: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] domain: 健康检查的域名
-        :param pulumi.Input[builtins.bool] enabled: 是否开启健康检查
+        :param pulumi.Input[builtins.str] domain: 健康检查的域名。
+        :param pulumi.Input[builtins.bool] enabled: 是否开启健康检查。
         :param pulumi.Input[builtins.int] healthy_threshold: 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
-        :param pulumi.Input[builtins.str] http_code: 健康检查正常的HTTP状态码
+        :param pulumi.Input[builtins.str] http_code: 健康检查正常的HTTP状态码。
         :param pulumi.Input[builtins.int] interval: 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
-        :param pulumi.Input[builtins.str] method: 健康检查的请求方法
+        :param pulumi.Input[builtins.str] method: 健康检查的请求方法。
         :param pulumi.Input[builtins.int] port: 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
         :param pulumi.Input[builtins.int] timeout: 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
-        :param pulumi.Input[builtins.str] type: 健康检查的协议类型
+        :param pulumi.Input[builtins.str] type: 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
         :param pulumi.Input[builtins.str] udp_expect: UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
-        :param pulumi.Input[builtins.str] udp_request: UDP健康检查的预期响应字符串
+        :param pulumi.Input[builtins.str] udp_request: UDP健康检查的预期响应字符串。
         :param pulumi.Input[builtins.int] unhealthy_threshold: 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
-        :param pulumi.Input[builtins.str] uri: 健康检查的路径
+        :param pulumi.Input[builtins.str] uri: 健康检查的路径。
         """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
@@ -1473,7 +1473,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        健康检查的域名
+        健康检查的域名。
         """
         return pulumi.get(self, "domain")
 
@@ -1485,7 +1485,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启健康检查
+        是否开启健康检查。
         """
         return pulumi.get(self, "enabled")
 
@@ -1509,7 +1509,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter(name="httpCode")
     def http_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        健康检查正常的HTTP状态码
+        健康检查正常的HTTP状态码。
         """
         return pulumi.get(self, "http_code")
 
@@ -1533,7 +1533,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        健康检查的请求方法
+        健康检查的请求方法。
         """
         return pulumi.get(self, "method")
 
@@ -1569,7 +1569,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        健康检查的协议类型
+        健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
         """
         return pulumi.get(self, "type")
 
@@ -1593,7 +1593,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter(name="udpRequest")
     def udp_request(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        UDP健康检查的预期响应字符串
+        UDP健康检查的预期响应字符串。
         """
         return pulumi.get(self, "udp_request")
 
@@ -1617,7 +1617,7 @@ class NlbServerGroupHealthCheckArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        健康检查的路径
+        健康检查的路径。
         """
         return pulumi.get(self, "uri")
 
@@ -1630,7 +1630,7 @@ if not MYPY:
     class NlbServerGroupServerArgsDict(TypedDict):
         description: NotRequired[pulumi.Input[builtins.str]]
         """
-        后端服务器的描述，默认值为空字符串
+        后端服务器的描述，默认值为空字符串。
         """
         instance_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1646,15 +1646,15 @@ if not MYPY:
         """
         server_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        后端服务器 ID
+        后端服务器 ID。
         """
         type: NotRequired[pulumi.Input[builtins.str]]
         """
-        后端服务器的类型
+        后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
         """
         weight: NotRequired[pulumi.Input[builtins.int]]
         """
-        后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+        后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
         """
         zone_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1675,13 +1675,13 @@ class NlbServerGroupServerArgs:
                  weight: Optional[pulumi.Input[builtins.int]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] description: 后端服务器的描述，默认值为空字符串
+        :param pulumi.Input[builtins.str] description: 后端服务器的描述，默认值为空字符串。
         :param pulumi.Input[builtins.str] instance_id: 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
         :param pulumi.Input[builtins.str] ip: 后端服务器的私网IP地址。您可以调用DescribeInstances接口获取“ecs”类型后端服务器的私网IP地址。您可以调用DescribeNetworkInterfaces接口获取“eni”类型后端服务器的私网IP地址。
         :param pulumi.Input[builtins.int] port: 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
-        :param pulumi.Input[builtins.str] server_id: 后端服务器 ID
-        :param pulumi.Input[builtins.str] type: 后端服务器的类型
-        :param pulumi.Input[builtins.int] weight: 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+        :param pulumi.Input[builtins.str] server_id: 后端服务器 ID。
+        :param pulumi.Input[builtins.str] type: 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
+        :param pulumi.Input[builtins.int] weight: 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
         :param pulumi.Input[builtins.str] zone_id: 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
         """
         if description is not None:
@@ -1705,7 +1705,7 @@ class NlbServerGroupServerArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        后端服务器的描述，默认值为空字符串
+        后端服务器的描述，默认值为空字符串。
         """
         return pulumi.get(self, "description")
 
@@ -1753,7 +1753,7 @@ class NlbServerGroupServerArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        后端服务器 ID
+        后端服务器 ID。
         """
         return pulumi.get(self, "server_id")
 
@@ -1765,7 +1765,7 @@ class NlbServerGroupServerArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        后端服务器的类型
+        后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
         """
         return pulumi.get(self, "type")
 
@@ -1777,7 +1777,7 @@ class NlbServerGroupServerArgs:
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+        后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
         """
         return pulumi.get(self, "weight")
 
@@ -1802,11 +1802,11 @@ if not MYPY:
     class NlbServerGroupTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键
+        标签键。
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值
+        标签值。
         """
 elif False:
     NlbServerGroupTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -1817,8 +1817,8 @@ class NlbServerGroupTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键
-        :param pulumi.Input[builtins.str] value: 标签值
+        :param pulumi.Input[builtins.str] key: 标签键。
+        :param pulumi.Input[builtins.str] value: 标签值。
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1829,7 +1829,7 @@ class NlbServerGroupTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键
+        标签键。
         """
         return pulumi.get(self, "key")
 
@@ -1841,7 +1841,7 @@ class NlbServerGroupTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值
+        标签值。
         """
         return pulumi.get(self, "value")
 

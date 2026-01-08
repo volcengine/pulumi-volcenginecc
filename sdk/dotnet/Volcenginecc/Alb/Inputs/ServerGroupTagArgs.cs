@@ -13,9 +13,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
 
     public sealed class ServerGroupTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// 标签的标签键。同一资源的标签键不允许重复。
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// 标签的标签值。
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

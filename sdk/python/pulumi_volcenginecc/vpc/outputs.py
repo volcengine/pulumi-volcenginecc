@@ -82,8 +82,6 @@ class BandwidthPackageEipAddress(dict):
         suggest = None
         if key == "allocationId":
             suggest = "allocation_id"
-        elif key == "eipAddress":
-            suggest = "eip_address"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BandwidthPackageEipAddress. Access the value via the '{suggest}' property getter instead.")
@@ -97,16 +95,12 @@ class BandwidthPackageEipAddress(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allocation_id: Optional[builtins.str] = None,
-                 eip_address: Optional[builtins.str] = None):
+                 allocation_id: Optional[builtins.str] = None):
         """
         :param builtins.str allocation_id: 分配ID
-        :param builtins.str eip_address: 弹性IP地址
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
-        if eip_address is not None:
-            pulumi.set(__self__, "eip_address", eip_address)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -115,14 +109,6 @@ class BandwidthPackageEipAddress(dict):
         分配ID
         """
         return pulumi.get(self, "allocation_id")
-
-    @property
-    @pulumi.getter(name="eipAddress")
-    def eip_address(self) -> Optional[builtins.str]:
-        """
-        弹性IP地址
-        """
-        return pulumi.get(self, "eip_address")
 
 
 @pulumi.output_type

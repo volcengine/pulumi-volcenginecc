@@ -4,16 +4,13 @@
 package com.volcengine.volcenginecc.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.volcengine.volcenginecc.alb.outputs.LoadBalancerZoneMappingLoadBalancerAddress;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class LoadBalancerZoneMapping {
-    private @Nullable List<LoadBalancerZoneMappingLoadBalancerAddress> loadBalancerAddresses;
     /**
      * @return 可用区内提供服务的子网ID。
      * 
@@ -26,9 +23,6 @@ public final class LoadBalancerZoneMapping {
     private @Nullable String zoneId;
 
     private LoadBalancerZoneMapping() {}
-    public List<LoadBalancerZoneMappingLoadBalancerAddress> loadBalancerAddresses() {
-        return this.loadBalancerAddresses == null ? List.of() : this.loadBalancerAddresses;
-    }
     /**
      * @return 可用区内提供服务的子网ID。
      * 
@@ -53,26 +47,15 @@ public final class LoadBalancerZoneMapping {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<LoadBalancerZoneMappingLoadBalancerAddress> loadBalancerAddresses;
         private @Nullable String subnetId;
         private @Nullable String zoneId;
         public Builder() {}
         public Builder(LoadBalancerZoneMapping defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.loadBalancerAddresses = defaults.loadBalancerAddresses;
     	      this.subnetId = defaults.subnetId;
     	      this.zoneId = defaults.zoneId;
         }
 
-        @CustomType.Setter
-        public Builder loadBalancerAddresses(@Nullable List<LoadBalancerZoneMappingLoadBalancerAddress> loadBalancerAddresses) {
-
-            this.loadBalancerAddresses = loadBalancerAddresses;
-            return this;
-        }
-        public Builder loadBalancerAddresses(LoadBalancerZoneMappingLoadBalancerAddress... loadBalancerAddresses) {
-            return loadBalancerAddresses(List.of(loadBalancerAddresses));
-        }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
 
@@ -87,7 +70,6 @@ public final class LoadBalancerZoneMapping {
         }
         public LoadBalancerZoneMapping build() {
             final var _resultValue = new LoadBalancerZoneMapping();
-            _resultValue.loadBalancerAddresses = loadBalancerAddresses;
             _resultValue.subnetId = subnetId;
             _resultValue.zoneId = zoneId;
             return _resultValue;

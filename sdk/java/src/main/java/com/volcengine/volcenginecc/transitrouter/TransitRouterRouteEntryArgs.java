@@ -92,21 +92,6 @@ public final class TransitRouterRouteEntryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-     * 
-     */
-    @Import(name="transitRouterRouteEntryType")
-    private @Nullable Output<String> transitRouterRouteEntryType;
-
-    /**
-     * @return 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-     * 
-     */
-    public Optional<Output<String>> transitRouterRouteEntryType() {
-        return Optional.ofNullable(this.transitRouterRouteEntryType);
-    }
-
-    /**
      * 中转路由器实例关联的路由表的ID。
      * 
      */
@@ -129,7 +114,6 @@ public final class TransitRouterRouteEntryArgs extends com.pulumi.resources.Reso
         this.transitRouterRouteEntryName = $.transitRouterRouteEntryName;
         this.transitRouterRouteEntryNextHopId = $.transitRouterRouteEntryNextHopId;
         this.transitRouterRouteEntryNextHopType = $.transitRouterRouteEntryNextHopType;
-        this.transitRouterRouteEntryType = $.transitRouterRouteEntryType;
         this.transitRouterRouteTableId = $.transitRouterRouteTableId;
     }
 
@@ -254,27 +238,6 @@ public final class TransitRouterRouteEntryArgs extends com.pulumi.resources.Reso
          */
         public Builder transitRouterRouteEntryNextHopType(String transitRouterRouteEntryNextHopType) {
             return transitRouterRouteEntryNextHopType(Output.of(transitRouterRouteEntryNextHopType));
-        }
-
-        /**
-         * @param transitRouterRouteEntryType 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder transitRouterRouteEntryType(@Nullable Output<String> transitRouterRouteEntryType) {
-            $.transitRouterRouteEntryType = transitRouterRouteEntryType;
-            return this;
-        }
-
-        /**
-         * @param transitRouterRouteEntryType 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder transitRouterRouteEntryType(String transitRouterRouteEntryType) {
-            return transitRouterRouteEntryType(Output.of(transitRouterRouteEntryType));
         }
 
         /**

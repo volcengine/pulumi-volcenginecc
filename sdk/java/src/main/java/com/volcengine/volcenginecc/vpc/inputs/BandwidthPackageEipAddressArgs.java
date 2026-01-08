@@ -30,26 +30,10 @@ public final class BandwidthPackageEipAddressArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.allocationId);
     }
 
-    /**
-     * 弹性IP地址
-     * 
-     */
-    @Import(name="eipAddress")
-    private @Nullable Output<String> eipAddress;
-
-    /**
-     * @return 弹性IP地址
-     * 
-     */
-    public Optional<Output<String>> eipAddress() {
-        return Optional.ofNullable(this.eipAddress);
-    }
-
     private BandwidthPackageEipAddressArgs() {}
 
     private BandwidthPackageEipAddressArgs(BandwidthPackageEipAddressArgs $) {
         this.allocationId = $.allocationId;
-        this.eipAddress = $.eipAddress;
     }
 
     public static Builder builder() {
@@ -89,27 +73,6 @@ public final class BandwidthPackageEipAddressArgs extends com.pulumi.resources.R
          */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
-        }
-
-        /**
-         * @param eipAddress 弹性IP地址
-         * 
-         * @return builder
-         * 
-         */
-        public Builder eipAddress(@Nullable Output<String> eipAddress) {
-            $.eipAddress = eipAddress;
-            return this;
-        }
-
-        /**
-         * @param eipAddress 弹性IP地址
-         * 
-         * @return builder
-         * 
-         */
-        public Builder eipAddress(String eipAddress) {
-            return eipAddress(Output.of(eipAddress));
         }
 
         public BandwidthPackageEipAddressArgs build() {

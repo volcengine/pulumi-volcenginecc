@@ -59,6 +59,8 @@ type DirectConnectGateway struct {
 	// 专线网关所属账号的ID。
 	AccountId     pulumi.StringOutput                         `pulumi:"accountId"`
 	AssociateCens DirectConnectGatewayAssociateCenArrayOutput `pulumi:"associateCens"`
+	// 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
 	BusinessStatus pulumi.StringOutput `pulumi:"businessStatus"`
 	// 创建专线网关的时间。
@@ -119,6 +121,8 @@ type directConnectGatewayState struct {
 	// 专线网关所属账号的ID。
 	AccountId     *string                            `pulumi:"accountId"`
 	AssociateCens []DirectConnectGatewayAssociateCen `pulumi:"associateCens"`
+	// 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+	BgpAsn *int `pulumi:"bgpAsn"`
 	// 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
 	BusinessStatus *string `pulumi:"businessStatus"`
 	// 创建专线网关的时间。
@@ -150,6 +154,8 @@ type DirectConnectGatewayState struct {
 	// 专线网关所属账号的ID。
 	AccountId     pulumi.StringPtrInput
 	AssociateCens DirectConnectGatewayAssociateCenArrayInput
+	// 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+	BgpAsn pulumi.IntPtrInput
 	// 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。
 	BusinessStatus pulumi.StringPtrInput
 	// 创建专线网关的时间。
@@ -182,7 +188,8 @@ func (DirectConnectGatewayState) ElementType() reflect.Type {
 }
 
 type directConnectGatewayArgs struct {
-	AssociateCens []DirectConnectGatewayAssociateCen `pulumi:"associateCens"`
+	// 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+	BgpAsn *int `pulumi:"bgpAsn"`
 	// 专线网关的描述信息。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、空格（ ）、下划线（_）、中划线（-）、等号（=）、英文逗号（,）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description *string `pulumi:"description"`
 	// 专线网关的名称。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为专线网关的ID。
@@ -196,7 +203,8 @@ type directConnectGatewayArgs struct {
 
 // The set of arguments for constructing a DirectConnectGateway resource.
 type DirectConnectGatewayArgs struct {
-	AssociateCens DirectConnectGatewayAssociateCenArrayInput
+	// 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+	BgpAsn pulumi.IntPtrInput
 	// 专线网关的描述信息。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、空格（ ）、下划线（_）、中划线（-）、等号（=）、英文逗号（,）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description pulumi.StringPtrInput
 	// 专线网关的名称。以中文、字母、数字开头，只能包含中文、字母、数字、点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为专线网关的ID。
@@ -302,6 +310,11 @@ func (o DirectConnectGatewayOutput) AccountId() pulumi.StringOutput {
 
 func (o DirectConnectGatewayOutput) AssociateCens() DirectConnectGatewayAssociateCenArrayOutput {
 	return o.ApplyT(func(v *DirectConnectGateway) DirectConnectGatewayAssociateCenArrayOutput { return v.AssociateCens }).(DirectConnectGatewayAssociateCenArrayOutput)
+}
+
+// 专线网关的ASN（Autonomous System Number）。专线网关ASN有效范围为：137718、64512 ～ 65534 、4200000000 ～ 4294967294，其中137718为火山引擎的ASN。如果专线网关仅在普通场景下使用（如本地IDC通过专线连接访问单个云上VPC资源），请使用火山引擎ASN（137718）。如果专线网关在特殊场景下使用（如单个IDC通过专线连接访问多个云企业网），每个专线网关均要自定义ASN且避免使用火山引擎ASN（137718），确保不同专线网关的ASN不重复。
+func (o DirectConnectGatewayOutput) BgpAsn() pulumi.IntOutput {
+	return o.ApplyT(func(v *DirectConnectGateway) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
 }
 
 // 专线网关是否被锁定。Normal：正常。FinancialLocked：被锁定。

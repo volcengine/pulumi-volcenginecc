@@ -39,7 +39,7 @@ public final class GetAclResult {
      * @return 访问控制策略组的创建时间。
      * 
      */
-    private String createTime;
+    private String createdTime;
     /**
      * @return 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
      * 
@@ -74,7 +74,7 @@ public final class GetAclResult {
      * @return 访问控制策略组的最近操作时间。
      * 
      */
-    private String updateTime;
+    private String updatedTime;
 
     private GetAclResult() {}
     /**
@@ -109,8 +109,8 @@ public final class GetAclResult {
      * @return 访问控制策略组的创建时间。
      * 
      */
-    public String createTime() {
-        return this.createTime;
+    public String createdTime() {
+        return this.createdTime;
     }
     /**
      * @return 访问控制策略组的描述。不能以http://或https://开头。必须以字母或中文开头，可包含数字、英文逗号（,）、点号.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。） 。长度限制为1 ～ 255个字符。不填默认为空字符串。
@@ -158,8 +158,8 @@ public final class GetAclResult {
      * @return 访问控制策略组的最近操作时间。
      * 
      */
-    public String updateTime() {
-        return this.updateTime;
+    public String updatedTime() {
+        return this.updatedTime;
     }
 
     public static Builder builder() {
@@ -175,14 +175,14 @@ public final class GetAclResult {
         private Integer aclEntryCount;
         private String aclId;
         private String aclName;
-        private String createTime;
+        private String createdTime;
         private String description;
         private String id;
         private List<GetAclListener> listeners;
         private String projectName;
         private String status;
         private List<GetAclTag> tags;
-        private String updateTime;
+        private String updatedTime;
         public Builder() {}
         public Builder(GetAclResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -190,14 +190,14 @@ public final class GetAclResult {
     	      this.aclEntryCount = defaults.aclEntryCount;
     	      this.aclId = defaults.aclId;
     	      this.aclName = defaults.aclName;
-    	      this.createTime = defaults.createTime;
+    	      this.createdTime = defaults.createdTime;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.listeners = defaults.listeners;
     	      this.projectName = defaults.projectName;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
-    	      this.updateTime = defaults.updateTime;
+    	      this.updatedTime = defaults.updatedTime;
         }
 
         @CustomType.Setter
@@ -236,11 +236,11 @@ public final class GetAclResult {
             return this;
         }
         @CustomType.Setter
-        public Builder createTime(String createTime) {
-            if (createTime == null) {
-              throw new MissingRequiredPropertyException("GetAclResult", "createTime");
+        public Builder createdTime(String createdTime) {
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "createdTime");
             }
-            this.createTime = createTime;
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
@@ -298,11 +298,11 @@ public final class GetAclResult {
             return tags(List.of(tags));
         }
         @CustomType.Setter
-        public Builder updateTime(String updateTime) {
-            if (updateTime == null) {
-              throw new MissingRequiredPropertyException("GetAclResult", "updateTime");
+        public Builder updatedTime(String updatedTime) {
+            if (updatedTime == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "updatedTime");
             }
-            this.updateTime = updateTime;
+            this.updatedTime = updatedTime;
             return this;
         }
         public GetAclResult build() {
@@ -311,14 +311,14 @@ public final class GetAclResult {
             _resultValue.aclEntryCount = aclEntryCount;
             _resultValue.aclId = aclId;
             _resultValue.aclName = aclName;
-            _resultValue.createTime = createTime;
+            _resultValue.createdTime = createdTime;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.listeners = listeners;
             _resultValue.projectName = projectName;
             _resultValue.status = status;
             _resultValue.tags = tags;
-            _resultValue.updateTime = updateTime;
+            _resultValue.updatedTime = updatedTime;
             return _resultValue;
         }
     }

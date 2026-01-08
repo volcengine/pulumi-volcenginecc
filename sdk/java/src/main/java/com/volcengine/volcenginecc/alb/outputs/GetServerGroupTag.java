@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServerGroupTag {
+    /**
+     * @return 标签的标签键。同一资源的标签键不允许重复。
+     * 
+     */
     private String key;
+    /**
+     * @return 标签的标签值。
+     * 
+     */
     private String value;
 
     private GetServerGroupTag() {}
+    /**
+     * @return 标签的标签键。同一资源的标签键不允许重复。
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return 标签的标签值。
+     * 
+     */
     public String value() {
         return this.value;
     }

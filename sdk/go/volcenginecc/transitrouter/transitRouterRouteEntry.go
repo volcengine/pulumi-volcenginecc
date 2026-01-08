@@ -14,38 +14,6 @@ import (
 
 // 通过为网络实例连接或跨地域连接关联的路由表创建或删除静态路由，能够灵活地控制中转路由器中的流量走向。
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/transitrouter"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transitrouter.NewTransitRouterRouteEntry(ctx, "TransitRouterRouteEntryDemo", &transitrouter.TransitRouterRouteEntryArgs{
-//				Description:                        pulumi.String("Demo Example"),
-//				DestinationCidrBlock:               pulumi.String("192.168.1.101/*"),
-//				TransitRouterRouteEntryName:        pulumi.String("test-Attachmentkua"),
-//				TransitRouterRouteTableId:          pulumi.String("tr-rtb-mijcn***"),
-//				TransitRouterRouteEntryNextHopId:   pulumi.String("tr-attach-13fs****"),
-//				TransitRouterRouteEntryNextHopType: pulumi.String("Attachment"),
-//				TransitRouterRouteEntryType:        pulumi.String("Propagated"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -57,7 +25,7 @@ type TransitRouterRouteEntry struct {
 	// 路由条目的AS路径。
 	AsPaths pulumi.StringArrayOutput `pulumi:"asPaths"`
 	// 路由条目的创建时间。
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description pulumi.StringOutput `pulumi:"description"`
 	// 路由条目的目标网段。
@@ -77,7 +45,7 @@ type TransitRouterRouteEntry struct {
 	// 中转路由器实例关联的路由表的ID。
 	TransitRouterRouteTableId pulumi.StringOutput `pulumi:"transitRouterRouteTableId"`
 	// 路由条目的更新时间。
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 }
 
 // NewTransitRouterRouteEntry registers a new resource with the given unique name, arguments, and options.
@@ -122,7 +90,7 @@ type transitRouterRouteEntryState struct {
 	// 路由条目的AS路径。
 	AsPaths []string `pulumi:"asPaths"`
 	// 路由条目的创建时间。
-	CreationTime *string `pulumi:"creationTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description *string `pulumi:"description"`
 	// 路由条目的目标网段。
@@ -142,14 +110,14 @@ type transitRouterRouteEntryState struct {
 	// 中转路由器实例关联的路由表的ID。
 	TransitRouterRouteTableId *string `pulumi:"transitRouterRouteTableId"`
 	// 路由条目的更新时间。
-	UpdateTime *string `pulumi:"updateTime"`
+	UpdatedTime *string `pulumi:"updatedTime"`
 }
 
 type TransitRouterRouteEntryState struct {
 	// 路由条目的AS路径。
 	AsPaths pulumi.StringArrayInput
 	// 路由条目的创建时间。
-	CreationTime pulumi.StringPtrInput
+	CreatedTime pulumi.StringPtrInput
 	// TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description pulumi.StringPtrInput
 	// 路由条目的目标网段。
@@ -169,7 +137,7 @@ type TransitRouterRouteEntryState struct {
 	// 中转路由器实例关联的路由表的ID。
 	TransitRouterRouteTableId pulumi.StringPtrInput
 	// 路由条目的更新时间。
-	UpdateTime pulumi.StringPtrInput
+	UpdatedTime pulumi.StringPtrInput
 }
 
 func (TransitRouterRouteEntryState) ElementType() reflect.Type {
@@ -187,8 +155,6 @@ type transitRouterRouteEntryArgs struct {
 	TransitRouterRouteEntryNextHopId *string `pulumi:"transitRouterRouteEntryNextHopId"`
 	// 路由条目的下一跳类型。取值如下：Attachment：网络实例，表示匹配该路由条目的流量会被转发到指定的网络实例。BlackHole：黑洞，表示匹配该路由条目的流量会被丢弃。
 	TransitRouterRouteEntryNextHopType string `pulumi:"transitRouterRouteEntryNextHopType"`
-	// 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-	TransitRouterRouteEntryType *string `pulumi:"transitRouterRouteEntryType"`
 	// 中转路由器实例关联的路由表的ID。
 	TransitRouterRouteTableId string `pulumi:"transitRouterRouteTableId"`
 }
@@ -205,8 +171,6 @@ type TransitRouterRouteEntryArgs struct {
 	TransitRouterRouteEntryNextHopId pulumi.StringPtrInput
 	// 路由条目的下一跳类型。取值如下：Attachment：网络实例，表示匹配该路由条目的流量会被转发到指定的网络实例。BlackHole：黑洞，表示匹配该路由条目的流量会被丢弃。
 	TransitRouterRouteEntryNextHopType pulumi.StringInput
-	// 路由条目的类型。Static：静态路由。Propagated：自动学习路由。
-	TransitRouterRouteEntryType pulumi.StringPtrInput
 	// 中转路由器实例关联的路由表的ID。
 	TransitRouterRouteTableId pulumi.StringInput
 }
@@ -304,8 +268,8 @@ func (o TransitRouterRouteEntryOutput) AsPaths() pulumi.StringArrayOutput {
 }
 
 // 路由条目的创建时间。
-func (o TransitRouterRouteEntryOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitRouterRouteEntry) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o TransitRouterRouteEntryOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitRouterRouteEntry) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -354,8 +318,8 @@ func (o TransitRouterRouteEntryOutput) TransitRouterRouteTableId() pulumi.String
 }
 
 // 路由条目的更新时间。
-func (o TransitRouterRouteEntryOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitRouterRouteEntry) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o TransitRouterRouteEntryOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitRouterRouteEntry) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 type TransitRouterRouteEntryArrayOutput struct{ *pulumi.OutputState }

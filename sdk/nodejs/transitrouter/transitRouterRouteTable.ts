@@ -63,7 +63,7 @@ export class TransitRouterRouteTable extends pulumi.CustomResource {
     /**
      * TR路由表的创建时间
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      */
@@ -100,7 +100,7 @@ export class TransitRouterRouteTable extends pulumi.CustomResource {
     /**
      * TR路由表的最近操作时间
      */
-    public /*out*/ readonly updateTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
 
     /**
      * Create a TransitRouterRouteTable resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class TransitRouterRouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitRouterRouteTableState | undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["inRoutePolicyTableId"] = state ? state.inRoutePolicyTableId : undefined;
             resourceInputs["outRoutePolicyTableId"] = state ? state.outRoutePolicyTableId : undefined;
@@ -125,7 +125,7 @@ export class TransitRouterRouteTable extends pulumi.CustomResource {
             resourceInputs["transitRouterRouteTableId"] = state ? state.transitRouterRouteTableId : undefined;
             resourceInputs["transitRouterRouteTableName"] = state ? state.transitRouterRouteTableName : undefined;
             resourceInputs["transitRouterRouteTableType"] = state ? state.transitRouterRouteTableType : undefined;
-            resourceInputs["updateTime"] = state ? state.updateTime : undefined;
+            resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
         } else {
             const args = argsOrState as TransitRouterRouteTableArgs | undefined;
             if ((!args || args.transitRouterId === undefined) && !opts.urn) {
@@ -135,13 +135,13 @@ export class TransitRouterRouteTable extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitRouterId"] = args ? args.transitRouterId : undefined;
             resourceInputs["transitRouterRouteTableName"] = args ? args.transitRouterRouteTableName : undefined;
-            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["inRoutePolicyTableId"] = undefined /*out*/;
             resourceInputs["outRoutePolicyTableId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["transitRouterRouteTableId"] = undefined /*out*/;
             resourceInputs["transitRouterRouteTableType"] = undefined /*out*/;
-            resourceInputs["updateTime"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitRouterRouteTable.__pulumiType, name, resourceInputs, opts);
@@ -155,7 +155,7 @@ export interface TransitRouterRouteTableState {
     /**
      * TR路由表的创建时间
      */
-    creationTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      */
@@ -192,7 +192,7 @@ export interface TransitRouterRouteTableState {
     /**
      * TR路由表的最近操作时间
      */
-    updateTime?: pulumi.Input<string>;
+    updatedTime?: pulumi.Input<string>;
 }
 
 /**

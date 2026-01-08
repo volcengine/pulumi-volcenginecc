@@ -35,15 +35,15 @@ public final class TransitRouterRouteEntryState extends com.pulumi.resources.Res
      * 路由条目的创建时间。
      * 
      */
-    @Import(name="creationTime")
-    private @Nullable Output<String> creationTime;
+    @Import(name="createdTime")
+    private @Nullable Output<String> createdTime;
 
     /**
      * @return 路由条目的创建时间。
      * 
      */
-    public Optional<Output<String>> creationTime() {
-        return Optional.ofNullable(this.creationTime);
+    public Optional<Output<String>> createdTime() {
+        return Optional.ofNullable(this.createdTime);
     }
 
     /**
@@ -185,22 +185,22 @@ public final class TransitRouterRouteEntryState extends com.pulumi.resources.Res
      * 路由条目的更新时间。
      * 
      */
-    @Import(name="updateTime")
-    private @Nullable Output<String> updateTime;
+    @Import(name="updatedTime")
+    private @Nullable Output<String> updatedTime;
 
     /**
      * @return 路由条目的更新时间。
      * 
      */
-    public Optional<Output<String>> updateTime() {
-        return Optional.ofNullable(this.updateTime);
+    public Optional<Output<String>> updatedTime() {
+        return Optional.ofNullable(this.updatedTime);
     }
 
     private TransitRouterRouteEntryState() {}
 
     private TransitRouterRouteEntryState(TransitRouterRouteEntryState $) {
         this.asPaths = $.asPaths;
-        this.creationTime = $.creationTime;
+        this.createdTime = $.createdTime;
         this.description = $.description;
         this.destinationCidrBlock = $.destinationCidrBlock;
         this.status = $.status;
@@ -210,7 +210,7 @@ public final class TransitRouterRouteEntryState extends com.pulumi.resources.Res
         this.transitRouterRouteEntryNextHopType = $.transitRouterRouteEntryNextHopType;
         this.transitRouterRouteEntryType = $.transitRouterRouteEntryType;
         this.transitRouterRouteTableId = $.transitRouterRouteTableId;
-        this.updateTime = $.updateTime;
+        this.updatedTime = $.updatedTime;
     }
 
     public static Builder builder() {
@@ -263,24 +263,24 @@ public final class TransitRouterRouteEntryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param creationTime 路由条目的创建时间。
+         * @param createdTime 路由条目的创建时间。
          * 
          * @return builder
          * 
          */
-        public Builder creationTime(@Nullable Output<String> creationTime) {
-            $.creationTime = creationTime;
+        public Builder createdTime(@Nullable Output<String> createdTime) {
+            $.createdTime = createdTime;
             return this;
         }
 
         /**
-         * @param creationTime 路由条目的创建时间。
+         * @param createdTime 路由条目的创建时间。
          * 
          * @return builder
          * 
          */
-        public Builder creationTime(String creationTime) {
-            return creationTime(Output.of(creationTime));
+        public Builder createdTime(String createdTime) {
+            return createdTime(Output.of(createdTime));
         }
 
         /**
@@ -473,24 +473,24 @@ public final class TransitRouterRouteEntryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param updateTime 路由条目的更新时间。
+         * @param updatedTime 路由条目的更新时间。
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(@Nullable Output<String> updateTime) {
-            $.updateTime = updateTime;
+        public Builder updatedTime(@Nullable Output<String> updatedTime) {
+            $.updatedTime = updatedTime;
             return this;
         }
 
         /**
-         * @param updateTime 路由条目的更新时间。
+         * @param updatedTime 路由条目的更新时间。
          * 
          * @return builder
          * 
          */
-        public Builder updateTime(String updateTime) {
-            return updateTime(Output.of(updateTime));
+        public Builder updatedTime(String updatedTime) {
+            return updatedTime(Output.of(updatedTime));
         }
 
         public TransitRouterRouteEntryState build() {

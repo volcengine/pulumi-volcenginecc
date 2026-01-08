@@ -233,6 +233,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         public Output<int> ProxySendTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// 监听器绑定的规则ID列表。
+        /// </summary>
+        [Output("ruleIds")]
+        public Output<ImmutableArray<string>> RuleIds { get; private set; } = null!;
+
+        /// <summary>
         /// 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。
         /// </summary>
         [Output("scheduler")]
@@ -795,6 +801,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         /// </summary>
         [Input("proxySendTimeout")]
         public Input<int>? ProxySendTimeout { get; set; }
+
+        [Input("ruleIds")]
+        private InputList<string>? _ruleIds;
+
+        /// <summary>
+        /// 监听器绑定的规则ID列表。
+        /// </summary>
+        public InputList<string> RuleIds
+        {
+            get => _ruleIds ?? (_ruleIds = new InputList<string>());
+            set => _ruleIds = value;
+        }
 
         /// <summary>
         /// 监听器使用的调度算法。wrr（默认值）：加权轮询。wlc：加权最小连接数。sh：源地址哈希。

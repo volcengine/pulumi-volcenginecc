@@ -25,7 +25,6 @@ class KeypairArgs:
                  key_pair_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 private_key: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeypairTagArgs']]]] = None):
@@ -34,7 +33,6 @@ class KeypairArgs:
         :param pulumi.Input[builtins.str] key_pair_name: 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
         :param pulumi.Input[builtins.str] description: 密钥对的描述，默认值为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、点“.”、空格、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、中文逗号“，”和中文句号“。”长度限制在255个字符以内。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_ids: 操作的实例ID。
-        :param pulumi.Input[builtins.str] private_key: 密钥对私钥信息。
         :param pulumi.Input[builtins.str] project_name: 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         :param pulumi.Input[builtins.str] public_key: 密钥对的公钥信息。
         """
@@ -43,8 +41,6 @@ class KeypairArgs:
             pulumi.set(__self__, "description", description)
         if instance_ids is not None:
             pulumi.set(__self__, "instance_ids", instance_ids)
-        if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if public_key is not None:
@@ -89,18 +85,6 @@ class KeypairArgs:
         pulumi.set(self, "instance_ids", value)
 
     @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        密钥对私钥信息。
-        """
-        return pulumi.get(self, "private_key")
-
-    @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "private_key", value)
-
-    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -143,7 +127,6 @@ class _KeypairState:
                  instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  key_pair_id: Optional[pulumi.Input[builtins.str]] = None,
                  key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeypairTagArgs']]]] = None,
@@ -156,7 +139,6 @@ class _KeypairState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_ids: 操作的实例ID。
         :param pulumi.Input[builtins.str] key_pair_id: 密钥对唯一ID。
         :param pulumi.Input[builtins.str] key_pair_name: 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
-        :param pulumi.Input[builtins.str] private_key: 密钥对私钥信息。
         :param pulumi.Input[builtins.str] project_name: 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         :param pulumi.Input[builtins.str] public_key: 密钥对的公钥信息。
         :param pulumi.Input[builtins.str] updated_time: 密钥对更新时间。
@@ -173,8 +155,6 @@ class _KeypairState:
             pulumi.set(__self__, "key_pair_id", key_pair_id)
         if key_pair_name is not None:
             pulumi.set(__self__, "key_pair_name", key_pair_name)
-        if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if public_key is not None:
@@ -257,18 +237,6 @@ class _KeypairState:
         pulumi.set(self, "key_pair_name", value)
 
     @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        密钥对私钥信息。
-        """
-        return pulumi.get(self, "private_key")
-
-    @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "private_key", value)
-
-    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -323,7 +291,6 @@ class Keypair(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeypairTagArgs', 'KeypairTagArgsDict']]]]] = None,
@@ -358,7 +325,6 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: 密钥对的描述，默认值为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、点“.”、空格、下划线“_”、中划线“-”、等号“=”、英文逗号“,”、中文逗号“，”和中文句号“。”长度限制在255个字符以内。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_ids: 操作的实例ID。
         :param pulumi.Input[builtins.str] key_pair_name: 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
-        :param pulumi.Input[builtins.str] private_key: 密钥对私钥信息。
         :param pulumi.Input[builtins.str] project_name: 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         :param pulumi.Input[builtins.str] public_key: 密钥对的公钥信息。
         """
@@ -411,7 +377,6 @@ class Keypair(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  public_key: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeypairTagArgs', 'KeypairTagArgsDict']]]]] = None,
@@ -429,7 +394,6 @@ class Keypair(pulumi.CustomResource):
             if key_pair_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_pair_name'")
             __props__.__dict__["key_pair_name"] = key_pair_name
-            __props__.__dict__["private_key"] = private_key
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["public_key"] = public_key
             __props__.__dict__["tags"] = tags
@@ -453,7 +417,6 @@ class Keypair(pulumi.CustomResource):
             instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             key_pair_id: Optional[pulumi.Input[builtins.str]] = None,
             key_pair_name: Optional[pulumi.Input[builtins.str]] = None,
-            private_key: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
             public_key: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeypairTagArgs', 'KeypairTagArgsDict']]]]] = None,
@@ -471,7 +434,6 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_ids: 操作的实例ID。
         :param pulumi.Input[builtins.str] key_pair_id: 密钥对唯一ID。
         :param pulumi.Input[builtins.str] key_pair_name: 密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
-        :param pulumi.Input[builtins.str] private_key: 密钥对私钥信息。
         :param pulumi.Input[builtins.str] project_name: 资源所属项目，一个资源只能归属于一个项目。只能包含字母、数字、下划线“_”、点“.”和中划线“-”。长度限制在64个字符以内。
         :param pulumi.Input[builtins.str] public_key: 密钥对的公钥信息。
         :param pulumi.Input[builtins.str] updated_time: 密钥对更新时间。
@@ -486,7 +448,6 @@ class Keypair(pulumi.CustomResource):
         __props__.__dict__["instance_ids"] = instance_ids
         __props__.__dict__["key_pair_id"] = key_pair_id
         __props__.__dict__["key_pair_name"] = key_pair_name
-        __props__.__dict__["private_key"] = private_key
         __props__.__dict__["project_name"] = project_name
         __props__.__dict__["public_key"] = public_key
         __props__.__dict__["tags"] = tags
@@ -540,14 +501,6 @@ class Keypair(pulumi.CustomResource):
         密钥对名称。不可与已有名称重复。长度限制在 2～64 个字符之间。允许使用点号“.”分隔字符成多段，每段允许使用大小写字母、数字或连字符“-”。不能以“-”和“.”开头或结尾，不能连续使用“-”或者“.”。
         """
         return pulumi.get(self, "key_pair_name")
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> pulumi.Output[builtins.str]:
-        """
-        密钥对私钥信息。
-        """
-        return pulumi.get(self, "private_key")
 
     @property
     @pulumi.getter(name="projectName")

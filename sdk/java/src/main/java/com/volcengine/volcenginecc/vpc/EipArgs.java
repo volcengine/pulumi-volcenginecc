@@ -81,21 +81,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-     * 
-     */
-    @Import(name="directMode")
-    private @Nullable Output<Boolean> directMode;
-
-    /**
-     * @return 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-     * 
-     */
-    public Optional<Output<Boolean>> directMode() {
-        return Optional.ofNullable(this.directMode);
-    }
-
-    /**
      * 当前绑定的实例ID。
      * 
      */
@@ -186,14 +171,14 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      * 
      */
     @Import(name="period")
     private @Nullable Output<Integer> period;
 
     /**
-     * @return 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+     * @return 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
      * 
      */
     public Optional<Output<Integer>> period() {
@@ -320,21 +305,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.securityProtectionTypes);
     }
 
-    /**
-     * 是否由服务管理
-     * 
-     */
-    @Import(name="serviceManaged")
-    private @Nullable Output<Boolean> serviceManaged;
-
-    /**
-     * @return 是否由服务管理
-     * 
-     */
-    public Optional<Output<Boolean>> serviceManaged() {
-        return Optional.ofNullable(this.serviceManaged);
-    }
-
     @Import(name="tags")
     private @Nullable Output<List<EipTagArgs>> tags;
 
@@ -349,7 +319,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         this.bandwidthPackageId = $.bandwidthPackageId;
         this.billingType = $.billingType;
         this.description = $.description;
-        this.directMode = $.directMode;
         this.instanceId = $.instanceId;
         this.instanceType = $.instanceType;
         this.ipAddress = $.ipAddress;
@@ -365,7 +334,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         this.renewType = $.renewType;
         this.securityProtectionInstanceId = $.securityProtectionInstanceId;
         this.securityProtectionTypes = $.securityProtectionTypes;
-        this.serviceManaged = $.serviceManaged;
         this.tags = $.tags;
     }
 
@@ -469,27 +437,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
-        }
-
-        /**
-         * @param directMode 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder directMode(@Nullable Output<Boolean> directMode) {
-            $.directMode = directMode;
-            return this;
-        }
-
-        /**
-         * @param directMode 绑定公网IP时是否启用直通模式。请严格按照以下枚举值的大小写输入，不要传入其他取值。false（默认）：不使用直通模式。true：使用直通模式。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder directMode(Boolean directMode) {
-            return directMode(Output.of(directMode));
         }
 
         /**
@@ -619,7 +566,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+         * @param period 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
          * 
          * @return builder
          * 
@@ -630,7 +577,7 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period 购买包年包月公网IP的时长，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。
+         * @param period 代表购买包年包月公网IP的时长时，默认为“1”。当PeriodUnit传入1，Period取值范围：1~9、12、24、36、48、60。当PeriodUnit传入2，Period取值范围：1～5。代表临时升配的时长时：单位为小时，取值范围：1～720。
          * 
          * @return builder
          * 
@@ -815,27 +762,6 @@ public final class EipArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityProtectionTypes(String... securityProtectionTypes) {
             return securityProtectionTypes(List.of(securityProtectionTypes));
-        }
-
-        /**
-         * @param serviceManaged 是否由服务管理
-         * 
-         * @return builder
-         * 
-         */
-        public Builder serviceManaged(@Nullable Output<Boolean> serviceManaged) {
-            $.serviceManaged = serviceManaged;
-            return this;
-        }
-
-        /**
-         * @param serviceManaged 是否由服务管理
-         * 
-         * @return builder
-         * 
-         */
-        public Builder serviceManaged(Boolean serviceManaged) {
-            return serviceManaged(Output.of(serviceManaged));
         }
 
         public Builder tags(@Nullable Output<List<EipTagArgs>> tags) {

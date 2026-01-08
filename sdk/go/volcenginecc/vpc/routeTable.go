@@ -178,8 +178,6 @@ type routeTableArgs struct {
 	Tags      []RouteTableTag `pulumi:"tags"`
 	// 路由表所属VPC的ID。
 	VpcId string `pulumi:"vpcId"`
-	// VPC的名称。
-	VpcName *string `pulumi:"vpcName"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
@@ -202,8 +200,6 @@ type RouteTableArgs struct {
 	Tags      RouteTableTagArrayInput
 	// 路由表所属VPC的ID。
 	VpcId pulumi.StringInput
-	// VPC的名称。
-	VpcName pulumi.StringPtrInput
 }
 
 func (RouteTableArgs) ElementType() reflect.Type {

@@ -35,7 +35,7 @@ export interface GetTransitRouterRouteEntryResult {
     /**
      * 路由条目的创建时间。
      */
-    readonly creationTime: string;
+    readonly createdTime: string;
     /**
      * TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
      */
@@ -79,7 +79,7 @@ export interface GetTransitRouterRouteEntryResult {
     /**
      * 路由条目的更新时间。
      */
-    readonly updateTime: string;
+    readonly updatedTime: string;
 }
 /**
  * Data Source schema for Volcengine::TransitRouter::TransitRouterRouteEntry

@@ -22,14 +22,14 @@ public final class NlbListenerArgs extends com.pulumi.resources.ResourceArgs {
     public static final NlbListenerArgs Empty = new NlbListenerArgs();
 
     /**
-     * TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      * 
      */
     @Import(name="certificateId")
     private @Nullable Output<String> certificateId;
 
     /**
-     * @return TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+     * @return TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
      * 
      */
     public Optional<Output<String>> certificateId() {
@@ -149,14 +149,14 @@ public final class NlbListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 监听协议类型。
+     * 监听协议类型。TCP,UDP,TLS
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return 监听协议类型。
+     * @return 监听协议类型。TCP,UDP,TLS
      * 
      */
     public Output<String> protocol() {
@@ -253,7 +253,7 @@ public final class NlbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateId TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+         * @param certificateId TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class NlbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateId TLS监听器服务器证书的ID，仅支持传入火山引擎证书中心 SSL 证书。。
+         * @param certificateId TLS监听器服务器证书的ID，仅支持传入证书中心 SSL 证书。。
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class NlbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol 监听协议类型。
+         * @param protocol 监听协议类型。TCP,UDP,TLS
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class NlbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol 监听协议类型。
+         * @param protocol 监听协议类型。TCP,UDP,TLS
          * 
          * @return builder
          * 

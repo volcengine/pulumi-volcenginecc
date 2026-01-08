@@ -20,42 +20,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.volcengine.volcenginecc.transitrouter.TransitRouterRouteEntry;
- * import com.volcengine.volcenginecc.transitrouter.TransitRouterRouteEntryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var transitRouterRouteEntryDemo = new TransitRouterRouteEntry("transitRouterRouteEntryDemo", TransitRouterRouteEntryArgs.builder()
- *             .description("Demo Example")
- *             .destinationCidrBlock("192.168.1.101/*")
- *             .transitRouterRouteEntryName("test-Attachmentkua")
- *             .transitRouterRouteTableId("tr-rtb-mijcn***")
- *             .transitRouterRouteEntryNextHopId("tr-attach-13fs****")
- *             .transitRouterRouteEntryNextHopType("Attachment")
- *             .transitRouterRouteEntryType("Propagated")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -85,15 +49,15 @@ public class TransitRouterRouteEntry extends com.pulumi.resources.CustomResource
      * 路由条目的创建时间。
      * 
      */
-    @Export(name="creationTime", refs={String.class}, tree="[0]")
-    private Output<String> creationTime;
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
+    private Output<String> createdTime;
 
     /**
      * @return 路由条目的创建时间。
      * 
      */
-    public Output<String> creationTime() {
-        return this.creationTime;
+    public Output<String> createdTime() {
+        return this.createdTime;
     }
     /**
      * TR路由表路由条目的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -225,15 +189,15 @@ public class TransitRouterRouteEntry extends com.pulumi.resources.CustomResource
      * 路由条目的更新时间。
      * 
      */
-    @Export(name="updateTime", refs={String.class}, tree="[0]")
-    private Output<String> updateTime;
+    @Export(name="updatedTime", refs={String.class}, tree="[0]")
+    private Output<String> updatedTime;
 
     /**
      * @return 路由条目的更新时间。
      * 
      */
-    public Output<String> updateTime() {
-        return this.updateTime;
+    public Output<String> updatedTime() {
+        return this.updatedTime;
     }
 
     /**

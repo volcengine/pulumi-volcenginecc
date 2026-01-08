@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class NlbServerGroupHealthCheck
     {
         /// <summary>
-        /// 健康检查的域名
+        /// 健康检查的域名。
         /// </summary>
         public readonly string? Domain;
         /// <summary>
-        /// 是否开启健康检查
+        /// 是否开启健康检查。
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
         /// </summary>
         public readonly int? HealthyThreshold;
         /// <summary>
-        /// 健康检查正常的HTTP状态码
+        /// 健康检查正常的HTTP状态码。
         /// </summary>
         public readonly string? HttpCode;
         /// <summary>
@@ -35,7 +35,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// 健康检查的请求方法
+        /// 健康检查的请求方法。
         /// </summary>
         public readonly string? Method;
         /// <summary>
@@ -47,7 +47,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
         /// </summary>
         public readonly int? Timeout;
         /// <summary>
-        /// 健康检查的协议类型
+        /// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
         /// </summary>
         public readonly string? Type;
         /// <summary>
@@ -55,7 +55,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
         /// </summary>
         public readonly string? UdpExpect;
         /// <summary>
-        /// UDP健康检查的预期响应字符串
+        /// UDP健康检查的预期响应字符串。
         /// </summary>
         public readonly string? UdpRequest;
         /// <summary>
@@ -63,7 +63,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
         /// </summary>
         public readonly int? UnhealthyThreshold;
         /// <summary>
-        /// 健康检查的路径
+        /// 健康检查的路径。
         /// </summary>
         public readonly string? Uri;
 

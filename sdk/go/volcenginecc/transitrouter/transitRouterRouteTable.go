@@ -57,7 +57,7 @@ type TransitRouterRouteTable struct {
 	pulumi.CustomResourceState
 
 	// TR路由表的创建时间
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description pulumi.StringOutput `pulumi:"description"`
 	// TR路由表关联的收方向路由策略的ID
@@ -76,7 +76,7 @@ type TransitRouterRouteTable struct {
 	// TR路由表的类型。System：系统路由表。Custom：自定义路由表。
 	TransitRouterRouteTableType pulumi.StringOutput `pulumi:"transitRouterRouteTableType"`
 	// TR路由表的最近操作时间
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 }
 
 // NewTransitRouterRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -113,7 +113,7 @@ func GetTransitRouterRouteTable(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TransitRouterRouteTable resources.
 type transitRouterRouteTableState struct {
 	// TR路由表的创建时间
-	CreationTime *string `pulumi:"creationTime"`
+	CreatedTime *string `pulumi:"createdTime"`
 	// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description *string `pulumi:"description"`
 	// TR路由表关联的收方向路由策略的ID
@@ -132,12 +132,12 @@ type transitRouterRouteTableState struct {
 	// TR路由表的类型。System：系统路由表。Custom：自定义路由表。
 	TransitRouterRouteTableType *string `pulumi:"transitRouterRouteTableType"`
 	// TR路由表的最近操作时间
-	UpdateTime *string `pulumi:"updateTime"`
+	UpdatedTime *string `pulumi:"updatedTime"`
 }
 
 type TransitRouterRouteTableState struct {
 	// TR路由表的创建时间
-	CreationTime pulumi.StringPtrInput
+	CreatedTime pulumi.StringPtrInput
 	// TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
 	Description pulumi.StringPtrInput
 	// TR路由表关联的收方向路由策略的ID
@@ -156,7 +156,7 @@ type TransitRouterRouteTableState struct {
 	// TR路由表的类型。System：系统路由表。Custom：自定义路由表。
 	TransitRouterRouteTableType pulumi.StringPtrInput
 	// TR路由表的最近操作时间
-	UpdateTime pulumi.StringPtrInput
+	UpdatedTime pulumi.StringPtrInput
 }
 
 func (TransitRouterRouteTableState) ElementType() reflect.Type {
@@ -272,8 +272,8 @@ func (o TransitRouterRouteTableOutput) ToTransitRouterRouteTableOutputWithContex
 }
 
 // TR路由表的创建时间
-func (o TransitRouterRouteTableOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitRouterRouteTable) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+func (o TransitRouterRouteTableOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitRouterRouteTable) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // TR路由表的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -321,8 +321,8 @@ func (o TransitRouterRouteTableOutput) TransitRouterRouteTableType() pulumi.Stri
 }
 
 // TR路由表的最近操作时间
-func (o TransitRouterRouteTableOutput) UpdateTime() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitRouterRouteTable) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
+func (o TransitRouterRouteTableOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitRouterRouteTable) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 type TransitRouterRouteTableArrayOutput struct{ *pulumi.OutputState }

@@ -2252,31 +2252,31 @@ func (o NlbListenerTagArrayOutput) Index(i pulumi.IntInput) NlbListenerTagOutput
 }
 
 type NlbServerGroupHealthCheck struct {
-	// 健康检查的域名
+	// 健康检查的域名。
 	Domain *string `pulumi:"domain"`
-	// 是否开启健康检查
+	// 是否开启健康检查。
 	Enabled *bool `pulumi:"enabled"`
 	// 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
-	// 健康检查正常的HTTP状态码
+	// 健康检查正常的HTTP状态码。
 	HttpCode *string `pulumi:"httpCode"`
 	// 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
 	Interval *int `pulumi:"interval"`
-	// 健康检查的请求方法
+	// 健康检查的请求方法。
 	Method *string `pulumi:"method"`
 	// 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
 	Port *int `pulumi:"port"`
 	// 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
 	Timeout *int `pulumi:"timeout"`
-	// 健康检查的协议类型
+	// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 	Type *string `pulumi:"type"`
 	// UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
 	UdpExpect *string `pulumi:"udpExpect"`
-	// UDP健康检查的预期响应字符串
+	// UDP健康检查的预期响应字符串。
 	UdpRequest *string `pulumi:"udpRequest"`
 	// 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
 	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
-	// 健康检查的路径
+	// 健康检查的路径。
 	Uri *string `pulumi:"uri"`
 }
 
@@ -2292,31 +2292,31 @@ type NlbServerGroupHealthCheckInput interface {
 }
 
 type NlbServerGroupHealthCheckArgs struct {
-	// 健康检查的域名
+	// 健康检查的域名。
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// 是否开启健康检查
+	// 是否开启健康检查。
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
-	// 健康检查正常的HTTP状态码
+	// 健康检查正常的HTTP状态码。
 	HttpCode pulumi.StringPtrInput `pulumi:"httpCode"`
 	// 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// 健康检查的请求方法
+	// 健康检查的请求方法。
 	Method pulumi.StringPtrInput `pulumi:"method"`
 	// 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// 健康检查的协议类型
+	// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
 	UdpExpect pulumi.StringPtrInput `pulumi:"udpExpect"`
-	// UDP健康检查的预期响应字符串
+	// UDP健康检查的预期响应字符串。
 	UdpRequest pulumi.StringPtrInput `pulumi:"udpRequest"`
 	// 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
 	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
-	// 健康检查的路径
+	// 健康检查的路径。
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -2397,12 +2397,12 @@ func (o NlbServerGroupHealthCheckOutput) ToNlbServerGroupHealthCheckPtrOutputWit
 	}).(NlbServerGroupHealthCheckPtrOutput)
 }
 
-// 健康检查的域名
+// 健康检查的域名。
 func (o NlbServerGroupHealthCheckOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// 是否开启健康检查
+// 是否开启健康检查。
 func (o NlbServerGroupHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2412,7 +2412,7 @@ func (o NlbServerGroupHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// 健康检查正常的HTTP状态码
+// 健康检查正常的HTTP状态码。
 func (o NlbServerGroupHealthCheckOutput) HttpCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.HttpCode }).(pulumi.StringPtrOutput)
 }
@@ -2422,7 +2422,7 @@ func (o NlbServerGroupHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// 健康检查的请求方法
+// 健康检查的请求方法。
 func (o NlbServerGroupHealthCheckOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
@@ -2437,7 +2437,7 @@ func (o NlbServerGroupHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// 健康检查的协议类型
+// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 func (o NlbServerGroupHealthCheckOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2447,7 +2447,7 @@ func (o NlbServerGroupHealthCheckOutput) UdpExpect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.UdpExpect }).(pulumi.StringPtrOutput)
 }
 
-// UDP健康检查的预期响应字符串
+// UDP健康检查的预期响应字符串。
 func (o NlbServerGroupHealthCheckOutput) UdpRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.UdpRequest }).(pulumi.StringPtrOutput)
 }
@@ -2457,7 +2457,7 @@ func (o NlbServerGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// 健康检查的路径
+// 健康检查的路径。
 func (o NlbServerGroupHealthCheckOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupHealthCheck) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -2486,7 +2486,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) Elem() NlbServerGroupHealthCheckOutp
 	}).(NlbServerGroupHealthCheckOutput)
 }
 
-// 健康检查的域名
+// 健康检查的域名。
 func (o NlbServerGroupHealthCheckPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *string {
 		if v == nil {
@@ -2496,7 +2496,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 是否开启健康检查
+// 是否开启健康检查。
 func (o NlbServerGroupHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *bool {
 		if v == nil {
@@ -2516,7 +2516,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// 健康检查正常的HTTP状态码
+// 健康检查正常的HTTP状态码。
 func (o NlbServerGroupHealthCheckPtrOutput) HttpCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *string {
 		if v == nil {
@@ -2536,7 +2536,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 健康检查的请求方法
+// 健康检查的请求方法。
 func (o NlbServerGroupHealthCheckPtrOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *string {
 		if v == nil {
@@ -2566,7 +2566,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 健康检查的协议类型
+// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 func (o NlbServerGroupHealthCheckPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *string {
 		if v == nil {
@@ -2586,7 +2586,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) UdpExpect() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// UDP健康检查的预期响应字符串
+// UDP健康检查的预期响应字符串。
 func (o NlbServerGroupHealthCheckPtrOutput) UdpRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *string {
 		if v == nil {
@@ -2606,7 +2606,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// 健康检查的路径
+// 健康检查的路径。
 func (o NlbServerGroupHealthCheckPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NlbServerGroupHealthCheck) *string {
 		if v == nil {
@@ -2617,7 +2617,7 @@ func (o NlbServerGroupHealthCheckPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type NlbServerGroupServer struct {
-	// 后端服务器的描述，默认值为空字符串
+	// 后端服务器的描述，默认值为空字符串。
 	Description *string `pulumi:"description"`
 	// 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
 	InstanceId *string `pulumi:"instanceId"`
@@ -2625,11 +2625,11 @@ type NlbServerGroupServer struct {
 	Ip *string `pulumi:"ip"`
 	// 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
 	Port *int `pulumi:"port"`
-	// 后端服务器 ID
+	// 后端服务器 ID。
 	ServerId *string `pulumi:"serverId"`
-	// 后端服务器的类型
+	// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
 	Type *string `pulumi:"type"`
-	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
 	Weight *int `pulumi:"weight"`
 	// 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
 	ZoneId *string `pulumi:"zoneId"`
@@ -2647,7 +2647,7 @@ type NlbServerGroupServerInput interface {
 }
 
 type NlbServerGroupServerArgs struct {
-	// 后端服务器的描述，默认值为空字符串
+	// 后端服务器的描述，默认值为空字符串。
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
@@ -2655,11 +2655,11 @@ type NlbServerGroupServerArgs struct {
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
 	// 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// 后端服务器 ID
+	// 后端服务器 ID。
 	ServerId pulumi.StringPtrInput `pulumi:"serverId"`
-	// 后端服务器的类型
+	// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 	// 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
@@ -2716,7 +2716,7 @@ func (o NlbServerGroupServerOutput) ToNlbServerGroupServerOutputWithContext(ctx 
 	return o
 }
 
-// 后端服务器的描述，默认值为空字符串
+// 后端服务器的描述，默认值为空字符串。
 func (o NlbServerGroupServerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupServer) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -2736,17 +2736,17 @@ func (o NlbServerGroupServerOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupServer) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// 后端服务器 ID
+// 后端服务器 ID。
 func (o NlbServerGroupServerOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupServer) *string { return v.ServerId }).(pulumi.StringPtrOutput)
 }
 
-// 后端服务器的类型
+// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
 func (o NlbServerGroupServerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupServer) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
 func (o NlbServerGroupServerOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupServer) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -2777,9 +2777,9 @@ func (o NlbServerGroupServerArrayOutput) Index(i pulumi.IntInput) NlbServerGroup
 }
 
 type NlbServerGroupTag struct {
-	// 标签键
+	// 标签键。
 	Key *string `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value *string `pulumi:"value"`
 }
 
@@ -2795,9 +2795,9 @@ type NlbServerGroupTagInput interface {
 }
 
 type NlbServerGroupTagArgs struct {
-	// 标签键
+	// 标签键。
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2852,12 +2852,12 @@ func (o NlbServerGroupTagOutput) ToNlbServerGroupTagOutputWithContext(ctx contex
 	return o
 }
 
-// 标签键
+// 标签键。
 func (o NlbServerGroupTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签值
+// 标签值。
 func (o NlbServerGroupTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NlbServerGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5442,31 +5442,31 @@ func (o GetNlbListenerTagArrayOutput) Index(i pulumi.IntInput) GetNlbListenerTag
 }
 
 type GetNlbServerGroupHealthCheck struct {
-	// 健康检查的域名
+	// 健康检查的域名。
 	Domain string `pulumi:"domain"`
-	// 是否开启健康检查
+	// 是否开启健康检查。
 	Enabled bool `pulumi:"enabled"`
 	// 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
 	HealthyThreshold int `pulumi:"healthyThreshold"`
-	// 健康检查正常的HTTP状态码
+	// 健康检查正常的HTTP状态码。
 	HttpCode string `pulumi:"httpCode"`
 	// 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
 	Interval int `pulumi:"interval"`
-	// 健康检查的请求方法
+	// 健康检查的请求方法。
 	Method string `pulumi:"method"`
 	// 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
 	Port int `pulumi:"port"`
 	// 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
 	Timeout int `pulumi:"timeout"`
-	// 健康检查的协议类型
+	// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 	Type string `pulumi:"type"`
 	// UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
 	UdpExpect string `pulumi:"udpExpect"`
-	// UDP健康检查的预期响应字符串
+	// UDP健康检查的预期响应字符串。
 	UdpRequest string `pulumi:"udpRequest"`
 	// 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
 	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
-	// 健康检查的路径
+	// 健康检查的路径。
 	Uri string `pulumi:"uri"`
 }
 
@@ -5482,31 +5482,31 @@ type GetNlbServerGroupHealthCheckInput interface {
 }
 
 type GetNlbServerGroupHealthCheckArgs struct {
-	// 健康检查的域名
+	// 健康检查的域名。
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// 是否开启健康检查
+	// 是否开启健康检查。
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// 健康检查的健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“正常”的后端服务器将被判定为健康检查“正常”。
 	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
-	// 健康检查正常的HTTP状态码
+	// 健康检查正常的HTTP状态码。
 	HttpCode pulumi.StringInput `pulumi:"httpCode"`
 	// 健康检查的时间间隔，取值范围为1 ～ 300秒，默认值为10秒。
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// 健康检查的请求方法
+	// 健康检查的请求方法。
 	Method pulumi.StringInput `pulumi:"method"`
 	// 健康检查的端口，取值范围 1～65535。服务器组未开启全端口转发时，该参数默认为0，表示使用后端服务器的端口进行健康检查。服务器组开启全端口转发时，必须指定该参数。
 	Port pulumi.IntInput `pulumi:"port"`
 	// 健康检查的响应超时时间，取值范围为1 ～ 60秒，默认值为3秒。如果后端服务器在指定时间内没有正确响应，则判定为健康检查“异常”。
 	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// 健康检查的协议类型
+	// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 	Type pulumi.StringInput `pulumi:"type"`
 	// UDP健康检查的请求字符串。只允许包含字母和数字，最大长度限制为64个字符。
 	UdpExpect pulumi.StringInput `pulumi:"udpExpect"`
-	// UDP健康检查的预期响应字符串
+	// UDP健康检查的预期响应字符串。
 	UdpRequest pulumi.StringInput `pulumi:"udpRequest"`
 	// 健康检查的不健康阈值，取值范围为2 ～ 10次，默认值为3次。连续执行指定次数的健康检查，结果均为“异常”的后端服务器将被判定为健康检查异常。
 	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
-	// 健康检查的路径
+	// 健康检查的路径。
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -5536,12 +5536,12 @@ func (o GetNlbServerGroupHealthCheckOutput) ToGetNlbServerGroupHealthCheckOutput
 	return o
 }
 
-// 健康检查的域名
+// 健康检查的域名。
 func (o GetNlbServerGroupHealthCheckOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// 是否开启健康检查
+// 是否开启健康检查。
 func (o GetNlbServerGroupHealthCheckOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -5551,7 +5551,7 @@ func (o GetNlbServerGroupHealthCheckOutput) HealthyThreshold() pulumi.IntOutput 
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
-// 健康检查正常的HTTP状态码
+// 健康检查正常的HTTP状态码。
 func (o GetNlbServerGroupHealthCheckOutput) HttpCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.HttpCode }).(pulumi.StringOutput)
 }
@@ -5561,7 +5561,7 @@ func (o GetNlbServerGroupHealthCheckOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// 健康检查的请求方法
+// 健康检查的请求方法。
 func (o GetNlbServerGroupHealthCheckOutput) Method() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.Method }).(pulumi.StringOutput)
 }
@@ -5576,7 +5576,7 @@ func (o GetNlbServerGroupHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// 健康检查的协议类型
+// 健康检查的协议类型。取值如下：取值如下：TCP（默认值）、HTTP、UDP
 func (o GetNlbServerGroupHealthCheckOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5586,7 +5586,7 @@ func (o GetNlbServerGroupHealthCheckOutput) UdpExpect() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.UdpExpect }).(pulumi.StringOutput)
 }
 
-// UDP健康检查的预期响应字符串
+// UDP健康检查的预期响应字符串。
 func (o GetNlbServerGroupHealthCheckOutput) UdpRequest() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.UdpRequest }).(pulumi.StringOutput)
 }
@@ -5596,13 +5596,13 @@ func (o GetNlbServerGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutpu
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
 
-// 健康检查的路径
+// 健康检查的路径。
 func (o GetNlbServerGroupHealthCheckOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupHealthCheck) string { return v.Uri }).(pulumi.StringOutput)
 }
 
 type GetNlbServerGroupServer struct {
-	// 后端服务器的描述，默认值为空字符串
+	// 后端服务器的描述，默认值为空字符串。
 	Description string `pulumi:"description"`
 	// 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
 	InstanceId string `pulumi:"instanceId"`
@@ -5610,11 +5610,11 @@ type GetNlbServerGroupServer struct {
 	Ip string `pulumi:"ip"`
 	// 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
 	Port int `pulumi:"port"`
-	// 后端服务器 ID
+	// 后端服务器 ID。
 	ServerId string `pulumi:"serverId"`
-	// 后端服务器的类型
+	// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
 	Type string `pulumi:"type"`
-	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
 	Weight int `pulumi:"weight"`
 	// 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
 	ZoneId string `pulumi:"zoneId"`
@@ -5632,7 +5632,7 @@ type GetNlbServerGroupServerInput interface {
 }
 
 type GetNlbServerGroupServerArgs struct {
-	// 后端服务器的描述，默认值为空字符串
+	// 后端服务器的描述，默认值为空字符串。
 	Description pulumi.StringInput `pulumi:"description"`
 	// 服务器实例的ID或IP地址。服务器类型为“ecs”时，传入云服务器实例的ID。您可以调用DescribeInstances接口云服务器实例ID。服务器类型为“eni”时，传入已绑定云服务器实例的网卡ID。您可以调用DescribeNetworkInterfaces接口获取网卡ID。服务器类型为“ip”时，传入后端服务器的IP地址。
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
@@ -5640,11 +5640,11 @@ type GetNlbServerGroupServerArgs struct {
 	Ip pulumi.StringInput `pulumi:"ip"`
 	// 后端服务器接收请求的端口号，取值范围为 1～65535。参数AnyPortEnabled为“false”，即服务器组未开启全端口转发时，该参数为必填。参数AnyPortEnabled为“true”，即服务器组开启全端口转发时，该参数默认为0。
 	Port pulumi.IntInput `pulumi:"port"`
-	// 后端服务器 ID
+	// 后端服务器 ID。
 	ServerId pulumi.StringInput `pulumi:"serverId"`
-	// 后端服务器的类型
+	// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
 	Type pulumi.StringInput `pulumi:"type"`
-	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+	// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
 	Weight pulumi.IntInput `pulumi:"weight"`
 	// 指定后端服务器关联的NLB实例可用区。当参数Servers.N.Type为ip时，此参数必填。NLB实例开启跨可用区转发功能时，该后端服务器可以接收来自NLB实例所有可用区的流量。NLB实例关闭跨可用区转发功能时，则该后端服务器仅接收来自指定可用区的流量。
 	ZoneId pulumi.StringInput `pulumi:"zoneId"`
@@ -5701,7 +5701,7 @@ func (o GetNlbServerGroupServerOutput) ToGetNlbServerGroupServerOutputWithContex
 	return o
 }
 
-// 后端服务器的描述，默认值为空字符串
+// 后端服务器的描述，默认值为空字符串。
 func (o GetNlbServerGroupServerOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupServer) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -5721,17 +5721,17 @@ func (o GetNlbServerGroupServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNlbServerGroupServer) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// 后端服务器 ID
+// 后端服务器 ID。
 func (o GetNlbServerGroupServerOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupServer) string { return v.ServerId }).(pulumi.StringOutput)
 }
 
-// 后端服务器的类型
+// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
 func (o GetNlbServerGroupServerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupServer) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
 func (o GetNlbServerGroupServerOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNlbServerGroupServer) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -5762,9 +5762,9 @@ func (o GetNlbServerGroupServerArrayOutput) Index(i pulumi.IntInput) GetNlbServe
 }
 
 type GetNlbServerGroupTag struct {
-	// 标签键
+	// 标签键。
 	Key string `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value string `pulumi:"value"`
 }
 
@@ -5780,9 +5780,9 @@ type GetNlbServerGroupTagInput interface {
 }
 
 type GetNlbServerGroupTagArgs struct {
-	// 标签键
+	// 标签键。
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5837,12 +5837,12 @@ func (o GetNlbServerGroupTagOutput) ToGetNlbServerGroupTagOutputWithContext(ctx 
 	return o
 }
 
-// 标签键
+// 标签键。
 func (o GetNlbServerGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签值
+// 标签值。
 func (o GetNlbServerGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNlbServerGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }

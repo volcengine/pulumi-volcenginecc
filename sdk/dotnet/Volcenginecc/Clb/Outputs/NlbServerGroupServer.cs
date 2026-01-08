@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class NlbServerGroupServer
     {
         /// <summary>
-        /// 后端服务器的描述，默认值为空字符串
+        /// 后端服务器的描述，默认值为空字符串。
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -31,15 +31,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// 后端服务器 ID
+        /// 后端服务器 ID。
         /// </summary>
         public readonly string? ServerId;
         /// <summary>
-        /// 后端服务器的类型
+        /// 后端服务器的类型。取值如下：ecs：云服务器实例（即主网卡）。eni：辅助网卡。ip：IP地址。
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0
+        /// 后端服务器的权重，取值范围为0 ～ 100。权重为0，表示不会将请求转发给该服务器。该参数不传入，则默认为0。
         /// </summary>
         public readonly int? Weight;
         /// <summary>
