@@ -56,8 +56,6 @@ import (
 type TransitRouter struct {
 	pulumi.CustomResourceState
 
-	// 网络实例连接所属的账号ID。
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
 	Asn         pulumi.IntOutput                   `pulumi:"asn"`
 	Attachments TransitRouterAttachmentArrayOutput `pulumi:"attachments"`
@@ -116,8 +114,6 @@ func GetTransitRouter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransitRouter resources.
 type transitRouterState struct {
-	// 网络实例连接所属的账号ID。
-	AccountId *string `pulumi:"accountId"`
 	// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
 	Asn         *int                      `pulumi:"asn"`
 	Attachments []TransitRouterAttachment `pulumi:"attachments"`
@@ -147,8 +143,6 @@ type transitRouterState struct {
 }
 
 type TransitRouterState struct {
-	// 网络实例连接所属的账号ID。
-	AccountId pulumi.StringPtrInput
 	// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
 	Asn         pulumi.IntPtrInput
 	Attachments TransitRouterAttachmentArrayInput
@@ -182,8 +176,6 @@ func (TransitRouterState) ElementType() reflect.Type {
 }
 
 type transitRouterArgs struct {
-	// 网络实例连接所属的账号ID。
-	AccountId *string `pulumi:"accountId"`
 	// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
 	Asn *int `pulumi:"asn"`
 	// 中转路由器实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -197,8 +189,6 @@ type transitRouterArgs struct {
 
 // The set of arguments for constructing a TransitRouter resource.
 type TransitRouterArgs struct {
-	// 网络实例连接所属的账号ID。
-	AccountId pulumi.StringPtrInput
 	// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
 	Asn pulumi.IntPtrInput
 	// 中转路由器实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
@@ -295,11 +285,6 @@ func (o TransitRouterOutput) ToTransitRouterOutput() TransitRouterOutput {
 
 func (o TransitRouterOutput) ToTransitRouterOutputWithContext(ctx context.Context) TransitRouterOutput {
 	return o
-}
-
-// 网络实例连接所属的账号ID。
-func (o TransitRouterOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitRouter) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。

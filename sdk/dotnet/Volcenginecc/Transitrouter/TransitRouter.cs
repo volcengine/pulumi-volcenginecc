@@ -52,12 +52,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     public partial class TransitRouter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 网络实例连接所属的账号ID。
-        /// </summary>
-        [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
-
-        /// <summary>
         /// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         /// </summary>
         [Output("asn")]
@@ -183,12 +177,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     public sealed class TransitRouterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 网络实例连接所属的账号ID。
-        /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
-
-        /// <summary>
         /// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         /// </summary>
         [Input("asn")]
@@ -228,12 +216,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 
     public sealed class TransitRouterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// 网络实例连接所属的账号ID。
-        /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
-
         /// <summary>
         /// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         /// </summary>

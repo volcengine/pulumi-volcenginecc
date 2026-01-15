@@ -73,20 +73,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:transitrouter/transitRouter:TransitRouter")
 public class TransitRouter extends com.pulumi.resources.CustomResource {
     /**
-     * 网络实例连接所属的账号ID。
-     * 
-     */
-    @Export(name="accountId", refs={String.class}, tree="[0]")
-    private Output<String> accountId;
-
-    /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    public Output<String> accountId() {
-        return this.accountId;
-    }
-    /**
      * 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      * 
      */

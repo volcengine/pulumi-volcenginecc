@@ -14,12 +14,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter.Inputs
     public sealed class TransitRouterAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 网络实例连接所属的账号ID。
-        /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
-
-        /// <summary>
         /// 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
         /// </summary>
         [Input("autoPublishRouteEnabled")]

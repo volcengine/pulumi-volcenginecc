@@ -28,10 +28,7 @@ class GetTransitRouterResult:
     """
     A collection of values returned by getTransitRouter.
     """
-    def __init__(__self__, account_id=None, asn=None, attachments=None, business_status=None, creation_time=None, deleted_time=None, description=None, grant_status=None, id=None, overdue_time=None, project_name=None, status=None, tags=None, transit_router_id=None, transit_router_name=None, update_time=None):
-        if account_id and not isinstance(account_id, str):
-            raise TypeError("Expected argument 'account_id' to be a str")
-        pulumi.set(__self__, "account_id", account_id)
+    def __init__(__self__, asn=None, attachments=None, business_status=None, creation_time=None, deleted_time=None, description=None, grant_status=None, id=None, overdue_time=None, project_name=None, status=None, tags=None, transit_router_id=None, transit_router_name=None, update_time=None):
         if asn and not isinstance(asn, int):
             raise TypeError("Expected argument 'asn' to be a int")
         pulumi.set(__self__, "asn", asn)
@@ -77,14 +74,6 @@ class GetTransitRouterResult:
         if update_time and not isinstance(update_time, str):
             raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> builtins.str:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
@@ -213,7 +202,6 @@ class AwaitableGetTransitRouterResult(GetTransitRouterResult):
         if False:
             yield self
         return GetTransitRouterResult(
-            account_id=self.account_id,
             asn=self.asn,
             attachments=self.attachments,
             business_status=self.business_status,
@@ -245,7 +233,6 @@ def get_transit_router(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('volcenginecc:transitrouter/getTransitRouter:getTransitRouter', __args__, opts=opts, typ=GetTransitRouterResult).value
 
     return AwaitableGetTransitRouterResult(
-        account_id=pulumi.get(__ret__, 'account_id'),
         asn=pulumi.get(__ret__, 'asn'),
         attachments=pulumi.get(__ret__, 'attachments'),
         business_status=pulumi.get(__ret__, 'business_status'),
@@ -274,7 +261,6 @@ def get_transit_router_output(id: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:transitrouter/getTransitRouter:getTransitRouter', __args__, opts=opts, typ=GetTransitRouterResult)
     return __ret__.apply(lambda __response__: GetTransitRouterResult(
-        account_id=pulumi.get(__response__, 'account_id'),
         asn=pulumi.get(__response__, 'asn'),
         attachments=pulumi.get(__response__, 'attachments'),
         business_status=pulumi.get(__response__, 'business_status'),

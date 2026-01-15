@@ -158,7 +158,7 @@ require (
 	github.com/ulikunitz/xz v0.5.11 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
-	github.com/volcengine/terraform-provider-volcenginecc v0.0.23 // indirect
+	github.com/volcengine/terraform-provider-volcenginecc v0.0.24 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.23 // indirect
 	github.com/volcengine/volcengine-go-sdk v1.1.18 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect

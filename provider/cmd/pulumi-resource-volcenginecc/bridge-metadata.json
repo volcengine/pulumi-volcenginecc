@@ -774,6 +774,9 @@
                     }
                 }
             },
+            "volcenginecc_filenas_snapshot": {
+                "current": "volcenginecc:filenas/snapshot:Snapshot"
+            },
             "volcenginecc_fwcenter_dns_control_policy": {
                 "current": "volcenginecc:fwcenter/dnsControlPolicy:DnsControlPolicy",
                 "fields": {
@@ -1679,6 +1682,14 @@
                         "maxItemsOne": false
                     },
                     "user_cidr_blocks": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpn_vpn_gateway": {
+                "current": "volcenginecc:vpn/vpnGateway:VpnGateway",
+                "fields": {
+                    "tags": {
                         "maxItemsOne": false
                     }
                 }
@@ -2901,6 +2912,17 @@
             },
             "volcenginecc_filenas_instances": {
                 "current": "volcenginecc:filenas/getInstances:getInstances",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_filenas_snapshot": {
+                "current": "volcenginecc:filenas/getSnapshot:getSnapshot"
+            },
+            "volcenginecc_filenas_snapshots": {
+                "current": "volcenginecc:filenas/getSnapshots:getSnapshots",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -4239,6 +4261,22 @@
             },
             "volcenginecc_vpc_vpcs": {
                 "current": "volcenginecc:vpc/getVpcs:getVpcs",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpn_vpn_gateway": {
+                "current": "volcenginecc:vpn/getVpnGateway:getVpnGateway",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpn_vpn_gateways": {
+                "current": "volcenginecc:vpn/getVpnGateways:getVpnGateways",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

@@ -3187,7 +3187,9 @@ func (o InvocationParameterDefinitionArrayOutput) Index(i pulumi.IntInput) Invoc
 }
 
 type InvocationTag struct {
-	Key   *string `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value *string `pulumi:"value"`
 }
 
@@ -3203,7 +3205,9 @@ type InvocationTagInput interface {
 }
 
 type InvocationTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3258,10 +3262,12 @@ func (o InvocationTagOutput) ToInvocationTagOutputWithContext(ctx context.Contex
 	return o
 }
 
+// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
 func (o InvocationTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 func (o InvocationTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5478,7 +5484,9 @@ func (o GetInvocationParameterDefinitionArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetInvocationTag struct {
-	Key   string `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value string `pulumi:"value"`
 }
 
@@ -5494,7 +5502,9 @@ type GetInvocationTagInput interface {
 }
 
 type GetInvocationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5549,10 +5559,12 @@ func (o GetInvocationTagOutput) ToGetInvocationTagOutputWithContext(ctx context.
 	return o
 }
 
+// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
 func (o GetInvocationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInvocationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 func (o GetInvocationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInvocationTag) string { return v.Value }).(pulumi.StringOutput)
 }

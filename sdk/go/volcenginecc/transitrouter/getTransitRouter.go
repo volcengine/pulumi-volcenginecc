@@ -30,8 +30,6 @@ type LookupTransitRouterArgs struct {
 
 // A collection of values returned by getTransitRouter.
 type LookupTransitRouterResult struct {
-	// 网络实例连接所属的账号ID。
-	AccountId string `pulumi:"accountId"`
 	// 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
 	Asn int `pulumi:"asn"`
 	// 网络实例连接的详细信息。
@@ -96,11 +94,6 @@ func (o LookupTransitRouterResultOutput) ToLookupTransitRouterResultOutput() Loo
 
 func (o LookupTransitRouterResultOutput) ToLookupTransitRouterResultOutputWithContext(ctx context.Context) LookupTransitRouterResultOutput {
 	return o
-}
-
-// 网络实例连接所属的账号ID。
-func (o LookupTransitRouterResultOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTransitRouterResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。

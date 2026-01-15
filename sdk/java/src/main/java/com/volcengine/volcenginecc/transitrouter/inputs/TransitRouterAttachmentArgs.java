@@ -19,21 +19,6 @@ public final class TransitRouterAttachmentArgs extends com.pulumi.resources.Reso
     public static final TransitRouterAttachmentArgs Empty = new TransitRouterAttachmentArgs();
 
     /**
-     * 网络实例连接所属的账号ID。
-     * 
-     */
-    @Import(name="accountId")
-    private @Nullable Output<String> accountId;
-
-    /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    public Optional<Output<String>> accountId() {
-        return Optional.ofNullable(this.accountId);
-    }
-
-    /**
      * 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
      * 
      */
@@ -313,7 +298,6 @@ public final class TransitRouterAttachmentArgs extends com.pulumi.resources.Reso
     private TransitRouterAttachmentArgs() {}
 
     private TransitRouterAttachmentArgs(TransitRouterAttachmentArgs $) {
-        this.accountId = $.accountId;
         this.autoPublishRouteEnabled = $.autoPublishRouteEnabled;
         this.businessStatus = $.businessStatus;
         this.creationTime = $.creationTime;
@@ -351,27 +335,6 @@ public final class TransitRouterAttachmentArgs extends com.pulumi.resources.Reso
 
         public Builder(TransitRouterAttachmentArgs defaults) {
             $ = new TransitRouterAttachmentArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param accountId 网络实例连接所属的账号ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(@Nullable Output<String> accountId) {
-            $.accountId = accountId;
-            return this;
-        }
-
-        /**
-         * @param accountId 网络实例连接所属的账号ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(String accountId) {
-            return accountId(Output.of(accountId));
         }
 
         /**

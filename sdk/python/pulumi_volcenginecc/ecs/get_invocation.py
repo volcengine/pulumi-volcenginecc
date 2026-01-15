@@ -264,6 +264,9 @@ class GetInvocationResult:
     @property
     @pulumi.getter(name="parameterDefinitions")
     def parameter_definitions(self) -> Sequence['outputs.GetInvocationParameterDefinitionResult']:
+        """
+        任务触发时的命令自定义参数定义。
+        """
         return pulumi.get(self, "parameter_definitions")
 
     @property
@@ -309,6 +312,9 @@ class GetInvocationResult:
     @property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetInvocationTagResult']:
+        """
+        标签键值对。
+        """
         return pulumi.get(self, "tags")
 
     @property

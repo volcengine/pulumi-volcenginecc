@@ -1651,6 +1651,10 @@ class InvocationTag(dict):
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        :param builtins.str value: 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1659,11 +1663,17 @@ class InvocationTag(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         return pulumi.get(self, "value")
 
 
@@ -2895,17 +2905,27 @@ class GetInvocationTagResult(dict):
     def __init__(__self__, *,
                  key: builtins.str,
                  value: builtins.str):
+        """
+        :param builtins.str key: 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        :param builtins.str value: 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> builtins.str:
+        """
+        用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> builtins.str:
+        """
+        用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         return pulumi.get(self, "value")
 
 

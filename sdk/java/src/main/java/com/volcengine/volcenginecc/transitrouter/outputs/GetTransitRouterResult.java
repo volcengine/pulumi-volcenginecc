@@ -15,11 +15,6 @@ import java.util.Objects;
 @CustomType
 public final class GetTransitRouterResult {
     /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    private String accountId;
-    /**
      * @return 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      * 
      */
@@ -96,13 +91,6 @@ public final class GetTransitRouterResult {
     private String updateTime;
 
     private GetTransitRouterResult() {}
-    /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    public String accountId() {
-        return this.accountId;
-    }
     /**
      * @return 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      * 
@@ -218,7 +206,6 @@ public final class GetTransitRouterResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
         private Integer asn;
         private List<GetTransitRouterAttachment> attachments;
         private String businessStatus;
@@ -237,7 +224,6 @@ public final class GetTransitRouterResult {
         public Builder() {}
         public Builder(GetTransitRouterResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.accountId = defaults.accountId;
     	      this.asn = defaults.asn;
     	      this.attachments = defaults.attachments;
     	      this.businessStatus = defaults.businessStatus;
@@ -255,14 +241,6 @@ public final class GetTransitRouterResult {
     	      this.updateTime = defaults.updateTime;
         }
 
-        @CustomType.Setter
-        public Builder accountId(String accountId) {
-            if (accountId == null) {
-              throw new MissingRequiredPropertyException("GetTransitRouterResult", "accountId");
-            }
-            this.accountId = accountId;
-            return this;
-        }
         @CustomType.Setter
         public Builder asn(Integer asn) {
             if (asn == null) {
@@ -391,7 +369,6 @@ public final class GetTransitRouterResult {
         }
         public GetTransitRouterResult build() {
             final var _resultValue = new GetTransitRouterResult();
-            _resultValue.accountId = accountId;
             _resultValue.asn = asn;
             _resultValue.attachments = attachments;
             _resultValue.businessStatus = businessStatus;

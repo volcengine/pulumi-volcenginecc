@@ -65,7 +65,8 @@ type LookupInvocationResult struct {
 	// 命令执行的总执行状态。
 	InvocationStatus string `pulumi:"invocationStatus"`
 	// 执行时间。
-	LaunchTime           string                             `pulumi:"launchTime"`
+	LaunchTime string `pulumi:"launchTime"`
+	// 任务触发时的命令自定义参数定义。
 	ParameterDefinitions []GetInvocationParameterDefinition `pulumi:"parameterDefinitions"`
 	// 命令中包含自定义参数时，需通过本参数传入自定义参数的键值对。自定义参数个数范围为0~60。Key不允许为空字符串，最多支持64个字符。Value允许为空字符串。自定义参数与原始命令内容在Base64编码后，综合长度不能超过16KB。设置的自定义参数名集合必须为创建命令时定义的参数集的子集。对于未传入的参数，使用默认值代替。
 	Parameters string `pulumi:"parameters"`
@@ -76,8 +77,9 @@ type LookupInvocationResult struct {
 	// 设置命令执行的方式。Once：默认，表示立即执行命令。Rate：周期执行命令，需要通过Frequency参数传入Rate表达式指定执行周期。Fixed：定时执行命令，需要通过LaunchTime参数指定的执行时间。
 	RepeatMode string `pulumi:"repeatMode"`
 	// 任务开始时间。
-	StartTime string             `pulumi:"startTime"`
-	Tags      []GetInvocationTag `pulumi:"tags"`
+	StartTime string `pulumi:"startTime"`
+	// 标签键值对。
+	Tags []GetInvocationTag `pulumi:"tags"`
 	// 创建的命令在ECS实例中执行时最大的超时时间，单位为秒。默认值：60。可选范围为：30~86400。
 	Timeout int `pulumi:"timeout"`
 	// 在ECS实例中执行命令的用户名称。
@@ -212,6 +214,7 @@ func (o LookupInvocationResultOutput) LaunchTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.LaunchTime }).(pulumi.StringOutput)
 }
 
+// 任务触发时的命令自定义参数定义。
 func (o LookupInvocationResultOutput) ParameterDefinitions() GetInvocationParameterDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupInvocationResult) []GetInvocationParameterDefinition { return v.ParameterDefinitions }).(GetInvocationParameterDefinitionArrayOutput)
 }
@@ -241,6 +244,7 @@ func (o LookupInvocationResultOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
+// 标签键值对。
 func (o LookupInvocationResultOutput) Tags() GetInvocationTagArrayOutput {
 	return o.ApplyT(func(v LookupInvocationResult) []GetInvocationTag { return v.Tags }).(GetInvocationTagArrayOutput)
 }

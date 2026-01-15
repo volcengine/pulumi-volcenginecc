@@ -9355,10 +9355,12 @@
         "volcenginecc:ecs/InvocationTag:InvocationTag": {
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。\n"
                 }
             },
             "type": "object",
@@ -10100,10 +10102,12 @@
         "volcenginecc:ecs/getInvocationTag:getInvocationTag": {
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。\n"
                 }
             },
             "type": "object",
@@ -18315,10 +18319,6 @@
         },
         "volcenginecc:transitrouter/TransitRouterAttachment:TransitRouterAttachment": {
             "properties": {
-                "accountId": {
-                    "type": "string",
-                    "description": "网络实例连接所属的账号ID。\n"
-                },
                 "autoPublishRouteEnabled": {
                     "type": "boolean",
                     "description": "是否自动同步TR路由到网络实例路由表中。true：是。false：否。\n"
@@ -18402,7 +18402,6 @@
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
-                        "accountId",
                         "autoPublishRouteEnabled",
                         "businessStatus",
                         "creationTime",
@@ -18491,10 +18490,6 @@
         },
         "volcenginecc:transitrouter/getTransitRouterAttachment:getTransitRouterAttachment": {
             "properties": {
-                "accountId": {
-                    "type": "string",
-                    "description": "网络实例连接所属的账号ID。\n"
-                },
                 "autoPublishRouteEnabled": {
                     "type": "boolean",
                     "description": "是否自动同步TR路由到网络实例路由表中。true：是。false：否。\n"
@@ -18577,7 +18572,6 @@
             },
             "type": "object",
             "required": [
-                "accountId",
                 "autoPublishRouteEnabled",
                 "businessStatus",
                 "creationTime",
@@ -24318,6 +24312,49 @@
                 "value": {
                     "type": "string",
                     "description": "标签值。\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "volcenginecc:vpn/VpnGatewayTag:VpnGatewayTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "VPN网关标签的标签键（Key）。参数   - N：表示标签键的序号，取值范围：1～20。多个标签键之间用\u0026分隔。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。说明同一资源的标签键不允许重复。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "VPN网关标签的标签值（Value）。参数   - N：表示标签值的序号，取值范围：1～20。多个标签值之间用\u0026分隔。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。大小写敏感，不能以空格开头或结尾。说明传入Tags.N.Value则必须传入Tags.N.Key。\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "volcenginecc:vpn/getVpnGatewayTag:getVpnGatewayTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "VPN网关标签的标签键（Key）。参数   - N：表示标签键的序号，取值范围：1～20。多个标签键之间用\u0026分隔。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。说明同一资源的标签键不允许重复。\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "VPN网关标签的标签值（Value）。参数   - N：表示标签值的序号，取值范围：1～20。多个标签值之间用\u0026分隔。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。大小写敏感，不能以空格开头或结尾。说明传入Tags.N.Value则必须传入Tags.N.Key。\n"
                 }
             },
             "type": "object",
@@ -36159,6 +36196,163 @@
                 "type": "object"
             }
         },
+        "volcenginecc:filenas/snapshot:Snapshot": {
+            "description": "快照是一种备份方式，每个快照都是文件存储在某个时间点的备份。当数据丢失或故障时，您可以通过快照恢复文件存储数据，找回丢失的数据。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst fileNASSnapshotDemo = new volcenginecc.filenas.Snapshot(\"FileNASSnapshotDemo\", {\n    fileSystemId: \"enas-apse1a059****\",\n    snapshotName: \"FileNASSnapshotDemo\",\n    description: \"FileNASSnapshotDemo description\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nfile_nas_snapshot_demo = volcenginecc.filenas.Snapshot(\"FileNASSnapshotDemo\",\n    file_system_id=\"enas-apse1a059****\",\n    snapshot_name=\"FileNASSnapshotDemo\",\n    description=\"FileNASSnapshotDemo description\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var fileNASSnapshotDemo = new Volcenginecc.Filenas.Snapshot(\"FileNASSnapshotDemo\", new()\n    {\n        FileSystemId = \"enas-apse1a059****\",\n        SnapshotName = \"FileNASSnapshotDemo\",\n        Description = \"FileNASSnapshotDemo description\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/filenas\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := filenas.NewSnapshot(ctx, \"FileNASSnapshotDemo\", \u0026filenas.SnapshotArgs{\n\t\t\tFileSystemId: pulumi.String(\"enas-apse1a059****\"),\n\t\t\tSnapshotName: pulumi.String(\"FileNASSnapshotDemo\"),\n\t\t\tDescription:  pulumi.String(\"FileNASSnapshotDemo description\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.filenas.Snapshot;\nimport com.volcengine.volcenginecc.filenas.SnapshotArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var fileNASSnapshotDemo = new Snapshot(\"fileNASSnapshotDemo\", SnapshotArgs.builder()\n            .fileSystemId(\"enas-apse1a059****\")\n            .snapshotName(\"FileNASSnapshotDemo\")\n            .description(\"FileNASSnapshotDemo description\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  fileNASSnapshotDemo:\n    type: volcenginecc:filenas:Snapshot\n    name: FileNASSnapshotDemo\n    properties:\n      fileSystemId: enas-apse1a059****\n      snapshotName: FileNASSnapshotDemo\n      description: FileNASSnapshotDemo description\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:filenas/snapshot:Snapshot example \"snapshot_id\"\n```\n\n",
+            "properties": {
+                "createdTime": {
+                    "type": "string",
+                    "description": "快照创建时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "快照描述信息。\n"
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "文件系统 ID。\n"
+                },
+                "fileSystemName": {
+                    "type": "string",
+                    "description": "文件系统名称。\n"
+                },
+                "isEncrypt": {
+                    "type": "boolean",
+                    "description": "是否加密，当前仅支持false，即不加密。\n"
+                },
+                "progress": {
+                    "type": "string",
+                    "description": "快照创建进度。\n"
+                },
+                "retentionDays": {
+                    "type": "integer",
+                    "description": "快照保留时间，默认为2147483647，即永久保留。\n"
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "快照 ID。\n"
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "快照名称。\n"
+                },
+                "snapshotType": {
+                    "type": "string",
+                    "description": "快照类型，默认为Manual，即手动快照。\n"
+                },
+                "sourceSize": {
+                    "type": "integer",
+                    "description": "文件系统容量，单位为 GiB。\n"
+                },
+                "sourceVersion": {
+                    "type": "string",
+                    "description": "文件系统版本。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "快照状态。说明如下：Progressing：正在创建。Accomplished：创建成功。Failed：创建失败。\n"
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "可用区 ID。\n"
+                }
+            },
+            "required": [
+                "createdTime",
+                "description",
+                "fileSystemId",
+                "fileSystemName",
+                "isEncrypt",
+                "progress",
+                "retentionDays",
+                "snapshotId",
+                "snapshotName",
+                "snapshotType",
+                "sourceSize",
+                "sourceVersion",
+                "status",
+                "zoneId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "快照描述信息。\n"
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "文件系统 ID。\n"
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "快照名称。\n"
+                }
+            },
+            "requiredInputs": [
+                "fileSystemId",
+                "snapshotName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Snapshot resources.\n",
+                "properties": {
+                    "createdTime": {
+                        "type": "string",
+                        "description": "快照创建时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "快照描述信息。\n"
+                    },
+                    "fileSystemId": {
+                        "type": "string",
+                        "description": "文件系统 ID。\n"
+                    },
+                    "fileSystemName": {
+                        "type": "string",
+                        "description": "文件系统名称。\n"
+                    },
+                    "isEncrypt": {
+                        "type": "boolean",
+                        "description": "是否加密，当前仅支持false，即不加密。\n"
+                    },
+                    "progress": {
+                        "type": "string",
+                        "description": "快照创建进度。\n"
+                    },
+                    "retentionDays": {
+                        "type": "integer",
+                        "description": "快照保留时间，默认为2147483647，即永久保留。\n"
+                    },
+                    "snapshotId": {
+                        "type": "string",
+                        "description": "快照 ID。\n"
+                    },
+                    "snapshotName": {
+                        "type": "string",
+                        "description": "快照名称。\n"
+                    },
+                    "snapshotType": {
+                        "type": "string",
+                        "description": "快照类型，默认为Manual，即手动快照。\n"
+                    },
+                    "sourceSize": {
+                        "type": "integer",
+                        "description": "文件系统容量，单位为 GiB。\n"
+                    },
+                    "sourceVersion": {
+                        "type": "string",
+                        "description": "文件系统版本。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "快照状态。说明如下：Progressing：正在创建。Accomplished：创建成功。Failed：创建失败。\n"
+                    },
+                    "zoneId": {
+                        "type": "string",
+                        "description": "可用区 ID。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "volcenginecc:fwcenter/dnsControlPolicy:DnsControlPolicy": {
             "description": "域名黑名单访问控制策略。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  fWCenterDnsControlPolicyDemo:\n    type: volcenginecc:fwcenter:DnsControlPolicy\n    name: FWCenterDnsControlPolicyDemo\n    properties:\n      description: FWCenterDnsControlPolicyDemo test\n      destination: www.xxxx.com\n      destinationType: domain\n      internetFirewallId: ifw-yebxxxxx0iac7gxxxxx\n      sources:\n        - region: cn-beijing\n          vpc_id: vpc-3rehw4xxxxk2ixxxxx\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:fwcenter/dnsControlPolicy:DnsControlPolicy example \"rule_id\"\n```\n\n",
             "properties": {
@@ -36915,7 +37109,7 @@
             }
         },
         "volcenginecc:iam/group:Group": {
-            "description": "用户组是用户的集合。当用户组被关联上策略后，同一用户组里的所有用户会拥有对应的策略权限，同一个用户可存在于多个用户组中，可同时拥有多个用户组的权限。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  groupDemo:\n    type: volcenginecc:iam:Group\n    name: GroupDemo\n    properties:\n      userGroupName: GroupDemo\n      description: GroupDemo-Description\n      displayName: GroupDemo-DisplayName\n      users:\n        - user_name: demo\n      attachedPolicys:\n        - policyType: System\n          policyName: ECSFullAccess\n          policyScope:\n            - attachTime: 20230810T071***Z\n              policyScopeType: Project\n              projectDisplayName: demo\n              projectName: Project\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:iam/group:Group example \"user_group_name\"\n```\n\n",
+            "description": "用户组是用户的集合。当用户组被关联上策略后，同一用户组里的所有用户会拥有对应的策略权限，同一个用户可存在于多个用户组中，可同时拥有多个用户组的权限。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  groupDemo:\n    type: volcenginecc:iam:Group\n    name: GroupDemo\n    properties:\n      userGroupName: GroupDemo\n      description: GroupDemo-Description\n      displayName: GroupDemo-DisplayName\n      users:\n        - user_name: demo\n      attachedPolicies:\n        - policy_type: System\n          policy_name: ECSFullAccess\n          policy_scope:\n            - attachTime: 20230810T071***Z\n              policyScopeType: Project\n              projectDisplayName: demo\n              projectName: Project\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:iam/group:Group example \"user_group_name\"\n```\n\n",
             "properties": {
                 "accountId": {
                     "type": "integer",
@@ -37123,10 +37317,6 @@
                 "updatedTime"
             ],
             "inputProperties": {
-                "category": {
-                    "type": "string",
-                    "description": "系统预设策略所属的分类，通常为服务代码，对于自定义策略该字段不会返回值。\n"
-                },
                 "description": {
                     "type": "string",
                     "description": "策略描述，长度不超过128。\n"
@@ -44207,10 +44397,6 @@
         "volcenginecc:transitrouter/transitRouter:TransitRouter": {
             "description": "中转路由器服务的运行载体。接受来自网络实例的流量，并根据关联转发路由表进行转发。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst transitRouterDemo = new volcenginecc.transitrouter.TransitRouter(\"TransitRouterDemo\", {\n    transitRouterName: \"TransitRouterDemo\",\n    asn: 4200001111,\n    description: \"TransitRouterDemo\",\n    projectName: \"default\",\n    tags: [{\n        key: \"env\",\n        value: \"test\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\ntransit_router_demo = volcenginecc.transitrouter.TransitRouter(\"TransitRouterDemo\",\n    transit_router_name=\"TransitRouterDemo\",\n    asn=4200001111,\n    description=\"TransitRouterDemo\",\n    project_name=\"default\",\n    tags=[{\n        \"key\": \"env\",\n        \"value\": \"test\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var transitRouterDemo = new Volcenginecc.Transitrouter.TransitRouter(\"TransitRouterDemo\", new()\n    {\n        TransitRouterName = \"TransitRouterDemo\",\n        Asn = 4200001111,\n        Description = \"TransitRouterDemo\",\n        ProjectName = \"default\",\n        Tags = new[]\n        {\n            new Volcenginecc.Transitrouter.Inputs.TransitRouterTagArgs\n            {\n                Key = \"env\",\n                Value = \"test\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/transitrouter\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := transitrouter.NewTransitRouter(ctx, \"TransitRouterDemo\", \u0026transitrouter.TransitRouterArgs{\n\t\t\tTransitRouterName: pulumi.String(\"TransitRouterDemo\"),\n\t\t\tAsn:               pulumi.Int(4200001111),\n\t\t\tDescription:       pulumi.String(\"TransitRouterDemo\"),\n\t\t\tProjectName:       pulumi.String(\"default\"),\n\t\t\tTags: transitrouter.TransitRouterTagArray{\n\t\t\t\t\u0026transitrouter.TransitRouterTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"env\"),\n\t\t\t\t\tValue: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.transitrouter.TransitRouter;\nimport com.volcengine.volcenginecc.transitrouter.TransitRouterArgs;\nimport com.pulumi.volcenginecc.transitrouter.inputs.TransitRouterTagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var transitRouterDemo = new TransitRouter(\"transitRouterDemo\", TransitRouterArgs.builder()\n            .transitRouterName(\"TransitRouterDemo\")\n            .asn(4200001111)\n            .description(\"TransitRouterDemo\")\n            .projectName(\"default\")\n            .tags(TransitRouterTagArgs.builder()\n                .key(\"env\")\n                .value(\"test\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  transitRouterDemo:\n    type: volcenginecc:transitrouter:TransitRouter\n    name: TransitRouterDemo\n    properties:\n      transitRouterName: TransitRouterDemo\n      asn: 4.200001111e+09\n      description: TransitRouterDemo\n      projectName: default\n      tags:\n        - key: env\n          value: test\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:transitrouter/transitRouter:TransitRouter example \"transit_router_id\"\n```\n\n",
             "properties": {
-                "accountId": {
-                    "type": "string",
-                    "description": "网络实例连接所属的账号ID。\n"
-                },
                 "asn": {
                     "type": "integer",
                     "description": "中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。\n"
@@ -44273,7 +44459,6 @@
                 }
             },
             "required": [
-                "accountId",
                 "asn",
                 "attachments",
                 "businessStatus",
@@ -44290,10 +44475,6 @@
                 "updateTime"
             ],
             "inputProperties": {
-                "accountId": {
-                    "type": "string",
-                    "description": "网络实例连接所属的账号ID。\n"
-                },
                 "asn": {
                     "type": "integer",
                     "description": "中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。\n"
@@ -44320,10 +44501,6 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering TransitRouter resources.\n",
                 "properties": {
-                    "accountId": {
-                        "type": "string",
-                        "description": "网络实例连接所属的账号ID。\n"
-                    },
                     "asn": {
                         "type": "integer",
                         "description": "中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。\n"
@@ -49302,6 +49479,392 @@
                     "vpcName": {
                         "type": "string",
                         "description": "VPC的名称。长度限制为1 ~ 128个字符。需要以字母、中文或数字开头，可包含点号（.）、下划线（_）和短横线（-）。不填默认为VPC实例的ID。不能以http://或https://开头。\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "volcenginecc:vpn/vpnGateway:VpnGateway": {
+            "description": "当您需要通过VPN连接实现私有网络与本地数据中心或其他私有网络之间的通信，您需要先创建一个VPN网关。\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as volcenginecc from \"@volcengine/pulumi-volcenginecc\";\n\nconst vpnVpnGatewayDemo = new volcenginecc.vpn.VpnGateway(\"VpnVpnGatewayDemo\", {\n    bandwidth: 5,\n    billingType: 2,\n    description: \"this is a test description\",\n    dualTunnelEnabled: false,\n    ipStackType: \"ipv4_only\",\n    ipVersion: \"ipv4\",\n    vpnGatewayName: \"VpnVpnGatewayDemo\",\n    ipsecEnabled: true,\n    sslEnabled: true,\n    sslMaxConnections: 5,\n    projectName: \"default\",\n    vpcId: \"vpc-3nr6adxxxxu8931eb64y4z2\",\n    subnetId: \"subnet-btepcsxxxxw5h0b2u6hppyd\",\n});\n```\n```python\nimport pulumi\nimport pulumi_volcenginecc as volcenginecc\n\nvpn_vpn_gateway_demo = volcenginecc.vpn.VpnGateway(\"VpnVpnGatewayDemo\",\n    bandwidth=5,\n    billing_type=2,\n    description=\"this is a test description\",\n    dual_tunnel_enabled=False,\n    ip_stack_type=\"ipv4_only\",\n    ip_version=\"ipv4\",\n    vpn_gateway_name=\"VpnVpnGatewayDemo\",\n    ipsec_enabled=True,\n    ssl_enabled=True,\n    ssl_max_connections=5,\n    project_name=\"default\",\n    vpc_id=\"vpc-3nr6adxxxxu8931eb64y4z2\",\n    subnet_id=\"subnet-btepcsxxxxw5h0b2u6hppyd\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Volcenginecc = Volcengine.Pulumi.Volcenginecc;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var vpnVpnGatewayDemo = new Volcenginecc.Vpn.VpnGateway(\"VpnVpnGatewayDemo\", new()\n    {\n        Bandwidth = 5,\n        BillingType = 2,\n        Description = \"this is a test description\",\n        DualTunnelEnabled = false,\n        IpStackType = \"ipv4_only\",\n        IpVersion = \"ipv4\",\n        VpnGatewayName = \"VpnVpnGatewayDemo\",\n        IpsecEnabled = true,\n        SslEnabled = true,\n        SslMaxConnections = 5,\n        ProjectName = \"default\",\n        VpcId = \"vpc-3nr6adxxxxu8931eb64y4z2\",\n        SubnetId = \"subnet-btepcsxxxxw5h0b2u6hppyd\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vpn\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := vpn.NewVpnGateway(ctx, \"VpnVpnGatewayDemo\", \u0026vpn.VpnGatewayArgs{\n\t\t\tBandwidth:         pulumi.Int(5),\n\t\t\tBillingType:       pulumi.Int(2),\n\t\t\tDescription:       pulumi.String(\"this is a test description\"),\n\t\t\tDualTunnelEnabled: pulumi.Bool(false),\n\t\t\tIpStackType:       pulumi.String(\"ipv4_only\"),\n\t\t\tIpVersion:         pulumi.String(\"ipv4\"),\n\t\t\tVpnGatewayName:    pulumi.String(\"VpnVpnGatewayDemo\"),\n\t\t\tIpsecEnabled:      pulumi.Bool(true),\n\t\t\tSslEnabled:        pulumi.Bool(true),\n\t\t\tSslMaxConnections: pulumi.Int(5),\n\t\t\tProjectName:       pulumi.String(\"default\"),\n\t\t\tVpcId:             pulumi.String(\"vpc-3nr6adxxxxu8931eb64y4z2\"),\n\t\t\tSubnetId:          pulumi.String(\"subnet-btepcsxxxxw5h0b2u6hppyd\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.volcengine.volcenginecc.vpn.VpnGateway;\nimport com.volcengine.volcenginecc.vpn.VpnGatewayArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var vpnVpnGatewayDemo = new VpnGateway(\"vpnVpnGatewayDemo\", VpnGatewayArgs.builder()\n            .bandwidth(5)\n            .billingType(2)\n            .description(\"this is a test description\")\n            .dualTunnelEnabled(false)\n            .ipStackType(\"ipv4_only\")\n            .ipVersion(\"ipv4\")\n            .vpnGatewayName(\"VpnVpnGatewayDemo\")\n            .ipsecEnabled(true)\n            .sslEnabled(true)\n            .sslMaxConnections(5)\n            .projectName(\"default\")\n            .vpcId(\"vpc-3nr6adxxxxu8931eb64y4z2\")\n            .subnetId(\"subnet-btepcsxxxxw5h0b2u6hppyd\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  vpnVpnGatewayDemo:\n    type: volcenginecc:vpn:VpnGateway\n    name: VpnVpnGatewayDemo\n    properties:\n      bandwidth: 5\n      billingType: 2\n      description: this is a test description\n      dualTunnelEnabled: false\n      ipStackType: ipv4_only\n      ipVersion: ipv4\n      vpnGatewayName: VpnVpnGatewayDemo\n      ipsecEnabled: true\n      sslEnabled: true\n      sslMaxConnections: 5\n      projectName: default\n      vpcId: vpc-3nr6adxxxxu8931eb64y4z2\n      subnetId: subnet-btepcsxxxxw5h0b2u6hppyd\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import volcenginecc:vpn/vpnGateway:VpnGateway example \"vpn_gateway_id\"\n```\n\n",
+            "properties": {
+                "asn": {
+                    "type": "integer",
+                    "description": "VPN网关的ASN。\n"
+                },
+                "bandwidth": {
+                    "type": "integer",
+                    "description": "VPN网关的带宽规格。\n"
+                },
+                "billingType": {
+                    "type": "integer",
+                    "description": "VPN网关的计费类型。1：包年包月。2：按量计费（按固定规格）\n"
+                },
+                "businessStatus": {
+                    "type": "string",
+                    "description": "VPN网关的计费状态。Normal: 正常。FinancialLocked: 被锁定。\n"
+                },
+                "connectionCount": {
+                    "type": "integer",
+                    "description": "VPN网关关联IPsec连接的数量。\n"
+                },
+                "createTime": {
+                    "type": "string",
+                    "description": "创建VPN网关的时间。\n"
+                },
+                "deletedTime": {
+                    "type": "string",
+                    "description": "预期资源强制回收时间。\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "VPN网关的描述。\n"
+                },
+                "dualTunnelEnabled": {
+                    "type": "boolean",
+                    "description": "VPN网关是否开启双隧道模式。true：开启false：关闭\n"
+                },
+                "expiredTime": {
+                    "type": "string",
+                    "description": "VPN网关的到期时间。\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "VPN网关的公网IP地址。\n"
+                },
+                "ipStackType": {
+                    "type": "string",
+                    "description": "VPN 网关的协议类型。ipv4*only：IPv4协议类型。ipv6*only：IPv6协议类型。ipv4_ipv6：双栈协议类型。\n"
+                },
+                "ipVersion": {
+                    "type": "string",
+                    "description": "VPN网关的IP地址类型。ipv4：IPv4地址类型。ipv6：IPv6地址类型。\n"
+                },
+                "ipsecEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启IPSec功能。true：开启false：关闭。\n"
+                },
+                "isBlocked": {
+                    "type": "boolean",
+                    "description": "当前资源的状态是否被封禁。true：封禁false：未封禁。\n"
+                },
+                "lockReason": {
+                    "type": "string",
+                    "description": "VPN网关的锁定原因。financial：因欠费被锁定。security：因安全被锁定。unlock：未锁定。\n"
+                },
+                "overdueTime": {
+                    "type": "string",
+                    "description": "资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值，否则均返回空值。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "包年包月类型VPN网关购买的时长，默认“1”。当PeriodUnit传入值为Month，Period取值范围：1~9、12、24、36。当PeriodUnit传入值为Year，Period取值范围：1～3。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "包年包月类型VPN网关购买时长的单位，默认“Month”。Month：月Year：年\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "VPN网关所属的项目。不填默认为default，即创建的资源属于default项目。您可调用ListProjects查询当前账号下项目的信息。\n"
+                },
+                "routeCount": {
+                    "type": "integer",
+                    "description": "VPN网关的路由条目数量。\n"
+                },
+                "secondaryIpAddress": {
+                    "type": "string",
+                    "description": "VPN网关的第二个公网IP地址。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n"
+                },
+                "secondarySubnetId": {
+                    "type": "string",
+                    "description": "VPN网关实例关联的第二个子网的ID。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n"
+                },
+                "sslEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启SSL VPN功能。true：开启false：关闭\n"
+                },
+                "sslMaxConnections": {
+                    "type": "integer",
+                    "description": "VPN网关的最大SSL连接数。\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "VPN网关的状态。Creating: 创建中Deleting: 删除中Pending：配置中Available：可用\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "VPN网关使用的端口所属子网的ID。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vpn/VpnGatewayTag:VpnGatewayTag"
+                    }
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "更新VPN网关的时间。\n"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPN网关所在VPC的ID。\n"
+                },
+                "vpnGatewayId": {
+                    "type": "string",
+                    "description": "VPN网关的ID。\n"
+                },
+                "vpnGatewayName": {
+                    "type": "string",
+                    "description": "VPN网关的名称。\n"
+                }
+            },
+            "required": [
+                "asn",
+                "bandwidth",
+                "billingType",
+                "businessStatus",
+                "connectionCount",
+                "createTime",
+                "deletedTime",
+                "description",
+                "dualTunnelEnabled",
+                "expiredTime",
+                "ipAddress",
+                "ipStackType",
+                "ipVersion",
+                "ipsecEnabled",
+                "isBlocked",
+                "lockReason",
+                "overdueTime",
+                "period",
+                "periodUnit",
+                "projectName",
+                "routeCount",
+                "secondaryIpAddress",
+                "secondarySubnetId",
+                "sslEnabled",
+                "sslMaxConnections",
+                "status",
+                "subnetId",
+                "tags",
+                "updateTime",
+                "vpcId",
+                "vpnGatewayId",
+                "vpnGatewayName"
+            ],
+            "inputProperties": {
+                "asn": {
+                    "type": "integer",
+                    "description": "VPN网关的ASN。\n"
+                },
+                "bandwidth": {
+                    "type": "integer",
+                    "description": "VPN网关的带宽规格。\n"
+                },
+                "billingType": {
+                    "type": "integer",
+                    "description": "VPN网关的计费类型。1：包年包月。2：按量计费（按固定规格）\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "VPN网关的描述。\n"
+                },
+                "dualTunnelEnabled": {
+                    "type": "boolean",
+                    "description": "VPN网关是否开启双隧道模式。true：开启false：关闭\n"
+                },
+                "ipStackType": {
+                    "type": "string",
+                    "description": "VPN 网关的协议类型。ipv4*only：IPv4协议类型。ipv6*only：IPv6协议类型。ipv4_ipv6：双栈协议类型。\n"
+                },
+                "ipVersion": {
+                    "type": "string",
+                    "description": "VPN网关的IP地址类型。ipv4：IPv4地址类型。ipv6：IPv6地址类型。\n"
+                },
+                "ipsecEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启IPSec功能。true：开启false：关闭。\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "包年包月类型VPN网关购买的时长，默认“1”。当PeriodUnit传入值为Month，Period取值范围：1~9、12、24、36。当PeriodUnit传入值为Year，Period取值范围：1～3。\n"
+                },
+                "periodUnit": {
+                    "type": "string",
+                    "description": "包年包月类型VPN网关购买时长的单位，默认“Month”。Month：月Year：年\n"
+                },
+                "projectName": {
+                    "type": "string",
+                    "description": "VPN网关所属的项目。不填默认为default，即创建的资源属于default项目。您可调用ListProjects查询当前账号下项目的信息。\n"
+                },
+                "secondarySubnetId": {
+                    "type": "string",
+                    "description": "VPN网关实例关联的第二个子网的ID。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n"
+                },
+                "sslEnabled": {
+                    "type": "boolean",
+                    "description": "是否开启SSL VPN功能。true：开启false：关闭\n"
+                },
+                "sslMaxConnections": {
+                    "type": "integer",
+                    "description": "VPN网关的最大SSL连接数。\n"
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "VPN网关使用的端口所属子网的ID。\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/volcenginecc:vpn/VpnGatewayTag:VpnGatewayTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPN网关所在VPC的ID。\n"
+                },
+                "vpnGatewayName": {
+                    "type": "string",
+                    "description": "VPN网关的名称。\n"
+                }
+            },
+            "requiredInputs": [
+                "bandwidth",
+                "subnetId",
+                "vpcId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VpnGateway resources.\n",
+                "properties": {
+                    "asn": {
+                        "type": "integer",
+                        "description": "VPN网关的ASN。\n"
+                    },
+                    "bandwidth": {
+                        "type": "integer",
+                        "description": "VPN网关的带宽规格。\n"
+                    },
+                    "billingType": {
+                        "type": "integer",
+                        "description": "VPN网关的计费类型。1：包年包月。2：按量计费（按固定规格）\n"
+                    },
+                    "businessStatus": {
+                        "type": "string",
+                        "description": "VPN网关的计费状态。Normal: 正常。FinancialLocked: 被锁定。\n"
+                    },
+                    "connectionCount": {
+                        "type": "integer",
+                        "description": "VPN网关关联IPsec连接的数量。\n"
+                    },
+                    "createTime": {
+                        "type": "string",
+                        "description": "创建VPN网关的时间。\n"
+                    },
+                    "deletedTime": {
+                        "type": "string",
+                        "description": "预期资源强制回收时间。\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "VPN网关的描述。\n"
+                    },
+                    "dualTunnelEnabled": {
+                        "type": "boolean",
+                        "description": "VPN网关是否开启双隧道模式。true：开启false：关闭\n"
+                    },
+                    "expiredTime": {
+                        "type": "string",
+                        "description": "VPN网关的到期时间。\n"
+                    },
+                    "ipAddress": {
+                        "type": "string",
+                        "description": "VPN网关的公网IP地址。\n"
+                    },
+                    "ipStackType": {
+                        "type": "string",
+                        "description": "VPN 网关的协议类型。ipv4*only：IPv4协议类型。ipv6*only：IPv6协议类型。ipv4_ipv6：双栈协议类型。\n"
+                    },
+                    "ipVersion": {
+                        "type": "string",
+                        "description": "VPN网关的IP地址类型。ipv4：IPv4地址类型。ipv6：IPv6地址类型。\n"
+                    },
+                    "ipsecEnabled": {
+                        "type": "boolean",
+                        "description": "是否开启IPSec功能。true：开启false：关闭。\n"
+                    },
+                    "isBlocked": {
+                        "type": "boolean",
+                        "description": "当前资源的状态是否被封禁。true：封禁false：未封禁。\n"
+                    },
+                    "lockReason": {
+                        "type": "string",
+                        "description": "VPN网关的锁定原因。financial：因欠费被锁定。security：因安全被锁定。unlock：未锁定。\n"
+                    },
+                    "overdueTime": {
+                        "type": "string",
+                        "description": "资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值，否则均返回空值。\n"
+                    },
+                    "period": {
+                        "type": "integer",
+                        "description": "包年包月类型VPN网关购买的时长，默认“1”。当PeriodUnit传入值为Month，Period取值范围：1~9、12、24、36。当PeriodUnit传入值为Year，Period取值范围：1～3。\n"
+                    },
+                    "periodUnit": {
+                        "type": "string",
+                        "description": "包年包月类型VPN网关购买时长的单位，默认“Month”。Month：月Year：年\n"
+                    },
+                    "projectName": {
+                        "type": "string",
+                        "description": "VPN网关所属的项目。不填默认为default，即创建的资源属于default项目。您可调用ListProjects查询当前账号下项目的信息。\n"
+                    },
+                    "routeCount": {
+                        "type": "integer",
+                        "description": "VPN网关的路由条目数量。\n"
+                    },
+                    "secondaryIpAddress": {
+                        "type": "string",
+                        "description": "VPN网关的第二个公网IP地址。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n"
+                    },
+                    "secondarySubnetId": {
+                        "type": "string",
+                        "description": "VPN网关实例关联的第二个子网的ID。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n"
+                    },
+                    "sslEnabled": {
+                        "type": "boolean",
+                        "description": "是否开启SSL VPN功能。true：开启false：关闭\n"
+                    },
+                    "sslMaxConnections": {
+                        "type": "integer",
+                        "description": "VPN网关的最大SSL连接数。\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "VPN网关的状态。Creating: 创建中Deleting: 删除中Pending：配置中Available：可用\n"
+                    },
+                    "subnetId": {
+                        "type": "string",
+                        "description": "VPN网关使用的端口所属子网的ID。\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vpn/VpnGatewayTag:VpnGatewayTag"
+                        }
+                    },
+                    "updateTime": {
+                        "type": "string",
+                        "description": "更新VPN网关的时间。\n"
+                    },
+                    "vpcId": {
+                        "type": "string",
+                        "description": "VPN网关所在VPC的ID。\n"
+                    },
+                    "vpnGatewayId": {
+                        "type": "string",
+                        "description": "VPN网关的ID。\n"
+                    },
+                    "vpnGatewayName": {
+                        "type": "string",
+                        "description": "VPN网关的名称。\n"
                     }
                 },
                 "type": "object"
@@ -56621,6 +57184,7 @@
                         "type": "string"
                     },
                     "parameterDefinitions": {
+                        "description": "任务触发时的命令自定义参数定义。\n",
                         "items": {
                             "$ref": "#/types/volcenginecc:ecs/getInvocationParameterDefinition:getInvocationParameterDefinition"
                         },
@@ -56647,6 +57211,7 @@
                         "type": "string"
                     },
                     "tags": {
+                        "description": "标签键值对。\n",
                         "items": {
                             "$ref": "#/types/volcenginecc:ecs/getInvocationTag:getInvocationTag"
                         },
@@ -57241,6 +57806,129 @@
             "description": "Plural Data Source schema for Volcengine::FileNAS::Instance\n",
             "outputs": {
                 "description": "A collection of values returned by getInstances.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:filenas/getSnapshot:getSnapshot": {
+            "description": "Data Source schema for Volcengine::FileNAS::Snapshot\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSnapshot.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSnapshot.\n",
+                "properties": {
+                    "createdTime": {
+                        "description": "快照创建时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "快照描述信息。\n",
+                        "type": "string"
+                    },
+                    "fileSystemId": {
+                        "description": "文件系统 ID。\n",
+                        "type": "string"
+                    },
+                    "fileSystemName": {
+                        "description": "文件系统名称。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "isEncrypt": {
+                        "description": "是否加密，当前仅支持false，即不加密。\n",
+                        "type": "boolean"
+                    },
+                    "progress": {
+                        "description": "快照创建进度。\n",
+                        "type": "string"
+                    },
+                    "retentionDays": {
+                        "description": "快照保留时间，默认为2147483647，即永久保留。\n",
+                        "type": "integer"
+                    },
+                    "snapshotId": {
+                        "description": "快照 ID。\n",
+                        "type": "string"
+                    },
+                    "snapshotName": {
+                        "description": "快照名称。\n",
+                        "type": "string"
+                    },
+                    "snapshotType": {
+                        "description": "快照类型，默认为Manual，即手动快照。\n",
+                        "type": "string"
+                    },
+                    "sourceSize": {
+                        "description": "文件系统容量，单位为 GiB。\n",
+                        "type": "integer"
+                    },
+                    "sourceVersion": {
+                        "description": "文件系统版本。\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "快照状态。说明如下：Progressing：正在创建。Accomplished：创建成功。Failed：创建失败。\n",
+                        "type": "string"
+                    },
+                    "zoneId": {
+                        "description": "可用区 ID。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdTime",
+                    "description",
+                    "fileSystemId",
+                    "fileSystemName",
+                    "id",
+                    "isEncrypt",
+                    "progress",
+                    "retentionDays",
+                    "snapshotId",
+                    "snapshotName",
+                    "snapshotType",
+                    "sourceSize",
+                    "sourceVersion",
+                    "status",
+                    "zoneId"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:filenas/getSnapshots:getSnapshots": {
+            "description": "Plural Data Source schema for Volcengine::FileNAS::Snapshot\n",
+            "outputs": {
+                "description": "A collection of values returned by getSnapshots.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",
@@ -62207,10 +62895,6 @@
             "outputs": {
                 "description": "A collection of values returned by getTransitRouter.\n",
                 "properties": {
-                    "accountId": {
-                        "description": "网络实例连接所属的账号ID。\n",
-                        "type": "string"
-                    },
                     "asn": {
                         "description": "中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。\n",
                         "type": "integer"
@@ -62279,7 +62963,6 @@
                     }
                 },
                 "required": [
-                    "accountId",
                     "asn",
                     "attachments",
                     "businessStatus",
@@ -65397,6 +66080,222 @@
             "description": "Plural Data Source schema for Volcengine::VPC::VPC\n",
             "outputs": {
                 "description": "A collection of values returned by getVpcs.\n",
+                "properties": {
+                    "id": {
+                        "description": "Uniquely identifies the data source.\n",
+                        "type": "string"
+                    },
+                    "ids": {
+                        "description": "Set of Resource Identifiers.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "ids"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vpn/getVpnGateway:getVpnGateway": {
+            "description": "Data Source schema for Volcengine::VPN::VPNGateway\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getVpnGateway.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Uniquely identifies the resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVpnGateway.\n",
+                "properties": {
+                    "asn": {
+                        "description": "VPN网关的ASN。\n",
+                        "type": "integer"
+                    },
+                    "bandwidth": {
+                        "description": "VPN网关的带宽规格。\n",
+                        "type": "integer"
+                    },
+                    "billingType": {
+                        "description": "VPN网关的计费类型。1：包年包月。2：按量计费（按固定规格）\n",
+                        "type": "integer"
+                    },
+                    "businessStatus": {
+                        "description": "VPN网关的计费状态。Normal: 正常。FinancialLocked: 被锁定。\n",
+                        "type": "string"
+                    },
+                    "connectionCount": {
+                        "description": "VPN网关关联IPsec连接的数量。\n",
+                        "type": "integer"
+                    },
+                    "createTime": {
+                        "description": "创建VPN网关的时间。\n",
+                        "type": "string"
+                    },
+                    "deletedTime": {
+                        "description": "预期资源强制回收时间。\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "VPN网关的描述。\n",
+                        "type": "string"
+                    },
+                    "dualTunnelEnabled": {
+                        "description": "VPN网关是否开启双隧道模式。true：开启false：关闭\n",
+                        "type": "boolean"
+                    },
+                    "expiredTime": {
+                        "description": "VPN网关的到期时间。\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Uniquely identifies the resource.\n",
+                        "type": "string"
+                    },
+                    "ipAddress": {
+                        "description": "VPN网关的公网IP地址。\n",
+                        "type": "string"
+                    },
+                    "ipStackType": {
+                        "description": "VPN 网关的协议类型。ipv4*only：IPv4协议类型。ipv6*only：IPv6协议类型。ipv4_ipv6：双栈协议类型。\n",
+                        "type": "string"
+                    },
+                    "ipVersion": {
+                        "description": "VPN网关的IP地址类型。ipv4：IPv4地址类型。ipv6：IPv6地址类型。\n",
+                        "type": "string"
+                    },
+                    "ipsecEnabled": {
+                        "description": "是否开启IPSec功能。true：开启false：关闭。\n",
+                        "type": "boolean"
+                    },
+                    "isBlocked": {
+                        "description": "当前资源的状态是否被封禁。true：封禁false：未封禁。\n",
+                        "type": "boolean"
+                    },
+                    "lockReason": {
+                        "description": "VPN网关的锁定原因。financial：因欠费被锁定。security：因安全被锁定。unlock：未锁定。\n",
+                        "type": "string"
+                    },
+                    "overdueTime": {
+                        "description": "资源冻结时间。仅当资源因为欠费冻结，此参数才会有返回值，否则均返回空值。\n",
+                        "type": "string"
+                    },
+                    "period": {
+                        "description": "包年包月类型VPN网关购买的时长，默认“1”。当PeriodUnit传入值为Month，Period取值范围：1~9、12、24、36。当PeriodUnit传入值为Year，Period取值范围：1～3。\n",
+                        "type": "integer"
+                    },
+                    "periodUnit": {
+                        "description": "包年包月类型VPN网关购买时长的单位，默认“Month”。Month：月Year：年\n",
+                        "type": "string"
+                    },
+                    "projectName": {
+                        "description": "VPN网关所属的项目。不填默认为default，即创建的资源属于default项目。您可调用ListProjects查询当前账号下项目的信息。\n",
+                        "type": "string"
+                    },
+                    "routeCount": {
+                        "description": "VPN网关的路由条目数量。\n",
+                        "type": "integer"
+                    },
+                    "secondaryIpAddress": {
+                        "description": "VPN网关的第二个公网IP地址。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n",
+                        "type": "string"
+                    },
+                    "secondarySubnetId": {
+                        "description": "VPN网关实例关联的第二个子网的ID。仅双隧道模式的VPN网关实例返回该参数，单隧道模式的VPN网关实例不返回该参数。\n",
+                        "type": "string"
+                    },
+                    "sslEnabled": {
+                        "description": "是否开启SSL VPN功能。true：开启false：关闭\n",
+                        "type": "boolean"
+                    },
+                    "sslMaxConnections": {
+                        "description": "VPN网关的最大SSL连接数。\n",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "VPN网关的状态。Creating: 创建中Deleting: 删除中Pending：配置中Available：可用\n",
+                        "type": "string"
+                    },
+                    "subnetId": {
+                        "description": "VPN网关使用的端口所属子网的ID。\n",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "VPN网关已添加的全部标签信息。\n",
+                        "items": {
+                            "$ref": "#/types/volcenginecc:vpn/getVpnGatewayTag:getVpnGatewayTag"
+                        },
+                        "type": "array"
+                    },
+                    "updateTime": {
+                        "description": "更新VPN网关的时间。\n",
+                        "type": "string"
+                    },
+                    "vpcId": {
+                        "description": "VPN网关所在VPC的ID。\n",
+                        "type": "string"
+                    },
+                    "vpnGatewayId": {
+                        "description": "VPN网关的ID。\n",
+                        "type": "string"
+                    },
+                    "vpnGatewayName": {
+                        "description": "VPN网关的名称。\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "asn",
+                    "bandwidth",
+                    "billingType",
+                    "businessStatus",
+                    "connectionCount",
+                    "createTime",
+                    "deletedTime",
+                    "description",
+                    "dualTunnelEnabled",
+                    "expiredTime",
+                    "id",
+                    "ipAddress",
+                    "ipStackType",
+                    "ipVersion",
+                    "ipsecEnabled",
+                    "isBlocked",
+                    "lockReason",
+                    "overdueTime",
+                    "period",
+                    "periodUnit",
+                    "projectName",
+                    "routeCount",
+                    "secondaryIpAddress",
+                    "secondarySubnetId",
+                    "sslEnabled",
+                    "sslMaxConnections",
+                    "status",
+                    "subnetId",
+                    "tags",
+                    "updateTime",
+                    "vpcId",
+                    "vpnGatewayId",
+                    "vpnGatewayName"
+                ],
+                "type": "object"
+            }
+        },
+        "volcenginecc:vpn/getVpnGateways:getVpnGateways": {
+            "description": "Plural Data Source schema for Volcengine::VPN::VPNGateway\n",
+            "outputs": {
+                "description": "A collection of values returned by getVpnGateways.\n",
                 "properties": {
                     "id": {
                         "description": "Uniquely identifies the data source.\n",

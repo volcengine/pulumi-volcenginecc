@@ -102,6 +102,9 @@ export interface GetInvocationResult {
      * 执行时间。
      */
     readonly launchTime: string;
+    /**
+     * 任务触发时的命令自定义参数定义。
+     */
     readonly parameterDefinitions: outputs.ecs.GetInvocationParameterDefinition[];
     /**
      * 命令中包含自定义参数时，需通过本参数传入自定义参数的键值对。自定义参数个数范围为0~60。Key不允许为空字符串，最多支持64个字符。Value允许为空字符串。自定义参数与原始命令内容在Base64编码后，综合长度不能超过16KB。设置的自定义参数名集合必须为创建命令时定义的参数集的子集。对于未传入的参数，使用默认值代替。
@@ -123,6 +126,9 @@ export interface GetInvocationResult {
      * 任务开始时间。
      */
     readonly startTime: string;
+    /**
+     * 标签键值对。
+     */
     readonly tags: outputs.ecs.GetInvocationTag[];
     /**
      * 创建的命令在ECS实例中执行时最大的超时时间，单位为秒。默认值：60。可选范围为：30~86400。
