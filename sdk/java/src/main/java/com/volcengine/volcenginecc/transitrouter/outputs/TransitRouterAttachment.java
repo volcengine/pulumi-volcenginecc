@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransitRouterAttachment {
     /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    private @Nullable String accountId;
-    /**
      * @return 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
      * 
      */
@@ -112,13 +107,6 @@ public final class TransitRouterAttachment {
     private @Nullable String updateTime;
 
     private TransitRouterAttachment() {}
-    /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    public Optional<String> accountId() {
-        return Optional.ofNullable(this.accountId);
-    }
     /**
      * @return 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
      * 
@@ -258,7 +246,6 @@ public final class TransitRouterAttachment {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String accountId;
         private @Nullable Boolean autoPublishRouteEnabled;
         private @Nullable String businessStatus;
         private @Nullable String creationTime;
@@ -281,7 +268,6 @@ public final class TransitRouterAttachment {
         public Builder() {}
         public Builder(TransitRouterAttachment defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.accountId = defaults.accountId;
     	      this.autoPublishRouteEnabled = defaults.autoPublishRouteEnabled;
     	      this.businessStatus = defaults.businessStatus;
     	      this.creationTime = defaults.creationTime;
@@ -303,12 +289,6 @@ public final class TransitRouterAttachment {
     	      this.updateTime = defaults.updateTime;
         }
 
-        @CustomType.Setter
-        public Builder accountId(@Nullable String accountId) {
-
-            this.accountId = accountId;
-            return this;
-        }
         @CustomType.Setter
         public Builder autoPublishRouteEnabled(@Nullable Boolean autoPublishRouteEnabled) {
 
@@ -428,7 +408,6 @@ public final class TransitRouterAttachment {
         }
         public TransitRouterAttachment build() {
             final var _resultValue = new TransitRouterAttachment();
-            _resultValue.accountId = accountId;
             _resultValue.autoPublishRouteEnabled = autoPublishRouteEnabled;
             _resultValue.businessStatus = businessStatus;
             _resultValue.creationTime = creationTime;

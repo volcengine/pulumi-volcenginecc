@@ -30,10 +30,6 @@ MYPY = False
 
 if not MYPY:
     class TransitRouterAttachmentArgsDict(TypedDict):
-        account_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        网络实例连接所属的账号ID。
-        """
         auto_publish_route_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
         是否自动同步TR路由到网络实例路由表中。true：是。false：否。
@@ -113,7 +109,6 @@ elif False:
 @pulumi.input_type
 class TransitRouterAttachmentArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  auto_publish_route_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  business_status: Optional[pulumi.Input[builtins.str]] = None,
                  creation_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -134,7 +129,6 @@ class TransitRouterAttachmentArgs:
                  transit_router_traffic_qos_queue_policy_id: Optional[pulumi.Input[builtins.str]] = None,
                  update_time: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] account_id: 网络实例连接所属的账号ID。
         :param pulumi.Input[builtins.bool] auto_publish_route_enabled: 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
         :param pulumi.Input[builtins.str] business_status: 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
         :param pulumi.Input[builtins.str] creation_time: 网络实例连接的创建时间。
@@ -154,8 +148,6 @@ class TransitRouterAttachmentArgs:
         :param pulumi.Input[builtins.str] transit_router_traffic_qos_queue_policy_id: 跨地域连接关联的流队列策略的ID。
         :param pulumi.Input[builtins.str] update_time: 网络实例连接的最近操作时间。
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if auto_publish_route_enabled is not None:
             pulumi.set(__self__, "auto_publish_route_enabled", auto_publish_route_enabled)
         if business_status is not None:
@@ -194,18 +186,6 @@ class TransitRouterAttachmentArgs:
             pulumi.set(__self__, "transit_router_traffic_qos_queue_policy_id", transit_router_traffic_qos_queue_policy_id)
         if update_time is not None:
             pulumi.set(__self__, "update_time", update_time)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="autoPublishRouteEnabled")

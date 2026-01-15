@@ -15,10 +15,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter.Outputs
     public sealed class TransitRouterAttachment
     {
         /// <summary>
-        /// 网络实例连接所属的账号ID。
-        /// </summary>
-        public readonly string? AccountId;
-        /// <summary>
         /// 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
         /// </summary>
         public readonly bool? AutoPublishRouteEnabled;
@@ -94,8 +90,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter.Outputs
 
         [OutputConstructor]
         private TransitRouterAttachment(
-            string? accountId,
-
             bool? autoPublishRouteEnabled,
 
             string? businessStatus,
@@ -134,7 +128,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter.Outputs
 
             string? updateTime)
         {
-            AccountId = accountId;
             AutoPublishRouteEnabled = autoPublishRouteEnabled;
             BusinessStatus = businessStatus;
             CreationTime = creationTime;

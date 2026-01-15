@@ -19,21 +19,6 @@ public final class TransitRouterArgs extends com.pulumi.resources.ResourceArgs {
     public static final TransitRouterArgs Empty = new TransitRouterArgs();
 
     /**
-     * 网络实例连接所属的账号ID。
-     * 
-     */
-    @Import(name="accountId")
-    private @Nullable Output<String> accountId;
-
-    /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    public Optional<Output<String>> accountId() {
-        return Optional.ofNullable(this.accountId);
-    }
-
-    /**
      * 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      * 
      */
@@ -103,7 +88,6 @@ public final class TransitRouterArgs extends com.pulumi.resources.ResourceArgs {
     private TransitRouterArgs() {}
 
     private TransitRouterArgs(TransitRouterArgs $) {
-        this.accountId = $.accountId;
         this.asn = $.asn;
         this.description = $.description;
         this.projectName = $.projectName;
@@ -127,27 +111,6 @@ public final class TransitRouterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TransitRouterArgs defaults) {
             $ = new TransitRouterArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param accountId 网络实例连接所属的账号ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(@Nullable Output<String> accountId) {
-            $.accountId = accountId;
-            return this;
-        }
-
-        /**
-         * @param accountId 网络实例连接所属的账号ID。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountId(String accountId) {
-            return accountId(Output.of(accountId));
         }
 
         /**

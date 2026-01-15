@@ -22,7 +22,6 @@ __all__ = ['TransitRouterArgs', 'TransitRouter']
 @pulumi.input_type
 class TransitRouterArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  asn: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -30,14 +29,11 @@ class TransitRouterArgs:
                  transit_router_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TransitRouter resource.
-        :param pulumi.Input[builtins.str] account_id: 网络实例连接所属的账号ID。
         :param pulumi.Input[builtins.int] asn: 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         :param pulumi.Input[builtins.str] description: 中转路由器实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] project_name: 中转路由器实例所属项目的名称。不传入该参数或该参数不传入数值时，默认为default。
         :param pulumi.Input[builtins.str] transit_router_name: 中转路由器实例的名称。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为中转路由器实例的ID。
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
         if description is not None:
@@ -48,18 +44,6 @@ class TransitRouterArgs:
             pulumi.set(__self__, "tags", tags)
         if transit_router_name is not None:
             pulumi.set(__self__, "transit_router_name", transit_router_name)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -122,7 +106,6 @@ class TransitRouterArgs:
 @pulumi.input_type
 class _TransitRouterState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  asn: Optional[pulumi.Input[builtins.int]] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['TransitRouterAttachmentArgs']]]] = None,
                  business_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -139,7 +122,6 @@ class _TransitRouterState:
                  update_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitRouter resources.
-        :param pulumi.Input[builtins.str] account_id: 网络实例连接所属的账号ID。
         :param pulumi.Input[builtins.int] asn: 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         :param pulumi.Input[builtins.str] business_status: 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
         :param pulumi.Input[builtins.str] creation_time: 网络实例连接的创建时间。
@@ -153,8 +135,6 @@ class _TransitRouterState:
         :param pulumi.Input[builtins.str] transit_router_name: 中转路由器实例的名称。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：点号（.）、下划线（_）和短横线（-）。长度限制为1 ~ 128个字符。不传入该参数或该参数不传入数值时，默认为中转路由器实例的ID。
         :param pulumi.Input[builtins.str] update_time: 中转路由器实例的最近操作时间。
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
         if attachments is not None:
@@ -183,18 +163,6 @@ class _TransitRouterState:
             pulumi.set(__self__, "transit_router_name", transit_router_name)
         if update_time is not None:
             pulumi.set(__self__, "update_time", update_time)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -365,7 +333,6 @@ class TransitRouter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  asn: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -400,7 +367,6 @@ class TransitRouter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_id: 网络实例连接所属的账号ID。
         :param pulumi.Input[builtins.int] asn: 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         :param pulumi.Input[builtins.str] description: 中转路由器实例的描述信息。必须以字母、数字或中文开头，可包含字母、数字、中文和以下特殊字符：英文逗号（,）、点号（.）、下划线（_）、空格（ ）、等号（=）、短横线（-）、中文逗号（，）、中文句号（。）。长度限制为0 ~ 255个字符。不传入该参数或该参数不传入数值时，默认为空字符串。
         :param pulumi.Input[builtins.str] project_name: 中转路由器实例所属项目的名称。不传入该参数或该参数不传入数值时，默认为default。
@@ -453,7 +419,6 @@ class TransitRouter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None,
                  asn: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -468,7 +433,6 @@ class TransitRouter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransitRouterArgs.__new__(TransitRouterArgs)
 
-            __props__.__dict__["account_id"] = account_id
             __props__.__dict__["asn"] = asn
             __props__.__dict__["description"] = description
             __props__.__dict__["project_name"] = project_name
@@ -493,7 +457,6 @@ class TransitRouter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[builtins.str]] = None,
             asn: Optional[pulumi.Input[builtins.int]] = None,
             attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TransitRouterAttachmentArgs', 'TransitRouterAttachmentArgsDict']]]]] = None,
             business_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -515,7 +478,6 @@ class TransitRouter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_id: 网络实例连接所属的账号ID。
         :param pulumi.Input[builtins.int] asn: 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
         :param pulumi.Input[builtins.str] business_status: 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
         :param pulumi.Input[builtins.str] creation_time: 网络实例连接的创建时间。
@@ -533,7 +495,6 @@ class TransitRouter(pulumi.CustomResource):
 
         __props__ = _TransitRouterState.__new__(_TransitRouterState)
 
-        __props__.__dict__["account_id"] = account_id
         __props__.__dict__["asn"] = asn
         __props__.__dict__["attachments"] = attachments
         __props__.__dict__["business_status"] = business_status
@@ -549,14 +510,6 @@ class TransitRouter(pulumi.CustomResource):
         __props__.__dict__["transit_router_name"] = transit_router_name
         __props__.__dict__["update_time"] = update_time
         return TransitRouter(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[builtins.str]:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter

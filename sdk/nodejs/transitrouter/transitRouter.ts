@@ -62,10 +62,6 @@ export class TransitRouter extends pulumi.CustomResource {
     }
 
     /**
-     * 网络实例连接所属的账号ID。
-     */
-    public readonly accountId!: pulumi.Output<string>;
-    /**
      * 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      */
     public readonly asn!: pulumi.Output<number>;
@@ -129,7 +125,6 @@ export class TransitRouter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitRouterState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["asn"] = state ? state.asn : undefined;
             resourceInputs["attachments"] = state ? state.attachments : undefined;
             resourceInputs["businessStatus"] = state ? state.businessStatus : undefined;
@@ -146,7 +141,6 @@ export class TransitRouter extends pulumi.CustomResource {
             resourceInputs["updateTime"] = state ? state.updateTime : undefined;
         } else {
             const args = argsOrState as TransitRouterArgs | undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["asn"] = args ? args.asn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
@@ -171,10 +165,6 @@ export class TransitRouter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TransitRouter resources.
  */
 export interface TransitRouterState {
-    /**
-     * 网络实例连接所属的账号ID。
-     */
-    accountId?: pulumi.Input<string>;
     /**
      * 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      */
@@ -231,10 +221,6 @@ export interface TransitRouterState {
  * The set of arguments for constructing a TransitRouter resource.
  */
 export interface TransitRouterArgs {
-    /**
-     * 网络实例连接所属的账号ID。
-     */
-    accountId?: pulumi.Input<string>;
     /**
      * 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      */

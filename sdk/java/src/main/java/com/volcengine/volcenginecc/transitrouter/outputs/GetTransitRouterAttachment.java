@@ -14,11 +14,6 @@ import java.util.Objects;
 @CustomType
 public final class GetTransitRouterAttachment {
     /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    private String accountId;
-    /**
      * @return 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
      * 
      */
@@ -115,13 +110,6 @@ public final class GetTransitRouterAttachment {
     private String updateTime;
 
     private GetTransitRouterAttachment() {}
-    /**
-     * @return 网络实例连接所属的账号ID。
-     * 
-     */
-    public String accountId() {
-        return this.accountId;
-    }
     /**
      * @return 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
      * 
@@ -265,7 +253,6 @@ public final class GetTransitRouterAttachment {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountId;
         private Boolean autoPublishRouteEnabled;
         private String businessStatus;
         private String creationTime;
@@ -288,7 +275,6 @@ public final class GetTransitRouterAttachment {
         public Builder() {}
         public Builder(GetTransitRouterAttachment defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.accountId = defaults.accountId;
     	      this.autoPublishRouteEnabled = defaults.autoPublishRouteEnabled;
     	      this.businessStatus = defaults.businessStatus;
     	      this.creationTime = defaults.creationTime;
@@ -310,14 +296,6 @@ public final class GetTransitRouterAttachment {
     	      this.updateTime = defaults.updateTime;
         }
 
-        @CustomType.Setter
-        public Builder accountId(String accountId) {
-            if (accountId == null) {
-              throw new MissingRequiredPropertyException("GetTransitRouterAttachment", "accountId");
-            }
-            this.accountId = accountId;
-            return this;
-        }
         @CustomType.Setter
         public Builder autoPublishRouteEnabled(Boolean autoPublishRouteEnabled) {
             if (autoPublishRouteEnabled == null) {
@@ -475,7 +453,6 @@ public final class GetTransitRouterAttachment {
         }
         public GetTransitRouterAttachment build() {
             final var _resultValue = new GetTransitRouterAttachment();
-            _resultValue.accountId = accountId;
             _resultValue.autoPublishRouteEnabled = autoPublishRouteEnabled;
             _resultValue.businessStatus = businessStatus;
             _resultValue.creationTime = creationTime;

@@ -14,8 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TransitRouterAttachment struct {
-	// 网络实例连接所属的账号ID。
-	AccountId *string `pulumi:"accountId"`
 	// 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
 	AutoPublishRouteEnabled *bool `pulumi:"autoPublishRouteEnabled"`
 	// 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
@@ -67,8 +65,6 @@ type TransitRouterAttachmentInput interface {
 }
 
 type TransitRouterAttachmentArgs struct {
-	// 网络实例连接所属的账号ID。
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
 	AutoPublishRouteEnabled pulumi.BoolPtrInput `pulumi:"autoPublishRouteEnabled"`
 	// 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
@@ -157,11 +153,6 @@ func (o TransitRouterAttachmentOutput) ToTransitRouterAttachmentOutput() Transit
 
 func (o TransitRouterAttachmentOutput) ToTransitRouterAttachmentOutputWithContext(ctx context.Context) TransitRouterAttachmentOutput {
 	return o
-}
-
-// 网络实例连接所属的账号ID。
-func (o TransitRouterAttachmentOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransitRouterAttachment) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
@@ -597,8 +588,6 @@ func (o TransitRouterTagArrayOutput) Index(i pulumi.IntInput) TransitRouterTagOu
 }
 
 type GetTransitRouterAttachment struct {
-	// 网络实例连接所属的账号ID。
-	AccountId string `pulumi:"accountId"`
 	// 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
 	AutoPublishRouteEnabled bool `pulumi:"autoPublishRouteEnabled"`
 	// 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
@@ -651,8 +640,6 @@ type GetTransitRouterAttachmentInput interface {
 }
 
 type GetTransitRouterAttachmentArgs struct {
-	// 网络实例连接所属的账号ID。
-	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
 	AutoPublishRouteEnabled pulumi.BoolInput `pulumi:"autoPublishRouteEnabled"`
 	// 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
@@ -742,11 +729,6 @@ func (o GetTransitRouterAttachmentOutput) ToGetTransitRouterAttachmentOutput() G
 
 func (o GetTransitRouterAttachmentOutput) ToGetTransitRouterAttachmentOutputWithContext(ctx context.Context) GetTransitRouterAttachmentOutput {
 	return o
-}
-
-// 网络实例连接所属的账号ID。
-func (o GetTransitRouterAttachmentOutput) AccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTransitRouterAttachment) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // 是否自动同步TR路由到网络实例路由表中。true：是。false：否。

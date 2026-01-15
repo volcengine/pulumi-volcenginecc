@@ -97,6 +97,8 @@ if typing.TYPE_CHECKING:
     vmp = __vmp
     import pulumi_volcenginecc.vpc as __vpc
     vpc = __vpc
+    import pulumi_volcenginecc.vpn as __vpn
+    vpn = __vpn
     import pulumi_volcenginecc.waf as __waf
     waf = __waf
 else:
@@ -143,6 +145,7 @@ else:
     vke = _utilities.lazy_import('pulumi_volcenginecc.vke')
     vmp = _utilities.lazy_import('pulumi_volcenginecc.vmp')
     vpc = _utilities.lazy_import('pulumi_volcenginecc.vpc')
+    vpn = _utilities.lazy_import('pulumi_volcenginecc.vpn')
     waf = _utilities.lazy_import('pulumi_volcenginecc.waf')
 
 _utilities.register(
@@ -514,6 +517,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.filenas",
   "classes": {
    "volcenginecc:filenas/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "filenas/snapshot",
+  "fqn": "pulumi_volcenginecc.filenas",
+  "classes": {
+   "volcenginecc:filenas/snapshot:Snapshot": "Snapshot"
   }
  },
  {
@@ -922,6 +933,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpc",
   "classes": {
    "volcenginecc:vpc/vpc:Vpc": "Vpc"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpn/vpnGateway",
+  "fqn": "pulumi_volcenginecc.vpn",
+  "classes": {
+   "volcenginecc:vpn/vpnGateway:VpnGateway": "VpnGateway"
   }
  },
  {

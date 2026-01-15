@@ -31,10 +31,6 @@ export interface GetTransitRouterArgs {
  */
 export interface GetTransitRouterResult {
     /**
-     * 网络实例连接所属的账号ID。
-     */
-    readonly accountId: string;
-    /**
      * 中转路由器的ASN号。取值范围为64512 ～ 65534 和 4200000000 ～ 4294967294，默认值为64512。
      */
     readonly asn: number;

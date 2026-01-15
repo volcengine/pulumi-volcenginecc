@@ -2811,7 +2811,13 @@ export namespace ecs {
     }
 
     export interface InvocationTag {
+        /**
+         * 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+         */
         key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+         */
         value?: pulumi.Input<string>;
     }
 
@@ -5174,10 +5180,6 @@ export namespace tos {
 export namespace transitrouter {
     export interface TransitRouterAttachment {
         /**
-         * 网络实例连接所属的账号ID。
-         */
-        accountId?: pulumi.Input<string>;
-        /**
          * 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
          */
         autoPublishRouteEnabled?: pulumi.Input<boolean>;
@@ -6854,6 +6856,19 @@ export namespace vpc {
         key?: pulumi.Input<string>;
         /**
          * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+}
+
+export namespace vpn {
+    export interface VpnGatewayTag {
+        /**
+         * VPN网关标签的标签键（Key）。参数   - N：表示标签键的序号，取值范围：1～20。多个标签键之间用&分隔。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。说明同一资源的标签键不允许重复。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * VPN网关标签的标签值（Value）。参数   - N：表示标签值的序号，取值范围：1～20。多个标签值之间用&分隔。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。大小写敏感，不能以空格开头或结尾。说明传入Tags.N.Value则必须传入Tags.N.Key。
          */
         value?: pulumi.Input<string>;
     }

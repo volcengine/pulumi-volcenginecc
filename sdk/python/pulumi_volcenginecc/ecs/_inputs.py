@@ -2136,7 +2136,13 @@ class InvocationParameterDefinitionArgs:
 if not MYPY:
     class InvocationTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        """
         value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
 elif False:
     InvocationTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2145,6 +2151,10 @@ class InvocationTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        :param pulumi.Input[builtins.str] value: 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -2153,6 +2163,9 @@ class InvocationTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2162,6 +2175,9 @@ class InvocationTagArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         return pulumi.get(self, "value")
 
     @value.setter

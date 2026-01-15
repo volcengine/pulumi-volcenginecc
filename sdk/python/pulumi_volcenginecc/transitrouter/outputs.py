@@ -32,9 +32,7 @@ class TransitRouterAttachment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "accountId":
-            suggest = "account_id"
-        elif key == "autoPublishRouteEnabled":
+        if key == "autoPublishRouteEnabled":
             suggest = "auto_publish_route_enabled"
         elif key == "businessStatus":
             suggest = "business_status"
@@ -79,7 +77,6 @@ class TransitRouterAttachment(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_id: Optional[builtins.str] = None,
                  auto_publish_route_enabled: Optional[builtins.bool] = None,
                  business_status: Optional[builtins.str] = None,
                  creation_time: Optional[builtins.str] = None,
@@ -100,7 +97,6 @@ class TransitRouterAttachment(dict):
                  transit_router_traffic_qos_queue_policy_id: Optional[builtins.str] = None,
                  update_time: Optional[builtins.str] = None):
         """
-        :param builtins.str account_id: 网络实例连接所属的账号ID。
         :param builtins.bool auto_publish_route_enabled: 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
         :param builtins.str business_status: 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
         :param builtins.str creation_time: 网络实例连接的创建时间。
@@ -120,8 +116,6 @@ class TransitRouterAttachment(dict):
         :param builtins.str transit_router_traffic_qos_queue_policy_id: 跨地域连接关联的流队列策略的ID。
         :param builtins.str update_time: 网络实例连接的最近操作时间。
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if auto_publish_route_enabled is not None:
             pulumi.set(__self__, "auto_publish_route_enabled", auto_publish_route_enabled)
         if business_status is not None:
@@ -160,14 +154,6 @@ class TransitRouterAttachment(dict):
             pulumi.set(__self__, "transit_router_traffic_qos_queue_policy_id", transit_router_traffic_qos_queue_policy_id)
         if update_time is not None:
             pulumi.set(__self__, "update_time", update_time)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[builtins.str]:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="autoPublishRouteEnabled")
@@ -415,7 +401,6 @@ class TransitRouterTag(dict):
 @pulumi.output_type
 class GetTransitRouterAttachmentResult(dict):
     def __init__(__self__, *,
-                 account_id: builtins.str,
                  auto_publish_route_enabled: builtins.bool,
                  business_status: builtins.str,
                  creation_time: builtins.str,
@@ -436,7 +421,6 @@ class GetTransitRouterAttachmentResult(dict):
                  transit_router_traffic_qos_queue_policy_id: builtins.str,
                  update_time: builtins.str):
         """
-        :param builtins.str account_id: 网络实例连接所属的账号ID。
         :param builtins.bool auto_publish_route_enabled: 是否自动同步TR路由到网络实例路由表中。true：是。false：否。
         :param builtins.str business_status: 网络实例连接的业务状态。取值如下：Normal：正常。FinancialLocked：已冻结。
         :param builtins.str creation_time: 网络实例连接的创建时间。
@@ -457,7 +441,6 @@ class GetTransitRouterAttachmentResult(dict):
         :param builtins.str transit_router_traffic_qos_queue_policy_id: 跨地域连接关联的流队列策略的ID。
         :param builtins.str update_time: 网络实例连接的最近操作时间。
         """
-        pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "auto_publish_route_enabled", auto_publish_route_enabled)
         pulumi.set(__self__, "business_status", business_status)
         pulumi.set(__self__, "creation_time", creation_time)
@@ -477,14 +460,6 @@ class GetTransitRouterAttachmentResult(dict):
         pulumi.set(__self__, "transit_router_traffic_qos_marking_policy_id", transit_router_traffic_qos_marking_policy_id)
         pulumi.set(__self__, "transit_router_traffic_qos_queue_policy_id", transit_router_traffic_qos_queue_policy_id)
         pulumi.set(__self__, "update_time", update_time)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> builtins.str:
-        """
-        网络实例连接所属的账号ID。
-        """
-        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="autoPublishRouteEnabled")
