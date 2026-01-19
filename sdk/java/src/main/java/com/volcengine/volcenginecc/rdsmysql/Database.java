@@ -94,9 +94,17 @@ public class Database extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * 数据库状态。取值为：Unavailable：不可用。Available：可用。
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return 数据库状态。取值为：Unavailable：不可用。Available：可用。
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

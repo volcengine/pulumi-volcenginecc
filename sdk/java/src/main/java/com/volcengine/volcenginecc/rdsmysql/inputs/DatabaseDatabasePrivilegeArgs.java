@@ -46,21 +46,6 @@ public final class DatabaseDatabasePrivilegeArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
-     * 
-     */
-    @Import(name="accountPrivilegeDetail")
-    private @Nullable Output<String> accountPrivilegeDetail;
-
-    /**
-     * @return 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
-     * 
-     */
-    public Optional<Output<String>> accountPrivilegeDetail() {
-        return Optional.ofNullable(this.accountPrivilegeDetail);
-    }
-
-    /**
      * 指定的数据库账号可以访问数据库的 IP 地址。默认值为 %。若指定 Host 为 %，允许该账号从任意 IP 地址访问数据库。若指定 Host 为 192.10.10.%，则表示该账号可从 192.10.10.0~192.10.10.255 之间的 IP 地址访问数据库。指定的 Host 需要添加在实例所绑定的白名单中，
      * 
      */
@@ -80,7 +65,6 @@ public final class DatabaseDatabasePrivilegeArgs extends com.pulumi.resources.Re
     private DatabaseDatabasePrivilegeArgs(DatabaseDatabasePrivilegeArgs $) {
         this.accountName = $.accountName;
         this.accountPrivilege = $.accountPrivilege;
-        this.accountPrivilegeDetail = $.accountPrivilegeDetail;
         this.host = $.host;
     }
 
@@ -142,27 +126,6 @@ public final class DatabaseDatabasePrivilegeArgs extends com.pulumi.resources.Re
          */
         public Builder accountPrivilege(String accountPrivilege) {
             return accountPrivilege(Output.of(accountPrivilege));
-        }
-
-        /**
-         * @param accountPrivilegeDetail 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountPrivilegeDetail(@Nullable Output<String> accountPrivilegeDetail) {
-            $.accountPrivilegeDetail = accountPrivilegeDetail;
-            return this;
-        }
-
-        /**
-         * @param accountPrivilegeDetail 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accountPrivilegeDetail(String accountPrivilegeDetail) {
-            return accountPrivilegeDetail(Output.of(accountPrivilegeDetail));
         }
 
         /**

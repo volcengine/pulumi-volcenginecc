@@ -42,6 +42,10 @@ public final class GetDatabaseResult {
      * 
      */
     private String name;
+    /**
+     * @return 数据库状态。取值为：Unavailable：不可用。Available：可用。
+     * 
+     */
     private String status;
 
     private GetDatabaseResult() {}
@@ -87,6 +91,10 @@ public final class GetDatabaseResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return 数据库状态。取值为：Unavailable：不可用。Available：可用。
+     * 
+     */
     public String status() {
         return this.status;
     }

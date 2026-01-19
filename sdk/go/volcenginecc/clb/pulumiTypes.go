@@ -128,7 +128,7 @@ type AclListener struct {
 	ListenerName *string `pulumi:"listenerName"`
 	// 监听器的端口。
 	Port *int `pulumi:"port"`
-	// 监听器的协议。
+	// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -152,7 +152,7 @@ type AclListenerArgs struct {
 	ListenerName pulumi.StringPtrInput `pulumi:"listenerName"`
 	// 监听器的端口。
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// 监听器的协议。
+	// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -227,7 +227,7 @@ func (o AclListenerOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AclListener) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// 监听器的协议。
+// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
 func (o AclListenerOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AclListener) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -359,7 +359,9 @@ func (o AclTagArrayOutput) Index(i pulumi.IntInput) AclTagOutput {
 }
 
 type CertificateTag struct {
-	Key   *string `pulumi:"key"`
+	// 用户标签的标签键。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。
 	Value *string `pulumi:"value"`
 }
 
@@ -375,7 +377,9 @@ type CertificateTagInput interface {
 }
 
 type CertificateTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -430,10 +434,12 @@ func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// 用户标签的标签键。
 func (o CertificateTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// 用户标签的标签值。
 func (o CertificateTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3963,7 +3969,7 @@ type GetAclListener struct {
 	ListenerName string `pulumi:"listenerName"`
 	// 监听器的端口。
 	Port int `pulumi:"port"`
-	// 监听器的协议。
+	// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -3987,7 +3993,7 @@ type GetAclListenerArgs struct {
 	ListenerName pulumi.StringInput `pulumi:"listenerName"`
 	// 监听器的端口。
 	Port pulumi.IntInput `pulumi:"port"`
-	// 监听器的协议。
+	// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -4062,7 +4068,7 @@ func (o GetAclListenerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAclListener) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// 监听器的协议。
+// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
 func (o GetAclListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAclListener) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -4194,7 +4200,9 @@ func (o GetAclTagArrayOutput) Index(i pulumi.IntInput) GetAclTagOutput {
 }
 
 type GetCertificateTag struct {
-	Key   string `pulumi:"key"`
+	// 用户标签的标签键。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。
 	Value string `pulumi:"value"`
 }
 
@@ -4210,7 +4218,9 @@ type GetCertificateTagInput interface {
 }
 
 type GetCertificateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4265,10 +4275,12 @@ func (o GetCertificateTagOutput) ToGetCertificateTagOutputWithContext(ctx contex
 	return o
 }
 
+// 用户标签的标签键。
 func (o GetCertificateTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// 用户标签的标签值。
 func (o GetCertificateTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateTag) string { return v.Value }).(pulumi.StringOutput)
 }

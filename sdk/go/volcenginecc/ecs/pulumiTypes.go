@@ -30,7 +30,7 @@ type CommandParameterDefinition struct {
 	Name *string `pulumi:"name"`
 	// 是否必填。
 	Required *bool `pulumi:"required"`
-	// 自定义参数类型。
+	// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
 	Type *string `pulumi:"type"`
 }
 
@@ -62,7 +62,7 @@ type CommandParameterDefinitionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// 是否必填。
 	Required pulumi.BoolPtrInput `pulumi:"required"`
-	// 自定义参数类型。
+	// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -157,7 +157,7 @@ func (o CommandParameterDefinitionOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CommandParameterDefinition) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// 自定义参数类型。
+// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
 func (o CommandParameterDefinitionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CommandParameterDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -183,7 +183,9 @@ func (o CommandParameterDefinitionArrayOutput) Index(i pulumi.IntInput) CommandP
 }
 
 type CommandTag struct {
-	Key   *string `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key *string `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value *string `pulumi:"value"`
 }
 
@@ -199,7 +201,9 @@ type CommandTagInput interface {
 }
 
 type CommandTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -254,10 +258,12 @@ func (o CommandTagOutput) ToCommandTagOutputWithContext(ctx context.Context) Com
 	return o
 }
 
+// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
 func (o CommandTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CommandTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 func (o CommandTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CommandTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3415,7 +3421,7 @@ type GetCommandParameterDefinition struct {
 	Name string `pulumi:"name"`
 	// 是否必填。
 	Required bool `pulumi:"required"`
-	// 自定义参数类型。
+	// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
 	Type string `pulumi:"type"`
 }
 
@@ -3447,7 +3453,7 @@ type GetCommandParameterDefinitionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// 是否必填。
 	Required pulumi.BoolInput `pulumi:"required"`
-	// 自定义参数类型。
+	// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3542,7 +3548,7 @@ func (o GetCommandParameterDefinitionOutput) Required() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCommandParameterDefinition) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
-// 自定义参数类型。
+// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
 func (o GetCommandParameterDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCommandParameterDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3568,7 +3574,9 @@ func (o GetCommandParameterDefinitionArrayOutput) Index(i pulumi.IntInput) GetCo
 }
 
 type GetCommandTag struct {
-	Key   string `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key string `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value string `pulumi:"value"`
 }
 
@@ -3584,7 +3592,9 @@ type GetCommandTagInput interface {
 }
 
 type GetCommandTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3639,10 +3649,12 @@ func (o GetCommandTagOutput) ToGetCommandTagOutputWithContext(ctx context.Contex
 	return o
 }
 
+// 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
 func (o GetCommandTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCommandTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
 func (o GetCommandTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCommandTag) string { return v.Value }).(pulumi.StringOutput)
 }

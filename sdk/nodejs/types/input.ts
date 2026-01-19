@@ -1635,7 +1635,7 @@ export namespace clb {
          */
         port?: pulumi.Input<number>;
         /**
-         * 监听器的协议。
+         * 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
          */
         protocol?: pulumi.Input<string>;
     }
@@ -1652,7 +1652,13 @@ export namespace clb {
     }
 
     export interface CertificateTag {
+        /**
+         * 用户标签的标签键。
+         */
         key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
         value?: pulumi.Input<string>;
     }
 
@@ -2414,13 +2420,19 @@ export namespace ecs {
          */
         required?: pulumi.Input<boolean>;
         /**
-         * 自定义参数类型。
+         * 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
          */
         type?: pulumi.Input<string>;
     }
 
     export interface CommandTag {
+        /**
+         * 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+         */
         key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+         */
         value?: pulumi.Input<string>;
     }
 
@@ -4393,10 +4405,6 @@ export namespace rdsmysql {
          * 授予的账号权限类型，取值：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。
          */
         accountPrivilege?: pulumi.Input<string>;
-        /**
-         * 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
-         */
-        accountPrivilegeDetail?: pulumi.Input<string>;
         /**
          * 指定的数据库账号可以访问数据库的 IP 地址。默认值为 %。若指定 Host 为 %，允许该账号从任意 IP 地址访问数据库。若指定 Host 为 192.10.10.%，则表示该账号可从 192.10.10.0~192.10.10.255 之间的 IP 地址访问数据库。指定的 Host 需要添加在实例所绑定的白名单中，
          */

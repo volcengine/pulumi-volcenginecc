@@ -53,7 +53,7 @@ public final class GetCommandParameterDefinition {
      */
     private Boolean required;
     /**
-     * @return 自定义参数类型。
+     * @return 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
      * 
      */
     private String type;
@@ -116,7 +116,7 @@ public final class GetCommandParameterDefinition {
         return this.required;
     }
     /**
-     * @return 自定义参数类型。
+     * @return 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
      * 
      */
     public String type() {

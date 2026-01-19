@@ -116,6 +116,7 @@ class _DatabaseState:
         :param pulumi.Input[builtins.str] description: 数据库的描述信息，长度不超过 256 个字符。该字段可选，若不设置该字段，或设置了该字段但描述信息长度为 0 ，则描述信息为空。
         :param pulumi.Input[builtins.str] instance_id: 数据库实例 ID。
         :param pulumi.Input[builtins.str] name: 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
+        :param pulumi.Input[builtins.str] status: 数据库状态。取值为：Unavailable：不可用。Available：可用。
         """
         if character_set_name is not None:
             pulumi.set(__self__, "character_set_name", character_set_name)
@@ -190,6 +191,9 @@ class _DatabaseState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        数据库状态。取值为：Unavailable：不可用。Available：可用。
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -306,6 +310,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: 数据库的描述信息，长度不超过 256 个字符。该字段可选，若不设置该字段，或设置了该字段但描述信息长度为 0 ，则描述信息为空。
         :param pulumi.Input[builtins.str] instance_id: 数据库实例 ID。
         :param pulumi.Input[builtins.str] name: 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
+        :param pulumi.Input[builtins.str] status: 数据库状态。取值为：Unavailable：不可用。Available：可用。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,5 +364,8 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
+        """
+        数据库状态。取值为：Unavailable：不可用。Available：可用。
+        """
         return pulumi.get(self, "status")
 

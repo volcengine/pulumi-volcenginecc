@@ -60,6 +60,9 @@ export class Database extends pulumi.CustomResource {
      * 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * 数据库状态。取值为：Unavailable：不可用。Available：可用。
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -122,6 +125,9 @@ export interface DatabaseState {
      * 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
      */
     name?: pulumi.Input<string>;
+    /**
+     * 数据库状态。取值为：Unavailable：不可用。Available：可用。
+     */
     status?: pulumi.Input<string>;
 }
 

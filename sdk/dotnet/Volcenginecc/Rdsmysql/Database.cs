@@ -49,6 +49,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// 数据库状态。取值为：Unavailable：不可用。Available：可用。
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -171,6 +174,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// 数据库状态。取值为：Unavailable：不可用。Available：可用。
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

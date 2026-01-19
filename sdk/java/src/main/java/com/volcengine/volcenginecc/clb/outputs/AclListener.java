@@ -33,7 +33,7 @@ public final class AclListener {
      */
     private @Nullable Integer port;
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
      * 
      */
     private @Nullable String protocol;
@@ -68,7 +68,7 @@ public final class AclListener {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
      * 
      */
     public Optional<String> protocol() {
