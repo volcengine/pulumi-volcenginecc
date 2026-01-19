@@ -142,7 +142,7 @@ if not MYPY:
         """
         protocol: NotRequired[pulumi.Input[builtins.str]]
         """
-        监听器的协议。
+        监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
 elif False:
     AclListenerArgsDict: TypeAlias = Mapping[str, Any]
@@ -160,7 +160,7 @@ class AclListenerArgs:
         :param pulumi.Input[builtins.str] listener_id: 监听器的ID。
         :param pulumi.Input[builtins.str] listener_name: 监听器的名称。
         :param pulumi.Input[builtins.int] port: 监听器的端口。
-        :param pulumi.Input[builtins.str] protocol: 监听器的协议。
+        :param pulumi.Input[builtins.str] protocol: 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
         if acl_type is not None:
             pulumi.set(__self__, "acl_type", acl_type)
@@ -225,7 +225,7 @@ class AclListenerArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        监听器的协议。
+        监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 
@@ -289,7 +289,13 @@ class AclTagArgs:
 if not MYPY:
     class CertificateTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        用户标签的标签键。
+        """
         value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        用户标签的标签值。
+        """
 elif False:
     CertificateTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -298,6 +304,10 @@ class CertificateTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: 用户标签的标签键。
+        :param pulumi.Input[builtins.str] value: 用户标签的标签值。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -306,6 +316,9 @@ class CertificateTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        用户标签的标签键。
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -315,6 +328,9 @@ class CertificateTagArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        用户标签的标签值。
+        """
         return pulumi.get(self, "value")
 
     @value.setter

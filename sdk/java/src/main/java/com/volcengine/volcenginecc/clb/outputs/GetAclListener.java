@@ -32,7 +32,7 @@ public final class GetAclListener {
      */
     private Integer port;
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
      * 
      */
     private String protocol;
@@ -67,7 +67,7 @@ public final class GetAclListener {
         return this.port;
     }
     /**
-     * @return 监听器的协议。
+     * @return 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
      * 
      */
     public String protocol() {

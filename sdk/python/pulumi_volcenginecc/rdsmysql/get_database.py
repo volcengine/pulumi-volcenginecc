@@ -102,6 +102,9 @@ class GetDatabaseResult:
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        数据库状态。取值为：Unavailable：不可用。Available：可用。
+        """
         return pulumi.get(self, "status")
 
 

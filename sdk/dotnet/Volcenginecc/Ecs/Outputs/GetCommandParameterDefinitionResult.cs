@@ -47,7 +47,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs.Outputs
         /// </summary>
         public readonly bool Required;
         /// <summary>
-        /// 自定义参数类型。
+        /// 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
         /// </summary>
         public readonly string Type;
 

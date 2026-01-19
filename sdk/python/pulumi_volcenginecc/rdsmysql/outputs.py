@@ -60,8 +60,6 @@ class DatabaseDatabasePrivilege(dict):
             suggest = "account_name"
         elif key == "accountPrivilege":
             suggest = "account_privilege"
-        elif key == "accountPrivilegeDetail":
-            suggest = "account_privilege_detail"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DatabaseDatabasePrivilege. Access the value via the '{suggest}' property getter instead.")
@@ -77,20 +75,16 @@ class DatabaseDatabasePrivilege(dict):
     def __init__(__self__, *,
                  account_name: Optional[builtins.str] = None,
                  account_privilege: Optional[builtins.str] = None,
-                 account_privilege_detail: Optional[builtins.str] = None,
                  host: Optional[builtins.str] = None):
         """
         :param builtins.str account_name: 数据库账号名称。
         :param builtins.str account_privilege: 授予的账号权限类型，取值：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。
-        :param builtins.str account_privilege_detail: 数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
         :param builtins.str host: 指定的数据库账号可以访问数据库的 IP 地址。默认值为 %。若指定 Host 为 %，允许该账号从任意 IP 地址访问数据库。若指定 Host 为 192.10.10.%，则表示该账号可从 192.10.10.0~192.10.10.255 之间的 IP 地址访问数据库。指定的 Host 需要添加在实例所绑定的白名单中，
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
         if account_privilege is not None:
             pulumi.set(__self__, "account_privilege", account_privilege)
-        if account_privilege_detail is not None:
-            pulumi.set(__self__, "account_privilege_detail", account_privilege_detail)
         if host is not None:
             pulumi.set(__self__, "host", host)
 
@@ -109,14 +103,6 @@ class DatabaseDatabasePrivilege(dict):
         授予的账号权限类型，取值：ReadWrite：读写权限。ReadOnly：只读权限。DDLOnly：仅 DDL 权限。DMLOnly：仅 DML 权限。Custom：自定义权限。
         """
         return pulumi.get(self, "account_privilege")
-
-    @property
-    @pulumi.getter(name="accountPrivilegeDetail")
-    def account_privilege_detail(self) -> Optional[builtins.str]:
-        """
-        数据库权限字符串。作为请求参数时，当 AccountPrivilege 取值为 Custom 时必填，取值：SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,EVENT,TRIGGER,作为返回结果时，不管 AccountPrivilege 的值是否为 Custom，都会展示 AccountPrivilege 的详细权限。
-        """
-        return pulumi.get(self, "account_privilege_detail")
 
     @property
     @pulumi.getter

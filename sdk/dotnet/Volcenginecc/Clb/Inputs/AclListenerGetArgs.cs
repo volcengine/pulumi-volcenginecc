@@ -38,7 +38,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// 监听器的协议。
+        /// 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

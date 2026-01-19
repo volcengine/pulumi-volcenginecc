@@ -30,7 +30,8 @@ type Database struct {
 	// 数据库实例 ID。
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// 数据库状态。取值为：Unavailable：不可用。Available：可用。
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -78,7 +79,8 @@ type databaseState struct {
 	// 数据库实例 ID。
 	InstanceId *string `pulumi:"instanceId"`
 	// 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// 数据库状态。取值为：Unavailable：不可用。Available：可用。
 	Status *string `pulumi:"status"`
 }
 
@@ -91,7 +93,8 @@ type DatabaseState struct {
 	// 数据库实例 ID。
 	InstanceId pulumi.StringPtrInput
 	// 数据库名称。命名规则如下：名称唯一。长度为 2~64 个字符。以字母开头，以字母或数字结尾。由字母、数字、下划线（_）或中划线（-）组成。不能使用某些预留字，包括 root、admin 等。
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// 数据库状态。取值为：Unavailable：不可用。Available：可用。
 	Status pulumi.StringPtrInput
 }
 
@@ -235,6 +238,7 @@ func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// 数据库状态。取值为：Unavailable：不可用。Available：可用。
 func (o DatabaseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

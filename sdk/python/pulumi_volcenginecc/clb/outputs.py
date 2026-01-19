@@ -133,7 +133,7 @@ class AclListener(dict):
         :param builtins.str listener_id: 监听器的ID。
         :param builtins.str listener_name: 监听器的名称。
         :param builtins.int port: 监听器的端口。
-        :param builtins.str protocol: 监听器的协议。
+        :param builtins.str protocol: 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
         if acl_type is not None:
             pulumi.set(__self__, "acl_type", acl_type)
@@ -182,7 +182,7 @@ class AclListener(dict):
     @pulumi.getter
     def protocol(self) -> Optional[builtins.str]:
         """
-        监听器的协议。
+        监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 
@@ -223,6 +223,10 @@ class CertificateTag(dict):
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
                  value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: 用户标签的标签键。
+        :param builtins.str value: 用户标签的标签值。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -231,11 +235,17 @@ class CertificateTag(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签键。
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
+        """
+        用户标签的标签值。
+        """
         return pulumi.get(self, "value")
 
 
@@ -1912,7 +1922,7 @@ class GetAclListenerResult(dict):
         :param builtins.str listener_id: 监听器的ID。
         :param builtins.str listener_name: 监听器的名称。
         :param builtins.int port: 监听器的端口。
-        :param builtins.str protocol: 监听器的协议。
+        :param builtins.str protocol: 监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
         pulumi.set(__self__, "acl_type", acl_type)
         pulumi.set(__self__, "listener_id", listener_id)
@@ -1956,7 +1966,7 @@ class GetAclListenerResult(dict):
     @pulumi.getter
     def protocol(self) -> builtins.str:
         """
-        监听器的协议。
+        监听器的协议。包括 TCP、UDP、HTTP、HTTPS。
         """
         return pulumi.get(self, "protocol")
 
@@ -1995,17 +2005,27 @@ class GetCertificateTagResult(dict):
     def __init__(__self__, *,
                  key: builtins.str,
                  value: builtins.str):
+        """
+        :param builtins.str key: 用户标签的标签键。
+        :param builtins.str value: 用户标签的标签值。
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> builtins.str:
+        """
+        用户标签的标签键。
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> builtins.str:
+        """
+        用户标签的标签值。
+        """
         return pulumi.get(self, "value")
 
 

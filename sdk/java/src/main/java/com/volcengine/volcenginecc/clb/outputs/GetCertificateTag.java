@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateTag {
+    /**
+     * @return 用户标签的标签键。
+     * 
+     */
     private String key;
+    /**
+     * @return 用户标签的标签值。
+     * 
+     */
     private String value;
 
     private GetCertificateTag() {}
+    /**
+     * @return 用户标签的标签键。
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return 用户标签的标签值。
+     * 
+     */
     public String value() {
         return this.value;
     }

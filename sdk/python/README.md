@@ -12,11 +12,11 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/pulumi-volcenginecc
+    $ npm install @volcengine/pulumi-volcenginecc
 
 or `yarn`:
 
-    $ yarn add @pulumi/pulumi-volcenginecc
+    $ yarn add @volcengine/pulumi-volcenginecc
 
 ### Python
 

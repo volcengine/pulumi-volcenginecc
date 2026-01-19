@@ -96,7 +96,7 @@ if not MYPY:
         """
         type: NotRequired[pulumi.Input[builtins.str]]
         """
-        自定义参数类型。
+        自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
         """
 elif False:
     CommandParameterDefinitionArgsDict: TypeAlias = Mapping[str, Any]
@@ -122,7 +122,7 @@ class CommandParameterDefinitionArgs:
         :param pulumi.Input[builtins.str] min_value: 自定义参数值（数字）的最小值。
         :param pulumi.Input[builtins.str] name: 自定义参数名称，需要在脚本中通过{{Param}}定义 。单个参数名不能超过64字节。遵循Shell变量命名规则，a-zA-Z0-9-_的组合。首个字符不能以数字开头。中间不能有空格，可以使用下划线。
         :param pulumi.Input[builtins.bool] required: 是否必填。
-        :param pulumi.Input[builtins.str] type: 自定义参数类型。
+        :param pulumi.Input[builtins.str] type: 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
         """
         if decimal_precision is not None:
             pulumi.set(__self__, "decimal_precision", decimal_precision)
@@ -243,7 +243,7 @@ class CommandParameterDefinitionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        自定义参数类型。
+        自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
         """
         return pulumi.get(self, "type")
 
@@ -255,7 +255,13 @@ class CommandParameterDefinitionArgs:
 if not MYPY:
     class CommandTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        """
         value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
 elif False:
     CommandTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -264,6 +270,10 @@ class CommandTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: 用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        :param pulumi.Input[builtins.str] value: 用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -272,6 +282,9 @@ class CommandTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        用户标签的标签键。命名规则如下：不能以volc:或sys:的任意大小写组合开头。只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。长度限制在1～128个字符之间。
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -281,6 +294,9 @@ class CommandTagArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        用户标签的标签值。命名规则如下：只能包含语言字符、数字、空格和英文符号“_”、“.”、“:”、“/”、“=”、“+”、“-”、“@”。允许为空，长度限制在0～256个字符之间。
+        """
         return pulumi.get(self, "value")
 
     @value.setter

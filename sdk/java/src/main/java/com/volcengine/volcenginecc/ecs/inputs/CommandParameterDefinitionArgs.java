@@ -138,14 +138,14 @@ public final class CommandParameterDefinitionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * 自定义参数类型。
+     * 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return 自定义参数类型。
+     * @return 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
      * 
      */
     public Optional<Output<String>> type() {
@@ -353,7 +353,7 @@ public final class CommandParameterDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type 自定义参数类型。
+         * @param type 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class CommandParameterDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type 自定义参数类型。
+         * @param type 自定义参数类型。取值：String：表示自定义参数类型为String（字符串）类型。Digit：表示自定义参数类型为Digit（数值）类型。
          * 
          * @return builder
          * 
