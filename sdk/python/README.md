@@ -47,6 +47,8 @@ provider configuration:
 
 - `accessKey` (String) The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
 - `secretKey` (String) he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
+- `profile` (String) The Profile for Volcengine Provider. It can be used as an alternative authentication method to AK/SK, and can also be sourced from the `VOLCENGINE_PROFILE` environment variable
+- `file_path` (String) The File Path for Volcengine Provider. It specifies the path to the profile configuration file. If not specified, the default path `~/.volcengine` will be used, and can also be sourced from the `VOLCENGINE_FILE_PATH` environment variable
 - `assumeRole` (Attributes) An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role))
 - `customerHeaders` (String) CUSTOMER HEADERS for Volcengine Provider. The customer_headers field uses commas (,) to separate multiple headers, and colons (:) to separate each header key from its corresponding value.
 - `disableSsl` (Boolean) Disable SSL for Volcengine Provider

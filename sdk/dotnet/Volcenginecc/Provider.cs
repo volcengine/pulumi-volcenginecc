@@ -34,6 +34,19 @@ namespace Volcengine.Pulumi.Volcenginecc
         public Output<string?> CustomerHeaders { get; private set; } = null!;
 
         /// <summary>
+        /// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+        /// variable
+        /// </summary>
+        [Output("filePath")]
+        public Output<string?> FilePath { get; private set; } = null!;
+
+        /// <summary>
+        /// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+        /// </summary>
+        [Output("profile")]
+        public Output<string?> Profile { get; private set; } = null!;
+
+        /// <summary>
         /// PROXY URL for Volcengine Provider
         /// </summary>
         [Output("proxyUrl")]
@@ -121,6 +134,19 @@ namespace Volcengine.Pulumi.Volcenginecc
         public Input<Inputs.ProviderEndpointsArgs>? Endpoints { get; set; }
 
         /// <summary>
+        /// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+        /// variable
+        /// </summary>
+        [Input("filePath")]
+        public Input<string>? FilePath { get; set; }
+
+        /// <summary>
+        /// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+        /// </summary>
+        [Input("profile")]
+        public Input<string>? Profile { get; set; }
+
+        /// <summary>
         /// PROXY URL for Volcengine Provider
         /// </summary>
         [Input("proxyUrl")]
@@ -145,6 +171,8 @@ namespace Volcengine.Pulumi.Volcenginecc
             AccessKey = Utilities.GetEnv("VOLCENGINE_ACCESS_KEY");
             CustomerHeaders = Utilities.GetEnv("VOLCENGINE_CUSTOMER_HEADERS");
             DisableSsl = Utilities.GetEnvBoolean("VOLCENGINE_DISABLE_SSL");
+            FilePath = Utilities.GetEnv("VOLCENGINE_FILE_PATH");
+            Profile = Utilities.GetEnv("VOLCENGINE_PROFILE");
             ProxyUrl = Utilities.GetEnv("VOLCENGINE_PROXY_URL");
             Region = Utilities.GetEnv("VOLCENGINE_REGION");
             SecretKey = Utilities.GetEnv("VOLCENGINE_SECRET_KEY");

@@ -62,6 +62,33 @@ func GetEndpoints(ctx *pulumi.Context) string {
 	return config.Get(ctx, "volcenginecc:endpoints")
 }
 
+// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+// variable
+func GetFilePath(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "volcenginecc:filePath")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "VOLCENGINE_FILE_PATH"); d != nil {
+		value = d.(string)
+	}
+	return value
+}
+
+// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+func GetProfile(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "volcenginecc:profile")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "VOLCENGINE_PROFILE"); d != nil {
+		value = d.(string)
+	}
+	return value
+}
+
 // PROXY URL for Volcengine Provider
 func GetProxyUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "volcenginecc:proxyUrl")

@@ -24,6 +24,11 @@ type Provider struct {
 	// CUSTOMER HEADERS for Volcengine Provider. The customerHeaders field uses commas (,) to separate multiple headers, and
 	// colons (:) to separate each header key from its corresponding value.
 	CustomerHeaders pulumi.StringPtrOutput `pulumi:"customerHeaders"`
+	// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+	// variable
+	FilePath pulumi.StringPtrOutput `pulumi:"filePath"`
+	// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// PROXY URL for Volcengine Provider
 	ProxyUrl pulumi.StringPtrOutput `pulumi:"proxyUrl"`
 	// The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`
@@ -54,6 +59,16 @@ func NewProvider(ctx *pulumi.Context,
 	if args.DisableSsl == nil {
 		if d := internal.GetEnvOrDefault(nil, internal.ParseEnvBool, "VOLCENGINE_DISABLE_SSL"); d != nil {
 			args.DisableSsl = pulumi.BoolPtr(d.(bool))
+		}
+	}
+	if args.FilePath == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "VOLCENGINE_FILE_PATH"); d != nil {
+			args.FilePath = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.Profile == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "VOLCENGINE_PROFILE"); d != nil {
+			args.Profile = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.ProxyUrl == nil {
@@ -93,6 +108,11 @@ type providerArgs struct {
 	DisableSsl *bool `pulumi:"disableSsl"`
 	// An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.
 	Endpoints *ProviderEndpoints `pulumi:"endpoints"`
+	// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+	// variable
+	FilePath *string `pulumi:"filePath"`
+	// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+	Profile *string `pulumi:"profile"`
 	// PROXY URL for Volcengine Provider
 	ProxyUrl *string `pulumi:"proxyUrl"`
 	// The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`
@@ -117,6 +137,11 @@ type ProviderArgs struct {
 	DisableSsl pulumi.BoolPtrInput
 	// An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.
 	Endpoints ProviderEndpointsPtrInput
+	// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+	// variable
+	FilePath pulumi.StringPtrInput
+	// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+	Profile pulumi.StringPtrInput
 	// PROXY URL for Volcengine Provider
 	ProxyUrl pulumi.StringPtrInput
 	// The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`
@@ -197,6 +222,17 @@ func (o ProviderOutput) AccessKey() pulumi.StringPtrOutput {
 // colons (:) to separate each header key from its corresponding value.
 func (o ProviderOutput) CustomerHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CustomerHeaders }).(pulumi.StringPtrOutput)
+}
+
+// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+// variable
+func (o ProviderOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FilePath }).(pulumi.StringPtrOutput)
+}
+
+// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
 // PROXY URL for Volcengine Provider

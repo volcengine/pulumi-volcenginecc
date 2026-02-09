@@ -51,6 +51,21 @@ public final class Config {
         return Codegen.objectProp("endpoints", Endpoints.class).config(config).get();
     }
 /**
+ * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+ * variable
+ * 
+ */
+    public Optional<String> filePath() {
+        return Codegen.stringProp("filePath").config(config).env("VOLCENGINE_FILE_PATH").get();
+    }
+/**
+ * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+ * 
+ */
+    public Optional<String> profile() {
+        return Codegen.stringProp("profile").config(config).env("VOLCENGINE_PROFILE").get();
+    }
+/**
  * PROXY URL for Volcengine Provider
  * 
  */
