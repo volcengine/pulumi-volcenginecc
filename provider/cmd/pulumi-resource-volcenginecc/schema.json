@@ -91,6 +91,24 @@
                 "$ref": "#/types/volcenginecc:config/endpoints:endpoints",
                 "description": "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.\n"
             },
+            "filePath": {
+                "type": "string",
+                "description": "The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment\nvariable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_FILE_PATH"
+                    ]
+                }
+            },
+            "profile": {
+                "type": "string",
+                "description": "The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_PROFILE"
+                    ]
+                }
+            },
             "proxyUrl": {
                 "type": "string",
                 "description": "PROXY URL for Volcengine Provider\n",
@@ -24861,6 +24879,14 @@
                 "$ref": "#/types/volcenginecc:index/ProviderEndpoints:ProviderEndpoints",
                 "description": "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.\n"
             },
+            "filePath": {
+                "type": "string",
+                "description": "The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment\nvariable\n"
+            },
+            "profile": {
+                "type": "string",
+                "description": "The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable\n"
+            },
             "proxyUrl": {
                 "type": "string",
                 "description": "PROXY URL for Volcengine Provider\n"
@@ -24909,6 +24935,24 @@
             "endpoints": {
                 "$ref": "#/types/volcenginecc:index/ProviderEndpoints:ProviderEndpoints",
                 "description": "An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.\n"
+            },
+            "filePath": {
+                "type": "string",
+                "description": "The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment\nvariable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_FILE_PATH"
+                    ]
+                }
+            },
+            "profile": {
+                "type": "string",
+                "description": "The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable\n",
+                "defaultInfo": {
+                    "environment": [
+                        "VOLCENGINE_PROFILE"
+                    ]
+                }
             },
             "proxyUrl": {
                 "type": "string",

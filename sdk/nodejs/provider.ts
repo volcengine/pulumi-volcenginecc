@@ -38,6 +38,15 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly customerHeaders!: pulumi.Output<string | undefined>;
     /**
+     * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+     * variable
+     */
+    public readonly filePath!: pulumi.Output<string | undefined>;
+    /**
+     * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+     */
+    public readonly profile!: pulumi.Output<string | undefined>;
+    /**
      * PROXY URL for Volcengine Provider
      */
     public readonly proxyUrl!: pulumi.Output<string | undefined>;
@@ -68,6 +77,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["customerHeaders"] = (args ? args.customerHeaders : undefined) ?? utilities.getEnv("VOLCENGINE_CUSTOMER_HEADERS");
             resourceInputs["disableSsl"] = pulumi.output((args ? args.disableSsl : undefined) ?? utilities.getEnvBoolean("VOLCENGINE_DISABLE_SSL")).apply(JSON.stringify);
             resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
+            resourceInputs["filePath"] = (args ? args.filePath : undefined) ?? utilities.getEnv("VOLCENGINE_FILE_PATH");
+            resourceInputs["profile"] = (args ? args.profile : undefined) ?? utilities.getEnv("VOLCENGINE_PROFILE");
             resourceInputs["proxyUrl"] = (args ? args.proxyUrl : undefined) ?? utilities.getEnv("VOLCENGINE_PROXY_URL");
             resourceInputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("VOLCENGINE_REGION");
             resourceInputs["secretKey"] = (args ? args.secretKey : undefined) ?? utilities.getEnv("VOLCENGINE_SECRET_KEY");
@@ -112,6 +123,15 @@ export interface ProviderArgs {
      * An `endpoints` block (documented below). Only one `endpoints` block may be in the configuration.
      */
     endpoints?: pulumi.Input<inputs.ProviderEndpoints>;
+    /**
+     * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+     * variable
+     */
+    filePath?: pulumi.Input<string>;
+    /**
+     * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+     */
+    profile?: pulumi.Input<string>;
     /**
      * PROXY URL for Volcengine Provider
      */

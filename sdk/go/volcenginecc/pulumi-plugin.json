@@ -1,6 +1,6 @@
 {
   "resource": true,
   "name": "volcenginecc",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "server": "github://api.github.com/volcengine"
 }

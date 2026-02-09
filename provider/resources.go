@@ -78,6 +78,16 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"VOLCENGINE_SECRET_KEY"},
 				},
 			},
+			"file_path": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"VOLCENGINE_FILE_PATH"},
+				},
+			},
+			"profile": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"VOLCENGINE_PROFILE"},
+				},
+			},
 			"disable_ssl": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"VOLCENGINE_DISABLE_SSL"},

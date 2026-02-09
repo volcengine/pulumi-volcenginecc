@@ -67,6 +67,29 @@ Object.defineProperty(exports, "endpoints", {
 });
 
 /**
+ * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+ * variable
+ */
+export declare const filePath: string | undefined;
+Object.defineProperty(exports, "filePath", {
+    get() {
+        return __config.get("filePath") ?? utilities.getEnv("VOLCENGINE_FILE_PATH");
+    },
+    enumerable: true,
+});
+
+/**
+ * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+ */
+export declare const profile: string | undefined;
+Object.defineProperty(exports, "profile", {
+    get() {
+        return __config.get("profile") ?? utilities.getEnv("VOLCENGINE_PROFILE");
+    },
+    enumerable: true,
+});
+
+/**
  * PROXY URL for Volcengine Provider
  */
 export declare const proxyUrl: string | undefined;

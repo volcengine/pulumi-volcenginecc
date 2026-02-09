@@ -55,6 +55,36 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.customerHeaders);
     }
     /**
+     * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+     * variable
+     * 
+     */
+    @Export(name="filePath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> filePath;
+
+    /**
+     * @return The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+     * variable
+     * 
+     */
+    public Output<Optional<String>> filePath() {
+        return Codegen.optional(this.filePath);
+    }
+    /**
+     * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+     * 
+     */
+    @Export(name="profile", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> profile;
+
+    /**
+     * @return The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+     * 
+     */
+    public Output<Optional<String>> profile() {
+        return Codegen.optional(this.profile);
+    }
+    /**
      * PROXY URL for Volcengine Provider
      * 
      */

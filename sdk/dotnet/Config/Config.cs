@@ -84,6 +84,27 @@ namespace Volcengine.Pulumi.Volcenginecc
             set => _endpoints.Set(value);
         }
 
+        private static readonly __Value<string?> _filePath = new __Value<string?>(() => __config.Get("filePath") ?? Utilities.GetEnv("VOLCENGINE_FILE_PATH"));
+        /// <summary>
+        /// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+        /// variable
+        /// </summary>
+        public static string? FilePath
+        {
+            get => _filePath.Get();
+            set => _filePath.Set(value);
+        }
+
+        private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile") ?? Utilities.GetEnv("VOLCENGINE_PROFILE"));
+        /// <summary>
+        /// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+        /// </summary>
+        public static string? Profile
+        {
+            get => _profile.Get();
+            set => _profile.Set(value);
+        }
+
         private static readonly __Value<string?> _proxyUrl = new __Value<string?>(() => __config.Get("proxyUrl") ?? Utilities.GetEnv("VOLCENGINE_PROXY_URL"));
         /// <summary>
         /// PROXY URL for Volcengine Provider

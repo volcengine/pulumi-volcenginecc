@@ -60,6 +60,21 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('endpoints')
 
     @property
+    def file_path(self) -> Optional[str]:
+        """
+        The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
+        variable
+        """
+        return __config__.get('filePath') or _utilities.get_env('VOLCENGINE_FILE_PATH')
+
+    @property
+    def profile(self) -> Optional[str]:
+        """
+        The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+        """
+        return __config__.get('profile') or _utilities.get_env('VOLCENGINE_PROFILE')
+
+    @property
     def proxy_url(self) -> Optional[str]:
         """
         PROXY URL for Volcengine Provider
