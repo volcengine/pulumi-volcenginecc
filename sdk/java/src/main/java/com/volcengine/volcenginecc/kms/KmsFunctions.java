@@ -12,7 +12,11 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyPlainArgs;
+import com.volcengine.volcenginecc.kms.inputs.GetKeyRingArgs;
+import com.volcengine.volcenginecc.kms.inputs.GetKeyRingPlainArgs;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyResult;
+import com.volcengine.volcenginecc.kms.outputs.GetKeyRingResult;
+import com.volcengine.volcenginecc.kms.outputs.GetKeyRingsResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeysResult;
 import java.util.concurrent.CompletableFuture;
 
@@ -51,6 +55,90 @@ public final class KmsFunctions {
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingResult> getKeyRing(GetKeyRingArgs args) {
+        return getKeyRing(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static CompletableFuture<GetKeyRingResult> getKeyRingPlain(GetKeyRingPlainArgs args) {
+        return getKeyRingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingResult> getKeyRing(GetKeyRingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyRing:getKeyRing", TypeShape.of(GetKeyRingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingResult> getKeyRing(GetKeyRingArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyRing:getKeyRing", TypeShape.of(GetKeyRingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static CompletableFuture<GetKeyRingResult> getKeyRingPlain(GetKeyRingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKeyRing:getKeyRing", TypeShape.of(GetKeyRingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingsResult> getKeyRings() {
+        return getKeyRings(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static CompletableFuture<GetKeyRingsResult> getKeyRingsPlain() {
+        return getKeyRingsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingsResult> getKeyRings(InvokeArgs args) {
+        return getKeyRings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static CompletableFuture<GetKeyRingsResult> getKeyRingsPlain(InvokeArgs args) {
+        return getKeyRingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingsResult> getKeyRings(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyRings:getKeyRings", TypeShape.of(GetKeyRingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static Output<GetKeyRingsResult> getKeyRings(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyRings:getKeyRings", TypeShape.of(GetKeyRingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyRing
+     * 
+     */
+    public static CompletableFuture<GetKeyRingsResult> getKeyRingsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKeyRings:getKeyRings", TypeShape.of(GetKeyRingsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::KMS::Key

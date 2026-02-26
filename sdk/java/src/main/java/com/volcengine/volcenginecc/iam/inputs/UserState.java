@@ -5,10 +5,12 @@ package com.volcengine.volcenginecc.iam.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.volcengine.volcenginecc.iam.inputs.UserAccessKeyArgs;
 import com.volcengine.volcenginecc.iam.inputs.UserLoginProfileArgs;
 import com.volcengine.volcenginecc.iam.inputs.UserPolicyArgs;
 import com.volcengine.volcenginecc.iam.inputs.UserSecurityConfigArgs;
 import com.volcengine.volcenginecc.iam.inputs.UserTagArgs;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -21,6 +23,13 @@ import javax.annotation.Nullable;
 public final class UserState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserState Empty = new UserState();
+
+    @Import(name="accessKeys")
+    private @Nullable Output<List<UserAccessKeyArgs>> accessKeys;
+
+    public Optional<Output<List<UserAccessKeyArgs>>> accessKeys() {
+        return Optional.ofNullable(this.accessKeys);
+    }
 
     /**
      * 子用户归属的主账号。
@@ -98,6 +107,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    @Import(name="emailIsVerify")
+    private @Nullable Output<Boolean> emailIsVerify;
+
+    /**
+     * @return 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    public Optional<Output<Boolean>> emailIsVerify() {
+        return Optional.ofNullable(this.emailIsVerify);
+    }
+
+    /**
      * 子用户归属的用户组。
      * 
      */
@@ -140,6 +164,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> mobilePhone() {
         return Optional.ofNullable(this.mobilePhone);
+    }
+
+    /**
+     * 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    @Import(name="mobilePhoneIsVerify")
+    private @Nullable Output<Boolean> mobilePhoneIsVerify;
+
+    /**
+     * @return 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    public Optional<Output<Boolean>> mobilePhoneIsVerify() {
+        return Optional.ofNullable(this.mobilePhoneIsVerify);
     }
 
     @Import(name="policies")
@@ -234,14 +273,17 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     private UserState() {}
 
     private UserState(UserState $) {
+        this.accessKeys = $.accessKeys;
         this.accountId = $.accountId;
         this.createDate = $.createDate;
         this.description = $.description;
         this.displayName = $.displayName;
         this.email = $.email;
+        this.emailIsVerify = $.emailIsVerify;
         this.groups = $.groups;
         this.loginProfile = $.loginProfile;
         this.mobilePhone = $.mobilePhone;
+        this.mobilePhoneIsVerify = $.mobilePhoneIsVerify;
         this.policies = $.policies;
         this.securityConfig = $.securityConfig;
         this.tags = $.tags;
@@ -267,6 +309,19 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(UserState defaults) {
             $ = new UserState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder accessKeys(@Nullable Output<List<UserAccessKeyArgs>> accessKeys) {
+            $.accessKeys = accessKeys;
+            return this;
+        }
+
+        public Builder accessKeys(List<UserAccessKeyArgs> accessKeys) {
+            return accessKeys(Output.of(accessKeys));
+        }
+
+        public Builder accessKeys(UserAccessKeyArgs... accessKeys) {
+            return accessKeys(List.of(accessKeys));
         }
 
         /**
@@ -375,6 +430,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param emailIsVerify 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailIsVerify(@Nullable Output<Boolean> emailIsVerify) {
+            $.emailIsVerify = emailIsVerify;
+            return this;
+        }
+
+        /**
+         * @param emailIsVerify 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailIsVerify(Boolean emailIsVerify) {
+            return emailIsVerify(Output.of(emailIsVerify));
+        }
+
+        /**
          * @param groups 子用户归属的用户组。
          * 
          * @return builder
@@ -445,6 +521,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder mobilePhone(String mobilePhone) {
             return mobilePhone(Output.of(mobilePhone));
+        }
+
+        /**
+         * @param mobilePhoneIsVerify 子用户手机号是否已验证。true代表已验证，false代表未验证。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mobilePhoneIsVerify(@Nullable Output<Boolean> mobilePhoneIsVerify) {
+            $.mobilePhoneIsVerify = mobilePhoneIsVerify;
+            return this;
+        }
+
+        /**
+         * @param mobilePhoneIsVerify 子用户手机号是否已验证。true代表已验证，false代表未验证。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mobilePhoneIsVerify(Boolean mobilePhoneIsVerify) {
+            return mobilePhoneIsVerify(Output.of(mobilePhoneIsVerify));
         }
 
         public Builder policies(@Nullable Output<List<UserPolicyArgs>> policies) {

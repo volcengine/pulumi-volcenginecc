@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetClbEnis {
     /**
-     * @return 负载均衡实例的私网IP地址
+     * @return 负载均衡实例的私网IP地址。
      * 
      */
     private String eniAddress;
     /**
-     * @return 负载均衡实例占用的网卡ID
+     * @return 负载均衡实例占用的网卡ID。
      * 
      */
     private String eniId;
 
     private GetClbEnis() {}
     /**
-     * @return 负载均衡实例的私网IP地址
+     * @return 负载均衡实例的私网IP地址。
      * 
      */
     public String eniAddress() {
         return this.eniAddress;
     }
     /**
-     * @return 负载均衡实例占用的网卡ID
+     * @return 负载均衡实例占用的网卡ID。
      * 
      */
     public String eniId() {

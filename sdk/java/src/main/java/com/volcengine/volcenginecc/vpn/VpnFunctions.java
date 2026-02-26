@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vpn.inputs.GetCustomerGatewayArgs;
+import com.volcengine.volcenginecc.vpn.inputs.GetCustomerGatewayPlainArgs;
 import com.volcengine.volcenginecc.vpn.inputs.GetVpnGatewayArgs;
 import com.volcengine.volcenginecc.vpn.inputs.GetVpnGatewayPlainArgs;
+import com.volcengine.volcenginecc.vpn.outputs.GetCustomerGatewayResult;
+import com.volcengine.volcenginecc.vpn.outputs.GetCustomerGatewaysResult;
 import com.volcengine.volcenginecc.vpn.outputs.GetVpnGatewayResult;
 import com.volcengine.volcenginecc.vpn.outputs.GetVpnGatewaysResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VpnFunctions {
+    /**
+     * Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewayResult> getCustomerGateway(GetCustomerGatewayArgs args) {
+        return getCustomerGateway(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static CompletableFuture<GetCustomerGatewayResult> getCustomerGatewayPlain(GetCustomerGatewayPlainArgs args) {
+        return getCustomerGatewayPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewayResult> getCustomerGateway(GetCustomerGatewayArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpn/getCustomerGateway:getCustomerGateway", TypeShape.of(GetCustomerGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewayResult> getCustomerGateway(GetCustomerGatewayArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpn/getCustomerGateway:getCustomerGateway", TypeShape.of(GetCustomerGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static CompletableFuture<GetCustomerGatewayResult> getCustomerGatewayPlain(GetCustomerGatewayPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpn/getCustomerGateway:getCustomerGateway", TypeShape.of(GetCustomerGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewaysResult> getCustomerGateways() {
+        return getCustomerGateways(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static CompletableFuture<GetCustomerGatewaysResult> getCustomerGatewaysPlain() {
+        return getCustomerGatewaysPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewaysResult> getCustomerGateways(InvokeArgs args) {
+        return getCustomerGateways(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static CompletableFuture<GetCustomerGatewaysResult> getCustomerGatewaysPlain(InvokeArgs args) {
+        return getCustomerGatewaysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewaysResult> getCustomerGateways(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpn/getCustomerGateways:getCustomerGateways", TypeShape.of(GetCustomerGatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static Output<GetCustomerGatewaysResult> getCustomerGateways(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpn/getCustomerGateways:getCustomerGateways", TypeShape.of(GetCustomerGatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPN::CustomerGateway
+     * 
+     */
+    public static CompletableFuture<GetCustomerGatewaysResult> getCustomerGatewaysPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpn/getCustomerGateways:getCustomerGateways", TypeShape.of(GetCustomerGatewaysResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VPN::VPNGateway
      * 

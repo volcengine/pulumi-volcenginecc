@@ -73,6 +73,8 @@ if typing.TYPE_CHECKING:
     rdsmssql = __rdsmssql
     import pulumi_volcenginecc.rdsmysql as __rdsmysql
     rdsmysql = __rdsmysql
+    import pulumi_volcenginecc.rdspostgresql as __rdspostgresql
+    rdspostgresql = __rdspostgresql
     import pulumi_volcenginecc.redis as __redis
     redis = __redis
     import pulumi_volcenginecc.rocketmq as __rocketmq
@@ -133,6 +135,7 @@ else:
     rabbitmq = _utilities.lazy_import('pulumi_volcenginecc.rabbitmq')
     rdsmssql = _utilities.lazy_import('pulumi_volcenginecc.rdsmssql')
     rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
+    rdspostgresql = _utilities.lazy_import('pulumi_volcenginecc.rdspostgresql')
     redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
     rocketmq = _utilities.lazy_import('pulumi_volcenginecc.rocketmq')
     storageebs = _utilities.lazy_import('pulumi_volcenginecc.storageebs')
@@ -165,6 +168,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.alb",
   "classes": {
    "volcenginecc:alb/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "alb/customizedCfg",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/customizedCfg:CustomizedCfg": "CustomizedCfg"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "alb/healthCheckTemplate",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/healthCheckTemplate:HealthCheckTemplate": "HealthCheckTemplate"
   }
  },
  {
@@ -465,6 +484,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "ecs/deploymentSet",
+  "fqn": "pulumi_volcenginecc.ecs",
+  "classes": {
+   "volcenginecc:ecs/deploymentSet:DeploymentSet": "DeploymentSet"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "ecs/hpcCluster",
   "fqn": "pulumi_volcenginecc.ecs",
   "classes": {
@@ -501,6 +528,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.ecs",
   "classes": {
    "volcenginecc:ecs/keypair:Keypair": "Keypair"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "ecs/launchTemplate",
+  "fqn": "pulumi_volcenginecc.ecs",
+  "classes": {
+   "volcenginecc:ecs/launchTemplate:LaunchTemplate": "LaunchTemplate"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "ecs/launchTemplateVersion",
+  "fqn": "pulumi_volcenginecc.ecs",
+  "classes": {
+   "volcenginecc:ecs/launchTemplateVersion:LaunchTemplateVersion": "LaunchTemplateVersion"
   }
  },
  {
@@ -609,6 +652,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "kms/keyRing",
+  "fqn": "pulumi_volcenginecc.kms",
+  "classes": {
+   "volcenginecc:kms/keyRing:KeyRing": "KeyRing"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "mongodb/instance",
   "fqn": "pulumi_volcenginecc.mongodb",
   "classes": {
@@ -649,6 +700,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "organization/account",
+  "fqn": "pulumi_volcenginecc.organization",
+  "classes": {
+   "volcenginecc:organization/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "organization/unit",
   "fqn": "pulumi_volcenginecc.organization",
   "classes": {
@@ -661,6 +720,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.privatelink",
   "classes": {
    "volcenginecc:privatelink/endpointService:EndpointService": "EndpointService"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "privatezone/record",
+  "fqn": "pulumi_volcenginecc.privatezone",
+  "classes": {
+   "volcenginecc:privatezone/record:Record": "Record"
   }
  },
  {
@@ -689,10 +756,42 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rabbitmq/instancePlugin",
+  "fqn": "pulumi_volcenginecc.rabbitmq",
+  "classes": {
+   "volcenginecc:rabbitmq/instancePlugin:InstancePlugin": "InstancePlugin"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rabbitmq/publicAddress",
+  "fqn": "pulumi_volcenginecc.rabbitmq",
+  "classes": {
+   "volcenginecc:rabbitmq/publicAddress:PublicAddress": "PublicAddress"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdsmssql/instance",
   "fqn": "pulumi_volcenginecc.rdsmssql",
   "classes": {
    "volcenginecc:rdsmssql/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmysql/allowList",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmysql/backup",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/backup:Backup": "Backup"
   }
  },
  {
@@ -713,10 +812,50 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdsmysql/endpoint",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/endpoint:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdsmysql/instance",
   "fqn": "pulumi_volcenginecc.rdsmysql",
   "classes": {
    "volcenginecc:rdsmysql/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdspostgresql/allowList",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdspostgresql/dbEndpoint",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint": "DbEndpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "redis/account",
+  "fqn": "pulumi_volcenginecc.redis",
+  "classes": {
+   "volcenginecc:redis/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "redis/endpointPublicAddress",
+  "fqn": "pulumi_volcenginecc.redis",
+  "classes": {
+   "volcenginecc:redis/endpointPublicAddress:EndpointPublicAddress": "EndpointPublicAddress"
   }
  },
  {
@@ -729,10 +868,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rocketmq/group",
+  "fqn": "pulumi_volcenginecc.rocketmq",
+  "classes": {
+   "volcenginecc:rocketmq/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rocketmq/instance",
   "fqn": "pulumi_volcenginecc.rocketmq",
   "classes": {
    "volcenginecc:rocketmq/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rocketmq/topic",
+  "fqn": "pulumi_volcenginecc.rocketmq",
+  "classes": {
+   "volcenginecc:rocketmq/topic:Topic": "Topic"
   }
  },
  {
@@ -793,6 +948,22 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "transitrouter/vpcAttachment",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/vpcAttachment:VpcAttachment": "VpcAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/vpnAttachment",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/vpnAttachment:VpnAttachment": "VpnAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vedbm/instance",
   "fqn": "pulumi_volcenginecc.vedbm",
   "classes": {
@@ -837,6 +1008,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
    "volcenginecc:vke/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/defaultNodePool",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/defaultNodePool:DefaultNodePool": "DefaultNodePool"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/node",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/node:Node": "Node"
   }
  },
  {
@@ -889,6 +1076,38 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vpc/flowLog",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/flowLog:FlowLog": "FlowLog"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/haVip",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/haVip:HaVip": "HaVip"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/ipv6AddressBandwidth",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/ipv6AddressBandwidth:Ipv6AddressBandwidth": "Ipv6AddressBandwidth"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/ipv6Gateway",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/ipv6Gateway:Ipv6Gateway": "Ipv6Gateway"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vpc/networkAcl",
   "fqn": "pulumi_volcenginecc.vpc",
   "classes": {
@@ -929,10 +1148,50 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vpc/trafficMirrorFilter",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/trafficMirrorFilter:TrafficMirrorFilter": "TrafficMirrorFilter"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/trafficMirrorFilterRule",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/trafficMirrorFilterRule:TrafficMirrorFilterRule": "TrafficMirrorFilterRule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/trafficMirrorSession",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/trafficMirrorSession:TrafficMirrorSession": "TrafficMirrorSession"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/trafficMirrorTarget",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/trafficMirrorTarget:TrafficMirrorTarget": "TrafficMirrorTarget"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vpc/vpc",
   "fqn": "pulumi_volcenginecc.vpc",
   "classes": {
    "volcenginecc:vpc/vpc:Vpc": "Vpc"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpn/customerGateway",
+  "fqn": "pulumi_volcenginecc.vpn",
+  "classes": {
+   "volcenginecc:vpn/customerGateway:CustomerGateway": "CustomerGateway"
   }
  },
  {

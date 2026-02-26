@@ -10,15 +10,45 @@ export const getInstance: typeof import("./getInstance").getInstance = null as a
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
+export { GetInstancePluginArgs, GetInstancePluginResult, GetInstancePluginOutputArgs } from "./getInstancePlugin";
+export const getInstancePlugin: typeof import("./getInstancePlugin").getInstancePlugin = null as any;
+export const getInstancePluginOutput: typeof import("./getInstancePlugin").getInstancePluginOutput = null as any;
+utilities.lazyLoad(exports, ["getInstancePlugin","getInstancePluginOutput"], () => require("./getInstancePlugin"));
+
+export { GetInstancePluginsResult } from "./getInstancePlugins";
+export const getInstancePlugins: typeof import("./getInstancePlugins").getInstancePlugins = null as any;
+export const getInstancePluginsOutput: typeof import("./getInstancePlugins").getInstancePluginsOutput = null as any;
+utilities.lazyLoad(exports, ["getInstancePlugins","getInstancePluginsOutput"], () => require("./getInstancePlugins"));
+
 export { GetInstancesResult } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
 export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
 utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
 
+export { GetPublicAddressArgs, GetPublicAddressResult, GetPublicAddressOutputArgs } from "./getPublicAddress";
+export const getPublicAddress: typeof import("./getPublicAddress").getPublicAddress = null as any;
+export const getPublicAddressOutput: typeof import("./getPublicAddress").getPublicAddressOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicAddress","getPublicAddressOutput"], () => require("./getPublicAddress"));
+
+export { GetPublicAddressesResult } from "./getPublicAddresses";
+export const getPublicAddresses: typeof import("./getPublicAddresses").getPublicAddresses = null as any;
+export const getPublicAddressesOutput: typeof import("./getPublicAddresses").getPublicAddressesOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicAddresses","getPublicAddressesOutput"], () => require("./getPublicAddresses"));
+
 export { InstanceArgs, InstanceState } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
+export { InstancePluginArgs, InstancePluginState } from "./instancePlugin";
+export type InstancePlugin = import("./instancePlugin").InstancePlugin;
+export const InstancePlugin: typeof import("./instancePlugin").InstancePlugin = null as any;
+utilities.lazyLoad(exports, ["InstancePlugin"], () => require("./instancePlugin"));
+
+export { PublicAddressArgs, PublicAddressState } from "./publicAddress";
+export type PublicAddress = import("./publicAddress").PublicAddress;
+export const PublicAddress: typeof import("./publicAddress").PublicAddress = null as any;
+utilities.lazyLoad(exports, ["PublicAddress"], () => require("./publicAddress"));
 
 
 const _module = {
@@ -27,9 +57,15 @@ const _module = {
         switch (type) {
             case "volcenginecc:rabbitmq/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "volcenginecc:rabbitmq/instancePlugin:InstancePlugin":
+                return new InstancePlugin(name, <any>undefined, { urn })
+            case "volcenginecc:rabbitmq/publicAddress:PublicAddress":
+                return new PublicAddress(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "rabbitmq/instance", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rabbitmq/instancePlugin", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rabbitmq/publicAddress", _module)

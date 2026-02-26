@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClbServerGroup {
     /**
-     * @return 负载均衡实例中后端服务器组的ID
+     * @return 负载均衡实例中后端服务器组的ID。
      * 
      */
     private @Nullable String serverGroupId;
     /**
-     * @return 负载均衡实例中后端服务器组的名称
+     * @return 负载均衡实例中后端服务器组的名称。
      * 
      */
     private @Nullable String serverGroupName;
 
     private ClbServerGroup() {}
     /**
-     * @return 负载均衡实例中后端服务器组的ID
+     * @return 负载均衡实例中后端服务器组的ID。
      * 
      */
     public Optional<String> serverGroupId() {
         return Optional.ofNullable(this.serverGroupId);
     }
     /**
-     * @return 负载均衡实例中后端服务器组的名称
+     * @return 负载均衡实例中后端服务器组的名称。
      * 
      */
     public Optional<String> serverGroupName() {

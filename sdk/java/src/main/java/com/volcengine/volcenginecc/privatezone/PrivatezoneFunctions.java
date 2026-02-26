@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.privatezone.inputs.GetRecordArgs;
+import com.volcengine.volcenginecc.privatezone.inputs.GetRecordPlainArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverEndpointArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverEndpointPlainArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverRuleArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverRulePlainArgs;
+import com.volcengine.volcenginecc.privatezone.outputs.GetRecordResult;
+import com.volcengine.volcenginecc.privatezone.outputs.GetRecordsResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverEndpointResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverEndpointsResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverRuleResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.privatezone.outputs.GetResolverRulesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class PrivatezoneFunctions {
+    /**
+     * Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args) {
+        return getRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args) {
+        return getRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:privatezone/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords() {
+        return getRecords(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain() {
+        return getRecordsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(InvokeArgs args) {
+        return getRecords(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain(InvokeArgs args) {
+        return getRecordsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:privatezone/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::PrivateZone::ResolverEndpoint
      * 

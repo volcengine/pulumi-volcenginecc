@@ -7,7 +7,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_instance import *
+from .get_instance_plugin import *
+from .get_instance_plugins import *
 from .get_instances import *
+from .get_public_address import *
+from .get_public_addresses import *
 from .instance import *
+from .instance_plugin import *
+from .public_address import *
 from ._inputs import *
 from . import outputs

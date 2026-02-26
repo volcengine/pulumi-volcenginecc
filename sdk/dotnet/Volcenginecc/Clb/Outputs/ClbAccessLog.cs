@@ -15,23 +15,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class ClbAccessLog
     {
         /// <summary>
-        /// 存储七层访问日志的对象存储桶的名称
+        /// 存储七层访问日志的对象存储桶的名称。
         /// </summary>
         public readonly string? BucketName;
         /// <summary>
-        /// 日志投递类型
+        /// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
         /// </summary>
         public readonly string? DeliveryType;
         /// <summary>
-        /// 是否开启访问日志（七层）投递至对象存储TOS的功能
+        /// 是否开启访问日志（七层）投递至对象存储TOS的功能。
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// 日志项目
+        /// 日志项目。
         /// </summary>
         public readonly string? TlsProjectId;
         /// <summary>
-        /// 日志主题
+        /// 日志主题。
         /// </summary>
         public readonly string? TlsTopicId;
 

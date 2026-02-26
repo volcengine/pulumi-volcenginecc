@@ -32,10 +32,12 @@ type LookupAccesskeyArgs struct {
 type LookupAccesskeyResult struct {
 	// 密钥ID（Access Key Id）。
 	AccessKeyId string `pulumi:"accessKeyId"`
-	// 密钥创建时间
-	CreateDate string `pulumi:"createDate"`
+	// 密钥创建时间。时间格式为ISO8601。
+	CreatedTime string `pulumi:"createdTime"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
+	// 最后登录时间。
+	LastLoginDate string `pulumi:"lastLoginDate"`
 	// API密钥最后访问的地域。
 	Region string `pulumi:"region"`
 	// API密钥的最后使用的时间。
@@ -44,11 +46,11 @@ type LookupAccesskeyResult struct {
 	SecretAccessKey string `pulumi:"secretAccessKey"`
 	// API密钥最后访问的服务的英文简称。
 	Service string `pulumi:"service"`
-	// 密钥状态 (active/inactive)
+	// 密钥状态。active代表启用状态，inactive代表禁用状态。
 	Status string `pulumi:"status"`
-	// 密钥更新时间
-	UpdateDate string `pulumi:"updateDate"`
-	// 用户名
+	// 密钥更新时间。时间格式为ISO8601。
+	UpdatedTime string `pulumi:"updatedTime"`
+	// 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
 	UserName string `pulumi:"userName"`
 }
 
@@ -91,14 +93,19 @@ func (o LookupAccesskeyResultOutput) AccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.AccessKeyId }).(pulumi.StringOutput)
 }
 
-// 密钥创建时间
-func (o LookupAccesskeyResultOutput) CreateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.CreateDate }).(pulumi.StringOutput)
+// 密钥创建时间。时间格式为ISO8601。
+func (o LookupAccesskeyResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // Uniquely identifies the resource.
 func (o LookupAccesskeyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// 最后登录时间。
+func (o LookupAccesskeyResultOutput) LastLoginDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.LastLoginDate }).(pulumi.StringOutput)
 }
 
 // API密钥最后访问的地域。
@@ -121,17 +128,17 @@ func (o LookupAccesskeyResultOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.Service }).(pulumi.StringOutput)
 }
 
-// 密钥状态 (active/inactive)
+// 密钥状态。active代表启用状态，inactive代表禁用状态。
 func (o LookupAccesskeyResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// 密钥更新时间
-func (o LookupAccesskeyResultOutput) UpdateDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.UpdateDate }).(pulumi.StringOutput)
+// 密钥更新时间。时间格式为ISO8601。
+func (o LookupAccesskeyResultOutput) UpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
-// 用户名
+// 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
 func (o LookupAccesskeyResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccesskeyResult) string { return v.UserName }).(pulumi.StringOutput)
 }

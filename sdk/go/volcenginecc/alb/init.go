@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Acl{}
 	case "volcenginecc:alb/certificate:Certificate":
 		r = &Certificate{}
+	case "volcenginecc:alb/customizedCfg:CustomizedCfg":
+		r = &CustomizedCfg{}
+	case "volcenginecc:alb/healthCheckTemplate:HealthCheckTemplate":
+		r = &HealthCheckTemplate{}
 	case "volcenginecc:alb/listener:Listener":
 		r = &Listener{}
 	case "volcenginecc:alb/loadBalancer:LoadBalancer":
@@ -52,6 +56,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"alb/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"alb/customizedCfg",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"alb/healthCheckTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

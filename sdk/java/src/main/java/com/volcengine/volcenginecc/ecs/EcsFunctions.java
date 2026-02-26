@@ -12,6 +12,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.ecs.inputs.GetCommandArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetCommandPlainArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetDeploymentSetArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetDeploymentSetPlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetHpcClusterArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetHpcClusterPlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetImageArgs;
@@ -22,8 +24,14 @@ import com.volcengine.volcenginecc.ecs.inputs.GetInvocationArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetInvocationPlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetKeypairArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetKeypairPlainArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplateArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplatePlainArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplateVersionArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplateVersionPlainArgs;
 import com.volcengine.volcenginecc.ecs.outputs.GetCommandResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetCommandsResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetDeploymentSetResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetDeploymentSetsResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetHpcClusterResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetHpcClustersResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetImageResult;
@@ -34,6 +42,10 @@ import com.volcengine.volcenginecc.ecs.outputs.GetInvocationResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetInvocationsResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetKeypairResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetKeypairsResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplateResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplateVersionResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplateVersionsResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplatesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class EcsFunctions {
@@ -120,6 +132,90 @@ public final class EcsFunctions {
      */
     public static CompletableFuture<GetCommandsResult> getCommandsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getCommands:getCommands", TypeShape.of(GetCommandsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetResult> getDeploymentSet(GetDeploymentSetArgs args) {
+        return getDeploymentSet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static CompletableFuture<GetDeploymentSetResult> getDeploymentSetPlain(GetDeploymentSetPlainArgs args) {
+        return getDeploymentSetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetResult> getDeploymentSet(GetDeploymentSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getDeploymentSet:getDeploymentSet", TypeShape.of(GetDeploymentSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetResult> getDeploymentSet(GetDeploymentSetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getDeploymentSet:getDeploymentSet", TypeShape.of(GetDeploymentSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static CompletableFuture<GetDeploymentSetResult> getDeploymentSetPlain(GetDeploymentSetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getDeploymentSet:getDeploymentSet", TypeShape.of(GetDeploymentSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetsResult> getDeploymentSets() {
+        return getDeploymentSets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static CompletableFuture<GetDeploymentSetsResult> getDeploymentSetsPlain() {
+        return getDeploymentSetsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetsResult> getDeploymentSets(InvokeArgs args) {
+        return getDeploymentSets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static CompletableFuture<GetDeploymentSetsResult> getDeploymentSetsPlain(InvokeArgs args) {
+        return getDeploymentSetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetsResult> getDeploymentSets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getDeploymentSets:getDeploymentSets", TypeShape.of(GetDeploymentSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static Output<GetDeploymentSetsResult> getDeploymentSets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getDeploymentSets:getDeploymentSets", TypeShape.of(GetDeploymentSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::DeploymentSet
+     * 
+     */
+    public static CompletableFuture<GetDeploymentSetsResult> getDeploymentSetsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getDeploymentSets:getDeploymentSets", TypeShape.of(GetDeploymentSetsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::ECS::HpcCluster
@@ -540,5 +636,173 @@ public final class EcsFunctions {
      */
     public static CompletableFuture<GetKeypairsResult> getKeypairsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getKeypairs:getKeypairs", TypeShape.of(GetKeypairsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplateResult> getLaunchTemplate(GetLaunchTemplateArgs args) {
+        return getLaunchTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateResult> getLaunchTemplatePlain(GetLaunchTemplatePlainArgs args) {
+        return getLaunchTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplateResult> getLaunchTemplate(GetLaunchTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplate:getLaunchTemplate", TypeShape.of(GetLaunchTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplateResult> getLaunchTemplate(GetLaunchTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplate:getLaunchTemplate", TypeShape.of(GetLaunchTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateResult> getLaunchTemplatePlain(GetLaunchTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getLaunchTemplate:getLaunchTemplate", TypeShape.of(GetLaunchTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionResult> getLaunchTemplateVersion(GetLaunchTemplateVersionArgs args) {
+        return getLaunchTemplateVersion(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateVersionResult> getLaunchTemplateVersionPlain(GetLaunchTemplateVersionPlainArgs args) {
+        return getLaunchTemplateVersionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionResult> getLaunchTemplateVersion(GetLaunchTemplateVersionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplateVersion:getLaunchTemplateVersion", TypeShape.of(GetLaunchTemplateVersionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionResult> getLaunchTemplateVersion(GetLaunchTemplateVersionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplateVersion:getLaunchTemplateVersion", TypeShape.of(GetLaunchTemplateVersionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateVersionResult> getLaunchTemplateVersionPlain(GetLaunchTemplateVersionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getLaunchTemplateVersion:getLaunchTemplateVersion", TypeShape.of(GetLaunchTemplateVersionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionsResult> getLaunchTemplateVersions() {
+        return getLaunchTemplateVersions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateVersionsResult> getLaunchTemplateVersionsPlain() {
+        return getLaunchTemplateVersionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionsResult> getLaunchTemplateVersions(InvokeArgs args) {
+        return getLaunchTemplateVersions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateVersionsResult> getLaunchTemplateVersionsPlain(InvokeArgs args) {
+        return getLaunchTemplateVersionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionsResult> getLaunchTemplateVersions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplateVersions:getLaunchTemplateVersions", TypeShape.of(GetLaunchTemplateVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static Output<GetLaunchTemplateVersionsResult> getLaunchTemplateVersions(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplateVersions:getLaunchTemplateVersions", TypeShape.of(GetLaunchTemplateVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplateVersionsResult> getLaunchTemplateVersionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getLaunchTemplateVersions:getLaunchTemplateVersions", TypeShape.of(GetLaunchTemplateVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplatesResult> getLaunchTemplates() {
+        return getLaunchTemplates(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplatesResult> getLaunchTemplatesPlain() {
+        return getLaunchTemplatesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplatesResult> getLaunchTemplates(InvokeArgs args) {
+        return getLaunchTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplatesResult> getLaunchTemplatesPlain(InvokeArgs args) {
+        return getLaunchTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplatesResult> getLaunchTemplates(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplates:getLaunchTemplates", TypeShape.of(GetLaunchTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static Output<GetLaunchTemplatesResult> getLaunchTemplates(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getLaunchTemplates:getLaunchTemplates", TypeShape.of(GetLaunchTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::Launchtemplate
+     * 
+     */
+    public static CompletableFuture<GetLaunchTemplatesResult> getLaunchTemplatesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getLaunchTemplates:getLaunchTemplates", TypeShape.of(GetLaunchTemplatesResult.class), args, Utilities.withVersion(options));
     }
 }

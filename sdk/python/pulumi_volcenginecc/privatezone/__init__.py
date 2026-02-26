@@ -6,10 +6,13 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_record import *
+from .get_records import *
 from .get_resolver_endpoint import *
 from .get_resolver_endpoints import *
 from .get_resolver_rule import *
 from .get_resolver_rules import *
+from .record import *
 from .resolver_endpoint import *
 from .resolver_rule import *
 from ._inputs import *

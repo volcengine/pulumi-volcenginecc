@@ -16,29 +16,29 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccesskeyArgs Empty = new AccesskeyArgs();
 
     /**
-     * 密钥ID（Access Key Id）。
+     * 私有密钥（Secret Access Key）。
      * 
      */
-    @Import(name="accessKeyId")
-    private @Nullable Output<String> accessKeyId;
+    @Import(name="secretAccessKey")
+    private @Nullable Output<String> secretAccessKey;
 
     /**
-     * @return 密钥ID（Access Key Id）。
+     * @return 私有密钥（Secret Access Key）。
      * 
      */
-    public Optional<Output<String>> accessKeyId() {
-        return Optional.ofNullable(this.accessKeyId);
+    public Optional<Output<String>> secretAccessKey() {
+        return Optional.ofNullable(this.secretAccessKey);
     }
 
     /**
-     * 密钥状态 (active/inactive)
+     * 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 密钥状态 (active/inactive)
+     * @return 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     public Optional<Output<String>> status() {
@@ -46,14 +46,14 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 用户名
+     * 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return 用户名
+     * @return 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     public Optional<Output<String>> userName() {
@@ -63,7 +63,7 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
     private AccesskeyArgs() {}
 
     private AccesskeyArgs(AccesskeyArgs $) {
-        this.accessKeyId = $.accessKeyId;
+        this.secretAccessKey = $.secretAccessKey;
         this.status = $.status;
         this.userName = $.userName;
     }
@@ -87,28 +87,28 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessKeyId 密钥ID（Access Key Id）。
+         * @param secretAccessKey 私有密钥（Secret Access Key）。
          * 
          * @return builder
          * 
          */
-        public Builder accessKeyId(@Nullable Output<String> accessKeyId) {
-            $.accessKeyId = accessKeyId;
+        public Builder secretAccessKey(@Nullable Output<String> secretAccessKey) {
+            $.secretAccessKey = secretAccessKey;
             return this;
         }
 
         /**
-         * @param accessKeyId 密钥ID（Access Key Id）。
+         * @param secretAccessKey 私有密钥（Secret Access Key）。
          * 
          * @return builder
          * 
          */
-        public Builder accessKeyId(String accessKeyId) {
-            return accessKeyId(Output.of(accessKeyId));
+        public Builder secretAccessKey(String secretAccessKey) {
+            return secretAccessKey(Output.of(secretAccessKey));
         }
 
         /**
-         * @param status 密钥状态 (active/inactive)
+         * @param status 密钥状态。active代表启用状态，inactive代表禁用状态。
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 密钥状态 (active/inactive)
+         * @param status 密钥状态。active代表启用状态，inactive代表禁用状态。
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName 用户名
+         * @param userName 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AccesskeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName 用户名
+         * @param userName 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
          * 
          * @return builder
          * 

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:privatezone/record:Record":
+		r = &Record{}
 	case "volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint":
 		r = &ResolverEndpoint{}
 	case "volcenginecc:privatezone/resolverRule:ResolverRule":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"privatezone/record",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"privatezone/resolverEndpoint",

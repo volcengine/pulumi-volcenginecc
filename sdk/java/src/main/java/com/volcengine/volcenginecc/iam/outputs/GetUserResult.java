@@ -5,10 +5,12 @@ package com.volcengine.volcenginecc.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.volcengine.volcenginecc.iam.outputs.GetUserAccessKey;
 import com.volcengine.volcenginecc.iam.outputs.GetUserLoginProfile;
 import com.volcengine.volcenginecc.iam.outputs.GetUserPolicy;
 import com.volcengine.volcenginecc.iam.outputs.GetUserSecurityConfig;
 import com.volcengine.volcenginecc.iam.outputs.GetUserTag;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,6 +19,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
+    /**
+     * @return 子用户的访问密钥。
+     * 
+     */
+    private List<GetUserAccessKey> accessKeys;
     /**
      * @return 子用户归属的主账号。
      * 
@@ -43,6 +50,11 @@ public final class GetUserResult {
      */
     private String email;
     /**
+     * @return 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    private Boolean emailIsVerify;
+    /**
      * @return 子用户归属的用户组。
      * 
      */
@@ -62,6 +74,11 @@ public final class GetUserResult {
      * 
      */
     private String mobilePhone;
+    /**
+     * @return 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    private Boolean mobilePhoneIsVerify;
     /**
      * @return 子用户对应的权限策略。
      * 
@@ -100,6 +117,13 @@ public final class GetUserResult {
 
     private GetUserResult() {}
     /**
+     * @return 子用户的访问密钥。
+     * 
+     */
+    public List<GetUserAccessKey> accessKeys() {
+        return this.accessKeys;
+    }
+    /**
      * @return 子用户归属的主账号。
      * 
      */
@@ -135,6 +159,13 @@ public final class GetUserResult {
         return this.email;
     }
     /**
+     * @return 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    public Boolean emailIsVerify() {
+        return this.emailIsVerify;
+    }
+    /**
      * @return 子用户归属的用户组。
      * 
      */
@@ -161,6 +192,13 @@ public final class GetUserResult {
      */
     public String mobilePhone() {
         return this.mobilePhone;
+    }
+    /**
+     * @return 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    public Boolean mobilePhoneIsVerify() {
+        return this.mobilePhoneIsVerify;
     }
     /**
      * @return 子用户对应的权限策略。
@@ -221,15 +259,18 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetUserAccessKey> accessKeys;
         private Double accountId;
         private String createDate;
         private String description;
         private String displayName;
         private String email;
+        private Boolean emailIsVerify;
         private List<String> groups;
         private String id;
         private GetUserLoginProfile loginProfile;
         private String mobilePhone;
+        private Boolean mobilePhoneIsVerify;
         private List<GetUserPolicy> policies;
         private GetUserSecurityConfig securityConfig;
         private List<GetUserTag> tags;
@@ -240,15 +281,18 @@ public final class GetUserResult {
         public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessKeys = defaults.accessKeys;
     	      this.accountId = defaults.accountId;
     	      this.createDate = defaults.createDate;
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
     	      this.email = defaults.email;
+    	      this.emailIsVerify = defaults.emailIsVerify;
     	      this.groups = defaults.groups;
     	      this.id = defaults.id;
     	      this.loginProfile = defaults.loginProfile;
     	      this.mobilePhone = defaults.mobilePhone;
+    	      this.mobilePhoneIsVerify = defaults.mobilePhoneIsVerify;
     	      this.policies = defaults.policies;
     	      this.securityConfig = defaults.securityConfig;
     	      this.tags = defaults.tags;
@@ -258,6 +302,17 @@ public final class GetUserResult {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
+        public Builder accessKeys(List<GetUserAccessKey> accessKeys) {
+            if (accessKeys == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "accessKeys");
+            }
+            this.accessKeys = accessKeys;
+            return this;
+        }
+        public Builder accessKeys(GetUserAccessKey... accessKeys) {
+            return accessKeys(List.of(accessKeys));
+        }
         @CustomType.Setter
         public Builder accountId(Double accountId) {
             if (accountId == null) {
@@ -299,6 +354,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder emailIsVerify(Boolean emailIsVerify) {
+            if (emailIsVerify == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "emailIsVerify");
+            }
+            this.emailIsVerify = emailIsVerify;
+            return this;
+        }
+        @CustomType.Setter
         public Builder groups(List<String> groups) {
             if (groups == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "groups");
@@ -331,6 +394,14 @@ public final class GetUserResult {
               throw new MissingRequiredPropertyException("GetUserResult", "mobilePhone");
             }
             this.mobilePhone = mobilePhone;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mobilePhoneIsVerify(Boolean mobilePhoneIsVerify) {
+            if (mobilePhoneIsVerify == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "mobilePhoneIsVerify");
+            }
+            this.mobilePhoneIsVerify = mobilePhoneIsVerify;
             return this;
         }
         @CustomType.Setter
@@ -397,15 +468,18 @@ public final class GetUserResult {
         }
         public GetUserResult build() {
             final var _resultValue = new GetUserResult();
+            _resultValue.accessKeys = accessKeys;
             _resultValue.accountId = accountId;
             _resultValue.createDate = createDate;
             _resultValue.description = description;
             _resultValue.displayName = displayName;
             _resultValue.email = email;
+            _resultValue.emailIsVerify = emailIsVerify;
             _resultValue.groups = groups;
             _resultValue.id = id;
             _resultValue.loginProfile = loginProfile;
             _resultValue.mobilePhone = mobilePhone;
+            _resultValue.mobilePhoneIsVerify = mobilePhoneIsVerify;
             _resultValue.policies = policies;
             _resultValue.securityConfig = securityConfig;
             _resultValue.tags = tags;

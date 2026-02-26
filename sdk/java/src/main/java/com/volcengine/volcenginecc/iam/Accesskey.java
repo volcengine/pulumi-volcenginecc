@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * 访问控制(Identity and Access Management，缩写为IAM)是火山引擎为客户提供的一套权限管理系统，用于控制不同身份对云资源的访问权限。
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -52,7 +54,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import volcenginecc:iam/accesskey:Accesskey example &#34;access_key_id|user_name&#34;
+ * $ pulumi import volcenginecc:iam/accesskey:Accesskey example &#34;access_key_id&#34;
  * ```
  * 
  */
@@ -73,18 +75,32 @@ public class Accesskey extends com.pulumi.resources.CustomResource {
         return this.accessKeyId;
     }
     /**
-     * 密钥创建时间
+     * 密钥创建时间。时间格式为ISO8601。
      * 
      */
-    @Export(name="createDate", refs={String.class}, tree="[0]")
-    private Output<String> createDate;
+    @Export(name="createdTime", refs={String.class}, tree="[0]")
+    private Output<String> createdTime;
 
     /**
-     * @return 密钥创建时间
+     * @return 密钥创建时间。时间格式为ISO8601。
      * 
      */
-    public Output<String> createDate() {
-        return this.createDate;
+    public Output<String> createdTime() {
+        return this.createdTime;
+    }
+    /**
+     * 最后登录时间。
+     * 
+     */
+    @Export(name="lastLoginDate", refs={String.class}, tree="[0]")
+    private Output<String> lastLoginDate;
+
+    /**
+     * @return 最后登录时间。
+     * 
+     */
+    public Output<String> lastLoginDate() {
+        return this.lastLoginDate;
     }
     /**
      * API密钥最后访问的地域。
@@ -143,42 +159,42 @@ public class Accesskey extends com.pulumi.resources.CustomResource {
         return this.service;
     }
     /**
-     * 密钥状态 (active/inactive)
+     * 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return 密钥状态 (active/inactive)
+     * @return 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * 密钥更新时间
+     * 密钥更新时间。时间格式为ISO8601。
      * 
      */
-    @Export(name="updateDate", refs={String.class}, tree="[0]")
-    private Output<String> updateDate;
+    @Export(name="updatedTime", refs={String.class}, tree="[0]")
+    private Output<String> updatedTime;
 
     /**
-     * @return 密钥更新时间
+     * @return 密钥更新时间。时间格式为ISO8601。
      * 
      */
-    public Output<String> updateDate() {
-        return this.updateDate;
+    public Output<String> updatedTime() {
+        return this.updatedTime;
     }
     /**
-     * 用户名
+     * 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return 用户名
+     * @return 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     public Output<String> userName() {

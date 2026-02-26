@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:redis/account:Account":
+		r = &Account{}
+	case "volcenginecc:redis/endpointPublicAddress:EndpointPublicAddress":
+		r = &EndpointPublicAddress{}
 	case "volcenginecc:redis/instance:Instance":
 		r = &Instance{}
 	default:
@@ -36,6 +40,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"redis/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"redis/endpointPublicAddress",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"redis/instance",

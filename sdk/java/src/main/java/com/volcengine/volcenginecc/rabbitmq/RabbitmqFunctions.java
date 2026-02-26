@@ -12,8 +12,16 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstancePluginArgs;
+import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstancePluginPlainArgs;
+import com.volcengine.volcenginecc.rabbitmq.inputs.GetPublicAddressArgs;
+import com.volcengine.volcenginecc.rabbitmq.inputs.GetPublicAddressPlainArgs;
+import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstancePluginResult;
+import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstancePluginsResult;
 import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.rabbitmq.outputs.GetPublicAddressResult;
+import com.volcengine.volcenginecc.rabbitmq.outputs.GetPublicAddressesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RabbitmqFunctions {
@@ -51,6 +59,90 @@ public final class RabbitmqFunctions {
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginResult> getInstancePlugin(GetInstancePluginArgs args) {
+        return getInstancePlugin(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static CompletableFuture<GetInstancePluginResult> getInstancePluginPlain(GetInstancePluginPlainArgs args) {
+        return getInstancePluginPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginResult> getInstancePlugin(GetInstancePluginArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getInstancePlugin:getInstancePlugin", TypeShape.of(GetInstancePluginResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginResult> getInstancePlugin(GetInstancePluginArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getInstancePlugin:getInstancePlugin", TypeShape.of(GetInstancePluginResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static CompletableFuture<GetInstancePluginResult> getInstancePluginPlain(GetInstancePluginPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getInstancePlugin:getInstancePlugin", TypeShape.of(GetInstancePluginResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginsResult> getInstancePlugins() {
+        return getInstancePlugins(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static CompletableFuture<GetInstancePluginsResult> getInstancePluginsPlain() {
+        return getInstancePluginsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginsResult> getInstancePlugins(InvokeArgs args) {
+        return getInstancePlugins(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static CompletableFuture<GetInstancePluginsResult> getInstancePluginsPlain(InvokeArgs args) {
+        return getInstancePluginsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginsResult> getInstancePlugins(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getInstancePlugins:getInstancePlugins", TypeShape.of(GetInstancePluginsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static Output<GetInstancePluginsResult> getInstancePlugins(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getInstancePlugins:getInstancePlugins", TypeShape.of(GetInstancePluginsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::InstancePlugin
+     * 
+     */
+    public static CompletableFuture<GetInstancePluginsResult> getInstancePluginsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getInstancePlugins:getInstancePlugins", TypeShape.of(GetInstancePluginsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::RabbitMQ::Instance
@@ -100,5 +192,89 @@ public final class RabbitmqFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressResult> getPublicAddress(GetPublicAddressArgs args) {
+        return getPublicAddress(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static CompletableFuture<GetPublicAddressResult> getPublicAddressPlain(GetPublicAddressPlainArgs args) {
+        return getPublicAddressPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressResult> getPublicAddress(GetPublicAddressArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getPublicAddress:getPublicAddress", TypeShape.of(GetPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressResult> getPublicAddress(GetPublicAddressArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getPublicAddress:getPublicAddress", TypeShape.of(GetPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static CompletableFuture<GetPublicAddressResult> getPublicAddressPlain(GetPublicAddressPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getPublicAddress:getPublicAddress", TypeShape.of(GetPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressesResult> getPublicAddresses() {
+        return getPublicAddresses(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static CompletableFuture<GetPublicAddressesResult> getPublicAddressesPlain() {
+        return getPublicAddressesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressesResult> getPublicAddresses(InvokeArgs args) {
+        return getPublicAddresses(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static CompletableFuture<GetPublicAddressesResult> getPublicAddressesPlain(InvokeArgs args) {
+        return getPublicAddressesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressesResult> getPublicAddresses(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getPublicAddresses:getPublicAddresses", TypeShape.of(GetPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static Output<GetPublicAddressesResult> getPublicAddresses(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getPublicAddresses:getPublicAddresses", TypeShape.of(GetPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::PublicAddress
+     * 
+     */
+    public static CompletableFuture<GetPublicAddressesResult> getPublicAddressesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getPublicAddresses:getPublicAddresses", TypeShape.of(GetPublicAddressesResult.class), args, Utilities.withVersion(options));
     }
 }

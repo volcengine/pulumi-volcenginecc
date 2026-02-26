@@ -43,6 +43,7 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    public /*out*/ readonly accessKeys!: pulumi.Output<outputs.iam.UserAccessKey[]>;
     /**
      * 子用户归属的主账号。
      */
@@ -64,6 +65,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
+     * 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     */
+    public readonly emailIsVerify!: pulumi.Output<boolean>;
+    /**
      * 子用户归属的用户组。
      */
     public readonly groups!: pulumi.Output<string[]>;
@@ -75,6 +80,10 @@ export class User extends pulumi.CustomResource {
      * 子用户对应的手机号。
      */
     public readonly mobilePhone!: pulumi.Output<string>;
+    /**
+     * 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     */
+    public readonly mobilePhoneIsVerify!: pulumi.Output<boolean>;
     public readonly policies!: pulumi.Output<outputs.iam.UserPolicy[]>;
     /**
      * 子用户的操作保护配置。
@@ -111,14 +120,17 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
+            resourceInputs["accessKeys"] = state ? state.accessKeys : undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["createDate"] = state ? state.createDate : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["emailIsVerify"] = state ? state.emailIsVerify : undefined;
             resourceInputs["groups"] = state ? state.groups : undefined;
             resourceInputs["loginProfile"] = state ? state.loginProfile : undefined;
             resourceInputs["mobilePhone"] = state ? state.mobilePhone : undefined;
+            resourceInputs["mobilePhoneIsVerify"] = state ? state.mobilePhoneIsVerify : undefined;
             resourceInputs["policies"] = state ? state.policies : undefined;
             resourceInputs["securityConfig"] = state ? state.securityConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -134,13 +146,16 @@ export class User extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["emailIsVerify"] = args ? args.emailIsVerify : undefined;
             resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["loginProfile"] = args ? args.loginProfile : undefined;
             resourceInputs["mobilePhone"] = args ? args.mobilePhone : undefined;
+            resourceInputs["mobilePhoneIsVerify"] = args ? args.mobilePhoneIsVerify : undefined;
             resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["securityConfig"] = args ? args.securityConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accessKeys"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["createDate"] = undefined /*out*/;
             resourceInputs["trn"] = undefined /*out*/;
@@ -156,6 +171,7 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    accessKeys?: pulumi.Input<pulumi.Input<inputs.iam.UserAccessKey>[]>;
     /**
      * 子用户归属的主账号。
      */
@@ -177,6 +193,10 @@ export interface UserState {
      */
     email?: pulumi.Input<string>;
     /**
+     * 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     */
+    emailIsVerify?: pulumi.Input<boolean>;
+    /**
      * 子用户归属的用户组。
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -188,6 +208,10 @@ export interface UserState {
      * 子用户对应的手机号。
      */
     mobilePhone?: pulumi.Input<string>;
+    /**
+     * 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     */
+    mobilePhoneIsVerify?: pulumi.Input<boolean>;
     policies?: pulumi.Input<pulumi.Input<inputs.iam.UserPolicy>[]>;
     /**
      * 子用户的操作保护配置。
@@ -229,6 +253,10 @@ export interface UserArgs {
      */
     email?: pulumi.Input<string>;
     /**
+     * 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     */
+    emailIsVerify?: pulumi.Input<boolean>;
+    /**
      * 子用户归属的用户组。
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -240,6 +268,10 @@ export interface UserArgs {
      * 子用户对应的手机号。
      */
     mobilePhone?: pulumi.Input<string>;
+    /**
+     * 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     */
+    mobilePhoneIsVerify?: pulumi.Input<boolean>;
     policies?: pulumi.Input<pulumi.Input<inputs.iam.UserPolicy>[]>;
     /**
      * 子用户的操作保护配置。

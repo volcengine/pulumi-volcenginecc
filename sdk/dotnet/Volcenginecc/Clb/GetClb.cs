@@ -65,79 +65,83 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     public sealed class GetClbResult
     {
         /// <summary>
-        /// 负载均衡实例中访问日志的信息
+        /// 负载均衡实例中访问日志的信息。
         /// </summary>
         public readonly Outputs.GetClbAccessLogResult AccessLog;
         /// <summary>
-        /// 负载均衡实例所属的账号ID
+        /// 负载均衡实例所属的账号ID。
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// 负载均衡实例的IP地址类型
+        /// CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
         /// </summary>
         public readonly string AddressIpVersion;
         /// <summary>
-        /// 允许的多个端口范围
+        /// 允许的多个端口范围。
         /// </summary>
         public readonly ImmutableArray<string> AllowedPorts;
         /// <summary>
-        /// 负载均衡实例是否被锁定
+        /// 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+        /// </summary>
+        public readonly bool AutoRenewal;
+        /// <summary>
+        /// 负载均衡实例是否被锁定。
         /// </summary>
         public readonly string BusinessStatus;
         /// <summary>
-        /// 是否开启bypass安全组功能
+        /// 是否开启bypass安全组功能。
         /// </summary>
         public readonly string BypassSecurityGroupEnabled;
         /// <summary>
-        /// 负载均衡实例的创建时间
+        /// 负载均衡实例的创建时间。
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// 负载均衡实例的预期回收时间
+        /// 负载均衡实例的预期回收时间。
         /// </summary>
         public readonly string DeletedTime;
         /// <summary>
-        /// 负载均衡实例的描述
+        /// 负载均衡实例的描述。
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// 负载均衡实例的公网IP的信息
+        /// 负载均衡实例的公网IP的信息。
         /// </summary>
         public readonly Outputs.GetClbEipResult Eip;
         /// <summary>
-        /// 公网IP地址
+        /// 公网IP地址。
         /// </summary>
         public readonly string EipAddress;
         /// <summary>
-        /// 公网IP ID
+        /// 公网IP ID。
         /// </summary>
         public readonly string EipId;
         /// <summary>
-        /// 负载均衡实例的启用状态
+        /// 负载均衡实例的启用状态。
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// 负载均衡实例的私网IPv4地址信息
+        /// 负载均衡实例的私网IPv4地址信息。
         /// </summary>
         public readonly Outputs.GetClbEniResult Eni;
         /// <summary>
-        /// 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+        /// 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
         /// </summary>
         public readonly double EniAddressNum;
         /// <summary>
-        /// 负载均衡实例的私网IPv6地址
+        /// 负载均衡实例的私网IPv6地址。
         /// </summary>
         public readonly string EniIpv6Address;
         /// <summary>
-        /// 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+        /// 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
         /// </summary>
         public readonly Outputs.GetClbEnisResult Enis;
         /// <summary>
-        /// 独占集群Id
+        /// 独占集群Id。
         /// </summary>
         public readonly string ExclusiveClusterId;
         /// <summary>
-        /// 负载均衡实例到期时间
+        /// 负载均衡实例到期时间。
         /// </summary>
         public readonly string ExpiredTime;
         /// <summary>
@@ -145,111 +149,107 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// 负载均衡实例中监听器的信息
+        /// 负载均衡实例中监听器的信息。
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClbListenerResult> Listeners;
         /// <summary>
-        /// 负载均衡实例计费方式
+        /// CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
         /// </summary>
         public readonly double LoadBalancerBillingType;
         /// <summary>
-        /// 负载均衡实例ID
+        /// 负载均衡实例ID。
         /// </summary>
         public readonly string LoadBalancerId;
         /// <summary>
-        /// 负载均衡实例的名称
+        /// 负载均衡实例的名称。
         /// </summary>
         public readonly string LoadBalancerName;
         /// <summary>
-        /// 负载均衡实例的规格
+        /// CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
         /// </summary>
         public readonly string LoadBalancerSpec;
         /// <summary>
-        /// 负载均衡实例被冻结的原因
+        /// 负载均衡实例被冻结的原因。
         /// </summary>
         public readonly string LockReason;
         /// <summary>
-        /// 负载均衡实例的主可用区ID
+        /// 负载均衡实例的主可用区ID。
         /// </summary>
         public readonly string MasterZoneId;
         /// <summary>
-        /// 设置修改保护状态的原因
+        /// 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
         /// </summary>
         public readonly string ModificationProtectionReason;
         /// <summary>
-        /// 负载均衡实例在控制台上修改保护的状态
+        /// CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
         /// </summary>
         public readonly string ModificationProtectionStatus;
         /// <summary>
-        /// 是否为新架构
+        /// 是否为新架构。
         /// </summary>
         public readonly bool NewArch;
         /// <summary>
-        /// 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+        /// 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
         /// </summary>
         public readonly string OrderId;
         /// <summary>
-        /// 负载均衡实例的冻结时间
+        /// 负载均衡实例的冻结时间。
         /// </summary>
         public readonly string OverdueTime;
         /// <summary>
-        /// 包年包月计费类型的时长数量
+        /// 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
         /// </summary>
         public readonly double Period;
         /// <summary>
-        /// 包年包月计费类型的时长单位
+        /// 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
         /// </summary>
         public readonly string PeriodUnit;
         /// <summary>
-        /// CLB实例所属项目的名称
+        /// CLB实例所属项目的名称。
         /// </summary>
         public readonly string ProjectName;
         /// <summary>
-        /// 请求的Region
-        /// </summary>
-        public readonly string RegionId;
-        /// <summary>
-        /// 负载均衡实例中后端服务器组的信息
+        /// 负载均衡实例中后端服务器组的信息。
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClbServerGroupResult> ServerGroups;
         /// <summary>
-        /// CLB实例是否为托管资源
+        /// CLB实例是否为托管资源。
         /// </summary>
         public readonly bool ServiceManaged;
         /// <summary>
-        /// 负载均衡实例的备可用区ID
+        /// 负载均衡实例的备可用区ID。
         /// </summary>
         public readonly string SlaveZoneId;
         /// <summary>
-        /// 负载均衡实例状态
+        /// 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// 负载均衡实例所属VPC内的子网ID
+        /// 负载均衡实例所属VPC内的子网ID。
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
-        /// CLB实例标签
+        /// CLB实例标签。
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClbTagResult> Tags;
         /// <summary>
-        /// 是否开启 TCP Timestamp 清除功能
+        /// 是否开启 TCP Timestamp 清除功能。
         /// </summary>
         public readonly string TimestampRemoveEnabled;
         /// <summary>
-        /// 负载均衡实例的类型
+        /// CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// 负载均衡实例的最近操作时间
+        /// 负载均衡实例的最近操作时间。
         /// </summary>
         public readonly string UpdateTime;
         /// <summary>
-        /// 负载均衡实例所属的VPC ID
+        /// 负载均衡实例所属的VPC ID。
         /// </summary>
         public readonly string VpcId;
         /// <summary>
-        /// 负载均衡实例的可用区类型
+        /// 负载均衡实例的可用区类型。
         /// </summary>
         public readonly string ZoneType;
 
@@ -262,6 +262,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
             string addressIpVersion,
 
             ImmutableArray<string> allowedPorts,
+
+            bool autoRenewal,
 
             string businessStatus,
 
@@ -325,8 +327,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 
             string projectName,
 
-            string regionId,
-
             ImmutableArray<Outputs.GetClbServerGroupResult> serverGroups,
 
             bool serviceManaged,
@@ -353,6 +353,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
             AccountId = accountId;
             AddressIpVersion = addressIpVersion;
             AllowedPorts = allowedPorts;
+            AutoRenewal = autoRenewal;
             BusinessStatus = businessStatus;
             BypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
             CreateTime = createTime;
@@ -384,7 +385,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
             Period = period;
             PeriodUnit = periodUnit;
             ProjectName = projectName;
-            RegionId = regionId;
             ServerGroups = serverGroups;
             ServiceManaged = serviceManaged;
             SlaveZoneId = slaveZoneId;

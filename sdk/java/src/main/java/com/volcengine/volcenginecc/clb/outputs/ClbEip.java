@@ -14,74 +14,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClbEip {
     /**
-     * @return 带宽峰值
+     * @return 带宽峰值。
      * 
      */
     private @Nullable Double bandwidth;
     /**
-     * @return 共享带宽包ID
+     * @return 共享带宽包ID。
      * 
      */
     private @Nullable String bandwidthPackageId;
     /**
-     * @return 计费方式
+     * @return 计费方式。
      * 
      */
     private @Nullable Double eipBillingType;
     /**
-     * @return 线路类型
+     * @return 线路类型。
      * 
      */
     private @Nullable String isp;
     /**
-     * @return 防护包ID
+     * @return 防护包ID。
      * 
      */
     private @Nullable Double securityProtectionInstanceId;
     /**
-     * @return 安全防护类型
+     * @return 安全防护类型。
      * 
      */
     private @Nullable List<String> securityProtectionTypes;
 
     private ClbEip() {}
     /**
-     * @return 带宽峰值
+     * @return 带宽峰值。
      * 
      */
     public Optional<Double> bandwidth() {
         return Optional.ofNullable(this.bandwidth);
     }
     /**
-     * @return 共享带宽包ID
+     * @return 共享带宽包ID。
      * 
      */
     public Optional<String> bandwidthPackageId() {
         return Optional.ofNullable(this.bandwidthPackageId);
     }
     /**
-     * @return 计费方式
+     * @return 计费方式。
      * 
      */
     public Optional<Double> eipBillingType() {
         return Optional.ofNullable(this.eipBillingType);
     }
     /**
-     * @return 线路类型
+     * @return 线路类型。
      * 
      */
     public Optional<String> isp() {
         return Optional.ofNullable(this.isp);
     }
     /**
-     * @return 防护包ID
+     * @return 防护包ID。
      * 
      */
     public Optional<Double> securityProtectionInstanceId() {
         return Optional.ofNullable(this.securityProtectionInstanceId);
     }
     /**
-     * @return 安全防护类型
+     * @return 安全防护类型。
      * 
      */
     public List<String> securityProtectionTypes() {

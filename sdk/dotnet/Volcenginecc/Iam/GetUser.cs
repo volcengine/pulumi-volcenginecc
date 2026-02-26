@@ -65,6 +65,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     public sealed class GetUserResult
     {
         /// <summary>
+        /// 子用户的访问密钥。
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserAccessKeyResult> AccessKeys;
+        /// <summary>
         /// 子用户归属的主账号。
         /// </summary>
         public readonly double AccountId;
@@ -85,6 +89,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// </summary>
         public readonly string Email;
         /// <summary>
+        /// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        public readonly bool EmailIsVerify;
+        /// <summary>
         /// 子用户归属的用户组。
         /// </summary>
         public readonly ImmutableArray<string> Groups;
@@ -100,6 +108,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// 子用户对应的手机号。
         /// </summary>
         public readonly string MobilePhone;
+        /// <summary>
+        /// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        public readonly bool MobilePhoneIsVerify;
         /// <summary>
         /// 子用户对应的权限策略。
         /// </summary>
@@ -131,6 +143,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 
         [OutputConstructor]
         private GetUserResult(
+            ImmutableArray<Outputs.GetUserAccessKeyResult> accessKeys,
+
             double accountId,
 
             string createDate,
@@ -141,6 +155,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 
             string email,
 
+            bool emailIsVerify,
+
             ImmutableArray<string> groups,
 
             string id,
@@ -148,6 +164,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
             Outputs.GetUserLoginProfileResult loginProfile,
 
             string mobilePhone,
+
+            bool mobilePhoneIsVerify,
 
             ImmutableArray<Outputs.GetUserPolicyResult> policies,
 
@@ -163,15 +181,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 
             string userName)
         {
+            AccessKeys = accessKeys;
             AccountId = accountId;
             CreateDate = createDate;
             Description = description;
             DisplayName = displayName;
             Email = email;
+            EmailIsVerify = emailIsVerify;
             Groups = groups;
             Id = id;
             LoginProfile = loginProfile;
             MobilePhone = mobilePhone;
+            MobilePhoneIsVerify = mobilePhoneIsVerify;
             Policies = policies;
             SecurityConfig = securityConfig;
             Tags = tags;

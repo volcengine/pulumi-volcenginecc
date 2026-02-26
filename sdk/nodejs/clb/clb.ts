@@ -44,178 +44,178 @@ export class Clb extends pulumi.CustomResource {
     }
 
     /**
-     * 负载均衡实例中访问日志的信息
+     * 负载均衡实例中访问日志的信息。
      */
     public readonly accessLog!: pulumi.Output<outputs.clb.ClbAccessLog>;
     /**
-     * 负载均衡实例所属的账号ID
+     * 负载均衡实例所属的账号ID。
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的IP地址类型
+     * CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      */
     public readonly addressIpVersion!: pulumi.Output<string>;
     /**
-     * 允许的多个端口范围
+     * 允许的多个端口范围。
      */
     public readonly allowedPorts!: pulumi.Output<string[]>;
     /**
-     * 负载均衡实例是否被锁定
+     * 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     */
+    public readonly autoRenewal!: pulumi.Output<boolean>;
+    /**
+     * 负载均衡实例是否被锁定。
      */
     public /*out*/ readonly businessStatus!: pulumi.Output<string>;
     /**
-     * 是否开启bypass安全组功能
+     * 是否开启bypass安全组功能。
      */
     public readonly bypassSecurityGroupEnabled!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的创建时间
+     * 负载均衡实例的创建时间。
      */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的预期回收时间
+     * 负载均衡实例的预期回收时间。
      */
     public /*out*/ readonly deletedTime!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的描述
+     * 负载均衡实例的描述。
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的公网IP的信息
+     * 负载均衡实例的公网IP的信息。
      */
     public readonly eip!: pulumi.Output<outputs.clb.ClbEip>;
     /**
-     * 公网IP地址
+     * 公网IP地址。
      */
     public readonly eipAddress!: pulumi.Output<string>;
     /**
-     * 公网IP ID
+     * 公网IP ID。
      */
     public readonly eipId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的启用状态
+     * 负载均衡实例的启用状态。
      */
     public /*out*/ readonly enabled!: pulumi.Output<boolean>;
     /**
-     * 负载均衡实例的私网IPv4地址信息
+     * 负载均衡实例的私网IPv4地址信息。
      */
     public /*out*/ readonly eni!: pulumi.Output<outputs.clb.ClbEni>;
     /**
-     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      */
     public readonly eniAddressNum!: pulumi.Output<number>;
     /**
-     * 负载均衡实例的私网IPv6地址
+     * 负载均衡实例的私网IPv6地址。
      */
     public /*out*/ readonly eniIpv6Address!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      */
     public readonly enis!: pulumi.Output<outputs.clb.ClbEnis>;
     /**
-     * 独占集群Id
+     * 独占集群Id。
      */
     public readonly exclusiveClusterId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例到期时间
+     * 负载均衡实例到期时间。
      */
     public /*out*/ readonly expiredTime!: pulumi.Output<string>;
     public readonly listeners!: pulumi.Output<outputs.clb.ClbListener[]>;
     /**
-     * 负载均衡实例计费方式
+     * CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      */
     public readonly loadBalancerBillingType!: pulumi.Output<number>;
     /**
-     * 负载均衡实例ID
+     * 负载均衡实例ID。
      */
     public /*out*/ readonly loadBalancerId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的名称
+     * 负载均衡实例的名称。
      */
     public readonly loadBalancerName!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的规格
+     * CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      */
     public readonly loadBalancerSpec!: pulumi.Output<string>;
     /**
-     * 负载均衡实例被冻结的原因
+     * 负载均衡实例被冻结的原因。
      */
     public /*out*/ readonly lockReason!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的主可用区ID
+     * 负载均衡实例的主可用区ID。
      */
     public readonly masterZoneId!: pulumi.Output<string>;
     /**
-     * 设置修改保护状态的原因
+     * 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      */
     public readonly modificationProtectionReason!: pulumi.Output<string>;
     /**
-     * 负载均衡实例在控制台上修改保护的状态
+     * CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      */
     public readonly modificationProtectionStatus!: pulumi.Output<string>;
     /**
-     * 是否为新架构
+     * 是否为新架构。
      */
     public readonly newArch!: pulumi.Output<boolean>;
     /**
-     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      */
     public readonly orderId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的冻结时间
+     * 负载均衡实例的冻结时间。
      */
     public /*out*/ readonly overdueTime!: pulumi.Output<string>;
     /**
-     * 包年包月计费类型的时长数量
+     * 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      */
     public readonly period!: pulumi.Output<number>;
     /**
-     * 包年包月计费类型的时长单位
+     * 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      */
     public readonly periodUnit!: pulumi.Output<string>;
     /**
-     * CLB实例所属项目的名称
+     * CLB实例所属项目的名称。
      */
     public readonly projectName!: pulumi.Output<string>;
-    /**
-     * 请求的Region
-     */
-    public readonly regionId!: pulumi.Output<string>;
     public readonly serverGroups!: pulumi.Output<outputs.clb.ClbServerGroup[]>;
     /**
-     * CLB实例是否为托管资源
+     * CLB实例是否为托管资源。
      */
     public /*out*/ readonly serviceManaged!: pulumi.Output<boolean>;
     /**
-     * 负载均衡实例的备可用区ID
+     * 负载均衡实例的备可用区ID。
      */
     public readonly slaveZoneId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例状态
+     * 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * 负载均衡实例所属VPC内的子网ID
+     * 负载均衡实例所属VPC内的子网ID。
      */
     public readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.clb.ClbTag[]>;
     /**
-     * 是否开启 TCP Timestamp 清除功能
+     * 是否开启 TCP Timestamp 清除功能。
      */
     public /*out*/ readonly timestampRemoveEnabled!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的类型
+     * CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的最近操作时间
+     * 负载均衡实例的最近操作时间。
      */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
     /**
-     * 负载均衡实例所属的VPC ID
+     * 负载均衡实例所属的VPC ID。
      */
     public readonly vpcId!: pulumi.Output<string>;
     /**
-     * 负载均衡实例的可用区类型
+     * 负载均衡实例的可用区类型。
      */
     public readonly zoneType!: pulumi.Output<string>;
 
@@ -236,6 +236,7 @@ export class Clb extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["addressIpVersion"] = state ? state.addressIpVersion : undefined;
             resourceInputs["allowedPorts"] = state ? state.allowedPorts : undefined;
+            resourceInputs["autoRenewal"] = state ? state.autoRenewal : undefined;
             resourceInputs["businessStatus"] = state ? state.businessStatus : undefined;
             resourceInputs["bypassSecurityGroupEnabled"] = state ? state.bypassSecurityGroupEnabled : undefined;
             resourceInputs["createTime"] = state ? state.createTime : undefined;
@@ -266,7 +267,6 @@ export class Clb extends pulumi.CustomResource {
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
-            resourceInputs["regionId"] = state ? state.regionId : undefined;
             resourceInputs["serverGroups"] = state ? state.serverGroups : undefined;
             resourceInputs["serviceManaged"] = state ? state.serviceManaged : undefined;
             resourceInputs["slaveZoneId"] = state ? state.slaveZoneId : undefined;
@@ -283,6 +283,7 @@ export class Clb extends pulumi.CustomResource {
             resourceInputs["accessLog"] = args ? args.accessLog : undefined;
             resourceInputs["addressIpVersion"] = args ? args.addressIpVersion : undefined;
             resourceInputs["allowedPorts"] = args ? args.allowedPorts : undefined;
+            resourceInputs["autoRenewal"] = args ? args.autoRenewal : undefined;
             resourceInputs["bypassSecurityGroupEnabled"] = args ? args.bypassSecurityGroupEnabled : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eip"] = args ? args.eip : undefined;
@@ -303,7 +304,6 @@ export class Clb extends pulumi.CustomResource {
             resourceInputs["period"] = args ? args.period : undefined;
             resourceInputs["periodUnit"] = args ? args.periodUnit : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["regionId"] = args ? args.regionId : undefined;
             resourceInputs["serverGroups"] = args ? args.serverGroups : undefined;
             resourceInputs["slaveZoneId"] = args ? args.slaveZoneId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
@@ -337,178 +337,178 @@ export class Clb extends pulumi.CustomResource {
  */
 export interface ClbState {
     /**
-     * 负载均衡实例中访问日志的信息
+     * 负载均衡实例中访问日志的信息。
      */
     accessLog?: pulumi.Input<inputs.clb.ClbAccessLog>;
     /**
-     * 负载均衡实例所属的账号ID
+     * 负载均衡实例所属的账号ID。
      */
     accountId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的IP地址类型
+     * CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      */
     addressIpVersion?: pulumi.Input<string>;
     /**
-     * 允许的多个端口范围
+     * 允许的多个端口范围。
      */
     allowedPorts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * 负载均衡实例是否被锁定
+     * 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     */
+    autoRenewal?: pulumi.Input<boolean>;
+    /**
+     * 负载均衡实例是否被锁定。
      */
     businessStatus?: pulumi.Input<string>;
     /**
-     * 是否开启bypass安全组功能
+     * 是否开启bypass安全组功能。
      */
     bypassSecurityGroupEnabled?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的创建时间
+     * 负载均衡实例的创建时间。
      */
     createTime?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的预期回收时间
+     * 负载均衡实例的预期回收时间。
      */
     deletedTime?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的描述
+     * 负载均衡实例的描述。
      */
     description?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的公网IP的信息
+     * 负载均衡实例的公网IP的信息。
      */
     eip?: pulumi.Input<inputs.clb.ClbEip>;
     /**
-     * 公网IP地址
+     * 公网IP地址。
      */
     eipAddress?: pulumi.Input<string>;
     /**
-     * 公网IP ID
+     * 公网IP ID。
      */
     eipId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的启用状态
+     * 负载均衡实例的启用状态。
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * 负载均衡实例的私网IPv4地址信息
+     * 负载均衡实例的私网IPv4地址信息。
      */
     eni?: pulumi.Input<inputs.clb.ClbEni>;
     /**
-     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      */
     eniAddressNum?: pulumi.Input<number>;
     /**
-     * 负载均衡实例的私网IPv6地址
+     * 负载均衡实例的私网IPv6地址。
      */
     eniIpv6Address?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      */
     enis?: pulumi.Input<inputs.clb.ClbEnis>;
     /**
-     * 独占集群Id
+     * 独占集群Id。
      */
     exclusiveClusterId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例到期时间
+     * 负载均衡实例到期时间。
      */
     expiredTime?: pulumi.Input<string>;
     listeners?: pulumi.Input<pulumi.Input<inputs.clb.ClbListener>[]>;
     /**
-     * 负载均衡实例计费方式
+     * CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      */
     loadBalancerBillingType?: pulumi.Input<number>;
     /**
-     * 负载均衡实例ID
+     * 负载均衡实例ID。
      */
     loadBalancerId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的名称
+     * 负载均衡实例的名称。
      */
     loadBalancerName?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的规格
+     * CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      */
     loadBalancerSpec?: pulumi.Input<string>;
     /**
-     * 负载均衡实例被冻结的原因
+     * 负载均衡实例被冻结的原因。
      */
     lockReason?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的主可用区ID
+     * 负载均衡实例的主可用区ID。
      */
     masterZoneId?: pulumi.Input<string>;
     /**
-     * 设置修改保护状态的原因
+     * 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      */
     modificationProtectionReason?: pulumi.Input<string>;
     /**
-     * 负载均衡实例在控制台上修改保护的状态
+     * CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      */
     modificationProtectionStatus?: pulumi.Input<string>;
     /**
-     * 是否为新架构
+     * 是否为新架构。
      */
     newArch?: pulumi.Input<boolean>;
     /**
-     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      */
     orderId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的冻结时间
+     * 负载均衡实例的冻结时间。
      */
     overdueTime?: pulumi.Input<string>;
     /**
-     * 包年包月计费类型的时长数量
+     * 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      */
     period?: pulumi.Input<number>;
     /**
-     * 包年包月计费类型的时长单位
+     * 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      */
     periodUnit?: pulumi.Input<string>;
     /**
-     * CLB实例所属项目的名称
+     * CLB实例所属项目的名称。
      */
     projectName?: pulumi.Input<string>;
-    /**
-     * 请求的Region
-     */
-    regionId?: pulumi.Input<string>;
     serverGroups?: pulumi.Input<pulumi.Input<inputs.clb.ClbServerGroup>[]>;
     /**
-     * CLB实例是否为托管资源
+     * CLB实例是否为托管资源。
      */
     serviceManaged?: pulumi.Input<boolean>;
     /**
-     * 负载均衡实例的备可用区ID
+     * 负载均衡实例的备可用区ID。
      */
     slaveZoneId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例状态
+     * 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      */
     status?: pulumi.Input<string>;
     /**
-     * 负载均衡实例所属VPC内的子网ID
+     * 负载均衡实例所属VPC内的子网ID。
      */
     subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.clb.ClbTag>[]>;
     /**
-     * 是否开启 TCP Timestamp 清除功能
+     * 是否开启 TCP Timestamp 清除功能。
      */
     timestampRemoveEnabled?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的类型
+     * CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      */
     type?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的最近操作时间
+     * 负载均衡实例的最近操作时间。
      */
     updateTime?: pulumi.Input<string>;
     /**
-     * 负载均衡实例所属的VPC ID
+     * 负载均衡实例所属的VPC ID。
      */
     vpcId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的可用区类型
+     * 负载均衡实例的可用区类型。
      */
     zoneType?: pulumi.Input<string>;
 }
@@ -518,118 +518,118 @@ export interface ClbState {
  */
 export interface ClbArgs {
     /**
-     * 负载均衡实例中访问日志的信息
+     * 负载均衡实例中访问日志的信息。
      */
     accessLog?: pulumi.Input<inputs.clb.ClbAccessLog>;
     /**
-     * 负载均衡实例的IP地址类型
+     * CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      */
     addressIpVersion?: pulumi.Input<string>;
     /**
-     * 允许的多个端口范围
+     * 允许的多个端口范围。
      */
     allowedPorts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * 是否开启bypass安全组功能
+     * 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     */
+    autoRenewal?: pulumi.Input<boolean>;
+    /**
+     * 是否开启bypass安全组功能。
      */
     bypassSecurityGroupEnabled?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的描述
+     * 负载均衡实例的描述。
      */
     description?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的公网IP的信息
+     * 负载均衡实例的公网IP的信息。
      */
     eip?: pulumi.Input<inputs.clb.ClbEip>;
     /**
-     * 公网IP地址
+     * 公网IP地址。
      */
     eipAddress?: pulumi.Input<string>;
     /**
-     * 公网IP ID
+     * 公网IP ID。
      */
     eipId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      */
     eniAddressNum?: pulumi.Input<number>;
     /**
-     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      */
     enis?: pulumi.Input<inputs.clb.ClbEnis>;
     /**
-     * 独占集群Id
+     * 独占集群Id。
      */
     exclusiveClusterId?: pulumi.Input<string>;
     listeners?: pulumi.Input<pulumi.Input<inputs.clb.ClbListener>[]>;
     /**
-     * 负载均衡实例计费方式
+     * CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      */
     loadBalancerBillingType?: pulumi.Input<number>;
     /**
-     * 负载均衡实例的名称
+     * 负载均衡实例的名称。
      */
     loadBalancerName?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的规格
+     * CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      */
     loadBalancerSpec?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的主可用区ID
+     * 负载均衡实例的主可用区ID。
      */
     masterZoneId?: pulumi.Input<string>;
     /**
-     * 设置修改保护状态的原因
+     * 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      */
     modificationProtectionReason?: pulumi.Input<string>;
     /**
-     * 负载均衡实例在控制台上修改保护的状态
+     * CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      */
     modificationProtectionStatus?: pulumi.Input<string>;
     /**
-     * 是否为新架构
+     * 是否为新架构。
      */
     newArch?: pulumi.Input<boolean>;
     /**
-     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      */
     orderId?: pulumi.Input<string>;
     /**
-     * 包年包月计费类型的时长数量
+     * 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      */
     period?: pulumi.Input<number>;
     /**
-     * 包年包月计费类型的时长单位
+     * 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      */
     periodUnit?: pulumi.Input<string>;
     /**
-     * CLB实例所属项目的名称
+     * CLB实例所属项目的名称。
      */
     projectName?: pulumi.Input<string>;
-    /**
-     * 请求的Region
-     */
-    regionId?: pulumi.Input<string>;
     serverGroups?: pulumi.Input<pulumi.Input<inputs.clb.ClbServerGroup>[]>;
     /**
-     * 负载均衡实例的备可用区ID
+     * 负载均衡实例的备可用区ID。
      */
     slaveZoneId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例所属VPC内的子网ID
+     * 负载均衡实例所属VPC内的子网ID。
      */
     subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.clb.ClbTag>[]>;
     /**
-     * 负载均衡实例的类型
+     * CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      */
     type?: pulumi.Input<string>;
     /**
-     * 负载均衡实例所属的VPC ID
+     * 负载均衡实例所属的VPC ID。
      */
     vpcId?: pulumi.Input<string>;
     /**
-     * 负载均衡实例的可用区类型
+     * 负载均衡实例的可用区类型。
      */
     zoneType?: pulumi.Input<string>;
 }

@@ -13,6 +13,254 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GroupConsumedClient struct {
+	// 该消费者实例的地址和端口。
+	ClientAddress *string `pulumi:"clientAddress"`
+	// 该消费者实例的 ID。
+	ClientId *string `pulumi:"clientId"`
+	// 消息堆积量。
+	Diff *int `pulumi:"diff"`
+	// 消费者应用的开发语言。
+	Language *string `pulumi:"language"`
+	// 消费端版本。
+	Version *string `pulumi:"version"`
+}
+
+// GroupConsumedClientInput is an input type that accepts GroupConsumedClientArgs and GroupConsumedClientOutput values.
+// You can construct a concrete instance of `GroupConsumedClientInput` via:
+//
+//	GroupConsumedClientArgs{...}
+type GroupConsumedClientInput interface {
+	pulumi.Input
+
+	ToGroupConsumedClientOutput() GroupConsumedClientOutput
+	ToGroupConsumedClientOutputWithContext(context.Context) GroupConsumedClientOutput
+}
+
+type GroupConsumedClientArgs struct {
+	// 该消费者实例的地址和端口。
+	ClientAddress pulumi.StringPtrInput `pulumi:"clientAddress"`
+	// 该消费者实例的 ID。
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// 消息堆积量。
+	Diff pulumi.IntPtrInput `pulumi:"diff"`
+	// 消费者应用的开发语言。
+	Language pulumi.StringPtrInput `pulumi:"language"`
+	// 消费端版本。
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GroupConsumedClientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConsumedClient)(nil)).Elem()
+}
+
+func (i GroupConsumedClientArgs) ToGroupConsumedClientOutput() GroupConsumedClientOutput {
+	return i.ToGroupConsumedClientOutputWithContext(context.Background())
+}
+
+func (i GroupConsumedClientArgs) ToGroupConsumedClientOutputWithContext(ctx context.Context) GroupConsumedClientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConsumedClientOutput)
+}
+
+// GroupConsumedClientArrayInput is an input type that accepts GroupConsumedClientArray and GroupConsumedClientArrayOutput values.
+// You can construct a concrete instance of `GroupConsumedClientArrayInput` via:
+//
+//	GroupConsumedClientArray{ GroupConsumedClientArgs{...} }
+type GroupConsumedClientArrayInput interface {
+	pulumi.Input
+
+	ToGroupConsumedClientArrayOutput() GroupConsumedClientArrayOutput
+	ToGroupConsumedClientArrayOutputWithContext(context.Context) GroupConsumedClientArrayOutput
+}
+
+type GroupConsumedClientArray []GroupConsumedClientInput
+
+func (GroupConsumedClientArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConsumedClient)(nil)).Elem()
+}
+
+func (i GroupConsumedClientArray) ToGroupConsumedClientArrayOutput() GroupConsumedClientArrayOutput {
+	return i.ToGroupConsumedClientArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConsumedClientArray) ToGroupConsumedClientArrayOutputWithContext(ctx context.Context) GroupConsumedClientArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConsumedClientArrayOutput)
+}
+
+type GroupConsumedClientOutput struct{ *pulumi.OutputState }
+
+func (GroupConsumedClientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConsumedClient)(nil)).Elem()
+}
+
+func (o GroupConsumedClientOutput) ToGroupConsumedClientOutput() GroupConsumedClientOutput {
+	return o
+}
+
+func (o GroupConsumedClientOutput) ToGroupConsumedClientOutputWithContext(ctx context.Context) GroupConsumedClientOutput {
+	return o
+}
+
+// 该消费者实例的地址和端口。
+func (o GroupConsumedClientOutput) ClientAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConsumedClient) *string { return v.ClientAddress }).(pulumi.StringPtrOutput)
+}
+
+// 该消费者实例的 ID。
+func (o GroupConsumedClientOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConsumedClient) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// 消息堆积量。
+func (o GroupConsumedClientOutput) Diff() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupConsumedClient) *int { return v.Diff }).(pulumi.IntPtrOutput)
+}
+
+// 消费者应用的开发语言。
+func (o GroupConsumedClientOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConsumedClient) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// 消费端版本。
+func (o GroupConsumedClientOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConsumedClient) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type GroupConsumedClientArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConsumedClientArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConsumedClient)(nil)).Elem()
+}
+
+func (o GroupConsumedClientArrayOutput) ToGroupConsumedClientArrayOutput() GroupConsumedClientArrayOutput {
+	return o
+}
+
+func (o GroupConsumedClientArrayOutput) ToGroupConsumedClientArrayOutputWithContext(ctx context.Context) GroupConsumedClientArrayOutput {
+	return o
+}
+
+func (o GroupConsumedClientArrayOutput) Index(i pulumi.IntInput) GroupConsumedClientOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConsumedClient {
+		return vs[0].([]GroupConsumedClient)[vs[1].(int)]
+	}).(GroupConsumedClientOutput)
+}
+
+type GroupConsumedTopic struct {
+	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	QueueNum *int `pulumi:"queueNum"`
+	// 订阅规则。
+	SubString *string `pulumi:"subString"`
+	// 客户端订阅的 Topic 名称。
+	TopicName *string `pulumi:"topicName"`
+}
+
+// GroupConsumedTopicInput is an input type that accepts GroupConsumedTopicArgs and GroupConsumedTopicOutput values.
+// You can construct a concrete instance of `GroupConsumedTopicInput` via:
+//
+//	GroupConsumedTopicArgs{...}
+type GroupConsumedTopicInput interface {
+	pulumi.Input
+
+	ToGroupConsumedTopicOutput() GroupConsumedTopicOutput
+	ToGroupConsumedTopicOutputWithContext(context.Context) GroupConsumedTopicOutput
+}
+
+type GroupConsumedTopicArgs struct {
+	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	QueueNum pulumi.IntPtrInput `pulumi:"queueNum"`
+	// 订阅规则。
+	SubString pulumi.StringPtrInput `pulumi:"subString"`
+	// 客户端订阅的 Topic 名称。
+	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
+}
+
+func (GroupConsumedTopicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConsumedTopic)(nil)).Elem()
+}
+
+func (i GroupConsumedTopicArgs) ToGroupConsumedTopicOutput() GroupConsumedTopicOutput {
+	return i.ToGroupConsumedTopicOutputWithContext(context.Background())
+}
+
+func (i GroupConsumedTopicArgs) ToGroupConsumedTopicOutputWithContext(ctx context.Context) GroupConsumedTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConsumedTopicOutput)
+}
+
+// GroupConsumedTopicArrayInput is an input type that accepts GroupConsumedTopicArray and GroupConsumedTopicArrayOutput values.
+// You can construct a concrete instance of `GroupConsumedTopicArrayInput` via:
+//
+//	GroupConsumedTopicArray{ GroupConsumedTopicArgs{...} }
+type GroupConsumedTopicArrayInput interface {
+	pulumi.Input
+
+	ToGroupConsumedTopicArrayOutput() GroupConsumedTopicArrayOutput
+	ToGroupConsumedTopicArrayOutputWithContext(context.Context) GroupConsumedTopicArrayOutput
+}
+
+type GroupConsumedTopicArray []GroupConsumedTopicInput
+
+func (GroupConsumedTopicArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConsumedTopic)(nil)).Elem()
+}
+
+func (i GroupConsumedTopicArray) ToGroupConsumedTopicArrayOutput() GroupConsumedTopicArrayOutput {
+	return i.ToGroupConsumedTopicArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConsumedTopicArray) ToGroupConsumedTopicArrayOutputWithContext(ctx context.Context) GroupConsumedTopicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConsumedTopicArrayOutput)
+}
+
+type GroupConsumedTopicOutput struct{ *pulumi.OutputState }
+
+func (GroupConsumedTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConsumedTopic)(nil)).Elem()
+}
+
+func (o GroupConsumedTopicOutput) ToGroupConsumedTopicOutput() GroupConsumedTopicOutput {
+	return o
+}
+
+func (o GroupConsumedTopicOutput) ToGroupConsumedTopicOutputWithContext(ctx context.Context) GroupConsumedTopicOutput {
+	return o
+}
+
+// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+func (o GroupConsumedTopicOutput) QueueNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupConsumedTopic) *int { return v.QueueNum }).(pulumi.IntPtrOutput)
+}
+
+// 订阅规则。
+func (o GroupConsumedTopicOutput) SubString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConsumedTopic) *string { return v.SubString }).(pulumi.StringPtrOutput)
+}
+
+// 客户端订阅的 Topic 名称。
+func (o GroupConsumedTopicOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConsumedTopic) *string { return v.TopicName }).(pulumi.StringPtrOutput)
+}
+
+type GroupConsumedTopicArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConsumedTopicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConsumedTopic)(nil)).Elem()
+}
+
+func (o GroupConsumedTopicArrayOutput) ToGroupConsumedTopicArrayOutput() GroupConsumedTopicArrayOutput {
+	return o
+}
+
+func (o GroupConsumedTopicArrayOutput) ToGroupConsumedTopicArrayOutputWithContext(ctx context.Context) GroupConsumedTopicArrayOutput {
+	return o
+}
+
+func (o GroupConsumedTopicArrayOutput) Index(i pulumi.IntInput) GroupConsumedTopicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConsumedTopic {
+		return vs[0].([]GroupConsumedTopic)[vs[1].(int)]
+	}).(GroupConsumedTopicOutput)
+}
+
 type InstanceChargeDetail struct {
 	// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
 	AutoRenew *bool `pulumi:"autoRenew"`
@@ -678,6 +926,714 @@ func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
 	}).(InstanceTagOutput)
 }
 
+type TopicAccessPolicy struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey *string `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority *string `pulumi:"authority"`
+}
+
+// TopicAccessPolicyInput is an input type that accepts TopicAccessPolicyArgs and TopicAccessPolicyOutput values.
+// You can construct a concrete instance of `TopicAccessPolicyInput` via:
+//
+//	TopicAccessPolicyArgs{...}
+type TopicAccessPolicyInput interface {
+	pulumi.Input
+
+	ToTopicAccessPolicyOutput() TopicAccessPolicyOutput
+	ToTopicAccessPolicyOutputWithContext(context.Context) TopicAccessPolicyOutput
+}
+
+type TopicAccessPolicyArgs struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
+}
+
+func (TopicAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAccessPolicy)(nil)).Elem()
+}
+
+func (i TopicAccessPolicyArgs) ToTopicAccessPolicyOutput() TopicAccessPolicyOutput {
+	return i.ToTopicAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i TopicAccessPolicyArgs) ToTopicAccessPolicyOutputWithContext(ctx context.Context) TopicAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAccessPolicyOutput)
+}
+
+// TopicAccessPolicyArrayInput is an input type that accepts TopicAccessPolicyArray and TopicAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `TopicAccessPolicyArrayInput` via:
+//
+//	TopicAccessPolicyArray{ TopicAccessPolicyArgs{...} }
+type TopicAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToTopicAccessPolicyArrayOutput() TopicAccessPolicyArrayOutput
+	ToTopicAccessPolicyArrayOutputWithContext(context.Context) TopicAccessPolicyArrayOutput
+}
+
+type TopicAccessPolicyArray []TopicAccessPolicyInput
+
+func (TopicAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicAccessPolicy)(nil)).Elem()
+}
+
+func (i TopicAccessPolicyArray) ToTopicAccessPolicyArrayOutput() TopicAccessPolicyArrayOutput {
+	return i.ToTopicAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i TopicAccessPolicyArray) ToTopicAccessPolicyArrayOutputWithContext(ctx context.Context) TopicAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAccessPolicyArrayOutput)
+}
+
+type TopicAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (TopicAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAccessPolicy)(nil)).Elem()
+}
+
+func (o TopicAccessPolicyOutput) ToTopicAccessPolicyOutput() TopicAccessPolicyOutput {
+	return o
+}
+
+func (o TopicAccessPolicyOutput) ToTopicAccessPolicyOutputWithContext(ctx context.Context) TopicAccessPolicyOutput {
+	return o
+}
+
+// RocketMQ 密钥的 AccessKey。
+func (o TopicAccessPolicyOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicAccessPolicy) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+func (o TopicAccessPolicyOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicAccessPolicy) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+type TopicAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicAccessPolicy)(nil)).Elem()
+}
+
+func (o TopicAccessPolicyArrayOutput) ToTopicAccessPolicyArrayOutput() TopicAccessPolicyArrayOutput {
+	return o
+}
+
+func (o TopicAccessPolicyArrayOutput) ToTopicAccessPolicyArrayOutputWithContext(ctx context.Context) TopicAccessPolicyArrayOutput {
+	return o
+}
+
+func (o TopicAccessPolicyArrayOutput) Index(i pulumi.IntInput) TopicAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicAccessPolicy {
+		return vs[0].([]TopicAccessPolicy)[vs[1].(int)]
+	}).(TopicAccessPolicyOutput)
+}
+
+type TopicGroupsInfo struct {
+	// 消费组的 Group ID。
+	GroupId *string `pulumi:"groupId"`
+	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	MessageModel *string `pulumi:"messageModel"`
+	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	SubString *string `pulumi:"subString"`
+}
+
+// TopicGroupsInfoInput is an input type that accepts TopicGroupsInfoArgs and TopicGroupsInfoOutput values.
+// You can construct a concrete instance of `TopicGroupsInfoInput` via:
+//
+//	TopicGroupsInfoArgs{...}
+type TopicGroupsInfoInput interface {
+	pulumi.Input
+
+	ToTopicGroupsInfoOutput() TopicGroupsInfoOutput
+	ToTopicGroupsInfoOutputWithContext(context.Context) TopicGroupsInfoOutput
+}
+
+type TopicGroupsInfoArgs struct {
+	// 消费组的 Group ID。
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	MessageModel pulumi.StringPtrInput `pulumi:"messageModel"`
+	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	SubString pulumi.StringPtrInput `pulumi:"subString"`
+}
+
+func (TopicGroupsInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicGroupsInfo)(nil)).Elem()
+}
+
+func (i TopicGroupsInfoArgs) ToTopicGroupsInfoOutput() TopicGroupsInfoOutput {
+	return i.ToTopicGroupsInfoOutputWithContext(context.Background())
+}
+
+func (i TopicGroupsInfoArgs) ToTopicGroupsInfoOutputWithContext(ctx context.Context) TopicGroupsInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicGroupsInfoOutput)
+}
+
+// TopicGroupsInfoArrayInput is an input type that accepts TopicGroupsInfoArray and TopicGroupsInfoArrayOutput values.
+// You can construct a concrete instance of `TopicGroupsInfoArrayInput` via:
+//
+//	TopicGroupsInfoArray{ TopicGroupsInfoArgs{...} }
+type TopicGroupsInfoArrayInput interface {
+	pulumi.Input
+
+	ToTopicGroupsInfoArrayOutput() TopicGroupsInfoArrayOutput
+	ToTopicGroupsInfoArrayOutputWithContext(context.Context) TopicGroupsInfoArrayOutput
+}
+
+type TopicGroupsInfoArray []TopicGroupsInfoInput
+
+func (TopicGroupsInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicGroupsInfo)(nil)).Elem()
+}
+
+func (i TopicGroupsInfoArray) ToTopicGroupsInfoArrayOutput() TopicGroupsInfoArrayOutput {
+	return i.ToTopicGroupsInfoArrayOutputWithContext(context.Background())
+}
+
+func (i TopicGroupsInfoArray) ToTopicGroupsInfoArrayOutputWithContext(ctx context.Context) TopicGroupsInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicGroupsInfoArrayOutput)
+}
+
+type TopicGroupsInfoOutput struct{ *pulumi.OutputState }
+
+func (TopicGroupsInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicGroupsInfo)(nil)).Elem()
+}
+
+func (o TopicGroupsInfoOutput) ToTopicGroupsInfoOutput() TopicGroupsInfoOutput {
+	return o
+}
+
+func (o TopicGroupsInfoOutput) ToTopicGroupsInfoOutputWithContext(ctx context.Context) TopicGroupsInfoOutput {
+	return o
+}
+
+// 消费组的 Group ID。
+func (o TopicGroupsInfoOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicGroupsInfo) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+func (o TopicGroupsInfoOutput) MessageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicGroupsInfo) *string { return v.MessageModel }).(pulumi.StringPtrOutput)
+}
+
+// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+func (o TopicGroupsInfoOutput) SubString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicGroupsInfo) *string { return v.SubString }).(pulumi.StringPtrOutput)
+}
+
+type TopicGroupsInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicGroupsInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicGroupsInfo)(nil)).Elem()
+}
+
+func (o TopicGroupsInfoArrayOutput) ToTopicGroupsInfoArrayOutput() TopicGroupsInfoArrayOutput {
+	return o
+}
+
+func (o TopicGroupsInfoArrayOutput) ToTopicGroupsInfoArrayOutputWithContext(ctx context.Context) TopicGroupsInfoArrayOutput {
+	return o
+}
+
+func (o TopicGroupsInfoArrayOutput) Index(i pulumi.IntInput) TopicGroupsInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicGroupsInfo {
+		return vs[0].([]TopicGroupsInfo)[vs[1].(int)]
+	}).(TopicGroupsInfoOutput)
+}
+
+type TopicQueuesInfo struct {
+	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	EndOffset *int `pulumi:"endOffset"`
+	// 该队列最近一次消息写入的时间。
+	LastUpdateTimestamp *int `pulumi:"lastUpdateTimestamp"`
+	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	MessageCount *int `pulumi:"messageCount"`
+	// 队列的编号 ID。
+	QueueId *string `pulumi:"queueId"`
+	// 当前队列最早消息的偏移量。
+	StartOffset *int `pulumi:"startOffset"`
+}
+
+// TopicQueuesInfoInput is an input type that accepts TopicQueuesInfoArgs and TopicQueuesInfoOutput values.
+// You can construct a concrete instance of `TopicQueuesInfoInput` via:
+//
+//	TopicQueuesInfoArgs{...}
+type TopicQueuesInfoInput interface {
+	pulumi.Input
+
+	ToTopicQueuesInfoOutput() TopicQueuesInfoOutput
+	ToTopicQueuesInfoOutputWithContext(context.Context) TopicQueuesInfoOutput
+}
+
+type TopicQueuesInfoArgs struct {
+	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	EndOffset pulumi.IntPtrInput `pulumi:"endOffset"`
+	// 该队列最近一次消息写入的时间。
+	LastUpdateTimestamp pulumi.IntPtrInput `pulumi:"lastUpdateTimestamp"`
+	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
+	// 队列的编号 ID。
+	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
+	// 当前队列最早消息的偏移量。
+	StartOffset pulumi.IntPtrInput `pulumi:"startOffset"`
+}
+
+func (TopicQueuesInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicQueuesInfo)(nil)).Elem()
+}
+
+func (i TopicQueuesInfoArgs) ToTopicQueuesInfoOutput() TopicQueuesInfoOutput {
+	return i.ToTopicQueuesInfoOutputWithContext(context.Background())
+}
+
+func (i TopicQueuesInfoArgs) ToTopicQueuesInfoOutputWithContext(ctx context.Context) TopicQueuesInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicQueuesInfoOutput)
+}
+
+// TopicQueuesInfoArrayInput is an input type that accepts TopicQueuesInfoArray and TopicQueuesInfoArrayOutput values.
+// You can construct a concrete instance of `TopicQueuesInfoArrayInput` via:
+//
+//	TopicQueuesInfoArray{ TopicQueuesInfoArgs{...} }
+type TopicQueuesInfoArrayInput interface {
+	pulumi.Input
+
+	ToTopicQueuesInfoArrayOutput() TopicQueuesInfoArrayOutput
+	ToTopicQueuesInfoArrayOutputWithContext(context.Context) TopicQueuesInfoArrayOutput
+}
+
+type TopicQueuesInfoArray []TopicQueuesInfoInput
+
+func (TopicQueuesInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicQueuesInfo)(nil)).Elem()
+}
+
+func (i TopicQueuesInfoArray) ToTopicQueuesInfoArrayOutput() TopicQueuesInfoArrayOutput {
+	return i.ToTopicQueuesInfoArrayOutputWithContext(context.Background())
+}
+
+func (i TopicQueuesInfoArray) ToTopicQueuesInfoArrayOutputWithContext(ctx context.Context) TopicQueuesInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicQueuesInfoArrayOutput)
+}
+
+type TopicQueuesInfoOutput struct{ *pulumi.OutputState }
+
+func (TopicQueuesInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicQueuesInfo)(nil)).Elem()
+}
+
+func (o TopicQueuesInfoOutput) ToTopicQueuesInfoOutput() TopicQueuesInfoOutput {
+	return o
+}
+
+func (o TopicQueuesInfoOutput) ToTopicQueuesInfoOutputWithContext(ctx context.Context) TopicQueuesInfoOutput {
+	return o
+}
+
+// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+func (o TopicQueuesInfoOutput) EndOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.EndOffset }).(pulumi.IntPtrOutput)
+}
+
+// 该队列最近一次消息写入的时间。
+func (o TopicQueuesInfoOutput) LastUpdateTimestamp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.LastUpdateTimestamp }).(pulumi.IntPtrOutput)
+}
+
+// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+func (o TopicQueuesInfoOutput) MessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
+}
+
+// 队列的编号 ID。
+func (o TopicQueuesInfoOutput) QueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicQueuesInfo) *string { return v.QueueId }).(pulumi.StringPtrOutput)
+}
+
+// 当前队列最早消息的偏移量。
+func (o TopicQueuesInfoOutput) StartOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.StartOffset }).(pulumi.IntPtrOutput)
+}
+
+type TopicQueuesInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicQueuesInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicQueuesInfo)(nil)).Elem()
+}
+
+func (o TopicQueuesInfoArrayOutput) ToTopicQueuesInfoArrayOutput() TopicQueuesInfoArrayOutput {
+	return o
+}
+
+func (o TopicQueuesInfoArrayOutput) ToTopicQueuesInfoArrayOutputWithContext(ctx context.Context) TopicQueuesInfoArrayOutput {
+	return o
+}
+
+func (o TopicQueuesInfoArrayOutput) Index(i pulumi.IntInput) TopicQueuesInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicQueuesInfo {
+		return vs[0].([]TopicQueuesInfo)[vs[1].(int)]
+	}).(TopicQueuesInfoOutput)
+}
+
+type TopicReadAccessPolicy struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey *string `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority *string `pulumi:"authority"`
+}
+
+// TopicReadAccessPolicyInput is an input type that accepts TopicReadAccessPolicyArgs and TopicReadAccessPolicyOutput values.
+// You can construct a concrete instance of `TopicReadAccessPolicyInput` via:
+//
+//	TopicReadAccessPolicyArgs{...}
+type TopicReadAccessPolicyInput interface {
+	pulumi.Input
+
+	ToTopicReadAccessPolicyOutput() TopicReadAccessPolicyOutput
+	ToTopicReadAccessPolicyOutputWithContext(context.Context) TopicReadAccessPolicyOutput
+}
+
+type TopicReadAccessPolicyArgs struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
+}
+
+func (TopicReadAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (i TopicReadAccessPolicyArgs) ToTopicReadAccessPolicyOutput() TopicReadAccessPolicyOutput {
+	return i.ToTopicReadAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i TopicReadAccessPolicyArgs) ToTopicReadAccessPolicyOutputWithContext(ctx context.Context) TopicReadAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicReadAccessPolicyOutput)
+}
+
+// TopicReadAccessPolicyArrayInput is an input type that accepts TopicReadAccessPolicyArray and TopicReadAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `TopicReadAccessPolicyArrayInput` via:
+//
+//	TopicReadAccessPolicyArray{ TopicReadAccessPolicyArgs{...} }
+type TopicReadAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToTopicReadAccessPolicyArrayOutput() TopicReadAccessPolicyArrayOutput
+	ToTopicReadAccessPolicyArrayOutputWithContext(context.Context) TopicReadAccessPolicyArrayOutput
+}
+
+type TopicReadAccessPolicyArray []TopicReadAccessPolicyInput
+
+func (TopicReadAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (i TopicReadAccessPolicyArray) ToTopicReadAccessPolicyArrayOutput() TopicReadAccessPolicyArrayOutput {
+	return i.ToTopicReadAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i TopicReadAccessPolicyArray) ToTopicReadAccessPolicyArrayOutputWithContext(ctx context.Context) TopicReadAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicReadAccessPolicyArrayOutput)
+}
+
+type TopicReadAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (TopicReadAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (o TopicReadAccessPolicyOutput) ToTopicReadAccessPolicyOutput() TopicReadAccessPolicyOutput {
+	return o
+}
+
+func (o TopicReadAccessPolicyOutput) ToTopicReadAccessPolicyOutputWithContext(ctx context.Context) TopicReadAccessPolicyOutput {
+	return o
+}
+
+// RocketMQ 密钥的 AccessKey。
+func (o TopicReadAccessPolicyOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicReadAccessPolicy) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+func (o TopicReadAccessPolicyOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicReadAccessPolicy) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+type TopicReadAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicReadAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (o TopicReadAccessPolicyArrayOutput) ToTopicReadAccessPolicyArrayOutput() TopicReadAccessPolicyArrayOutput {
+	return o
+}
+
+func (o TopicReadAccessPolicyArrayOutput) ToTopicReadAccessPolicyArrayOutputWithContext(ctx context.Context) TopicReadAccessPolicyArrayOutput {
+	return o
+}
+
+func (o TopicReadAccessPolicyArrayOutput) Index(i pulumi.IntInput) TopicReadAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicReadAccessPolicy {
+		return vs[0].([]TopicReadAccessPolicy)[vs[1].(int)]
+	}).(TopicReadAccessPolicyOutput)
+}
+
+type GetGroupConsumedClient struct {
+	// 该消费者实例的地址和端口。
+	ClientAddress string `pulumi:"clientAddress"`
+	// 该消费者实例的 ID。
+	ClientId string `pulumi:"clientId"`
+	// 消息堆积量。
+	Diff int `pulumi:"diff"`
+	// 消费者应用的开发语言。
+	Language string `pulumi:"language"`
+	// 消费端版本。
+	Version string `pulumi:"version"`
+}
+
+// GetGroupConsumedClientInput is an input type that accepts GetGroupConsumedClientArgs and GetGroupConsumedClientOutput values.
+// You can construct a concrete instance of `GetGroupConsumedClientInput` via:
+//
+//	GetGroupConsumedClientArgs{...}
+type GetGroupConsumedClientInput interface {
+	pulumi.Input
+
+	ToGetGroupConsumedClientOutput() GetGroupConsumedClientOutput
+	ToGetGroupConsumedClientOutputWithContext(context.Context) GetGroupConsumedClientOutput
+}
+
+type GetGroupConsumedClientArgs struct {
+	// 该消费者实例的地址和端口。
+	ClientAddress pulumi.StringInput `pulumi:"clientAddress"`
+	// 该消费者实例的 ID。
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// 消息堆积量。
+	Diff pulumi.IntInput `pulumi:"diff"`
+	// 消费者应用的开发语言。
+	Language pulumi.StringInput `pulumi:"language"`
+	// 消费端版本。
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetGroupConsumedClientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupConsumedClient)(nil)).Elem()
+}
+
+func (i GetGroupConsumedClientArgs) ToGetGroupConsumedClientOutput() GetGroupConsumedClientOutput {
+	return i.ToGetGroupConsumedClientOutputWithContext(context.Background())
+}
+
+func (i GetGroupConsumedClientArgs) ToGetGroupConsumedClientOutputWithContext(ctx context.Context) GetGroupConsumedClientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupConsumedClientOutput)
+}
+
+// GetGroupConsumedClientArrayInput is an input type that accepts GetGroupConsumedClientArray and GetGroupConsumedClientArrayOutput values.
+// You can construct a concrete instance of `GetGroupConsumedClientArrayInput` via:
+//
+//	GetGroupConsumedClientArray{ GetGroupConsumedClientArgs{...} }
+type GetGroupConsumedClientArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupConsumedClientArrayOutput() GetGroupConsumedClientArrayOutput
+	ToGetGroupConsumedClientArrayOutputWithContext(context.Context) GetGroupConsumedClientArrayOutput
+}
+
+type GetGroupConsumedClientArray []GetGroupConsumedClientInput
+
+func (GetGroupConsumedClientArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupConsumedClient)(nil)).Elem()
+}
+
+func (i GetGroupConsumedClientArray) ToGetGroupConsumedClientArrayOutput() GetGroupConsumedClientArrayOutput {
+	return i.ToGetGroupConsumedClientArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupConsumedClientArray) ToGetGroupConsumedClientArrayOutputWithContext(ctx context.Context) GetGroupConsumedClientArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupConsumedClientArrayOutput)
+}
+
+type GetGroupConsumedClientOutput struct{ *pulumi.OutputState }
+
+func (GetGroupConsumedClientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupConsumedClient)(nil)).Elem()
+}
+
+func (o GetGroupConsumedClientOutput) ToGetGroupConsumedClientOutput() GetGroupConsumedClientOutput {
+	return o
+}
+
+func (o GetGroupConsumedClientOutput) ToGetGroupConsumedClientOutputWithContext(ctx context.Context) GetGroupConsumedClientOutput {
+	return o
+}
+
+// 该消费者实例的地址和端口。
+func (o GetGroupConsumedClientOutput) ClientAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.ClientAddress }).(pulumi.StringOutput)
+}
+
+// 该消费者实例的 ID。
+func (o GetGroupConsumedClientOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// 消息堆积量。
+func (o GetGroupConsumedClientOutput) Diff() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGroupConsumedClient) int { return v.Diff }).(pulumi.IntOutput)
+}
+
+// 消费者应用的开发语言。
+func (o GetGroupConsumedClientOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.Language }).(pulumi.StringOutput)
+}
+
+// 消费端版本。
+func (o GetGroupConsumedClientOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetGroupConsumedClientArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupConsumedClientArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupConsumedClient)(nil)).Elem()
+}
+
+func (o GetGroupConsumedClientArrayOutput) ToGetGroupConsumedClientArrayOutput() GetGroupConsumedClientArrayOutput {
+	return o
+}
+
+func (o GetGroupConsumedClientArrayOutput) ToGetGroupConsumedClientArrayOutputWithContext(ctx context.Context) GetGroupConsumedClientArrayOutput {
+	return o
+}
+
+func (o GetGroupConsumedClientArrayOutput) Index(i pulumi.IntInput) GetGroupConsumedClientOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupConsumedClient {
+		return vs[0].([]GetGroupConsumedClient)[vs[1].(int)]
+	}).(GetGroupConsumedClientOutput)
+}
+
+type GetGroupConsumedTopic struct {
+	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	QueueNum int `pulumi:"queueNum"`
+	// 订阅规则。
+	SubString string `pulumi:"subString"`
+	// 客户端订阅的 Topic 名称。
+	TopicName string `pulumi:"topicName"`
+}
+
+// GetGroupConsumedTopicInput is an input type that accepts GetGroupConsumedTopicArgs and GetGroupConsumedTopicOutput values.
+// You can construct a concrete instance of `GetGroupConsumedTopicInput` via:
+//
+//	GetGroupConsumedTopicArgs{...}
+type GetGroupConsumedTopicInput interface {
+	pulumi.Input
+
+	ToGetGroupConsumedTopicOutput() GetGroupConsumedTopicOutput
+	ToGetGroupConsumedTopicOutputWithContext(context.Context) GetGroupConsumedTopicOutput
+}
+
+type GetGroupConsumedTopicArgs struct {
+	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	QueueNum pulumi.IntInput `pulumi:"queueNum"`
+	// 订阅规则。
+	SubString pulumi.StringInput `pulumi:"subString"`
+	// 客户端订阅的 Topic 名称。
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (GetGroupConsumedTopicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupConsumedTopic)(nil)).Elem()
+}
+
+func (i GetGroupConsumedTopicArgs) ToGetGroupConsumedTopicOutput() GetGroupConsumedTopicOutput {
+	return i.ToGetGroupConsumedTopicOutputWithContext(context.Background())
+}
+
+func (i GetGroupConsumedTopicArgs) ToGetGroupConsumedTopicOutputWithContext(ctx context.Context) GetGroupConsumedTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupConsumedTopicOutput)
+}
+
+// GetGroupConsumedTopicArrayInput is an input type that accepts GetGroupConsumedTopicArray and GetGroupConsumedTopicArrayOutput values.
+// You can construct a concrete instance of `GetGroupConsumedTopicArrayInput` via:
+//
+//	GetGroupConsumedTopicArray{ GetGroupConsumedTopicArgs{...} }
+type GetGroupConsumedTopicArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupConsumedTopicArrayOutput() GetGroupConsumedTopicArrayOutput
+	ToGetGroupConsumedTopicArrayOutputWithContext(context.Context) GetGroupConsumedTopicArrayOutput
+}
+
+type GetGroupConsumedTopicArray []GetGroupConsumedTopicInput
+
+func (GetGroupConsumedTopicArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupConsumedTopic)(nil)).Elem()
+}
+
+func (i GetGroupConsumedTopicArray) ToGetGroupConsumedTopicArrayOutput() GetGroupConsumedTopicArrayOutput {
+	return i.ToGetGroupConsumedTopicArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupConsumedTopicArray) ToGetGroupConsumedTopicArrayOutputWithContext(ctx context.Context) GetGroupConsumedTopicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupConsumedTopicArrayOutput)
+}
+
+type GetGroupConsumedTopicOutput struct{ *pulumi.OutputState }
+
+func (GetGroupConsumedTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupConsumedTopic)(nil)).Elem()
+}
+
+func (o GetGroupConsumedTopicOutput) ToGetGroupConsumedTopicOutput() GetGroupConsumedTopicOutput {
+	return o
+}
+
+func (o GetGroupConsumedTopicOutput) ToGetGroupConsumedTopicOutputWithContext(ctx context.Context) GetGroupConsumedTopicOutput {
+	return o
+}
+
+// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+func (o GetGroupConsumedTopicOutput) QueueNum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGroupConsumedTopic) int { return v.QueueNum }).(pulumi.IntOutput)
+}
+
+// 订阅规则。
+func (o GetGroupConsumedTopicOutput) SubString() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupConsumedTopic) string { return v.SubString }).(pulumi.StringOutput)
+}
+
+// 客户端订阅的 Topic 名称。
+func (o GetGroupConsumedTopicOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupConsumedTopic) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type GetGroupConsumedTopicArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupConsumedTopicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupConsumedTopic)(nil)).Elem()
+}
+
+func (o GetGroupConsumedTopicArrayOutput) ToGetGroupConsumedTopicArrayOutput() GetGroupConsumedTopicArrayOutput {
+	return o
+}
+
+func (o GetGroupConsumedTopicArrayOutput) ToGetGroupConsumedTopicArrayOutputWithContext(ctx context.Context) GetGroupConsumedTopicArrayOutput {
+	return o
+}
+
+func (o GetGroupConsumedTopicArrayOutput) Index(i pulumi.IntInput) GetGroupConsumedTopicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupConsumedTopic {
+		return vs[0].([]GetGroupConsumedTopic)[vs[1].(int)]
+	}).(GetGroupConsumedTopicOutput)
+}
+
 type GetInstanceChargeDetail struct {
 	// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
 	AutoRenew bool `pulumi:"autoRenew"`
@@ -1093,7 +2049,471 @@ func (o GetInstanceTagArrayOutput) Index(i pulumi.IntInput) GetInstanceTagOutput
 	}).(GetInstanceTagOutput)
 }
 
+type GetTopicAccessPolicy struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey string `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority string `pulumi:"authority"`
+}
+
+// GetTopicAccessPolicyInput is an input type that accepts GetTopicAccessPolicyArgs and GetTopicAccessPolicyOutput values.
+// You can construct a concrete instance of `GetTopicAccessPolicyInput` via:
+//
+//	GetTopicAccessPolicyArgs{...}
+type GetTopicAccessPolicyInput interface {
+	pulumi.Input
+
+	ToGetTopicAccessPolicyOutput() GetTopicAccessPolicyOutput
+	ToGetTopicAccessPolicyOutputWithContext(context.Context) GetTopicAccessPolicyOutput
+}
+
+type GetTopicAccessPolicyArgs struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority pulumi.StringInput `pulumi:"authority"`
+}
+
+func (GetTopicAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicAccessPolicy)(nil)).Elem()
+}
+
+func (i GetTopicAccessPolicyArgs) ToGetTopicAccessPolicyOutput() GetTopicAccessPolicyOutput {
+	return i.ToGetTopicAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i GetTopicAccessPolicyArgs) ToGetTopicAccessPolicyOutputWithContext(ctx context.Context) GetTopicAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicAccessPolicyOutput)
+}
+
+// GetTopicAccessPolicyArrayInput is an input type that accepts GetTopicAccessPolicyArray and GetTopicAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `GetTopicAccessPolicyArrayInput` via:
+//
+//	GetTopicAccessPolicyArray{ GetTopicAccessPolicyArgs{...} }
+type GetTopicAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetTopicAccessPolicyArrayOutput() GetTopicAccessPolicyArrayOutput
+	ToGetTopicAccessPolicyArrayOutputWithContext(context.Context) GetTopicAccessPolicyArrayOutput
+}
+
+type GetTopicAccessPolicyArray []GetTopicAccessPolicyInput
+
+func (GetTopicAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicAccessPolicy)(nil)).Elem()
+}
+
+func (i GetTopicAccessPolicyArray) ToGetTopicAccessPolicyArrayOutput() GetTopicAccessPolicyArrayOutput {
+	return i.ToGetTopicAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTopicAccessPolicyArray) ToGetTopicAccessPolicyArrayOutputWithContext(ctx context.Context) GetTopicAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicAccessPolicyArrayOutput)
+}
+
+type GetTopicAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetTopicAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicAccessPolicy)(nil)).Elem()
+}
+
+func (o GetTopicAccessPolicyOutput) ToGetTopicAccessPolicyOutput() GetTopicAccessPolicyOutput {
+	return o
+}
+
+func (o GetTopicAccessPolicyOutput) ToGetTopicAccessPolicyOutputWithContext(ctx context.Context) GetTopicAccessPolicyOutput {
+	return o
+}
+
+// RocketMQ 密钥的 AccessKey。
+func (o GetTopicAccessPolicyOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicAccessPolicy) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+func (o GetTopicAccessPolicyOutput) Authority() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicAccessPolicy) string { return v.Authority }).(pulumi.StringOutput)
+}
+
+type GetTopicAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTopicAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicAccessPolicy)(nil)).Elem()
+}
+
+func (o GetTopicAccessPolicyArrayOutput) ToGetTopicAccessPolicyArrayOutput() GetTopicAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetTopicAccessPolicyArrayOutput) ToGetTopicAccessPolicyArrayOutputWithContext(ctx context.Context) GetTopicAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetTopicAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetTopicAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTopicAccessPolicy {
+		return vs[0].([]GetTopicAccessPolicy)[vs[1].(int)]
+	}).(GetTopicAccessPolicyOutput)
+}
+
+type GetTopicGroupsInfo struct {
+	// 消费组的 Group ID。
+	GroupId string `pulumi:"groupId"`
+	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	MessageModel string `pulumi:"messageModel"`
+	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	SubString string `pulumi:"subString"`
+}
+
+// GetTopicGroupsInfoInput is an input type that accepts GetTopicGroupsInfoArgs and GetTopicGroupsInfoOutput values.
+// You can construct a concrete instance of `GetTopicGroupsInfoInput` via:
+//
+//	GetTopicGroupsInfoArgs{...}
+type GetTopicGroupsInfoInput interface {
+	pulumi.Input
+
+	ToGetTopicGroupsInfoOutput() GetTopicGroupsInfoOutput
+	ToGetTopicGroupsInfoOutputWithContext(context.Context) GetTopicGroupsInfoOutput
+}
+
+type GetTopicGroupsInfoArgs struct {
+	// 消费组的 Group ID。
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	MessageModel pulumi.StringInput `pulumi:"messageModel"`
+	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	SubString pulumi.StringInput `pulumi:"subString"`
+}
+
+func (GetTopicGroupsInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicGroupsInfo)(nil)).Elem()
+}
+
+func (i GetTopicGroupsInfoArgs) ToGetTopicGroupsInfoOutput() GetTopicGroupsInfoOutput {
+	return i.ToGetTopicGroupsInfoOutputWithContext(context.Background())
+}
+
+func (i GetTopicGroupsInfoArgs) ToGetTopicGroupsInfoOutputWithContext(ctx context.Context) GetTopicGroupsInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicGroupsInfoOutput)
+}
+
+// GetTopicGroupsInfoArrayInput is an input type that accepts GetTopicGroupsInfoArray and GetTopicGroupsInfoArrayOutput values.
+// You can construct a concrete instance of `GetTopicGroupsInfoArrayInput` via:
+//
+//	GetTopicGroupsInfoArray{ GetTopicGroupsInfoArgs{...} }
+type GetTopicGroupsInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetTopicGroupsInfoArrayOutput() GetTopicGroupsInfoArrayOutput
+	ToGetTopicGroupsInfoArrayOutputWithContext(context.Context) GetTopicGroupsInfoArrayOutput
+}
+
+type GetTopicGroupsInfoArray []GetTopicGroupsInfoInput
+
+func (GetTopicGroupsInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicGroupsInfo)(nil)).Elem()
+}
+
+func (i GetTopicGroupsInfoArray) ToGetTopicGroupsInfoArrayOutput() GetTopicGroupsInfoArrayOutput {
+	return i.ToGetTopicGroupsInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetTopicGroupsInfoArray) ToGetTopicGroupsInfoArrayOutputWithContext(ctx context.Context) GetTopicGroupsInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicGroupsInfoArrayOutput)
+}
+
+type GetTopicGroupsInfoOutput struct{ *pulumi.OutputState }
+
+func (GetTopicGroupsInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicGroupsInfo)(nil)).Elem()
+}
+
+func (o GetTopicGroupsInfoOutput) ToGetTopicGroupsInfoOutput() GetTopicGroupsInfoOutput {
+	return o
+}
+
+func (o GetTopicGroupsInfoOutput) ToGetTopicGroupsInfoOutputWithContext(ctx context.Context) GetTopicGroupsInfoOutput {
+	return o
+}
+
+// 消费组的 Group ID。
+func (o GetTopicGroupsInfoOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicGroupsInfo) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+func (o GetTopicGroupsInfoOutput) MessageModel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicGroupsInfo) string { return v.MessageModel }).(pulumi.StringOutput)
+}
+
+// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+func (o GetTopicGroupsInfoOutput) SubString() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicGroupsInfo) string { return v.SubString }).(pulumi.StringOutput)
+}
+
+type GetTopicGroupsInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTopicGroupsInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicGroupsInfo)(nil)).Elem()
+}
+
+func (o GetTopicGroupsInfoArrayOutput) ToGetTopicGroupsInfoArrayOutput() GetTopicGroupsInfoArrayOutput {
+	return o
+}
+
+func (o GetTopicGroupsInfoArrayOutput) ToGetTopicGroupsInfoArrayOutputWithContext(ctx context.Context) GetTopicGroupsInfoArrayOutput {
+	return o
+}
+
+func (o GetTopicGroupsInfoArrayOutput) Index(i pulumi.IntInput) GetTopicGroupsInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTopicGroupsInfo {
+		return vs[0].([]GetTopicGroupsInfo)[vs[1].(int)]
+	}).(GetTopicGroupsInfoOutput)
+}
+
+type GetTopicQueuesInfo struct {
+	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	EndOffset int `pulumi:"endOffset"`
+	// 该队列最近一次消息写入的时间。
+	LastUpdateTimestamp int `pulumi:"lastUpdateTimestamp"`
+	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	MessageCount int `pulumi:"messageCount"`
+	// 队列的编号 ID。
+	QueueId string `pulumi:"queueId"`
+	// 当前队列最早消息的偏移量。
+	StartOffset int `pulumi:"startOffset"`
+}
+
+// GetTopicQueuesInfoInput is an input type that accepts GetTopicQueuesInfoArgs and GetTopicQueuesInfoOutput values.
+// You can construct a concrete instance of `GetTopicQueuesInfoInput` via:
+//
+//	GetTopicQueuesInfoArgs{...}
+type GetTopicQueuesInfoInput interface {
+	pulumi.Input
+
+	ToGetTopicQueuesInfoOutput() GetTopicQueuesInfoOutput
+	ToGetTopicQueuesInfoOutputWithContext(context.Context) GetTopicQueuesInfoOutput
+}
+
+type GetTopicQueuesInfoArgs struct {
+	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	EndOffset pulumi.IntInput `pulumi:"endOffset"`
+	// 该队列最近一次消息写入的时间。
+	LastUpdateTimestamp pulumi.IntInput `pulumi:"lastUpdateTimestamp"`
+	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	MessageCount pulumi.IntInput `pulumi:"messageCount"`
+	// 队列的编号 ID。
+	QueueId pulumi.StringInput `pulumi:"queueId"`
+	// 当前队列最早消息的偏移量。
+	StartOffset pulumi.IntInput `pulumi:"startOffset"`
+}
+
+func (GetTopicQueuesInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicQueuesInfo)(nil)).Elem()
+}
+
+func (i GetTopicQueuesInfoArgs) ToGetTopicQueuesInfoOutput() GetTopicQueuesInfoOutput {
+	return i.ToGetTopicQueuesInfoOutputWithContext(context.Background())
+}
+
+func (i GetTopicQueuesInfoArgs) ToGetTopicQueuesInfoOutputWithContext(ctx context.Context) GetTopicQueuesInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicQueuesInfoOutput)
+}
+
+// GetTopicQueuesInfoArrayInput is an input type that accepts GetTopicQueuesInfoArray and GetTopicQueuesInfoArrayOutput values.
+// You can construct a concrete instance of `GetTopicQueuesInfoArrayInput` via:
+//
+//	GetTopicQueuesInfoArray{ GetTopicQueuesInfoArgs{...} }
+type GetTopicQueuesInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetTopicQueuesInfoArrayOutput() GetTopicQueuesInfoArrayOutput
+	ToGetTopicQueuesInfoArrayOutputWithContext(context.Context) GetTopicQueuesInfoArrayOutput
+}
+
+type GetTopicQueuesInfoArray []GetTopicQueuesInfoInput
+
+func (GetTopicQueuesInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicQueuesInfo)(nil)).Elem()
+}
+
+func (i GetTopicQueuesInfoArray) ToGetTopicQueuesInfoArrayOutput() GetTopicQueuesInfoArrayOutput {
+	return i.ToGetTopicQueuesInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetTopicQueuesInfoArray) ToGetTopicQueuesInfoArrayOutputWithContext(ctx context.Context) GetTopicQueuesInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicQueuesInfoArrayOutput)
+}
+
+type GetTopicQueuesInfoOutput struct{ *pulumi.OutputState }
+
+func (GetTopicQueuesInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicQueuesInfo)(nil)).Elem()
+}
+
+func (o GetTopicQueuesInfoOutput) ToGetTopicQueuesInfoOutput() GetTopicQueuesInfoOutput {
+	return o
+}
+
+func (o GetTopicQueuesInfoOutput) ToGetTopicQueuesInfoOutputWithContext(ctx context.Context) GetTopicQueuesInfoOutput {
+	return o
+}
+
+// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+func (o GetTopicQueuesInfoOutput) EndOffset() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.EndOffset }).(pulumi.IntOutput)
+}
+
+// 该队列最近一次消息写入的时间。
+func (o GetTopicQueuesInfoOutput) LastUpdateTimestamp() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.LastUpdateTimestamp }).(pulumi.IntOutput)
+}
+
+// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+func (o GetTopicQueuesInfoOutput) MessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.MessageCount }).(pulumi.IntOutput)
+}
+
+// 队列的编号 ID。
+func (o GetTopicQueuesInfoOutput) QueueId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicQueuesInfo) string { return v.QueueId }).(pulumi.StringOutput)
+}
+
+// 当前队列最早消息的偏移量。
+func (o GetTopicQueuesInfoOutput) StartOffset() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.StartOffset }).(pulumi.IntOutput)
+}
+
+type GetTopicQueuesInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTopicQueuesInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicQueuesInfo)(nil)).Elem()
+}
+
+func (o GetTopicQueuesInfoArrayOutput) ToGetTopicQueuesInfoArrayOutput() GetTopicQueuesInfoArrayOutput {
+	return o
+}
+
+func (o GetTopicQueuesInfoArrayOutput) ToGetTopicQueuesInfoArrayOutputWithContext(ctx context.Context) GetTopicQueuesInfoArrayOutput {
+	return o
+}
+
+func (o GetTopicQueuesInfoArrayOutput) Index(i pulumi.IntInput) GetTopicQueuesInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTopicQueuesInfo {
+		return vs[0].([]GetTopicQueuesInfo)[vs[1].(int)]
+	}).(GetTopicQueuesInfoOutput)
+}
+
+type GetTopicReadAccessPolicy struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey string `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority string `pulumi:"authority"`
+}
+
+// GetTopicReadAccessPolicyInput is an input type that accepts GetTopicReadAccessPolicyArgs and GetTopicReadAccessPolicyOutput values.
+// You can construct a concrete instance of `GetTopicReadAccessPolicyInput` via:
+//
+//	GetTopicReadAccessPolicyArgs{...}
+type GetTopicReadAccessPolicyInput interface {
+	pulumi.Input
+
+	ToGetTopicReadAccessPolicyOutput() GetTopicReadAccessPolicyOutput
+	ToGetTopicReadAccessPolicyOutputWithContext(context.Context) GetTopicReadAccessPolicyOutput
+}
+
+type GetTopicReadAccessPolicyArgs struct {
+	// RocketMQ 密钥的 AccessKey。
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	Authority pulumi.StringInput `pulumi:"authority"`
+}
+
+func (GetTopicReadAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (i GetTopicReadAccessPolicyArgs) ToGetTopicReadAccessPolicyOutput() GetTopicReadAccessPolicyOutput {
+	return i.ToGetTopicReadAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i GetTopicReadAccessPolicyArgs) ToGetTopicReadAccessPolicyOutputWithContext(ctx context.Context) GetTopicReadAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicReadAccessPolicyOutput)
+}
+
+// GetTopicReadAccessPolicyArrayInput is an input type that accepts GetTopicReadAccessPolicyArray and GetTopicReadAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `GetTopicReadAccessPolicyArrayInput` via:
+//
+//	GetTopicReadAccessPolicyArray{ GetTopicReadAccessPolicyArgs{...} }
+type GetTopicReadAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetTopicReadAccessPolicyArrayOutput() GetTopicReadAccessPolicyArrayOutput
+	ToGetTopicReadAccessPolicyArrayOutputWithContext(context.Context) GetTopicReadAccessPolicyArrayOutput
+}
+
+type GetTopicReadAccessPolicyArray []GetTopicReadAccessPolicyInput
+
+func (GetTopicReadAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (i GetTopicReadAccessPolicyArray) ToGetTopicReadAccessPolicyArrayOutput() GetTopicReadAccessPolicyArrayOutput {
+	return i.ToGetTopicReadAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTopicReadAccessPolicyArray) ToGetTopicReadAccessPolicyArrayOutputWithContext(ctx context.Context) GetTopicReadAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTopicReadAccessPolicyArrayOutput)
+}
+
+type GetTopicReadAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetTopicReadAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (o GetTopicReadAccessPolicyOutput) ToGetTopicReadAccessPolicyOutput() GetTopicReadAccessPolicyOutput {
+	return o
+}
+
+func (o GetTopicReadAccessPolicyOutput) ToGetTopicReadAccessPolicyOutputWithContext(ctx context.Context) GetTopicReadAccessPolicyOutput {
+	return o
+}
+
+// RocketMQ 密钥的 AccessKey。
+func (o GetTopicReadAccessPolicyOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicReadAccessPolicy) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+func (o GetTopicReadAccessPolicyOutput) Authority() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTopicReadAccessPolicy) string { return v.Authority }).(pulumi.StringOutput)
+}
+
+type GetTopicReadAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTopicReadAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTopicReadAccessPolicy)(nil)).Elem()
+}
+
+func (o GetTopicReadAccessPolicyArrayOutput) ToGetTopicReadAccessPolicyArrayOutput() GetTopicReadAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetTopicReadAccessPolicyArrayOutput) ToGetTopicReadAccessPolicyArrayOutputWithContext(ctx context.Context) GetTopicReadAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetTopicReadAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetTopicReadAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTopicReadAccessPolicy {
+		return vs[0].([]GetTopicReadAccessPolicy)[vs[1].(int)]
+	}).(GetTopicReadAccessPolicyOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConsumedClientInput)(nil)).Elem(), GroupConsumedClientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConsumedClientArrayInput)(nil)).Elem(), GroupConsumedClientArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConsumedTopicInput)(nil)).Elem(), GroupConsumedTopicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConsumedTopicArrayInput)(nil)).Elem(), GroupConsumedTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceChargeDetailInput)(nil)).Elem(), InstanceChargeDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceChargeDetailPtrInput)(nil)).Elem(), InstanceChargeDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectionInfoInput)(nil)).Elem(), InstanceConnectionInfoArgs{})
@@ -1102,12 +2522,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProductInfoPtrInput)(nil)).Elem(), InstanceProductInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagInput)(nil)).Elem(), InstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagArrayInput)(nil)).Elem(), InstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAccessPolicyInput)(nil)).Elem(), TopicAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAccessPolicyArrayInput)(nil)).Elem(), TopicAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicGroupsInfoInput)(nil)).Elem(), TopicGroupsInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicGroupsInfoArrayInput)(nil)).Elem(), TopicGroupsInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicQueuesInfoInput)(nil)).Elem(), TopicQueuesInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicQueuesInfoArrayInput)(nil)).Elem(), TopicQueuesInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicReadAccessPolicyInput)(nil)).Elem(), TopicReadAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicReadAccessPolicyArrayInput)(nil)).Elem(), TopicReadAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupConsumedClientInput)(nil)).Elem(), GetGroupConsumedClientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupConsumedClientArrayInput)(nil)).Elem(), GetGroupConsumedClientArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupConsumedTopicInput)(nil)).Elem(), GetGroupConsumedTopicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupConsumedTopicArrayInput)(nil)).Elem(), GetGroupConsumedTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceChargeDetailInput)(nil)).Elem(), GetInstanceChargeDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceConnectionInfoInput)(nil)).Elem(), GetInstanceConnectionInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceConnectionInfoArrayInput)(nil)).Elem(), GetInstanceConnectionInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceProductInfoInput)(nil)).Elem(), GetInstanceProductInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTagInput)(nil)).Elem(), GetInstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTagArrayInput)(nil)).Elem(), GetInstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicAccessPolicyInput)(nil)).Elem(), GetTopicAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicAccessPolicyArrayInput)(nil)).Elem(), GetTopicAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicGroupsInfoInput)(nil)).Elem(), GetTopicGroupsInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicGroupsInfoArrayInput)(nil)).Elem(), GetTopicGroupsInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicQueuesInfoInput)(nil)).Elem(), GetTopicQueuesInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicQueuesInfoArrayInput)(nil)).Elem(), GetTopicQueuesInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicReadAccessPolicyInput)(nil)).Elem(), GetTopicReadAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicReadAccessPolicyArrayInput)(nil)).Elem(), GetTopicReadAccessPolicyArray{})
+	pulumi.RegisterOutputType(GroupConsumedClientOutput{})
+	pulumi.RegisterOutputType(GroupConsumedClientArrayOutput{})
+	pulumi.RegisterOutputType(GroupConsumedTopicOutput{})
+	pulumi.RegisterOutputType(GroupConsumedTopicArrayOutput{})
 	pulumi.RegisterOutputType(InstanceChargeDetailOutput{})
 	pulumi.RegisterOutputType(InstanceChargeDetailPtrOutput{})
 	pulumi.RegisterOutputType(InstanceConnectionInfoOutput{})
@@ -1116,10 +2560,30 @@ func init() {
 	pulumi.RegisterOutputType(InstanceProductInfoPtrOutput{})
 	pulumi.RegisterOutputType(InstanceTagOutput{})
 	pulumi.RegisterOutputType(InstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(TopicAccessPolicyOutput{})
+	pulumi.RegisterOutputType(TopicAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(TopicGroupsInfoOutput{})
+	pulumi.RegisterOutputType(TopicGroupsInfoArrayOutput{})
+	pulumi.RegisterOutputType(TopicQueuesInfoOutput{})
+	pulumi.RegisterOutputType(TopicQueuesInfoArrayOutput{})
+	pulumi.RegisterOutputType(TopicReadAccessPolicyOutput{})
+	pulumi.RegisterOutputType(TopicReadAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupConsumedClientOutput{})
+	pulumi.RegisterOutputType(GetGroupConsumedClientArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupConsumedTopicOutput{})
+	pulumi.RegisterOutputType(GetGroupConsumedTopicArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceChargeDetailOutput{})
 	pulumi.RegisterOutputType(GetInstanceConnectionInfoOutput{})
 	pulumi.RegisterOutputType(GetInstanceConnectionInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceProductInfoOutput{})
 	pulumi.RegisterOutputType(GetInstanceTagOutput{})
 	pulumi.RegisterOutputType(GetInstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(GetTopicAccessPolicyOutput{})
+	pulumi.RegisterOutputType(GetTopicAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetTopicGroupsInfoOutput{})
+	pulumi.RegisterOutputType(GetTopicGroupsInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetTopicQueuesInfoOutput{})
+	pulumi.RegisterOutputType(GetTopicQueuesInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetTopicReadAccessPolicyOutput{})
+	pulumi.RegisterOutputType(GetTopicReadAccessPolicyArrayOutput{})
 }

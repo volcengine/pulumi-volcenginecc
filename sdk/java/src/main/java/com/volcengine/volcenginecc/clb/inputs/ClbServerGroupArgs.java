@@ -16,14 +16,14 @@ public final class ClbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     public static final ClbServerGroupArgs Empty = new ClbServerGroupArgs();
 
     /**
-     * 负载均衡实例中后端服务器组的ID
+     * 负载均衡实例中后端服务器组的ID。
      * 
      */
     @Import(name="serverGroupId")
     private @Nullable Output<String> serverGroupId;
 
     /**
-     * @return 负载均衡实例中后端服务器组的ID
+     * @return 负载均衡实例中后端服务器组的ID。
      * 
      */
     public Optional<Output<String>> serverGroupId() {
@@ -31,14 +31,14 @@ public final class ClbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 负载均衡实例中后端服务器组的名称
+     * 负载均衡实例中后端服务器组的名称。
      * 
      */
     @Import(name="serverGroupName")
     private @Nullable Output<String> serverGroupName;
 
     /**
-     * @return 负载均衡实例中后端服务器组的名称
+     * @return 负载均衡实例中后端服务器组的名称。
      * 
      */
     public Optional<Output<String>> serverGroupName() {
@@ -71,7 +71,7 @@ public final class ClbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serverGroupId 负载均衡实例中后端服务器组的ID
+         * @param serverGroupId 负载均衡实例中后端服务器组的ID。
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serverGroupId 负载均衡实例中后端服务器组的ID
+         * @param serverGroupId 负载均衡实例中后端服务器组的ID。
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serverGroupName 负载均衡实例中后端服务器组的名称
+         * @param serverGroupName 负载均衡实例中后端服务器组的名称。
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClbServerGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serverGroupName 负载均衡实例中后端服务器组的名称
+         * @param serverGroupName 负载均衡实例中后端服务器组的名称。
          * 
          * @return builder
          * 

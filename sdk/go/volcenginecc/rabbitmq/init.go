@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:rabbitmq/instance:Instance":
 		r = &Instance{}
+	case "volcenginecc:rabbitmq/instancePlugin:InstancePlugin":
+		r = &InstancePlugin{}
+	case "volcenginecc:rabbitmq/publicAddress:PublicAddress":
+		r = &PublicAddress{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +43,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rabbitmq/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rabbitmq/instancePlugin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rabbitmq/publicAddress",
 		&module{version},
 	)
 }

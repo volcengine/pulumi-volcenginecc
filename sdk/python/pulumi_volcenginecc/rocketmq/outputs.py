@@ -16,15 +16,177 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'GroupConsumedClient',
+    'GroupConsumedTopic',
     'InstanceChargeDetail',
     'InstanceConnectionInfo',
     'InstanceProductInfo',
     'InstanceTag',
+    'TopicAccessPolicy',
+    'TopicGroupsInfo',
+    'TopicQueuesInfo',
+    'TopicReadAccessPolicy',
+    'GetGroupConsumedClientResult',
+    'GetGroupConsumedTopicResult',
     'GetInstanceChargeDetailResult',
     'GetInstanceConnectionInfoResult',
     'GetInstanceProductInfoResult',
     'GetInstanceTagResult',
+    'GetTopicAccessPolicyResult',
+    'GetTopicGroupsInfoResult',
+    'GetTopicQueuesInfoResult',
+    'GetTopicReadAccessPolicyResult',
 ]
+
+@pulumi.output_type
+class GroupConsumedClient(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAddress":
+            suggest = "client_address"
+        elif key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupConsumedClient. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupConsumedClient.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupConsumedClient.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_address: Optional[builtins.str] = None,
+                 client_id: Optional[builtins.str] = None,
+                 diff: Optional[builtins.int] = None,
+                 language: Optional[builtins.str] = None,
+                 version: Optional[builtins.str] = None):
+        """
+        :param builtins.str client_address: 该消费者实例的地址和端口。
+        :param builtins.str client_id: 该消费者实例的 ID。
+        :param builtins.int diff: 消息堆积量。
+        :param builtins.str language: 消费者应用的开发语言。
+        :param builtins.str version: 消费端版本。
+        """
+        if client_address is not None:
+            pulumi.set(__self__, "client_address", client_address)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if diff is not None:
+            pulumi.set(__self__, "diff", diff)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="clientAddress")
+    def client_address(self) -> Optional[builtins.str]:
+        """
+        该消费者实例的地址和端口。
+        """
+        return pulumi.get(self, "client_address")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[builtins.str]:
+        """
+        该消费者实例的 ID。
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def diff(self) -> Optional[builtins.int]:
+        """
+        消息堆积量。
+        """
+        return pulumi.get(self, "diff")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[builtins.str]:
+        """
+        消费者应用的开发语言。
+        """
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[builtins.str]:
+        """
+        消费端版本。
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GroupConsumedTopic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueNum":
+            suggest = "queue_num"
+        elif key == "subString":
+            suggest = "sub_string"
+        elif key == "topicName":
+            suggest = "topic_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupConsumedTopic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupConsumedTopic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupConsumedTopic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 queue_num: Optional[builtins.int] = None,
+                 sub_string: Optional[builtins.str] = None,
+                 topic_name: Optional[builtins.str] = None):
+        """
+        :param builtins.int queue_num: Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        :param builtins.str sub_string: 订阅规则。
+        :param builtins.str topic_name: 客户端订阅的 Topic 名称。
+        """
+        if queue_num is not None:
+            pulumi.set(__self__, "queue_num", queue_num)
+        if sub_string is not None:
+            pulumi.set(__self__, "sub_string", sub_string)
+        if topic_name is not None:
+            pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="queueNum")
+    def queue_num(self) -> Optional[builtins.int]:
+        """
+        Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        """
+        return pulumi.get(self, "queue_num")
+
+    @property
+    @pulumi.getter(name="subString")
+    def sub_string(self) -> Optional[builtins.str]:
+        """
+        订阅规则。
+        """
+        return pulumi.get(self, "sub_string")
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> Optional[builtins.str]:
+        """
+        客户端订阅的 Topic 名称。
+        """
+        return pulumi.get(self, "topic_name")
+
 
 @pulumi.output_type
 class InstanceChargeDetail(dict):
@@ -332,6 +494,360 @@ class InstanceTag(dict):
 
 
 @pulumi.output_type
+class TopicAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key: Optional[builtins.str] = None,
+                 authority: Optional[builtins.str] = None):
+        """
+        :param builtins.str access_key: RocketMQ 密钥的 AccessKey。
+        :param builtins.str authority: 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[builtins.str]:
+        """
+        RocketMQ 密钥的 AccessKey。
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[builtins.str]:
+        """
+        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class TopicGroupsInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "messageModel":
+            suggest = "message_model"
+        elif key == "subString":
+            suggest = "sub_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicGroupsInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicGroupsInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicGroupsInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: Optional[builtins.str] = None,
+                 message_model: Optional[builtins.str] = None,
+                 sub_string: Optional[builtins.str] = None):
+        """
+        :param builtins.str group_id: 消费组的 Group ID。
+        :param builtins.str message_model: 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        :param builtins.str sub_string: 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if message_model is not None:
+            pulumi.set(__self__, "message_model", message_model)
+        if sub_string is not None:
+            pulumi.set(__self__, "sub_string", sub_string)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[builtins.str]:
+        """
+        消费组的 Group ID。
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="messageModel")
+    def message_model(self) -> Optional[builtins.str]:
+        """
+        消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        """
+        return pulumi.get(self, "message_model")
+
+    @property
+    @pulumi.getter(name="subString")
+    def sub_string(self) -> Optional[builtins.str]:
+        """
+        订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        """
+        return pulumi.get(self, "sub_string")
+
+
+@pulumi.output_type
+class TopicQueuesInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endOffset":
+            suggest = "end_offset"
+        elif key == "lastUpdateTimestamp":
+            suggest = "last_update_timestamp"
+        elif key == "messageCount":
+            suggest = "message_count"
+        elif key == "queueId":
+            suggest = "queue_id"
+        elif key == "startOffset":
+            suggest = "start_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicQueuesInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicQueuesInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicQueuesInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_offset: Optional[builtins.int] = None,
+                 last_update_timestamp: Optional[builtins.int] = None,
+                 message_count: Optional[builtins.int] = None,
+                 queue_id: Optional[builtins.str] = None,
+                 start_offset: Optional[builtins.int] = None):
+        """
+        :param builtins.int end_offset: 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        :param builtins.int last_update_timestamp: 该队列最近一次消息写入的时间。
+        :param builtins.int message_count: 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        :param builtins.str queue_id: 队列的编号 ID。
+        :param builtins.int start_offset: 当前队列最早消息的偏移量。
+        """
+        if end_offset is not None:
+            pulumi.set(__self__, "end_offset", end_offset)
+        if last_update_timestamp is not None:
+            pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+        if message_count is not None:
+            pulumi.set(__self__, "message_count", message_count)
+        if queue_id is not None:
+            pulumi.set(__self__, "queue_id", queue_id)
+        if start_offset is not None:
+            pulumi.set(__self__, "start_offset", start_offset)
+
+    @property
+    @pulumi.getter(name="endOffset")
+    def end_offset(self) -> Optional[builtins.int]:
+        """
+        当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        """
+        return pulumi.get(self, "end_offset")
+
+    @property
+    @pulumi.getter(name="lastUpdateTimestamp")
+    def last_update_timestamp(self) -> Optional[builtins.int]:
+        """
+        该队列最近一次消息写入的时间。
+        """
+        return pulumi.get(self, "last_update_timestamp")
+
+    @property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> Optional[builtins.int]:
+        """
+        当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        """
+        return pulumi.get(self, "message_count")
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> Optional[builtins.str]:
+        """
+        队列的编号 ID。
+        """
+        return pulumi.get(self, "queue_id")
+
+    @property
+    @pulumi.getter(name="startOffset")
+    def start_offset(self) -> Optional[builtins.int]:
+        """
+        当前队列最早消息的偏移量。
+        """
+        return pulumi.get(self, "start_offset")
+
+
+@pulumi.output_type
+class TopicReadAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicReadAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicReadAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicReadAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key: Optional[builtins.str] = None,
+                 authority: Optional[builtins.str] = None):
+        """
+        :param builtins.str access_key: RocketMQ 密钥的 AccessKey。
+        :param builtins.str authority: 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        if access_key is not None:
+            pulumi.set(__self__, "access_key", access_key)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> Optional[builtins.str]:
+        """
+        RocketMQ 密钥的 AccessKey。
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[builtins.str]:
+        """
+        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class GetGroupConsumedClientResult(dict):
+    def __init__(__self__, *,
+                 client_address: builtins.str,
+                 client_id: builtins.str,
+                 diff: builtins.int,
+                 language: builtins.str,
+                 version: builtins.str):
+        """
+        :param builtins.str client_address: 该消费者实例的地址和端口。
+        :param builtins.str client_id: 该消费者实例的 ID。
+        :param builtins.int diff: 消息堆积量。
+        :param builtins.str language: 消费者应用的开发语言。
+        :param builtins.str version: 消费端版本。
+        """
+        pulumi.set(__self__, "client_address", client_address)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "diff", diff)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="clientAddress")
+    def client_address(self) -> builtins.str:
+        """
+        该消费者实例的地址和端口。
+        """
+        return pulumi.get(self, "client_address")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> builtins.str:
+        """
+        该消费者实例的 ID。
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def diff(self) -> builtins.int:
+        """
+        消息堆积量。
+        """
+        return pulumi.get(self, "diff")
+
+    @property
+    @pulumi.getter
+    def language(self) -> builtins.str:
+        """
+        消费者应用的开发语言。
+        """
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter
+    def version(self) -> builtins.str:
+        """
+        消费端版本。
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetGroupConsumedTopicResult(dict):
+    def __init__(__self__, *,
+                 queue_num: builtins.int,
+                 sub_string: builtins.str,
+                 topic_name: builtins.str):
+        """
+        :param builtins.int queue_num: Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        :param builtins.str sub_string: 订阅规则。
+        :param builtins.str topic_name: 客户端订阅的 Topic 名称。
+        """
+        pulumi.set(__self__, "queue_num", queue_num)
+        pulumi.set(__self__, "sub_string", sub_string)
+        pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="queueNum")
+    def queue_num(self) -> builtins.int:
+        """
+        Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        """
+        return pulumi.get(self, "queue_num")
+
+    @property
+    @pulumi.getter(name="subString")
+    def sub_string(self) -> builtins.str:
+        """
+        订阅规则。
+        """
+        return pulumi.get(self, "sub_string")
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> builtins.str:
+        """
+        客户端订阅的 Topic 名称。
+        """
+        return pulumi.get(self, "topic_name")
+
+
+@pulumi.output_type
 class GetInstanceChargeDetailResult(dict):
     def __init__(__self__, *,
                  auto_renew: builtins.bool,
@@ -544,5 +1060,165 @@ class GetInstanceTagResult(dict):
         标签值。
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTopicAccessPolicyResult(dict):
+    def __init__(__self__, *,
+                 access_key: builtins.str,
+                 authority: builtins.str):
+        """
+        :param builtins.str access_key: RocketMQ 密钥的 AccessKey。
+        :param builtins.str authority: 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> builtins.str:
+        """
+        RocketMQ 密钥的 AccessKey。
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> builtins.str:
+        """
+        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class GetTopicGroupsInfoResult(dict):
+    def __init__(__self__, *,
+                 group_id: builtins.str,
+                 message_model: builtins.str,
+                 sub_string: builtins.str):
+        """
+        :param builtins.str group_id: 消费组的 Group ID。
+        :param builtins.str message_model: 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        :param builtins.str sub_string: 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "message_model", message_model)
+        pulumi.set(__self__, "sub_string", sub_string)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> builtins.str:
+        """
+        消费组的 Group ID。
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="messageModel")
+    def message_model(self) -> builtins.str:
+        """
+        消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        """
+        return pulumi.get(self, "message_model")
+
+    @property
+    @pulumi.getter(name="subString")
+    def sub_string(self) -> builtins.str:
+        """
+        订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        """
+        return pulumi.get(self, "sub_string")
+
+
+@pulumi.output_type
+class GetTopicQueuesInfoResult(dict):
+    def __init__(__self__, *,
+                 end_offset: builtins.int,
+                 last_update_timestamp: builtins.int,
+                 message_count: builtins.int,
+                 queue_id: builtins.str,
+                 start_offset: builtins.int):
+        """
+        :param builtins.int end_offset: 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        :param builtins.int last_update_timestamp: 该队列最近一次消息写入的时间。
+        :param builtins.int message_count: 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        :param builtins.str queue_id: 队列的编号 ID。
+        :param builtins.int start_offset: 当前队列最早消息的偏移量。
+        """
+        pulumi.set(__self__, "end_offset", end_offset)
+        pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+        pulumi.set(__self__, "message_count", message_count)
+        pulumi.set(__self__, "queue_id", queue_id)
+        pulumi.set(__self__, "start_offset", start_offset)
+
+    @property
+    @pulumi.getter(name="endOffset")
+    def end_offset(self) -> builtins.int:
+        """
+        当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        """
+        return pulumi.get(self, "end_offset")
+
+    @property
+    @pulumi.getter(name="lastUpdateTimestamp")
+    def last_update_timestamp(self) -> builtins.int:
+        """
+        该队列最近一次消息写入的时间。
+        """
+        return pulumi.get(self, "last_update_timestamp")
+
+    @property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> builtins.int:
+        """
+        当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        """
+        return pulumi.get(self, "message_count")
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> builtins.str:
+        """
+        队列的编号 ID。
+        """
+        return pulumi.get(self, "queue_id")
+
+    @property
+    @pulumi.getter(name="startOffset")
+    def start_offset(self) -> builtins.int:
+        """
+        当前队列最早消息的偏移量。
+        """
+        return pulumi.get(self, "start_offset")
+
+
+@pulumi.output_type
+class GetTopicReadAccessPolicyResult(dict):
+    def __init__(__self__, *,
+                 access_key: builtins.str,
+                 authority: builtins.str):
+        """
+        :param builtins.str access_key: RocketMQ 密钥的 AccessKey。
+        :param builtins.str authority: 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> builtins.str:
+        """
+        RocketMQ 密钥的 AccessKey。
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> builtins.str:
+        """
+        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        """
+        return pulumi.get(self, "authority")
 
 

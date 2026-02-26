@@ -30,6 +30,8 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
+	// 子用户的访问密钥。
+	AccessKeys []GetUserAccessKey `pulumi:"accessKeys"`
 	// 子用户归属的主账号。
 	AccountId float64 `pulumi:"accountId"`
 	// 子用户对应的创建时间。
@@ -40,6 +42,8 @@ type LookupUserResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// 子用户对应的电子邮件地址。
 	Email string `pulumi:"email"`
+	// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+	EmailIsVerify bool `pulumi:"emailIsVerify"`
 	// 子用户归属的用户组。
 	Groups []string `pulumi:"groups"`
 	// Uniquely identifies the resource.
@@ -48,6 +52,8 @@ type LookupUserResult struct {
 	LoginProfile GetUserLoginProfile `pulumi:"loginProfile"`
 	// 子用户对应的手机号。
 	MobilePhone string `pulumi:"mobilePhone"`
+	// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+	MobilePhoneIsVerify bool `pulumi:"mobilePhoneIsVerify"`
 	// 子用户对应的权限策略。
 	Policies []GetUserPolicy `pulumi:"policies"`
 	// 子用户的操作保护配置。
@@ -98,6 +104,11 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
+// 子用户的访问密钥。
+func (o LookupUserResultOutput) AccessKeys() GetUserAccessKeyArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []GetUserAccessKey { return v.AccessKeys }).(GetUserAccessKeyArrayOutput)
+}
+
 // 子用户归属的主账号。
 func (o LookupUserResultOutput) AccountId() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupUserResult) float64 { return v.AccountId }).(pulumi.Float64Output)
@@ -123,6 +134,11 @@ func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
+// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+func (o LookupUserResultOutput) EmailIsVerify() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserResult) bool { return v.EmailIsVerify }).(pulumi.BoolOutput)
+}
+
 // 子用户归属的用户组。
 func (o LookupUserResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
@@ -141,6 +157,11 @@ func (o LookupUserResultOutput) LoginProfile() GetUserLoginProfileOutput {
 // 子用户对应的手机号。
 func (o LookupUserResultOutput) MobilePhone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MobilePhone }).(pulumi.StringOutput)
+}
+
+// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+func (o LookupUserResultOutput) MobilePhoneIsVerify() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserResult) bool { return v.MobilePhoneIsVerify }).(pulumi.BoolOutput)
 }
 
 // 子用户对应的权限策略。

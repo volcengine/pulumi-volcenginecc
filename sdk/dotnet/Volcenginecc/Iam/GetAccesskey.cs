@@ -69,13 +69,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// </summary>
         public readonly string AccessKeyId;
         /// <summary>
-        /// 密钥创建时间
+        /// 密钥创建时间。时间格式为ISO8601。
         /// </summary>
-        public readonly string CreateDate;
+        public readonly string CreatedTime;
         /// <summary>
         /// Uniquely identifies the resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// 最后登录时间。
+        /// </summary>
+        public readonly string LastLoginDate;
         /// <summary>
         /// API密钥最后访问的地域。
         /// </summary>
@@ -93,15 +97,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// </summary>
         public readonly string Service;
         /// <summary>
-        /// 密钥状态 (active/inactive)
+        /// 密钥状态。active代表启用状态，inactive代表禁用状态。
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// 密钥更新时间
+        /// 密钥更新时间。时间格式为ISO8601。
         /// </summary>
-        public readonly string UpdateDate;
+        public readonly string UpdatedTime;
         /// <summary>
-        /// 用户名
+        /// 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         /// </summary>
         public readonly string UserName;
 
@@ -109,9 +113,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         private GetAccesskeyResult(
             string accessKeyId,
 
-            string createDate,
+            string createdTime,
 
             string id,
+
+            string lastLoginDate,
 
             string region,
 
@@ -123,19 +129,20 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 
             string status,
 
-            string updateDate,
+            string updatedTime,
 
             string userName)
         {
             AccessKeyId = accessKeyId;
-            CreateDate = createDate;
+            CreatedTime = createdTime;
             Id = id;
+            LastLoginDate = lastLoginDate;
             Region = region;
             RequestTime = requestTime;
             SecretAccessKey = secretAccessKey;
             Service = service;
             Status = status;
-            UpdateDate = updateDate;
+            UpdatedTime = updatedTime;
             UserName = userName;
         }
     }

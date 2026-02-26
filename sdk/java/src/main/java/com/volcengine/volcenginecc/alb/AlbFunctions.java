@@ -14,6 +14,10 @@ import com.volcengine.volcenginecc.alb.inputs.GetAclArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetAclPlainArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetCertificateArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetCertificatePlainArgs;
+import com.volcengine.volcenginecc.alb.inputs.GetCustomizedCfgArgs;
+import com.volcengine.volcenginecc.alb.inputs.GetCustomizedCfgPlainArgs;
+import com.volcengine.volcenginecc.alb.inputs.GetHealthCheckTemplateArgs;
+import com.volcengine.volcenginecc.alb.inputs.GetHealthCheckTemplatePlainArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetListenerArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetListenerPlainArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetLoadBalancerArgs;
@@ -24,6 +28,10 @@ import com.volcengine.volcenginecc.alb.outputs.GetAclResult;
 import com.volcengine.volcenginecc.alb.outputs.GetAclsResult;
 import com.volcengine.volcenginecc.alb.outputs.GetCertificateResult;
 import com.volcengine.volcenginecc.alb.outputs.GetCertificatesResult;
+import com.volcengine.volcenginecc.alb.outputs.GetCustomizedCfgResult;
+import com.volcengine.volcenginecc.alb.outputs.GetCustomizedCfgsResult;
+import com.volcengine.volcenginecc.alb.outputs.GetHealthCheckTemplateResult;
+import com.volcengine.volcenginecc.alb.outputs.GetHealthCheckTemplatesResult;
 import com.volcengine.volcenginecc.alb.outputs.GetListenerResult;
 import com.volcengine.volcenginecc.alb.outputs.GetListenersResult;
 import com.volcengine.volcenginecc.alb.outputs.GetLoadBalancerResult;
@@ -200,6 +208,174 @@ public final class AlbFunctions {
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:alb/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgResult> getCustomizedCfg(GetCustomizedCfgArgs args) {
+        return getCustomizedCfg(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static CompletableFuture<GetCustomizedCfgResult> getCustomizedCfgPlain(GetCustomizedCfgPlainArgs args) {
+        return getCustomizedCfgPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgResult> getCustomizedCfg(GetCustomizedCfgArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getCustomizedCfg:getCustomizedCfg", TypeShape.of(GetCustomizedCfgResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgResult> getCustomizedCfg(GetCustomizedCfgArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getCustomizedCfg:getCustomizedCfg", TypeShape.of(GetCustomizedCfgResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static CompletableFuture<GetCustomizedCfgResult> getCustomizedCfgPlain(GetCustomizedCfgPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:alb/getCustomizedCfg:getCustomizedCfg", TypeShape.of(GetCustomizedCfgResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgsResult> getCustomizedCfgs() {
+        return getCustomizedCfgs(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static CompletableFuture<GetCustomizedCfgsResult> getCustomizedCfgsPlain() {
+        return getCustomizedCfgsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgsResult> getCustomizedCfgs(InvokeArgs args) {
+        return getCustomizedCfgs(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static CompletableFuture<GetCustomizedCfgsResult> getCustomizedCfgsPlain(InvokeArgs args) {
+        return getCustomizedCfgsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgsResult> getCustomizedCfgs(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getCustomizedCfgs:getCustomizedCfgs", TypeShape.of(GetCustomizedCfgsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static Output<GetCustomizedCfgsResult> getCustomizedCfgs(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getCustomizedCfgs:getCustomizedCfgs", TypeShape.of(GetCustomizedCfgsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::CustomizedCfg
+     * 
+     */
+    public static CompletableFuture<GetCustomizedCfgsResult> getCustomizedCfgsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:alb/getCustomizedCfgs:getCustomizedCfgs", TypeShape.of(GetCustomizedCfgsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplateResult> getHealthCheckTemplate(GetHealthCheckTemplateArgs args) {
+        return getHealthCheckTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static CompletableFuture<GetHealthCheckTemplateResult> getHealthCheckTemplatePlain(GetHealthCheckTemplatePlainArgs args) {
+        return getHealthCheckTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplateResult> getHealthCheckTemplate(GetHealthCheckTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getHealthCheckTemplate:getHealthCheckTemplate", TypeShape.of(GetHealthCheckTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplateResult> getHealthCheckTemplate(GetHealthCheckTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getHealthCheckTemplate:getHealthCheckTemplate", TypeShape.of(GetHealthCheckTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static CompletableFuture<GetHealthCheckTemplateResult> getHealthCheckTemplatePlain(GetHealthCheckTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:alb/getHealthCheckTemplate:getHealthCheckTemplate", TypeShape.of(GetHealthCheckTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplatesResult> getHealthCheckTemplates() {
+        return getHealthCheckTemplates(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static CompletableFuture<GetHealthCheckTemplatesResult> getHealthCheckTemplatesPlain() {
+        return getHealthCheckTemplatesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplatesResult> getHealthCheckTemplates(InvokeArgs args) {
+        return getHealthCheckTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static CompletableFuture<GetHealthCheckTemplatesResult> getHealthCheckTemplatesPlain(InvokeArgs args) {
+        return getHealthCheckTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplatesResult> getHealthCheckTemplates(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getHealthCheckTemplates:getHealthCheckTemplates", TypeShape.of(GetHealthCheckTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static Output<GetHealthCheckTemplatesResult> getHealthCheckTemplates(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getHealthCheckTemplates:getHealthCheckTemplates", TypeShape.of(GetHealthCheckTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::HealthCheckTemplate
+     * 
+     */
+    public static CompletableFuture<GetHealthCheckTemplatesResult> getHealthCheckTemplatesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:alb/getHealthCheckTemplates:getHealthCheckTemplates", TypeShape.of(GetHealthCheckTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::ALB::Listener

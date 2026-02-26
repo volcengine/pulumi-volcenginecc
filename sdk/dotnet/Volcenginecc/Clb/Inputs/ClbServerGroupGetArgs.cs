@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class ClbServerGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 负载均衡实例中后端服务器组的ID
+        /// 负载均衡实例中后端服务器组的ID。
         /// </summary>
         [Input("serverGroupId")]
         public Input<string>? ServerGroupId { get; set; }
 
         /// <summary>
-        /// 负载均衡实例中后端服务器组的名称
+        /// 负载均衡实例中后端服务器组的名称。
         /// </summary>
         [Input("serverGroupName")]
         public Input<string>? ServerGroupName { get; set; }

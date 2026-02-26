@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class ClbServerGroup
     {
         /// <summary>
-        /// 负载均衡实例中后端服务器组的ID
+        /// 负载均衡实例中后端服务器组的ID。
         /// </summary>
         public readonly string? ServerGroupId;
         /// <summary>
-        /// 负载均衡实例中后端服务器组的名称
+        /// 负载均衡实例中后端服务器组的名称。
         /// </summary>
         public readonly string? ServerGroupName;
 

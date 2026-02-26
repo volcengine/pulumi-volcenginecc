@@ -342,23 +342,23 @@ if not MYPY:
     class ClbAccessLogArgsDict(TypedDict):
         bucket_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        存储七层访问日志的对象存储桶的名称
+        存储七层访问日志的对象存储桶的名称。
         """
         delivery_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        日志投递类型
+        日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
         """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        是否开启访问日志（七层）投递至对象存储TOS的功能
+        是否开启访问日志（七层）投递至对象存储TOS的功能。
         """
         tls_project_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        日志项目
+        日志项目。
         """
         tls_topic_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        日志主题
+        日志主题。
         """
 elif False:
     ClbAccessLogArgsDict: TypeAlias = Mapping[str, Any]
@@ -372,11 +372,11 @@ class ClbAccessLogArgs:
                  tls_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  tls_topic_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] bucket_name: 存储七层访问日志的对象存储桶的名称
-        :param pulumi.Input[builtins.str] delivery_type: 日志投递类型
-        :param pulumi.Input[builtins.bool] enabled: 是否开启访问日志（七层）投递至对象存储TOS的功能
-        :param pulumi.Input[builtins.str] tls_project_id: 日志项目
-        :param pulumi.Input[builtins.str] tls_topic_id: 日志主题
+        :param pulumi.Input[builtins.str] bucket_name: 存储七层访问日志的对象存储桶的名称。
+        :param pulumi.Input[builtins.str] delivery_type: 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
+        :param pulumi.Input[builtins.bool] enabled: 是否开启访问日志（七层）投递至对象存储TOS的功能。
+        :param pulumi.Input[builtins.str] tls_project_id: 日志项目。
+        :param pulumi.Input[builtins.str] tls_topic_id: 日志主题。
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -393,7 +393,7 @@ class ClbAccessLogArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储七层访问日志的对象存储桶的名称
+        存储七层访问日志的对象存储桶的名称。
         """
         return pulumi.get(self, "bucket_name")
 
@@ -405,7 +405,7 @@ class ClbAccessLogArgs:
     @pulumi.getter(name="deliveryType")
     def delivery_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        日志投递类型
+        日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
         """
         return pulumi.get(self, "delivery_type")
 
@@ -417,7 +417,7 @@ class ClbAccessLogArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启访问日志（七层）投递至对象存储TOS的功能
+        是否开启访问日志（七层）投递至对象存储TOS的功能。
         """
         return pulumi.get(self, "enabled")
 
@@ -429,7 +429,7 @@ class ClbAccessLogArgs:
     @pulumi.getter(name="tlsProjectId")
     def tls_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        日志项目
+        日志项目。
         """
         return pulumi.get(self, "tls_project_id")
 
@@ -441,7 +441,7 @@ class ClbAccessLogArgs:
     @pulumi.getter(name="tlsTopicId")
     def tls_topic_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        日志主题
+        日志主题。
         """
         return pulumi.get(self, "tls_topic_id")
 
@@ -454,27 +454,27 @@ if not MYPY:
     class ClbEipArgsDict(TypedDict):
         bandwidth: NotRequired[pulumi.Input[builtins.float]]
         """
-        带宽峰值
+        带宽峰值。
         """
         bandwidth_package_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        共享带宽包ID
+        共享带宽包ID。
         """
         eip_billing_type: NotRequired[pulumi.Input[builtins.float]]
         """
-        计费方式
+        计费方式。
         """
         isp: NotRequired[pulumi.Input[builtins.str]]
         """
-        线路类型
+        线路类型。
         """
         security_protection_instance_id: NotRequired[pulumi.Input[builtins.float]]
         """
-        防护包ID
+        防护包ID。
         """
         security_protection_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        安全防护类型
+        安全防护类型。
         """
 elif False:
     ClbEipArgsDict: TypeAlias = Mapping[str, Any]
@@ -489,12 +489,12 @@ class ClbEipArgs:
                  security_protection_instance_id: Optional[pulumi.Input[builtins.float]] = None,
                  security_protection_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        :param pulumi.Input[builtins.float] bandwidth: 带宽峰值
-        :param pulumi.Input[builtins.str] bandwidth_package_id: 共享带宽包ID
-        :param pulumi.Input[builtins.float] eip_billing_type: 计费方式
-        :param pulumi.Input[builtins.str] isp: 线路类型
-        :param pulumi.Input[builtins.float] security_protection_instance_id: 防护包ID
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_protection_types: 安全防护类型
+        :param pulumi.Input[builtins.float] bandwidth: 带宽峰值。
+        :param pulumi.Input[builtins.str] bandwidth_package_id: 共享带宽包ID。
+        :param pulumi.Input[builtins.float] eip_billing_type: 计费方式。
+        :param pulumi.Input[builtins.str] isp: 线路类型。
+        :param pulumi.Input[builtins.float] security_protection_instance_id: 防护包ID。
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_protection_types: 安全防护类型。
         """
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
@@ -513,7 +513,7 @@ class ClbEipArgs:
     @pulumi.getter
     def bandwidth(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        带宽峰值
+        带宽峰值。
         """
         return pulumi.get(self, "bandwidth")
 
@@ -525,7 +525,7 @@ class ClbEipArgs:
     @pulumi.getter(name="bandwidthPackageId")
     def bandwidth_package_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        共享带宽包ID
+        共享带宽包ID。
         """
         return pulumi.get(self, "bandwidth_package_id")
 
@@ -537,7 +537,7 @@ class ClbEipArgs:
     @pulumi.getter(name="eipBillingType")
     def eip_billing_type(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        计费方式
+        计费方式。
         """
         return pulumi.get(self, "eip_billing_type")
 
@@ -549,7 +549,7 @@ class ClbEipArgs:
     @pulumi.getter
     def isp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        线路类型
+        线路类型。
         """
         return pulumi.get(self, "isp")
 
@@ -561,7 +561,7 @@ class ClbEipArgs:
     @pulumi.getter(name="securityProtectionInstanceId")
     def security_protection_instance_id(self) -> Optional[pulumi.Input[builtins.float]]:
         """
-        防护包ID
+        防护包ID。
         """
         return pulumi.get(self, "security_protection_instance_id")
 
@@ -573,7 +573,7 @@ class ClbEipArgs:
     @pulumi.getter(name="securityProtectionTypes")
     def security_protection_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        安全防护类型
+        安全防护类型。
         """
         return pulumi.get(self, "security_protection_types")
 
@@ -586,11 +586,11 @@ if not MYPY:
     class ClbEniArgsDict(TypedDict):
         eni_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        负载均衡实例的私网IP地址
+        负载均衡实例的私网IP地址。
         """
         eni_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        负载均衡实例占用的网卡ID
+        负载均衡实例占用的网卡ID。
         """
 elif False:
     ClbEniArgsDict: TypeAlias = Mapping[str, Any]
@@ -601,8 +601,8 @@ class ClbEniArgs:
                  eni_address: Optional[pulumi.Input[builtins.str]] = None,
                  eni_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] eni_address: 负载均衡实例的私网IP地址
-        :param pulumi.Input[builtins.str] eni_id: 负载均衡实例占用的网卡ID
+        :param pulumi.Input[builtins.str] eni_address: 负载均衡实例的私网IP地址。
+        :param pulumi.Input[builtins.str] eni_id: 负载均衡实例占用的网卡ID。
         """
         if eni_address is not None:
             pulumi.set(__self__, "eni_address", eni_address)
@@ -613,7 +613,7 @@ class ClbEniArgs:
     @pulumi.getter(name="eniAddress")
     def eni_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        负载均衡实例的私网IP地址
+        负载均衡实例的私网IP地址。
         """
         return pulumi.get(self, "eni_address")
 
@@ -625,7 +625,7 @@ class ClbEniArgs:
     @pulumi.getter(name="eniId")
     def eni_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        负载均衡实例占用的网卡ID
+        负载均衡实例占用的网卡ID。
         """
         return pulumi.get(self, "eni_id")
 
@@ -638,11 +638,11 @@ if not MYPY:
     class ClbEnisArgsDict(TypedDict):
         eni_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        负载均衡实例的私网IP地址
+        负载均衡实例的私网IP地址。
         """
         eni_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        负载均衡实例占用的网卡ID
+        负载均衡实例占用的网卡ID。
         """
 elif False:
     ClbEnisArgsDict: TypeAlias = Mapping[str, Any]
@@ -653,8 +653,8 @@ class ClbEnisArgs:
                  eni_address: Optional[pulumi.Input[builtins.str]] = None,
                  eni_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] eni_address: 负载均衡实例的私网IP地址
-        :param pulumi.Input[builtins.str] eni_id: 负载均衡实例占用的网卡ID
+        :param pulumi.Input[builtins.str] eni_address: 负载均衡实例的私网IP地址。
+        :param pulumi.Input[builtins.str] eni_id: 负载均衡实例占用的网卡ID。
         """
         if eni_address is not None:
             pulumi.set(__self__, "eni_address", eni_address)
@@ -665,7 +665,7 @@ class ClbEnisArgs:
     @pulumi.getter(name="eniAddress")
     def eni_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        负载均衡实例的私网IP地址
+        负载均衡实例的私网IP地址。
         """
         return pulumi.get(self, "eni_address")
 
@@ -677,7 +677,7 @@ class ClbEnisArgs:
     @pulumi.getter(name="eniId")
     def eni_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        负载均衡实例占用的网卡ID
+        负载均衡实例占用的网卡ID。
         """
         return pulumi.get(self, "eni_id")
 
@@ -690,11 +690,11 @@ if not MYPY:
     class ClbListenerArgsDict(TypedDict):
         listener_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        监听器的ID
+        监听器的ID。
         """
         listener_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        监听器的名称
+        监听器的名称。
         """
 elif False:
     ClbListenerArgsDict: TypeAlias = Mapping[str, Any]
@@ -705,8 +705,8 @@ class ClbListenerArgs:
                  listener_id: Optional[pulumi.Input[builtins.str]] = None,
                  listener_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] listener_id: 监听器的ID
-        :param pulumi.Input[builtins.str] listener_name: 监听器的名称
+        :param pulumi.Input[builtins.str] listener_id: 监听器的ID。
+        :param pulumi.Input[builtins.str] listener_name: 监听器的名称。
         """
         if listener_id is not None:
             pulumi.set(__self__, "listener_id", listener_id)
@@ -717,7 +717,7 @@ class ClbListenerArgs:
     @pulumi.getter(name="listenerId")
     def listener_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        监听器的ID
+        监听器的ID。
         """
         return pulumi.get(self, "listener_id")
 
@@ -729,7 +729,7 @@ class ClbListenerArgs:
     @pulumi.getter(name="listenerName")
     def listener_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        监听器的名称
+        监听器的名称。
         """
         return pulumi.get(self, "listener_name")
 
@@ -742,11 +742,11 @@ if not MYPY:
     class ClbServerGroupArgsDict(TypedDict):
         server_group_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        负载均衡实例中后端服务器组的ID
+        负载均衡实例中后端服务器组的ID。
         """
         server_group_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        负载均衡实例中后端服务器组的名称
+        负载均衡实例中后端服务器组的名称。
         """
 elif False:
     ClbServerGroupArgsDict: TypeAlias = Mapping[str, Any]
@@ -757,8 +757,8 @@ class ClbServerGroupArgs:
                  server_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  server_group_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] server_group_id: 负载均衡实例中后端服务器组的ID
-        :param pulumi.Input[builtins.str] server_group_name: 负载均衡实例中后端服务器组的名称
+        :param pulumi.Input[builtins.str] server_group_id: 负载均衡实例中后端服务器组的ID。
+        :param pulumi.Input[builtins.str] server_group_name: 负载均衡实例中后端服务器组的名称。
         """
         if server_group_id is not None:
             pulumi.set(__self__, "server_group_id", server_group_id)
@@ -769,7 +769,7 @@ class ClbServerGroupArgs:
     @pulumi.getter(name="serverGroupId")
     def server_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        负载均衡实例中后端服务器组的ID
+        负载均衡实例中后端服务器组的ID。
         """
         return pulumi.get(self, "server_group_id")
 
@@ -781,7 +781,7 @@ class ClbServerGroupArgs:
     @pulumi.getter(name="serverGroupName")
     def server_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        负载均衡实例中后端服务器组的名称
+        负载均衡实例中后端服务器组的名称。
         """
         return pulumi.get(self, "server_group_name")
 
@@ -794,11 +794,11 @@ if not MYPY:
     class ClbTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键
+        标签键。
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值
+        标签值。
         """
 elif False:
     ClbTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -809,8 +809,8 @@ class ClbTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键
-        :param pulumi.Input[builtins.str] value: 标签值
+        :param pulumi.Input[builtins.str] key: 标签键。
+        :param pulumi.Input[builtins.str] value: 标签值。
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -821,7 +821,7 @@ class ClbTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键
+        标签键。
         """
         return pulumi.get(self, "key")
 
@@ -833,7 +833,7 @@ class ClbTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值
+        标签值。
         """
         return pulumi.get(self, "value")
 

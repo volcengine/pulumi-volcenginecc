@@ -465,15 +465,15 @@ func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput
 }
 
 type ClbAccessLog struct {
-	// 存储七层访问日志的对象存储桶的名称
+	// 存储七层访问日志的对象存储桶的名称。
 	BucketName *string `pulumi:"bucketName"`
-	// 日志投递类型
+	// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 	DeliveryType *string `pulumi:"deliveryType"`
-	// 是否开启访问日志（七层）投递至对象存储TOS的功能
+	// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 	Enabled *bool `pulumi:"enabled"`
-	// 日志项目
+	// 日志项目。
 	TlsProjectId *string `pulumi:"tlsProjectId"`
-	// 日志主题
+	// 日志主题。
 	TlsTopicId *string `pulumi:"tlsTopicId"`
 }
 
@@ -489,15 +489,15 @@ type ClbAccessLogInput interface {
 }
 
 type ClbAccessLogArgs struct {
-	// 存储七层访问日志的对象存储桶的名称
+	// 存储七层访问日志的对象存储桶的名称。
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// 日志投递类型
+	// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 	DeliveryType pulumi.StringPtrInput `pulumi:"deliveryType"`
-	// 是否开启访问日志（七层）投递至对象存储TOS的功能
+	// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// 日志项目
+	// 日志项目。
 	TlsProjectId pulumi.StringPtrInput `pulumi:"tlsProjectId"`
-	// 日志主题
+	// 日志主题。
 	TlsTopicId pulumi.StringPtrInput `pulumi:"tlsTopicId"`
 }
 
@@ -578,27 +578,27 @@ func (o ClbAccessLogOutput) ToClbAccessLogPtrOutputWithContext(ctx context.Conte
 	}).(ClbAccessLogPtrOutput)
 }
 
-// 存储七层访问日志的对象存储桶的名称
+// 存储七层访问日志的对象存储桶的名称。
 func (o ClbAccessLogOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbAccessLog) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// 日志投递类型
+// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 func (o ClbAccessLogOutput) DeliveryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbAccessLog) *string { return v.DeliveryType }).(pulumi.StringPtrOutput)
 }
 
-// 是否开启访问日志（七层）投递至对象存储TOS的功能
+// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 func (o ClbAccessLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClbAccessLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// 日志项目
+// 日志项目。
 func (o ClbAccessLogOutput) TlsProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbAccessLog) *string { return v.TlsProjectId }).(pulumi.StringPtrOutput)
 }
 
-// 日志主题
+// 日志主题。
 func (o ClbAccessLogOutput) TlsTopicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbAccessLog) *string { return v.TlsTopicId }).(pulumi.StringPtrOutput)
 }
@@ -627,7 +627,7 @@ func (o ClbAccessLogPtrOutput) Elem() ClbAccessLogOutput {
 	}).(ClbAccessLogOutput)
 }
 
-// 存储七层访问日志的对象存储桶的名称
+// 存储七层访问日志的对象存储桶的名称。
 func (o ClbAccessLogPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbAccessLog) *string {
 		if v == nil {
@@ -637,7 +637,7 @@ func (o ClbAccessLogPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 日志投递类型
+// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 func (o ClbAccessLogPtrOutput) DeliveryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbAccessLog) *string {
 		if v == nil {
@@ -647,7 +647,7 @@ func (o ClbAccessLogPtrOutput) DeliveryType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 是否开启访问日志（七层）投递至对象存储TOS的功能
+// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 func (o ClbAccessLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClbAccessLog) *bool {
 		if v == nil {
@@ -657,7 +657,7 @@ func (o ClbAccessLogPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// 日志项目
+// 日志项目。
 func (o ClbAccessLogPtrOutput) TlsProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbAccessLog) *string {
 		if v == nil {
@@ -667,7 +667,7 @@ func (o ClbAccessLogPtrOutput) TlsProjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 日志主题
+// 日志主题。
 func (o ClbAccessLogPtrOutput) TlsTopicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbAccessLog) *string {
 		if v == nil {
@@ -678,17 +678,17 @@ func (o ClbAccessLogPtrOutput) TlsTopicId() pulumi.StringPtrOutput {
 }
 
 type ClbEip struct {
-	// 带宽峰值
+	// 带宽峰值。
 	Bandwidth *float64 `pulumi:"bandwidth"`
-	// 共享带宽包ID
+	// 共享带宽包ID。
 	BandwidthPackageId *string `pulumi:"bandwidthPackageId"`
-	// 计费方式
+	// 计费方式。
 	EipBillingType *float64 `pulumi:"eipBillingType"`
-	// 线路类型
+	// 线路类型。
 	Isp *string `pulumi:"isp"`
-	// 防护包ID
+	// 防护包ID。
 	SecurityProtectionInstanceId *float64 `pulumi:"securityProtectionInstanceId"`
-	// 安全防护类型
+	// 安全防护类型。
 	SecurityProtectionTypes []string `pulumi:"securityProtectionTypes"`
 }
 
@@ -704,17 +704,17 @@ type ClbEipInput interface {
 }
 
 type ClbEipArgs struct {
-	// 带宽峰值
+	// 带宽峰值。
 	Bandwidth pulumi.Float64PtrInput `pulumi:"bandwidth"`
-	// 共享带宽包ID
+	// 共享带宽包ID。
 	BandwidthPackageId pulumi.StringPtrInput `pulumi:"bandwidthPackageId"`
-	// 计费方式
+	// 计费方式。
 	EipBillingType pulumi.Float64PtrInput `pulumi:"eipBillingType"`
-	// 线路类型
+	// 线路类型。
 	Isp pulumi.StringPtrInput `pulumi:"isp"`
-	// 防护包ID
+	// 防护包ID。
 	SecurityProtectionInstanceId pulumi.Float64PtrInput `pulumi:"securityProtectionInstanceId"`
-	// 安全防护类型
+	// 安全防护类型。
 	SecurityProtectionTypes pulumi.StringArrayInput `pulumi:"securityProtectionTypes"`
 }
 
@@ -795,32 +795,32 @@ func (o ClbEipOutput) ToClbEipPtrOutputWithContext(ctx context.Context) ClbEipPt
 	}).(ClbEipPtrOutput)
 }
 
-// 带宽峰值
+// 带宽峰值。
 func (o ClbEipOutput) Bandwidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClbEip) *float64 { return v.Bandwidth }).(pulumi.Float64PtrOutput)
 }
 
-// 共享带宽包ID
+// 共享带宽包ID。
 func (o ClbEipOutput) BandwidthPackageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbEip) *string { return v.BandwidthPackageId }).(pulumi.StringPtrOutput)
 }
 
-// 计费方式
+// 计费方式。
 func (o ClbEipOutput) EipBillingType() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClbEip) *float64 { return v.EipBillingType }).(pulumi.Float64PtrOutput)
 }
 
-// 线路类型
+// 线路类型。
 func (o ClbEipOutput) Isp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbEip) *string { return v.Isp }).(pulumi.StringPtrOutput)
 }
 
-// 防护包ID
+// 防护包ID。
 func (o ClbEipOutput) SecurityProtectionInstanceId() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClbEip) *float64 { return v.SecurityProtectionInstanceId }).(pulumi.Float64PtrOutput)
 }
 
-// 安全防护类型
+// 安全防护类型。
 func (o ClbEipOutput) SecurityProtectionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClbEip) []string { return v.SecurityProtectionTypes }).(pulumi.StringArrayOutput)
 }
@@ -849,7 +849,7 @@ func (o ClbEipPtrOutput) Elem() ClbEipOutput {
 	}).(ClbEipOutput)
 }
 
-// 带宽峰值
+// 带宽峰值。
 func (o ClbEipPtrOutput) Bandwidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClbEip) *float64 {
 		if v == nil {
@@ -859,7 +859,7 @@ func (o ClbEipPtrOutput) Bandwidth() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// 共享带宽包ID
+// 共享带宽包ID。
 func (o ClbEipPtrOutput) BandwidthPackageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbEip) *string {
 		if v == nil {
@@ -869,7 +869,7 @@ func (o ClbEipPtrOutput) BandwidthPackageId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 计费方式
+// 计费方式。
 func (o ClbEipPtrOutput) EipBillingType() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClbEip) *float64 {
 		if v == nil {
@@ -879,7 +879,7 @@ func (o ClbEipPtrOutput) EipBillingType() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// 线路类型
+// 线路类型。
 func (o ClbEipPtrOutput) Isp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbEip) *string {
 		if v == nil {
@@ -889,7 +889,7 @@ func (o ClbEipPtrOutput) Isp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 防护包ID
+// 防护包ID。
 func (o ClbEipPtrOutput) SecurityProtectionInstanceId() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClbEip) *float64 {
 		if v == nil {
@@ -899,7 +899,7 @@ func (o ClbEipPtrOutput) SecurityProtectionInstanceId() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// 安全防护类型
+// 安全防护类型。
 func (o ClbEipPtrOutput) SecurityProtectionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClbEip) []string {
 		if v == nil {
@@ -910,9 +910,9 @@ func (o ClbEipPtrOutput) SecurityProtectionTypes() pulumi.StringArrayOutput {
 }
 
 type ClbEni struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress *string `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId *string `pulumi:"eniId"`
 }
 
@@ -928,9 +928,9 @@ type ClbEniInput interface {
 }
 
 type ClbEniArgs struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress pulumi.StringPtrInput `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId pulumi.StringPtrInput `pulumi:"eniId"`
 }
 
@@ -1011,12 +1011,12 @@ func (o ClbEniOutput) ToClbEniPtrOutputWithContext(ctx context.Context) ClbEniPt
 	}).(ClbEniPtrOutput)
 }
 
-// 负载均衡实例的私网IP地址
+// 负载均衡实例的私网IP地址。
 func (o ClbEniOutput) EniAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbEni) *string { return v.EniAddress }).(pulumi.StringPtrOutput)
 }
 
-// 负载均衡实例占用的网卡ID
+// 负载均衡实例占用的网卡ID。
 func (o ClbEniOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbEni) *string { return v.EniId }).(pulumi.StringPtrOutput)
 }
@@ -1045,7 +1045,7 @@ func (o ClbEniPtrOutput) Elem() ClbEniOutput {
 	}).(ClbEniOutput)
 }
 
-// 负载均衡实例的私网IP地址
+// 负载均衡实例的私网IP地址。
 func (o ClbEniPtrOutput) EniAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbEni) *string {
 		if v == nil {
@@ -1055,7 +1055,7 @@ func (o ClbEniPtrOutput) EniAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 负载均衡实例占用的网卡ID
+// 负载均衡实例占用的网卡ID。
 func (o ClbEniPtrOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbEni) *string {
 		if v == nil {
@@ -1066,9 +1066,9 @@ func (o ClbEniPtrOutput) EniId() pulumi.StringPtrOutput {
 }
 
 type ClbEnis struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress *string `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId *string `pulumi:"eniId"`
 }
 
@@ -1084,9 +1084,9 @@ type ClbEnisInput interface {
 }
 
 type ClbEnisArgs struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress pulumi.StringPtrInput `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId pulumi.StringPtrInput `pulumi:"eniId"`
 }
 
@@ -1167,12 +1167,12 @@ func (o ClbEnisOutput) ToClbEnisPtrOutputWithContext(ctx context.Context) ClbEni
 	}).(ClbEnisPtrOutput)
 }
 
-// 负载均衡实例的私网IP地址
+// 负载均衡实例的私网IP地址。
 func (o ClbEnisOutput) EniAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbEnis) *string { return v.EniAddress }).(pulumi.StringPtrOutput)
 }
 
-// 负载均衡实例占用的网卡ID
+// 负载均衡实例占用的网卡ID。
 func (o ClbEnisOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbEnis) *string { return v.EniId }).(pulumi.StringPtrOutput)
 }
@@ -1201,7 +1201,7 @@ func (o ClbEnisPtrOutput) Elem() ClbEnisOutput {
 	}).(ClbEnisOutput)
 }
 
-// 负载均衡实例的私网IP地址
+// 负载均衡实例的私网IP地址。
 func (o ClbEnisPtrOutput) EniAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbEnis) *string {
 		if v == nil {
@@ -1211,7 +1211,7 @@ func (o ClbEnisPtrOutput) EniAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 负载均衡实例占用的网卡ID
+// 负载均衡实例占用的网卡ID。
 func (o ClbEnisPtrOutput) EniId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClbEnis) *string {
 		if v == nil {
@@ -1222,9 +1222,9 @@ func (o ClbEnisPtrOutput) EniId() pulumi.StringPtrOutput {
 }
 
 type ClbListener struct {
-	// 监听器的ID
+	// 监听器的ID。
 	ListenerId *string `pulumi:"listenerId"`
-	// 监听器的名称
+	// 监听器的名称。
 	ListenerName *string `pulumi:"listenerName"`
 }
 
@@ -1240,9 +1240,9 @@ type ClbListenerInput interface {
 }
 
 type ClbListenerArgs struct {
-	// 监听器的ID
+	// 监听器的ID。
 	ListenerId pulumi.StringPtrInput `pulumi:"listenerId"`
-	// 监听器的名称
+	// 监听器的名称。
 	ListenerName pulumi.StringPtrInput `pulumi:"listenerName"`
 }
 
@@ -1297,12 +1297,12 @@ func (o ClbListenerOutput) ToClbListenerOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// 监听器的ID
+// 监听器的ID。
 func (o ClbListenerOutput) ListenerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbListener) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
 }
 
-// 监听器的名称
+// 监听器的名称。
 func (o ClbListenerOutput) ListenerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbListener) *string { return v.ListenerName }).(pulumi.StringPtrOutput)
 }
@@ -1328,9 +1328,9 @@ func (o ClbListenerArrayOutput) Index(i pulumi.IntInput) ClbListenerOutput {
 }
 
 type ClbServerGroup struct {
-	// 负载均衡实例中后端服务器组的ID
+	// 负载均衡实例中后端服务器组的ID。
 	ServerGroupId *string `pulumi:"serverGroupId"`
-	// 负载均衡实例中后端服务器组的名称
+	// 负载均衡实例中后端服务器组的名称。
 	ServerGroupName *string `pulumi:"serverGroupName"`
 }
 
@@ -1346,9 +1346,9 @@ type ClbServerGroupInput interface {
 }
 
 type ClbServerGroupArgs struct {
-	// 负载均衡实例中后端服务器组的ID
+	// 负载均衡实例中后端服务器组的ID。
 	ServerGroupId pulumi.StringPtrInput `pulumi:"serverGroupId"`
-	// 负载均衡实例中后端服务器组的名称
+	// 负载均衡实例中后端服务器组的名称。
 	ServerGroupName pulumi.StringPtrInput `pulumi:"serverGroupName"`
 }
 
@@ -1403,12 +1403,12 @@ func (o ClbServerGroupOutput) ToClbServerGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// 负载均衡实例中后端服务器组的ID
+// 负载均衡实例中后端服务器组的ID。
 func (o ClbServerGroupOutput) ServerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbServerGroup) *string { return v.ServerGroupId }).(pulumi.StringPtrOutput)
 }
 
-// 负载均衡实例中后端服务器组的名称
+// 负载均衡实例中后端服务器组的名称。
 func (o ClbServerGroupOutput) ServerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbServerGroup) *string { return v.ServerGroupName }).(pulumi.StringPtrOutput)
 }
@@ -1434,9 +1434,9 @@ func (o ClbServerGroupArrayOutput) Index(i pulumi.IntInput) ClbServerGroupOutput
 }
 
 type ClbTag struct {
-	// 标签键
+	// 标签键。
 	Key *string `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value *string `pulumi:"value"`
 }
 
@@ -1452,9 +1452,9 @@ type ClbTagInput interface {
 }
 
 type ClbTagArgs struct {
-	// 标签键
+	// 标签键。
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1509,12 +1509,12 @@ func (o ClbTagOutput) ToClbTagOutputWithContext(ctx context.Context) ClbTagOutpu
 	return o
 }
 
-// 标签键
+// 标签键。
 func (o ClbTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签值
+// 标签值。
 func (o ClbTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClbTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4306,15 +4306,15 @@ func (o GetCertificateTagArrayOutput) Index(i pulumi.IntInput) GetCertificateTag
 }
 
 type GetClbAccessLog struct {
-	// 存储七层访问日志的对象存储桶的名称
+	// 存储七层访问日志的对象存储桶的名称。
 	BucketName string `pulumi:"bucketName"`
-	// 日志投递类型
+	// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 	DeliveryType string `pulumi:"deliveryType"`
-	// 是否开启访问日志（七层）投递至对象存储TOS的功能
+	// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 	Enabled bool `pulumi:"enabled"`
-	// 日志项目
+	// 日志项目。
 	TlsProjectId string `pulumi:"tlsProjectId"`
-	// 日志主题
+	// 日志主题。
 	TlsTopicId string `pulumi:"tlsTopicId"`
 }
 
@@ -4330,15 +4330,15 @@ type GetClbAccessLogInput interface {
 }
 
 type GetClbAccessLogArgs struct {
-	// 存储七层访问日志的对象存储桶的名称
+	// 存储七层访问日志的对象存储桶的名称。
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// 日志投递类型
+	// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 	DeliveryType pulumi.StringInput `pulumi:"deliveryType"`
-	// 是否开启访问日志（七层）投递至对象存储TOS的功能
+	// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// 日志项目
+	// 日志项目。
 	TlsProjectId pulumi.StringInput `pulumi:"tlsProjectId"`
-	// 日志主题
+	// 日志主题。
 	TlsTopicId pulumi.StringInput `pulumi:"tlsTopicId"`
 }
 
@@ -4368,43 +4368,43 @@ func (o GetClbAccessLogOutput) ToGetClbAccessLogOutputWithContext(ctx context.Co
 	return o
 }
 
-// 存储七层访问日志的对象存储桶的名称
+// 存储七层访问日志的对象存储桶的名称。
 func (o GetClbAccessLogOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbAccessLog) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// 日志投递类型
+// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
 func (o GetClbAccessLogOutput) DeliveryType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbAccessLog) string { return v.DeliveryType }).(pulumi.StringOutput)
 }
 
-// 是否开启访问日志（七层）投递至对象存储TOS的功能
+// 是否开启访问日志（七层）投递至对象存储TOS的功能。
 func (o GetClbAccessLogOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClbAccessLog) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// 日志项目
+// 日志项目。
 func (o GetClbAccessLogOutput) TlsProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbAccessLog) string { return v.TlsProjectId }).(pulumi.StringOutput)
 }
 
-// 日志主题
+// 日志主题。
 func (o GetClbAccessLogOutput) TlsTopicId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbAccessLog) string { return v.TlsTopicId }).(pulumi.StringOutput)
 }
 
 type GetClbEip struct {
-	// 带宽峰值
+	// 带宽峰值。
 	Bandwidth float64 `pulumi:"bandwidth"`
-	// 共享带宽包ID
+	// 共享带宽包ID。
 	BandwidthPackageId string `pulumi:"bandwidthPackageId"`
-	// 计费方式
+	// 计费方式。
 	EipBillingType float64 `pulumi:"eipBillingType"`
-	// 线路类型
+	// 线路类型。
 	Isp string `pulumi:"isp"`
-	// 防护包ID
+	// 防护包ID。
 	SecurityProtectionInstanceId float64 `pulumi:"securityProtectionInstanceId"`
-	// 安全防护类型
+	// 安全防护类型。
 	SecurityProtectionTypes []string `pulumi:"securityProtectionTypes"`
 }
 
@@ -4420,17 +4420,17 @@ type GetClbEipInput interface {
 }
 
 type GetClbEipArgs struct {
-	// 带宽峰值
+	// 带宽峰值。
 	Bandwidth pulumi.Float64Input `pulumi:"bandwidth"`
-	// 共享带宽包ID
+	// 共享带宽包ID。
 	BandwidthPackageId pulumi.StringInput `pulumi:"bandwidthPackageId"`
-	// 计费方式
+	// 计费方式。
 	EipBillingType pulumi.Float64Input `pulumi:"eipBillingType"`
-	// 线路类型
+	// 线路类型。
 	Isp pulumi.StringInput `pulumi:"isp"`
-	// 防护包ID
+	// 防护包ID。
 	SecurityProtectionInstanceId pulumi.Float64Input `pulumi:"securityProtectionInstanceId"`
-	// 安全防护类型
+	// 安全防护类型。
 	SecurityProtectionTypes pulumi.StringArrayInput `pulumi:"securityProtectionTypes"`
 }
 
@@ -4460,40 +4460,40 @@ func (o GetClbEipOutput) ToGetClbEipOutputWithContext(ctx context.Context) GetCl
 	return o
 }
 
-// 带宽峰值
+// 带宽峰值。
 func (o GetClbEipOutput) Bandwidth() pulumi.Float64Output {
 	return o.ApplyT(func(v GetClbEip) float64 { return v.Bandwidth }).(pulumi.Float64Output)
 }
 
-// 共享带宽包ID
+// 共享带宽包ID。
 func (o GetClbEipOutput) BandwidthPackageId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbEip) string { return v.BandwidthPackageId }).(pulumi.StringOutput)
 }
 
-// 计费方式
+// 计费方式。
 func (o GetClbEipOutput) EipBillingType() pulumi.Float64Output {
 	return o.ApplyT(func(v GetClbEip) float64 { return v.EipBillingType }).(pulumi.Float64Output)
 }
 
-// 线路类型
+// 线路类型。
 func (o GetClbEipOutput) Isp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbEip) string { return v.Isp }).(pulumi.StringOutput)
 }
 
-// 防护包ID
+// 防护包ID。
 func (o GetClbEipOutput) SecurityProtectionInstanceId() pulumi.Float64Output {
 	return o.ApplyT(func(v GetClbEip) float64 { return v.SecurityProtectionInstanceId }).(pulumi.Float64Output)
 }
 
-// 安全防护类型
+// 安全防护类型。
 func (o GetClbEipOutput) SecurityProtectionTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClbEip) []string { return v.SecurityProtectionTypes }).(pulumi.StringArrayOutput)
 }
 
 type GetClbEni struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress string `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId string `pulumi:"eniId"`
 }
 
@@ -4509,9 +4509,9 @@ type GetClbEniInput interface {
 }
 
 type GetClbEniArgs struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress pulumi.StringInput `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId pulumi.StringInput `pulumi:"eniId"`
 }
 
@@ -4541,20 +4541,20 @@ func (o GetClbEniOutput) ToGetClbEniOutputWithContext(ctx context.Context) GetCl
 	return o
 }
 
-// 负载均衡实例的私网IP地址
+// 负载均衡实例的私网IP地址。
 func (o GetClbEniOutput) EniAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbEni) string { return v.EniAddress }).(pulumi.StringOutput)
 }
 
-// 负载均衡实例占用的网卡ID
+// 负载均衡实例占用的网卡ID。
 func (o GetClbEniOutput) EniId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbEni) string { return v.EniId }).(pulumi.StringOutput)
 }
 
 type GetClbEnis struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress string `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId string `pulumi:"eniId"`
 }
 
@@ -4570,9 +4570,9 @@ type GetClbEnisInput interface {
 }
 
 type GetClbEnisArgs struct {
-	// 负载均衡实例的私网IP地址
+	// 负载均衡实例的私网IP地址。
 	EniAddress pulumi.StringInput `pulumi:"eniAddress"`
-	// 负载均衡实例占用的网卡ID
+	// 负载均衡实例占用的网卡ID。
 	EniId pulumi.StringInput `pulumi:"eniId"`
 }
 
@@ -4602,20 +4602,20 @@ func (o GetClbEnisOutput) ToGetClbEnisOutputWithContext(ctx context.Context) Get
 	return o
 }
 
-// 负载均衡实例的私网IP地址
+// 负载均衡实例的私网IP地址。
 func (o GetClbEnisOutput) EniAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbEnis) string { return v.EniAddress }).(pulumi.StringOutput)
 }
 
-// 负载均衡实例占用的网卡ID
+// 负载均衡实例占用的网卡ID。
 func (o GetClbEnisOutput) EniId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbEnis) string { return v.EniId }).(pulumi.StringOutput)
 }
 
 type GetClbListener struct {
-	// 监听器的ID
+	// 监听器的ID。
 	ListenerId string `pulumi:"listenerId"`
-	// 监听器的名称
+	// 监听器的名称。
 	ListenerName string `pulumi:"listenerName"`
 }
 
@@ -4631,9 +4631,9 @@ type GetClbListenerInput interface {
 }
 
 type GetClbListenerArgs struct {
-	// 监听器的ID
+	// 监听器的ID。
 	ListenerId pulumi.StringInput `pulumi:"listenerId"`
-	// 监听器的名称
+	// 监听器的名称。
 	ListenerName pulumi.StringInput `pulumi:"listenerName"`
 }
 
@@ -4688,12 +4688,12 @@ func (o GetClbListenerOutput) ToGetClbListenerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// 监听器的ID
+// 监听器的ID。
 func (o GetClbListenerOutput) ListenerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbListener) string { return v.ListenerId }).(pulumi.StringOutput)
 }
 
-// 监听器的名称
+// 监听器的名称。
 func (o GetClbListenerOutput) ListenerName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbListener) string { return v.ListenerName }).(pulumi.StringOutput)
 }
@@ -4719,9 +4719,9 @@ func (o GetClbListenerArrayOutput) Index(i pulumi.IntInput) GetClbListenerOutput
 }
 
 type GetClbServerGroup struct {
-	// 负载均衡实例中后端服务器组的ID
+	// 负载均衡实例中后端服务器组的ID。
 	ServerGroupId string `pulumi:"serverGroupId"`
-	// 负载均衡实例中后端服务器组的名称
+	// 负载均衡实例中后端服务器组的名称。
 	ServerGroupName string `pulumi:"serverGroupName"`
 }
 
@@ -4737,9 +4737,9 @@ type GetClbServerGroupInput interface {
 }
 
 type GetClbServerGroupArgs struct {
-	// 负载均衡实例中后端服务器组的ID
+	// 负载均衡实例中后端服务器组的ID。
 	ServerGroupId pulumi.StringInput `pulumi:"serverGroupId"`
-	// 负载均衡实例中后端服务器组的名称
+	// 负载均衡实例中后端服务器组的名称。
 	ServerGroupName pulumi.StringInput `pulumi:"serverGroupName"`
 }
 
@@ -4794,12 +4794,12 @@ func (o GetClbServerGroupOutput) ToGetClbServerGroupOutputWithContext(ctx contex
 	return o
 }
 
-// 负载均衡实例中后端服务器组的ID
+// 负载均衡实例中后端服务器组的ID。
 func (o GetClbServerGroupOutput) ServerGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbServerGroup) string { return v.ServerGroupId }).(pulumi.StringOutput)
 }
 
-// 负载均衡实例中后端服务器组的名称
+// 负载均衡实例中后端服务器组的名称。
 func (o GetClbServerGroupOutput) ServerGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbServerGroup) string { return v.ServerGroupName }).(pulumi.StringOutput)
 }
@@ -4825,9 +4825,9 @@ func (o GetClbServerGroupArrayOutput) Index(i pulumi.IntInput) GetClbServerGroup
 }
 
 type GetClbTag struct {
-	// 标签键
+	// 标签键。
 	Key string `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value string `pulumi:"value"`
 }
 
@@ -4843,9 +4843,9 @@ type GetClbTagInput interface {
 }
 
 type GetClbTagArgs struct {
-	// 标签键
+	// 标签键。
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签值
+	// 标签值。
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4900,12 +4900,12 @@ func (o GetClbTagOutput) ToGetClbTagOutputWithContext(ctx context.Context) GetCl
 	return o
 }
 
-// 标签键
+// 标签键。
 func (o GetClbTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签值
+// 标签值。
 func (o GetClbTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClbTag) string { return v.Value }).(pulumi.StringOutput)
 }

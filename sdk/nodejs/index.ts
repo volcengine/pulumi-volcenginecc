@@ -41,6 +41,7 @@ import * as privatezone from "./privatezone";
 import * as rabbitmq from "./rabbitmq";
 import * as rdsmssql from "./rdsmssql";
 import * as rdsmysql from "./rdsmysql";
+import * as rdspostgresql from "./rdspostgresql";
 import * as redis from "./redis";
 import * as rocketmq from "./rocketmq";
 import * as storageebs from "./storageebs";
@@ -89,6 +90,7 @@ export {
     rabbitmq,
     rdsmssql,
     rdsmysql,
+    rdspostgresql,
     redis,
     rocketmq,
     storageebs,

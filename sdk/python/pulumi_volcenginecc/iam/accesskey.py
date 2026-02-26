@@ -20,39 +20,39 @@ __all__ = ['AccesskeyArgs', 'Accesskey']
 @pulumi.input_type
 class AccesskeyArgs:
     def __init__(__self__, *,
-                 access_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Accesskey resource.
-        :param pulumi.Input[builtins.str] access_key_id: 密钥ID（Access Key Id）。
-        :param pulumi.Input[builtins.str] status: 密钥状态 (active/inactive)
-        :param pulumi.Input[builtins.str] user_name: 用户名
+        :param pulumi.Input[builtins.str] secret_access_key: 私有密钥（Secret Access Key）。
+        :param pulumi.Input[builtins.str] status: 密钥状态。active代表启用状态，inactive代表禁用状态。
+        :param pulumi.Input[builtins.str] user_name: 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
-        if access_key_id is not None:
-            pulumi.set(__self__, "access_key_id", access_key_id)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
     @property
-    @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        密钥ID（Access Key Id）。
+        私有密钥（Secret Access Key）。
         """
-        return pulumi.get(self, "access_key_id")
+        return pulumi.get(self, "secret_access_key")
 
-    @access_key_id.setter
-    def access_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "access_key_id", value)
+    @secret_access_key.setter
+    def secret_access_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_access_key", value)
 
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        密钥状态 (active/inactive)
+        密钥状态。active代表启用状态，inactive代表禁用状态。
         """
         return pulumi.get(self, "status")
 
@@ -64,7 +64,7 @@ class AccesskeyArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用户名
+        用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         return pulumi.get(self, "user_name")
 
@@ -77,30 +77,34 @@ class AccesskeyArgs:
 class _AccesskeyState:
     def __init__(__self__, *,
                  access_key_id: Optional[pulumi.Input[builtins.str]] = None,
-                 create_date: Optional[pulumi.Input[builtins.str]] = None,
+                 created_time: Optional[pulumi.Input[builtins.str]] = None,
+                 last_login_date: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  request_time: Optional[pulumi.Input[builtins.str]] = None,
                  secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
                  service: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
-                 update_date: Optional[pulumi.Input[builtins.str]] = None,
+                 updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Accesskey resources.
         :param pulumi.Input[builtins.str] access_key_id: 密钥ID（Access Key Id）。
-        :param pulumi.Input[builtins.str] create_date: 密钥创建时间
+        :param pulumi.Input[builtins.str] created_time: 密钥创建时间。时间格式为ISO8601。
+        :param pulumi.Input[builtins.str] last_login_date: 最后登录时间。
         :param pulumi.Input[builtins.str] region: API密钥最后访问的地域。
         :param pulumi.Input[builtins.str] request_time: API密钥的最后使用的时间。
         :param pulumi.Input[builtins.str] secret_access_key: 私有密钥（Secret Access Key）。
         :param pulumi.Input[builtins.str] service: API密钥最后访问的服务的英文简称。
-        :param pulumi.Input[builtins.str] status: 密钥状态 (active/inactive)
-        :param pulumi.Input[builtins.str] update_date: 密钥更新时间
-        :param pulumi.Input[builtins.str] user_name: 用户名
+        :param pulumi.Input[builtins.str] status: 密钥状态。active代表启用状态，inactive代表禁用状态。
+        :param pulumi.Input[builtins.str] updated_time: 密钥更新时间。时间格式为ISO8601。
+        :param pulumi.Input[builtins.str] user_name: 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
-        if create_date is not None:
-            pulumi.set(__self__, "create_date", create_date)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if last_login_date is not None:
+            pulumi.set(__self__, "last_login_date", last_login_date)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if request_time is not None:
@@ -111,8 +115,8 @@ class _AccesskeyState:
             pulumi.set(__self__, "service", service)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if update_date is not None:
-            pulumi.set(__self__, "update_date", update_date)
+        if updated_time is not None:
+            pulumi.set(__self__, "updated_time", updated_time)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -129,16 +133,28 @@ class _AccesskeyState:
         pulumi.set(self, "access_key_id", value)
 
     @property
-    @pulumi.getter(name="createDate")
-    def create_date(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        密钥创建时间
+        密钥创建时间。时间格式为ISO8601。
         """
-        return pulumi.get(self, "create_date")
+        return pulumi.get(self, "created_time")
 
-    @create_date.setter
-    def create_date(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "create_date", value)
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter(name="lastLoginDate")
+    def last_login_date(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        最后登录时间。
+        """
+        return pulumi.get(self, "last_login_date")
+
+    @last_login_date.setter
+    def last_login_date(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "last_login_date", value)
 
     @property
     @pulumi.getter
@@ -192,7 +208,7 @@ class _AccesskeyState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        密钥状态 (active/inactive)
+        密钥状态。active代表启用状态，inactive代表禁用状态。
         """
         return pulumi.get(self, "status")
 
@@ -201,22 +217,22 @@ class _AccesskeyState:
         pulumi.set(self, "status", value)
 
     @property
-    @pulumi.getter(name="updateDate")
-    def update_date(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        密钥更新时间
+        密钥更新时间。时间格式为ISO8601。
         """
-        return pulumi.get(self, "update_date")
+        return pulumi.get(self, "updated_time")
 
-    @update_date.setter
-    def update_date(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "update_date", value)
+    @updated_time.setter
+    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_time", value)
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用户名
+        用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         return pulumi.get(self, "user_name")
 
@@ -231,11 +247,13 @@ class Accesskey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
+        访问控制(Identity and Access Management，缩写为IAM)是火山引擎为客户提供的一套权限管理系统，用于控制不同身份对云资源的访问权限。
+
         ## Example Usage
 
         ```python
@@ -248,14 +266,14 @@ class Accesskey(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import volcenginecc:iam/accesskey:Accesskey example "access_key_id|user_name"
+        $ pulumi import volcenginecc:iam/accesskey:Accesskey example "access_key_id"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_key_id: 密钥ID（Access Key Id）。
-        :param pulumi.Input[builtins.str] status: 密钥状态 (active/inactive)
-        :param pulumi.Input[builtins.str] user_name: 用户名
+        :param pulumi.Input[builtins.str] secret_access_key: 私有密钥（Secret Access Key）。
+        :param pulumi.Input[builtins.str] status: 密钥状态。active代表启用状态，inactive代表禁用状态。
+        :param pulumi.Input[builtins.str] user_name: 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         ...
     @overload
@@ -264,6 +282,8 @@ class Accesskey(pulumi.CustomResource):
                  args: Optional[AccesskeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        访问控制(Identity and Access Management，缩写为IAM)是火山引擎为客户提供的一套权限管理系统，用于控制不同身份对云资源的访问权限。
+
         ## Example Usage
 
         ```python
@@ -276,7 +296,7 @@ class Accesskey(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import volcenginecc:iam/accesskey:Accesskey example "access_key_id|user_name"
+        $ pulumi import volcenginecc:iam/accesskey:Accesskey example "access_key_id"
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,7 +314,7 @@ class Accesskey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -306,15 +326,16 @@ class Accesskey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccesskeyArgs.__new__(AccesskeyArgs)
 
-            __props__.__dict__["access_key_id"] = access_key_id
+            __props__.__dict__["secret_access_key"] = secret_access_key
             __props__.__dict__["status"] = status
             __props__.__dict__["user_name"] = user_name
-            __props__.__dict__["create_date"] = None
+            __props__.__dict__["access_key_id"] = None
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["last_login_date"] = None
             __props__.__dict__["region"] = None
             __props__.__dict__["request_time"] = None
-            __props__.__dict__["secret_access_key"] = None
             __props__.__dict__["service"] = None
-            __props__.__dict__["update_date"] = None
+            __props__.__dict__["updated_time"] = None
         super(Accesskey, __self__).__init__(
             'volcenginecc:iam/accesskey:Accesskey',
             resource_name,
@@ -326,13 +347,14 @@ class Accesskey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_key_id: Optional[pulumi.Input[builtins.str]] = None,
-            create_date: Optional[pulumi.Input[builtins.str]] = None,
+            created_time: Optional[pulumi.Input[builtins.str]] = None,
+            last_login_date: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             request_time: Optional[pulumi.Input[builtins.str]] = None,
             secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
             service: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
-            update_date: Optional[pulumi.Input[builtins.str]] = None,
+            updated_time: Optional[pulumi.Input[builtins.str]] = None,
             user_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Accesskey':
         """
         Get an existing Accesskey resource's state with the given name, id, and optional extra
@@ -342,27 +364,29 @@ class Accesskey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_key_id: 密钥ID（Access Key Id）。
-        :param pulumi.Input[builtins.str] create_date: 密钥创建时间
+        :param pulumi.Input[builtins.str] created_time: 密钥创建时间。时间格式为ISO8601。
+        :param pulumi.Input[builtins.str] last_login_date: 最后登录时间。
         :param pulumi.Input[builtins.str] region: API密钥最后访问的地域。
         :param pulumi.Input[builtins.str] request_time: API密钥的最后使用的时间。
         :param pulumi.Input[builtins.str] secret_access_key: 私有密钥（Secret Access Key）。
         :param pulumi.Input[builtins.str] service: API密钥最后访问的服务的英文简称。
-        :param pulumi.Input[builtins.str] status: 密钥状态 (active/inactive)
-        :param pulumi.Input[builtins.str] update_date: 密钥更新时间
-        :param pulumi.Input[builtins.str] user_name: 用户名
+        :param pulumi.Input[builtins.str] status: 密钥状态。active代表启用状态，inactive代表禁用状态。
+        :param pulumi.Input[builtins.str] updated_time: 密钥更新时间。时间格式为ISO8601。
+        :param pulumi.Input[builtins.str] user_name: 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _AccesskeyState.__new__(_AccesskeyState)
 
         __props__.__dict__["access_key_id"] = access_key_id
-        __props__.__dict__["create_date"] = create_date
+        __props__.__dict__["created_time"] = created_time
+        __props__.__dict__["last_login_date"] = last_login_date
         __props__.__dict__["region"] = region
         __props__.__dict__["request_time"] = request_time
         __props__.__dict__["secret_access_key"] = secret_access_key
         __props__.__dict__["service"] = service
         __props__.__dict__["status"] = status
-        __props__.__dict__["update_date"] = update_date
+        __props__.__dict__["updated_time"] = updated_time
         __props__.__dict__["user_name"] = user_name
         return Accesskey(resource_name, opts=opts, __props__=__props__)
 
@@ -375,12 +399,20 @@ class Accesskey(pulumi.CustomResource):
         return pulumi.get(self, "access_key_id")
 
     @property
-    @pulumi.getter(name="createDate")
-    def create_date(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> pulumi.Output[builtins.str]:
         """
-        密钥创建时间
+        密钥创建时间。时间格式为ISO8601。
         """
-        return pulumi.get(self, "create_date")
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="lastLoginDate")
+    def last_login_date(self) -> pulumi.Output[builtins.str]:
+        """
+        最后登录时间。
+        """
+        return pulumi.get(self, "last_login_date")
 
     @property
     @pulumi.getter
@@ -418,23 +450,23 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        密钥状态 (active/inactive)
+        密钥状态。active代表启用状态，inactive代表禁用状态。
         """
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="updateDate")
-    def update_date(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> pulumi.Output[builtins.str]:
         """
-        密钥更新时间
+        密钥更新时间。时间格式为ISO8601。
         """
-        return pulumi.get(self, "update_date")
+        return pulumi.get(self, "updated_time")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[builtins.str]:
         """
-        用户名
+        用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         return pulumi.get(self, "user_name")
 

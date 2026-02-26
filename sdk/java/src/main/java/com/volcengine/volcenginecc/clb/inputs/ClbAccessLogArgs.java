@@ -17,14 +17,14 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClbAccessLogArgs Empty = new ClbAccessLogArgs();
 
     /**
-     * 存储七层访问日志的对象存储桶的名称
+     * 存储七层访问日志的对象存储桶的名称。
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return 存储七层访问日志的对象存储桶的名称
+     * @return 存储七层访问日志的对象存储桶的名称。
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -32,14 +32,14 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 日志投递类型
+     * 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
      * 
      */
     @Import(name="deliveryType")
     private @Nullable Output<String> deliveryType;
 
     /**
-     * @return 日志投递类型
+     * @return 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
      * 
      */
     public Optional<Output<String>> deliveryType() {
@@ -47,14 +47,14 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否开启访问日志（七层）投递至对象存储TOS的功能
+     * 是否开启访问日志（七层）投递至对象存储TOS的功能。
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return 是否开启访问日志（七层）投递至对象存储TOS的功能
+     * @return 是否开启访问日志（七层）投递至对象存储TOS的功能。
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -62,14 +62,14 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 日志项目
+     * 日志项目。
      * 
      */
     @Import(name="tlsProjectId")
     private @Nullable Output<String> tlsProjectId;
 
     /**
-     * @return 日志项目
+     * @return 日志项目。
      * 
      */
     public Optional<Output<String>> tlsProjectId() {
@@ -77,14 +77,14 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 日志主题
+     * 日志主题。
      * 
      */
     @Import(name="tlsTopicId")
     private @Nullable Output<String> tlsTopicId;
 
     /**
-     * @return 日志主题
+     * @return 日志主题。
      * 
      */
     public Optional<Output<String>> tlsTopicId() {
@@ -120,7 +120,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketName 存储七层访问日志的对象存储桶的名称
+         * @param bucketName 存储七层访问日志的对象存储桶的名称。
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketName 存储七层访问日志的对象存储桶的名称
+         * @param bucketName 存储七层访问日志的对象存储桶的名称。
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryType 日志投递类型
+         * @param deliveryType 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryType 日志投递类型
+         * @param deliveryType 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled 是否开启访问日志（七层）投递至对象存储TOS的功能
+         * @param enabled 是否开启访问日志（七层）投递至对象存储TOS的功能。
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled 是否开启访问日志（七层）投递至对象存储TOS的功能
+         * @param enabled 是否开启访问日志（七层）投递至对象存储TOS的功能。
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsProjectId 日志项目
+         * @param tlsProjectId 日志项目。
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsProjectId 日志项目
+         * @param tlsProjectId 日志项目。
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsTopicId 日志主题
+         * @param tlsTopicId 日志主题。
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ClbAccessLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsTopicId 日志主题
+         * @param tlsTopicId 日志主题。
          * 
          * @return builder
          * 

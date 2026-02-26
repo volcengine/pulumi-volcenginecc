@@ -28,6 +28,7 @@ __all__ = [
     'PolicyPolicyUserPolicyScope',
     'RolePolicy',
     'RoleTag',
+    'UserAccessKey',
     'UserLoginProfile',
     'UserPolicy',
     'UserSecurityConfig',
@@ -43,6 +44,7 @@ __all__ = [
     'GetPolicyPolicyUserPolicyScopeResult',
     'GetRolePolicyResult',
     'GetRoleTagResult',
+    'GetUserAccessKeyResult',
     'GetUserLoginProfileResult',
     'GetUserPolicyResult',
     'GetUserSecurityConfigResult',
@@ -542,6 +544,134 @@ class RoleTag(dict):
         标签值。
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class UserAccessKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "createDate":
+            suggest = "create_date"
+        elif key == "requestTime":
+            suggest = "request_time"
+        elif key == "updateDate":
+            suggest = "update_date"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAccessKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAccessKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAccessKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key_id: Optional[builtins.str] = None,
+                 create_date: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
+                 request_time: Optional[builtins.str] = None,
+                 service: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None,
+                 update_date: Optional[builtins.str] = None,
+                 user_name: Optional[builtins.str] = None):
+        """
+        :param builtins.str access_key_id: 访问密钥ID。
+        :param builtins.str create_date: 访问密钥创建时间。
+        :param builtins.str region: 最近一次使用的服务区域。
+        :param builtins.str request_time: 访问密钥最近一次使用时间。
+        :param builtins.str service: 最近一次使用的服务名称。
+        :param builtins.str status: 访问密钥状态。Active代表启用，Inactive代表禁用。
+        :param builtins.str update_date: 访问密钥更新时间。
+        :param builtins.str user_name: 访问密钥Secret。
+        """
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if create_date is not None:
+            pulumi.set(__self__, "create_date", create_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if request_time is not None:
+            pulumi.set(__self__, "request_time", request_time)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if update_date is not None:
+            pulumi.set(__self__, "update_date", update_date)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[builtins.str]:
+        """
+        访问密钥ID。
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> Optional[builtins.str]:
+        """
+        访问密钥创建时间。
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[builtins.str]:
+        """
+        最近一次使用的服务区域。
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="requestTime")
+    def request_time(self) -> Optional[builtins.str]:
+        """
+        访问密钥最近一次使用时间。
+        """
+        return pulumi.get(self, "request_time")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[builtins.str]:
+        """
+        最近一次使用的服务名称。
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        访问密钥状态。Active代表启用，Inactive代表禁用。
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="updateDate")
+    def update_date(self) -> Optional[builtins.str]:
+        """
+        访问密钥更新时间。
+        """
+        return pulumi.get(self, "update_date")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[builtins.str]:
+        """
+        访问密钥Secret。
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -1533,6 +1663,101 @@ class GetRoleTagResult(dict):
         标签值。
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetUserAccessKeyResult(dict):
+    def __init__(__self__, *,
+                 access_key_id: builtins.str,
+                 create_date: builtins.str,
+                 region: builtins.str,
+                 request_time: builtins.str,
+                 service: builtins.str,
+                 status: builtins.str,
+                 update_date: builtins.str,
+                 user_name: builtins.str):
+        """
+        :param builtins.str access_key_id: 访问密钥ID。
+        :param builtins.str create_date: 访问密钥创建时间。
+        :param builtins.str region: 最近一次使用的服务区域。
+        :param builtins.str request_time: 访问密钥最近一次使用时间。
+        :param builtins.str service: 最近一次使用的服务名称。
+        :param builtins.str status: 访问密钥状态。Active代表启用，Inactive代表禁用。
+        :param builtins.str update_date: 访问密钥更新时间。
+        :param builtins.str user_name: 访问密钥Secret。
+        """
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "create_date", create_date)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "request_time", request_time)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "update_date", update_date)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> builtins.str:
+        """
+        访问密钥ID。
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> builtins.str:
+        """
+        访问密钥创建时间。
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        最近一次使用的服务区域。
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="requestTime")
+    def request_time(self) -> builtins.str:
+        """
+        访问密钥最近一次使用时间。
+        """
+        return pulumi.get(self, "request_time")
+
+    @property
+    @pulumi.getter
+    def service(self) -> builtins.str:
+        """
+        最近一次使用的服务名称。
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        访问密钥状态。Active代表启用，Inactive代表禁用。
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="updateDate")
+    def update_date(self) -> builtins.str:
+        """
+        访问密钥更新时间。
+        """
+        return pulumi.get(self, "update_date")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> builtins.str:
+        """
+        访问密钥Secret。
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type

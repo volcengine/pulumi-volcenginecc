@@ -1158,6 +1158,166 @@ func (o RoleTagArrayOutput) Index(i pulumi.IntInput) RoleTagOutput {
 	}).(RoleTagOutput)
 }
 
+type UserAccessKey struct {
+	// 访问密钥ID。
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	// 访问密钥创建时间。
+	CreateDate *string `pulumi:"createDate"`
+	// 最近一次使用的服务区域。
+	Region *string `pulumi:"region"`
+	// 访问密钥最近一次使用时间。
+	RequestTime *string `pulumi:"requestTime"`
+	// 最近一次使用的服务名称。
+	Service *string `pulumi:"service"`
+	// 访问密钥状态。Active代表启用，Inactive代表禁用。
+	Status *string `pulumi:"status"`
+	// 访问密钥更新时间。
+	UpdateDate *string `pulumi:"updateDate"`
+	// 访问密钥Secret。
+	UserName *string `pulumi:"userName"`
+}
+
+// UserAccessKeyInput is an input type that accepts UserAccessKeyArgs and UserAccessKeyOutput values.
+// You can construct a concrete instance of `UserAccessKeyInput` via:
+//
+//	UserAccessKeyArgs{...}
+type UserAccessKeyInput interface {
+	pulumi.Input
+
+	ToUserAccessKeyOutput() UserAccessKeyOutput
+	ToUserAccessKeyOutputWithContext(context.Context) UserAccessKeyOutput
+}
+
+type UserAccessKeyArgs struct {
+	// 访问密钥ID。
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	// 访问密钥创建时间。
+	CreateDate pulumi.StringPtrInput `pulumi:"createDate"`
+	// 最近一次使用的服务区域。
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// 访问密钥最近一次使用时间。
+	RequestTime pulumi.StringPtrInput `pulumi:"requestTime"`
+	// 最近一次使用的服务名称。
+	Service pulumi.StringPtrInput `pulumi:"service"`
+	// 访问密钥状态。Active代表启用，Inactive代表禁用。
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// 访问密钥更新时间。
+	UpdateDate pulumi.StringPtrInput `pulumi:"updateDate"`
+	// 访问密钥Secret。
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (UserAccessKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAccessKey)(nil)).Elem()
+}
+
+func (i UserAccessKeyArgs) ToUserAccessKeyOutput() UserAccessKeyOutput {
+	return i.ToUserAccessKeyOutputWithContext(context.Background())
+}
+
+func (i UserAccessKeyArgs) ToUserAccessKeyOutputWithContext(ctx context.Context) UserAccessKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAccessKeyOutput)
+}
+
+// UserAccessKeyArrayInput is an input type that accepts UserAccessKeyArray and UserAccessKeyArrayOutput values.
+// You can construct a concrete instance of `UserAccessKeyArrayInput` via:
+//
+//	UserAccessKeyArray{ UserAccessKeyArgs{...} }
+type UserAccessKeyArrayInput interface {
+	pulumi.Input
+
+	ToUserAccessKeyArrayOutput() UserAccessKeyArrayOutput
+	ToUserAccessKeyArrayOutputWithContext(context.Context) UserAccessKeyArrayOutput
+}
+
+type UserAccessKeyArray []UserAccessKeyInput
+
+func (UserAccessKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAccessKey)(nil)).Elem()
+}
+
+func (i UserAccessKeyArray) ToUserAccessKeyArrayOutput() UserAccessKeyArrayOutput {
+	return i.ToUserAccessKeyArrayOutputWithContext(context.Background())
+}
+
+func (i UserAccessKeyArray) ToUserAccessKeyArrayOutputWithContext(ctx context.Context) UserAccessKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAccessKeyArrayOutput)
+}
+
+type UserAccessKeyOutput struct{ *pulumi.OutputState }
+
+func (UserAccessKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAccessKey)(nil)).Elem()
+}
+
+func (o UserAccessKeyOutput) ToUserAccessKeyOutput() UserAccessKeyOutput {
+	return o
+}
+
+func (o UserAccessKeyOutput) ToUserAccessKeyOutputWithContext(ctx context.Context) UserAccessKeyOutput {
+	return o
+}
+
+// 访问密钥ID。
+func (o UserAccessKeyOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
+}
+
+// 访问密钥创建时间。
+func (o UserAccessKeyOutput) CreateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.CreateDate }).(pulumi.StringPtrOutput)
+}
+
+// 最近一次使用的服务区域。
+func (o UserAccessKeyOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// 访问密钥最近一次使用时间。
+func (o UserAccessKeyOutput) RequestTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.RequestTime }).(pulumi.StringPtrOutput)
+}
+
+// 最近一次使用的服务名称。
+func (o UserAccessKeyOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// 访问密钥状态。Active代表启用，Inactive代表禁用。
+func (o UserAccessKeyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// 访问密钥更新时间。
+func (o UserAccessKeyOutput) UpdateDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.UpdateDate }).(pulumi.StringPtrOutput)
+}
+
+// 访问密钥Secret。
+func (o UserAccessKeyOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserAccessKey) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type UserAccessKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (UserAccessKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAccessKey)(nil)).Elem()
+}
+
+func (o UserAccessKeyArrayOutput) ToUserAccessKeyArrayOutput() UserAccessKeyArrayOutput {
+	return o
+}
+
+func (o UserAccessKeyArrayOutput) ToUserAccessKeyArrayOutputWithContext(ctx context.Context) UserAccessKeyArrayOutput {
+	return o
+}
+
+func (o UserAccessKeyArrayOutput) Index(i pulumi.IntInput) UserAccessKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAccessKey {
+		return vs[0].([]UserAccessKey)[vs[1].(int)]
+	}).(UserAccessKeyOutput)
+}
+
 type UserLoginProfile struct {
 	// 登录配置创建时间。
 	CreateDate *string `pulumi:"createDate"`
@@ -3357,6 +3517,166 @@ func (o GetRoleTagArrayOutput) Index(i pulumi.IntInput) GetRoleTagOutput {
 	}).(GetRoleTagOutput)
 }
 
+type GetUserAccessKey struct {
+	// 访问密钥ID。
+	AccessKeyId string `pulumi:"accessKeyId"`
+	// 访问密钥创建时间。
+	CreateDate string `pulumi:"createDate"`
+	// 最近一次使用的服务区域。
+	Region string `pulumi:"region"`
+	// 访问密钥最近一次使用时间。
+	RequestTime string `pulumi:"requestTime"`
+	// 最近一次使用的服务名称。
+	Service string `pulumi:"service"`
+	// 访问密钥状态。Active代表启用，Inactive代表禁用。
+	Status string `pulumi:"status"`
+	// 访问密钥更新时间。
+	UpdateDate string `pulumi:"updateDate"`
+	// 访问密钥Secret。
+	UserName string `pulumi:"userName"`
+}
+
+// GetUserAccessKeyInput is an input type that accepts GetUserAccessKeyArgs and GetUserAccessKeyOutput values.
+// You can construct a concrete instance of `GetUserAccessKeyInput` via:
+//
+//	GetUserAccessKeyArgs{...}
+type GetUserAccessKeyInput interface {
+	pulumi.Input
+
+	ToGetUserAccessKeyOutput() GetUserAccessKeyOutput
+	ToGetUserAccessKeyOutputWithContext(context.Context) GetUserAccessKeyOutput
+}
+
+type GetUserAccessKeyArgs struct {
+	// 访问密钥ID。
+	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
+	// 访问密钥创建时间。
+	CreateDate pulumi.StringInput `pulumi:"createDate"`
+	// 最近一次使用的服务区域。
+	Region pulumi.StringInput `pulumi:"region"`
+	// 访问密钥最近一次使用时间。
+	RequestTime pulumi.StringInput `pulumi:"requestTime"`
+	// 最近一次使用的服务名称。
+	Service pulumi.StringInput `pulumi:"service"`
+	// 访问密钥状态。Active代表启用，Inactive代表禁用。
+	Status pulumi.StringInput `pulumi:"status"`
+	// 访问密钥更新时间。
+	UpdateDate pulumi.StringInput `pulumi:"updateDate"`
+	// 访问密钥Secret。
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetUserAccessKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAccessKey)(nil)).Elem()
+}
+
+func (i GetUserAccessKeyArgs) ToGetUserAccessKeyOutput() GetUserAccessKeyOutput {
+	return i.ToGetUserAccessKeyOutputWithContext(context.Background())
+}
+
+func (i GetUserAccessKeyArgs) ToGetUserAccessKeyOutputWithContext(ctx context.Context) GetUserAccessKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAccessKeyOutput)
+}
+
+// GetUserAccessKeyArrayInput is an input type that accepts GetUserAccessKeyArray and GetUserAccessKeyArrayOutput values.
+// You can construct a concrete instance of `GetUserAccessKeyArrayInput` via:
+//
+//	GetUserAccessKeyArray{ GetUserAccessKeyArgs{...} }
+type GetUserAccessKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetUserAccessKeyArrayOutput() GetUserAccessKeyArrayOutput
+	ToGetUserAccessKeyArrayOutputWithContext(context.Context) GetUserAccessKeyArrayOutput
+}
+
+type GetUserAccessKeyArray []GetUserAccessKeyInput
+
+func (GetUserAccessKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAccessKey)(nil)).Elem()
+}
+
+func (i GetUserAccessKeyArray) ToGetUserAccessKeyArrayOutput() GetUserAccessKeyArrayOutput {
+	return i.ToGetUserAccessKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserAccessKeyArray) ToGetUserAccessKeyArrayOutputWithContext(ctx context.Context) GetUserAccessKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserAccessKeyArrayOutput)
+}
+
+type GetUserAccessKeyOutput struct{ *pulumi.OutputState }
+
+func (GetUserAccessKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserAccessKey)(nil)).Elem()
+}
+
+func (o GetUserAccessKeyOutput) ToGetUserAccessKeyOutput() GetUserAccessKeyOutput {
+	return o
+}
+
+func (o GetUserAccessKeyOutput) ToGetUserAccessKeyOutputWithContext(ctx context.Context) GetUserAccessKeyOutput {
+	return o
+}
+
+// 访问密钥ID。
+func (o GetUserAccessKeyOutput) AccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.AccessKeyId }).(pulumi.StringOutput)
+}
+
+// 访问密钥创建时间。
+func (o GetUserAccessKeyOutput) CreateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.CreateDate }).(pulumi.StringOutput)
+}
+
+// 最近一次使用的服务区域。
+func (o GetUserAccessKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// 访问密钥最近一次使用时间。
+func (o GetUserAccessKeyOutput) RequestTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.RequestTime }).(pulumi.StringOutput)
+}
+
+// 最近一次使用的服务名称。
+func (o GetUserAccessKeyOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// 访问密钥状态。Active代表启用，Inactive代表禁用。
+func (o GetUserAccessKeyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// 访问密钥更新时间。
+func (o GetUserAccessKeyOutput) UpdateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.UpdateDate }).(pulumi.StringOutput)
+}
+
+// 访问密钥Secret。
+func (o GetUserAccessKeyOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAccessKey) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type GetUserAccessKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserAccessKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserAccessKey)(nil)).Elem()
+}
+
+func (o GetUserAccessKeyArrayOutput) ToGetUserAccessKeyArrayOutput() GetUserAccessKeyArrayOutput {
+	return o
+}
+
+func (o GetUserAccessKeyArrayOutput) ToGetUserAccessKeyArrayOutputWithContext(ctx context.Context) GetUserAccessKeyArrayOutput {
+	return o
+}
+
+func (o GetUserAccessKeyArrayOutput) Index(i pulumi.IntInput) GetUserAccessKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserAccessKey {
+		return vs[0].([]GetUserAccessKey)[vs[1].(int)]
+	}).(GetUserAccessKeyOutput)
+}
+
 type GetUserLoginProfile struct {
 	// 登录配置创建时间。
 	CreateDate string `pulumi:"createDate"`
@@ -3840,6 +4160,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyArrayInput)(nil)).Elem(), RolePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagInput)(nil)).Elem(), RoleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleTagArrayInput)(nil)).Elem(), RoleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAccessKeyInput)(nil)).Elem(), UserAccessKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAccessKeyArrayInput)(nil)).Elem(), UserAccessKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserLoginProfileInput)(nil)).Elem(), UserLoginProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserLoginProfilePtrInput)(nil)).Elem(), UserLoginProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPolicyInput)(nil)).Elem(), UserPolicyArgs{})
@@ -3870,6 +4192,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolePolicyArrayInput)(nil)).Elem(), GetRolePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleTagInput)(nil)).Elem(), GetRoleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleTagArrayInput)(nil)).Elem(), GetRoleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAccessKeyInput)(nil)).Elem(), GetUserAccessKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAccessKeyArrayInput)(nil)).Elem(), GetUserAccessKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserLoginProfileInput)(nil)).Elem(), GetUserLoginProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPolicyInput)(nil)).Elem(), GetUserPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPolicyArrayInput)(nil)).Elem(), GetUserPolicyArray{})
@@ -3898,6 +4222,8 @@ func init() {
 	pulumi.RegisterOutputType(RolePolicyArrayOutput{})
 	pulumi.RegisterOutputType(RoleTagOutput{})
 	pulumi.RegisterOutputType(RoleTagArrayOutput{})
+	pulumi.RegisterOutputType(UserAccessKeyOutput{})
+	pulumi.RegisterOutputType(UserAccessKeyArrayOutput{})
 	pulumi.RegisterOutputType(UserLoginProfileOutput{})
 	pulumi.RegisterOutputType(UserLoginProfilePtrOutput{})
 	pulumi.RegisterOutputType(UserPolicyOutput{})
@@ -3928,6 +4254,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRolePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetRoleTagOutput{})
 	pulumi.RegisterOutputType(GetRoleTagArrayOutput{})
+	pulumi.RegisterOutputType(GetUserAccessKeyOutput{})
+	pulumi.RegisterOutputType(GetUserAccessKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetUserLoginProfileOutput{})
 	pulumi.RegisterOutputType(GetUserPolicyOutput{})
 	pulumi.RegisterOutputType(GetUserPolicyArrayOutput{})

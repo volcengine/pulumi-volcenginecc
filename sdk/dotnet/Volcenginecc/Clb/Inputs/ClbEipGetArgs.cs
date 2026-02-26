@@ -14,31 +14,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class ClbEipGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 带宽峰值
+        /// 带宽峰值。
         /// </summary>
         [Input("bandwidth")]
         public Input<double>? Bandwidth { get; set; }
 
         /// <summary>
-        /// 共享带宽包ID
+        /// 共享带宽包ID。
         /// </summary>
         [Input("bandwidthPackageId")]
         public Input<string>? BandwidthPackageId { get; set; }
 
         /// <summary>
-        /// 计费方式
+        /// 计费方式。
         /// </summary>
         [Input("eipBillingType")]
         public Input<double>? EipBillingType { get; set; }
 
         /// <summary>
-        /// 线路类型
+        /// 线路类型。
         /// </summary>
         [Input("isp")]
         public Input<string>? Isp { get; set; }
 
         /// <summary>
-        /// 防护包ID
+        /// 防护包ID。
         /// </summary>
         [Input("securityProtectionInstanceId")]
         public Input<double>? SecurityProtectionInstanceId { get; set; }
@@ -47,7 +47,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
         private InputList<string>? _securityProtectionTypes;
 
         /// <summary>
-        /// 安全防护类型
+        /// 安全防护类型。
         /// </summary>
         public InputList<string> SecurityProtectionTypes
         {

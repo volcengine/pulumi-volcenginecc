@@ -560,6 +560,515 @@ func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
 	}).(InstanceTagOutput)
 }
 
+type PublicAddressChargeDetail struct {
+	// 包年包月实例到期后是否自动续费。
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeEndTime *string `pulumi:"chargeEndTime"`
+	// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeExpireTime *string `pulumi:"chargeExpireTime"`
+	// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeStartTime *string `pulumi:"chargeStartTime"`
+	// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+	ChargeStatus *string `pulumi:"chargeStatus"`
+	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+	ChargeType *string `pulumi:"chargeType"`
+	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueReclaimTime *string `pulumi:"overdueReclaimTime"`
+	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueTime *string `pulumi:"overdueTime"`
+}
+
+// PublicAddressChargeDetailInput is an input type that accepts PublicAddressChargeDetailArgs and PublicAddressChargeDetailOutput values.
+// You can construct a concrete instance of `PublicAddressChargeDetailInput` via:
+//
+//	PublicAddressChargeDetailArgs{...}
+type PublicAddressChargeDetailInput interface {
+	pulumi.Input
+
+	ToPublicAddressChargeDetailOutput() PublicAddressChargeDetailOutput
+	ToPublicAddressChargeDetailOutputWithContext(context.Context) PublicAddressChargeDetailOutput
+}
+
+type PublicAddressChargeDetailArgs struct {
+	// 包年包月实例到期后是否自动续费。
+	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
+	// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeEndTime pulumi.StringPtrInput `pulumi:"chargeEndTime"`
+	// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeExpireTime pulumi.StringPtrInput `pulumi:"chargeExpireTime"`
+	// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeStartTime pulumi.StringPtrInput `pulumi:"chargeStartTime"`
+	// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+	ChargeStatus pulumi.StringPtrInput `pulumi:"chargeStatus"`
+	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+	ChargeType pulumi.StringPtrInput `pulumi:"chargeType"`
+	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueReclaimTime pulumi.StringPtrInput `pulumi:"overdueReclaimTime"`
+	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueTime pulumi.StringPtrInput `pulumi:"overdueTime"`
+}
+
+func (PublicAddressChargeDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicAddressChargeDetail)(nil)).Elem()
+}
+
+func (i PublicAddressChargeDetailArgs) ToPublicAddressChargeDetailOutput() PublicAddressChargeDetailOutput {
+	return i.ToPublicAddressChargeDetailOutputWithContext(context.Background())
+}
+
+func (i PublicAddressChargeDetailArgs) ToPublicAddressChargeDetailOutputWithContext(ctx context.Context) PublicAddressChargeDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressChargeDetailOutput)
+}
+
+func (i PublicAddressChargeDetailArgs) ToPublicAddressChargeDetailPtrOutput() PublicAddressChargeDetailPtrOutput {
+	return i.ToPublicAddressChargeDetailPtrOutputWithContext(context.Background())
+}
+
+func (i PublicAddressChargeDetailArgs) ToPublicAddressChargeDetailPtrOutputWithContext(ctx context.Context) PublicAddressChargeDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressChargeDetailOutput).ToPublicAddressChargeDetailPtrOutputWithContext(ctx)
+}
+
+// PublicAddressChargeDetailPtrInput is an input type that accepts PublicAddressChargeDetailArgs, PublicAddressChargeDetailPtr and PublicAddressChargeDetailPtrOutput values.
+// You can construct a concrete instance of `PublicAddressChargeDetailPtrInput` via:
+//
+//	        PublicAddressChargeDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type PublicAddressChargeDetailPtrInput interface {
+	pulumi.Input
+
+	ToPublicAddressChargeDetailPtrOutput() PublicAddressChargeDetailPtrOutput
+	ToPublicAddressChargeDetailPtrOutputWithContext(context.Context) PublicAddressChargeDetailPtrOutput
+}
+
+type publicAddressChargeDetailPtrType PublicAddressChargeDetailArgs
+
+func PublicAddressChargeDetailPtr(v *PublicAddressChargeDetailArgs) PublicAddressChargeDetailPtrInput {
+	return (*publicAddressChargeDetailPtrType)(v)
+}
+
+func (*publicAddressChargeDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicAddressChargeDetail)(nil)).Elem()
+}
+
+func (i *publicAddressChargeDetailPtrType) ToPublicAddressChargeDetailPtrOutput() PublicAddressChargeDetailPtrOutput {
+	return i.ToPublicAddressChargeDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *publicAddressChargeDetailPtrType) ToPublicAddressChargeDetailPtrOutputWithContext(ctx context.Context) PublicAddressChargeDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressChargeDetailPtrOutput)
+}
+
+type PublicAddressChargeDetailOutput struct{ *pulumi.OutputState }
+
+func (PublicAddressChargeDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicAddressChargeDetail)(nil)).Elem()
+}
+
+func (o PublicAddressChargeDetailOutput) ToPublicAddressChargeDetailOutput() PublicAddressChargeDetailOutput {
+	return o
+}
+
+func (o PublicAddressChargeDetailOutput) ToPublicAddressChargeDetailOutputWithContext(ctx context.Context) PublicAddressChargeDetailOutput {
+	return o
+}
+
+func (o PublicAddressChargeDetailOutput) ToPublicAddressChargeDetailPtrOutput() PublicAddressChargeDetailPtrOutput {
+	return o.ToPublicAddressChargeDetailPtrOutputWithContext(context.Background())
+}
+
+func (o PublicAddressChargeDetailOutput) ToPublicAddressChargeDetailPtrOutputWithContext(ctx context.Context) PublicAddressChargeDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicAddressChargeDetail) *PublicAddressChargeDetail {
+		return &v
+	}).(PublicAddressChargeDetailPtrOutput)
+}
+
+// 包年包月实例到期后是否自动续费。
+func (o PublicAddressChargeDetailOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailOutput) ChargeEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.ChargeEndTime }).(pulumi.StringPtrOutput)
+}
+
+// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailOutput) ChargeExpireTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.ChargeExpireTime }).(pulumi.StringPtrOutput)
+}
+
+// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailOutput) ChargeStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.ChargeStartTime }).(pulumi.StringPtrOutput)
+}
+
+// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+func (o PublicAddressChargeDetailOutput) ChargeStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.ChargeStatus }).(pulumi.StringPtrOutput)
+}
+
+// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+func (o PublicAddressChargeDetailOutput) ChargeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.ChargeType }).(pulumi.StringPtrOutput)
+}
+
+// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailOutput) OverdueReclaimTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.OverdueReclaimTime }).(pulumi.StringPtrOutput)
+}
+
+// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailOutput) OverdueTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressChargeDetail) *string { return v.OverdueTime }).(pulumi.StringPtrOutput)
+}
+
+type PublicAddressChargeDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (PublicAddressChargeDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicAddressChargeDetail)(nil)).Elem()
+}
+
+func (o PublicAddressChargeDetailPtrOutput) ToPublicAddressChargeDetailPtrOutput() PublicAddressChargeDetailPtrOutput {
+	return o
+}
+
+func (o PublicAddressChargeDetailPtrOutput) ToPublicAddressChargeDetailPtrOutputWithContext(ctx context.Context) PublicAddressChargeDetailPtrOutput {
+	return o
+}
+
+func (o PublicAddressChargeDetailPtrOutput) Elem() PublicAddressChargeDetailOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) PublicAddressChargeDetail {
+		if v != nil {
+			return *v
+		}
+		var ret PublicAddressChargeDetail
+		return ret
+	}).(PublicAddressChargeDetailOutput)
+}
+
+// 包年包月实例到期后是否自动续费。
+func (o PublicAddressChargeDetailPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRenew
+	}).(pulumi.BoolPtrOutput)
+}
+
+// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailPtrOutput) ChargeEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChargeEndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailPtrOutput) ChargeExpireTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChargeExpireTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailPtrOutput) ChargeStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChargeStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+func (o PublicAddressChargeDetailPtrOutput) ChargeStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChargeStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+func (o PublicAddressChargeDetailPtrOutput) ChargeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChargeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailPtrOutput) OverdueReclaimTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OverdueReclaimTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o PublicAddressChargeDetailPtrOutput) OverdueTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicAddressChargeDetail) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OverdueTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type PublicAddressEndpoint struct {
+	// 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+	EndpointType *string `pulumi:"endpointType"`
+	// 实例的私网访问域名。
+	InternalEndpoint *string `pulumi:"internalEndpoint"`
+	// 公共服务区 IP 接入点。
+	InternalIpEndpoint *string `pulumi:"internalIpEndpoint"`
+	// 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+	NetworkType *string `pulumi:"networkType"`
+	// 实例公网访问域名。仅在开启公网访问之后显示。
+	PublicEndpoint *string `pulumi:"publicEndpoint"`
+}
+
+// PublicAddressEndpointInput is an input type that accepts PublicAddressEndpointArgs and PublicAddressEndpointOutput values.
+// You can construct a concrete instance of `PublicAddressEndpointInput` via:
+//
+//	PublicAddressEndpointArgs{...}
+type PublicAddressEndpointInput interface {
+	pulumi.Input
+
+	ToPublicAddressEndpointOutput() PublicAddressEndpointOutput
+	ToPublicAddressEndpointOutputWithContext(context.Context) PublicAddressEndpointOutput
+}
+
+type PublicAddressEndpointArgs struct {
+	// 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// 实例的私网访问域名。
+	InternalEndpoint pulumi.StringPtrInput `pulumi:"internalEndpoint"`
+	// 公共服务区 IP 接入点。
+	InternalIpEndpoint pulumi.StringPtrInput `pulumi:"internalIpEndpoint"`
+	// 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+	NetworkType pulumi.StringPtrInput `pulumi:"networkType"`
+	// 实例公网访问域名。仅在开启公网访问之后显示。
+	PublicEndpoint pulumi.StringPtrInput `pulumi:"publicEndpoint"`
+}
+
+func (PublicAddressEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicAddressEndpoint)(nil)).Elem()
+}
+
+func (i PublicAddressEndpointArgs) ToPublicAddressEndpointOutput() PublicAddressEndpointOutput {
+	return i.ToPublicAddressEndpointOutputWithContext(context.Background())
+}
+
+func (i PublicAddressEndpointArgs) ToPublicAddressEndpointOutputWithContext(ctx context.Context) PublicAddressEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressEndpointOutput)
+}
+
+// PublicAddressEndpointArrayInput is an input type that accepts PublicAddressEndpointArray and PublicAddressEndpointArrayOutput values.
+// You can construct a concrete instance of `PublicAddressEndpointArrayInput` via:
+//
+//	PublicAddressEndpointArray{ PublicAddressEndpointArgs{...} }
+type PublicAddressEndpointArrayInput interface {
+	pulumi.Input
+
+	ToPublicAddressEndpointArrayOutput() PublicAddressEndpointArrayOutput
+	ToPublicAddressEndpointArrayOutputWithContext(context.Context) PublicAddressEndpointArrayOutput
+}
+
+type PublicAddressEndpointArray []PublicAddressEndpointInput
+
+func (PublicAddressEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicAddressEndpoint)(nil)).Elem()
+}
+
+func (i PublicAddressEndpointArray) ToPublicAddressEndpointArrayOutput() PublicAddressEndpointArrayOutput {
+	return i.ToPublicAddressEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i PublicAddressEndpointArray) ToPublicAddressEndpointArrayOutputWithContext(ctx context.Context) PublicAddressEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressEndpointArrayOutput)
+}
+
+type PublicAddressEndpointOutput struct{ *pulumi.OutputState }
+
+func (PublicAddressEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicAddressEndpoint)(nil)).Elem()
+}
+
+func (o PublicAddressEndpointOutput) ToPublicAddressEndpointOutput() PublicAddressEndpointOutput {
+	return o
+}
+
+func (o PublicAddressEndpointOutput) ToPublicAddressEndpointOutputWithContext(ctx context.Context) PublicAddressEndpointOutput {
+	return o
+}
+
+// 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+func (o PublicAddressEndpointOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressEndpoint) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+// 实例的私网访问域名。
+func (o PublicAddressEndpointOutput) InternalEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressEndpoint) *string { return v.InternalEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// 公共服务区 IP 接入点。
+func (o PublicAddressEndpointOutput) InternalIpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressEndpoint) *string { return v.InternalIpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+func (o PublicAddressEndpointOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressEndpoint) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
+}
+
+// 实例公网访问域名。仅在开启公网访问之后显示。
+func (o PublicAddressEndpointOutput) PublicEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressEndpoint) *string { return v.PublicEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type PublicAddressEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (PublicAddressEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicAddressEndpoint)(nil)).Elem()
+}
+
+func (o PublicAddressEndpointArrayOutput) ToPublicAddressEndpointArrayOutput() PublicAddressEndpointArrayOutput {
+	return o
+}
+
+func (o PublicAddressEndpointArrayOutput) ToPublicAddressEndpointArrayOutputWithContext(ctx context.Context) PublicAddressEndpointArrayOutput {
+	return o
+}
+
+func (o PublicAddressEndpointArrayOutput) Index(i pulumi.IntInput) PublicAddressEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicAddressEndpoint {
+		return vs[0].([]PublicAddressEndpoint)[vs[1].(int)]
+	}).(PublicAddressEndpointOutput)
+}
+
+type PublicAddressTag struct {
+	// 标签的键。
+	Key *string `pulumi:"key"`
+	// 标签的值。
+	Value *string `pulumi:"value"`
+}
+
+// PublicAddressTagInput is an input type that accepts PublicAddressTagArgs and PublicAddressTagOutput values.
+// You can construct a concrete instance of `PublicAddressTagInput` via:
+//
+//	PublicAddressTagArgs{...}
+type PublicAddressTagInput interface {
+	pulumi.Input
+
+	ToPublicAddressTagOutput() PublicAddressTagOutput
+	ToPublicAddressTagOutputWithContext(context.Context) PublicAddressTagOutput
+}
+
+type PublicAddressTagArgs struct {
+	// 标签的键。
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// 标签的值。
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (PublicAddressTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicAddressTag)(nil)).Elem()
+}
+
+func (i PublicAddressTagArgs) ToPublicAddressTagOutput() PublicAddressTagOutput {
+	return i.ToPublicAddressTagOutputWithContext(context.Background())
+}
+
+func (i PublicAddressTagArgs) ToPublicAddressTagOutputWithContext(ctx context.Context) PublicAddressTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressTagOutput)
+}
+
+// PublicAddressTagArrayInput is an input type that accepts PublicAddressTagArray and PublicAddressTagArrayOutput values.
+// You can construct a concrete instance of `PublicAddressTagArrayInput` via:
+//
+//	PublicAddressTagArray{ PublicAddressTagArgs{...} }
+type PublicAddressTagArrayInput interface {
+	pulumi.Input
+
+	ToPublicAddressTagArrayOutput() PublicAddressTagArrayOutput
+	ToPublicAddressTagArrayOutputWithContext(context.Context) PublicAddressTagArrayOutput
+}
+
+type PublicAddressTagArray []PublicAddressTagInput
+
+func (PublicAddressTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicAddressTag)(nil)).Elem()
+}
+
+func (i PublicAddressTagArray) ToPublicAddressTagArrayOutput() PublicAddressTagArrayOutput {
+	return i.ToPublicAddressTagArrayOutputWithContext(context.Background())
+}
+
+func (i PublicAddressTagArray) ToPublicAddressTagArrayOutputWithContext(ctx context.Context) PublicAddressTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicAddressTagArrayOutput)
+}
+
+type PublicAddressTagOutput struct{ *pulumi.OutputState }
+
+func (PublicAddressTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicAddressTag)(nil)).Elem()
+}
+
+func (o PublicAddressTagOutput) ToPublicAddressTagOutput() PublicAddressTagOutput {
+	return o
+}
+
+func (o PublicAddressTagOutput) ToPublicAddressTagOutputWithContext(ctx context.Context) PublicAddressTagOutput {
+	return o
+}
+
+// 标签的键。
+func (o PublicAddressTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// 标签的值。
+func (o PublicAddressTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicAddressTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type PublicAddressTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PublicAddressTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicAddressTag)(nil)).Elem()
+}
+
+func (o PublicAddressTagArrayOutput) ToPublicAddressTagArrayOutput() PublicAddressTagArrayOutput {
+	return o
+}
+
+func (o PublicAddressTagArrayOutput) ToPublicAddressTagArrayOutputWithContext(ctx context.Context) PublicAddressTagArrayOutput {
+	return o
+}
+
+func (o PublicAddressTagArrayOutput) Index(i pulumi.IntInput) PublicAddressTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicAddressTag {
+		return vs[0].([]PublicAddressTag)[vs[1].(int)]
+	}).(PublicAddressTagOutput)
+}
+
 type GetInstanceChargeDetail struct {
 	// 包年包月实例到期后是否自动续费。
 	AutoRenew bool `pulumi:"autoRenew"`
@@ -932,6 +1441,360 @@ func (o GetInstanceTagArrayOutput) Index(i pulumi.IntInput) GetInstanceTagOutput
 	}).(GetInstanceTagOutput)
 }
 
+type GetPublicAddressChargeDetail struct {
+	// 包年包月实例到期后是否自动续费。
+	AutoRenew bool `pulumi:"autoRenew"`
+	// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeEndTime string `pulumi:"chargeEndTime"`
+	// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeExpireTime string `pulumi:"chargeExpireTime"`
+	// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeStartTime string `pulumi:"chargeStartTime"`
+	// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+	ChargeStatus string `pulumi:"chargeStatus"`
+	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+	ChargeType string `pulumi:"chargeType"`
+	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueReclaimTime string `pulumi:"overdueReclaimTime"`
+	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueTime string `pulumi:"overdueTime"`
+}
+
+// GetPublicAddressChargeDetailInput is an input type that accepts GetPublicAddressChargeDetailArgs and GetPublicAddressChargeDetailOutput values.
+// You can construct a concrete instance of `GetPublicAddressChargeDetailInput` via:
+//
+//	GetPublicAddressChargeDetailArgs{...}
+type GetPublicAddressChargeDetailInput interface {
+	pulumi.Input
+
+	ToGetPublicAddressChargeDetailOutput() GetPublicAddressChargeDetailOutput
+	ToGetPublicAddressChargeDetailOutputWithContext(context.Context) GetPublicAddressChargeDetailOutput
+}
+
+type GetPublicAddressChargeDetailArgs struct {
+	// 包年包月实例到期后是否自动续费。
+	AutoRenew pulumi.BoolInput `pulumi:"autoRenew"`
+	// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeEndTime pulumi.StringInput `pulumi:"chargeEndTime"`
+	// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeExpireTime pulumi.StringInput `pulumi:"chargeExpireTime"`
+	// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	ChargeStartTime pulumi.StringInput `pulumi:"chargeStartTime"`
+	// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+	ChargeStatus pulumi.StringInput `pulumi:"chargeStatus"`
+	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+	ChargeType pulumi.StringInput `pulumi:"chargeType"`
+	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueReclaimTime pulumi.StringInput `pulumi:"overdueReclaimTime"`
+	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	OverdueTime pulumi.StringInput `pulumi:"overdueTime"`
+}
+
+func (GetPublicAddressChargeDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicAddressChargeDetail)(nil)).Elem()
+}
+
+func (i GetPublicAddressChargeDetailArgs) ToGetPublicAddressChargeDetailOutput() GetPublicAddressChargeDetailOutput {
+	return i.ToGetPublicAddressChargeDetailOutputWithContext(context.Background())
+}
+
+func (i GetPublicAddressChargeDetailArgs) ToGetPublicAddressChargeDetailOutputWithContext(ctx context.Context) GetPublicAddressChargeDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicAddressChargeDetailOutput)
+}
+
+type GetPublicAddressChargeDetailOutput struct{ *pulumi.OutputState }
+
+func (GetPublicAddressChargeDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicAddressChargeDetail)(nil)).Elem()
+}
+
+func (o GetPublicAddressChargeDetailOutput) ToGetPublicAddressChargeDetailOutput() GetPublicAddressChargeDetailOutput {
+	return o
+}
+
+func (o GetPublicAddressChargeDetailOutput) ToGetPublicAddressChargeDetailOutputWithContext(ctx context.Context) GetPublicAddressChargeDetailOutput {
+	return o
+}
+
+// 包年包月实例到期后是否自动续费。
+func (o GetPublicAddressChargeDetailOutput) AutoRenew() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) bool { return v.AutoRenew }).(pulumi.BoolOutput)
+}
+
+// 实例的结束计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o GetPublicAddressChargeDetailOutput) ChargeEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.ChargeEndTime }).(pulumi.StringOutput)
+}
+
+// 包年包月实例的到期时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o GetPublicAddressChargeDetailOutput) ChargeExpireTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.ChargeExpireTime }).(pulumi.StringOutput)
+}
+
+// 实例的开始计费时间，时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o GetPublicAddressChargeDetailOutput) ChargeStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.ChargeStartTime }).(pulumi.StringOutput)
+}
+
+// 实例的计费状态。包括：Normal：正常，Overdue：按量计费欠费，Expired：包年包月到期。
+func (o GetPublicAddressChargeDetailOutput) ChargeStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.ChargeStatus }).(pulumi.StringOutput)
+}
+
+// 实例的计费类型。支持的类型包括：PostPaid ：按量付费，PrePaid：包年包月。
+func (o GetPublicAddressChargeDetailOutput) ChargeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.ChargeType }).(pulumi.StringOutput)
+}
+
+// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o GetPublicAddressChargeDetailOutput) OverdueReclaimTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.OverdueReclaimTime }).(pulumi.StringOutput)
+}
+
+// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+func (o GetPublicAddressChargeDetailOutput) OverdueTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressChargeDetail) string { return v.OverdueTime }).(pulumi.StringOutput)
+}
+
+type GetPublicAddressEndpoint struct {
+	// 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+	EndpointType string `pulumi:"endpointType"`
+	// 实例的私网访问域名。
+	InternalEndpoint string `pulumi:"internalEndpoint"`
+	// 公共服务区 IP 接入点。
+	InternalIpEndpoint string `pulumi:"internalIpEndpoint"`
+	// 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+	NetworkType string `pulumi:"networkType"`
+	// 实例公网访问域名。仅在开启公网访问之后显示。
+	PublicEndpoint string `pulumi:"publicEndpoint"`
+}
+
+// GetPublicAddressEndpointInput is an input type that accepts GetPublicAddressEndpointArgs and GetPublicAddressEndpointOutput values.
+// You can construct a concrete instance of `GetPublicAddressEndpointInput` via:
+//
+//	GetPublicAddressEndpointArgs{...}
+type GetPublicAddressEndpointInput interface {
+	pulumi.Input
+
+	ToGetPublicAddressEndpointOutput() GetPublicAddressEndpointOutput
+	ToGetPublicAddressEndpointOutputWithContext(context.Context) GetPublicAddressEndpointOutput
+}
+
+type GetPublicAddressEndpointArgs struct {
+	// 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// 实例的私网访问域名。
+	InternalEndpoint pulumi.StringInput `pulumi:"internalEndpoint"`
+	// 公共服务区 IP 接入点。
+	InternalIpEndpoint pulumi.StringInput `pulumi:"internalIpEndpoint"`
+	// 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+	NetworkType pulumi.StringInput `pulumi:"networkType"`
+	// 实例公网访问域名。仅在开启公网访问之后显示。
+	PublicEndpoint pulumi.StringInput `pulumi:"publicEndpoint"`
+}
+
+func (GetPublicAddressEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicAddressEndpoint)(nil)).Elem()
+}
+
+func (i GetPublicAddressEndpointArgs) ToGetPublicAddressEndpointOutput() GetPublicAddressEndpointOutput {
+	return i.ToGetPublicAddressEndpointOutputWithContext(context.Background())
+}
+
+func (i GetPublicAddressEndpointArgs) ToGetPublicAddressEndpointOutputWithContext(ctx context.Context) GetPublicAddressEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicAddressEndpointOutput)
+}
+
+// GetPublicAddressEndpointArrayInput is an input type that accepts GetPublicAddressEndpointArray and GetPublicAddressEndpointArrayOutput values.
+// You can construct a concrete instance of `GetPublicAddressEndpointArrayInput` via:
+//
+//	GetPublicAddressEndpointArray{ GetPublicAddressEndpointArgs{...} }
+type GetPublicAddressEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetPublicAddressEndpointArrayOutput() GetPublicAddressEndpointArrayOutput
+	ToGetPublicAddressEndpointArrayOutputWithContext(context.Context) GetPublicAddressEndpointArrayOutput
+}
+
+type GetPublicAddressEndpointArray []GetPublicAddressEndpointInput
+
+func (GetPublicAddressEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicAddressEndpoint)(nil)).Elem()
+}
+
+func (i GetPublicAddressEndpointArray) ToGetPublicAddressEndpointArrayOutput() GetPublicAddressEndpointArrayOutput {
+	return i.ToGetPublicAddressEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetPublicAddressEndpointArray) ToGetPublicAddressEndpointArrayOutputWithContext(ctx context.Context) GetPublicAddressEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicAddressEndpointArrayOutput)
+}
+
+type GetPublicAddressEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetPublicAddressEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicAddressEndpoint)(nil)).Elem()
+}
+
+func (o GetPublicAddressEndpointOutput) ToGetPublicAddressEndpointOutput() GetPublicAddressEndpointOutput {
+	return o
+}
+
+func (o GetPublicAddressEndpointOutput) ToGetPublicAddressEndpointOutputWithContext(ctx context.Context) GetPublicAddressEndpointOutput {
+	return o
+}
+
+// 实例的接入点类型。RabbitMQ实例提供的接入点类型包括：WEB：Web UI 接入点，AMQP0*9*1：AMQP 接入点，MQTT：MQTT接入点，WEB_MQTT：WEB ，MQTT 接入点，STOMP：STOMP 接入点。
+func (o GetPublicAddressEndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// 实例的私网访问域名。
+func (o GetPublicAddressEndpointOutput) InternalEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressEndpoint) string { return v.InternalEndpoint }).(pulumi.StringOutput)
+}
+
+// 公共服务区 IP 接入点。
+func (o GetPublicAddressEndpointOutput) InternalIpEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressEndpoint) string { return v.InternalIpEndpoint }).(pulumi.StringOutput)
+}
+
+// 接入点的网络类型。PrivateNetwork 表示私有网络 VPC。
+func (o GetPublicAddressEndpointOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressEndpoint) string { return v.NetworkType }).(pulumi.StringOutput)
+}
+
+// 实例公网访问域名。仅在开启公网访问之后显示。
+func (o GetPublicAddressEndpointOutput) PublicEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressEndpoint) string { return v.PublicEndpoint }).(pulumi.StringOutput)
+}
+
+type GetPublicAddressEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPublicAddressEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicAddressEndpoint)(nil)).Elem()
+}
+
+func (o GetPublicAddressEndpointArrayOutput) ToGetPublicAddressEndpointArrayOutput() GetPublicAddressEndpointArrayOutput {
+	return o
+}
+
+func (o GetPublicAddressEndpointArrayOutput) ToGetPublicAddressEndpointArrayOutputWithContext(ctx context.Context) GetPublicAddressEndpointArrayOutput {
+	return o
+}
+
+func (o GetPublicAddressEndpointArrayOutput) Index(i pulumi.IntInput) GetPublicAddressEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPublicAddressEndpoint {
+		return vs[0].([]GetPublicAddressEndpoint)[vs[1].(int)]
+	}).(GetPublicAddressEndpointOutput)
+}
+
+type GetPublicAddressTag struct {
+	// 标签的键。
+	Key string `pulumi:"key"`
+	// 标签的值。
+	Value string `pulumi:"value"`
+}
+
+// GetPublicAddressTagInput is an input type that accepts GetPublicAddressTagArgs and GetPublicAddressTagOutput values.
+// You can construct a concrete instance of `GetPublicAddressTagInput` via:
+//
+//	GetPublicAddressTagArgs{...}
+type GetPublicAddressTagInput interface {
+	pulumi.Input
+
+	ToGetPublicAddressTagOutput() GetPublicAddressTagOutput
+	ToGetPublicAddressTagOutputWithContext(context.Context) GetPublicAddressTagOutput
+}
+
+type GetPublicAddressTagArgs struct {
+	// 标签的键。
+	Key pulumi.StringInput `pulumi:"key"`
+	// 标签的值。
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetPublicAddressTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicAddressTag)(nil)).Elem()
+}
+
+func (i GetPublicAddressTagArgs) ToGetPublicAddressTagOutput() GetPublicAddressTagOutput {
+	return i.ToGetPublicAddressTagOutputWithContext(context.Background())
+}
+
+func (i GetPublicAddressTagArgs) ToGetPublicAddressTagOutputWithContext(ctx context.Context) GetPublicAddressTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicAddressTagOutput)
+}
+
+// GetPublicAddressTagArrayInput is an input type that accepts GetPublicAddressTagArray and GetPublicAddressTagArrayOutput values.
+// You can construct a concrete instance of `GetPublicAddressTagArrayInput` via:
+//
+//	GetPublicAddressTagArray{ GetPublicAddressTagArgs{...} }
+type GetPublicAddressTagArrayInput interface {
+	pulumi.Input
+
+	ToGetPublicAddressTagArrayOutput() GetPublicAddressTagArrayOutput
+	ToGetPublicAddressTagArrayOutputWithContext(context.Context) GetPublicAddressTagArrayOutput
+}
+
+type GetPublicAddressTagArray []GetPublicAddressTagInput
+
+func (GetPublicAddressTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicAddressTag)(nil)).Elem()
+}
+
+func (i GetPublicAddressTagArray) ToGetPublicAddressTagArrayOutput() GetPublicAddressTagArrayOutput {
+	return i.ToGetPublicAddressTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetPublicAddressTagArray) ToGetPublicAddressTagArrayOutputWithContext(ctx context.Context) GetPublicAddressTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPublicAddressTagArrayOutput)
+}
+
+type GetPublicAddressTagOutput struct{ *pulumi.OutputState }
+
+func (GetPublicAddressTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPublicAddressTag)(nil)).Elem()
+}
+
+func (o GetPublicAddressTagOutput) ToGetPublicAddressTagOutput() GetPublicAddressTagOutput {
+	return o
+}
+
+func (o GetPublicAddressTagOutput) ToGetPublicAddressTagOutputWithContext(ctx context.Context) GetPublicAddressTagOutput {
+	return o
+}
+
+// 标签的键。
+func (o GetPublicAddressTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// 标签的值。
+func (o GetPublicAddressTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicAddressTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetPublicAddressTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPublicAddressTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPublicAddressTag)(nil)).Elem()
+}
+
+func (o GetPublicAddressTagArrayOutput) ToGetPublicAddressTagArrayOutput() GetPublicAddressTagArrayOutput {
+	return o
+}
+
+func (o GetPublicAddressTagArrayOutput) ToGetPublicAddressTagArrayOutputWithContext(ctx context.Context) GetPublicAddressTagArrayOutput {
+	return o
+}
+
+func (o GetPublicAddressTagArrayOutput) Index(i pulumi.IntInput) GetPublicAddressTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPublicAddressTag {
+		return vs[0].([]GetPublicAddressTag)[vs[1].(int)]
+	}).(GetPublicAddressTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceChargeDetailInput)(nil)).Elem(), InstanceChargeDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceChargeDetailPtrInput)(nil)).Elem(), InstanceChargeDetailArgs{})
@@ -939,20 +1802,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEndpointArrayInput)(nil)).Elem(), InstanceEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagInput)(nil)).Elem(), InstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagArrayInput)(nil)).Elem(), InstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicAddressChargeDetailInput)(nil)).Elem(), PublicAddressChargeDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicAddressChargeDetailPtrInput)(nil)).Elem(), PublicAddressChargeDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicAddressEndpointInput)(nil)).Elem(), PublicAddressEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicAddressEndpointArrayInput)(nil)).Elem(), PublicAddressEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicAddressTagInput)(nil)).Elem(), PublicAddressTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicAddressTagArrayInput)(nil)).Elem(), PublicAddressTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceChargeDetailInput)(nil)).Elem(), GetInstanceChargeDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceEndpointInput)(nil)).Elem(), GetInstanceEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceEndpointArrayInput)(nil)).Elem(), GetInstanceEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTagInput)(nil)).Elem(), GetInstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTagArrayInput)(nil)).Elem(), GetInstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicAddressChargeDetailInput)(nil)).Elem(), GetPublicAddressChargeDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicAddressEndpointInput)(nil)).Elem(), GetPublicAddressEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicAddressEndpointArrayInput)(nil)).Elem(), GetPublicAddressEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicAddressTagInput)(nil)).Elem(), GetPublicAddressTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicAddressTagArrayInput)(nil)).Elem(), GetPublicAddressTagArray{})
 	pulumi.RegisterOutputType(InstanceChargeDetailOutput{})
 	pulumi.RegisterOutputType(InstanceChargeDetailPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceEndpointArrayOutput{})
 	pulumi.RegisterOutputType(InstanceTagOutput{})
 	pulumi.RegisterOutputType(InstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(PublicAddressChargeDetailOutput{})
+	pulumi.RegisterOutputType(PublicAddressChargeDetailPtrOutput{})
+	pulumi.RegisterOutputType(PublicAddressEndpointOutput{})
+	pulumi.RegisterOutputType(PublicAddressEndpointArrayOutput{})
+	pulumi.RegisterOutputType(PublicAddressTagOutput{})
+	pulumi.RegisterOutputType(PublicAddressTagArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceChargeDetailOutput{})
 	pulumi.RegisterOutputType(GetInstanceEndpointOutput{})
 	pulumi.RegisterOutputType(GetInstanceEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTagOutput{})
 	pulumi.RegisterOutputType(GetInstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(GetPublicAddressChargeDetailOutput{})
+	pulumi.RegisterOutputType(GetPublicAddressEndpointOutput{})
+	pulumi.RegisterOutputType(GetPublicAddressEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetPublicAddressTagOutput{})
+	pulumi.RegisterOutputType(GetPublicAddressTagArrayOutput{})
 }

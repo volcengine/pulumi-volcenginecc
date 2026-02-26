@@ -38,6 +38,8 @@ __all__ = [
     'RolePolicyArgsDict',
     'RoleTagArgs',
     'RoleTagArgsDict',
+    'UserAccessKeyArgs',
+    'UserAccessKeyArgsDict',
     'UserLoginProfileArgs',
     'UserLoginProfileArgsDict',
     'UserPolicyArgs',
@@ -572,6 +574,178 @@ class RoleTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class UserAccessKeyArgsDict(TypedDict):
+        access_key_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        访问密钥ID。
+        """
+        create_date: NotRequired[pulumi.Input[builtins.str]]
+        """
+        访问密钥创建时间。
+        """
+        region: NotRequired[pulumi.Input[builtins.str]]
+        """
+        最近一次使用的服务区域。
+        """
+        request_time: NotRequired[pulumi.Input[builtins.str]]
+        """
+        访问密钥最近一次使用时间。
+        """
+        service: NotRequired[pulumi.Input[builtins.str]]
+        """
+        最近一次使用的服务名称。
+        """
+        status: NotRequired[pulumi.Input[builtins.str]]
+        """
+        访问密钥状态。Active代表启用，Inactive代表禁用。
+        """
+        update_date: NotRequired[pulumi.Input[builtins.str]]
+        """
+        访问密钥更新时间。
+        """
+        user_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        访问密钥Secret。
+        """
+elif False:
+    UserAccessKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAccessKeyArgs:
+    def __init__(__self__, *,
+                 access_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 create_date: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 request_time: Optional[pulumi.Input[builtins.str]] = None,
+                 service: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 update_date: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] access_key_id: 访问密钥ID。
+        :param pulumi.Input[builtins.str] create_date: 访问密钥创建时间。
+        :param pulumi.Input[builtins.str] region: 最近一次使用的服务区域。
+        :param pulumi.Input[builtins.str] request_time: 访问密钥最近一次使用时间。
+        :param pulumi.Input[builtins.str] service: 最近一次使用的服务名称。
+        :param pulumi.Input[builtins.str] status: 访问密钥状态。Active代表启用，Inactive代表禁用。
+        :param pulumi.Input[builtins.str] update_date: 访问密钥更新时间。
+        :param pulumi.Input[builtins.str] user_name: 访问密钥Secret。
+        """
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if create_date is not None:
+            pulumi.set(__self__, "create_date", create_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if request_time is not None:
+            pulumi.set(__self__, "request_time", request_time)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if update_date is not None:
+            pulumi.set(__self__, "update_date", update_date)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        访问密钥ID。
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "access_key_id", value)
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        访问密钥创建时间。
+        """
+        return pulumi.get(self, "create_date")
+
+    @create_date.setter
+    def create_date(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create_date", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        最近一次使用的服务区域。
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="requestTime")
+    def request_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        访问密钥最近一次使用时间。
+        """
+        return pulumi.get(self, "request_time")
+
+    @request_time.setter
+    def request_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "request_time", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        最近一次使用的服务名称。
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        访问密钥状态。Active代表启用，Inactive代表禁用。
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="updateDate")
+    def update_date(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        访问密钥更新时间。
+        """
+        return pulumi.get(self, "update_date")
+
+    @update_date.setter
+    def update_date(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "update_date", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        访问密钥Secret。
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name", value)
 
 
 if not MYPY:

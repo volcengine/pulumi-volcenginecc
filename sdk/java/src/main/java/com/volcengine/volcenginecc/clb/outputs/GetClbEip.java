@@ -13,74 +13,74 @@ import java.util.Objects;
 @CustomType
 public final class GetClbEip {
     /**
-     * @return 带宽峰值
+     * @return 带宽峰值。
      * 
      */
     private Double bandwidth;
     /**
-     * @return 共享带宽包ID
+     * @return 共享带宽包ID。
      * 
      */
     private String bandwidthPackageId;
     /**
-     * @return 计费方式
+     * @return 计费方式。
      * 
      */
     private Double eipBillingType;
     /**
-     * @return 线路类型
+     * @return 线路类型。
      * 
      */
     private String isp;
     /**
-     * @return 防护包ID
+     * @return 防护包ID。
      * 
      */
     private Double securityProtectionInstanceId;
     /**
-     * @return 安全防护类型
+     * @return 安全防护类型。
      * 
      */
     private List<String> securityProtectionTypes;
 
     private GetClbEip() {}
     /**
-     * @return 带宽峰值
+     * @return 带宽峰值。
      * 
      */
     public Double bandwidth() {
         return this.bandwidth;
     }
     /**
-     * @return 共享带宽包ID
+     * @return 共享带宽包ID。
      * 
      */
     public String bandwidthPackageId() {
         return this.bandwidthPackageId;
     }
     /**
-     * @return 计费方式
+     * @return 计费方式。
      * 
      */
     public Double eipBillingType() {
         return this.eipBillingType;
     }
     /**
-     * @return 线路类型
+     * @return 线路类型。
      * 
      */
     public String isp() {
         return this.isp;
     }
     /**
-     * @return 防护包ID
+     * @return 防护包ID。
      * 
      */
     public Double securityProtectionInstanceId() {
         return this.securityProtectionInstanceId;
     }
     /**
-     * @return 安全防护类型
+     * @return 安全防护类型。
      * 
      */
     public List<String> securityProtectionTypes() {

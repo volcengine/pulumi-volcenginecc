@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClbListener {
     /**
-     * @return 监听器的ID
+     * @return 监听器的ID。
      * 
      */
     private @Nullable String listenerId;
     /**
-     * @return 监听器的名称
+     * @return 监听器的名称。
      * 
      */
     private @Nullable String listenerName;
 
     private ClbListener() {}
     /**
-     * @return 监听器的ID
+     * @return 监听器的ID。
      * 
      */
     public Optional<String> listenerId() {
         return Optional.ofNullable(this.listenerId);
     }
     /**
-     * @return 监听器的名称
+     * @return 监听器的名称。
      * 
      */
     public Optional<String> listenerName() {

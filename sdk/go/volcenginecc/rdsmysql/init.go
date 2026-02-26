@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:rdsmysql/allowList:AllowList":
+		r = &AllowList{}
+	case "volcenginecc:rdsmysql/backup:Backup":
+		r = &Backup{}
 	case "volcenginecc:rdsmysql/database:Database":
 		r = &Database{}
 	case "volcenginecc:rdsmysql/dbAccount:DbAccount":
 		r = &DbAccount{}
+	case "volcenginecc:rdsmysql/endpoint:Endpoint":
+		r = &Endpoint{}
 	case "volcenginecc:rdsmysql/instance:Instance":
 		r = &Instance{}
 	default:
@@ -42,12 +48,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"rdsmysql/allowList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdsmysql/backup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"rdsmysql/database",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdsmysql/dbAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdsmysql/endpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

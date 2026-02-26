@@ -14,31 +14,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class ClbAccessLogGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 存储七层访问日志的对象存储桶的名称
+        /// 存储七层访问日志的对象存储桶的名称。
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// 日志投递类型
+        /// 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
         /// </summary>
         [Input("deliveryType")]
         public Input<string>? DeliveryType { get; set; }
 
         /// <summary>
-        /// 是否开启访问日志（七层）投递至对象存储TOS的功能
+        /// 是否开启访问日志（七层）投递至对象存储TOS的功能。
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// 日志项目
+        /// 日志项目。
         /// </summary>
         [Input("tlsProjectId")]
         public Input<string>? TlsProjectId { get; set; }
 
         /// <summary>
-        /// 日志主题
+        /// 日志主题。
         /// </summary>
         [Input("tlsTopicId")]
         public Input<string>? TlsTopicId { get; set; }

@@ -16,6 +16,14 @@ import com.volcengine.volcenginecc.vpc.inputs.GetEipArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetEipPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetEniArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetEniPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetFlowLogArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetFlowLogPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetHaVipArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetHaVipPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetIpv6AddressBandwidthArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetIpv6AddressBandwidthPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetIpv6GatewayArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetIpv6GatewayPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetNetworkAclArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetNetworkAclPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetPrefixListArgs;
@@ -26,6 +34,14 @@ import com.volcengine.volcenginecc.vpc.inputs.GetSecurityGroupArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetSecurityGroupPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetSubnetArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetSubnetPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorFilterArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorFilterPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorFilterRuleArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorFilterRulePlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorSessionArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorSessionPlainArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorTargetArgs;
+import com.volcengine.volcenginecc.vpc.inputs.GetTrafficMirrorTargetPlainArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetVpcArgs;
 import com.volcengine.volcenginecc.vpc.inputs.GetVpcPlainArgs;
 import com.volcengine.volcenginecc.vpc.outputs.GetBandwidthPackageResult;
@@ -34,6 +50,14 @@ import com.volcengine.volcenginecc.vpc.outputs.GetEipResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetEipsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetEniResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetEnisResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetFlowLogResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetFlowLogsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetHaVipResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetHaVipsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetIpv6AddressBandwidthResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetIpv6AddressBandwidthsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetIpv6GatewayResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetIpv6GatewaysResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetNetworkAclResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetNetworkAclsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetPrefixListResult;
@@ -44,6 +68,14 @@ import com.volcengine.volcenginecc.vpc.outputs.GetSecurityGroupResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetSecurityGroupsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetSubnetResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetSubnetsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorFilterResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorFilterRuleResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorFilterRulesResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorFiltersResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorSessionResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorSessionsResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorTargetResult;
+import com.volcengine.volcenginecc.vpc.outputs.GetTrafficMirrorTargetsResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetVpcResult;
 import com.volcengine.volcenginecc.vpc.outputs.GetVpcsResult;
 import java.util.concurrent.CompletableFuture;
@@ -300,6 +332,342 @@ public final class VpcFunctions {
      */
     public static CompletableFuture<GetEnisResult> getEnisPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getEnis:getEnis", TypeShape.of(GetEnisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogResult> getFlowLog(GetFlowLogArgs args) {
+        return getFlowLog(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static CompletableFuture<GetFlowLogResult> getFlowLogPlain(GetFlowLogPlainArgs args) {
+        return getFlowLogPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogResult> getFlowLog(GetFlowLogArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getFlowLog:getFlowLog", TypeShape.of(GetFlowLogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogResult> getFlowLog(GetFlowLogArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getFlowLog:getFlowLog", TypeShape.of(GetFlowLogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static CompletableFuture<GetFlowLogResult> getFlowLogPlain(GetFlowLogPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getFlowLog:getFlowLog", TypeShape.of(GetFlowLogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogsResult> getFlowLogs() {
+        return getFlowLogs(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static CompletableFuture<GetFlowLogsResult> getFlowLogsPlain() {
+        return getFlowLogsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogsResult> getFlowLogs(InvokeArgs args) {
+        return getFlowLogs(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static CompletableFuture<GetFlowLogsResult> getFlowLogsPlain(InvokeArgs args) {
+        return getFlowLogsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogsResult> getFlowLogs(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getFlowLogs:getFlowLogs", TypeShape.of(GetFlowLogsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static Output<GetFlowLogsResult> getFlowLogs(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getFlowLogs:getFlowLogs", TypeShape.of(GetFlowLogsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::FlowLog
+     * 
+     */
+    public static CompletableFuture<GetFlowLogsResult> getFlowLogsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getFlowLogs:getFlowLogs", TypeShape.of(GetFlowLogsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipResult> getHaVip(GetHaVipArgs args) {
+        return getHaVip(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static CompletableFuture<GetHaVipResult> getHaVipPlain(GetHaVipPlainArgs args) {
+        return getHaVipPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipResult> getHaVip(GetHaVipArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getHaVip:getHaVip", TypeShape.of(GetHaVipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipResult> getHaVip(GetHaVipArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getHaVip:getHaVip", TypeShape.of(GetHaVipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static CompletableFuture<GetHaVipResult> getHaVipPlain(GetHaVipPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getHaVip:getHaVip", TypeShape.of(GetHaVipResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipsResult> getHaVips() {
+        return getHaVips(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static CompletableFuture<GetHaVipsResult> getHaVipsPlain() {
+        return getHaVipsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipsResult> getHaVips(InvokeArgs args) {
+        return getHaVips(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static CompletableFuture<GetHaVipsResult> getHaVipsPlain(InvokeArgs args) {
+        return getHaVipsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipsResult> getHaVips(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getHaVips:getHaVips", TypeShape.of(GetHaVipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static Output<GetHaVipsResult> getHaVips(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getHaVips:getHaVips", TypeShape.of(GetHaVipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::HAVIP
+     * 
+     */
+    public static CompletableFuture<GetHaVipsResult> getHaVipsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getHaVips:getHaVips", TypeShape.of(GetHaVipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthResult> getIpv6AddressBandwidth(GetIpv6AddressBandwidthArgs args) {
+        return getIpv6AddressBandwidth(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static CompletableFuture<GetIpv6AddressBandwidthResult> getIpv6AddressBandwidthPlain(GetIpv6AddressBandwidthPlainArgs args) {
+        return getIpv6AddressBandwidthPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthResult> getIpv6AddressBandwidth(GetIpv6AddressBandwidthArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6AddressBandwidth:getIpv6AddressBandwidth", TypeShape.of(GetIpv6AddressBandwidthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthResult> getIpv6AddressBandwidth(GetIpv6AddressBandwidthArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6AddressBandwidth:getIpv6AddressBandwidth", TypeShape.of(GetIpv6AddressBandwidthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static CompletableFuture<GetIpv6AddressBandwidthResult> getIpv6AddressBandwidthPlain(GetIpv6AddressBandwidthPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getIpv6AddressBandwidth:getIpv6AddressBandwidth", TypeShape.of(GetIpv6AddressBandwidthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidths() {
+        return getIpv6AddressBandwidths(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static CompletableFuture<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidthsPlain() {
+        return getIpv6AddressBandwidthsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidths(InvokeArgs args) {
+        return getIpv6AddressBandwidths(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static CompletableFuture<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidthsPlain(InvokeArgs args) {
+        return getIpv6AddressBandwidthsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidths(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6AddressBandwidths:getIpv6AddressBandwidths", TypeShape.of(GetIpv6AddressBandwidthsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static Output<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidths(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6AddressBandwidths:getIpv6AddressBandwidths", TypeShape.of(GetIpv6AddressBandwidthsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6AddressBandwidth
+     * 
+     */
+    public static CompletableFuture<GetIpv6AddressBandwidthsResult> getIpv6AddressBandwidthsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getIpv6AddressBandwidths:getIpv6AddressBandwidths", TypeShape.of(GetIpv6AddressBandwidthsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewayResult> getIpv6Gateway(GetIpv6GatewayArgs args) {
+        return getIpv6Gateway(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static CompletableFuture<GetIpv6GatewayResult> getIpv6GatewayPlain(GetIpv6GatewayPlainArgs args) {
+        return getIpv6GatewayPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewayResult> getIpv6Gateway(GetIpv6GatewayArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6Gateway:getIpv6Gateway", TypeShape.of(GetIpv6GatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewayResult> getIpv6Gateway(GetIpv6GatewayArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6Gateway:getIpv6Gateway", TypeShape.of(GetIpv6GatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static CompletableFuture<GetIpv6GatewayResult> getIpv6GatewayPlain(GetIpv6GatewayPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getIpv6Gateway:getIpv6Gateway", TypeShape.of(GetIpv6GatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewaysResult> getIpv6Gateways() {
+        return getIpv6Gateways(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static CompletableFuture<GetIpv6GatewaysResult> getIpv6GatewaysPlain() {
+        return getIpv6GatewaysPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewaysResult> getIpv6Gateways(InvokeArgs args) {
+        return getIpv6Gateways(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static CompletableFuture<GetIpv6GatewaysResult> getIpv6GatewaysPlain(InvokeArgs args) {
+        return getIpv6GatewaysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewaysResult> getIpv6Gateways(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6Gateways:getIpv6Gateways", TypeShape.of(GetIpv6GatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static Output<GetIpv6GatewaysResult> getIpv6Gateways(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getIpv6Gateways:getIpv6Gateways", TypeShape.of(GetIpv6GatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::Ipv6Gateway
+     * 
+     */
+    public static CompletableFuture<GetIpv6GatewaysResult> getIpv6GatewaysPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getIpv6Gateways:getIpv6Gateways", TypeShape.of(GetIpv6GatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VPC::NetworkAcl
@@ -720,6 +1088,342 @@ public final class VpcFunctions {
      */
     public static CompletableFuture<GetSubnetsResult> getSubnetsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getSubnets:getSubnets", TypeShape.of(GetSubnetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterResult> getTrafficMirrorFilter(GetTrafficMirrorFilterArgs args) {
+        return getTrafficMirrorFilter(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterResult> getTrafficMirrorFilterPlain(GetTrafficMirrorFilterPlainArgs args) {
+        return getTrafficMirrorFilterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterResult> getTrafficMirrorFilter(GetTrafficMirrorFilterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilter:getTrafficMirrorFilter", TypeShape.of(GetTrafficMirrorFilterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterResult> getTrafficMirrorFilter(GetTrafficMirrorFilterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilter:getTrafficMirrorFilter", TypeShape.of(GetTrafficMirrorFilterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterResult> getTrafficMirrorFilterPlain(GetTrafficMirrorFilterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorFilter:getTrafficMirrorFilter", TypeShape.of(GetTrafficMirrorFilterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRuleResult> getTrafficMirrorFilterRule(GetTrafficMirrorFilterRuleArgs args) {
+        return getTrafficMirrorFilterRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterRuleResult> getTrafficMirrorFilterRulePlain(GetTrafficMirrorFilterRulePlainArgs args) {
+        return getTrafficMirrorFilterRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRuleResult> getTrafficMirrorFilterRule(GetTrafficMirrorFilterRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilterRule:getTrafficMirrorFilterRule", TypeShape.of(GetTrafficMirrorFilterRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRuleResult> getTrafficMirrorFilterRule(GetTrafficMirrorFilterRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilterRule:getTrafficMirrorFilterRule", TypeShape.of(GetTrafficMirrorFilterRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterRuleResult> getTrafficMirrorFilterRulePlain(GetTrafficMirrorFilterRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorFilterRule:getTrafficMirrorFilterRule", TypeShape.of(GetTrafficMirrorFilterRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRules() {
+        return getTrafficMirrorFilterRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRulesPlain() {
+        return getTrafficMirrorFilterRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRules(InvokeArgs args) {
+        return getTrafficMirrorFilterRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRulesPlain(InvokeArgs args) {
+        return getTrafficMirrorFilterRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilterRules:getTrafficMirrorFilterRules", TypeShape.of(GetTrafficMirrorFilterRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static Output<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilterRules:getTrafficMirrorFilterRules", TypeShape.of(GetTrafficMirrorFilterRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilterRule
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFilterRulesResult> getTrafficMirrorFilterRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorFilterRules:getTrafficMirrorFilterRules", TypeShape.of(GetTrafficMirrorFilterRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFiltersResult> getTrafficMirrorFilters() {
+        return getTrafficMirrorFilters(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFiltersResult> getTrafficMirrorFiltersPlain() {
+        return getTrafficMirrorFiltersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFiltersResult> getTrafficMirrorFilters(InvokeArgs args) {
+        return getTrafficMirrorFilters(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFiltersResult> getTrafficMirrorFiltersPlain(InvokeArgs args) {
+        return getTrafficMirrorFiltersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFiltersResult> getTrafficMirrorFilters(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilters:getTrafficMirrorFilters", TypeShape.of(GetTrafficMirrorFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static Output<GetTrafficMirrorFiltersResult> getTrafficMirrorFilters(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorFilters:getTrafficMirrorFilters", TypeShape.of(GetTrafficMirrorFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorFilter
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorFiltersResult> getTrafficMirrorFiltersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorFilters:getTrafficMirrorFilters", TypeShape.of(GetTrafficMirrorFiltersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionResult> getTrafficMirrorSession(GetTrafficMirrorSessionArgs args) {
+        return getTrafficMirrorSession(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorSessionResult> getTrafficMirrorSessionPlain(GetTrafficMirrorSessionPlainArgs args) {
+        return getTrafficMirrorSessionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionResult> getTrafficMirrorSession(GetTrafficMirrorSessionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorSession:getTrafficMirrorSession", TypeShape.of(GetTrafficMirrorSessionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionResult> getTrafficMirrorSession(GetTrafficMirrorSessionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorSession:getTrafficMirrorSession", TypeShape.of(GetTrafficMirrorSessionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorSessionResult> getTrafficMirrorSessionPlain(GetTrafficMirrorSessionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorSession:getTrafficMirrorSession", TypeShape.of(GetTrafficMirrorSessionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionsResult> getTrafficMirrorSessions() {
+        return getTrafficMirrorSessions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorSessionsResult> getTrafficMirrorSessionsPlain() {
+        return getTrafficMirrorSessionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionsResult> getTrafficMirrorSessions(InvokeArgs args) {
+        return getTrafficMirrorSessions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorSessionsResult> getTrafficMirrorSessionsPlain(InvokeArgs args) {
+        return getTrafficMirrorSessionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionsResult> getTrafficMirrorSessions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorSessions:getTrafficMirrorSessions", TypeShape.of(GetTrafficMirrorSessionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static Output<GetTrafficMirrorSessionsResult> getTrafficMirrorSessions(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorSessions:getTrafficMirrorSessions", TypeShape.of(GetTrafficMirrorSessionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorSession
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorSessionsResult> getTrafficMirrorSessionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorSessions:getTrafficMirrorSessions", TypeShape.of(GetTrafficMirrorSessionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetResult> getTrafficMirrorTarget(GetTrafficMirrorTargetArgs args) {
+        return getTrafficMirrorTarget(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorTargetResult> getTrafficMirrorTargetPlain(GetTrafficMirrorTargetPlainArgs args) {
+        return getTrafficMirrorTargetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetResult> getTrafficMirrorTarget(GetTrafficMirrorTargetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorTarget:getTrafficMirrorTarget", TypeShape.of(GetTrafficMirrorTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetResult> getTrafficMirrorTarget(GetTrafficMirrorTargetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorTarget:getTrafficMirrorTarget", TypeShape.of(GetTrafficMirrorTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorTargetResult> getTrafficMirrorTargetPlain(GetTrafficMirrorTargetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorTarget:getTrafficMirrorTarget", TypeShape.of(GetTrafficMirrorTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetsResult> getTrafficMirrorTargets() {
+        return getTrafficMirrorTargets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorTargetsResult> getTrafficMirrorTargetsPlain() {
+        return getTrafficMirrorTargetsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetsResult> getTrafficMirrorTargets(InvokeArgs args) {
+        return getTrafficMirrorTargets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorTargetsResult> getTrafficMirrorTargetsPlain(InvokeArgs args) {
+        return getTrafficMirrorTargetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetsResult> getTrafficMirrorTargets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorTargets:getTrafficMirrorTargets", TypeShape.of(GetTrafficMirrorTargetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static Output<GetTrafficMirrorTargetsResult> getTrafficMirrorTargets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vpc/getTrafficMirrorTargets:getTrafficMirrorTargets", TypeShape.of(GetTrafficMirrorTargetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VPC::TrafficMirrorTarget
+     * 
+     */
+    public static CompletableFuture<GetTrafficMirrorTargetsResult> getTrafficMirrorTargetsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vpc/getTrafficMirrorTargets:getTrafficMirrorTargets", TypeShape.of(GetTrafficMirrorTargetsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VPC::VPC

@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class ClbListener
     {
         /// <summary>
-        /// 监听器的ID
+        /// 监听器的ID。
         /// </summary>
         public readonly string? ListenerId;
         /// <summary>
-        /// 监听器的名称
+        /// 监听器的名称。
         /// </summary>
         public readonly string? ListenerName;
 
