@@ -31,6 +31,10 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
+     * 子用户的访问密钥。
+     */
+    readonly accessKeys: outputs.iam.GetUserAccessKey[];
+    /**
      * 子用户归属的主账号。
      */
     readonly accountId: number;
@@ -51,6 +55,10 @@ export interface GetUserResult {
      */
     readonly email: string;
     /**
+     * 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     */
+    readonly emailIsVerify: boolean;
+    /**
      * 子用户归属的用户组。
      */
     readonly groups: string[];
@@ -66,6 +74,10 @@ export interface GetUserResult {
      * 子用户对应的手机号。
      */
     readonly mobilePhone: string;
+    /**
+     * 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     */
+    readonly mobilePhoneIsVerify: boolean;
     /**
      * 子用户对应的权限策略。
      */

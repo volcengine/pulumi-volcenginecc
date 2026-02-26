@@ -16,14 +16,14 @@ public final class ClbEniArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClbEniArgs Empty = new ClbEniArgs();
 
     /**
-     * 负载均衡实例的私网IP地址
+     * 负载均衡实例的私网IP地址。
      * 
      */
     @Import(name="eniAddress")
     private @Nullable Output<String> eniAddress;
 
     /**
-     * @return 负载均衡实例的私网IP地址
+     * @return 负载均衡实例的私网IP地址。
      * 
      */
     public Optional<Output<String>> eniAddress() {
@@ -31,14 +31,14 @@ public final class ClbEniArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例占用的网卡ID
+     * 负载均衡实例占用的网卡ID。
      * 
      */
     @Import(name="eniId")
     private @Nullable Output<String> eniId;
 
     /**
-     * @return 负载均衡实例占用的网卡ID
+     * @return 负载均衡实例占用的网卡ID。
      * 
      */
     public Optional<Output<String>> eniId() {
@@ -71,7 +71,7 @@ public final class ClbEniArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniAddress 负载均衡实例的私网IP地址
+         * @param eniAddress 负载均衡实例的私网IP地址。
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClbEniArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniAddress 负载均衡实例的私网IP地址
+         * @param eniAddress 负载均衡实例的私网IP地址。
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClbEniArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniId 负载均衡实例占用的网卡ID
+         * @param eniId 负载均衡实例占用的网卡ID。
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClbEniArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniId 负载均衡实例占用的网卡ID
+         * @param eniId 负载均衡实例占用的网卡ID。
          * 
          * @return builder
          * 

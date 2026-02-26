@@ -31,18 +31,33 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 密钥创建时间
+     * 密钥创建时间。时间格式为ISO8601。
      * 
      */
-    @Import(name="createDate")
-    private @Nullable Output<String> createDate;
+    @Import(name="createdTime")
+    private @Nullable Output<String> createdTime;
 
     /**
-     * @return 密钥创建时间
+     * @return 密钥创建时间。时间格式为ISO8601。
      * 
      */
-    public Optional<Output<String>> createDate() {
-        return Optional.ofNullable(this.createDate);
+    public Optional<Output<String>> createdTime() {
+        return Optional.ofNullable(this.createdTime);
+    }
+
+    /**
+     * 最后登录时间。
+     * 
+     */
+    @Import(name="lastLoginDate")
+    private @Nullable Output<String> lastLoginDate;
+
+    /**
+     * @return 最后登录时间。
+     * 
+     */
+    public Optional<Output<String>> lastLoginDate() {
+        return Optional.ofNullable(this.lastLoginDate);
     }
 
     /**
@@ -106,14 +121,14 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 密钥状态 (active/inactive)
+     * 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 密钥状态 (active/inactive)
+     * @return 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     public Optional<Output<String>> status() {
@@ -121,29 +136,29 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 密钥更新时间
+     * 密钥更新时间。时间格式为ISO8601。
      * 
      */
-    @Import(name="updateDate")
-    private @Nullable Output<String> updateDate;
+    @Import(name="updatedTime")
+    private @Nullable Output<String> updatedTime;
 
     /**
-     * @return 密钥更新时间
+     * @return 密钥更新时间。时间格式为ISO8601。
      * 
      */
-    public Optional<Output<String>> updateDate() {
-        return Optional.ofNullable(this.updateDate);
+    public Optional<Output<String>> updatedTime() {
+        return Optional.ofNullable(this.updatedTime);
     }
 
     /**
-     * 用户名
+     * 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return 用户名
+     * @return 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     public Optional<Output<String>> userName() {
@@ -154,13 +169,14 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
 
     private AccesskeyState(AccesskeyState $) {
         this.accessKeyId = $.accessKeyId;
-        this.createDate = $.createDate;
+        this.createdTime = $.createdTime;
+        this.lastLoginDate = $.lastLoginDate;
         this.region = $.region;
         this.requestTime = $.requestTime;
         this.secretAccessKey = $.secretAccessKey;
         this.service = $.service;
         this.status = $.status;
-        this.updateDate = $.updateDate;
+        this.updatedTime = $.updatedTime;
         this.userName = $.userName;
     }
 
@@ -204,24 +220,45 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createDate 密钥创建时间
+         * @param createdTime 密钥创建时间。时间格式为ISO8601。
          * 
          * @return builder
          * 
          */
-        public Builder createDate(@Nullable Output<String> createDate) {
-            $.createDate = createDate;
+        public Builder createdTime(@Nullable Output<String> createdTime) {
+            $.createdTime = createdTime;
             return this;
         }
 
         /**
-         * @param createDate 密钥创建时间
+         * @param createdTime 密钥创建时间。时间格式为ISO8601。
          * 
          * @return builder
          * 
          */
-        public Builder createDate(String createDate) {
-            return createDate(Output.of(createDate));
+        public Builder createdTime(String createdTime) {
+            return createdTime(Output.of(createdTime));
+        }
+
+        /**
+         * @param lastLoginDate 最后登录时间。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastLoginDate(@Nullable Output<String> lastLoginDate) {
+            $.lastLoginDate = lastLoginDate;
+            return this;
+        }
+
+        /**
+         * @param lastLoginDate 最后登录时间。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastLoginDate(String lastLoginDate) {
+            return lastLoginDate(Output.of(lastLoginDate));
         }
 
         /**
@@ -309,7 +346,7 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 密钥状态 (active/inactive)
+         * @param status 密钥状态。active代表启用状态，inactive代表禁用状态。
          * 
          * @return builder
          * 
@@ -320,7 +357,7 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 密钥状态 (active/inactive)
+         * @param status 密钥状态。active代表启用状态，inactive代表禁用状态。
          * 
          * @return builder
          * 
@@ -330,28 +367,28 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateDate 密钥更新时间
+         * @param updatedTime 密钥更新时间。时间格式为ISO8601。
          * 
          * @return builder
          * 
          */
-        public Builder updateDate(@Nullable Output<String> updateDate) {
-            $.updateDate = updateDate;
+        public Builder updatedTime(@Nullable Output<String> updatedTime) {
+            $.updatedTime = updatedTime;
             return this;
         }
 
         /**
-         * @param updateDate 密钥更新时间
+         * @param updatedTime 密钥更新时间。时间格式为ISO8601。
          * 
          * @return builder
          * 
          */
-        public Builder updateDate(String updateDate) {
-            return updateDate(Output.of(updateDate));
+        public Builder updatedTime(String updatedTime) {
+            return updatedTime(Output.of(updatedTime));
         }
 
         /**
-         * @param userName 用户名
+         * @param userName 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
          * 
          * @return builder
          * 
@@ -362,7 +399,7 @@ public final class AccesskeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName 用户名
+         * @param userName 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
          * 
          * @return builder
          * 

@@ -15,27 +15,27 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class ClbEip
     {
         /// <summary>
-        /// 带宽峰值
+        /// 带宽峰值。
         /// </summary>
         public readonly double? Bandwidth;
         /// <summary>
-        /// 共享带宽包ID
+        /// 共享带宽包ID。
         /// </summary>
         public readonly string? BandwidthPackageId;
         /// <summary>
-        /// 计费方式
+        /// 计费方式。
         /// </summary>
         public readonly double? EipBillingType;
         /// <summary>
-        /// 线路类型
+        /// 线路类型。
         /// </summary>
         public readonly string? Isp;
         /// <summary>
-        /// 防护包ID
+        /// 防护包ID。
         /// </summary>
         public readonly double? SecurityProtectionInstanceId;
         /// <summary>
-        /// 安全防护类型
+        /// 安全防护类型。
         /// </summary>
         public readonly ImmutableArray<string> SecurityProtectionTypes;
 

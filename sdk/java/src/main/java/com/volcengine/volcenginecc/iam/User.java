@@ -10,10 +10,12 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.iam.UserArgs;
 import com.volcengine.volcenginecc.iam.inputs.UserState;
+import com.volcengine.volcenginecc.iam.outputs.UserAccessKey;
 import com.volcengine.volcenginecc.iam.outputs.UserLoginProfile;
 import com.volcengine.volcenginecc.iam.outputs.UserPolicy;
 import com.volcengine.volcenginecc.iam.outputs.UserSecurityConfig;
 import com.volcengine.volcenginecc.iam.outputs.UserTag;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -37,6 +39,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="volcenginecc:iam/user:User")
 public class User extends com.pulumi.resources.CustomResource {
+    @Export(name="accessKeys", refs={List.class,UserAccessKey.class}, tree="[0,1]")
+    private Output<List<UserAccessKey>> accessKeys;
+
+    public Output<List<UserAccessKey>> accessKeys() {
+        return this.accessKeys;
+    }
     /**
      * 子用户归属的主账号。
      * 
@@ -108,6 +116,20 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
+     * 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    @Export(name="emailIsVerify", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> emailIsVerify;
+
+    /**
+     * @return 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    public Output<Boolean> emailIsVerify() {
+        return this.emailIsVerify;
+    }
+    /**
      * 子用户归属的用户组。
      * 
      */
@@ -148,6 +170,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<String> mobilePhone() {
         return this.mobilePhone;
+    }
+    /**
+     * 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    @Export(name="mobilePhoneIsVerify", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> mobilePhoneIsVerify;
+
+    /**
+     * @return 子用户手机号是否已验证。true代表已验证，false代表未验证。
+     * 
+     */
+    public Output<Boolean> mobilePhoneIsVerify() {
+        return this.mobilePhoneIsVerify;
     }
     @Export(name="policies", refs={List.class,UserPolicy.class}, tree="[0,1]")
     private Output<List<UserPolicy>> policies;

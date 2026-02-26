@@ -27,6 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Eip{}
 	case "volcenginecc:vpc/eni:Eni":
 		r = &Eni{}
+	case "volcenginecc:vpc/flowLog:FlowLog":
+		r = &FlowLog{}
+	case "volcenginecc:vpc/haVip:HaVip":
+		r = &HaVip{}
+	case "volcenginecc:vpc/ipv6AddressBandwidth:Ipv6AddressBandwidth":
+		r = &Ipv6AddressBandwidth{}
+	case "volcenginecc:vpc/ipv6Gateway:Ipv6Gateway":
+		r = &Ipv6Gateway{}
 	case "volcenginecc:vpc/networkAcl:NetworkAcl":
 		r = &NetworkAcl{}
 	case "volcenginecc:vpc/prefixList:PrefixList":
@@ -37,6 +45,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityGroup{}
 	case "volcenginecc:vpc/subnet:Subnet":
 		r = &Subnet{}
+	case "volcenginecc:vpc/trafficMirrorFilter:TrafficMirrorFilter":
+		r = &TrafficMirrorFilter{}
+	case "volcenginecc:vpc/trafficMirrorFilterRule:TrafficMirrorFilterRule":
+		r = &TrafficMirrorFilterRule{}
+	case "volcenginecc:vpc/trafficMirrorSession:TrafficMirrorSession":
+		r = &TrafficMirrorSession{}
+	case "volcenginecc:vpc/trafficMirrorTarget:TrafficMirrorTarget":
+		r = &TrafficMirrorTarget{}
 	case "volcenginecc:vpc/vpc:Vpc":
 		r = &Vpc{}
 	default:
@@ -69,6 +85,26 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"vpc/flowLog",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/haVip",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/ipv6AddressBandwidth",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/ipv6Gateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"vpc/networkAcl",
 		&module{version},
 	)
@@ -90,6 +126,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vpc/subnet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/trafficMirrorFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/trafficMirrorFilterRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/trafficMirrorSession",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/trafficMirrorTarget",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

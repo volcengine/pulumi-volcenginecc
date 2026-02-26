@@ -33,13 +33,17 @@ export interface GetAccesskeyResult {
      */
     readonly accessKeyId: string;
     /**
-     * 密钥创建时间
+     * 密钥创建时间。时间格式为ISO8601。
      */
-    readonly createDate: string;
+    readonly createdTime: string;
     /**
      * Uniquely identifies the resource.
      */
     readonly id: string;
+    /**
+     * 最后登录时间。
+     */
+    readonly lastLoginDate: string;
     /**
      * API密钥最后访问的地域。
      */
@@ -57,15 +61,15 @@ export interface GetAccesskeyResult {
      */
     readonly service: string;
     /**
-     * 密钥状态 (active/inactive)
+     * 密钥状态。active代表启用状态，inactive代表禁用状态。
      */
     readonly status: string;
     /**
-     * 密钥更新时间
+     * 密钥更新时间。时间格式为ISO8601。
      */
-    readonly updateDate: string;
+    readonly updatedTime: string;
     /**
-     * 用户名
+     * 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      */
     readonly userName: string;
 }

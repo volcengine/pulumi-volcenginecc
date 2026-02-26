@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:ecs/command:Command":
 		r = &Command{}
+	case "volcenginecc:ecs/deploymentSet:DeploymentSet":
+		r = &DeploymentSet{}
 	case "volcenginecc:ecs/hpcCluster:HpcCluster":
 		r = &HpcCluster{}
 	case "volcenginecc:ecs/image:Image":
@@ -33,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Invocation{}
 	case "volcenginecc:ecs/keypair:Keypair":
 		r = &Keypair{}
+	case "volcenginecc:ecs/launchTemplate:LaunchTemplate":
+		r = &LaunchTemplate{}
+	case "volcenginecc:ecs/launchTemplateVersion:LaunchTemplateVersion":
+		r = &LaunchTemplateVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -49,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"ecs/command",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/deploymentSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -74,6 +85,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"ecs/keypair",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/launchTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/launchTemplateVersion",
 		&module{version},
 	)
 }

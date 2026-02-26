@@ -10,13 +10,189 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.redis.inputs.GetAccountArgs;
+import com.volcengine.volcenginecc.redis.inputs.GetAccountPlainArgs;
+import com.volcengine.volcenginecc.redis.inputs.GetEndpointPublicAddressArgs;
+import com.volcengine.volcenginecc.redis.inputs.GetEndpointPublicAddressPlainArgs;
 import com.volcengine.volcenginecc.redis.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.redis.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.redis.outputs.GetAccountResult;
+import com.volcengine.volcenginecc.redis.outputs.GetAccountsResult;
+import com.volcengine.volcenginecc.redis.outputs.GetEndpointPublicAddressResult;
+import com.volcengine.volcenginecc.redis.outputs.GetEndpointPublicAddressesResult;
 import com.volcengine.volcenginecc.redis.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.redis.outputs.GetInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RedisFunctions {
+    /**
+     * Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
+        return getAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
+        return getAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:redis/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts() {
+        return getAccounts(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain() {
+        return getAccountsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args) {
+        return getAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args) {
+        return getAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:redis/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressResult> getEndpointPublicAddress(GetEndpointPublicAddressArgs args) {
+        return getEndpointPublicAddress(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressResult> getEndpointPublicAddressPlain(GetEndpointPublicAddressPlainArgs args) {
+        return getEndpointPublicAddressPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressResult> getEndpointPublicAddress(GetEndpointPublicAddressArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getEndpointPublicAddress:getEndpointPublicAddress", TypeShape.of(GetEndpointPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressResult> getEndpointPublicAddress(GetEndpointPublicAddressArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getEndpointPublicAddress:getEndpointPublicAddress", TypeShape.of(GetEndpointPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressResult> getEndpointPublicAddressPlain(GetEndpointPublicAddressPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:redis/getEndpointPublicAddress:getEndpointPublicAddress", TypeShape.of(GetEndpointPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses() {
+        return getEndpointPublicAddresses(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressesResult> getEndpointPublicAddressesPlain() {
+        return getEndpointPublicAddressesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses(InvokeArgs args) {
+        return getEndpointPublicAddresses(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressesResult> getEndpointPublicAddressesPlain(InvokeArgs args) {
+        return getEndpointPublicAddressesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getEndpointPublicAddresses:getEndpointPublicAddresses", TypeShape.of(GetEndpointPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getEndpointPublicAddresses:getEndpointPublicAddresses", TypeShape.of(GetEndpointPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressesResult> getEndpointPublicAddressesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:redis/getEndpointPublicAddresses:getEndpointPublicAddresses", TypeShape.of(GetEndpointPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::Redis::Instance
      * 

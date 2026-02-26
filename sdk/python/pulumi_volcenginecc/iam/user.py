@@ -26,9 +26,11 @@ class UserArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
+                 email_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  login_profile: Optional[pulumi.Input['UserLoginProfileArgs']] = None,
                  mobile_phone: Optional[pulumi.Input[builtins.str]] = None,
+                 mobile_phone_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]] = None,
                  security_config: Optional[pulumi.Input['UserSecurityConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None):
@@ -38,9 +40,11 @@ class UserArgs:
         :param pulumi.Input[builtins.str] description: 子用户对应的描述信息，长度不超过255。
         :param pulumi.Input[builtins.str] display_name: 子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。
         :param pulumi.Input[builtins.str] email: 子用户对应的电子邮件地址。
+        :param pulumi.Input[builtins.bool] email_is_verify: 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups: 子用户归属的用户组。
         :param pulumi.Input['UserLoginProfileArgs'] login_profile: 子用户的登录配置。
         :param pulumi.Input[builtins.str] mobile_phone: 子用户对应的手机号。
+        :param pulumi.Input[builtins.bool] mobile_phone_is_verify: 子用户手机号是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input['UserSecurityConfigArgs'] security_config: 子用户的操作保护配置。
         """
         pulumi.set(__self__, "user_name", user_name)
@@ -50,12 +54,16 @@ class UserArgs:
             pulumi.set(__self__, "display_name", display_name)
         if email is not None:
             pulumi.set(__self__, "email", email)
+        if email_is_verify is not None:
+            pulumi.set(__self__, "email_is_verify", email_is_verify)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if login_profile is not None:
             pulumi.set(__self__, "login_profile", login_profile)
         if mobile_phone is not None:
             pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if mobile_phone_is_verify is not None:
+            pulumi.set(__self__, "mobile_phone_is_verify", mobile_phone_is_verify)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
         if security_config is not None:
@@ -112,6 +120,18 @@ class UserArgs:
         pulumi.set(self, "email", value)
 
     @property
+    @pulumi.getter(name="emailIsVerify")
+    def email_is_verify(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "email_is_verify")
+
+    @email_is_verify.setter
+    def email_is_verify(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "email_is_verify", value)
+
+    @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -148,6 +168,18 @@ class UserArgs:
         pulumi.set(self, "mobile_phone", value)
 
     @property
+    @pulumi.getter(name="mobilePhoneIsVerify")
+    def mobile_phone_is_verify(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        子用户手机号是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "mobile_phone_is_verify")
+
+    @mobile_phone_is_verify.setter
+    def mobile_phone_is_verify(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "mobile_phone_is_verify", value)
+
+    @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]]:
         return pulumi.get(self, "policies")
@@ -181,14 +213,17 @@ class UserArgs:
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
+                 access_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessKeyArgs']]]] = None,
                  account_id: Optional[pulumi.Input[builtins.float]] = None,
                  create_date: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
+                 email_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  login_profile: Optional[pulumi.Input['UserLoginProfileArgs']] = None,
                  mobile_phone: Optional[pulumi.Input[builtins.str]] = None,
+                 mobile_phone_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]] = None,
                  security_config: Optional[pulumi.Input['UserSecurityConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
@@ -203,15 +238,19 @@ class _UserState:
         :param pulumi.Input[builtins.str] description: 子用户对应的描述信息，长度不超过255。
         :param pulumi.Input[builtins.str] display_name: 子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。
         :param pulumi.Input[builtins.str] email: 子用户对应的电子邮件地址。
+        :param pulumi.Input[builtins.bool] email_is_verify: 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups: 子用户归属的用户组。
         :param pulumi.Input['UserLoginProfileArgs'] login_profile: 子用户的登录配置。
         :param pulumi.Input[builtins.str] mobile_phone: 子用户对应的手机号。
+        :param pulumi.Input[builtins.bool] mobile_phone_is_verify: 子用户手机号是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input['UserSecurityConfigArgs'] security_config: 子用户的操作保护配置。
         :param pulumi.Input[builtins.str] trn: 子用户对应的Trn表达式。
         :param pulumi.Input[builtins.str] update_date: 子用户对应的更新时间。
         :param pulumi.Input[builtins.int] user_id: 子用户的ID。
         :param pulumi.Input[builtins.str] user_name: 子用户名称，用户名。长度1~64，支持英文、数字、下划线、和.-@符号。
         """
+        if access_keys is not None:
+            pulumi.set(__self__, "access_keys", access_keys)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if create_date is not None:
@@ -222,12 +261,16 @@ class _UserState:
             pulumi.set(__self__, "display_name", display_name)
         if email is not None:
             pulumi.set(__self__, "email", email)
+        if email_is_verify is not None:
+            pulumi.set(__self__, "email_is_verify", email_is_verify)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if login_profile is not None:
             pulumi.set(__self__, "login_profile", login_profile)
         if mobile_phone is not None:
             pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if mobile_phone_is_verify is not None:
+            pulumi.set(__self__, "mobile_phone_is_verify", mobile_phone_is_verify)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
         if security_config is not None:
@@ -242,6 +285,15 @@ class _UserState:
             pulumi.set(__self__, "user_id", user_id)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accessKeys")
+    def access_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessKeyArgs']]]]:
+        return pulumi.get(self, "access_keys")
+
+    @access_keys.setter
+    def access_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessKeyArgs']]]]):
+        pulumi.set(self, "access_keys", value)
 
     @property
     @pulumi.getter(name="accountId")
@@ -304,6 +356,18 @@ class _UserState:
         pulumi.set(self, "email", value)
 
     @property
+    @pulumi.getter(name="emailIsVerify")
+    def email_is_verify(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "email_is_verify")
+
+    @email_is_verify.setter
+    def email_is_verify(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "email_is_verify", value)
+
+    @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -338,6 +402,18 @@ class _UserState:
     @mobile_phone.setter
     def mobile_phone(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "mobile_phone", value)
+
+    @property
+    @pulumi.getter(name="mobilePhoneIsVerify")
+    def mobile_phone_is_verify(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        子用户手机号是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "mobile_phone_is_verify")
+
+    @mobile_phone_is_verify.setter
+    def mobile_phone_is_verify(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "mobile_phone_is_verify", value)
 
     @property
     @pulumi.getter
@@ -427,9 +503,11 @@ class User(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
+                 email_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  login_profile: Optional[pulumi.Input[Union['UserLoginProfileArgs', 'UserLoginProfileArgsDict']]] = None,
                  mobile_phone: Optional[pulumi.Input[builtins.str]] = None,
+                 mobile_phone_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPolicyArgs', 'UserPolicyArgsDict']]]]] = None,
                  security_config: Optional[pulumi.Input[Union['UserSecurityConfigArgs', 'UserSecurityConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserTagArgs', 'UserTagArgsDict']]]]] = None,
@@ -449,9 +527,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: 子用户对应的描述信息，长度不超过255。
         :param pulumi.Input[builtins.str] display_name: 子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。
         :param pulumi.Input[builtins.str] email: 子用户对应的电子邮件地址。
+        :param pulumi.Input[builtins.bool] email_is_verify: 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups: 子用户归属的用户组。
         :param pulumi.Input[Union['UserLoginProfileArgs', 'UserLoginProfileArgsDict']] login_profile: 子用户的登录配置。
         :param pulumi.Input[builtins.str] mobile_phone: 子用户对应的手机号。
+        :param pulumi.Input[builtins.bool] mobile_phone_is_verify: 子用户手机号是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input[Union['UserSecurityConfigArgs', 'UserSecurityConfigArgsDict']] security_config: 子用户的操作保护配置。
         :param pulumi.Input[builtins.str] user_name: 子用户名称，用户名。长度1~64，支持英文、数字、下划线、和.-@符号。
         """
@@ -488,9 +568,11 @@ class User(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
+                 email_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  login_profile: Optional[pulumi.Input[Union['UserLoginProfileArgs', 'UserLoginProfileArgsDict']]] = None,
                  mobile_phone: Optional[pulumi.Input[builtins.str]] = None,
+                 mobile_phone_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPolicyArgs', 'UserPolicyArgsDict']]]]] = None,
                  security_config: Optional[pulumi.Input[Union['UserSecurityConfigArgs', 'UserSecurityConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserTagArgs', 'UserTagArgsDict']]]]] = None,
@@ -507,15 +589,18 @@ class User(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["email"] = email
+            __props__.__dict__["email_is_verify"] = email_is_verify
             __props__.__dict__["groups"] = groups
             __props__.__dict__["login_profile"] = login_profile
             __props__.__dict__["mobile_phone"] = mobile_phone
+            __props__.__dict__["mobile_phone_is_verify"] = mobile_phone_is_verify
             __props__.__dict__["policies"] = policies
             __props__.__dict__["security_config"] = security_config
             __props__.__dict__["tags"] = tags
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["access_keys"] = None
             __props__.__dict__["account_id"] = None
             __props__.__dict__["create_date"] = None
             __props__.__dict__["trn"] = None
@@ -531,14 +616,17 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccessKeyArgs', 'UserAccessKeyArgsDict']]]]] = None,
             account_id: Optional[pulumi.Input[builtins.float]] = None,
             create_date: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             display_name: Optional[pulumi.Input[builtins.str]] = None,
             email: Optional[pulumi.Input[builtins.str]] = None,
+            email_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             login_profile: Optional[pulumi.Input[Union['UserLoginProfileArgs', 'UserLoginProfileArgsDict']]] = None,
             mobile_phone: Optional[pulumi.Input[builtins.str]] = None,
+            mobile_phone_is_verify: Optional[pulumi.Input[builtins.bool]] = None,
             policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserPolicyArgs', 'UserPolicyArgsDict']]]]] = None,
             security_config: Optional[pulumi.Input[Union['UserSecurityConfigArgs', 'UserSecurityConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserTagArgs', 'UserTagArgsDict']]]]] = None,
@@ -558,9 +646,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: 子用户对应的描述信息，长度不超过255。
         :param pulumi.Input[builtins.str] display_name: 子用户对应的展示名称，用户显示名。长度1~128，仅支持中文、英文、数字、空格和.-_@符号。
         :param pulumi.Input[builtins.str] email: 子用户对应的电子邮件地址。
+        :param pulumi.Input[builtins.bool] email_is_verify: 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups: 子用户归属的用户组。
         :param pulumi.Input[Union['UserLoginProfileArgs', 'UserLoginProfileArgsDict']] login_profile: 子用户的登录配置。
         :param pulumi.Input[builtins.str] mobile_phone: 子用户对应的手机号。
+        :param pulumi.Input[builtins.bool] mobile_phone_is_verify: 子用户手机号是否已验证。true代表已验证，false代表未验证。
         :param pulumi.Input[Union['UserSecurityConfigArgs', 'UserSecurityConfigArgsDict']] security_config: 子用户的操作保护配置。
         :param pulumi.Input[builtins.str] trn: 子用户对应的Trn表达式。
         :param pulumi.Input[builtins.str] update_date: 子用户对应的更新时间。
@@ -571,14 +661,17 @@ class User(pulumi.CustomResource):
 
         __props__ = _UserState.__new__(_UserState)
 
+        __props__.__dict__["access_keys"] = access_keys
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["create_date"] = create_date
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["email"] = email
+        __props__.__dict__["email_is_verify"] = email_is_verify
         __props__.__dict__["groups"] = groups
         __props__.__dict__["login_profile"] = login_profile
         __props__.__dict__["mobile_phone"] = mobile_phone
+        __props__.__dict__["mobile_phone_is_verify"] = mobile_phone_is_verify
         __props__.__dict__["policies"] = policies
         __props__.__dict__["security_config"] = security_config
         __props__.__dict__["tags"] = tags
@@ -587,6 +680,11 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         __props__.__dict__["user_name"] = user_name
         return User(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessKeys")
+    def access_keys(self) -> pulumi.Output[Sequence['outputs.UserAccessKey']]:
+        return pulumi.get(self, "access_keys")
 
     @property
     @pulumi.getter(name="accountId")
@@ -629,6 +727,14 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "email")
 
     @property
+    @pulumi.getter(name="emailIsVerify")
+    def email_is_verify(self) -> pulumi.Output[builtins.bool]:
+        """
+        子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "email_is_verify")
+
+    @property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
@@ -651,6 +757,14 @@ class User(pulumi.CustomResource):
         子用户对应的手机号。
         """
         return pulumi.get(self, "mobile_phone")
+
+    @property
+    @pulumi.getter(name="mobilePhoneIsVerify")
+    def mobile_phone_is_verify(self) -> pulumi.Output[builtins.bool]:
+        """
+        子用户手机号是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "mobile_phone_is_verify")
 
     @property
     @pulumi.getter

@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetRecordArgs, GetRecordResult, GetRecordOutputArgs } from "./getRecord";
+export const getRecord: typeof import("./getRecord").getRecord = null as any;
+export const getRecordOutput: typeof import("./getRecord").getRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getRecord","getRecordOutput"], () => require("./getRecord"));
+
+export { GetRecordsResult } from "./getRecords";
+export const getRecords: typeof import("./getRecords").getRecords = null as any;
+export const getRecordsOutput: typeof import("./getRecords").getRecordsOutput = null as any;
+utilities.lazyLoad(exports, ["getRecords","getRecordsOutput"], () => require("./getRecords"));
+
 export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
 export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
 export const getResolverEndpointOutput: typeof import("./getResolverEndpoint").getResolverEndpointOutput = null as any;
@@ -25,6 +35,11 @@ export const getResolverRules: typeof import("./getResolverRules").getResolverRu
 export const getResolverRulesOutput: typeof import("./getResolverRules").getResolverRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getResolverRules","getResolverRulesOutput"], () => require("./getResolverRules"));
 
+export { RecordArgs, RecordState } from "./record";
+export type Record = import("./record").Record;
+export const Record: typeof import("./record").Record = null as any;
+utilities.lazyLoad(exports, ["Record"], () => require("./record"));
+
 export { ResolverEndpointArgs, ResolverEndpointState } from "./resolverEndpoint";
 export type ResolverEndpoint = import("./resolverEndpoint").ResolverEndpoint;
 export const ResolverEndpoint: typeof import("./resolverEndpoint").ResolverEndpoint = null as any;
@@ -40,6 +55,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:privatezone/record:Record":
+                return new Record(name, <any>undefined, { urn })
             case "volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint":
                 return new ResolverEndpoint(name, <any>undefined, { urn })
             case "volcenginecc:privatezone/resolverRule:ResolverRule":
@@ -49,5 +66,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "privatezone/record", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "privatezone/resolverEndpoint", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "privatezone/resolverRule", _module)

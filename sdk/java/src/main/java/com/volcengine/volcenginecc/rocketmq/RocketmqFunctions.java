@@ -10,13 +10,105 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetGroupArgs;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetGroupPlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetTopicArgs;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetGroupResult;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetGroupsResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetTopicResult;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RocketmqFunctions {
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
+        return getGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
+        return getGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups() {
+        return getGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain() {
+        return getGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args) {
+        return getGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args) {
+        return getGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::RocketMQ::Instance
      * 
@@ -100,5 +192,89 @@ public final class RocketmqFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
+        return getTopic(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
+        return getTopicPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicsResult> getTopics() {
+        return getTopics(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static CompletableFuture<GetTopicsResult> getTopicsPlain() {
+        return getTopicsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicsResult> getTopics(InvokeArgs args) {
+        return getTopics(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static CompletableFuture<GetTopicsResult> getTopicsPlain(InvokeArgs args) {
+        return getTopicsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicsResult> getTopics(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getTopics:getTopics", TypeShape.of(GetTopicsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static Output<GetTopicsResult> getTopics(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getTopics:getTopics", TypeShape.of(GetTopicsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::Topic
+     * 
+     */
+    public static CompletableFuture<GetTopicsResult> getTopicsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getTopics:getTopics", TypeShape.of(GetTopicsResult.class), args, Utilities.withVersion(options));
     }
 }

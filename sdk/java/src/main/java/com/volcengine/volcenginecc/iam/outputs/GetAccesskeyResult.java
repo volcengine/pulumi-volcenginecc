@@ -16,15 +16,20 @@ public final class GetAccesskeyResult {
      */
     private String accessKeyId;
     /**
-     * @return 密钥创建时间
+     * @return 密钥创建时间。时间格式为ISO8601。
      * 
      */
-    private String createDate;
+    private String createdTime;
     /**
      * @return Uniquely identifies the resource.
      * 
      */
     private String id;
+    /**
+     * @return 最后登录时间。
+     * 
+     */
+    private String lastLoginDate;
     /**
      * @return API密钥最后访问的地域。
      * 
@@ -46,17 +51,17 @@ public final class GetAccesskeyResult {
      */
     private String service;
     /**
-     * @return 密钥状态 (active/inactive)
+     * @return 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     private String status;
     /**
-     * @return 密钥更新时间
+     * @return 密钥更新时间。时间格式为ISO8601。
      * 
      */
-    private String updateDate;
+    private String updatedTime;
     /**
-     * @return 用户名
+     * @return 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     private String userName;
@@ -70,11 +75,11 @@ public final class GetAccesskeyResult {
         return this.accessKeyId;
     }
     /**
-     * @return 密钥创建时间
+     * @return 密钥创建时间。时间格式为ISO8601。
      * 
      */
-    public String createDate() {
-        return this.createDate;
+    public String createdTime() {
+        return this.createdTime;
     }
     /**
      * @return Uniquely identifies the resource.
@@ -82,6 +87,13 @@ public final class GetAccesskeyResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return 最后登录时间。
+     * 
+     */
+    public String lastLoginDate() {
+        return this.lastLoginDate;
     }
     /**
      * @return API密钥最后访问的地域。
@@ -112,21 +124,21 @@ public final class GetAccesskeyResult {
         return this.service;
     }
     /**
-     * @return 密钥状态 (active/inactive)
+     * @return 密钥状态。active代表启用状态，inactive代表禁用状态。
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return 密钥更新时间
+     * @return 密钥更新时间。时间格式为ISO8601。
      * 
      */
-    public String updateDate() {
-        return this.updateDate;
+    public String updatedTime() {
+        return this.updatedTime;
     }
     /**
-     * @return 用户名
+     * @return 用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
      * 
      */
     public String userName() {
@@ -143,27 +155,29 @@ public final class GetAccesskeyResult {
     @CustomType.Builder
     public static final class Builder {
         private String accessKeyId;
-        private String createDate;
+        private String createdTime;
         private String id;
+        private String lastLoginDate;
         private String region;
         private String requestTime;
         private String secretAccessKey;
         private String service;
         private String status;
-        private String updateDate;
+        private String updatedTime;
         private String userName;
         public Builder() {}
         public Builder(GetAccesskeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessKeyId = defaults.accessKeyId;
-    	      this.createDate = defaults.createDate;
+    	      this.createdTime = defaults.createdTime;
     	      this.id = defaults.id;
+    	      this.lastLoginDate = defaults.lastLoginDate;
     	      this.region = defaults.region;
     	      this.requestTime = defaults.requestTime;
     	      this.secretAccessKey = defaults.secretAccessKey;
     	      this.service = defaults.service;
     	      this.status = defaults.status;
-    	      this.updateDate = defaults.updateDate;
+    	      this.updatedTime = defaults.updatedTime;
     	      this.userName = defaults.userName;
         }
 
@@ -176,11 +190,11 @@ public final class GetAccesskeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder createDate(String createDate) {
-            if (createDate == null) {
-              throw new MissingRequiredPropertyException("GetAccesskeyResult", "createDate");
+        public Builder createdTime(String createdTime) {
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetAccesskeyResult", "createdTime");
             }
-            this.createDate = createDate;
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
@@ -189,6 +203,14 @@ public final class GetAccesskeyResult {
               throw new MissingRequiredPropertyException("GetAccesskeyResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lastLoginDate(String lastLoginDate) {
+            if (lastLoginDate == null) {
+              throw new MissingRequiredPropertyException("GetAccesskeyResult", "lastLoginDate");
+            }
+            this.lastLoginDate = lastLoginDate;
             return this;
         }
         @CustomType.Setter
@@ -232,11 +254,11 @@ public final class GetAccesskeyResult {
             return this;
         }
         @CustomType.Setter
-        public Builder updateDate(String updateDate) {
-            if (updateDate == null) {
-              throw new MissingRequiredPropertyException("GetAccesskeyResult", "updateDate");
+        public Builder updatedTime(String updatedTime) {
+            if (updatedTime == null) {
+              throw new MissingRequiredPropertyException("GetAccesskeyResult", "updatedTime");
             }
-            this.updateDate = updateDate;
+            this.updatedTime = updatedTime;
             return this;
         }
         @CustomType.Setter
@@ -250,14 +272,15 @@ public final class GetAccesskeyResult {
         public GetAccesskeyResult build() {
             final var _resultValue = new GetAccesskeyResult();
             _resultValue.accessKeyId = accessKeyId;
-            _resultValue.createDate = createDate;
+            _resultValue.createdTime = createdTime;
             _resultValue.id = id;
+            _resultValue.lastLoginDate = lastLoginDate;
             _resultValue.region = region;
             _resultValue.requestTime = requestTime;
             _resultValue.secretAccessKey = secretAccessKey;
             _resultValue.service = service;
             _resultValue.status = status;
-            _resultValue.updateDate = updateDate;
+            _resultValue.updatedTime = updatedTime;
             _resultValue.userName = userName;
             return _resultValue;
         }

@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Addon{}
 	case "volcenginecc:vke/cluster:Cluster":
 		r = &Cluster{}
+	case "volcenginecc:vke/defaultNodePool:DefaultNodePool":
+		r = &DefaultNodePool{}
+	case "volcenginecc:vke/node:Node":
+		r = &Node{}
 	case "volcenginecc:vke/nodePool:NodePool":
 		r = &NodePool{}
 	case "volcenginecc:vke/permission:Permission":
@@ -50,6 +54,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vke/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vke/defaultNodePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vke/node",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

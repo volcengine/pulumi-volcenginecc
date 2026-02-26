@@ -28,7 +28,10 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, account_id=None, create_date=None, description=None, display_name=None, email=None, groups=None, id=None, login_profile=None, mobile_phone=None, policies=None, security_config=None, tags=None, trn=None, update_date=None, user_id=None, user_name=None):
+    def __init__(__self__, access_keys=None, account_id=None, create_date=None, description=None, display_name=None, email=None, email_is_verify=None, groups=None, id=None, login_profile=None, mobile_phone=None, mobile_phone_is_verify=None, policies=None, security_config=None, tags=None, trn=None, update_date=None, user_id=None, user_name=None):
+        if access_keys and not isinstance(access_keys, list):
+            raise TypeError("Expected argument 'access_keys' to be a list")
+        pulumi.set(__self__, "access_keys", access_keys)
         if account_id and not isinstance(account_id, float):
             raise TypeError("Expected argument 'account_id' to be a float")
         pulumi.set(__self__, "account_id", account_id)
@@ -44,6 +47,9 @@ class GetUserResult:
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
+        if email_is_verify and not isinstance(email_is_verify, bool):
+            raise TypeError("Expected argument 'email_is_verify' to be a bool")
+        pulumi.set(__self__, "email_is_verify", email_is_verify)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
@@ -56,6 +62,9 @@ class GetUserResult:
         if mobile_phone and not isinstance(mobile_phone, str):
             raise TypeError("Expected argument 'mobile_phone' to be a str")
         pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if mobile_phone_is_verify and not isinstance(mobile_phone_is_verify, bool):
+            raise TypeError("Expected argument 'mobile_phone_is_verify' to be a bool")
+        pulumi.set(__self__, "mobile_phone_is_verify", mobile_phone_is_verify)
         if policies and not isinstance(policies, list):
             raise TypeError("Expected argument 'policies' to be a list")
         pulumi.set(__self__, "policies", policies)
@@ -77,6 +86,14 @@ class GetUserResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="accessKeys")
+    def access_keys(self) -> Sequence['outputs.GetUserAccessKeyResult']:
+        """
+        子用户的访问密钥。
+        """
+        return pulumi.get(self, "access_keys")
 
     @property
     @pulumi.getter(name="accountId")
@@ -119,6 +136,14 @@ class GetUserResult:
         return pulumi.get(self, "email")
 
     @property
+    @pulumi.getter(name="emailIsVerify")
+    def email_is_verify(self) -> builtins.bool:
+        """
+        子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "email_is_verify")
+
+    @property
     @pulumi.getter
     def groups(self) -> Sequence[builtins.str]:
         """
@@ -149,6 +174,14 @@ class GetUserResult:
         子用户对应的手机号。
         """
         return pulumi.get(self, "mobile_phone")
+
+    @property
+    @pulumi.getter(name="mobilePhoneIsVerify")
+    def mobile_phone_is_verify(self) -> builtins.bool:
+        """
+        子用户手机号是否已验证。true代表已验证，false代表未验证。
+        """
+        return pulumi.get(self, "mobile_phone_is_verify")
 
     @property
     @pulumi.getter
@@ -213,15 +246,18 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            access_keys=self.access_keys,
             account_id=self.account_id,
             create_date=self.create_date,
             description=self.description,
             display_name=self.display_name,
             email=self.email,
+            email_is_verify=self.email_is_verify,
             groups=self.groups,
             id=self.id,
             login_profile=self.login_profile,
             mobile_phone=self.mobile_phone,
+            mobile_phone_is_verify=self.mobile_phone_is_verify,
             policies=self.policies,
             security_config=self.security_config,
             tags=self.tags,
@@ -245,15 +281,18 @@ def get_user(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('volcenginecc:iam/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        access_keys=pulumi.get(__ret__, 'access_keys'),
         account_id=pulumi.get(__ret__, 'account_id'),
         create_date=pulumi.get(__ret__, 'create_date'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         email=pulumi.get(__ret__, 'email'),
+        email_is_verify=pulumi.get(__ret__, 'email_is_verify'),
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
         login_profile=pulumi.get(__ret__, 'login_profile'),
         mobile_phone=pulumi.get(__ret__, 'mobile_phone'),
+        mobile_phone_is_verify=pulumi.get(__ret__, 'mobile_phone_is_verify'),
         policies=pulumi.get(__ret__, 'policies'),
         security_config=pulumi.get(__ret__, 'security_config'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -274,15 +313,18 @@ def get_user_output(id: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:iam/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
+        access_keys=pulumi.get(__response__, 'access_keys'),
         account_id=pulumi.get(__response__, 'account_id'),
         create_date=pulumi.get(__response__, 'create_date'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         email=pulumi.get(__response__, 'email'),
+        email_is_verify=pulumi.get(__response__, 'email_is_verify'),
         groups=pulumi.get(__response__, 'groups'),
         id=pulumi.get(__response__, 'id'),
         login_profile=pulumi.get(__response__, 'login_profile'),
         mobile_phone=pulumi.get(__response__, 'mobile_phone'),
+        mobile_phone_is_verify=pulumi.get(__response__, 'mobile_phone_is_verify'),
         policies=pulumi.get(__response__, 'policies'),
         security_config=pulumi.get(__response__, 'security_config'),
         tags=pulumi.get(__response__, 'tags'),

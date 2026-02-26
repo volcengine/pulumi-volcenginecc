@@ -27,16 +27,19 @@ class GetAccesskeyResult:
     """
     A collection of values returned by getAccesskey.
     """
-    def __init__(__self__, access_key_id=None, create_date=None, id=None, region=None, request_time=None, secret_access_key=None, service=None, status=None, update_date=None, user_name=None):
+    def __init__(__self__, access_key_id=None, created_time=None, id=None, last_login_date=None, region=None, request_time=None, secret_access_key=None, service=None, status=None, updated_time=None, user_name=None):
         if access_key_id and not isinstance(access_key_id, str):
             raise TypeError("Expected argument 'access_key_id' to be a str")
         pulumi.set(__self__, "access_key_id", access_key_id)
-        if create_date and not isinstance(create_date, str):
-            raise TypeError("Expected argument 'create_date' to be a str")
-        pulumi.set(__self__, "create_date", create_date)
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        pulumi.set(__self__, "created_time", created_time)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_login_date and not isinstance(last_login_date, str):
+            raise TypeError("Expected argument 'last_login_date' to be a str")
+        pulumi.set(__self__, "last_login_date", last_login_date)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -52,9 +55,9 @@ class GetAccesskeyResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if update_date and not isinstance(update_date, str):
-            raise TypeError("Expected argument 'update_date' to be a str")
-        pulumi.set(__self__, "update_date", update_date)
+        if updated_time and not isinstance(updated_time, str):
+            raise TypeError("Expected argument 'updated_time' to be a str")
+        pulumi.set(__self__, "updated_time", updated_time)
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
@@ -68,12 +71,12 @@ class GetAccesskeyResult:
         return pulumi.get(self, "access_key_id")
 
     @property
-    @pulumi.getter(name="createDate")
-    def create_date(self) -> builtins.str:
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> builtins.str:
         """
-        密钥创建时间
+        密钥创建时间。时间格式为ISO8601。
         """
-        return pulumi.get(self, "create_date")
+        return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
@@ -82,6 +85,14 @@ class GetAccesskeyResult:
         Uniquely identifies the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastLoginDate")
+    def last_login_date(self) -> builtins.str:
+        """
+        最后登录时间。
+        """
+        return pulumi.get(self, "last_login_date")
 
     @property
     @pulumi.getter
@@ -119,23 +130,23 @@ class GetAccesskeyResult:
     @pulumi.getter
     def status(self) -> builtins.str:
         """
-        密钥状态 (active/inactive)
+        密钥状态。active代表启用状态，inactive代表禁用状态。
         """
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="updateDate")
-    def update_date(self) -> builtins.str:
+    @pulumi.getter(name="updatedTime")
+    def updated_time(self) -> builtins.str:
         """
-        密钥更新时间
+        密钥更新时间。时间格式为ISO8601。
         """
-        return pulumi.get(self, "update_date")
+        return pulumi.get(self, "updated_time")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> builtins.str:
         """
-        用户名
+        用户名。用于给指定的IAM用户创建密钥，未指定用户名时则为当前请求身份创建密钥（即主账号请求时为主账号自身创建密钥，IAM用户请求时为IAM用户自身创建密钥。注意：角色不支持为自身创建密钥）。当IAM用户拥有密钥自管理权限时（AccessKeySelfManageAccess），如需为自身创建密钥则需要在请求中传递自身的UserName。
         """
         return pulumi.get(self, "user_name")
 
@@ -147,14 +158,15 @@ class AwaitableGetAccesskeyResult(GetAccesskeyResult):
             yield self
         return GetAccesskeyResult(
             access_key_id=self.access_key_id,
-            create_date=self.create_date,
+            created_time=self.created_time,
             id=self.id,
+            last_login_date=self.last_login_date,
             region=self.region,
             request_time=self.request_time,
             secret_access_key=self.secret_access_key,
             service=self.service,
             status=self.status,
-            update_date=self.update_date,
+            updated_time=self.updated_time,
             user_name=self.user_name)
 
 
@@ -173,14 +185,15 @@ def get_accesskey(id: Optional[builtins.str] = None,
 
     return AwaitableGetAccesskeyResult(
         access_key_id=pulumi.get(__ret__, 'access_key_id'),
-        create_date=pulumi.get(__ret__, 'create_date'),
+        created_time=pulumi.get(__ret__, 'created_time'),
         id=pulumi.get(__ret__, 'id'),
+        last_login_date=pulumi.get(__ret__, 'last_login_date'),
         region=pulumi.get(__ret__, 'region'),
         request_time=pulumi.get(__ret__, 'request_time'),
         secret_access_key=pulumi.get(__ret__, 'secret_access_key'),
         service=pulumi.get(__ret__, 'service'),
         status=pulumi.get(__ret__, 'status'),
-        update_date=pulumi.get(__ret__, 'update_date'),
+        updated_time=pulumi.get(__ret__, 'updated_time'),
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_accesskey_output(id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccesskeyResult]:
@@ -196,12 +209,13 @@ def get_accesskey_output(id: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:iam/getAccesskey:getAccesskey', __args__, opts=opts, typ=GetAccesskeyResult)
     return __ret__.apply(lambda __response__: GetAccesskeyResult(
         access_key_id=pulumi.get(__response__, 'access_key_id'),
-        create_date=pulumi.get(__response__, 'create_date'),
+        created_time=pulumi.get(__response__, 'created_time'),
         id=pulumi.get(__response__, 'id'),
+        last_login_date=pulumi.get(__response__, 'last_login_date'),
         region=pulumi.get(__response__, 'region'),
         request_time=pulumi.get(__response__, 'request_time'),
         secret_access_key=pulumi.get(__response__, 'secret_access_key'),
         service=pulumi.get(__response__, 'service'),
         status=pulumi.get(__response__, 'status'),
-        update_date=pulumi.get(__response__, 'update_date'),
+        updated_time=pulumi.get(__response__, 'updated_time'),
         user_name=pulumi.get(__response__, 'user_name')))

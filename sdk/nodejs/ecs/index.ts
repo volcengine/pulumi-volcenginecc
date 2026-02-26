@@ -10,6 +10,11 @@ export type Command = import("./command").Command;
 export const Command: typeof import("./command").Command = null as any;
 utilities.lazyLoad(exports, ["Command"], () => require("./command"));
 
+export { DeploymentSetArgs, DeploymentSetState } from "./deploymentSet";
+export type DeploymentSet = import("./deploymentSet").DeploymentSet;
+export const DeploymentSet: typeof import("./deploymentSet").DeploymentSet = null as any;
+utilities.lazyLoad(exports, ["DeploymentSet"], () => require("./deploymentSet"));
+
 export { GetCommandArgs, GetCommandResult, GetCommandOutputArgs } from "./getCommand";
 export const getCommand: typeof import("./getCommand").getCommand = null as any;
 export const getCommandOutput: typeof import("./getCommand").getCommandOutput = null as any;
@@ -19,6 +24,16 @@ export { GetCommandsResult } from "./getCommands";
 export const getCommands: typeof import("./getCommands").getCommands = null as any;
 export const getCommandsOutput: typeof import("./getCommands").getCommandsOutput = null as any;
 utilities.lazyLoad(exports, ["getCommands","getCommandsOutput"], () => require("./getCommands"));
+
+export { GetDeploymentSetArgs, GetDeploymentSetResult, GetDeploymentSetOutputArgs } from "./getDeploymentSet";
+export const getDeploymentSet: typeof import("./getDeploymentSet").getDeploymentSet = null as any;
+export const getDeploymentSetOutput: typeof import("./getDeploymentSet").getDeploymentSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentSet","getDeploymentSetOutput"], () => require("./getDeploymentSet"));
+
+export { GetDeploymentSetsResult } from "./getDeploymentSets";
+export const getDeploymentSets: typeof import("./getDeploymentSets").getDeploymentSets = null as any;
+export const getDeploymentSetsOutput: typeof import("./getDeploymentSets").getDeploymentSetsOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentSets","getDeploymentSetsOutput"], () => require("./getDeploymentSets"));
 
 export { GetHpcClusterArgs, GetHpcClusterResult, GetHpcClusterOutputArgs } from "./getHpcCluster";
 export const getHpcCluster: typeof import("./getHpcCluster").getHpcCluster = null as any;
@@ -70,6 +85,26 @@ export const getKeypairs: typeof import("./getKeypairs").getKeypairs = null as a
 export const getKeypairsOutput: typeof import("./getKeypairs").getKeypairsOutput = null as any;
 utilities.lazyLoad(exports, ["getKeypairs","getKeypairsOutput"], () => require("./getKeypairs"));
 
+export { GetLaunchTemplateArgs, GetLaunchTemplateResult, GetLaunchTemplateOutputArgs } from "./getLaunchTemplate";
+export const getLaunchTemplate: typeof import("./getLaunchTemplate").getLaunchTemplate = null as any;
+export const getLaunchTemplateOutput: typeof import("./getLaunchTemplate").getLaunchTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchTemplate","getLaunchTemplateOutput"], () => require("./getLaunchTemplate"));
+
+export { GetLaunchTemplateVersionArgs, GetLaunchTemplateVersionResult, GetLaunchTemplateVersionOutputArgs } from "./getLaunchTemplateVersion";
+export const getLaunchTemplateVersion: typeof import("./getLaunchTemplateVersion").getLaunchTemplateVersion = null as any;
+export const getLaunchTemplateVersionOutput: typeof import("./getLaunchTemplateVersion").getLaunchTemplateVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchTemplateVersion","getLaunchTemplateVersionOutput"], () => require("./getLaunchTemplateVersion"));
+
+export { GetLaunchTemplateVersionsResult } from "./getLaunchTemplateVersions";
+export const getLaunchTemplateVersions: typeof import("./getLaunchTemplateVersions").getLaunchTemplateVersions = null as any;
+export const getLaunchTemplateVersionsOutput: typeof import("./getLaunchTemplateVersions").getLaunchTemplateVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchTemplateVersions","getLaunchTemplateVersionsOutput"], () => require("./getLaunchTemplateVersions"));
+
+export { GetLaunchTemplatesResult } from "./getLaunchTemplates";
+export const getLaunchTemplates: typeof import("./getLaunchTemplates").getLaunchTemplates = null as any;
+export const getLaunchTemplatesOutput: typeof import("./getLaunchTemplates").getLaunchTemplatesOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchTemplates","getLaunchTemplatesOutput"], () => require("./getLaunchTemplates"));
+
 export { HpcClusterArgs, HpcClusterState } from "./hpcCluster";
 export type HpcCluster = import("./hpcCluster").HpcCluster;
 export const HpcCluster: typeof import("./hpcCluster").HpcCluster = null as any;
@@ -95,6 +130,16 @@ export type Keypair = import("./keypair").Keypair;
 export const Keypair: typeof import("./keypair").Keypair = null as any;
 utilities.lazyLoad(exports, ["Keypair"], () => require("./keypair"));
 
+export { LaunchTemplateArgs, LaunchTemplateState } from "./launchTemplate";
+export type LaunchTemplate = import("./launchTemplate").LaunchTemplate;
+export const LaunchTemplate: typeof import("./launchTemplate").LaunchTemplate = null as any;
+utilities.lazyLoad(exports, ["LaunchTemplate"], () => require("./launchTemplate"));
+
+export { LaunchTemplateVersionArgs, LaunchTemplateVersionState } from "./launchTemplateVersion";
+export type LaunchTemplateVersion = import("./launchTemplateVersion").LaunchTemplateVersion;
+export const LaunchTemplateVersion: typeof import("./launchTemplateVersion").LaunchTemplateVersion = null as any;
+utilities.lazyLoad(exports, ["LaunchTemplateVersion"], () => require("./launchTemplateVersion"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -102,6 +147,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:ecs/command:Command":
                 return new Command(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/deploymentSet:DeploymentSet":
+                return new DeploymentSet(name, <any>undefined, { urn })
             case "volcenginecc:ecs/hpcCluster:HpcCluster":
                 return new HpcCluster(name, <any>undefined, { urn })
             case "volcenginecc:ecs/image:Image":
@@ -112,14 +159,21 @@ const _module = {
                 return new Invocation(name, <any>undefined, { urn })
             case "volcenginecc:ecs/keypair:Keypair":
                 return new Keypair(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/launchTemplate:LaunchTemplate":
+                return new LaunchTemplate(name, <any>undefined, { urn })
+            case "volcenginecc:ecs/launchTemplateVersion:LaunchTemplateVersion":
+                return new LaunchTemplateVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/command", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/deploymentSet", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/hpcCluster", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/image", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/instance", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/invocation", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "ecs/keypair", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/launchTemplate", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "ecs/launchTemplateVersion", _module)

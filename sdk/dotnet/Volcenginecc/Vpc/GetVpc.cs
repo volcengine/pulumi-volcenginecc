@@ -89,6 +89,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
+        /// 是否开启IPv6网段。false（默认值）：不开启。true：开启。
+        /// </summary>
+        public readonly bool EnableIpv6;
+        /// <summary>
         /// Uniquely identifies the resource.
         /// </summary>
         public readonly string Id;
@@ -175,6 +179,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 
             ImmutableArray<string> dnsServers,
 
+            bool enableIpv6,
+
             string id,
 
             string ipv4GatewayId,
@@ -217,6 +223,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
             CreationTime = creationTime;
             Description = description;
             DnsServers = dnsServers;
+            EnableIpv6 = enableIpv6;
             Id = id;
             Ipv4GatewayId = ipv4GatewayId;
             Ipv6CidrBlock = ipv6CidrBlock;

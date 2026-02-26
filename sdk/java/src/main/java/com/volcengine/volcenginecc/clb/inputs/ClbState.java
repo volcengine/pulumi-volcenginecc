@@ -26,14 +26,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     public static final ClbState Empty = new ClbState();
 
     /**
-     * 负载均衡实例中访问日志的信息
+     * 负载均衡实例中访问日志的信息。
      * 
      */
     @Import(name="accessLog")
     private @Nullable Output<ClbAccessLogArgs> accessLog;
 
     /**
-     * @return 负载均衡实例中访问日志的信息
+     * @return 负载均衡实例中访问日志的信息。
      * 
      */
     public Optional<Output<ClbAccessLogArgs>> accessLog() {
@@ -41,14 +41,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例所属的账号ID
+     * 负载均衡实例所属的账号ID。
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return 负载均衡实例所属的账号ID
+     * @return 负载均衡实例所属的账号ID。
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -56,14 +56,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的IP地址类型
+     * CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      * 
      */
     @Import(name="addressIpVersion")
     private @Nullable Output<String> addressIpVersion;
 
     /**
-     * @return 负载均衡实例的IP地址类型
+     * @return CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      * 
      */
     public Optional<Output<String>> addressIpVersion() {
@@ -71,14 +71,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 允许的多个端口范围
+     * 允许的多个端口范围。
      * 
      */
     @Import(name="allowedPorts")
     private @Nullable Output<List<String>> allowedPorts;
 
     /**
-     * @return 允许的多个端口范围
+     * @return 允许的多个端口范围。
      * 
      */
     public Optional<Output<List<String>>> allowedPorts() {
@@ -86,14 +86,29 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例是否被锁定
+     * 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     * 
+     */
+    @Import(name="autoRenewal")
+    private @Nullable Output<Boolean> autoRenewal;
+
+    /**
+     * @return 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     * 
+     */
+    public Optional<Output<Boolean>> autoRenewal() {
+        return Optional.ofNullable(this.autoRenewal);
+    }
+
+    /**
+     * 负载均衡实例是否被锁定。
      * 
      */
     @Import(name="businessStatus")
     private @Nullable Output<String> businessStatus;
 
     /**
-     * @return 负载均衡实例是否被锁定
+     * @return 负载均衡实例是否被锁定。
      * 
      */
     public Optional<Output<String>> businessStatus() {
@@ -101,14 +116,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否开启bypass安全组功能
+     * 是否开启bypass安全组功能。
      * 
      */
     @Import(name="bypassSecurityGroupEnabled")
     private @Nullable Output<String> bypassSecurityGroupEnabled;
 
     /**
-     * @return 是否开启bypass安全组功能
+     * @return 是否开启bypass安全组功能。
      * 
      */
     public Optional<Output<String>> bypassSecurityGroupEnabled() {
@@ -116,14 +131,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的创建时间
+     * 负载均衡实例的创建时间。
      * 
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
-     * @return 负载均衡实例的创建时间
+     * @return 负载均衡实例的创建时间。
      * 
      */
     public Optional<Output<String>> createTime() {
@@ -131,14 +146,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的预期回收时间
+     * 负载均衡实例的预期回收时间。
      * 
      */
     @Import(name="deletedTime")
     private @Nullable Output<String> deletedTime;
 
     /**
-     * @return 负载均衡实例的预期回收时间
+     * @return 负载均衡实例的预期回收时间。
      * 
      */
     public Optional<Output<String>> deletedTime() {
@@ -146,14 +161,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的描述
+     * 负载均衡实例的描述。
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return 负载均衡实例的描述
+     * @return 负载均衡实例的描述。
      * 
      */
     public Optional<Output<String>> description() {
@@ -161,14 +176,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的公网IP的信息
+     * 负载均衡实例的公网IP的信息。
      * 
      */
     @Import(name="eip")
     private @Nullable Output<ClbEipArgs> eip;
 
     /**
-     * @return 负载均衡实例的公网IP的信息
+     * @return 负载均衡实例的公网IP的信息。
      * 
      */
     public Optional<Output<ClbEipArgs>> eip() {
@@ -176,14 +191,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 公网IP地址
+     * 公网IP地址。
      * 
      */
     @Import(name="eipAddress")
     private @Nullable Output<String> eipAddress;
 
     /**
-     * @return 公网IP地址
+     * @return 公网IP地址。
      * 
      */
     public Optional<Output<String>> eipAddress() {
@@ -191,14 +206,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 公网IP ID
+     * 公网IP ID。
      * 
      */
     @Import(name="eipId")
     private @Nullable Output<String> eipId;
 
     /**
-     * @return 公网IP ID
+     * @return 公网IP ID。
      * 
      */
     public Optional<Output<String>> eipId() {
@@ -206,14 +221,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的启用状态
+     * 负载均衡实例的启用状态。
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return 负载均衡实例的启用状态
+     * @return 负载均衡实例的启用状态。
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -221,14 +236,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的私网IPv4地址信息
+     * 负载均衡实例的私网IPv4地址信息。
      * 
      */
     @Import(name="eni")
     private @Nullable Output<ClbEniArgs> eni;
 
     /**
-     * @return 负载均衡实例的私网IPv4地址信息
+     * @return 负载均衡实例的私网IPv4地址信息。
      * 
      */
     public Optional<Output<ClbEniArgs>> eni() {
@@ -236,14 +251,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      * 
      */
     @Import(name="eniAddressNum")
     private @Nullable Output<Double> eniAddressNum;
 
     /**
-     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      * 
      */
     public Optional<Output<Double>> eniAddressNum() {
@@ -251,14 +266,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的私网IPv6地址
+     * 负载均衡实例的私网IPv6地址。
      * 
      */
     @Import(name="eniIpv6Address")
     private @Nullable Output<String> eniIpv6Address;
 
     /**
-     * @return 负载均衡实例的私网IPv6地址
+     * @return 负载均衡实例的私网IPv6地址。
      * 
      */
     public Optional<Output<String>> eniIpv6Address() {
@@ -266,14 +281,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      * 
      */
     @Import(name="enis")
     private @Nullable Output<ClbEnisArgs> enis;
 
     /**
-     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      * 
      */
     public Optional<Output<ClbEnisArgs>> enis() {
@@ -281,14 +296,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 独占集群Id
+     * 独占集群Id。
      * 
      */
     @Import(name="exclusiveClusterId")
     private @Nullable Output<String> exclusiveClusterId;
 
     /**
-     * @return 独占集群Id
+     * @return 独占集群Id。
      * 
      */
     public Optional<Output<String>> exclusiveClusterId() {
@@ -296,14 +311,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例到期时间
+     * 负载均衡实例到期时间。
      * 
      */
     @Import(name="expiredTime")
     private @Nullable Output<String> expiredTime;
 
     /**
-     * @return 负载均衡实例到期时间
+     * @return 负载均衡实例到期时间。
      * 
      */
     public Optional<Output<String>> expiredTime() {
@@ -318,14 +333,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例计费方式
+     * CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      * 
      */
     @Import(name="loadBalancerBillingType")
     private @Nullable Output<Double> loadBalancerBillingType;
 
     /**
-     * @return 负载均衡实例计费方式
+     * @return CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      * 
      */
     public Optional<Output<Double>> loadBalancerBillingType() {
@@ -333,14 +348,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例ID
+     * 负载均衡实例ID。
      * 
      */
     @Import(name="loadBalancerId")
     private @Nullable Output<String> loadBalancerId;
 
     /**
-     * @return 负载均衡实例ID
+     * @return 负载均衡实例ID。
      * 
      */
     public Optional<Output<String>> loadBalancerId() {
@@ -348,14 +363,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的名称
+     * 负载均衡实例的名称。
      * 
      */
     @Import(name="loadBalancerName")
     private @Nullable Output<String> loadBalancerName;
 
     /**
-     * @return 负载均衡实例的名称
+     * @return 负载均衡实例的名称。
      * 
      */
     public Optional<Output<String>> loadBalancerName() {
@@ -363,14 +378,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的规格
+     * CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      * 
      */
     @Import(name="loadBalancerSpec")
     private @Nullable Output<String> loadBalancerSpec;
 
     /**
-     * @return 负载均衡实例的规格
+     * @return CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      * 
      */
     public Optional<Output<String>> loadBalancerSpec() {
@@ -378,14 +393,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例被冻结的原因
+     * 负载均衡实例被冻结的原因。
      * 
      */
     @Import(name="lockReason")
     private @Nullable Output<String> lockReason;
 
     /**
-     * @return 负载均衡实例被冻结的原因
+     * @return 负载均衡实例被冻结的原因。
      * 
      */
     public Optional<Output<String>> lockReason() {
@@ -393,14 +408,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的主可用区ID
+     * 负载均衡实例的主可用区ID。
      * 
      */
     @Import(name="masterZoneId")
     private @Nullable Output<String> masterZoneId;
 
     /**
-     * @return 负载均衡实例的主可用区ID
+     * @return 负载均衡实例的主可用区ID。
      * 
      */
     public Optional<Output<String>> masterZoneId() {
@@ -408,14 +423,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 设置修改保护状态的原因
+     * 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      * 
      */
     @Import(name="modificationProtectionReason")
     private @Nullable Output<String> modificationProtectionReason;
 
     /**
-     * @return 设置修改保护状态的原因
+     * @return 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      * 
      */
     public Optional<Output<String>> modificationProtectionReason() {
@@ -423,14 +438,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例在控制台上修改保护的状态
+     * CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      * 
      */
     @Import(name="modificationProtectionStatus")
     private @Nullable Output<String> modificationProtectionStatus;
 
     /**
-     * @return 负载均衡实例在控制台上修改保护的状态
+     * @return CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      * 
      */
     public Optional<Output<String>> modificationProtectionStatus() {
@@ -438,14 +453,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否为新架构
+     * 是否为新架构。
      * 
      */
     @Import(name="newArch")
     private @Nullable Output<Boolean> newArch;
 
     /**
-     * @return 是否为新架构
+     * @return 是否为新架构。
      * 
      */
     public Optional<Output<Boolean>> newArch() {
@@ -453,14 +468,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      * 
      */
     @Import(name="orderId")
     private @Nullable Output<String> orderId;
 
     /**
-     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      * 
      */
     public Optional<Output<String>> orderId() {
@@ -468,14 +483,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的冻结时间
+     * 负载均衡实例的冻结时间。
      * 
      */
     @Import(name="overdueTime")
     private @Nullable Output<String> overdueTime;
 
     /**
-     * @return 负载均衡实例的冻结时间
+     * @return 负载均衡实例的冻结时间。
      * 
      */
     public Optional<Output<String>> overdueTime() {
@@ -483,14 +498,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 包年包月计费类型的时长数量
+     * 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      * 
      */
     @Import(name="period")
     private @Nullable Output<Double> period;
 
     /**
-     * @return 包年包月计费类型的时长数量
+     * @return 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      * 
      */
     public Optional<Output<Double>> period() {
@@ -498,14 +513,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 包年包月计费类型的时长单位
+     * 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      * 
      */
     @Import(name="periodUnit")
     private @Nullable Output<String> periodUnit;
 
     /**
-     * @return 包年包月计费类型的时长单位
+     * @return 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      * 
      */
     public Optional<Output<String>> periodUnit() {
@@ -513,33 +528,18 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * CLB实例所属项目的名称
+     * CLB实例所属项目的名称。
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return CLB实例所属项目的名称
+     * @return CLB实例所属项目的名称。
      * 
      */
     public Optional<Output<String>> projectName() {
         return Optional.ofNullable(this.projectName);
-    }
-
-    /**
-     * 请求的Region
-     * 
-     */
-    @Import(name="regionId")
-    private @Nullable Output<String> regionId;
-
-    /**
-     * @return 请求的Region
-     * 
-     */
-    public Optional<Output<String>> regionId() {
-        return Optional.ofNullable(this.regionId);
     }
 
     @Import(name="serverGroups")
@@ -550,14 +550,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * CLB实例是否为托管资源
+     * CLB实例是否为托管资源。
      * 
      */
     @Import(name="serviceManaged")
     private @Nullable Output<Boolean> serviceManaged;
 
     /**
-     * @return CLB实例是否为托管资源
+     * @return CLB实例是否为托管资源。
      * 
      */
     public Optional<Output<Boolean>> serviceManaged() {
@@ -565,14 +565,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的备可用区ID
+     * 负载均衡实例的备可用区ID。
      * 
      */
     @Import(name="slaveZoneId")
     private @Nullable Output<String> slaveZoneId;
 
     /**
-     * @return 负载均衡实例的备可用区ID
+     * @return 负载均衡实例的备可用区ID。
      * 
      */
     public Optional<Output<String>> slaveZoneId() {
@@ -580,14 +580,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例状态
+     * 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 负载均衡实例状态
+     * @return 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      * 
      */
     public Optional<Output<String>> status() {
@@ -595,14 +595,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例所属VPC内的子网ID
+     * 负载均衡实例所属VPC内的子网ID。
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return 负载均衡实例所属VPC内的子网ID
+     * @return 负载均衡实例所属VPC内的子网ID。
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -617,14 +617,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否开启 TCP Timestamp 清除功能
+     * 是否开启 TCP Timestamp 清除功能。
      * 
      */
     @Import(name="timestampRemoveEnabled")
     private @Nullable Output<String> timestampRemoveEnabled;
 
     /**
-     * @return 是否开启 TCP Timestamp 清除功能
+     * @return 是否开启 TCP Timestamp 清除功能。
      * 
      */
     public Optional<Output<String>> timestampRemoveEnabled() {
@@ -632,14 +632,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的类型
+     * CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return 负载均衡实例的类型
+     * @return CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      * 
      */
     public Optional<Output<String>> type() {
@@ -647,14 +647,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的最近操作时间
+     * 负载均衡实例的最近操作时间。
      * 
      */
     @Import(name="updateTime")
     private @Nullable Output<String> updateTime;
 
     /**
-     * @return 负载均衡实例的最近操作时间
+     * @return 负载均衡实例的最近操作时间。
      * 
      */
     public Optional<Output<String>> updateTime() {
@@ -662,14 +662,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例所属的VPC ID
+     * 负载均衡实例所属的VPC ID。
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return 负载均衡实例所属的VPC ID
+     * @return 负载均衡实例所属的VPC ID。
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -677,14 +677,14 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 负载均衡实例的可用区类型
+     * 负载均衡实例的可用区类型。
      * 
      */
     @Import(name="zoneType")
     private @Nullable Output<String> zoneType;
 
     /**
-     * @return 负载均衡实例的可用区类型
+     * @return 负载均衡实例的可用区类型。
      * 
      */
     public Optional<Output<String>> zoneType() {
@@ -698,6 +698,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         this.accountId = $.accountId;
         this.addressIpVersion = $.addressIpVersion;
         this.allowedPorts = $.allowedPorts;
+        this.autoRenewal = $.autoRenewal;
         this.businessStatus = $.businessStatus;
         this.bypassSecurityGroupEnabled = $.bypassSecurityGroupEnabled;
         this.createTime = $.createTime;
@@ -728,7 +729,6 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         this.period = $.period;
         this.periodUnit = $.periodUnit;
         this.projectName = $.projectName;
-        this.regionId = $.regionId;
         this.serverGroups = $.serverGroups;
         this.serviceManaged = $.serviceManaged;
         this.slaveZoneId = $.slaveZoneId;
@@ -761,7 +761,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLog 负载均衡实例中访问日志的信息
+         * @param accessLog 负载均衡实例中访问日志的信息。
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLog 负载均衡实例中访问日志的信息
+         * @param accessLog 负载均衡实例中访问日志的信息。
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId 负载均衡实例所属的账号ID
+         * @param accountId 负载均衡实例所属的账号ID。
          * 
          * @return builder
          * 
@@ -793,7 +793,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId 负载均衡实例所属的账号ID
+         * @param accountId 负载均衡实例所属的账号ID。
          * 
          * @return builder
          * 
@@ -803,7 +803,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addressIpVersion 负载均衡实例的IP地址类型
+         * @param addressIpVersion CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
          * 
          * @return builder
          * 
@@ -814,7 +814,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addressIpVersion 负载均衡实例的IP地址类型
+         * @param addressIpVersion CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedPorts 允许的多个端口范围
+         * @param allowedPorts 允许的多个端口范围。
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedPorts 允许的多个端口范围
+         * @param allowedPorts 允许的多个端口范围。
          * 
          * @return builder
          * 
@@ -845,7 +845,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedPorts 允许的多个端口范围
+         * @param allowedPorts 允许的多个端口范围。
          * 
          * @return builder
          * 
@@ -855,7 +855,28 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param businessStatus 负载均衡实例是否被锁定
+         * @param autoRenewal 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRenewal(@Nullable Output<Boolean> autoRenewal) {
+            $.autoRenewal = autoRenewal;
+            return this;
+        }
+
+        /**
+         * @param autoRenewal 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRenewal(Boolean autoRenewal) {
+            return autoRenewal(Output.of(autoRenewal));
+        }
+
+        /**
+         * @param businessStatus 负载均衡实例是否被锁定。
          * 
          * @return builder
          * 
@@ -866,7 +887,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param businessStatus 负载均衡实例是否被锁定
+         * @param businessStatus 负载均衡实例是否被锁定。
          * 
          * @return builder
          * 
@@ -876,7 +897,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bypassSecurityGroupEnabled 是否开启bypass安全组功能
+         * @param bypassSecurityGroupEnabled 是否开启bypass安全组功能。
          * 
          * @return builder
          * 
@@ -887,7 +908,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bypassSecurityGroupEnabled 是否开启bypass安全组功能
+         * @param bypassSecurityGroupEnabled 是否开启bypass安全组功能。
          * 
          * @return builder
          * 
@@ -897,7 +918,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 负载均衡实例的创建时间
+         * @param createTime 负载均衡实例的创建时间。
          * 
          * @return builder
          * 
@@ -908,7 +929,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 负载均衡实例的创建时间
+         * @param createTime 负载均衡实例的创建时间。
          * 
          * @return builder
          * 
@@ -918,7 +939,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletedTime 负载均衡实例的预期回收时间
+         * @param deletedTime 负载均衡实例的预期回收时间。
          * 
          * @return builder
          * 
@@ -929,7 +950,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletedTime 负载均衡实例的预期回收时间
+         * @param deletedTime 负载均衡实例的预期回收时间。
          * 
          * @return builder
          * 
@@ -939,7 +960,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description 负载均衡实例的描述
+         * @param description 负载均衡实例的描述。
          * 
          * @return builder
          * 
@@ -950,7 +971,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description 负载均衡实例的描述
+         * @param description 负载均衡实例的描述。
          * 
          * @return builder
          * 
@@ -960,7 +981,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eip 负载均衡实例的公网IP的信息
+         * @param eip 负载均衡实例的公网IP的信息。
          * 
          * @return builder
          * 
@@ -971,7 +992,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eip 负载均衡实例的公网IP的信息
+         * @param eip 负载均衡实例的公网IP的信息。
          * 
          * @return builder
          * 
@@ -981,7 +1002,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eipAddress 公网IP地址
+         * @param eipAddress 公网IP地址。
          * 
          * @return builder
          * 
@@ -992,7 +1013,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eipAddress 公网IP地址
+         * @param eipAddress 公网IP地址。
          * 
          * @return builder
          * 
@@ -1002,7 +1023,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eipId 公网IP ID
+         * @param eipId 公网IP ID。
          * 
          * @return builder
          * 
@@ -1013,7 +1034,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eipId 公网IP ID
+         * @param eipId 公网IP ID。
          * 
          * @return builder
          * 
@@ -1023,7 +1044,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled 负载均衡实例的启用状态
+         * @param enabled 负载均衡实例的启用状态。
          * 
          * @return builder
          * 
@@ -1034,7 +1055,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled 负载均衡实例的启用状态
+         * @param enabled 负载均衡实例的启用状态。
          * 
          * @return builder
          * 
@@ -1044,7 +1065,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eni 负载均衡实例的私网IPv4地址信息
+         * @param eni 负载均衡实例的私网IPv4地址信息。
          * 
          * @return builder
          * 
@@ -1055,7 +1076,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eni 负载均衡实例的私网IPv4地址信息
+         * @param eni 负载均衡实例的私网IPv4地址信息。
          * 
          * @return builder
          * 
@@ -1065,7 +1086,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniAddressNum 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+         * @param eniAddressNum 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
          * 
          * @return builder
          * 
@@ -1076,7 +1097,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniAddressNum 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+         * @param eniAddressNum 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
          * 
          * @return builder
          * 
@@ -1086,7 +1107,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniIpv6Address 负载均衡实例的私网IPv6地址
+         * @param eniIpv6Address 负载均衡实例的私网IPv6地址。
          * 
          * @return builder
          * 
@@ -1097,7 +1118,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eniIpv6Address 负载均衡实例的私网IPv6地址
+         * @param eniIpv6Address 负载均衡实例的私网IPv6地址。
          * 
          * @return builder
          * 
@@ -1107,7 +1128,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enis 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+         * @param enis 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
          * 
          * @return builder
          * 
@@ -1118,7 +1139,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enis 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+         * @param enis 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
          * 
          * @return builder
          * 
@@ -1128,7 +1149,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exclusiveClusterId 独占集群Id
+         * @param exclusiveClusterId 独占集群Id。
          * 
          * @return builder
          * 
@@ -1139,7 +1160,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exclusiveClusterId 独占集群Id
+         * @param exclusiveClusterId 独占集群Id。
          * 
          * @return builder
          * 
@@ -1149,7 +1170,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiredTime 负载均衡实例到期时间
+         * @param expiredTime 负载均衡实例到期时间。
          * 
          * @return builder
          * 
@@ -1160,7 +1181,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiredTime 负载均衡实例到期时间
+         * @param expiredTime 负载均衡实例到期时间。
          * 
          * @return builder
          * 
@@ -1183,7 +1204,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerBillingType 负载均衡实例计费方式
+         * @param loadBalancerBillingType CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
          * 
          * @return builder
          * 
@@ -1194,7 +1215,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerBillingType 负载均衡实例计费方式
+         * @param loadBalancerBillingType CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
          * 
          * @return builder
          * 
@@ -1204,7 +1225,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerId 负载均衡实例ID
+         * @param loadBalancerId 负载均衡实例ID。
          * 
          * @return builder
          * 
@@ -1215,7 +1236,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerId 负载均衡实例ID
+         * @param loadBalancerId 负载均衡实例ID。
          * 
          * @return builder
          * 
@@ -1225,7 +1246,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerName 负载均衡实例的名称
+         * @param loadBalancerName 负载均衡实例的名称。
          * 
          * @return builder
          * 
@@ -1236,7 +1257,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerName 负载均衡实例的名称
+         * @param loadBalancerName 负载均衡实例的名称。
          * 
          * @return builder
          * 
@@ -1246,7 +1267,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerSpec 负载均衡实例的规格
+         * @param loadBalancerSpec CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
          * 
          * @return builder
          * 
@@ -1257,7 +1278,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerSpec 负载均衡实例的规格
+         * @param loadBalancerSpec CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
          * 
          * @return builder
          * 
@@ -1267,7 +1288,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockReason 负载均衡实例被冻结的原因
+         * @param lockReason 负载均衡实例被冻结的原因。
          * 
          * @return builder
          * 
@@ -1278,7 +1299,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockReason 负载均衡实例被冻结的原因
+         * @param lockReason 负载均衡实例被冻结的原因。
          * 
          * @return builder
          * 
@@ -1288,7 +1309,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterZoneId 负载均衡实例的主可用区ID
+         * @param masterZoneId 负载均衡实例的主可用区ID。
          * 
          * @return builder
          * 
@@ -1299,7 +1320,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterZoneId 负载均衡实例的主可用区ID
+         * @param masterZoneId 负载均衡实例的主可用区ID。
          * 
          * @return builder
          * 
@@ -1309,7 +1330,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modificationProtectionReason 设置修改保护状态的原因
+         * @param modificationProtectionReason 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
          * 
          * @return builder
          * 
@@ -1320,7 +1341,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modificationProtectionReason 设置修改保护状态的原因
+         * @param modificationProtectionReason 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
          * 
          * @return builder
          * 
@@ -1330,7 +1351,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modificationProtectionStatus 负载均衡实例在控制台上修改保护的状态
+         * @param modificationProtectionStatus CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
          * 
          * @return builder
          * 
@@ -1341,7 +1362,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modificationProtectionStatus 负载均衡实例在控制台上修改保护的状态
+         * @param modificationProtectionStatus CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
          * 
          * @return builder
          * 
@@ -1351,7 +1372,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param newArch 是否为新架构
+         * @param newArch 是否为新架构。
          * 
          * @return builder
          * 
@@ -1362,7 +1383,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param newArch 是否为新架构
+         * @param newArch 是否为新架构。
          * 
          * @return builder
          * 
@@ -1372,7 +1393,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderId 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+         * @param orderId 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
          * 
          * @return builder
          * 
@@ -1383,7 +1404,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderId 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+         * @param orderId 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
          * 
          * @return builder
          * 
@@ -1393,7 +1414,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overdueTime 负载均衡实例的冻结时间
+         * @param overdueTime 负载均衡实例的冻结时间。
          * 
          * @return builder
          * 
@@ -1404,7 +1425,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overdueTime 负载均衡实例的冻结时间
+         * @param overdueTime 负载均衡实例的冻结时间。
          * 
          * @return builder
          * 
@@ -1414,7 +1435,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period 包年包月计费类型的时长数量
+         * @param period 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
          * 
          * @return builder
          * 
@@ -1425,7 +1446,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period 包年包月计费类型的时长数量
+         * @param period 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
          * 
          * @return builder
          * 
@@ -1435,7 +1456,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param periodUnit 包年包月计费类型的时长单位
+         * @param periodUnit 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
          * 
          * @return builder
          * 
@@ -1446,7 +1467,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param periodUnit 包年包月计费类型的时长单位
+         * @param periodUnit 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
          * 
          * @return builder
          * 
@@ -1456,7 +1477,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName CLB实例所属项目的名称
+         * @param projectName CLB实例所属项目的名称。
          * 
          * @return builder
          * 
@@ -1467,34 +1488,13 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName CLB实例所属项目的名称
+         * @param projectName CLB实例所属项目的名称。
          * 
          * @return builder
          * 
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
-        }
-
-        /**
-         * @param regionId 请求的Region
-         * 
-         * @return builder
-         * 
-         */
-        public Builder regionId(@Nullable Output<String> regionId) {
-            $.regionId = regionId;
-            return this;
-        }
-
-        /**
-         * @param regionId 请求的Region
-         * 
-         * @return builder
-         * 
-         */
-        public Builder regionId(String regionId) {
-            return regionId(Output.of(regionId));
         }
 
         public Builder serverGroups(@Nullable Output<List<ClbServerGroupArgs>> serverGroups) {
@@ -1511,7 +1511,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceManaged CLB实例是否为托管资源
+         * @param serviceManaged CLB实例是否为托管资源。
          * 
          * @return builder
          * 
@@ -1522,7 +1522,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceManaged CLB实例是否为托管资源
+         * @param serviceManaged CLB实例是否为托管资源。
          * 
          * @return builder
          * 
@@ -1532,7 +1532,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param slaveZoneId 负载均衡实例的备可用区ID
+         * @param slaveZoneId 负载均衡实例的备可用区ID。
          * 
          * @return builder
          * 
@@ -1543,7 +1543,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param slaveZoneId 负载均衡实例的备可用区ID
+         * @param slaveZoneId 负载均衡实例的备可用区ID。
          * 
          * @return builder
          * 
@@ -1553,7 +1553,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 负载均衡实例状态
+         * @param status 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
          * 
          * @return builder
          * 
@@ -1564,7 +1564,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 负载均衡实例状态
+         * @param status 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
          * 
          * @return builder
          * 
@@ -1574,7 +1574,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId 负载均衡实例所属VPC内的子网ID
+         * @param subnetId 负载均衡实例所属VPC内的子网ID。
          * 
          * @return builder
          * 
@@ -1585,7 +1585,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId 负载均衡实例所属VPC内的子网ID
+         * @param subnetId 负载均衡实例所属VPC内的子网ID。
          * 
          * @return builder
          * 
@@ -1608,7 +1608,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampRemoveEnabled 是否开启 TCP Timestamp 清除功能
+         * @param timestampRemoveEnabled 是否开启 TCP Timestamp 清除功能。
          * 
          * @return builder
          * 
@@ -1619,7 +1619,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampRemoveEnabled 是否开启 TCP Timestamp 清除功能
+         * @param timestampRemoveEnabled 是否开启 TCP Timestamp 清除功能。
          * 
          * @return builder
          * 
@@ -1629,7 +1629,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type 负载均衡实例的类型
+         * @param type CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
          * 
          * @return builder
          * 
@@ -1640,7 +1640,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type 负载均衡实例的类型
+         * @param type CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
          * 
          * @return builder
          * 
@@ -1650,7 +1650,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime 负载均衡实例的最近操作时间
+         * @param updateTime 负载均衡实例的最近操作时间。
          * 
          * @return builder
          * 
@@ -1661,7 +1661,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime 负载均衡实例的最近操作时间
+         * @param updateTime 负载均衡实例的最近操作时间。
          * 
          * @return builder
          * 
@@ -1671,7 +1671,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId 负载均衡实例所属的VPC ID
+         * @param vpcId 负载均衡实例所属的VPC ID。
          * 
          * @return builder
          * 
@@ -1682,7 +1682,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId 负载均衡实例所属的VPC ID
+         * @param vpcId 负载均衡实例所属的VPC ID。
          * 
          * @return builder
          * 
@@ -1692,7 +1692,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneType 负载均衡实例的可用区类型
+         * @param zoneType 负载均衡实例的可用区类型。
          * 
          * @return builder
          * 
@@ -1703,7 +1703,7 @@ public final class ClbState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneType 负载均衡实例的可用区类型
+         * @param zoneType 负载均衡实例的可用区类型。
          * 
          * @return builder
          * 

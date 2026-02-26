@@ -22,6 +22,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
+	AccessKeys UserAccessKeyArrayOutput `pulumi:"accessKeys"`
 	// 子用户归属的主账号。
 	AccountId pulumi.Float64Output `pulumi:"accountId"`
 	// 子用户对应的创建时间。
@@ -32,13 +33,17 @@ type User struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// 子用户对应的电子邮件地址。
 	Email pulumi.StringOutput `pulumi:"email"`
+	// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+	EmailIsVerify pulumi.BoolOutput `pulumi:"emailIsVerify"`
 	// 子用户归属的用户组。
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// 子用户的登录配置。
 	LoginProfile UserLoginProfileOutput `pulumi:"loginProfile"`
 	// 子用户对应的手机号。
-	MobilePhone pulumi.StringOutput   `pulumi:"mobilePhone"`
-	Policies    UserPolicyArrayOutput `pulumi:"policies"`
+	MobilePhone pulumi.StringOutput `pulumi:"mobilePhone"`
+	// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+	MobilePhoneIsVerify pulumi.BoolOutput     `pulumi:"mobilePhoneIsVerify"`
+	Policies            UserPolicyArrayOutput `pulumi:"policies"`
 	// 子用户的操作保护配置。
 	SecurityConfig UserSecurityConfigOutput `pulumi:"securityConfig"`
 	Tags           UserTagArrayOutput       `pulumi:"tags"`
@@ -85,6 +90,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
+	AccessKeys []UserAccessKey `pulumi:"accessKeys"`
 	// 子用户归属的主账号。
 	AccountId *float64 `pulumi:"accountId"`
 	// 子用户对应的创建时间。
@@ -95,13 +101,17 @@ type userState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// 子用户对应的电子邮件地址。
 	Email *string `pulumi:"email"`
+	// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+	EmailIsVerify *bool `pulumi:"emailIsVerify"`
 	// 子用户归属的用户组。
 	Groups []string `pulumi:"groups"`
 	// 子用户的登录配置。
 	LoginProfile *UserLoginProfile `pulumi:"loginProfile"`
 	// 子用户对应的手机号。
-	MobilePhone *string      `pulumi:"mobilePhone"`
-	Policies    []UserPolicy `pulumi:"policies"`
+	MobilePhone *string `pulumi:"mobilePhone"`
+	// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+	MobilePhoneIsVerify *bool        `pulumi:"mobilePhoneIsVerify"`
+	Policies            []UserPolicy `pulumi:"policies"`
 	// 子用户的操作保护配置。
 	SecurityConfig *UserSecurityConfig `pulumi:"securityConfig"`
 	Tags           []UserTag           `pulumi:"tags"`
@@ -116,6 +126,7 @@ type userState struct {
 }
 
 type UserState struct {
+	AccessKeys UserAccessKeyArrayInput
 	// 子用户归属的主账号。
 	AccountId pulumi.Float64PtrInput
 	// 子用户对应的创建时间。
@@ -126,13 +137,17 @@ type UserState struct {
 	DisplayName pulumi.StringPtrInput
 	// 子用户对应的电子邮件地址。
 	Email pulumi.StringPtrInput
+	// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+	EmailIsVerify pulumi.BoolPtrInput
 	// 子用户归属的用户组。
 	Groups pulumi.StringArrayInput
 	// 子用户的登录配置。
 	LoginProfile UserLoginProfilePtrInput
 	// 子用户对应的手机号。
 	MobilePhone pulumi.StringPtrInput
-	Policies    UserPolicyArrayInput
+	// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+	MobilePhoneIsVerify pulumi.BoolPtrInput
+	Policies            UserPolicyArrayInput
 	// 子用户的操作保护配置。
 	SecurityConfig UserSecurityConfigPtrInput
 	Tags           UserTagArrayInput
@@ -157,13 +172,17 @@ type userArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// 子用户对应的电子邮件地址。
 	Email *string `pulumi:"email"`
+	// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+	EmailIsVerify *bool `pulumi:"emailIsVerify"`
 	// 子用户归属的用户组。
 	Groups []string `pulumi:"groups"`
 	// 子用户的登录配置。
 	LoginProfile *UserLoginProfile `pulumi:"loginProfile"`
 	// 子用户对应的手机号。
-	MobilePhone *string      `pulumi:"mobilePhone"`
-	Policies    []UserPolicy `pulumi:"policies"`
+	MobilePhone *string `pulumi:"mobilePhone"`
+	// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+	MobilePhoneIsVerify *bool        `pulumi:"mobilePhoneIsVerify"`
+	Policies            []UserPolicy `pulumi:"policies"`
 	// 子用户的操作保护配置。
 	SecurityConfig *UserSecurityConfig `pulumi:"securityConfig"`
 	Tags           []UserTag           `pulumi:"tags"`
@@ -179,13 +198,17 @@ type UserArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// 子用户对应的电子邮件地址。
 	Email pulumi.StringPtrInput
+	// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+	EmailIsVerify pulumi.BoolPtrInput
 	// 子用户归属的用户组。
 	Groups pulumi.StringArrayInput
 	// 子用户的登录配置。
 	LoginProfile UserLoginProfilePtrInput
 	// 子用户对应的手机号。
 	MobilePhone pulumi.StringPtrInput
-	Policies    UserPolicyArrayInput
+	// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+	MobilePhoneIsVerify pulumi.BoolPtrInput
+	Policies            UserPolicyArrayInput
 	// 子用户的操作保护配置。
 	SecurityConfig UserSecurityConfigPtrInput
 	Tags           UserTagArrayInput
@@ -280,6 +303,10 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+func (o UserOutput) AccessKeys() UserAccessKeyArrayOutput {
+	return o.ApplyT(func(v *User) UserAccessKeyArrayOutput { return v.AccessKeys }).(UserAccessKeyArrayOutput)
+}
+
 // 子用户归属的主账号。
 func (o UserOutput) AccountId() pulumi.Float64Output {
 	return o.ApplyT(func(v *User) pulumi.Float64Output { return v.AccountId }).(pulumi.Float64Output)
@@ -305,6 +332,11 @@ func (o UserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
+// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+func (o UserOutput) EmailIsVerify() pulumi.BoolOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.EmailIsVerify }).(pulumi.BoolOutput)
+}
+
 // 子用户归属的用户组。
 func (o UserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
@@ -318,6 +350,11 @@ func (o UserOutput) LoginProfile() UserLoginProfileOutput {
 // 子用户对应的手机号。
 func (o UserOutput) MobilePhone() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.MobilePhone }).(pulumi.StringOutput)
+}
+
+// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+func (o UserOutput) MobilePhoneIsVerify() pulumi.BoolOutput {
+	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.MobilePhoneIsVerify }).(pulumi.BoolOutput)
 }
 
 func (o UserOutput) Policies() UserPolicyArrayOutput {

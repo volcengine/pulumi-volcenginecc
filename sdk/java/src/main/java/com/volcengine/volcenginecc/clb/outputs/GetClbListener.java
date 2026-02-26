@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetClbListener {
     /**
-     * @return 监听器的ID
+     * @return 监听器的ID。
      * 
      */
     private String listenerId;
     /**
-     * @return 监听器的名称
+     * @return 监听器的名称。
      * 
      */
     private String listenerName;
 
     private GetClbListener() {}
     /**
-     * @return 监听器的ID
+     * @return 监听器的ID。
      * 
      */
     public String listenerId() {
         return this.listenerId;
     }
     /**
-     * @return 监听器的名称
+     * @return 监听器的名称。
      * 
      */
     public String listenerName() {

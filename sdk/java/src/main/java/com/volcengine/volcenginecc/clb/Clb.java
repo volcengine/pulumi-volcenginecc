@@ -41,266 +41,280 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:clb/clb:Clb")
 public class Clb extends com.pulumi.resources.CustomResource {
     /**
-     * 负载均衡实例中访问日志的信息
+     * 负载均衡实例中访问日志的信息。
      * 
      */
     @Export(name="accessLog", refs={ClbAccessLog.class}, tree="[0]")
     private Output<ClbAccessLog> accessLog;
 
     /**
-     * @return 负载均衡实例中访问日志的信息
+     * @return 负载均衡实例中访问日志的信息。
      * 
      */
     public Output<ClbAccessLog> accessLog() {
         return this.accessLog;
     }
     /**
-     * 负载均衡实例所属的账号ID
+     * 负载均衡实例所属的账号ID。
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return 负载均衡实例所属的账号ID
+     * @return 负载均衡实例所属的账号ID。
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * 负载均衡实例的IP地址类型
+     * CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      * 
      */
     @Export(name="addressIpVersion", refs={String.class}, tree="[0]")
     private Output<String> addressIpVersion;
 
     /**
-     * @return 负载均衡实例的IP地址类型
+     * @return CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      * 
      */
     public Output<String> addressIpVersion() {
         return this.addressIpVersion;
     }
     /**
-     * 允许的多个端口范围
+     * 允许的多个端口范围。
      * 
      */
     @Export(name="allowedPorts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedPorts;
 
     /**
-     * @return 允许的多个端口范围
+     * @return 允许的多个端口范围。
      * 
      */
     public Output<List<String>> allowedPorts() {
         return this.allowedPorts;
     }
     /**
-     * 负载均衡实例是否被锁定
+     * 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     * 
+     */
+    @Export(name="autoRenewal", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> autoRenewal;
+
+    /**
+     * @return 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     * 
+     */
+    public Output<Boolean> autoRenewal() {
+        return this.autoRenewal;
+    }
+    /**
+     * 负载均衡实例是否被锁定。
      * 
      */
     @Export(name="businessStatus", refs={String.class}, tree="[0]")
     private Output<String> businessStatus;
 
     /**
-     * @return 负载均衡实例是否被锁定
+     * @return 负载均衡实例是否被锁定。
      * 
      */
     public Output<String> businessStatus() {
         return this.businessStatus;
     }
     /**
-     * 是否开启bypass安全组功能
+     * 是否开启bypass安全组功能。
      * 
      */
     @Export(name="bypassSecurityGroupEnabled", refs={String.class}, tree="[0]")
     private Output<String> bypassSecurityGroupEnabled;
 
     /**
-     * @return 是否开启bypass安全组功能
+     * @return 是否开启bypass安全组功能。
      * 
      */
     public Output<String> bypassSecurityGroupEnabled() {
         return this.bypassSecurityGroupEnabled;
     }
     /**
-     * 负载均衡实例的创建时间
+     * 负载均衡实例的创建时间。
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
-     * @return 负载均衡实例的创建时间
+     * @return 负载均衡实例的创建时间。
      * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
-     * 负载均衡实例的预期回收时间
+     * 负载均衡实例的预期回收时间。
      * 
      */
     @Export(name="deletedTime", refs={String.class}, tree="[0]")
     private Output<String> deletedTime;
 
     /**
-     * @return 负载均衡实例的预期回收时间
+     * @return 负载均衡实例的预期回收时间。
      * 
      */
     public Output<String> deletedTime() {
         return this.deletedTime;
     }
     /**
-     * 负载均衡实例的描述
+     * 负载均衡实例的描述。
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return 负载均衡实例的描述
+     * @return 负载均衡实例的描述。
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * 负载均衡实例的公网IP的信息
+     * 负载均衡实例的公网IP的信息。
      * 
      */
     @Export(name="eip", refs={ClbEip.class}, tree="[0]")
     private Output<ClbEip> eip;
 
     /**
-     * @return 负载均衡实例的公网IP的信息
+     * @return 负载均衡实例的公网IP的信息。
      * 
      */
     public Output<ClbEip> eip() {
         return this.eip;
     }
     /**
-     * 公网IP地址
+     * 公网IP地址。
      * 
      */
     @Export(name="eipAddress", refs={String.class}, tree="[0]")
     private Output<String> eipAddress;
 
     /**
-     * @return 公网IP地址
+     * @return 公网IP地址。
      * 
      */
     public Output<String> eipAddress() {
         return this.eipAddress;
     }
     /**
-     * 公网IP ID
+     * 公网IP ID。
      * 
      */
     @Export(name="eipId", refs={String.class}, tree="[0]")
     private Output<String> eipId;
 
     /**
-     * @return 公网IP ID
+     * @return 公网IP ID。
      * 
      */
     public Output<String> eipId() {
         return this.eipId;
     }
     /**
-     * 负载均衡实例的启用状态
+     * 负载均衡实例的启用状态。
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return 负载均衡实例的启用状态
+     * @return 负载均衡实例的启用状态。
      * 
      */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
     /**
-     * 负载均衡实例的私网IPv4地址信息
+     * 负载均衡实例的私网IPv4地址信息。
      * 
      */
     @Export(name="eni", refs={ClbEni.class}, tree="[0]")
     private Output<ClbEni> eni;
 
     /**
-     * @return 负载均衡实例的私网IPv4地址信息
+     * @return 负载均衡实例的私网IPv4地址信息。
      * 
      */
     public Output<ClbEni> eni() {
         return this.eni;
     }
     /**
-     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      * 
      */
     @Export(name="eniAddressNum", refs={Double.class}, tree="[0]")
     private Output<Double> eniAddressNum;
 
     /**
-     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      * 
      */
     public Output<Double> eniAddressNum() {
         return this.eniAddressNum;
     }
     /**
-     * 负载均衡实例的私网IPv6地址
+     * 负载均衡实例的私网IPv6地址。
      * 
      */
     @Export(name="eniIpv6Address", refs={String.class}, tree="[0]")
     private Output<String> eniIpv6Address;
 
     /**
-     * @return 负载均衡实例的私网IPv6地址
+     * @return 负载均衡实例的私网IPv6地址。
      * 
      */
     public Output<String> eniIpv6Address() {
         return this.eniIpv6Address;
     }
     /**
-     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      * 
      */
     @Export(name="enis", refs={ClbEnis.class}, tree="[0]")
     private Output<ClbEnis> enis;
 
     /**
-     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      * 
      */
     public Output<ClbEnis> enis() {
         return this.enis;
     }
     /**
-     * 独占集群Id
+     * 独占集群Id。
      * 
      */
     @Export(name="exclusiveClusterId", refs={String.class}, tree="[0]")
     private Output<String> exclusiveClusterId;
 
     /**
-     * @return 独占集群Id
+     * @return 独占集群Id。
      * 
      */
     public Output<String> exclusiveClusterId() {
         return this.exclusiveClusterId;
     }
     /**
-     * 负载均衡实例到期时间
+     * 负载均衡实例到期时间。
      * 
      */
     @Export(name="expiredTime", refs={String.class}, tree="[0]")
     private Output<String> expiredTime;
 
     /**
-     * @return 负载均衡实例到期时间
+     * @return 负载均衡实例到期时间。
      * 
      */
     public Output<String> expiredTime() {
@@ -313,214 +327,200 @@ public class Clb extends com.pulumi.resources.CustomResource {
         return this.listeners;
     }
     /**
-     * 负载均衡实例计费方式
+     * CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      * 
      */
     @Export(name="loadBalancerBillingType", refs={Double.class}, tree="[0]")
     private Output<Double> loadBalancerBillingType;
 
     /**
-     * @return 负载均衡实例计费方式
+     * @return CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      * 
      */
     public Output<Double> loadBalancerBillingType() {
         return this.loadBalancerBillingType;
     }
     /**
-     * 负载均衡实例ID
+     * 负载均衡实例ID。
      * 
      */
     @Export(name="loadBalancerId", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerId;
 
     /**
-     * @return 负载均衡实例ID
+     * @return 负载均衡实例ID。
      * 
      */
     public Output<String> loadBalancerId() {
         return this.loadBalancerId;
     }
     /**
-     * 负载均衡实例的名称
+     * 负载均衡实例的名称。
      * 
      */
     @Export(name="loadBalancerName", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerName;
 
     /**
-     * @return 负载均衡实例的名称
+     * @return 负载均衡实例的名称。
      * 
      */
     public Output<String> loadBalancerName() {
         return this.loadBalancerName;
     }
     /**
-     * 负载均衡实例的规格
+     * CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      * 
      */
     @Export(name="loadBalancerSpec", refs={String.class}, tree="[0]")
     private Output<String> loadBalancerSpec;
 
     /**
-     * @return 负载均衡实例的规格
+     * @return CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      * 
      */
     public Output<String> loadBalancerSpec() {
         return this.loadBalancerSpec;
     }
     /**
-     * 负载均衡实例被冻结的原因
+     * 负载均衡实例被冻结的原因。
      * 
      */
     @Export(name="lockReason", refs={String.class}, tree="[0]")
     private Output<String> lockReason;
 
     /**
-     * @return 负载均衡实例被冻结的原因
+     * @return 负载均衡实例被冻结的原因。
      * 
      */
     public Output<String> lockReason() {
         return this.lockReason;
     }
     /**
-     * 负载均衡实例的主可用区ID
+     * 负载均衡实例的主可用区ID。
      * 
      */
     @Export(name="masterZoneId", refs={String.class}, tree="[0]")
     private Output<String> masterZoneId;
 
     /**
-     * @return 负载均衡实例的主可用区ID
+     * @return 负载均衡实例的主可用区ID。
      * 
      */
     public Output<String> masterZoneId() {
         return this.masterZoneId;
     }
     /**
-     * 设置修改保护状态的原因
+     * 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      * 
      */
     @Export(name="modificationProtectionReason", refs={String.class}, tree="[0]")
     private Output<String> modificationProtectionReason;
 
     /**
-     * @return 设置修改保护状态的原因
+     * @return 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      * 
      */
     public Output<String> modificationProtectionReason() {
         return this.modificationProtectionReason;
     }
     /**
-     * 负载均衡实例在控制台上修改保护的状态
+     * CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      * 
      */
     @Export(name="modificationProtectionStatus", refs={String.class}, tree="[0]")
     private Output<String> modificationProtectionStatus;
 
     /**
-     * @return 负载均衡实例在控制台上修改保护的状态
+     * @return CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      * 
      */
     public Output<String> modificationProtectionStatus() {
         return this.modificationProtectionStatus;
     }
     /**
-     * 是否为新架构
+     * 是否为新架构。
      * 
      */
     @Export(name="newArch", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> newArch;
 
     /**
-     * @return 是否为新架构
+     * @return 是否为新架构。
      * 
      */
     public Output<Boolean> newArch() {
         return this.newArch;
     }
     /**
-     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      * 
      */
     @Export(name="orderId", refs={String.class}, tree="[0]")
     private Output<String> orderId;
 
     /**
-     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      * 
      */
     public Output<String> orderId() {
         return this.orderId;
     }
     /**
-     * 负载均衡实例的冻结时间
+     * 负载均衡实例的冻结时间。
      * 
      */
     @Export(name="overdueTime", refs={String.class}, tree="[0]")
     private Output<String> overdueTime;
 
     /**
-     * @return 负载均衡实例的冻结时间
+     * @return 负载均衡实例的冻结时间。
      * 
      */
     public Output<String> overdueTime() {
         return this.overdueTime;
     }
     /**
-     * 包年包月计费类型的时长数量
+     * 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      * 
      */
     @Export(name="period", refs={Double.class}, tree="[0]")
     private Output<Double> period;
 
     /**
-     * @return 包年包月计费类型的时长数量
+     * @return 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      * 
      */
     public Output<Double> period() {
         return this.period;
     }
     /**
-     * 包年包月计费类型的时长单位
+     * 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      * 
      */
     @Export(name="periodUnit", refs={String.class}, tree="[0]")
     private Output<String> periodUnit;
 
     /**
-     * @return 包年包月计费类型的时长单位
+     * @return 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      * 
      */
     public Output<String> periodUnit() {
         return this.periodUnit;
     }
     /**
-     * CLB实例所属项目的名称
+     * CLB实例所属项目的名称。
      * 
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
-     * @return CLB实例所属项目的名称
+     * @return CLB实例所属项目的名称。
      * 
      */
     public Output<String> projectName() {
         return this.projectName;
-    }
-    /**
-     * 请求的Region
-     * 
-     */
-    @Export(name="regionId", refs={String.class}, tree="[0]")
-    private Output<String> regionId;
-
-    /**
-     * @return 请求的Region
-     * 
-     */
-    public Output<String> regionId() {
-        return this.regionId;
     }
     @Export(name="serverGroups", refs={List.class,ClbServerGroup.class}, tree="[0,1]")
     private Output<List<ClbServerGroup>> serverGroups;
@@ -529,56 +529,56 @@ public class Clb extends com.pulumi.resources.CustomResource {
         return this.serverGroups;
     }
     /**
-     * CLB实例是否为托管资源
+     * CLB实例是否为托管资源。
      * 
      */
     @Export(name="serviceManaged", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> serviceManaged;
 
     /**
-     * @return CLB实例是否为托管资源
+     * @return CLB实例是否为托管资源。
      * 
      */
     public Output<Boolean> serviceManaged() {
         return this.serviceManaged;
     }
     /**
-     * 负载均衡实例的备可用区ID
+     * 负载均衡实例的备可用区ID。
      * 
      */
     @Export(name="slaveZoneId", refs={String.class}, tree="[0]")
     private Output<String> slaveZoneId;
 
     /**
-     * @return 负载均衡实例的备可用区ID
+     * @return 负载均衡实例的备可用区ID。
      * 
      */
     public Output<String> slaveZoneId() {
         return this.slaveZoneId;
     }
     /**
-     * 负载均衡实例状态
+     * 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return 负载均衡实例状态
+     * @return 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * 负载均衡实例所属VPC内的子网ID
+     * 负载均衡实例所属VPC内的子网ID。
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return 负载均衡实例所属VPC内的子网ID
+     * @return 负载均衡实例所属VPC内的子网ID。
      * 
      */
     public Output<String> subnetId() {
@@ -591,70 +591,70 @@ public class Clb extends com.pulumi.resources.CustomResource {
         return this.tags;
     }
     /**
-     * 是否开启 TCP Timestamp 清除功能
+     * 是否开启 TCP Timestamp 清除功能。
      * 
      */
     @Export(name="timestampRemoveEnabled", refs={String.class}, tree="[0]")
     private Output<String> timestampRemoveEnabled;
 
     /**
-     * @return 是否开启 TCP Timestamp 清除功能
+     * @return 是否开启 TCP Timestamp 清除功能。
      * 
      */
     public Output<String> timestampRemoveEnabled() {
         return this.timestampRemoveEnabled;
     }
     /**
-     * 负载均衡实例的类型
+     * CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return 负载均衡实例的类型
+     * @return CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * 负载均衡实例的最近操作时间
+     * 负载均衡实例的最近操作时间。
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**
-     * @return 负载均衡实例的最近操作时间
+     * @return 负载均衡实例的最近操作时间。
      * 
      */
     public Output<String> updateTime() {
         return this.updateTime;
     }
     /**
-     * 负载均衡实例所属的VPC ID
+     * 负载均衡实例所属的VPC ID。
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return 负载均衡实例所属的VPC ID
+     * @return 负载均衡实例所属的VPC ID。
      * 
      */
     public Output<String> vpcId() {
         return this.vpcId;
     }
     /**
-     * 负载均衡实例的可用区类型
+     * 负载均衡实例的可用区类型。
      * 
      */
     @Export(name="zoneType", refs={String.class}, tree="[0]")
     private Output<String> zoneType;
 
     /**
-     * @return 负载均衡实例的可用区类型
+     * @return 负载均衡实例的可用区类型。
      * 
      */
     public Output<String> zoneType() {

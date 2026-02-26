@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClbAccessLog {
     /**
-     * @return 存储七层访问日志的对象存储桶的名称
+     * @return 存储七层访问日志的对象存储桶的名称。
      * 
      */
     private @Nullable String bucketName;
     /**
-     * @return 日志投递类型
+     * @return 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
      * 
      */
     private @Nullable String deliveryType;
     /**
-     * @return 是否开启访问日志（七层）投递至对象存储TOS的功能
+     * @return 是否开启访问日志（七层）投递至对象存储TOS的功能。
      * 
      */
     private @Nullable Boolean enabled;
     /**
-     * @return 日志项目
+     * @return 日志项目。
      * 
      */
     private @Nullable String tlsProjectId;
     /**
-     * @return 日志主题
+     * @return 日志主题。
      * 
      */
     private @Nullable String tlsTopicId;
 
     private ClbAccessLog() {}
     /**
-     * @return 存储七层访问日志的对象存储桶的名称
+     * @return 存储七层访问日志的对象存储桶的名称。
      * 
      */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
     /**
-     * @return 日志投递类型
+     * @return 日志投递类型。取值如下：tos（默认值）: 将日志投递至对象存储服务TOS。tls：将日志投递至日志服务TLS。
      * 
      */
     public Optional<String> deliveryType() {
         return Optional.ofNullable(this.deliveryType);
     }
     /**
-     * @return 是否开启访问日志（七层）投递至对象存储TOS的功能
+     * @return 是否开启访问日志（七层）投递至对象存储TOS的功能。
      * 
      */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return 日志项目
+     * @return 日志项目。
      * 
      */
     public Optional<String> tlsProjectId() {
         return Optional.ofNullable(this.tlsProjectId);
     }
     /**
-     * @return 日志主题
+     * @return 日志主题。
      * 
      */
     public Optional<String> tlsTopicId() {

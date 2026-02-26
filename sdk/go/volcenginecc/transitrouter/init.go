@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitRouterRouteEntry{}
 	case "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable":
 		r = &TransitRouterRouteTable{}
+	case "volcenginecc:transitrouter/vpcAttachment:VpcAttachment":
+		r = &VpcAttachment{}
+	case "volcenginecc:transitrouter/vpnAttachment:VpnAttachment":
+		r = &VpnAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +57,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"transitrouter/transitRouterRouteTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/vpcAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/vpnAttachment",
 		&module{version},
 	)
 }

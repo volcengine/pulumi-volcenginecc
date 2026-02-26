@@ -16,14 +16,14 @@ public final class ClbListenerArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClbListenerArgs Empty = new ClbListenerArgs();
 
     /**
-     * 监听器的ID
+     * 监听器的ID。
      * 
      */
     @Import(name="listenerId")
     private @Nullable Output<String> listenerId;
 
     /**
-     * @return 监听器的ID
+     * @return 监听器的ID。
      * 
      */
     public Optional<Output<String>> listenerId() {
@@ -31,14 +31,14 @@ public final class ClbListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 监听器的名称
+     * 监听器的名称。
      * 
      */
     @Import(name="listenerName")
     private @Nullable Output<String> listenerName;
 
     /**
-     * @return 监听器的名称
+     * @return 监听器的名称。
      * 
      */
     public Optional<Output<String>> listenerName() {
@@ -71,7 +71,7 @@ public final class ClbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerId 监听器的ID
+         * @param listenerId 监听器的ID。
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerId 监听器的ID
+         * @param listenerId 监听器的ID。
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerName 监听器的名称
+         * @param listenerName 监听器的名称。
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClbListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerName 监听器的名称
+         * @param listenerName 监听器的名称。
          * 
          * @return builder
          * 

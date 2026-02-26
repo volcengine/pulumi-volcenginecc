@@ -22,6 +22,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     [VolcengineccResourceType("volcenginecc:iam/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
+        [Output("accessKeys")]
+        public Output<ImmutableArray<Outputs.UserAccessKey>> AccessKeys { get; private set; } = null!;
+
         /// <summary>
         /// 子用户归属的主账号。
         /// </summary>
@@ -53,6 +56,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
+        /// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        [Output("emailIsVerify")]
+        public Output<bool> EmailIsVerify { get; private set; } = null!;
+
+        /// <summary>
         /// 子用户归属的用户组。
         /// </summary>
         [Output("groups")]
@@ -69,6 +78,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// </summary>
         [Output("mobilePhone")]
         public Output<string> MobilePhone { get; private set; } = null!;
+
+        /// <summary>
+        /// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        [Output("mobilePhoneIsVerify")]
+        public Output<bool> MobilePhoneIsVerify { get; private set; } = null!;
 
         [Output("policies")]
         public Output<ImmutableArray<Outputs.UserPolicy>> Policies { get; private set; } = null!;
@@ -171,6 +186,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        [Input("emailIsVerify")]
+        public Input<bool>? EmailIsVerify { get; set; }
+
         [Input("groups")]
         private InputList<string>? _groups;
 
@@ -194,6 +215,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// </summary>
         [Input("mobilePhone")]
         public Input<string>? MobilePhone { get; set; }
+
+        /// <summary>
+        /// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        [Input("mobilePhoneIsVerify")]
+        public Input<bool>? MobilePhoneIsVerify { get; set; }
 
         [Input("policies")]
         private InputList<Inputs.UserPolicyArgs>? _policies;
@@ -231,6 +258,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
+        [Input("accessKeys")]
+        private InputList<Inputs.UserAccessKeyGetArgs>? _accessKeys;
+        public InputList<Inputs.UserAccessKeyGetArgs> AccessKeys
+        {
+            get => _accessKeys ?? (_accessKeys = new InputList<Inputs.UserAccessKeyGetArgs>());
+            set => _accessKeys = value;
+        }
+
         /// <summary>
         /// 子用户归属的主账号。
         /// </summary>
@@ -261,6 +296,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// 子用户电子邮件地址是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        [Input("emailIsVerify")]
+        public Input<bool>? EmailIsVerify { get; set; }
+
         [Input("groups")]
         private InputList<string>? _groups;
 
@@ -284,6 +325,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
         /// </summary>
         [Input("mobilePhone")]
         public Input<string>? MobilePhone { get; set; }
+
+        /// <summary>
+        /// 子用户手机号是否已验证。true代表已验证，false代表未验证。
+        /// </summary>
+        [Input("mobilePhoneIsVerify")]
+        public Input<bool>? MobilePhoneIsVerify { get; set; }
 
         [Input("policies")]
         private InputList<Inputs.UserPolicyGetArgs>? _policies;

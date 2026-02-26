@@ -21,97 +21,102 @@ import java.util.Objects;
 @CustomType
 public final class GetClbResult {
     /**
-     * @return 负载均衡实例中访问日志的信息
+     * @return 负载均衡实例中访问日志的信息。
      * 
      */
     private GetClbAccessLog accessLog;
     /**
-     * @return 负载均衡实例所属的账号ID
+     * @return 负载均衡实例所属的账号ID。
      * 
      */
     private String accountId;
     /**
-     * @return 负载均衡实例的IP地址类型
+     * @return CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      * 
      */
     private String addressIpVersion;
     /**
-     * @return 允许的多个端口范围
+     * @return 允许的多个端口范围。
      * 
      */
     private List<String> allowedPorts;
     /**
-     * @return 负载均衡实例是否被锁定
+     * @return 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     * 
+     */
+    private Boolean autoRenewal;
+    /**
+     * @return 负载均衡实例是否被锁定。
      * 
      */
     private String businessStatus;
     /**
-     * @return 是否开启bypass安全组功能
+     * @return 是否开启bypass安全组功能。
      * 
      */
     private String bypassSecurityGroupEnabled;
     /**
-     * @return 负载均衡实例的创建时间
+     * @return 负载均衡实例的创建时间。
      * 
      */
     private String createTime;
     /**
-     * @return 负载均衡实例的预期回收时间
+     * @return 负载均衡实例的预期回收时间。
      * 
      */
     private String deletedTime;
     /**
-     * @return 负载均衡实例的描述
+     * @return 负载均衡实例的描述。
      * 
      */
     private String description;
     /**
-     * @return 负载均衡实例的公网IP的信息
+     * @return 负载均衡实例的公网IP的信息。
      * 
      */
     private GetClbEip eip;
     /**
-     * @return 公网IP地址
+     * @return 公网IP地址。
      * 
      */
     private String eipAddress;
     /**
-     * @return 公网IP ID
+     * @return 公网IP ID。
      * 
      */
     private String eipId;
     /**
-     * @return 负载均衡实例的启用状态
+     * @return 负载均衡实例的启用状态。
      * 
      */
     private Boolean enabled;
     /**
-     * @return 负载均衡实例的私网IPv4地址信息
+     * @return 负载均衡实例的私网IPv4地址信息。
      * 
      */
     private GetClbEni eni;
     /**
-     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      * 
      */
     private Double eniAddressNum;
     /**
-     * @return 负载均衡实例的私网IPv6地址
+     * @return 负载均衡实例的私网IPv6地址。
      * 
      */
     private String eniIpv6Address;
     /**
-     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      * 
      */
     private GetClbEnis enis;
     /**
-     * @return 独占集群Id
+     * @return 独占集群Id。
      * 
      */
     private String exclusiveClusterId;
     /**
-     * @return 负载均衡实例到期时间
+     * @return 负载均衡实例到期时间。
      * 
      */
     private String expiredTime;
@@ -121,270 +126,272 @@ public final class GetClbResult {
      */
     private String id;
     /**
-     * @return 负载均衡实例中监听器的信息
+     * @return 负载均衡实例中监听器的信息。
      * 
      */
     private List<GetClbListener> listeners;
     /**
-     * @return 负载均衡实例计费方式
+     * @return CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      * 
      */
     private Double loadBalancerBillingType;
     /**
-     * @return 负载均衡实例ID
+     * @return 负载均衡实例ID。
      * 
      */
     private String loadBalancerId;
     /**
-     * @return 负载均衡实例的名称
+     * @return 负载均衡实例的名称。
      * 
      */
     private String loadBalancerName;
     /**
-     * @return 负载均衡实例的规格
+     * @return CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      * 
      */
     private String loadBalancerSpec;
     /**
-     * @return 负载均衡实例被冻结的原因
+     * @return 负载均衡实例被冻结的原因。
      * 
      */
     private String lockReason;
     /**
-     * @return 负载均衡实例的主可用区ID
+     * @return 负载均衡实例的主可用区ID。
      * 
      */
     private String masterZoneId;
     /**
-     * @return 设置修改保护状态的原因
+     * @return 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      * 
      */
     private String modificationProtectionReason;
     /**
-     * @return 负载均衡实例在控制台上修改保护的状态
+     * @return CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      * 
      */
     private String modificationProtectionStatus;
     /**
-     * @return 是否为新架构
+     * @return 是否为新架构。
      * 
      */
     private Boolean newArch;
     /**
-     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      * 
      */
     private String orderId;
     /**
-     * @return 负载均衡实例的冻结时间
+     * @return 负载均衡实例的冻结时间。
      * 
      */
     private String overdueTime;
     /**
-     * @return 包年包月计费类型的时长数量
+     * @return 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      * 
      */
     private Double period;
     /**
-     * @return 包年包月计费类型的时长单位
+     * @return 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      * 
      */
     private String periodUnit;
     /**
-     * @return CLB实例所属项目的名称
+     * @return CLB实例所属项目的名称。
      * 
      */
     private String projectName;
     /**
-     * @return 请求的Region
-     * 
-     */
-    private String regionId;
-    /**
-     * @return 负载均衡实例中后端服务器组的信息
+     * @return 负载均衡实例中后端服务器组的信息。
      * 
      */
     private List<GetClbServerGroup> serverGroups;
     /**
-     * @return CLB实例是否为托管资源
+     * @return CLB实例是否为托管资源。
      * 
      */
     private Boolean serviceManaged;
     /**
-     * @return 负载均衡实例的备可用区ID
+     * @return 负载均衡实例的备可用区ID。
      * 
      */
     private String slaveZoneId;
     /**
-     * @return 负载均衡实例状态
+     * @return 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      * 
      */
     private String status;
     /**
-     * @return 负载均衡实例所属VPC内的子网ID
+     * @return 负载均衡实例所属VPC内的子网ID。
      * 
      */
     private String subnetId;
     /**
-     * @return CLB实例标签
+     * @return CLB实例标签。
      * 
      */
     private List<GetClbTag> tags;
     /**
-     * @return 是否开启 TCP Timestamp 清除功能
+     * @return 是否开启 TCP Timestamp 清除功能。
      * 
      */
     private String timestampRemoveEnabled;
     /**
-     * @return 负载均衡实例的类型
+     * @return CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      * 
      */
     private String type;
     /**
-     * @return 负载均衡实例的最近操作时间
+     * @return 负载均衡实例的最近操作时间。
      * 
      */
     private String updateTime;
     /**
-     * @return 负载均衡实例所属的VPC ID
+     * @return 负载均衡实例所属的VPC ID。
      * 
      */
     private String vpcId;
     /**
-     * @return 负载均衡实例的可用区类型
+     * @return 负载均衡实例的可用区类型。
      * 
      */
     private String zoneType;
 
     private GetClbResult() {}
     /**
-     * @return 负载均衡实例中访问日志的信息
+     * @return 负载均衡实例中访问日志的信息。
      * 
      */
     public GetClbAccessLog accessLog() {
         return this.accessLog;
     }
     /**
-     * @return 负载均衡实例所属的账号ID
+     * @return 负载均衡实例所属的账号ID。
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 负载均衡实例的IP地址类型
+     * @return CLB实例的IP地址类型。取值如下：ipv4（默认值）：表示该CLB为IPv4类型，仅支持转发IPv4请求。DualStack：表示该CLB为双栈类型，支持转发IPv4和IPv6请求。仅参数Type取private时，才可传入DualStack。
      * 
      */
     public String addressIpVersion() {
         return this.addressIpVersion;
     }
     /**
-     * @return 允许的多个端口范围
+     * @return 允许的多个端口范围。
      * 
      */
     public List<String> allowedPorts() {
         return this.allowedPorts;
     }
     /**
-     * @return 负载均衡实例是否被锁定
+     * @return 是否开通自动续费。true：是，默认自动续费为1个月。false（默认值）：否
+     * 
+     */
+    public Boolean autoRenewal() {
+        return this.autoRenewal;
+    }
+    /**
+     * @return 负载均衡实例是否被锁定。
      * 
      */
     public String businessStatus() {
         return this.businessStatus;
     }
     /**
-     * @return 是否开启bypass安全组功能
+     * @return 是否开启bypass安全组功能。
      * 
      */
     public String bypassSecurityGroupEnabled() {
         return this.bypassSecurityGroupEnabled;
     }
     /**
-     * @return 负载均衡实例的创建时间
+     * @return 负载均衡实例的创建时间。
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return 负载均衡实例的预期回收时间
+     * @return 负载均衡实例的预期回收时间。
      * 
      */
     public String deletedTime() {
         return this.deletedTime;
     }
     /**
-     * @return 负载均衡实例的描述
+     * @return 负载均衡实例的描述。
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return 负载均衡实例的公网IP的信息
+     * @return 负载均衡实例的公网IP的信息。
      * 
      */
     public GetClbEip eip() {
         return this.eip;
     }
     /**
-     * @return 公网IP地址
+     * @return 公网IP地址。
      * 
      */
     public String eipAddress() {
         return this.eipAddress;
     }
     /**
-     * @return 公网IP ID
+     * @return 公网IP ID。
      * 
      */
     public String eipId() {
         return this.eipId;
     }
     /**
-     * @return 负载均衡实例的启用状态
+     * @return 负载均衡实例的启用状态。
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return 负载均衡实例的私网IPv4地址信息
+     * @return 负载均衡实例的私网IPv4地址信息。
      * 
      */
     public GetClbEni eni() {
         return this.eni;
     }
     /**
-     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress
+     * @return 负载均衡实例的私网IPv4地址数量。该参数和参数EniAddress不能同时传入，如果传入该参数，则无需传入EniAddress。
      * 
      */
     public Double eniAddressNum() {
         return this.eniAddressNum;
     }
     /**
-     * @return 负载均衡实例的私网IPv6地址
+     * @return 负载均衡实例的私网IPv6地址。
      * 
      */
     public String eniIpv6Address() {
         return this.eniIpv6Address;
     }
     /**
-     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量
+     * @return 负载均衡实例的私网IPv4地址信息列表，创建时通过EniAddressNum指定数量。
      * 
      */
     public GetClbEnis enis() {
         return this.enis;
     }
     /**
-     * @return 独占集群Id
+     * @return 独占集群Id。
      * 
      */
     public String exclusiveClusterId() {
         return this.exclusiveClusterId;
     }
     /**
-     * @return 负载均衡实例到期时间
+     * @return 负载均衡实例到期时间。
      * 
      */
     public String expiredTime() {
@@ -398,189 +405,182 @@ public final class GetClbResult {
         return this.id;
     }
     /**
-     * @return 负载均衡实例中监听器的信息
+     * @return 负载均衡实例中监听器的信息。
      * 
      */
     public List<GetClbListener> listeners() {
         return this.listeners;
     }
     /**
-     * @return 负载均衡实例计费方式
+     * @return CLB实例计费方式。取值如下：1：包年包月。2（默认值）：按量计费-按规格计费。3：按量计费-按使用量计费。
      * 
      */
     public Double loadBalancerBillingType() {
         return this.loadBalancerBillingType;
     }
     /**
-     * @return 负载均衡实例ID
+     * @return 负载均衡实例ID。
      * 
      */
     public String loadBalancerId() {
         return this.loadBalancerId;
     }
     /**
-     * @return 负载均衡实例的名称
+     * @return 负载均衡实例的名称。
      * 
      */
     public String loadBalancerName() {
         return this.loadBalancerName;
     }
     /**
-     * @return 负载均衡实例的规格
+     * @return CLB实例的规格，不同规格提供的转发能力不同。small*1：小型I。small*2：小型II。medium*1：中型I。medium*2：中型II。large*1：大型I。large*2：大型II。
      * 
      */
     public String loadBalancerSpec() {
         return this.loadBalancerSpec;
     }
     /**
-     * @return 负载均衡实例被冻结的原因
+     * @return 负载均衡实例被冻结的原因。
      * 
      */
     public String lockReason() {
         return this.lockReason;
     }
     /**
-     * @return 负载均衡实例的主可用区ID
+     * @return 负载均衡实例的主可用区ID。
      * 
      */
     public String masterZoneId() {
         return this.masterZoneId;
     }
     /**
-     * @return 设置修改保护状态的原因
+     * @return 设置修改保护状态的原因。仅参数ModificationProtectionStatus取ConsoleProtection时，本参数有效。必须以字母、数字或中文开头，可包含字母、数字、中文及以下特殊字符：半角句号（.）、下划线（_）和中划线（-）。长度限制为1 ～ 80个字符。
      * 
      */
     public String modificationProtectionReason() {
         return this.modificationProtectionReason;
     }
     /**
-     * @return 负载均衡实例在控制台上修改保护的状态
+     * @return CLB实例是否开启控制台上修改保护。开启后，禁止通过控制台修改实例或删除实例。取值如下：NonProtection：不开启。ConsoleProtection：开启。
      * 
      */
     public String modificationProtectionStatus() {
         return this.modificationProtectionStatus;
     }
     /**
-     * @return 是否为新架构
+     * @return 是否为新架构。
      * 
      */
     public Boolean newArch() {
         return this.newArch;
     }
     /**
-     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，改参数有值
+     * @return 订单ID。仅在创建动作的参数LoadBalancerBillingType配置为1时，该参数有值。
      * 
      */
     public String orderId() {
         return this.orderId;
     }
     /**
-     * @return 负载均衡实例的冻结时间
+     * @return 负载均衡实例的冻结时间。
      * 
      */
     public String overdueTime() {
         return this.overdueTime;
     }
     /**
-     * @return 包年包月计费类型的时长数量
+     * @return 购买包年包月CLB实例的时长。默认为“1”。当PeriodUnit配置为Month时，取值范围为1～9，12，24和36。当PeriodUnit配置为Year时，取值范围为1～3。
      * 
      */
     public Double period() {
         return this.period;
     }
     /**
-     * @return 包年包月计费类型的时长单位
+     * @return 购买包年包月CLB实例的时长单位。仅LoadBalancerBillingType取1时，本参数有效。取值如下：Month (默认值)：月。Year：年
      * 
      */
     public String periodUnit() {
         return this.periodUnit;
     }
     /**
-     * @return CLB实例所属项目的名称
+     * @return CLB实例所属项目的名称。
      * 
      */
     public String projectName() {
         return this.projectName;
     }
     /**
-     * @return 请求的Region
-     * 
-     */
-    public String regionId() {
-        return this.regionId;
-    }
-    /**
-     * @return 负载均衡实例中后端服务器组的信息
+     * @return 负载均衡实例中后端服务器组的信息。
      * 
      */
     public List<GetClbServerGroup> serverGroups() {
         return this.serverGroups;
     }
     /**
-     * @return CLB实例是否为托管资源
+     * @return CLB实例是否为托管资源。
      * 
      */
     public Boolean serviceManaged() {
         return this.serviceManaged;
     }
     /**
-     * @return 负载均衡实例的备可用区ID
+     * @return 负载均衡实例的备可用区ID。
      * 
      */
     public String slaveZoneId() {
         return this.slaveZoneId;
     }
     /**
-     * @return 负载均衡实例状态
+     * @return 负载均衡实例状态，Inactive：已停止。Active：运行中。Creating：创建中。Provisioning：创建中。Configuring：配置中。Deleting：删除中。CreateFailed：创建失败。
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return 负载均衡实例所属VPC内的子网ID
+     * @return 负载均衡实例所属VPC内的子网ID。
      * 
      */
     public String subnetId() {
         return this.subnetId;
     }
     /**
-     * @return CLB实例标签
+     * @return CLB实例标签。
      * 
      */
     public List<GetClbTag> tags() {
         return this.tags;
     }
     /**
-     * @return 是否开启 TCP Timestamp 清除功能
+     * @return 是否开启 TCP Timestamp 清除功能。
      * 
      */
     public String timestampRemoveEnabled() {
         return this.timestampRemoveEnabled;
     }
     /**
-     * @return 负载均衡实例的类型
+     * @return CLB实例的类型。取值如下：public：公网类型。创建一个公网类型CLB实例，系统会分配一个公网IP地址，用于转发公网请求。private：私网类型。创建一个私网类型CLB实例，您需要为其绑定公网IP后，才能转发公网请求。
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return 负载均衡实例的最近操作时间
+     * @return 负载均衡实例的最近操作时间。
      * 
      */
     public String updateTime() {
         return this.updateTime;
     }
     /**
-     * @return 负载均衡实例所属的VPC ID
+     * @return 负载均衡实例所属的VPC ID。
      * 
      */
     public String vpcId() {
         return this.vpcId;
     }
     /**
-     * @return 负载均衡实例的可用区类型
+     * @return 负载均衡实例的可用区类型。
      * 
      */
     public String zoneType() {
@@ -600,6 +600,7 @@ public final class GetClbResult {
         private String accountId;
         private String addressIpVersion;
         private List<String> allowedPorts;
+        private Boolean autoRenewal;
         private String businessStatus;
         private String bypassSecurityGroupEnabled;
         private String createTime;
@@ -631,7 +632,6 @@ public final class GetClbResult {
         private Double period;
         private String periodUnit;
         private String projectName;
-        private String regionId;
         private List<GetClbServerGroup> serverGroups;
         private Boolean serviceManaged;
         private String slaveZoneId;
@@ -650,6 +650,7 @@ public final class GetClbResult {
     	      this.accountId = defaults.accountId;
     	      this.addressIpVersion = defaults.addressIpVersion;
     	      this.allowedPorts = defaults.allowedPorts;
+    	      this.autoRenewal = defaults.autoRenewal;
     	      this.businessStatus = defaults.businessStatus;
     	      this.bypassSecurityGroupEnabled = defaults.bypassSecurityGroupEnabled;
     	      this.createTime = defaults.createTime;
@@ -681,7 +682,6 @@ public final class GetClbResult {
     	      this.period = defaults.period;
     	      this.periodUnit = defaults.periodUnit;
     	      this.projectName = defaults.projectName;
-    	      this.regionId = defaults.regionId;
     	      this.serverGroups = defaults.serverGroups;
     	      this.serviceManaged = defaults.serviceManaged;
     	      this.slaveZoneId = defaults.slaveZoneId;
@@ -729,6 +729,14 @@ public final class GetClbResult {
         }
         public Builder allowedPorts(String... allowedPorts) {
             return allowedPorts(List.of(allowedPorts));
+        }
+        @CustomType.Setter
+        public Builder autoRenewal(Boolean autoRenewal) {
+            if (autoRenewal == null) {
+              throw new MissingRequiredPropertyException("GetClbResult", "autoRenewal");
+            }
+            this.autoRenewal = autoRenewal;
+            return this;
         }
         @CustomType.Setter
         public Builder businessStatus(String businessStatus) {
@@ -982,14 +990,6 @@ public final class GetClbResult {
             return this;
         }
         @CustomType.Setter
-        public Builder regionId(String regionId) {
-            if (regionId == null) {
-              throw new MissingRequiredPropertyException("GetClbResult", "regionId");
-            }
-            this.regionId = regionId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder serverGroups(List<GetClbServerGroup> serverGroups) {
             if (serverGroups == null) {
               throw new MissingRequiredPropertyException("GetClbResult", "serverGroups");
@@ -1089,6 +1089,7 @@ public final class GetClbResult {
             _resultValue.accountId = accountId;
             _resultValue.addressIpVersion = addressIpVersion;
             _resultValue.allowedPorts = allowedPorts;
+            _resultValue.autoRenewal = autoRenewal;
             _resultValue.businessStatus = businessStatus;
             _resultValue.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
             _resultValue.createTime = createTime;
@@ -1120,7 +1121,6 @@ public final class GetClbResult {
             _resultValue.period = period;
             _resultValue.periodUnit = periodUnit;
             _resultValue.projectName = projectName;
-            _resultValue.regionId = regionId;
             _resultValue.serverGroups = serverGroups;
             _resultValue.serviceManaged = serviceManaged;
             _resultValue.slaveZoneId = slaveZoneId;

@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class ClbEnis
     {
         /// <summary>
-        /// 负载均衡实例的私网IP地址
+        /// 负载均衡实例的私网IP地址。
         /// </summary>
         public readonly string? EniAddress;
         /// <summary>
-        /// 负载均衡实例占用的网卡ID
+        /// 负载均衡实例占用的网卡ID。
         /// </summary>
         public readonly string? EniId;
 

@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Inputs
     public sealed class ClbEnisGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 负载均衡实例的私网IP地址
+        /// 负载均衡实例的私网IP地址。
         /// </summary>
         [Input("eniAddress")]
         public Input<string>? EniAddress { get; set; }
 
         /// <summary>
-        /// 负载均衡实例占用的网卡ID
+        /// 负载均衡实例占用的网卡ID。
         /// </summary>
         [Input("eniId")]
         public Input<string>? EniId { get; set; }
