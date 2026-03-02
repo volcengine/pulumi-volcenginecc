@@ -22,6 +22,8 @@ import com.volcengine.volcenginecc.clb.inputs.GetNlbArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbListenerArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbListenerPlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbPlainArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetNlbSecurityPolicyArgs;
+import com.volcengine.volcenginecc.clb.inputs.GetNlbSecurityPolicyPlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbServerGroupArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetNlbServerGroupPlainArgs;
 import com.volcengine.volcenginecc.clb.inputs.GetRuleArgs;
@@ -39,6 +41,8 @@ import com.volcengine.volcenginecc.clb.outputs.GetListenersResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbListenerResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbListenersResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbResult;
+import com.volcengine.volcenginecc.clb.outputs.GetNlbSecurityPoliciesResult;
+import com.volcengine.volcenginecc.clb.outputs.GetNlbSecurityPolicyResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbServerGroupResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbServerGroupsResult;
 import com.volcengine.volcenginecc.clb.outputs.GetNlbsResult;
@@ -503,6 +507,90 @@ public final class ClbFunctions {
      */
     public static CompletableFuture<GetNlbListenersResult> getNlbListenersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:clb/getNlbListeners:getNlbListeners", TypeShape.of(GetNlbListenersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPoliciesResult> getNlbSecurityPolicies() {
+        return getNlbSecurityPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static CompletableFuture<GetNlbSecurityPoliciesResult> getNlbSecurityPoliciesPlain() {
+        return getNlbSecurityPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPoliciesResult> getNlbSecurityPolicies(InvokeArgs args) {
+        return getNlbSecurityPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static CompletableFuture<GetNlbSecurityPoliciesResult> getNlbSecurityPoliciesPlain(InvokeArgs args) {
+        return getNlbSecurityPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPoliciesResult> getNlbSecurityPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getNlbSecurityPolicies:getNlbSecurityPolicies", TypeShape.of(GetNlbSecurityPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPoliciesResult> getNlbSecurityPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getNlbSecurityPolicies:getNlbSecurityPolicies", TypeShape.of(GetNlbSecurityPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static CompletableFuture<GetNlbSecurityPoliciesResult> getNlbSecurityPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getNlbSecurityPolicies:getNlbSecurityPolicies", TypeShape.of(GetNlbSecurityPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPolicyResult> getNlbSecurityPolicy(GetNlbSecurityPolicyArgs args) {
+        return getNlbSecurityPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static CompletableFuture<GetNlbSecurityPolicyResult> getNlbSecurityPolicyPlain(GetNlbSecurityPolicyPlainArgs args) {
+        return getNlbSecurityPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPolicyResult> getNlbSecurityPolicy(GetNlbSecurityPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getNlbSecurityPolicy:getNlbSecurityPolicy", TypeShape.of(GetNlbSecurityPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static Output<GetNlbSecurityPolicyResult> getNlbSecurityPolicy(GetNlbSecurityPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:clb/getNlbSecurityPolicy:getNlbSecurityPolicy", TypeShape.of(GetNlbSecurityPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CLB::NLBSecurityPolicy
+     * 
+     */
+    public static CompletableFuture<GetNlbSecurityPolicyResult> getNlbSecurityPolicyPlain(GetNlbSecurityPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:clb/getNlbSecurityPolicy:getNlbSecurityPolicy", TypeShape.of(GetNlbSecurityPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::CLB::NLBServerGroup

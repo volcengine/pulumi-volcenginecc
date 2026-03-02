@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.filenas.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.filenas.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.filenas.inputs.GetMountPointArgs;
+import com.volcengine.volcenginecc.filenas.inputs.GetMountPointPlainArgs;
 import com.volcengine.volcenginecc.filenas.inputs.GetSnapshotArgs;
 import com.volcengine.volcenginecc.filenas.inputs.GetSnapshotPlainArgs;
 import com.volcengine.volcenginecc.filenas.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.filenas.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.filenas.outputs.GetMountPointResult;
+import com.volcengine.volcenginecc.filenas.outputs.GetMountPointsResult;
 import com.volcengine.volcenginecc.filenas.outputs.GetSnapshotResult;
 import com.volcengine.volcenginecc.filenas.outputs.GetSnapshotsResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class FilenasFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:filenas/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointResult> getMountPoint(GetMountPointArgs args) {
+        return getMountPoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static CompletableFuture<GetMountPointResult> getMountPointPlain(GetMountPointPlainArgs args) {
+        return getMountPointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointResult> getMountPoint(GetMountPointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:filenas/getMountPoint:getMountPoint", TypeShape.of(GetMountPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointResult> getMountPoint(GetMountPointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:filenas/getMountPoint:getMountPoint", TypeShape.of(GetMountPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static CompletableFuture<GetMountPointResult> getMountPointPlain(GetMountPointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:filenas/getMountPoint:getMountPoint", TypeShape.of(GetMountPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointsResult> getMountPoints() {
+        return getMountPoints(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static CompletableFuture<GetMountPointsResult> getMountPointsPlain() {
+        return getMountPointsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointsResult> getMountPoints(InvokeArgs args) {
+        return getMountPoints(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static CompletableFuture<GetMountPointsResult> getMountPointsPlain(InvokeArgs args) {
+        return getMountPointsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointsResult> getMountPoints(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:filenas/getMountPoints:getMountPoints", TypeShape.of(GetMountPointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static Output<GetMountPointsResult> getMountPoints(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:filenas/getMountPoints:getMountPoints", TypeShape.of(GetMountPointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FileNAS::MountPoint
+     * 
+     */
+    public static CompletableFuture<GetMountPointsResult> getMountPointsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:filenas/getMountPoints:getMountPoints", TypeShape.of(GetMountPointsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::FileNAS::Snapshot

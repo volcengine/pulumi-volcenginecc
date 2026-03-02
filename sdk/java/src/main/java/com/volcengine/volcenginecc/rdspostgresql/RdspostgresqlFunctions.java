@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetAllowListPlainArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbAccountArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbAccountPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbEndpointArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbEndpointPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetAllowListsResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbAccountResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbAccountsResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbEndpointResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbEndpointsResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class RdspostgresqlFunctions {
      */
     public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountResult> getDbAccount(GetDbAccountArgs args) {
+        return getDbAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountResult> getDbAccountPlain(GetDbAccountPlainArgs args) {
+        return getDbAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountResult> getDbAccount(GetDbAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getDbAccount:getDbAccount", TypeShape.of(GetDbAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountResult> getDbAccount(GetDbAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getDbAccount:getDbAccount", TypeShape.of(GetDbAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountResult> getDbAccountPlain(GetDbAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getDbAccount:getDbAccount", TypeShape.of(GetDbAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts() {
+        return getDbAccounts(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountsResult> getDbAccountsPlain() {
+        return getDbAccountsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts(InvokeArgs args) {
+        return getDbAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountsResult> getDbAccountsPlain(InvokeArgs args) {
+        return getDbAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getDbAccounts:getDbAccounts", TypeShape.of(GetDbAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static Output<GetDbAccountsResult> getDbAccounts(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getDbAccounts:getDbAccounts", TypeShape.of(GetDbAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::DBAccount
+     * 
+     */
+    public static CompletableFuture<GetDbAccountsResult> getDbAccountsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getDbAccounts:getDbAccounts", TypeShape.of(GetDbAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::RDSPostgreSQL::DBEndpoint

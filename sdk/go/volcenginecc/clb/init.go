@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Nlb{}
 	case "volcenginecc:clb/nlbListener:NlbListener":
 		r = &NlbListener{}
+	case "volcenginecc:clb/nlbSecurityPolicy:NlbSecurityPolicy":
+		r = &NlbSecurityPolicy{}
 	case "volcenginecc:clb/nlbServerGroup:NlbServerGroup":
 		r = &NlbServerGroup{}
 	case "volcenginecc:clb/rule:Rule":
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"clb/nlbListener",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"clb/nlbSecurityPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
