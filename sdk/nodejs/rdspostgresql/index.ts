@@ -10,6 +10,11 @@ export type AllowList = import("./allowList").AllowList;
 export const AllowList: typeof import("./allowList").AllowList = null as any;
 utilities.lazyLoad(exports, ["AllowList"], () => require("./allowList"));
 
+export { DbAccountArgs, DbAccountState } from "./dbAccount";
+export type DbAccount = import("./dbAccount").DbAccount;
+export const DbAccount: typeof import("./dbAccount").DbAccount = null as any;
+utilities.lazyLoad(exports, ["DbAccount"], () => require("./dbAccount"));
+
 export { DbEndpointArgs, DbEndpointState } from "./dbEndpoint";
 export type DbEndpoint = import("./dbEndpoint").DbEndpoint;
 export const DbEndpoint: typeof import("./dbEndpoint").DbEndpoint = null as any;
@@ -24,6 +29,16 @@ export { GetAllowListsResult } from "./getAllowLists";
 export const getAllowLists: typeof import("./getAllowLists").getAllowLists = null as any;
 export const getAllowListsOutput: typeof import("./getAllowLists").getAllowListsOutput = null as any;
 utilities.lazyLoad(exports, ["getAllowLists","getAllowListsOutput"], () => require("./getAllowLists"));
+
+export { GetDbAccountArgs, GetDbAccountResult, GetDbAccountOutputArgs } from "./getDbAccount";
+export const getDbAccount: typeof import("./getDbAccount").getDbAccount = null as any;
+export const getDbAccountOutput: typeof import("./getDbAccount").getDbAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDbAccount","getDbAccountOutput"], () => require("./getDbAccount"));
+
+export { GetDbAccountsResult } from "./getDbAccounts";
+export const getDbAccounts: typeof import("./getDbAccounts").getDbAccounts = null as any;
+export const getDbAccountsOutput: typeof import("./getDbAccounts").getDbAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getDbAccounts","getDbAccountsOutput"], () => require("./getDbAccounts"));
 
 export { GetDbEndpointArgs, GetDbEndpointResult, GetDbEndpointOutputArgs } from "./getDbEndpoint";
 export const getDbEndpoint: typeof import("./getDbEndpoint").getDbEndpoint = null as any;
@@ -42,6 +57,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:rdspostgresql/allowList:AllowList":
                 return new AllowList(name, <any>undefined, { urn })
+            case "volcenginecc:rdspostgresql/dbAccount:DbAccount":
+                return new DbAccount(name, <any>undefined, { urn })
             case "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint":
                 return new DbEndpoint(name, <any>undefined, { urn })
             default:
@@ -50,4 +67,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/allowList", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/dbAccount", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/dbEndpoint", _module)

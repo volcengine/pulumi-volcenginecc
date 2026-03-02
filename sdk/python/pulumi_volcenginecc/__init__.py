@@ -43,6 +43,8 @@ if typing.TYPE_CHECKING:
     dns = __dns
     import pulumi_volcenginecc.ecs as __ecs
     ecs = __ecs
+    import pulumi_volcenginecc.efs as __efs
+    efs = __efs
     import pulumi_volcenginecc.escloud as __escloud
     escloud = __escloud
     import pulumi_volcenginecc.filenas as __filenas
@@ -120,6 +122,7 @@ else:
     directconnect = _utilities.lazy_import('pulumi_volcenginecc.directconnect')
     dns = _utilities.lazy_import('pulumi_volcenginecc.dns')
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
+    efs = _utilities.lazy_import('pulumi_volcenginecc.efs')
     escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
     fwcenter = _utilities.lazy_import('pulumi_volcenginecc.fwcenter')
@@ -396,6 +399,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "clb/nlbSecurityPolicy",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/nlbSecurityPolicy:NlbSecurityPolicy": "NlbSecurityPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/nlbServerGroup",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
@@ -416,6 +427,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
    "volcenginecc:clb/serverGroup:ServerGroup": "ServerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cloudidentity/group",
+  "fqn": "pulumi_volcenginecc.cloudidentity",
+  "classes": {
+   "volcenginecc:cloudidentity/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cloudidentity/permissionSet",
+  "fqn": "pulumi_volcenginecc.cloudidentity",
+  "classes": {
+   "volcenginecc:cloudidentity/permissionSet:PermissionSet": "PermissionSet"
   }
  },
  {
@@ -548,6 +575,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "efs/fileSystem",
+  "fqn": "pulumi_volcenginecc.efs",
+  "classes": {
+   "volcenginecc:efs/fileSystem:FileSystem": "FileSystem"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "escloud/instance",
   "fqn": "pulumi_volcenginecc.escloud",
   "classes": {
@@ -560,6 +595,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.filenas",
   "classes": {
    "volcenginecc:filenas/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "filenas/mountPoint",
+  "fqn": "pulumi_volcenginecc.filenas",
+  "classes": {
+   "volcenginecc:filenas/mountPoint:MountPoint": "MountPoint"
   }
  },
  {
@@ -832,6 +875,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
    "volcenginecc:rdspostgresql/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdspostgresql/dbAccount",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/dbAccount:DbAccount": "DbAccount"
   }
  },
  {

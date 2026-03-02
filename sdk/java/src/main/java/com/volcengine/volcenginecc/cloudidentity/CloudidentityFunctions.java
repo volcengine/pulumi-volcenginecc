@@ -10,13 +10,189 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetGroupArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetGroupPlainArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetPlainArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetUserArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetUserPlainArgs;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetGroupResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetGroupsResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetsResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetUserResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetUsersResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CloudidentityFunctions {
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
+        return getGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
+        return getGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups() {
+        return getGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain() {
+        return getGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args) {
+        return getGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args) {
+        return getGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static Output<GetGroupsResult> getGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::Group
+     * 
+     */
+    public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args) {
+        return getPermissionSet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args) {
+        return getPermissionSetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetsResult> getPermissionSets() {
+        return getPermissionSets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetsResult> getPermissionSetsPlain() {
+        return getPermissionSetsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetsResult> getPermissionSets(InvokeArgs args) {
+        return getPermissionSets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetsResult> getPermissionSetsPlain(InvokeArgs args) {
+        return getPermissionSetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetsResult> getPermissionSets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSets:getPermissionSets", TypeShape.of(GetPermissionSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static Output<GetPermissionSetsResult> getPermissionSets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSets:getPermissionSets", TypeShape.of(GetPermissionSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetsResult> getPermissionSetsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSets:getPermissionSets", TypeShape.of(GetPermissionSetsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CloudIdentity::User
      * 

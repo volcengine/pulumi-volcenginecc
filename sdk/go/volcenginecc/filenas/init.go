@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:filenas/instance:Instance":
 		r = &Instance{}
+	case "volcenginecc:filenas/mountPoint:MountPoint":
+		r = &MountPoint{}
 	case "volcenginecc:filenas/snapshot:Snapshot":
 		r = &Snapshot{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"filenas/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"filenas/mountPoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

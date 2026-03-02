@@ -1916,6 +1916,17 @@ export namespace clb {
         value?: pulumi.Input<string>;
     }
 
+    export interface NlbSecurityPolicyTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface NlbServerGroupHealthCheck {
         /**
          * 健康检查的域名。
@@ -2156,6 +2167,30 @@ export namespace clb {
          * 绑定的标签值信息。
          */
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace cloudidentity {
+    export interface GroupMember {
+        /**
+         * 用户id。
+         */
+        userId?: pulumi.Input<string>;
+    }
+
+    export interface PermissionSetPermissionPolicy {
+        /**
+         * 策略语法内容。语法可参考 策略语法说明。
+         */
+        permissionPolicyDocument?: pulumi.Input<string>;
+        /**
+         * 策略名称。
+         */
+        permissionPolicyName?: pulumi.Input<string>;
+        /**
+         * 策略类型，System or Inline。
+         */
+        permissionPolicyType?: pulumi.Input<string>;
     }
 }
 
@@ -3257,6 +3292,97 @@ export namespace ecs {
     }
 }
 
+export namespace efs {
+    export interface FileSystemChargeConfig {
+        /**
+         * 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+         */
+        chargeStatus?: pulumi.Input<string>;
+        /**
+         * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         */
+        chargeType?: pulumi.Input<string>;
+        /**
+         * 到期时间。
+         */
+        expireTime?: pulumi.Input<string>;
+        /**
+         * 回收时间。
+         */
+        reclaimTime?: pulumi.Input<string>;
+        /**
+         * 关停时间。
+         */
+        stopTime?: pulumi.Input<string>;
+    }
+
+    export interface FileSystemPerformance {
+        /**
+         * 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+         */
+        bandwidthMode: pulumi.Input<string>;
+        /**
+         * 基准带宽。
+         */
+        baselineBandwidth?: pulumi.Input<number>;
+        /**
+         * 基准 IOPS。
+         */
+        baselineIops?: pulumi.Input<number>;
+        /**
+         * 突发带宽。
+         */
+        burstBandwidth?: pulumi.Input<number>;
+        /**
+         * 突发 IOPS。
+         */
+        burstIops?: pulumi.Input<number>;
+        /**
+         * 预置带宽。
+         */
+        provisionedBandwidth?: pulumi.Input<number>;
+        /**
+         * 预置 IOPS。
+         */
+        provisionedIops?: pulumi.Input<number>;
+    }
+
+    export interface FileSystemStorage {
+        /**
+         * 容量上限，单位为 MiB。
+         */
+        capacityLimit?: pulumi.Input<number>;
+        /**
+         * 已用容量，单位为 MiB。
+         */
+        capacityUsed?: pulumi.Input<number>;
+        /**
+         * 文件数上限。
+         */
+        inodeLimit?: pulumi.Input<number>;
+        /**
+         * 已用文件数。
+         */
+        inodeUsed?: pulumi.Input<number>;
+    }
+
+    export interface FileSystemTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+}
+
 export namespace escloud {
     export interface InstanceInstanceConfiguration {
         /**
@@ -3868,6 +3994,64 @@ export namespace filenas {
          * 标签值。
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface MountPointClient {
+        /**
+         * 客户端的私有网络 IP 地址。
+         */
+        ip?: pulumi.Input<string>;
+        /**
+         * 挂载协议版本号。取值：NFSv3。
+         */
+        protocolVersion?: pulumi.Input<string>;
+        /**
+         * 私有网络名称。
+         */
+        vpcName?: pulumi.Input<string>;
+    }
+
+    export interface MountPointPermissionGroup {
+        /**
+         * 权限组创建时间。
+         */
+        createTime?: pulumi.Input<string>;
+        /**
+         * 权限组描述信息。
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 关联该权限组的文件系统数量。
+         */
+        fileSystemCount?: pulumi.Input<number>;
+        /**
+         * 文件系统类型。取值说明如下：Extreme：NAS 极速型。Capacity：NAS 容量型。Cache：NAS 缓存型。
+         */
+        fileSystemType?: pulumi.Input<string>;
+        mountPoints?: pulumi.Input<pulumi.Input<inputs.filenas.MountPointPermissionGroupMountPoint>[]>;
+        /**
+         * 权限组名称。
+         */
+        permissionGroupName?: pulumi.Input<string>;
+        /**
+         * 权限规则数量。
+         */
+        permissionRuleCount?: pulumi.Input<number>;
+    }
+
+    export interface MountPointPermissionGroupMountPoint {
+        /**
+         * 文件系统 ID。
+         */
+        fileSystemId?: pulumi.Input<string>;
+        /**
+         * 挂载点 ID。
+         */
+        mountPointId?: pulumi.Input<string>;
+        /**
+         * 挂载点名称。
+         */
+        mountPointName?: pulumi.Input<string>;
     }
 }
 

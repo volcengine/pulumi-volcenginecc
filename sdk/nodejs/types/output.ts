@@ -3811,6 +3811,17 @@ export namespace clb {
         value: string;
     }
 
+    export interface GetNlbSecurityPolicyTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
     export interface GetNlbServerGroupHealthCheck {
         /**
          * 健康检查的域名。
@@ -4169,6 +4180,17 @@ export namespace clb {
         value: string;
     }
 
+    export interface NlbSecurityPolicyTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key: string;
+        /**
+         * 用户标签的标签值。
+         */
+        value: string;
+    }
+
     export interface NlbServerGroupHealthCheck {
         /**
          * 健康检查的域名。
@@ -4409,6 +4431,89 @@ export namespace clb {
          * 绑定的标签值信息。
          */
         value: string;
+    }
+
+}
+
+export namespace cloudidentity {
+    export interface GetGroupMember {
+        /**
+         * 用户描述信息
+         */
+        description: string;
+        /**
+         * 用户显示名称。
+         */
+        displayName: string;
+        /**
+         * 用户邮箱。
+         */
+        email: string;
+        /**
+         * 用户身份类型。
+         */
+        identityType: string;
+        /**
+         * 用户加入用户组的时间。
+         */
+        joinTime: string;
+        /**
+         * 用户手机号。
+         */
+        phone: string;
+        /**
+         * 用户来源。
+         */
+        source: string;
+        /**
+         * 用户id。
+         */
+        userId: string;
+        /**
+         * 用户名。
+         */
+        userName: string;
+    }
+
+    export interface GetPermissionSetPermissionPolicy {
+        /**
+         * 策略创建时间。
+         */
+        createdTime: string;
+        /**
+         * 策略语法内容。语法可参考 策略语法说明。
+         */
+        permissionPolicyDocument: string;
+        /**
+         * 策略名称。
+         */
+        permissionPolicyName: string;
+        /**
+         * 策略类型，System or Inline。
+         */
+        permissionPolicyType: string;
+    }
+
+    export interface GroupMember {
+        /**
+         * 用户id。
+         */
+        userId: string;
+    }
+
+    export interface PermissionSetPermissionPolicy {
+        /**
+         * 策略语法内容。语法可参考 策略语法说明。
+         */
+        permissionPolicyDocument: string;
+        /**
+         * 策略名称。
+         */
+        permissionPolicyName: string;
+        /**
+         * 策略类型，System or Inline。
+         */
+        permissionPolicyType: string;
     }
 
 }
@@ -6670,6 +6775,185 @@ export namespace ecs {
 
 }
 
+export namespace efs {
+    export interface FileSystemChargeConfig {
+        /**
+         * 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+         */
+        chargeStatus: string;
+        /**
+         * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         */
+        chargeType: string;
+        /**
+         * 到期时间。
+         */
+        expireTime: string;
+        /**
+         * 回收时间。
+         */
+        reclaimTime: string;
+        /**
+         * 关停时间。
+         */
+        stopTime: string;
+    }
+
+    export interface FileSystemPerformance {
+        /**
+         * 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+         */
+        bandwidthMode: string;
+        /**
+         * 基准带宽。
+         */
+        baselineBandwidth: number;
+        /**
+         * 基准 IOPS。
+         */
+        baselineIops: number;
+        /**
+         * 突发带宽。
+         */
+        burstBandwidth: number;
+        /**
+         * 突发 IOPS。
+         */
+        burstIops: number;
+        /**
+         * 预置带宽。
+         */
+        provisionedBandwidth: number;
+        /**
+         * 预置 IOPS。
+         */
+        provisionedIops: number;
+    }
+
+    export interface FileSystemStorage {
+        /**
+         * 容量上限，单位为 MiB。
+         */
+        capacityLimit: number;
+        /**
+         * 已用容量，单位为 MiB。
+         */
+        capacityUsed: number;
+        /**
+         * 文件数上限。
+         */
+        inodeLimit: number;
+        /**
+         * 已用文件数。
+         */
+        inodeUsed: number;
+    }
+
+    export interface FileSystemTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+    export interface GetFileSystemChargeConfig {
+        /**
+         * 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+         */
+        chargeStatus: string;
+        /**
+         * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         */
+        chargeType: string;
+        /**
+         * 到期时间。
+         */
+        expireTime: string;
+        /**
+         * 回收时间。
+         */
+        reclaimTime: string;
+        /**
+         * 关停时间。
+         */
+        stopTime: string;
+    }
+
+    export interface GetFileSystemPerformance {
+        /**
+         * 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+         */
+        bandwidthMode: string;
+        /**
+         * 基准带宽。
+         */
+        baselineBandwidth: number;
+        /**
+         * 基准 IOPS。
+         */
+        baselineIops: number;
+        /**
+         * 突发带宽。
+         */
+        burstBandwidth: number;
+        /**
+         * 突发 IOPS。
+         */
+        burstIops: number;
+        /**
+         * 预置带宽。
+         */
+        provisionedBandwidth: number;
+        /**
+         * 预置 IOPS。
+         */
+        provisionedIops: number;
+    }
+
+    export interface GetFileSystemStorage {
+        /**
+         * 容量上限，单位为 MiB。
+         */
+        capacityLimit: number;
+        /**
+         * 已用容量，单位为 MiB。
+         */
+        capacityUsed: number;
+        /**
+         * 文件数上限。
+         */
+        inodeLimit: number;
+        /**
+         * 已用文件数。
+         */
+        inodeUsed: number;
+    }
+
+    export interface GetFileSystemTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+         */
+        type: string;
+        /**
+         * 标签值。
+         */
+        value: string;
+    }
+
+}
+
 export namespace escloud {
     export interface GetInstanceInstanceConfiguration {
         /**
@@ -7870,6 +8154,67 @@ export namespace filenas {
         value: string;
     }
 
+    export interface GetMountPointClient {
+        /**
+         * 客户端的私有网络 IP 地址。
+         */
+        ip: string;
+        /**
+         * 挂载协议版本号。取值：NFSv3。
+         */
+        protocolVersion: string;
+        /**
+         * 私有网络名称。
+         */
+        vpcName: string;
+    }
+
+    export interface GetMountPointPermissionGroup {
+        /**
+         * 权限组创建时间。
+         */
+        createTime: string;
+        /**
+         * 权限组描述信息。
+         */
+        description: string;
+        /**
+         * 关联该权限组的文件系统数量。
+         */
+        fileSystemCount: number;
+        /**
+         * 文件系统类型。取值说明如下：Extreme：NAS 极速型。Capacity：NAS 容量型。Cache：NAS 缓存型。
+         */
+        fileSystemType: string;
+        /**
+         * 使用该权限组的挂载点信息。
+         */
+        mountPoints: outputs.filenas.GetMountPointPermissionGroupMountPoint[];
+        /**
+         * 权限组名称。
+         */
+        permissionGroupName: string;
+        /**
+         * 权限规则数量。
+         */
+        permissionRuleCount: number;
+    }
+
+    export interface GetMountPointPermissionGroupMountPoint {
+        /**
+         * 文件系统 ID。
+         */
+        fileSystemId: string;
+        /**
+         * 挂载点 ID。
+         */
+        mountPointId: string;
+        /**
+         * 挂载点名称。
+         */
+        mountPointName: string;
+    }
+
     export interface InstanceCachePerformance {
         /**
          * 预配置带宽，用于增加文件系统带宽。
@@ -7901,6 +8246,64 @@ export namespace filenas {
          * 标签值。
          */
         value: string;
+    }
+
+    export interface MountPointClient {
+        /**
+         * 客户端的私有网络 IP 地址。
+         */
+        ip: string;
+        /**
+         * 挂载协议版本号。取值：NFSv3。
+         */
+        protocolVersion: string;
+        /**
+         * 私有网络名称。
+         */
+        vpcName: string;
+    }
+
+    export interface MountPointPermissionGroup {
+        /**
+         * 权限组创建时间。
+         */
+        createTime: string;
+        /**
+         * 权限组描述信息。
+         */
+        description: string;
+        /**
+         * 关联该权限组的文件系统数量。
+         */
+        fileSystemCount: number;
+        /**
+         * 文件系统类型。取值说明如下：Extreme：NAS 极速型。Capacity：NAS 容量型。Cache：NAS 缓存型。
+         */
+        fileSystemType: string;
+        mountPoints: outputs.filenas.MountPointPermissionGroupMountPoint[];
+        /**
+         * 权限组名称。
+         */
+        permissionGroupName: string;
+        /**
+         * 权限规则数量。
+         */
+        permissionRuleCount: number;
+    }
+
+    export interface MountPointPermissionGroupMountPoint {
+        /**
+         * 文件系统 ID。
+         */
+        fileSystemId: string;
+        /**
+         * 挂载点 ID。
+         */
+        mountPointId: string;
+        /**
+         * 挂载点名称。
+         */
+        mountPointName: string;
     }
 
 }
