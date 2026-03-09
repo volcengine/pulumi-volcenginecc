@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AllowListArgs, AllowListState } from "./allowList";
+export type AllowList = import("./allowList").AllowList;
+export const AllowList: typeof import("./allowList").AllowList = null as any;
+utilities.lazyLoad(exports, ["AllowList"], () => require("./allowList"));
+
+export { GetAllowListArgs, GetAllowListResult, GetAllowListOutputArgs } from "./getAllowList";
+export const getAllowList: typeof import("./getAllowList").getAllowList = null as any;
+export const getAllowListOutput: typeof import("./getAllowList").getAllowListOutput = null as any;
+utilities.lazyLoad(exports, ["getAllowList","getAllowListOutput"], () => require("./getAllowList"));
+
+export { GetAllowListsResult } from "./getAllowLists";
+export const getAllowLists: typeof import("./getAllowLists").getAllowLists = null as any;
+export const getAllowListsOutput: typeof import("./getAllowLists").getAllowListsOutput = null as any;
+utilities.lazyLoad(exports, ["getAllowLists","getAllowListsOutput"], () => require("./getAllowLists"));
+
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
@@ -55,6 +70,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:rocketmq/allowList:AllowList":
+                return new AllowList(name, <any>undefined, { urn })
             case "volcenginecc:rocketmq/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "volcenginecc:rocketmq/instance:Instance":
@@ -66,6 +83,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/allowList", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/group", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/instance", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/topic", _module)

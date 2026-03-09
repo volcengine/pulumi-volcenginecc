@@ -75,7 +75,7 @@ export class BackupResource extends pulumi.CustomResource {
     /**
      * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
      */
-    public readonly metaInformation!: pulumi.Output<outputs.cbr.BackupResourceMetaInformation>;
+    public /*out*/ readonly metaInformation!: pulumi.Output<outputs.cbr.BackupResourceMetaInformation>;
     public /*out*/ readonly plans!: pulumi.Output<outputs.cbr.BackupResourcePlan[]>;
     /**
      * 恢复点的数量
@@ -140,10 +140,10 @@ export class BackupResource extends pulumi.CustomResource {
             }
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["metaInformation"] = args ? args.metaInformation : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["metaInformation"] = undefined /*out*/;
             resourceInputs["plans"] = undefined /*out*/;
             resourceInputs["recoveryPointNumber"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
@@ -219,10 +219,6 @@ export interface BackupResourceArgs {
      * 实例名称。
      */
     instanceName: pulumi.Input<string>;
-    /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-     */
-    metaInformation?: pulumi.Input<inputs.cbr.BackupResourceMetaInformation>;
     /**
      * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
      */

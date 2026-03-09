@@ -24,20 +24,16 @@ class BackupResourceArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[builtins.str],
                  instance_name: pulumi.Input[builtins.str],
-                 resource_type: pulumi.Input[builtins.str],
-                 meta_information: Optional[pulumi.Input['BackupResourceMetaInformationArgs']] = None):
+                 resource_type: pulumi.Input[builtins.str]):
         """
         The set of arguments for constructing a BackupResource resource.
         :param pulumi.Input[builtins.str] instance_id: 实例 ID。
         :param pulumi.Input[builtins.str] instance_name: 实例名称。
         :param pulumi.Input[builtins.str] resource_type: 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
-        :param pulumi.Input['BackupResourceMetaInformationArgs'] meta_information: 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_type", resource_type)
-        if meta_information is not None:
-            pulumi.set(__self__, "meta_information", meta_information)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -74,18 +70,6 @@ class BackupResourceArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_type", value)
-
-    @property
-    @pulumi.getter(name="metaInformation")
-    def meta_information(self) -> Optional[pulumi.Input['BackupResourceMetaInformationArgs']]:
-        """
-        资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-        """
-        return pulumi.get(self, "meta_information")
-
-    @meta_information.setter
-    def meta_information(self, value: Optional[pulumi.Input['BackupResourceMetaInformationArgs']]):
-        pulumi.set(self, "meta_information", value)
 
 
 @pulumi.input_type
@@ -292,7 +276,6 @@ class BackupResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
-                 meta_information: Optional[pulumi.Input[Union['BackupResourceMetaInformationArgs', 'BackupResourceMetaInformationArgsDict']]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -320,7 +303,6 @@ class BackupResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] instance_id: 实例 ID。
         :param pulumi.Input[builtins.str] instance_name: 实例名称。
-        :param pulumi.Input[Union['BackupResourceMetaInformationArgs', 'BackupResourceMetaInformationArgsDict']] meta_information: 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
         :param pulumi.Input[builtins.str] resource_type: 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
         """
         ...
@@ -367,7 +349,6 @@ class BackupResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
-                 meta_information: Optional[pulumi.Input[Union['BackupResourceMetaInformationArgs', 'BackupResourceMetaInformationArgsDict']]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -384,12 +365,12 @@ class BackupResource(pulumi.CustomResource):
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
-            __props__.__dict__["meta_information"] = meta_information
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["account_id"] = None
             __props__.__dict__["created_time"] = None
+            __props__.__dict__["meta_information"] = None
             __props__.__dict__["plans"] = None
             __props__.__dict__["recovery_point_number"] = None
             __props__.__dict__["resource_id"] = None

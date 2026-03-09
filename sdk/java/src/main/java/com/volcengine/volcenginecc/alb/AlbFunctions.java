@@ -22,6 +22,8 @@ import com.volcengine.volcenginecc.alb.inputs.GetListenerArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetListenerPlainArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetLoadBalancerArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetLoadBalancerPlainArgs;
+import com.volcengine.volcenginecc.alb.inputs.GetRuleArgs;
+import com.volcengine.volcenginecc.alb.inputs.GetRulePlainArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetServerGroupArgs;
 import com.volcengine.volcenginecc.alb.inputs.GetServerGroupPlainArgs;
 import com.volcengine.volcenginecc.alb.outputs.GetAclResult;
@@ -36,6 +38,8 @@ import com.volcengine.volcenginecc.alb.outputs.GetListenerResult;
 import com.volcengine.volcenginecc.alb.outputs.GetListenersResult;
 import com.volcengine.volcenginecc.alb.outputs.GetLoadBalancerResult;
 import com.volcengine.volcenginecc.alb.outputs.GetLoadBalancersResult;
+import com.volcengine.volcenginecc.alb.outputs.GetRuleResult;
+import com.volcengine.volcenginecc.alb.outputs.GetRulesResult;
 import com.volcengine.volcenginecc.alb.outputs.GetServerGroupResult;
 import com.volcengine.volcenginecc.alb.outputs.GetServerGroupsResult;
 import java.util.concurrent.CompletableFuture;
@@ -544,6 +548,90 @@ public final class AlbFunctions {
      */
     public static CompletableFuture<GetLoadBalancersResult> getLoadBalancersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:alb/getLoadBalancers:getLoadBalancers", TypeShape.of(GetLoadBalancersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args) {
+        return getRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
+        return getRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:alb/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules() {
+        return getRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain() {
+        return getRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args) {
+        return getRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args) {
+        return getRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:alb/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ALB::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:alb/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::ALB::ServerGroup

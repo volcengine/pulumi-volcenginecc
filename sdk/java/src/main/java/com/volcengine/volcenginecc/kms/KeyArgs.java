@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.kms.inputs.KeyTagArgs;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,6 +36,36 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+     * 
+     */
+    @Import(name="keyArchiveOperation")
+    private @Nullable Output<Integer> keyArchiveOperation;
+
+    /**
+     * @return 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+     * 
+     */
+    public Optional<Output<Integer>> keyArchiveOperation() {
+        return Optional.ofNullable(this.keyArchiveOperation);
+    }
+
+    /**
+     * 用户主密钥启用操作（用户输入1=启用，2=禁用）
+     * 
+     */
+    @Import(name="keyEnableOperation")
+    private @Nullable Output<Integer> keyEnableOperation;
+
+    /**
+     * @return 用户主密钥启用操作（用户输入1=启用，2=禁用）
+     * 
+     */
+    public Optional<Output<Integer>> keyEnableOperation() {
+        return Optional.ofNullable(this.keyEnableOperation);
+    }
+
+    /**
      * 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
      * 
      */
@@ -47,6 +78,21 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> keyName() {
         return this.keyName;
+    }
+
+    /**
+     * 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+     * 
+     */
+    @Import(name="keyRotationOperation")
+    private @Nullable Output<Integer> keyRotationOperation;
+
+    /**
+     * @return 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+     * 
+     */
+    public Optional<Output<Integer>> keyRotationOperation() {
+        return Optional.ofNullable(this.keyRotationOperation);
     }
 
     /**
@@ -140,18 +186,18 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 密钥轮转状态，取值：Enable，Disable。
+     * 密钥轮转周期，单位：天；取值范围：[90, 2560]。
      * 
      */
-    @Import(name="rotateState")
-    private @Nullable Output<String> rotateState;
+    @Import(name="rotateInterval")
+    private @Nullable Output<Integer> rotateInterval;
 
     /**
-     * @return 密钥轮转状态，取值：Enable，Disable。
+     * @return 密钥轮转周期，单位：天；取值范围：[90, 2560]。
      * 
      */
-    public Optional<Output<String>> rotateState() {
-        return Optional.ofNullable(this.rotateState);
+    public Optional<Output<Integer>> rotateInterval() {
+        return Optional.ofNullable(this.rotateInterval);
     }
 
     @Import(name="tags")
@@ -165,14 +211,17 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
 
     private KeyArgs(KeyArgs $) {
         this.description = $.description;
+        this.keyArchiveOperation = $.keyArchiveOperation;
+        this.keyEnableOperation = $.keyEnableOperation;
         this.keyName = $.keyName;
+        this.keyRotationOperation = $.keyRotationOperation;
         this.keySpec = $.keySpec;
         this.keyUsage = $.keyUsage;
         this.keyringName = $.keyringName;
         this.multiRegion = $.multiRegion;
         this.origin = $.origin;
         this.protectionLevel = $.protectionLevel;
-        this.rotateState = $.rotateState;
+        this.rotateInterval = $.rotateInterval;
         this.tags = $.tags;
     }
 
@@ -216,6 +265,48 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param keyArchiveOperation 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyArchiveOperation(@Nullable Output<Integer> keyArchiveOperation) {
+            $.keyArchiveOperation = keyArchiveOperation;
+            return this;
+        }
+
+        /**
+         * @param keyArchiveOperation 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyArchiveOperation(Integer keyArchiveOperation) {
+            return keyArchiveOperation(Output.of(keyArchiveOperation));
+        }
+
+        /**
+         * @param keyEnableOperation 用户主密钥启用操作（用户输入1=启用，2=禁用）
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyEnableOperation(@Nullable Output<Integer> keyEnableOperation) {
+            $.keyEnableOperation = keyEnableOperation;
+            return this;
+        }
+
+        /**
+         * @param keyEnableOperation 用户主密钥启用操作（用户输入1=启用，2=禁用）
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyEnableOperation(Integer keyEnableOperation) {
+            return keyEnableOperation(Output.of(keyEnableOperation));
+        }
+
+        /**
          * @param keyName 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
          * 
          * @return builder
@@ -234,6 +325,27 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyName(String keyName) {
             return keyName(Output.of(keyName));
+        }
+
+        /**
+         * @param keyRotationOperation 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyRotationOperation(@Nullable Output<Integer> keyRotationOperation) {
+            $.keyRotationOperation = keyRotationOperation;
+            return this;
+        }
+
+        /**
+         * @param keyRotationOperation 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyRotationOperation(Integer keyRotationOperation) {
+            return keyRotationOperation(Output.of(keyRotationOperation));
         }
 
         /**
@@ -363,24 +475,24 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rotateState 密钥轮转状态，取值：Enable，Disable。
+         * @param rotateInterval 密钥轮转周期，单位：天；取值范围：[90, 2560]。
          * 
          * @return builder
          * 
          */
-        public Builder rotateState(@Nullable Output<String> rotateState) {
-            $.rotateState = rotateState;
+        public Builder rotateInterval(@Nullable Output<Integer> rotateInterval) {
+            $.rotateInterval = rotateInterval;
             return this;
         }
 
         /**
-         * @param rotateState 密钥轮转状态，取值：Enable，Disable。
+         * @param rotateInterval 密钥轮转周期，单位：天；取值范围：[90, 2560]。
          * 
          * @return builder
          * 
          */
-        public Builder rotateState(String rotateState) {
-            return rotateState(Output.of(rotateState));
+        public Builder rotateInterval(Integer rotateInterval) {
+            return rotateInterval(Output.of(rotateInterval));
         }
 
         public Builder tags(@Nullable Output<List<KeyTagArgs>> tags) {

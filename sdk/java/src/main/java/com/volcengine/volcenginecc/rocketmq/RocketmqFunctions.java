@@ -10,12 +10,16 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetAllowListArgs;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetGroupArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetGroupPlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetAllowListResult;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetGroupResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetGroupsResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetInstanceResult;
@@ -25,6 +29,90 @@ import com.volcengine.volcenginecc.rocketmq.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RocketmqFunctions {
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args) {
+        return getAllowList(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListResult> getAllowListPlain(GetAllowListPlainArgs args) {
+        return getAllowListPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListResult> getAllowListPlain(GetAllowListPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists() {
+        return getAllowLists(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain() {
+        return getAllowListsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args) {
+        return getAllowLists(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args) {
+        return getAllowListsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::RocketMQ::Group
      * 

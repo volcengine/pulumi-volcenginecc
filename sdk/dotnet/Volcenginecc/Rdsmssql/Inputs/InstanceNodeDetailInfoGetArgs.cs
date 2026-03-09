@@ -20,6 +20,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql.Inputs
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
+        /// 节点主机名。
+        /// </summary>
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
+
+        /// <summary>
         /// 实例ID。
         /// </summary>
         [Input("instanceId")]

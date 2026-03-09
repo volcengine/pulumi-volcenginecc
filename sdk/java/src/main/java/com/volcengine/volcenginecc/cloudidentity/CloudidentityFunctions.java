@@ -13,13 +13,25 @@ import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetGroupArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetGroupPlainArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetAssignmentArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetAssignmentPlainArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetPlainArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetProvisioningArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetPermissionSetProvisioningPlainArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetUserArgs;
 import com.volcengine.volcenginecc.cloudidentity.inputs.GetUserPlainArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetUserProvisioningArgs;
+import com.volcengine.volcenginecc.cloudidentity.inputs.GetUserProvisioningPlainArgs;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetGroupResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetGroupsResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetAssignmentResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetAssignmentsResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetProvisioningResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetProvisioningsResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetPermissionSetsResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetUserProvisioningResult;
+import com.volcengine.volcenginecc.cloudidentity.outputs.GetUserProvisioningsResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetUserResult;
 import com.volcengine.volcenginecc.cloudidentity.outputs.GetUsersResult;
 import java.util.concurrent.CompletableFuture;
@@ -145,6 +157,174 @@ public final class CloudidentityFunctions {
         return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentResult> getPermissionSetAssignment(GetPermissionSetAssignmentArgs args) {
+        return getPermissionSetAssignment(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetAssignmentResult> getPermissionSetAssignmentPlain(GetPermissionSetAssignmentPlainArgs args) {
+        return getPermissionSetAssignmentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentResult> getPermissionSetAssignment(GetPermissionSetAssignmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetAssignment:getPermissionSetAssignment", TypeShape.of(GetPermissionSetAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentResult> getPermissionSetAssignment(GetPermissionSetAssignmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetAssignment:getPermissionSetAssignment", TypeShape.of(GetPermissionSetAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetAssignmentResult> getPermissionSetAssignmentPlain(GetPermissionSetAssignmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSetAssignment:getPermissionSetAssignment", TypeShape.of(GetPermissionSetAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentsResult> getPermissionSetAssignments() {
+        return getPermissionSetAssignments(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetAssignmentsResult> getPermissionSetAssignmentsPlain() {
+        return getPermissionSetAssignmentsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentsResult> getPermissionSetAssignments(InvokeArgs args) {
+        return getPermissionSetAssignments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetAssignmentsResult> getPermissionSetAssignmentsPlain(InvokeArgs args) {
+        return getPermissionSetAssignmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentsResult> getPermissionSetAssignments(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetAssignments:getPermissionSetAssignments", TypeShape.of(GetPermissionSetAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static Output<GetPermissionSetAssignmentsResult> getPermissionSetAssignments(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetAssignments:getPermissionSetAssignments", TypeShape.of(GetPermissionSetAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetAssignment
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetAssignmentsResult> getPermissionSetAssignmentsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSetAssignments:getPermissionSetAssignments", TypeShape.of(GetPermissionSetAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningResult> getPermissionSetProvisioning(GetPermissionSetProvisioningArgs args) {
+        return getPermissionSetProvisioning(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetProvisioningResult> getPermissionSetProvisioningPlain(GetPermissionSetProvisioningPlainArgs args) {
+        return getPermissionSetProvisioningPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningResult> getPermissionSetProvisioning(GetPermissionSetProvisioningArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetProvisioning:getPermissionSetProvisioning", TypeShape.of(GetPermissionSetProvisioningResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningResult> getPermissionSetProvisioning(GetPermissionSetProvisioningArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetProvisioning:getPermissionSetProvisioning", TypeShape.of(GetPermissionSetProvisioningResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetProvisioningResult> getPermissionSetProvisioningPlain(GetPermissionSetProvisioningPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSetProvisioning:getPermissionSetProvisioning", TypeShape.of(GetPermissionSetProvisioningResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningsResult> getPermissionSetProvisionings() {
+        return getPermissionSetProvisionings(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetProvisioningsResult> getPermissionSetProvisioningsPlain() {
+        return getPermissionSetProvisioningsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningsResult> getPermissionSetProvisionings(InvokeArgs args) {
+        return getPermissionSetProvisionings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetProvisioningsResult> getPermissionSetProvisioningsPlain(InvokeArgs args) {
+        return getPermissionSetProvisioningsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningsResult> getPermissionSetProvisionings(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetProvisionings:getPermissionSetProvisionings", TypeShape.of(GetPermissionSetProvisioningsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static Output<GetPermissionSetProvisioningsResult> getPermissionSetProvisionings(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getPermissionSetProvisionings:getPermissionSetProvisionings", TypeShape.of(GetPermissionSetProvisioningsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSetProvisioning
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetProvisioningsResult> getPermissionSetProvisioningsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getPermissionSetProvisionings:getPermissionSetProvisionings", TypeShape.of(GetPermissionSetProvisioningsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Plural Data Source schema for Volcengine::CloudIdentity::PermissionSet
      * 
      */
@@ -227,6 +407,90 @@ public final class CloudidentityFunctions {
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningResult> getUserProvisioning(GetUserProvisioningArgs args) {
+        return getUserProvisioning(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static CompletableFuture<GetUserProvisioningResult> getUserProvisioningPlain(GetUserProvisioningPlainArgs args) {
+        return getUserProvisioningPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningResult> getUserProvisioning(GetUserProvisioningArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getUserProvisioning:getUserProvisioning", TypeShape.of(GetUserProvisioningResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningResult> getUserProvisioning(GetUserProvisioningArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getUserProvisioning:getUserProvisioning", TypeShape.of(GetUserProvisioningResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static CompletableFuture<GetUserProvisioningResult> getUserProvisioningPlain(GetUserProvisioningPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getUserProvisioning:getUserProvisioning", TypeShape.of(GetUserProvisioningResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningsResult> getUserProvisionings() {
+        return getUserProvisionings(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static CompletableFuture<GetUserProvisioningsResult> getUserProvisioningsPlain() {
+        return getUserProvisioningsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningsResult> getUserProvisionings(InvokeArgs args) {
+        return getUserProvisionings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static CompletableFuture<GetUserProvisioningsResult> getUserProvisioningsPlain(InvokeArgs args) {
+        return getUserProvisioningsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningsResult> getUserProvisionings(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getUserProvisionings:getUserProvisionings", TypeShape.of(GetUserProvisioningsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static Output<GetUserProvisioningsResult> getUserProvisionings(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudidentity/getUserProvisionings:getUserProvisionings", TypeShape.of(GetUserProvisioningsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudIdentity::UserProvisioning
+     * 
+     */
+    public static CompletableFuture<GetUserProvisioningsResult> getUserProvisioningsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudidentity/getUserProvisionings:getUserProvisionings", TypeShape.of(GetUserProvisioningsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::CloudIdentity::User

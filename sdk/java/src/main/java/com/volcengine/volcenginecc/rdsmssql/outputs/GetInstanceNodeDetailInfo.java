@@ -17,6 +17,11 @@ public final class GetInstanceNodeDetailInfo {
      */
     private String createTime;
     /**
+     * @return 节点主机名。
+     * 
+     */
+    private String hostName;
+    /**
      * @return 实例ID。
      * 
      */
@@ -79,6 +84,13 @@ public final class GetInstanceNodeDetailInfo {
      */
     public String createTime() {
         return this.createTime;
+    }
+    /**
+     * @return 节点主机名。
+     * 
+     */
+    public String hostName() {
+        return this.hostName;
     }
     /**
      * @return 实例ID。
@@ -168,6 +180,7 @@ public final class GetInstanceNodeDetailInfo {
     @CustomType.Builder
     public static final class Builder {
         private String createTime;
+        private String hostName;
         private String instanceId;
         private Integer memory;
         private String nodeId;
@@ -183,6 +196,7 @@ public final class GetInstanceNodeDetailInfo {
         public Builder(GetInstanceNodeDetailInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createTime = defaults.createTime;
+    	      this.hostName = defaults.hostName;
     	      this.instanceId = defaults.instanceId;
     	      this.memory = defaults.memory;
     	      this.nodeId = defaults.nodeId;
@@ -202,6 +216,14 @@ public final class GetInstanceNodeDetailInfo {
               throw new MissingRequiredPropertyException("GetInstanceNodeDetailInfo", "createTime");
             }
             this.createTime = createTime;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostName(String hostName) {
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetInstanceNodeDetailInfo", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
@@ -295,6 +317,7 @@ public final class GetInstanceNodeDetailInfo {
         public GetInstanceNodeDetailInfo build() {
             final var _resultValue = new GetInstanceNodeDetailInfo();
             _resultValue.createTime = createTime;
+            _resultValue.hostName = hostName;
             _resultValue.instanceId = instanceId;
             _resultValue.memory = memory;
             _resultValue.nodeId = nodeId;

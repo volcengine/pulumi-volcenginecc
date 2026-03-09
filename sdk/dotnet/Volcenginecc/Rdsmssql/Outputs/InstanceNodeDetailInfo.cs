@@ -19,6 +19,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql.Outputs
         /// </summary>
         public readonly string? CreateTime;
         /// <summary>
+        /// 节点主机名。
+        /// </summary>
+        public readonly string? HostName;
+        /// <summary>
         /// 实例ID。
         /// </summary>
         public readonly string? InstanceId;
@@ -67,6 +71,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql.Outputs
         private InstanceNodeDetailInfo(
             string? createTime,
 
+            string? hostName,
+
             string? instanceId,
 
             int? memory,
@@ -90,6 +96,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql.Outputs
             string? zoneId)
         {
             CreateTime = createTime;
+            HostName = hostName;
             InstanceId = instanceId;
             Memory = memory;
             NodeId = nodeId;

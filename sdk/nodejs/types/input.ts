@@ -232,6 +232,242 @@ export namespace alb {
         zoneId?: pulumi.Input<string>;
     }
 
+    export interface RuleForwardGroupConfig {
+        serverGroupTuples?: pulumi.Input<pulumi.Input<inputs.alb.RuleForwardGroupConfigServerGroupTuple>[]>;
+        /**
+         * 是否开启组间会话保持。on：开启。off：不开启。
+         */
+        stickySessionEnabled?: pulumi.Input<string>;
+        /**
+         * 组件回话保持的超时时间。单位：秒。
+         */
+        stickySessionTimeout?: pulumi.Input<number>;
+    }
+
+    export interface RuleForwardGroupConfigServerGroupTuple {
+        /**
+         * 转发到的目的服务器组 ID。
+         */
+        serverGroupId?: pulumi.Input<string>;
+        /**
+         * 服务器组权重。
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface RuleRedirectConfig {
+        /**
+         * 重定向的域名。若创建/修改重定向类型的转发规则时，重定向域名设置为空，接口会返回${host}，该变量含义为重定向域名与请求域名保持一致，但不支持创建/修改时，将重定向域名设置为${host}.。
+         */
+        redirectDomain?: pulumi.Input<string>;
+        /**
+         * 重定向状态码。301、302、307、308。
+         */
+        redirectHttpCode?: pulumi.Input<string>;
+        /**
+         * 重定向的端口。若创建/修改重定向类型的转发规则时，重定向端口设置为空，接口会返回${port}，该变量含义为重定向端口与请求端口（监听器端口）保持一致，但不支持创建/修改时，将重定向端口设置为${port}.。
+         */
+        redirectPort?: pulumi.Input<string>;
+        /**
+         * 重定向使用的协议。HTTP、HTTPS。
+         */
+        redirectProtocol?: pulumi.Input<string>;
+        /**
+         * 重定向的URI。若创建/修改重定向类型的转发规则时，重定向uri设置为空，接口会返回${request*uri}，该变量含义为重定向uri与请求uri保持一致，但不支持创建/修改时，将重定向uri设置为${request*uri}.。
+         */
+        redirectUri?: pulumi.Input<string>;
+    }
+
+    export interface RuleRewriteConfig {
+        /**
+         * 重写路径。
+         */
+        rewritePath?: pulumi.Input<string>;
+    }
+
+    export interface RuleRuleAction {
+        /**
+         * FixedResponseConfig
+         */
+        fixedResponseConfig?: pulumi.Input<inputs.alb.RuleRuleActionFixedResponseConfig>;
+        /**
+         * ForwardGroupConfig
+         */
+        forwardGroupConfig?: pulumi.Input<inputs.alb.RuleRuleActionForwardGroupConfig>;
+        /**
+         * RedirectConfig
+         */
+        redirectConfig?: pulumi.Input<inputs.alb.RuleRuleActionRedirectConfig>;
+        /**
+         * RewriteConfig
+         */
+        rewriteConfig?: pulumi.Input<inputs.alb.RuleRuleActionRewriteConfig>;
+        /**
+         * TrafficLimitConfig
+         */
+        trafficLimitConfig?: pulumi.Input<inputs.alb.RuleRuleActionTrafficLimitConfig>;
+        /**
+         * 转发规则动作类型。ForwardGroup：转发至多个虚拟服务器组。Redirect： 重定向。Rewrite： 重写。TrafficLimit：流量限速。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface RuleRuleActionFixedResponseConfig {
+        /**
+         * 返回的固定内容。
+         */
+        content?: pulumi.Input<string>;
+        /**
+         * 返回的固定内容的格式。text/plain、text/css、text/html、application/javascript、application/json
+         */
+        contentType?: pulumi.Input<string>;
+        /**
+         * 返回的 HTTP 状态码。
+         */
+        httpCode?: pulumi.Input<string>;
+    }
+
+    export interface RuleRuleActionForwardGroupConfig {
+        /**
+         * ServerGroupStickySession
+         */
+        serverGroupStickySession?: pulumi.Input<inputs.alb.RuleRuleActionForwardGroupConfigServerGroupStickySession>;
+        serverGroupTuples?: pulumi.Input<pulumi.Input<inputs.alb.RuleRuleActionForwardGroupConfigServerGroupTuple>[]>;
+    }
+
+    export interface RuleRuleActionForwardGroupConfigServerGroupStickySession {
+        /**
+         * 是否开启组间会话保持。on：开启。off：不开启。
+         */
+        enabled?: pulumi.Input<string>;
+        /**
+         * 组件回话保持的超时时间。单位：秒。
+         */
+        timeout?: pulumi.Input<number>;
+    }
+
+    export interface RuleRuleActionForwardGroupConfigServerGroupTuple {
+        /**
+         * 转发到的目的服务器组 ID。
+         */
+        serverGroupId?: pulumi.Input<string>;
+        /**
+         * 服务器组权重。
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface RuleRuleActionRedirectConfig {
+        /**
+         * 重定向域名，仅支持精确域名。
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * 重定向状态码，支持301，302，307，308。
+         */
+        httpCode?: pulumi.Input<string>;
+        /**
+         * 重定向 URI。。
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * 重定向端口。
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * 重定向使用的协议，支持HTTP，HTTPS。
+         */
+        protocol?: pulumi.Input<string>;
+    }
+
+    export interface RuleRuleActionRewriteConfig {
+        /**
+         * 重写路径。
+         */
+        path?: pulumi.Input<string>;
+    }
+
+    export interface RuleRuleActionTrafficLimitConfig {
+        /**
+         * 每秒请求数。
+         */
+        qps?: pulumi.Input<number>;
+    }
+
+    export interface RuleRuleCondition {
+        /**
+         * HeaderConfig。
+         */
+        headerConfig?: pulumi.Input<inputs.alb.RuleRuleConditionHeaderConfig>;
+        /**
+         * HostConfig。
+         */
+        hostConfig?: pulumi.Input<inputs.alb.RuleRuleConditionHostConfig>;
+        /**
+         * MethodConfig。
+         */
+        methodConfig?: pulumi.Input<inputs.alb.RuleRuleConditionMethodConfig>;
+        /**
+         * PathConfig。
+         */
+        pathConfig?: pulumi.Input<inputs.alb.RuleRuleConditionPathConfig>;
+        /**
+         * QueryStringConfig。
+         */
+        queryStringConfig?: pulumi.Input<inputs.alb.RuleRuleConditionQueryStringConfig>;
+        /**
+         * 标准版转发规则条件类型。Host： 域名。Path： 路径。Header：HTTP头字段。Method: 请求方法。QueryString: 查询参数。
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface RuleRuleConditionHeaderConfig {
+        /**
+         * 头字段键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 头字段值。
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleRuleConditionHostConfig {
+        /**
+         * 转发规则的域名，支持泛域名和精确域名。
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleRuleConditionMethodConfig {
+        /**
+         * 请求方法。支持HEAD、GET、POST、OPTIONS、PUT、PATCH、DELETE。
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleRuleConditionPathConfig {
+        /**
+         * 转发规则的URL，仅支持绝对路径。
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleRuleConditionQueryStringConfig {
+        values?: pulumi.Input<pulumi.Input<inputs.alb.RuleRuleConditionQueryStringConfigValue>[]>;
+    }
+
+    export interface RuleRuleConditionQueryStringConfigValue {
+        /**
+         * 查询字符串键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 查询字符串值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface ServerGroupHealthCheck {
         /**
          * 健康检查的域名，需配置为后端服务器上真实对外提供服务的地址。只有 HealthCheck.Protocol 设置为 HTTP 时该参数生效。需至少包含一个‘.’，且不允许以‘.’开头或结尾。域名每一级由字母、数字、‘-’、‘.’字符组成，且‘-’不得出现在每一级的头部或尾部。长度限制为1 ～ 128个字符。不传入该参数或该参数不传入数值时，默认为空，表示负载均衡使用各后端服务器的私网IP地址进行健康检查。
@@ -4367,6 +4603,13 @@ export namespace iam {
 }
 
 export namespace kafka {
+    export interface AllowListAssociatedInstance {
+        /**
+         * 白名单绑定的实例ID。
+         */
+        instanceId?: pulumi.Input<string>;
+    }
+
     export interface TopicAccessPolicy {
         /**
          * SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。
@@ -5079,6 +5322,10 @@ export namespace rdsmssql {
          */
         createTime?: pulumi.Input<string>;
         /**
+         * 节点主机名。
+         */
+        hostName?: pulumi.Input<string>;
+        /**
          * 实例ID。
          */
         instanceId?: pulumi.Input<string>;
@@ -5763,6 +6010,13 @@ export namespace redis {
 }
 
 export namespace rocketmq {
+    export interface AllowListAssociatedInstance {
+        /**
+         * 实例ID。
+         */
+        instanceId?: pulumi.Input<string>;
+    }
+
     export interface GroupConsumedClient {
         /**
          * 该消费者实例的地址和端口。
@@ -6004,6 +6258,17 @@ export namespace storageebs {
 }
 
 export namespace tls {
+    export interface ProjectTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface TopicTag {
         /**
          * 用户标签的标签键。
@@ -7380,6 +7645,10 @@ export namespace vke {
          */
         autoSyncDisabled?: pulumi.Input<boolean>;
         /**
+         * 节点池 Containerd 相关配置。
+         */
+        containerdConfig?: pulumi.Input<inputs.vke.NodePoolKubernetesConfigContainerdConfig>;
+        /**
          * 封锁节点配置，参数值说明：false：不封锁。true：封锁。
          */
         cordon?: pulumi.Input<boolean>;
@@ -7403,11 +7672,31 @@ export namespace vke {
         taints?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigTaint>[]>;
     }
 
+    export interface NodePoolKubernetesConfigContainerdConfig {
+        /**
+         * 指定跳过证书认证的容器镜像仓库地址。
+         */
+        insecureRegistries?: pulumi.Input<pulumi.Input<string>[]>;
+        registryProxyConfigs?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigContainerdConfigRegistryProxyConfig>[]>;
+    }
+
+    export interface NodePoolKubernetesConfigContainerdConfigRegistryProxyConfig {
+        /**
+         * 代理地址。
+         */
+        proxyEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 容器镜像仓库地址。
+         */
+        registry?: pulumi.Input<string>;
+    }
+
     export interface NodePoolKubernetesConfigKubeletConfig {
         /**
          * 配置 kubelet 的 CpuManagerPolicy 策略，包含 none 和 static 两种策略
          */
         cpuManagerPolicy?: pulumi.Input<string>;
+        evictionHards?: pulumi.Input<pulumi.Input<inputs.vke.NodePoolKubernetesConfigKubeletConfigEvictionHard>[]>;
         /**
          * 特性门控。
          */
@@ -7446,6 +7735,17 @@ export namespace vke {
          * 拓扑管理策略的资源粒度，取值：container：表示资源对齐粒度为容器级。pod：表示资源对齐粒度为 Pod 级。
          */
         topologyManagerScope?: pulumi.Input<string>;
+    }
+
+    export interface NodePoolKubernetesConfigKubeletConfigEvictionHard {
+        /**
+         * 硬性门限名称。取值：memory.available、nodefs.available、nodefs.inodesFree、imagefs.available
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 硬性门限值。
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface NodePoolKubernetesConfigKubeletConfigFeatureGates {

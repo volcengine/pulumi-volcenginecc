@@ -73,6 +73,74 @@
                     }
                 }
             },
+            "volcenginecc_alb_rule": {
+                "current": "volcenginecc:alb/rule:Rule",
+                "fields": {
+                    "forward_group_config": {
+                        "fields": {
+                            "server_group_tuples": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "rule_actions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "forward_group_config": {
+                                    "fields": {
+                                        "server_group_tuples": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "rule_conditions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "header_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "host_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "method_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "path_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "query_string_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "volcenginecc_alb_server_group": {
                 "current": "volcenginecc:alb/serverGroup:ServerGroup",
                 "fields": {
@@ -569,8 +637,17 @@
                     }
                 }
             },
+            "volcenginecc_cloudidentity_permission_set_assignment": {
+                "current": "volcenginecc:cloudidentity/permissionSetAssignment:PermissionSetAssignment"
+            },
+            "volcenginecc_cloudidentity_permission_set_provisioning": {
+                "current": "volcenginecc:cloudidentity/permissionSetProvisioning:PermissionSetProvisioning"
+            },
             "volcenginecc_cloudidentity_user": {
                 "current": "volcenginecc:cloudidentity/user:User"
+            },
+            "volcenginecc_cloudidentity_user_provisioning": {
+                "current": "volcenginecc:cloudidentity/userProvisioning:UserProvisioning"
             },
             "volcenginecc_cloudmonitor_rule": {
                 "current": "volcenginecc:cloudmonitor/rule:Rule",
@@ -1066,6 +1143,14 @@
                     }
                 }
             },
+            "volcenginecc_kafka_allow_list": {
+                "current": "volcenginecc:kafka/allowList:AllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_kafka_topic": {
                 "current": "volcenginecc:kafka/topic:Topic",
                 "fields": {
@@ -1526,6 +1611,14 @@
                     }
                 }
             },
+            "volcenginecc_rocketmq_allow_list": {
+                "current": "volcenginecc:rocketmq/allowList:AllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rocketmq_group": {
                 "current": "volcenginecc:rocketmq/group:Group",
                 "fields": {
@@ -1578,6 +1671,14 @@
             },
             "volcenginecc_storageebs_volume": {
                 "current": "volcenginecc:storageebs/volume:Volume",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_project": {
+                "current": "volcenginecc:tls/project:Project",
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -1909,8 +2010,28 @@
                 "fields": {
                     "kubernetes_config": {
                         "fields": {
+                            "containerd_config": {
+                                "fields": {
+                                    "insecure_registries": {
+                                        "maxItemsOne": false
+                                    },
+                                    "registry_proxy_configs": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "proxy_endpoints": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
                             "kubelet_config": {
                                 "fields": {
+                                    "eviction_hard": {
+                                        "maxItemsOne": false
+                                    },
                                     "kube_reserved": {
                                         "maxItemsOne": false
                                     },
@@ -2430,6 +2551,82 @@
             },
             "volcenginecc_alb_load_balancers": {
                 "current": "volcenginecc:alb/getLoadBalancers:getLoadBalancers",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_alb_rule": {
+                "current": "volcenginecc:alb/getRule:getRule",
+                "fields": {
+                    "forward_group_config": {
+                        "fields": {
+                            "server_group_tuples": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "rule_actions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "forward_group_config": {
+                                    "fields": {
+                                        "server_group_tuples": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "rule_conditions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "header_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "host_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "method_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "path_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "query_string_config": {
+                                    "fields": {
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_alb_rules": {
+                "current": "volcenginecc:alb/getRules:getRules",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -3164,6 +3361,28 @@
                     }
                 }
             },
+            "volcenginecc_cloudidentity_permission_set_assignment": {
+                "current": "volcenginecc:cloudidentity/getPermissionSetAssignment:getPermissionSetAssignment"
+            },
+            "volcenginecc_cloudidentity_permission_set_assignments": {
+                "current": "volcenginecc:cloudidentity/getPermissionSetAssignments:getPermissionSetAssignments",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cloudidentity_permission_set_provisioning": {
+                "current": "volcenginecc:cloudidentity/getPermissionSetProvisioning:getPermissionSetProvisioning"
+            },
+            "volcenginecc_cloudidentity_permission_set_provisionings": {
+                "current": "volcenginecc:cloudidentity/getPermissionSetProvisionings:getPermissionSetProvisionings",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cloudidentity_permission_sets": {
                 "current": "volcenginecc:cloudidentity/getPermissionSets:getPermissionSets",
                 "fields": {
@@ -3174,6 +3393,17 @@
             },
             "volcenginecc_cloudidentity_user": {
                 "current": "volcenginecc:cloudidentity/getUser:getUser"
+            },
+            "volcenginecc_cloudidentity_user_provisioning": {
+                "current": "volcenginecc:cloudidentity/getUserProvisioning:getUserProvisioning"
+            },
+            "volcenginecc_cloudidentity_user_provisionings": {
+                "current": "volcenginecc:cloudidentity/getUserProvisionings:getUserProvisionings",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "volcenginecc_cloudidentity_users": {
                 "current": "volcenginecc:cloudidentity/getUsers:getUsers",
@@ -3904,6 +4134,22 @@
                     }
                 }
             },
+            "volcenginecc_kafka_allow_list": {
+                "current": "volcenginecc:kafka/getAllowList:getAllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_kafka_allow_lists": {
+                "current": "volcenginecc:kafka/getAllowLists:getAllowLists",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_kafka_topic": {
                 "current": "volcenginecc:kafka/getTopic:getTopic",
                 "fields": {
@@ -4604,6 +4850,22 @@
                     }
                 }
             },
+            "volcenginecc_rocketmq_allow_list": {
+                "current": "volcenginecc:rocketmq/getAllowList:getAllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rocketmq_allow_lists": {
+                "current": "volcenginecc:rocketmq/getAllowLists:getAllowLists",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rocketmq_group": {
                 "current": "volcenginecc:rocketmq/getGroup:getGroup",
                 "fields": {
@@ -4696,6 +4958,22 @@
             },
             "volcenginecc_storageebs_volumes": {
                 "current": "volcenginecc:storageebs/getVolumes:getVolumes",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_project": {
+                "current": "volcenginecc:tls/getProject:getProject",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_projects": {
+                "current": "volcenginecc:tls/getProjects:getProjects",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -5139,8 +5417,28 @@
                 "fields": {
                     "kubernetes_config": {
                         "fields": {
+                            "containerd_config": {
+                                "fields": {
+                                    "insecure_registries": {
+                                        "maxItemsOne": false
+                                    },
+                                    "registry_proxy_configs": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "proxy_endpoints": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
                             "kubelet_config": {
                                 "fields": {
+                                    "eviction_hard": {
+                                        "maxItemsOne": false
+                                    },
                                     "kube_reserved": {
                                         "maxItemsOne": false
                                     },

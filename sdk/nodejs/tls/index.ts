@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
+export { GetProjectsResult } from "./getProjects";
+export const getProjects: typeof import("./getProjects").getProjects = null as any;
+export const getProjectsOutput: typeof import("./getProjects").getProjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getProjects","getProjectsOutput"], () => require("./getProjects"));
+
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
@@ -14,6 +24,11 @@ export { GetTopicsResult } from "./getTopics";
 export const getTopics: typeof import("./getTopics").getTopics = null as any;
 export const getTopicsOutput: typeof import("./getTopics").getTopicsOutput = null as any;
 utilities.lazyLoad(exports, ["getTopics","getTopicsOutput"], () => require("./getTopics"));
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 export { TopicArgs, TopicState } from "./topic";
 export type Topic = import("./topic").Topic;
@@ -25,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:tls/project:Project":
+                return new Project(name, <any>undefined, { urn })
             case "volcenginecc:tls/topic:Topic":
                 return new Topic(name, <any>undefined, { urn })
             default:
@@ -32,4 +49,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "tls/project", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tls/topic", _module)

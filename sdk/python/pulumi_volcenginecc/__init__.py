@@ -207,6 +207,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "alb/rule",
+  "fqn": "pulumi_volcenginecc.alb",
+  "classes": {
+   "volcenginecc:alb/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "alb/serverGroup",
   "fqn": "pulumi_volcenginecc.alb",
   "classes": {
@@ -447,10 +455,34 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudidentity/permissionSetAssignment",
+  "fqn": "pulumi_volcenginecc.cloudidentity",
+  "classes": {
+   "volcenginecc:cloudidentity/permissionSetAssignment:PermissionSetAssignment": "PermissionSetAssignment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cloudidentity/permissionSetProvisioning",
+  "fqn": "pulumi_volcenginecc.cloudidentity",
+  "classes": {
+   "volcenginecc:cloudidentity/permissionSetProvisioning:PermissionSetProvisioning": "PermissionSetProvisioning"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cloudidentity/user",
   "fqn": "pulumi_volcenginecc.cloudidentity",
   "classes": {
    "volcenginecc:cloudidentity/user:User": "User"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cloudidentity/userProvisioning",
+  "fqn": "pulumi_volcenginecc.cloudidentity",
+  "classes": {
+   "volcenginecc:cloudidentity/userProvisioning:UserProvisioning": "UserProvisioning"
   }
  },
  {
@@ -675,6 +707,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
    "volcenginecc:iam/user:User": "User"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "kafka/allowList",
+  "fqn": "pulumi_volcenginecc.kafka",
+  "classes": {
+   "volcenginecc:kafka/allowList:AllowList": "AllowList"
   }
  },
  {
@@ -919,6 +959,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rocketmq/allowList",
+  "fqn": "pulumi_volcenginecc.rocketmq",
+  "classes": {
+   "volcenginecc:rocketmq/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rocketmq/group",
   "fqn": "pulumi_volcenginecc.rocketmq",
   "classes": {
@@ -955,6 +1003,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/project",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/project:Project": "Project"
   }
  },
  {

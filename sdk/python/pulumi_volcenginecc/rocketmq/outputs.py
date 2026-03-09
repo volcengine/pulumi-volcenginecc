@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AllowListAssociatedInstance',
     'GroupConsumedClient',
     'GroupConsumedTopic',
     'InstanceChargeDetail',
@@ -26,6 +27,7 @@ __all__ = [
     'TopicGroupsInfo',
     'TopicQueuesInfo',
     'TopicReadAccessPolicy',
+    'GetAllowListAssociatedInstanceResult',
     'GetGroupConsumedClientResult',
     'GetGroupConsumedTopicResult',
     'GetInstanceChargeDetailResult',
@@ -37,6 +39,42 @@ __all__ = [
     'GetTopicQueuesInfoResult',
     'GetTopicReadAccessPolicyResult',
 ]
+
+@pulumi.output_type
+class AllowListAssociatedInstance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceId":
+            suggest = "instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowListAssociatedInstance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowListAssociatedInstance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowListAssociatedInstance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str instance_id: 实例ID。
+        """
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[builtins.str]:
+        """
+        实例ID。
+        """
+        return pulumi.get(self, "instance_id")
+
 
 @pulumi.output_type
 class GroupConsumedClient(dict):
@@ -743,6 +781,46 @@ class TopicReadAccessPolicy(dict):
         用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
         """
         return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class GetAllowListAssociatedInstanceResult(dict):
+    def __init__(__self__, *,
+                 instance_id: builtins.str,
+                 instance_name: builtins.str,
+                 vpc: builtins.str):
+        """
+        :param builtins.str instance_id: 实例ID。
+        :param builtins.str instance_name: 实例名称。
+        :param builtins.str vpc: 实例所属VPC ID。
+        """
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "vpc", vpc)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> builtins.str:
+        """
+        实例ID。
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> builtins.str:
+        """
+        实例名称。
+        """
+        return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter
+    def vpc(self) -> builtins.str:
+        """
+        实例所属VPC ID。
+        """
+        return pulumi.get(self, "vpc")
 
 
 @pulumi.output_type

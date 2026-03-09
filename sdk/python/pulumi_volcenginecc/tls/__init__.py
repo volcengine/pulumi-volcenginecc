@@ -6,8 +6,11 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_project import *
+from .get_projects import *
 from .get_topic import *
 from .get_topics import *
+from .project import *
 from .topic import *
 from ._inputs import *
 from . import outputs

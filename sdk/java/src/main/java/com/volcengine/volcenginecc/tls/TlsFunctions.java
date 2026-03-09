@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.tls.inputs.GetProjectArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetProjectPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.tls.outputs.GetProjectResult;
+import com.volcengine.volcenginecc.tls.outputs.GetProjectsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetTopicResult;
 import com.volcengine.volcenginecc.tls.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class TlsFunctions {
+    /**
+     * Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args) {
+        return getProject(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
+        return getProjectPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects() {
+        return getProjects(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectsResult> getProjectsPlain() {
+        return getProjectsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(InvokeArgs args) {
+        return getProjects(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectsResult> getProjectsPlain(InvokeArgs args) {
+        return getProjectsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static Output<GetProjectsResult> getProjects(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Project
+     * 
+     */
+    public static CompletableFuture<GetProjectsResult> getProjectsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::TLS::Topic
      * 

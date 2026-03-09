@@ -6,11 +6,8 @@ package com.volcengine.volcenginecc.cbr;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.volcengine.volcenginecc.cbr.inputs.BackupResourceMetaInformationArgs;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -48,21 +45,6 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-     * 
-     */
-    @Import(name="metaInformation")
-    private @Nullable Output<BackupResourceMetaInformationArgs> metaInformation;
-
-    /**
-     * @return 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-     * 
-     */
-    public Optional<Output<BackupResourceMetaInformationArgs>> metaInformation() {
-        return Optional.ofNullable(this.metaInformation);
-    }
-
-    /**
      * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
      * 
      */
@@ -82,7 +64,6 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
     private BackupResourceArgs(BackupResourceArgs $) {
         this.instanceId = $.instanceId;
         this.instanceName = $.instanceName;
-        this.metaInformation = $.metaInformation;
         this.resourceType = $.resourceType;
     }
 
@@ -144,27 +125,6 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
-        }
-
-        /**
-         * @param metaInformation 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metaInformation(@Nullable Output<BackupResourceMetaInformationArgs> metaInformation) {
-            $.metaInformation = metaInformation;
-            return this;
-        }
-
-        /**
-         * @param metaInformation 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metaInformation(BackupResourceMetaInformationArgs metaInformation) {
-            return metaInformation(Output.of(metaInformation));
         }
 
         /**

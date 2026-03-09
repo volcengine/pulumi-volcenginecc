@@ -18,6 +18,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * 日志主题是日志服务进行日志管理的基本单位，日志接入、检索分析、消费等功能都是基于日志主题的粒度进行操作。
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

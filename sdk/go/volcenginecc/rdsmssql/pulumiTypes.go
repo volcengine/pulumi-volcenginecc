@@ -586,6 +586,8 @@ func (o InstanceConnectionInfoAddressArrayOutput) Index(i pulumi.IntInput) Insta
 type InstanceNodeDetailInfo struct {
 	// 节点的创建时间。
 	CreateTime *string `pulumi:"createTime"`
+	// 节点主机名。
+	HostName *string `pulumi:"hostName"`
 	// 实例ID。
 	InstanceId *string `pulumi:"instanceId"`
 	// 内存大小，单位为 GiB。
@@ -624,6 +626,8 @@ type InstanceNodeDetailInfoInput interface {
 type InstanceNodeDetailInfoArgs struct {
 	// 节点的创建时间。
 	CreateTime pulumi.StringPtrInput `pulumi:"createTime"`
+	// 节点主机名。
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// 实例ID。
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// 内存大小，单位为 GiB。
@@ -702,6 +706,11 @@ func (o InstanceNodeDetailInfoOutput) ToInstanceNodeDetailInfoOutputWithContext(
 // 节点的创建时间。
 func (o InstanceNodeDetailInfoOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceNodeDetailInfo) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
+}
+
+// 节点主机名。
+func (o InstanceNodeDetailInfoOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNodeDetailInfo) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
 // 实例ID。
@@ -1296,6 +1305,8 @@ func (o GetInstanceConnectionInfoAddressArrayOutput) Index(i pulumi.IntInput) Ge
 type GetInstanceNodeDetailInfo struct {
 	// 节点的创建时间。
 	CreateTime string `pulumi:"createTime"`
+	// 节点主机名。
+	HostName string `pulumi:"hostName"`
 	// 实例ID。
 	InstanceId string `pulumi:"instanceId"`
 	// 内存大小，单位为 GiB。
@@ -1334,6 +1345,8 @@ type GetInstanceNodeDetailInfoInput interface {
 type GetInstanceNodeDetailInfoArgs struct {
 	// 节点的创建时间。
 	CreateTime pulumi.StringInput `pulumi:"createTime"`
+	// 节点主机名。
+	HostName pulumi.StringInput `pulumi:"hostName"`
 	// 实例ID。
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// 内存大小，单位为 GiB。
@@ -1412,6 +1425,11 @@ func (o GetInstanceNodeDetailInfoOutput) ToGetInstanceNodeDetailInfoOutputWithCo
 // 节点的创建时间。
 func (o GetInstanceNodeDetailInfoOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceNodeDetailInfo) string { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+// 节点主机名。
+func (o GetInstanceNodeDetailInfoOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceNodeDetailInfo) string { return v.HostName }).(pulumi.StringOutput)
 }
 
 // 实例ID。
