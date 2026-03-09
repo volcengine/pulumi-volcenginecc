@@ -25,8 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "volcenginecc:cloudidentity/permissionSet:PermissionSet":
 		r = &PermissionSet{}
+	case "volcenginecc:cloudidentity/permissionSetAssignment:PermissionSetAssignment":
+		r = &PermissionSetAssignment{}
+	case "volcenginecc:cloudidentity/permissionSetProvisioning:PermissionSetProvisioning":
+		r = &PermissionSetProvisioning{}
 	case "volcenginecc:cloudidentity/user:User":
 		r = &User{}
+	case "volcenginecc:cloudidentity/userProvisioning:UserProvisioning":
+		r = &UserProvisioning{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -52,7 +58,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"cloudidentity/permissionSetAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cloudidentity/permissionSetProvisioning",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"cloudidentity/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cloudidentity/userProvisioning",
 		&module{version},
 	)
 }

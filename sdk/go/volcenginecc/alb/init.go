@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Listener{}
 	case "volcenginecc:alb/loadBalancer:LoadBalancer":
 		r = &LoadBalancer{}
+	case "volcenginecc:alb/rule:Rule":
+		r = &Rule{}
 	case "volcenginecc:alb/serverGroup:ServerGroup":
 		r = &ServerGroup{}
 	default:
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"alb/loadBalancer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"alb/rule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

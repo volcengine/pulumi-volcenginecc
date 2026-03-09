@@ -14,46 +14,6 @@ import (
 
 // 密钥管理服务（Key Management Service）是火山引擎上一站式的密钥管理和数据加密服务平台。提供简单易用的加密接口，KMS 帮助用户轻松管理密钥、保护云上核心数据的安全。同时极大降低用户自行部署密码基础设施的采购、研发成本。帮助业务轻松满足监管和合规需求。
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/kms"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewKey(ctx, "KMSKeyDemo", &kms.KeyArgs{
-//				KeyringName:     pulumi.String("KMSKeyDemo"),
-//				KeyName:         pulumi.String("KMSKeyDemoKeyName"),
-//				KeySpec:         pulumi.String("SYMMETRIC_256"),
-//				Description:     pulumi.String("description KMSKeyDemo"),
-//				KeyUsage:        pulumi.String("ENCRYPT_DECRYPT"),
-//				ProtectionLevel: pulumi.String("HSM"),
-//				RotateState:     pulumi.String("Enable"),
-//				Origin:          pulumi.String("CloudKMS"),
-//				MultiRegion:     pulumi.Bool(false),
-//				Tags: kms.KeyTagArray{
-//					&kms.KeyTagArgs{
-//						Key:   pulumi.String("env"),
-//						Value: pulumi.String("test"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -66,12 +26,18 @@ type Key struct {
 	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
 	// 密钥描述:长度为 0   - 8192 个字符。
 	Description pulumi.StringOutput `pulumi:"description"`
+	// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+	KeyArchiveOperation pulumi.IntOutput `pulumi:"keyArchiveOperation"`
+	// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+	KeyEnableOperation pulumi.IntOutput `pulumi:"keyEnableOperation"`
 	// 密钥唯一标识符，UUID形式。
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// 密钥材料过期时间，当值为空时表示不会过期。
 	KeyMaterialExpireTime pulumi.StringOutput `pulumi:"keyMaterialExpireTime"`
 	// 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+	KeyRotationOperation pulumi.IntOutput `pulumi:"keyRotationOperation"`
 	// 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
 	KeySpec pulumi.StringOutput `pulumi:"keySpec"`
 	// 密钥状态：Enable，Disable，PendingDelete，Archived，PendingImport。
@@ -90,6 +56,8 @@ type Key struct {
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// 密钥保护级别，取值：SOFTWARE，HSM。
 	ProtectionLevel pulumi.StringOutput `pulumi:"protectionLevel"`
+	// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+	RotateInterval pulumi.IntOutput `pulumi:"rotateInterval"`
 	// 密钥轮转状态，取值：Enable，Disable。
 	RotateState pulumi.StringOutput `pulumi:"rotateState"`
 	// 密钥删除时间。
@@ -143,12 +111,18 @@ type keyState struct {
 	CreatedTime *int `pulumi:"createdTime"`
 	// 密钥描述:长度为 0   - 8192 个字符。
 	Description *string `pulumi:"description"`
+	// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+	KeyArchiveOperation *int `pulumi:"keyArchiveOperation"`
+	// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+	KeyEnableOperation *int `pulumi:"keyEnableOperation"`
 	// 密钥唯一标识符，UUID形式。
 	KeyId *string `pulumi:"keyId"`
 	// 密钥材料过期时间，当值为空时表示不会过期。
 	KeyMaterialExpireTime *string `pulumi:"keyMaterialExpireTime"`
 	// 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
 	KeyName *string `pulumi:"keyName"`
+	// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+	KeyRotationOperation *int `pulumi:"keyRotationOperation"`
 	// 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
 	KeySpec *string `pulumi:"keySpec"`
 	// 密钥状态：Enable，Disable，PendingDelete，Archived，PendingImport。
@@ -167,6 +141,8 @@ type keyState struct {
 	Origin *string `pulumi:"origin"`
 	// 密钥保护级别，取值：SOFTWARE，HSM。
 	ProtectionLevel *string `pulumi:"protectionLevel"`
+	// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+	RotateInterval *int `pulumi:"rotateInterval"`
 	// 密钥轮转状态，取值：Enable，Disable。
 	RotateState *string `pulumi:"rotateState"`
 	// 密钥删除时间。
@@ -185,12 +161,18 @@ type KeyState struct {
 	CreatedTime pulumi.IntPtrInput
 	// 密钥描述:长度为 0   - 8192 个字符。
 	Description pulumi.StringPtrInput
+	// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+	KeyArchiveOperation pulumi.IntPtrInput
+	// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+	KeyEnableOperation pulumi.IntPtrInput
 	// 密钥唯一标识符，UUID形式。
 	KeyId pulumi.StringPtrInput
 	// 密钥材料过期时间，当值为空时表示不会过期。
 	KeyMaterialExpireTime pulumi.StringPtrInput
 	// 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
 	KeyName pulumi.StringPtrInput
+	// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+	KeyRotationOperation pulumi.IntPtrInput
 	// 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
 	KeySpec pulumi.StringPtrInput
 	// 密钥状态：Enable，Disable，PendingDelete，Archived，PendingImport。
@@ -209,6 +191,8 @@ type KeyState struct {
 	Origin pulumi.StringPtrInput
 	// 密钥保护级别，取值：SOFTWARE，HSM。
 	ProtectionLevel pulumi.StringPtrInput
+	// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+	RotateInterval pulumi.IntPtrInput
 	// 密钥轮转状态，取值：Enable，Disable。
 	RotateState pulumi.StringPtrInput
 	// 密钥删除时间。
@@ -229,8 +213,14 @@ func (KeyState) ElementType() reflect.Type {
 type keyArgs struct {
 	// 密钥描述:长度为 0   - 8192 个字符。
 	Description *string `pulumi:"description"`
+	// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+	KeyArchiveOperation *int `pulumi:"keyArchiveOperation"`
+	// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+	KeyEnableOperation *int `pulumi:"keyEnableOperation"`
 	// 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
 	KeyName string `pulumi:"keyName"`
+	// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+	KeyRotationOperation *int `pulumi:"keyRotationOperation"`
 	// 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
 	KeySpec *string `pulumi:"keySpec"`
 	// 密钥用途，取值：ENCRYPT*DECRYPT，SIGN*VERIFY，GENERATE*VERIFY*MAC。
@@ -243,17 +233,23 @@ type keyArgs struct {
 	Origin *string `pulumi:"origin"`
 	// 密钥保护级别，取值：SOFTWARE，HSM。
 	ProtectionLevel *string `pulumi:"protectionLevel"`
-	// 密钥轮转状态，取值：Enable，Disable。
-	RotateState *string  `pulumi:"rotateState"`
-	Tags        []KeyTag `pulumi:"tags"`
+	// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+	RotateInterval *int     `pulumi:"rotateInterval"`
+	Tags           []KeyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
 	// 密钥描述:长度为 0   - 8192 个字符。
 	Description pulumi.StringPtrInput
+	// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+	KeyArchiveOperation pulumi.IntPtrInput
+	// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+	KeyEnableOperation pulumi.IntPtrInput
 	// 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
 	KeyName pulumi.StringInput
+	// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+	KeyRotationOperation pulumi.IntPtrInput
 	// 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
 	KeySpec pulumi.StringPtrInput
 	// 密钥用途，取值：ENCRYPT*DECRYPT，SIGN*VERIFY，GENERATE*VERIFY*MAC。
@@ -266,9 +262,9 @@ type KeyArgs struct {
 	Origin pulumi.StringPtrInput
 	// 密钥保护级别，取值：SOFTWARE，HSM。
 	ProtectionLevel pulumi.StringPtrInput
-	// 密钥轮转状态，取值：Enable，Disable。
-	RotateState pulumi.StringPtrInput
-	Tags        KeyTagArrayInput
+	// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+	RotateInterval pulumi.IntPtrInput
+	Tags           KeyTagArrayInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -368,6 +364,16 @@ func (o KeyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+func (o KeyOutput) KeyArchiveOperation() pulumi.IntOutput {
+	return o.ApplyT(func(v *Key) pulumi.IntOutput { return v.KeyArchiveOperation }).(pulumi.IntOutput)
+}
+
+// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+func (o KeyOutput) KeyEnableOperation() pulumi.IntOutput {
+	return o.ApplyT(func(v *Key) pulumi.IntOutput { return v.KeyEnableOperation }).(pulumi.IntOutput)
+}
+
 // 密钥唯一标识符，UUID形式。
 func (o KeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
@@ -381,6 +387,11 @@ func (o KeyOutput) KeyMaterialExpireTime() pulumi.StringOutput {
 // 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
 func (o KeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+func (o KeyOutput) KeyRotationOperation() pulumi.IntOutput {
+	return o.ApplyT(func(v *Key) pulumi.IntOutput { return v.KeyRotationOperation }).(pulumi.IntOutput)
 }
 
 // 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
@@ -426,6 +437,11 @@ func (o KeyOutput) Origin() pulumi.StringOutput {
 // 密钥保护级别，取值：SOFTWARE，HSM。
 func (o KeyOutput) ProtectionLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.ProtectionLevel }).(pulumi.StringOutput)
+}
+
+// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+func (o KeyOutput) RotateInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v *Key) pulumi.IntOutput { return v.RotateInterval }).(pulumi.IntOutput)
 }
 
 // 密钥轮转状态，取值：Enable，Disable。

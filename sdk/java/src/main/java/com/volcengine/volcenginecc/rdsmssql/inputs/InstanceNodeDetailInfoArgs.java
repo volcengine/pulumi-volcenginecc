@@ -32,6 +32,21 @@ public final class InstanceNodeDetailInfoArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * 节点主机名。
+     * 
+     */
+    @Import(name="hostName")
+    private @Nullable Output<String> hostName;
+
+    /**
+     * @return 节点主机名。
+     * 
+     */
+    public Optional<Output<String>> hostName() {
+        return Optional.ofNullable(this.hostName);
+    }
+
+    /**
      * 实例ID。
      * 
      */
@@ -200,6 +215,7 @@ public final class InstanceNodeDetailInfoArgs extends com.pulumi.resources.Resou
 
     private InstanceNodeDetailInfoArgs(InstanceNodeDetailInfoArgs $) {
         this.createTime = $.createTime;
+        this.hostName = $.hostName;
         this.instanceId = $.instanceId;
         this.memory = $.memory;
         this.nodeId = $.nodeId;
@@ -250,6 +266,27 @@ public final class InstanceNodeDetailInfoArgs extends com.pulumi.resources.Resou
          */
         public Builder createTime(String createTime) {
             return createTime(Output.of(createTime));
+        }
+
+        /**
+         * @param hostName 节点主机名。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostName(@Nullable Output<String> hostName) {
+            $.hostName = hostName;
+            return this;
+        }
+
+        /**
+         * @param hostName 节点主机名。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostName(String hostName) {
+            return hostName(Output.of(hostName));
         }
 
         /**

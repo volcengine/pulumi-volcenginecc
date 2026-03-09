@@ -5,6 +5,7 @@ package com.volcengine.volcenginecc.vke.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.volcengine.volcenginecc.vke.inputs.NodePoolKubernetesConfigKubeletConfigEvictionHardArgs;
 import com.volcengine.volcenginecc.vke.inputs.NodePoolKubernetesConfigKubeletConfigFeatureGatesArgs;
 import com.volcengine.volcenginecc.vke.inputs.NodePoolKubernetesConfigKubeletConfigKubeReservedArgs;
 import com.volcengine.volcenginecc.vke.inputs.NodePoolKubernetesConfigKubeletConfigSystemReservedArgs;
@@ -34,6 +35,13 @@ public final class NodePoolKubernetesConfigKubeletConfigArgs extends com.pulumi.
      */
     public Optional<Output<String>> cpuManagerPolicy() {
         return Optional.ofNullable(this.cpuManagerPolicy);
+    }
+
+    @Import(name="evictionHards")
+    private @Nullable Output<List<NodePoolKubernetesConfigKubeletConfigEvictionHardArgs>> evictionHards;
+
+    public Optional<Output<List<NodePoolKubernetesConfigKubeletConfigEvictionHardArgs>>> evictionHards() {
+        return Optional.ofNullable(this.evictionHards);
     }
 
     /**
@@ -189,6 +197,7 @@ public final class NodePoolKubernetesConfigKubeletConfigArgs extends com.pulumi.
 
     private NodePoolKubernetesConfigKubeletConfigArgs(NodePoolKubernetesConfigKubeletConfigArgs $) {
         this.cpuManagerPolicy = $.cpuManagerPolicy;
+        this.evictionHards = $.evictionHards;
         this.featureGates = $.featureGates;
         this.kubeApiBurst = $.kubeApiBurst;
         this.kubeApiQps = $.kubeApiQps;
@@ -239,6 +248,19 @@ public final class NodePoolKubernetesConfigKubeletConfigArgs extends com.pulumi.
          */
         public Builder cpuManagerPolicy(String cpuManagerPolicy) {
             return cpuManagerPolicy(Output.of(cpuManagerPolicy));
+        }
+
+        public Builder evictionHards(@Nullable Output<List<NodePoolKubernetesConfigKubeletConfigEvictionHardArgs>> evictionHards) {
+            $.evictionHards = evictionHards;
+            return this;
+        }
+
+        public Builder evictionHards(List<NodePoolKubernetesConfigKubeletConfigEvictionHardArgs> evictionHards) {
+            return evictionHards(Output.of(evictionHards));
+        }
+
+        public Builder evictionHards(NodePoolKubernetesConfigKubeletConfigEvictionHardArgs... evictionHards) {
+            return evictionHards(List.of(evictionHards));
         }
 
         /**

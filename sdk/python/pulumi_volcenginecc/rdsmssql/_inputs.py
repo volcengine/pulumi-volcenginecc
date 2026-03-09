@@ -485,6 +485,10 @@ if not MYPY:
         """
         节点的创建时间。
         """
+        host_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        节点主机名。
+        """
         instance_id: NotRequired[pulumi.Input[builtins.str]]
         """
         实例ID。
@@ -536,6 +540,7 @@ elif False:
 class InstanceNodeDetailInfoArgs:
     def __init__(__self__, *,
                  create_time: Optional[pulumi.Input[builtins.str]] = None,
+                 host_name: Optional[pulumi.Input[builtins.str]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.int]] = None,
                  node_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -549,6 +554,7 @@ class InstanceNodeDetailInfoArgs:
                  zone_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] create_time: 节点的创建时间。
+        :param pulumi.Input[builtins.str] host_name: 节点主机名。
         :param pulumi.Input[builtins.str] instance_id: 实例ID。
         :param pulumi.Input[builtins.int] memory: 内存大小，单位为 GiB。
         :param pulumi.Input[builtins.str] node_id: 节点ID。
@@ -563,6 +569,8 @@ class InstanceNodeDetailInfoArgs:
         """
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if memory is not None:
@@ -597,6 +605,18 @@ class InstanceNodeDetailInfoArgs:
     @create_time.setter
     def create_time(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "create_time", value)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        节点主机名。
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host_name", value)
 
     @property
     @pulumi.getter(name="instanceId")

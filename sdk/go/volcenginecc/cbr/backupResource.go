@@ -174,8 +174,6 @@ type backupResourceArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// 实例名称。
 	InstanceName string `pulumi:"instanceName"`
-	// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-	MetaInformation *BackupResourceMetaInformation `pulumi:"metaInformation"`
 	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
 	ResourceType string `pulumi:"resourceType"`
 }
@@ -186,8 +184,6 @@ type BackupResourceArgs struct {
 	InstanceId pulumi.StringInput
 	// 实例名称。
 	InstanceName pulumi.StringInput
-	// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-	MetaInformation BackupResourceMetaInformationPtrInput
 	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
 	ResourceType pulumi.StringInput
 }

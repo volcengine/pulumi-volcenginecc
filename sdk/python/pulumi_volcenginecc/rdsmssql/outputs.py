@@ -382,6 +382,8 @@ class InstanceNodeDetailInfo(dict):
         suggest = None
         if key == "createTime":
             suggest = "create_time"
+        elif key == "hostName":
+            suggest = "host_name"
         elif key == "instanceId":
             suggest = "instance_id"
         elif key == "nodeId":
@@ -414,6 +416,7 @@ class InstanceNodeDetailInfo(dict):
 
     def __init__(__self__, *,
                  create_time: Optional[builtins.str] = None,
+                 host_name: Optional[builtins.str] = None,
                  instance_id: Optional[builtins.str] = None,
                  memory: Optional[builtins.int] = None,
                  node_id: Optional[builtins.str] = None,
@@ -427,6 +430,7 @@ class InstanceNodeDetailInfo(dict):
                  zone_id: Optional[builtins.str] = None):
         """
         :param builtins.str create_time: 节点的创建时间。
+        :param builtins.str host_name: 节点主机名。
         :param builtins.str instance_id: 实例ID。
         :param builtins.int memory: 内存大小，单位为 GiB。
         :param builtins.str node_id: 节点ID。
@@ -441,6 +445,8 @@ class InstanceNodeDetailInfo(dict):
         """
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if memory is not None:
@@ -471,6 +477,14 @@ class InstanceNodeDetailInfo(dict):
         节点的创建时间。
         """
         return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[builtins.str]:
+        """
+        节点主机名。
+        """
+        return pulumi.get(self, "host_name")
 
     @property
     @pulumi.getter(name="instanceId")
@@ -848,6 +862,7 @@ class GetInstanceConnectionInfoAddressResult(dict):
 class GetInstanceNodeDetailInfoResult(dict):
     def __init__(__self__, *,
                  create_time: builtins.str,
+                 host_name: builtins.str,
                  instance_id: builtins.str,
                  memory: builtins.int,
                  node_id: builtins.str,
@@ -861,6 +876,7 @@ class GetInstanceNodeDetailInfoResult(dict):
                  zone_id: builtins.str):
         """
         :param builtins.str create_time: 节点的创建时间。
+        :param builtins.str host_name: 节点主机名。
         :param builtins.str instance_id: 实例ID。
         :param builtins.int memory: 内存大小，单位为 GiB。
         :param builtins.str node_id: 节点ID。
@@ -874,6 +890,7 @@ class GetInstanceNodeDetailInfoResult(dict):
         :param builtins.str zone_id: 可用区ID。
         """
         pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "memory", memory)
         pulumi.set(__self__, "node_id", node_id)
@@ -893,6 +910,14 @@ class GetInstanceNodeDetailInfoResult(dict):
         节点的创建时间。
         """
         return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> builtins.str:
+        """
+        节点主机名。
+        """
+        return pulumi.get(self, "host_name")
 
     @property
     @pulumi.getter(name="instanceId")

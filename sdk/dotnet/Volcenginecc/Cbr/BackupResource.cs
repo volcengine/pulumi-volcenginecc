@@ -171,12 +171,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
-        /// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
-        /// </summary>
-        [Input("metaInformation")]
-        public Input<Inputs.BackupResourceMetaInformationArgs>? MetaInformation { get; set; }
-
-        /// <summary>
         /// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
         /// </summary>
         [Input("resourceType", required: true)]

@@ -77,6 +77,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// 用户主密钥归档操作（用户输入1=归档，2=取消归档）
+        /// </summary>
+        public readonly int KeyArchiveOperation;
+        /// <summary>
+        /// 用户主密钥启用操作（用户输入1=启用，2=禁用）
+        /// </summary>
+        public readonly int KeyEnableOperation;
+        /// <summary>
         /// 密钥唯一标识符，UUID形式。
         /// </summary>
         public readonly string KeyId;
@@ -88,6 +96,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
         /// 主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
         /// </summary>
         public readonly string KeyName;
+        /// <summary>
+        /// 用户主密钥轮转操作（用户输入1=开启，2=关闭）
+        /// </summary>
+        public readonly int KeyRotationOperation;
         /// <summary>
         /// 对称密钥：SYMMETRIC*256，SYMMETRIC*128，非对称密钥：RSA*2048，RSA*3072，RSA*4096，EC*P256，EC*P256K，EC*P384，EC*P521，EC*SM2。
         /// </summary>
@@ -125,6 +137,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
         /// </summary>
         public readonly string ProtectionLevel;
         /// <summary>
+        /// 密钥轮转周期，单位：天；取值范围：[90, 2560]。
+        /// </summary>
+        public readonly int RotateInterval;
+        /// <summary>
         /// 密钥轮转状态，取值：Enable，Disable。
         /// </summary>
         public readonly string RotateState;
@@ -157,11 +173,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
 
             string id,
 
+            int keyArchiveOperation,
+
+            int keyEnableOperation,
+
             string keyId,
 
             string keyMaterialExpireTime,
 
             string keyName,
+
+            int keyRotationOperation,
 
             string keySpec,
 
@@ -181,6 +203,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
 
             string protectionLevel,
 
+            int rotateInterval,
+
             string rotateState,
 
             string scheduleDeleteTime,
@@ -196,9 +220,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
             CreatedTime = createdTime;
             Description = description;
             Id = id;
+            KeyArchiveOperation = keyArchiveOperation;
+            KeyEnableOperation = keyEnableOperation;
             KeyId = keyId;
             KeyMaterialExpireTime = keyMaterialExpireTime;
             KeyName = keyName;
+            KeyRotationOperation = keyRotationOperation;
             KeySpec = keySpec;
             KeyState = keyState;
             KeyUsage = keyUsage;
@@ -208,6 +235,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Kms
             MultiRegionConfiguration = multiRegionConfiguration;
             Origin = origin;
             ProtectionLevel = protectionLevel;
+            RotateInterval = rotateInterval;
             RotateState = rotateState;
             ScheduleDeleteTime = scheduleDeleteTime;
             ScheduleRotationTime = scheduleRotationTime;

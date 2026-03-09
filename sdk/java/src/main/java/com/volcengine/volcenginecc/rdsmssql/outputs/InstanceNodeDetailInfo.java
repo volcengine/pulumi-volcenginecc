@@ -18,6 +18,11 @@ public final class InstanceNodeDetailInfo {
      */
     private @Nullable String createTime;
     /**
+     * @return 节点主机名。
+     * 
+     */
+    private @Nullable String hostName;
+    /**
      * @return 实例ID。
      * 
      */
@@ -80,6 +85,13 @@ public final class InstanceNodeDetailInfo {
      */
     public Optional<String> createTime() {
         return Optional.ofNullable(this.createTime);
+    }
+    /**
+     * @return 节点主机名。
+     * 
+     */
+    public Optional<String> hostName() {
+        return Optional.ofNullable(this.hostName);
     }
     /**
      * @return 实例ID。
@@ -169,6 +181,7 @@ public final class InstanceNodeDetailInfo {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String createTime;
+        private @Nullable String hostName;
         private @Nullable String instanceId;
         private @Nullable Integer memory;
         private @Nullable String nodeId;
@@ -184,6 +197,7 @@ public final class InstanceNodeDetailInfo {
         public Builder(InstanceNodeDetailInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createTime = defaults.createTime;
+    	      this.hostName = defaults.hostName;
     	      this.instanceId = defaults.instanceId;
     	      this.memory = defaults.memory;
     	      this.nodeId = defaults.nodeId;
@@ -201,6 +215,12 @@ public final class InstanceNodeDetailInfo {
         public Builder createTime(@Nullable String createTime) {
 
             this.createTime = createTime;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostName(@Nullable String hostName) {
+
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
@@ -272,6 +292,7 @@ public final class InstanceNodeDetailInfo {
         public InstanceNodeDetailInfo build() {
             final var _resultValue = new InstanceNodeDetailInfo();
             _resultValue.createTime = createTime;
+            _resultValue.hostName = hostName;
             _resultValue.instanceId = instanceId;
             _resultValue.memory = memory;
             _resultValue.nodeId = nodeId;

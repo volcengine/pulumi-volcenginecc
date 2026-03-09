@@ -28,7 +28,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, created_time=None, description=None, id=None, key_id=None, key_material_expire_time=None, key_name=None, key_spec=None, key_state=None, key_usage=None, keyring_name=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotate_state=None, schedule_delete_time=None, schedule_rotation_time=None, tags=None, trn=None, updated_time=None):
+    def __init__(__self__, created_time=None, description=None, id=None, key_archive_operation=None, key_enable_operation=None, key_id=None, key_material_expire_time=None, key_name=None, key_rotation_operation=None, key_spec=None, key_state=None, key_usage=None, keyring_name=None, last_rotation_time=None, multi_region=None, multi_region_configuration=None, origin=None, protection_level=None, rotate_interval=None, rotate_state=None, schedule_delete_time=None, schedule_rotation_time=None, tags=None, trn=None, updated_time=None):
         if created_time and not isinstance(created_time, int):
             raise TypeError("Expected argument 'created_time' to be a int")
         pulumi.set(__self__, "created_time", created_time)
@@ -38,6 +38,12 @@ class GetKeyResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_archive_operation and not isinstance(key_archive_operation, int):
+            raise TypeError("Expected argument 'key_archive_operation' to be a int")
+        pulumi.set(__self__, "key_archive_operation", key_archive_operation)
+        if key_enable_operation and not isinstance(key_enable_operation, int):
+            raise TypeError("Expected argument 'key_enable_operation' to be a int")
+        pulumi.set(__self__, "key_enable_operation", key_enable_operation)
         if key_id and not isinstance(key_id, str):
             raise TypeError("Expected argument 'key_id' to be a str")
         pulumi.set(__self__, "key_id", key_id)
@@ -47,6 +53,9 @@ class GetKeyResult:
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
+        if key_rotation_operation and not isinstance(key_rotation_operation, int):
+            raise TypeError("Expected argument 'key_rotation_operation' to be a int")
+        pulumi.set(__self__, "key_rotation_operation", key_rotation_operation)
         if key_spec and not isinstance(key_spec, str):
             raise TypeError("Expected argument 'key_spec' to be a str")
         pulumi.set(__self__, "key_spec", key_spec)
@@ -74,6 +83,9 @@ class GetKeyResult:
         if protection_level and not isinstance(protection_level, str):
             raise TypeError("Expected argument 'protection_level' to be a str")
         pulumi.set(__self__, "protection_level", protection_level)
+        if rotate_interval and not isinstance(rotate_interval, int):
+            raise TypeError("Expected argument 'rotate_interval' to be a int")
+        pulumi.set(__self__, "rotate_interval", rotate_interval)
         if rotate_state and not isinstance(rotate_state, str):
             raise TypeError("Expected argument 'rotate_state' to be a str")
         pulumi.set(__self__, "rotate_state", rotate_state)
@@ -118,6 +130,22 @@ class GetKeyResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="keyArchiveOperation")
+    def key_archive_operation(self) -> builtins.int:
+        """
+        用户主密钥归档操作（用户输入1=归档，2=取消归档）
+        """
+        return pulumi.get(self, "key_archive_operation")
+
+    @property
+    @pulumi.getter(name="keyEnableOperation")
+    def key_enable_operation(self) -> builtins.int:
+        """
+        用户主密钥启用操作（用户输入1=启用，2=禁用）
+        """
+        return pulumi.get(self, "key_enable_operation")
+
+    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> builtins.str:
         """
@@ -140,6 +168,14 @@ class GetKeyResult:
         主密钥名称，长度为 2   - 31 个字符，合法字符：[a-zA-Z0-9-_]。
         """
         return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyRotationOperation")
+    def key_rotation_operation(self) -> builtins.int:
+        """
+        用户主密钥轮转操作（用户输入1=开启，2=关闭）
+        """
+        return pulumi.get(self, "key_rotation_operation")
 
     @property
     @pulumi.getter(name="keySpec")
@@ -214,6 +250,14 @@ class GetKeyResult:
         return pulumi.get(self, "protection_level")
 
     @property
+    @pulumi.getter(name="rotateInterval")
+    def rotate_interval(self) -> builtins.int:
+        """
+        密钥轮转周期，单位：天；取值范围：[90, 2560]。
+        """
+        return pulumi.get(self, "rotate_interval")
+
+    @property
     @pulumi.getter(name="rotateState")
     def rotate_state(self) -> builtins.str:
         """
@@ -271,9 +315,12 @@ class AwaitableGetKeyResult(GetKeyResult):
             created_time=self.created_time,
             description=self.description,
             id=self.id,
+            key_archive_operation=self.key_archive_operation,
+            key_enable_operation=self.key_enable_operation,
             key_id=self.key_id,
             key_material_expire_time=self.key_material_expire_time,
             key_name=self.key_name,
+            key_rotation_operation=self.key_rotation_operation,
             key_spec=self.key_spec,
             key_state=self.key_state,
             key_usage=self.key_usage,
@@ -283,6 +330,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             multi_region_configuration=self.multi_region_configuration,
             origin=self.origin,
             protection_level=self.protection_level,
+            rotate_interval=self.rotate_interval,
             rotate_state=self.rotate_state,
             schedule_delete_time=self.schedule_delete_time,
             schedule_rotation_time=self.schedule_rotation_time,
@@ -308,9 +356,12 @@ def get_key(id: Optional[builtins.str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        key_archive_operation=pulumi.get(__ret__, 'key_archive_operation'),
+        key_enable_operation=pulumi.get(__ret__, 'key_enable_operation'),
         key_id=pulumi.get(__ret__, 'key_id'),
         key_material_expire_time=pulumi.get(__ret__, 'key_material_expire_time'),
         key_name=pulumi.get(__ret__, 'key_name'),
+        key_rotation_operation=pulumi.get(__ret__, 'key_rotation_operation'),
         key_spec=pulumi.get(__ret__, 'key_spec'),
         key_state=pulumi.get(__ret__, 'key_state'),
         key_usage=pulumi.get(__ret__, 'key_usage'),
@@ -320,6 +371,7 @@ def get_key(id: Optional[builtins.str] = None,
         multi_region_configuration=pulumi.get(__ret__, 'multi_region_configuration'),
         origin=pulumi.get(__ret__, 'origin'),
         protection_level=pulumi.get(__ret__, 'protection_level'),
+        rotate_interval=pulumi.get(__ret__, 'rotate_interval'),
         rotate_state=pulumi.get(__ret__, 'rotate_state'),
         schedule_delete_time=pulumi.get(__ret__, 'schedule_delete_time'),
         schedule_rotation_time=pulumi.get(__ret__, 'schedule_rotation_time'),
@@ -342,9 +394,12 @@ def get_key_output(id: Optional[pulumi.Input[builtins.str]] = None,
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
+        key_archive_operation=pulumi.get(__response__, 'key_archive_operation'),
+        key_enable_operation=pulumi.get(__response__, 'key_enable_operation'),
         key_id=pulumi.get(__response__, 'key_id'),
         key_material_expire_time=pulumi.get(__response__, 'key_material_expire_time'),
         key_name=pulumi.get(__response__, 'key_name'),
+        key_rotation_operation=pulumi.get(__response__, 'key_rotation_operation'),
         key_spec=pulumi.get(__response__, 'key_spec'),
         key_state=pulumi.get(__response__, 'key_state'),
         key_usage=pulumi.get(__response__, 'key_usage'),
@@ -354,6 +409,7 @@ def get_key_output(id: Optional[pulumi.Input[builtins.str]] = None,
         multi_region_configuration=pulumi.get(__response__, 'multi_region_configuration'),
         origin=pulumi.get(__response__, 'origin'),
         protection_level=pulumi.get(__response__, 'protection_level'),
+        rotate_interval=pulumi.get(__response__, 'rotate_interval'),
         rotate_state=pulumi.get(__response__, 'rotate_state'),
         schedule_delete_time=pulumi.get(__response__, 'schedule_delete_time'),
         schedule_rotation_time=pulumi.get(__response__, 'schedule_rotation_time'),
