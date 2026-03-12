@@ -28,6 +28,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     ///         Name = "ECSHpcClusterDemo",
     ///         ZoneId = "cn-beijing-a",
     ///         Description = "ECSHpcClusterDemo description",
+    ///         ProjectName = "default",
+    ///         Tags = new[]
+    ///         {
+    ///             new Volcenginecc.Ecs.Inputs.HpcClusterTagArgs
+    ///             {
+    ///                 Key = "env",
+    ///                 Value = "test",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -65,6 +74,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// 项目名称。
+        /// </summary>
+        [Output("projectName")]
+        public Output<string> ProjectName { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.HpcClusterTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// 更新时间，格式满足RFC3339。
@@ -132,12 +150,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     public sealed class HpcClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建时间，格式满足RFC3339。
-        /// </summary>
-        [Input("createdTime")]
-        public Input<string>? CreatedTime { get; set; }
-
-        /// <summary>
         /// 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
         /// </summary>
         [Input("description")]
@@ -150,10 +162,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// 更新时间，格式满足RFC3339。
+        /// 项目名称。
         /// </summary>
-        [Input("updatedTime")]
-        public Input<string>? UpdatedTime { get; set; }
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.HpcClusterTagArgs>? _tags;
+        public InputList<Inputs.HpcClusterTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.HpcClusterTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// 高性能计算集群所属可用区ID。
@@ -192,6 +212,20 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// 项目名称。
+        /// </summary>
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.HpcClusterTagGetArgs>? _tags;
+        public InputList<Inputs.HpcClusterTagGetArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.HpcClusterTagGetArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// 更新时间，格式满足RFC3339。

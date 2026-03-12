@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetHpcClusterResult',
@@ -27,7 +28,7 @@ class GetHpcClusterResult:
     """
     A collection of values returned by getHpcCluster.
     """
-    def __init__(__self__, created_time=None, description=None, hpc_cluster_id=None, id=None, name=None, updated_time=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, created_time=None, description=None, hpc_cluster_id=None, id=None, name=None, project_name=None, tags=None, updated_time=None, vpc_id=None, zone_id=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -43,6 +44,12 @@ class GetHpcClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if project_name and not isinstance(project_name, str):
+            raise TypeError("Expected argument 'project_name' to be a str")
+        pulumi.set(__self__, "project_name", project_name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if updated_time and not isinstance(updated_time, str):
             raise TypeError("Expected argument 'updated_time' to be a str")
         pulumi.set(__self__, "updated_time", updated_time)
@@ -94,6 +101,22 @@ class GetHpcClusterResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> builtins.str:
+        """
+        项目名称。
+        """
+        return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetHpcClusterTagResult']:
+        """
+        标签信息。
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> builtins.str:
         """
@@ -129,6 +152,8 @@ class AwaitableGetHpcClusterResult(GetHpcClusterResult):
             hpc_cluster_id=self.hpc_cluster_id,
             id=self.id,
             name=self.name,
+            project_name=self.project_name,
+            tags=self.tags,
             updated_time=self.updated_time,
             vpc_id=self.vpc_id,
             zone_id=self.zone_id)
@@ -153,6 +178,8 @@ def get_hpc_cluster(id: Optional[builtins.str] = None,
         hpc_cluster_id=pulumi.get(__ret__, 'hpc_cluster_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        project_name=pulumi.get(__ret__, 'project_name'),
+        tags=pulumi.get(__ret__, 'tags'),
         updated_time=pulumi.get(__ret__, 'updated_time'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
@@ -174,6 +201,8 @@ def get_hpc_cluster_output(id: Optional[pulumi.Input[builtins.str]] = None,
         hpc_cluster_id=pulumi.get(__response__, 'hpc_cluster_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        project_name=pulumi.get(__response__, 'project_name'),
+        tags=pulumi.get(__response__, 'tags'),
         updated_time=pulumi.get(__response__, 'updated_time'),
         vpc_id=pulumi.get(__response__, 'vpc_id'),
         zone_id=pulumi.get(__response__, 'zone_id')))

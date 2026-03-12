@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,6 +19,11 @@ import * as utilities from "../utilities";
  *     name: "ECSHpcClusterDemo",
  *     zoneId: "cn-beijing-a",
  *     description: "ECSHpcClusterDemo description",
+ *     projectName: "default",
+ *     tags: [{
+ *         key: "env",
+ *         value: "test",
+ *     }],
  * });
  * ```
  *
@@ -57,7 +64,7 @@ export class HpcCluster extends pulumi.CustomResource {
     /**
      * 创建时间，格式满足RFC3339。
      */
-    public readonly createdTime!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
      */
@@ -71,9 +78,14 @@ export class HpcCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * 项目名称。
+     */
+    public readonly projectName!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.ecs.HpcClusterTag[]>;
+    /**
      * 更新时间，格式满足RFC3339。
      */
-    public readonly updatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly updatedTime!: pulumi.Output<string>;
     /**
      * 私有网络ID。
      */
@@ -100,6 +112,8 @@ export class HpcCluster extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["hpcClusterId"] = state ? state.hpcClusterId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
             resourceInputs["zoneId"] = state ? state.zoneId : undefined;
@@ -111,12 +125,14 @@ export class HpcCluster extends pulumi.CustomResource {
             if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["createdTime"] = args ? args.createdTime : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["updatedTime"] = args ? args.updatedTime : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["hpcClusterId"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -145,6 +161,11 @@ export interface HpcClusterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * 项目名称。
+     */
+    projectName?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ecs.HpcClusterTag>[]>;
+    /**
      * 更新时间，格式满足RFC3339。
      */
     updatedTime?: pulumi.Input<string>;
@@ -163,10 +184,6 @@ export interface HpcClusterState {
  */
 export interface HpcClusterArgs {
     /**
-     * 创建时间，格式满足RFC3339。
-     */
-    createdTime?: pulumi.Input<string>;
-    /**
      * 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
      */
     description?: pulumi.Input<string>;
@@ -175,9 +192,10 @@ export interface HpcClusterArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * 更新时间，格式满足RFC3339。
+     * 项目名称。
      */
-    updatedTime?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ecs.HpcClusterTag>[]>;
     /**
      * 高性能计算集群所属可用区ID。
      */

@@ -85,6 +85,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// 项目名称。
+        /// </summary>
+        public readonly string ProjectName;
+        /// <summary>
+        /// 标签信息。
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetHpcClusterTagResult> Tags;
+        /// <summary>
         /// 更新时间，格式满足RFC3339。
         /// </summary>
         public readonly string UpdatedTime;
@@ -109,6 +117,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
 
             string name,
 
+            string projectName,
+
+            ImmutableArray<Outputs.GetHpcClusterTagResult> tags,
+
             string updatedTime,
 
             string vpcId,
@@ -120,6 +132,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
             HpcClusterId = hpcClusterId;
             Id = id;
             Name = name;
+            ProjectName = projectName;
+            Tags = tags;
             UpdatedTime = updatedTime;
             VpcId = vpcId;
             ZoneId = zoneId;

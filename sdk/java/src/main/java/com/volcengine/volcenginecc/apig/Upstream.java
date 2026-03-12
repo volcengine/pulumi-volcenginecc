@@ -12,6 +12,7 @@ import com.volcengine.volcenginecc.apig.UpstreamArgs;
 import com.volcengine.volcenginecc.apig.inputs.UpstreamState;
 import com.volcengine.volcenginecc.apig.outputs.UpstreamBackendTarget;
 import com.volcengine.volcenginecc.apig.outputs.UpstreamCircuitBreakingSettings;
+import com.volcengine.volcenginecc.apig.outputs.UpstreamConnectionPoolSettings;
 import com.volcengine.volcenginecc.apig.outputs.UpstreamLoadBalancerSettings;
 import com.volcengine.volcenginecc.apig.outputs.UpstreamTlsSettings;
 import com.volcengine.volcenginecc.apig.outputs.UpstreamUpstreamSpec;
@@ -70,6 +71,20 @@ public class Upstream extends com.pulumi.resources.CustomResource {
      */
     public Output<String> comments() {
         return this.comments;
+    }
+    /**
+     * 连接池配置。
+     * 
+     */
+    @Export(name="connectionPoolSettings", refs={UpstreamConnectionPoolSettings.class}, tree="[0]")
+    private Output<UpstreamConnectionPoolSettings> connectionPoolSettings;
+
+    /**
+     * @return 连接池配置。
+     * 
+     */
+    public Output<UpstreamConnectionPoolSettings> connectionPoolSettings() {
+        return this.connectionPoolSettings;
     }
     /**
      * Upstream创建时间。

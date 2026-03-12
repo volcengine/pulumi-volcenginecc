@@ -743,6 +743,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "mongodb/allowList",
+  "fqn": "pulumi_volcenginecc.mongodb",
+  "classes": {
+   "volcenginecc:mongodb/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "mongodb/instance",
   "fqn": "pulumi_volcenginecc.mongodb",
   "classes": {
@@ -855,6 +863,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdsmssql/allowList",
+  "fqn": "pulumi_volcenginecc.rdsmssql",
+  "classes": {
+   "volcenginecc:rdsmssql/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdsmssql/instance",
   "fqn": "pulumi_volcenginecc.rdsmssql",
   "classes": {
@@ -919,6 +935,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdspostgresql/database",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/database:Database": "Database"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdspostgresql/dbAccount",
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
@@ -931,6 +955,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
    "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint": "DbEndpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdspostgresql/schema",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/schema:Schema": "Schema"
   }
  },
  {

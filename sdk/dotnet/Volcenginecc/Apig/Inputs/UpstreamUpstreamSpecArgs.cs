@@ -19,6 +19,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Inputs
         [Input("aiProvider")]
         public Input<Inputs.UpstreamUpstreamSpecAiProviderArgs>? AiProvider { get; set; }
 
+        /// <summary>
+        /// 固定域名。
+        /// </summary>
+        [Input("domain")]
+        public Input<Inputs.UpstreamUpstreamSpecDomainArgs>? Domain { get; set; }
+
         [Input("ecsInstances")]
         private InputList<Inputs.UpstreamUpstreamSpecEcsInstanceArgs>? _ecsInstances;
         public InputList<Inputs.UpstreamUpstreamSpecEcsInstanceArgs> EcsInstances

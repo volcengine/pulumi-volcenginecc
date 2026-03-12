@@ -23,10 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:rdspostgresql/allowList:AllowList":
 		r = &AllowList{}
+	case "volcenginecc:rdspostgresql/database:Database":
+		r = &Database{}
 	case "volcenginecc:rdspostgresql/dbAccount:DbAccount":
 		r = &DbAccount{}
 	case "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint":
 		r = &DbEndpoint{}
+	case "volcenginecc:rdspostgresql/schema:Schema":
+		r = &Schema{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -47,12 +51,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"rdspostgresql/database",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"rdspostgresql/dbAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdspostgresql/dbEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdspostgresql/schema",
 		&module{version},
 	)
 }

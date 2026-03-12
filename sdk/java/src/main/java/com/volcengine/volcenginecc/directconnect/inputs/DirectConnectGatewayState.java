@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.directconnect.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.directconnect.inputs.DirectConnectGatewayAssociateCenArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.DirectConnectGatewayAssociateEicArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.DirectConnectGatewayTagArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -40,6 +41,21 @@ public final class DirectConnectGatewayState extends com.pulumi.resources.Resour
 
     public Optional<Output<List<DirectConnectGatewayAssociateCenArgs>>> associateCens() {
         return Optional.ofNullable(this.associateCens);
+    }
+
+    /**
+     * 关联的EIC信息。
+     * 
+     */
+    @Import(name="associateEic")
+    private @Nullable Output<DirectConnectGatewayAssociateEicArgs> associateEic;
+
+    /**
+     * @return 关联的EIC信息。
+     * 
+     */
+    public Optional<Output<DirectConnectGatewayAssociateEicArgs>> associateEic() {
+        return Optional.ofNullable(this.associateEic);
     }
 
     /**
@@ -249,6 +265,7 @@ public final class DirectConnectGatewayState extends com.pulumi.resources.Resour
     private DirectConnectGatewayState(DirectConnectGatewayState $) {
         this.accountId = $.accountId;
         this.associateCens = $.associateCens;
+        this.associateEic = $.associateEic;
         this.bgpAsn = $.bgpAsn;
         this.businessStatus = $.businessStatus;
         this.createdTime = $.createdTime;
@@ -315,6 +332,27 @@ public final class DirectConnectGatewayState extends com.pulumi.resources.Resour
 
         public Builder associateCens(DirectConnectGatewayAssociateCenArgs... associateCens) {
             return associateCens(List.of(associateCens));
+        }
+
+        /**
+         * @param associateEic 关联的EIC信息。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associateEic(@Nullable Output<DirectConnectGatewayAssociateEicArgs> associateEic) {
+            $.associateEic = associateEic;
+            return this;
+        }
+
+        /**
+         * @param associateEic 关联的EIC信息。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associateEic(DirectConnectGatewayAssociateEicArgs associateEic) {
+            return associateEic(Output.of(associateEic));
         }
 
         /**

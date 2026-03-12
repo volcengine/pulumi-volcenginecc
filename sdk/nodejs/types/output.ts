@@ -243,6 +243,14 @@ export namespace alb {
          * 公网IP的线路类型，BGP表示多线。
          */
         isp: string;
+        /**
+         * 创建ALB公网实例时，如果使用了IP防护资源，则需要指定一个DDoS原生防护实例的ID。
+         */
+        securityProtectionInstanceId: number;
+        /**
+         * 创建 ALB 公网实例时，ALB 允许购买多个公网IP防护资源。公网 IP 防护资源的具体规则如下：多个防护资源之间用半角逗号（,）分隔。防护资源的取值如下：AntiDDoS_Enhanced：您申请的是增强防护类型的公网 IP，可以将此 IP 加入到 DDoS 原生防护实例。不填：您申请的是基础防护类型的公网 IP 。
+         */
+        securityProtectionTypes: string;
     }
 
     export interface GetLoadBalancerGlobalAccelerator {
@@ -838,6 +846,14 @@ export namespace alb {
          * 公网IP的线路类型，BGP表示多线。
          */
         isp: string;
+        /**
+         * 创建ALB公网实例时，如果使用了IP防护资源，则需要指定一个DDoS原生防护实例的ID。
+         */
+        securityProtectionInstanceId: number;
+        /**
+         * 创建 ALB 公网实例时，ALB 允许购买多个公网IP防护资源。公网 IP 防护资源的具体规则如下：多个防护资源之间用半角逗号（,）分隔。防护资源的取值如下：AntiDDoS_Enhanced：您申请的是增强防护类型的公网 IP，可以将此 IP 加入到 DDoS 原生防护实例。不填：您申请的是基础防护类型的公网 IP 。
+         */
+        securityProtectionTypes: string;
     }
 
     export interface LoadBalancerGlobalAccelerator {
@@ -1426,14 +1442,6 @@ export namespace apig {
     }
 
     export interface GatewayServiceCustomDomain {
-        /**
-         * 自定义域名。
-         */
-        domain: string;
-        /**
-         * 自定义域名ID。
-         */
-        domainId: string;
     }
 
     export interface GatewayServiceDomain {
@@ -1452,6 +1460,21 @@ export namespace apig {
          * 开启私网域名公网解析。
          */
         enablePublicResolution: boolean;
+    }
+
+    export interface GatewayServiceServiceNetworkSpec {
+        /**
+         * 开启私网。
+         */
+        enablePrivateNetwork: boolean;
+        /**
+         * 开启公网。
+         */
+        enablePublicNetwork: boolean;
+        /**
+         * 私网域名解析的目标IP。
+         */
+        privateNetworkIps: string[];
     }
 
     export interface GatewayTraceSpec {
@@ -1707,6 +1730,21 @@ export namespace apig {
         enablePublicResolution: boolean;
     }
 
+    export interface GetGatewayServiceServiceNetworkSpec {
+        /**
+         * 开启私网。
+         */
+        enablePrivateNetwork: boolean;
+        /**
+         * 开启公网。
+         */
+        enablePublicNetwork: boolean;
+        /**
+         * 私网域名解析的目标IP。
+         */
+        privateNetworkIps: string[];
+    }
+
     export interface GetGatewayTraceSpec {
         /**
          * 应用性能监控全链路版链路追踪配置。
@@ -1794,6 +1832,25 @@ export namespace apig {
         minHealthPercent: number;
     }
 
+    export interface GetUpstreamConnectionPoolSettings {
+        /**
+         * 开启。
+         */
+        enable: boolean;
+        /**
+         * HTTP/1最大等待请求数。取值限制为0~2^31-1，0为不限制。
+         */
+        http1MaxPendingRequests: number;
+        /**
+         * 空闲超时时间。单位为秒。取值限制为0~2^31-1，0为不限制。
+         */
+        idleTimeout: number;
+        /**
+         * TCP最大连接数。取值限制为0~2^31-1，0为不限制。
+         */
+        maxConnections: number;
+    }
+
     export interface GetUpstreamLoadBalancerSettings {
         /**
          * 一致性哈希负载均衡。
@@ -1814,6 +1871,10 @@ export namespace apig {
     }
 
     export interface GetUpstreamLoadBalancerSettingsConsistentHashLb {
+        /**
+         * 过载保护参数。取值限制为100~200。当取值为120时，upstream节点当前活跃请求数超过平均活跃请求数的120%时，将触发过载保护。当触发过载保护时，即使请求的hash命中某一upstream节点，负载均衡器也会随机选择upstream节点。
+         */
+        hashBalanceFactor: number;
         /**
          * 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
          */
@@ -1954,6 +2015,10 @@ export namespace apig {
          */
         aiProvider: outputs.apig.GetUpstreamUpstreamSpecAiProvider;
         /**
+         * 固定域名。
+         */
+        domain: outputs.apig.GetUpstreamUpstreamSpecDomain;
+        /**
          * 云服务器。
          */
         ecsInstances: outputs.apig.GetUpstreamUpstreamSpecEcsInstance[];
@@ -2001,6 +2066,24 @@ export namespace apig {
         namespace: string;
         /**
          * 端口。
+         */
+        port: number;
+    }
+
+    export interface GetUpstreamUpstreamSpecDomain {
+        /**
+         * 域名列表。
+         */
+        domainLists: outputs.apig.GetUpstreamUpstreamSpecDomainDomainList[];
+    }
+
+    export interface GetUpstreamUpstreamSpecDomainDomainList {
+        /**
+         * 域名。
+         */
+        domain: string;
+        /**
+         * 端口。协议类型为HTTP时，默认值为80。协议类型为HTTPS时，默认值为443。
          */
         port: number;
     }
@@ -2133,6 +2216,25 @@ export namespace apig {
         minHealthPercent: number;
     }
 
+    export interface UpstreamConnectionPoolSettings {
+        /**
+         * 开启。
+         */
+        enable: boolean;
+        /**
+         * HTTP/1最大等待请求数。取值限制为0~2^31-1，0为不限制。
+         */
+        http1MaxPendingRequests: number;
+        /**
+         * 空闲超时时间。单位为秒。取值限制为0~2^31-1，0为不限制。
+         */
+        idleTimeout: number;
+        /**
+         * TCP最大连接数。取值限制为0~2^31-1，0为不限制。
+         */
+        maxConnections: number;
+    }
+
     export interface UpstreamLoadBalancerSettings {
         /**
          * 一致性哈希负载均衡。
@@ -2153,6 +2255,10 @@ export namespace apig {
     }
 
     export interface UpstreamLoadBalancerSettingsConsistentHashLb {
+        /**
+         * 过载保护参数。取值限制为100~200。当取值为120时，upstream节点当前活跃请求数超过平均活跃请求数的120%时，将触发过载保护。当触发过载保护时，即使请求的hash命中某一upstream节点，负载均衡器也会随机选择upstream节点。
+         */
+        hashBalanceFactor: number;
         /**
          * 一致性哈希方式，取值：UseSourceIp：基于源IP地址。HttpQueryParameterName：基于参数。HttpHeaderName：基于头。HTTPCookie：基于cookie。
          */
@@ -2292,6 +2398,10 @@ export namespace apig {
          * AI模型代理。
          */
         aiProvider: outputs.apig.UpstreamUpstreamSpecAiProvider;
+        /**
+         * 固定域名。
+         */
+        domain: outputs.apig.UpstreamUpstreamSpecDomain;
         ecsInstances: outputs.apig.UpstreamUpstreamSpecEcsInstance[];
         /**
          * 容器服务。
@@ -2337,6 +2447,21 @@ export namespace apig {
         namespace: string;
         /**
          * 端口。
+         */
+        port: number;
+    }
+
+    export interface UpstreamUpstreamSpecDomain {
+        domainLists: outputs.apig.UpstreamUpstreamSpecDomainDomainList[];
+    }
+
+    export interface UpstreamUpstreamSpecDomainDomainList {
+        /**
+         * 域名。
+         */
+        domain: string;
+        /**
+         * 端口。协议类型为HTTP时，默认值为80。协议类型为HTTPS时，默认值为443。
          */
         port: number;
     }
@@ -2611,6 +2736,10 @@ export namespace autoscaling {
          * 线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
          */
         isp: string;
+        /**
+         * 公网IP是否随实例删除。仅按量计费公网IP且在ECS控制台删除实例时生效，在伸缩组中删除实例后公网IP的保留情况请参见实例管理中的详细说明。取值：true：公网IP随实例删除。false：公网IP不随实例删除。
+         */
+        releaseWithInstance: boolean;
     }
 
     export interface GetScalingConfigurationInstanceTypeOverride {
@@ -2641,7 +2770,19 @@ export namespace autoscaling {
          */
         deleteWithInstance: boolean;
         /**
-         * 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
+         * 通过此参数可配置云盘额外性能包IOPS性能大小，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceIOPS 表示第N个云盘的额外性能包IOPS大小：IOPS: 1-50000。Balance: 1-50000。
+         */
+        extraPerformanceIops: number;
+        /**
+         * 通过此参数可配置云盘额外性能包吞吐性能大小，单位MB/s，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceThroughputMB 表示第N个云盘的额外性能包吞吐大小：Throughput：1-650。
+         */
+        extraPerformanceThroughputMb: number;
+        /**
+         * 通过此参数可为云盘购买额外性能，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包。取值：2～16。ExtraPerformanceTypeId 表示第N个云盘的额外性能包类型：IOPS:IOPS型，使用ExtraPerformanceIOPS参数。Balance: 均衡型，使用ExtraPerformanceIOPS参数。Throughput：吞吐量型，使用ExtraPerformanceThroughputMB参数。
+         */
+        extraPerformanceTypeId: string;
+        /**
+         * 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。如果是 ESSD_FlexPL 并使用额外性能，大小必须 >= 500 GB。
          */
         size: number;
         /**
@@ -2812,6 +2953,10 @@ export namespace autoscaling {
          * 线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
          */
         isp: string;
+        /**
+         * 公网IP是否随实例删除。仅按量计费公网IP且在ECS控制台删除实例时生效，在伸缩组中删除实例后公网IP的保留情况请参见实例管理中的详细说明。取值：true：公网IP随实例删除。false：公网IP不随实例删除。
+         */
+        releaseWithInstance: boolean;
     }
 
     export interface ScalingConfigurationInstanceTypeOverride {
@@ -2842,7 +2987,19 @@ export namespace autoscaling {
          */
         deleteWithInstance: boolean;
         /**
-         * 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
+         * 通过此参数可配置云盘额外性能包IOPS性能大小，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceIOPS 表示第N个云盘的额外性能包IOPS大小：IOPS: 1-50000。Balance: 1-50000。
+         */
+        extraPerformanceIops: number;
+        /**
+         * 通过此参数可配置云盘额外性能包吞吐性能大小，单位MB/s，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceThroughputMB 表示第N个云盘的额外性能包吞吐大小：Throughput：1-650。
+         */
+        extraPerformanceThroughputMb: number;
+        /**
+         * 通过此参数可为云盘购买额外性能，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包。取值：2～16。ExtraPerformanceTypeId 表示第N个云盘的额外性能包类型：IOPS:IOPS型，使用ExtraPerformanceIOPS参数。Balance: 均衡型，使用ExtraPerformanceIOPS参数。Throughput：吞吐量型，使用ExtraPerformanceThroughputMB参数。
+         */
+        extraPerformanceTypeId: string;
+        /**
+         * 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。如果是 ESSD_FlexPL 并使用额外性能，大小必须 >= 500 GB。
          */
         size: number;
         /**
@@ -5503,6 +5660,21 @@ export namespace directconnect {
         cenStatus: string;
     }
 
+    export interface DirectConnectGatewayAssociateEic {
+        /**
+         * EIC的ID。
+         */
+        eicId: string;
+        /**
+         * EIC的用户ID。
+         */
+        eicOwnerId: string;
+        /**
+         * 实例在EIC中的状态。
+         */
+        eicStatus: string;
+    }
+
     export interface DirectConnectGatewayTag {
         /**
          * 用户标签的标签键。长度取值范围为1~128字符。
@@ -5527,6 +5699,21 @@ export namespace directconnect {
          * 实例在CEN中的状态。Attaching：加载中。Attached：已加载。
          */
         cenStatus: string;
+    }
+
+    export interface GetDirectConnectGatewayAssociateEic {
+        /**
+         * EIC的ID。
+         */
+        eicId: string;
+        /**
+         * EIC的用户ID。
+         */
+        eicOwnerId: string;
+        /**
+         * 实例在EIC中的状态。
+         */
+        eicStatus: string;
     }
 
     export interface GetDirectConnectGatewayTag {
@@ -5696,6 +5883,17 @@ export namespace ecs {
          * 可用区ID。只返回部署集内存量ECS实例所属的可用区ID。
          */
         zoneId: string;
+    }
+
+    export interface GetHpcClusterTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
     }
 
     export interface GetImageDetectionResults {
@@ -6488,6 +6686,17 @@ export namespace ecs {
          * 云盘类型。ESSD_PL0：极速型SSD PL0。PTSSD：性能型SSD。
          */
         volumeType: string;
+    }
+
+    export interface HpcClusterTag {
+        /**
+         * 标签键。
+         */
+        key: string;
+        /**
+         * 标签值。
+         */
+        value: string;
     }
 
     export interface ImageDetectionResults {
@@ -9692,6 +9901,44 @@ export namespace kms {
 }
 
 export namespace mongodb {
+    export interface AllowListAssociatedInstance {
+        /**
+         * 已绑定当前白名单的实例 ID。
+         */
+        instanceId: string;
+        /**
+         * 已绑定当前白名单的实例名称。
+         */
+        instanceName: string;
+        /**
+         * 实例所属的项目名称。
+         */
+        projectName: string;
+        /**
+         * 实例所属的私有网络 ID。
+         */
+        vpc: string;
+    }
+
+    export interface GetAllowListAssociatedInstance {
+        /**
+         * 已绑定当前白名单的实例 ID。
+         */
+        instanceId: string;
+        /**
+         * 已绑定当前白名单的实例名称。
+         */
+        instanceName: string;
+        /**
+         * 实例所属的项目名称。
+         */
+        projectName: string;
+        /**
+         * 实例所属的私有网络 ID。
+         */
+        vpc: string;
+    }
+
     export interface GetInstanceConfigServer {
         /**
          * ConfigServer 的节点 ID。
@@ -10783,6 +11030,40 @@ export namespace rabbitmq {
 }
 
 export namespace rdsmssql {
+    export interface AllowListAssociatedInstance {
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+    }
+
+    export interface GetAllowListAssociatedInstance {
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+        /**
+         * 实例名称。
+         */
+        instanceName: string;
+        /**
+         * 实例状态。
+         */
+        instanceStatus: string;
+        /**
+         * 是否同步最新白名单 IP
+         */
+        isLatest: boolean;
+        /**
+         * 实例所属项目名称。
+         */
+        projectName: string;
+        /**
+         * 实例所属VPC ID。
+         */
+        vpc: string;
+    }
+
     export interface GetInstanceChargeInfo {
         /**
          * 预付费场景下是否自动续费。true：自动续费（默认）。false：不自动续费。
