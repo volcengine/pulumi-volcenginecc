@@ -152,8 +152,8 @@ github.com/vmihailenco/msgpack/v5 v5.4.1 h1:cQriyiUvjTwOHg8QZaPihLWeRAAVoCpE00IU
 github.com/vmihailenco/msgpack/v5 v5.4.1/go.mod h1:GaZTsDaehaPpQVyxrf5mtQlH+pc21PIudVV/E3rRQok=
 github.com/vmihailenco/tagparser/v2 v2.0.0 h1:y09buUbR+b5aycVFQs/g70pqKVZNBmxwAhO7/IwNM9g=
 github.com/vmihailenco/tagparser/v2 v2.0.0/go.mod h1:Wri+At7QHww0WTrCBeu4J6bNtoV6mEfg5OIWRZA9qds=
-github.com/volcengine/terraform-provider-volcenginecc v0.0.31 h1:paU1EEov/TSOqna1gprblWVX9ptAYVM4pi4yW+W9VPw=
-github.com/volcengine/terraform-provider-volcenginecc v0.0.31/go.mod h1:pnVLxo7hvzErGTHni4vdzafrgxgGxWwweTJ+E/mmXQk=
+github.com/volcengine/terraform-provider-volcenginecc v0.0.32 h1:CQtsDIO08se4q2qW3y+r4vUzC6E7Dhl4n7c/KAJo+ls=
+github.com/volcengine/terraform-provider-volcenginecc v0.0.32/go.mod h1:pnVLxo7hvzErGTHni4vdzafrgxgGxWwweTJ+E/mmXQk=
 github.com/volcengine/volc-sdk-golang v1.0.23 h1:anOslb2Qp6ywnsbyq9jqR0ljuO63kg9PY+4OehIk5R8=
 github.com/volcengine/volc-sdk-golang v1.0.23/go.mod h1:AfG/PZRUkHJ9inETvbjNifTDgut25Wbkm2QoYBTbvyU=
 github.com/volcengine/volcengine-go-sdk v1.2.12 h1:wz5Fqw9gWeKo5MPn0MZLwIgplY8remoBih/7MX6HLvE=

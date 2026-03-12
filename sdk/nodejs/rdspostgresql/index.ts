@@ -10,6 +10,11 @@ export type AllowList = import("./allowList").AllowList;
 export const AllowList: typeof import("./allowList").AllowList = null as any;
 utilities.lazyLoad(exports, ["AllowList"], () => require("./allowList"));
 
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
 export { DbAccountArgs, DbAccountState } from "./dbAccount";
 export type DbAccount = import("./dbAccount").DbAccount;
 export const DbAccount: typeof import("./dbAccount").DbAccount = null as any;
@@ -29,6 +34,16 @@ export { GetAllowListsResult } from "./getAllowLists";
 export const getAllowLists: typeof import("./getAllowLists").getAllowLists = null as any;
 export const getAllowListsOutput: typeof import("./getAllowLists").getAllowListsOutput = null as any;
 utilities.lazyLoad(exports, ["getAllowLists","getAllowListsOutput"], () => require("./getAllowLists"));
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetDatabasesResult } from "./getDatabases";
+export const getDatabases: typeof import("./getDatabases").getDatabases = null as any;
+export const getDatabasesOutput: typeof import("./getDatabases").getDatabasesOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabases","getDatabasesOutput"], () => require("./getDatabases"));
 
 export { GetDbAccountArgs, GetDbAccountResult, GetDbAccountOutputArgs } from "./getDbAccount";
 export const getDbAccount: typeof import("./getDbAccount").getDbAccount = null as any;
@@ -50,6 +65,21 @@ export const getDbEndpoints: typeof import("./getDbEndpoints").getDbEndpoints = 
 export const getDbEndpointsOutput: typeof import("./getDbEndpoints").getDbEndpointsOutput = null as any;
 utilities.lazyLoad(exports, ["getDbEndpoints","getDbEndpointsOutput"], () => require("./getDbEndpoints"));
 
+export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
+export const getSchema: typeof import("./getSchema").getSchema = null as any;
+export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
+
+export { GetSchemasResult } from "./getSchemas";
+export const getSchemas: typeof import("./getSchemas").getSchemas = null as any;
+export const getSchemasOutput: typeof import("./getSchemas").getSchemasOutput = null as any;
+utilities.lazyLoad(exports, ["getSchemas","getSchemasOutput"], () => require("./getSchemas"));
+
+export { SchemaArgs, SchemaState } from "./schema";
+export type Schema = import("./schema").Schema;
+export const Schema: typeof import("./schema").Schema = null as any;
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -57,15 +87,21 @@ const _module = {
         switch (type) {
             case "volcenginecc:rdspostgresql/allowList:AllowList":
                 return new AllowList(name, <any>undefined, { urn })
+            case "volcenginecc:rdspostgresql/database:Database":
+                return new Database(name, <any>undefined, { urn })
             case "volcenginecc:rdspostgresql/dbAccount:DbAccount":
                 return new DbAccount(name, <any>undefined, { urn })
             case "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint":
                 return new DbEndpoint(name, <any>undefined, { urn })
+            case "volcenginecc:rdspostgresql/schema:Schema":
+                return new Schema(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/allowList", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/database", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/dbAccount", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/dbEndpoint", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/schema", _module)

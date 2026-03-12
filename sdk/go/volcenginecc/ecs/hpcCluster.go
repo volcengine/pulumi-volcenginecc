@@ -32,6 +32,13 @@ import (
 //				Name:        pulumi.String("ECSHpcClusterDemo"),
 //				ZoneId:      pulumi.String("cn-beijing-a"),
 //				Description: pulumi.String("ECSHpcClusterDemo description"),
+//				ProjectName: pulumi.String("default"),
+//				Tags: ecs.HpcClusterTagArray{
+//					&ecs.HpcClusterTagArgs{
+//						Key:   pulumi.String("env"),
+//						Value: pulumi.String("test"),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -58,6 +65,9 @@ type HpcCluster struct {
 	HpcClusterId pulumi.StringOutput `pulumi:"hpcClusterId"`
 	// 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 	Name pulumi.StringOutput `pulumi:"name"`
+	// 项目名称。
+	ProjectName pulumi.StringOutput      `pulumi:"projectName"`
+	Tags        HpcClusterTagArrayOutput `pulumi:"tags"`
 	// 更新时间，格式满足RFC3339。
 	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 	// 私有网络ID。
@@ -110,6 +120,9 @@ type hpcClusterState struct {
 	HpcClusterId *string `pulumi:"hpcClusterId"`
 	// 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 	Name *string `pulumi:"name"`
+	// 项目名称。
+	ProjectName *string         `pulumi:"projectName"`
+	Tags        []HpcClusterTag `pulumi:"tags"`
 	// 更新时间，格式满足RFC3339。
 	UpdatedTime *string `pulumi:"updatedTime"`
 	// 私有网络ID。
@@ -127,6 +140,9 @@ type HpcClusterState struct {
 	HpcClusterId pulumi.StringPtrInput
 	// 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 	Name pulumi.StringPtrInput
+	// 项目名称。
+	ProjectName pulumi.StringPtrInput
+	Tags        HpcClusterTagArrayInput
 	// 更新时间，格式满足RFC3339。
 	UpdatedTime pulumi.StringPtrInput
 	// 私有网络ID。
@@ -140,28 +156,26 @@ func (HpcClusterState) ElementType() reflect.Type {
 }
 
 type hpcClusterArgs struct {
-	// 创建时间，格式满足RFC3339。
-	CreatedTime *string `pulumi:"createdTime"`
 	// 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
 	Description *string `pulumi:"description"`
 	// 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 	Name string `pulumi:"name"`
-	// 更新时间，格式满足RFC3339。
-	UpdatedTime *string `pulumi:"updatedTime"`
+	// 项目名称。
+	ProjectName *string         `pulumi:"projectName"`
+	Tags        []HpcClusterTag `pulumi:"tags"`
 	// 高性能计算集群所属可用区ID。
 	ZoneId string `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a HpcCluster resource.
 type HpcClusterArgs struct {
-	// 创建时间，格式满足RFC3339。
-	CreatedTime pulumi.StringPtrInput
 	// 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
 	Description pulumi.StringPtrInput
 	// 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 	Name pulumi.StringInput
-	// 更新时间，格式满足RFC3339。
-	UpdatedTime pulumi.StringPtrInput
+	// 项目名称。
+	ProjectName pulumi.StringPtrInput
+	Tags        HpcClusterTagArrayInput
 	// 高性能计算集群所属可用区ID。
 	ZoneId pulumi.StringInput
 }
@@ -271,6 +285,15 @@ func (o HpcClusterOutput) HpcClusterId() pulumi.StringOutput {
 // 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 func (o HpcClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HpcCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// 项目名称。
+func (o HpcClusterOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v *HpcCluster) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+func (o HpcClusterOutput) Tags() HpcClusterTagArrayOutput {
+	return o.ApplyT(func(v *HpcCluster) HpcClusterTagArrayOutput { return v.Tags }).(HpcClusterTagArrayOutput)
 }
 
 // 更新时间，格式满足RFC3339。

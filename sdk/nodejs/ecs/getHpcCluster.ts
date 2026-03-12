@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -48,6 +50,14 @@ export interface GetHpcClusterResult {
      * 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
      */
     readonly name: string;
+    /**
+     * 项目名称。
+     */
+    readonly projectName: string;
+    /**
+     * 标签信息。
+     */
+    readonly tags: outputs.ecs.GetHpcClusterTag[];
     /**
      * 更新时间，格式满足RFC3339。
      */

@@ -5,7 +5,9 @@ package com.volcengine.volcenginecc.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.volcengine.volcenginecc.ecs.outputs.GetHpcClusterTag;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -35,6 +37,16 @@ public final class GetHpcClusterResult {
      * 
      */
     private String name;
+    /**
+     * @return 项目名称。
+     * 
+     */
+    private String projectName;
+    /**
+     * @return 标签信息。
+     * 
+     */
+    private List<GetHpcClusterTag> tags;
     /**
      * @return 更新时间，格式满足RFC3339。
      * 
@@ -88,6 +100,20 @@ public final class GetHpcClusterResult {
         return this.name;
     }
     /**
+     * @return 项目名称。
+     * 
+     */
+    public String projectName() {
+        return this.projectName;
+    }
+    /**
+     * @return 标签信息。
+     * 
+     */
+    public List<GetHpcClusterTag> tags() {
+        return this.tags;
+    }
+    /**
      * @return 更新时间，格式满足RFC3339。
      * 
      */
@@ -123,6 +149,8 @@ public final class GetHpcClusterResult {
         private String hpcClusterId;
         private String id;
         private String name;
+        private String projectName;
+        private List<GetHpcClusterTag> tags;
         private String updatedTime;
         private String vpcId;
         private String zoneId;
@@ -134,6 +162,8 @@ public final class GetHpcClusterResult {
     	      this.hpcClusterId = defaults.hpcClusterId;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.projectName = defaults.projectName;
+    	      this.tags = defaults.tags;
     	      this.updatedTime = defaults.updatedTime;
     	      this.vpcId = defaults.vpcId;
     	      this.zoneId = defaults.zoneId;
@@ -180,6 +210,25 @@ public final class GetHpcClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder projectName(String projectName) {
+            if (projectName == null) {
+              throw new MissingRequiredPropertyException("GetHpcClusterResult", "projectName");
+            }
+            this.projectName = projectName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tags(List<GetHpcClusterTag> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetHpcClusterResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(GetHpcClusterTag... tags) {
+            return tags(List.of(tags));
+        }
+        @CustomType.Setter
         public Builder updatedTime(String updatedTime) {
             if (updatedTime == null) {
               throw new MissingRequiredPropertyException("GetHpcClusterResult", "updatedTime");
@@ -210,6 +259,8 @@ public final class GetHpcClusterResult {
             _resultValue.hpcClusterId = hpcClusterId;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.projectName = projectName;
+            _resultValue.tags = tags;
             _resultValue.updatedTime = updatedTime;
             _resultValue.vpcId = vpcId;
             _resultValue.zoneId = zoneId;

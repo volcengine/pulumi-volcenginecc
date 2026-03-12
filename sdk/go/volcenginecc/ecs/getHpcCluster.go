@@ -40,6 +40,10 @@ type LookupHpcClusterResult struct {
 	Id string `pulumi:"id"`
 	// 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 	Name string `pulumi:"name"`
+	// 项目名称。
+	ProjectName string `pulumi:"projectName"`
+	// 标签信息。
+	Tags []GetHpcClusterTag `pulumi:"tags"`
 	// 更新时间，格式满足RFC3339。
 	UpdatedTime string `pulumi:"updatedTime"`
 	// 私有网络ID。
@@ -105,6 +109,16 @@ func (o LookupHpcClusterResultOutput) Id() pulumi.StringOutput {
 // 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
 func (o LookupHpcClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHpcClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// 项目名称。
+func (o LookupHpcClusterResultOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHpcClusterResult) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// 标签信息。
+func (o LookupHpcClusterResultOutput) Tags() GetHpcClusterTagArrayOutput {
+	return o.ApplyT(func(v LookupHpcClusterResult) []GetHpcClusterTag { return v.Tags }).(GetHpcClusterTagArrayOutput)
 }
 
 // 更新时间，格式满足RFC3339。

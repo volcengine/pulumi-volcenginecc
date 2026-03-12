@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.ecs.HpcClusterArgs;
 import com.volcengine.volcenginecc.ecs.inputs.HpcClusterState;
+import com.volcengine.volcenginecc.ecs.outputs.HpcClusterTag;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -28,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.ecs.HpcCluster;
  * import com.volcengine.volcenginecc.ecs.HpcClusterArgs;
+ * import com.pulumi.volcenginecc.ecs.inputs.HpcClusterTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,6 +48,11 @@ import javax.annotation.Nullable;
  *             .name("ECSHpcClusterDemo")
  *             .zoneId("cn-beijing-a")
  *             .description("ECSHpcClusterDemo description")
+ *             .projectName("default")
+ *             .tags(HpcClusterTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -117,6 +125,26 @@ public class HpcCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * 项目名称。
+     * 
+     */
+    @Export(name="projectName", refs={String.class}, tree="[0]")
+    private Output<String> projectName;
+
+    /**
+     * @return 项目名称。
+     * 
+     */
+    public Output<String> projectName() {
+        return this.projectName;
+    }
+    @Export(name="tags", refs={List.class,HpcClusterTag.class}, tree="[0,1]")
+    private Output<List<HpcClusterTag>> tags;
+
+    public Output<List<HpcClusterTag>> tags() {
+        return this.tags;
     }
     /**
      * 更新时间，格式满足RFC3339。

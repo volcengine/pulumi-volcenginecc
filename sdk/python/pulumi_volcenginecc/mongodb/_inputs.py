@@ -16,6 +16,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AllowListAssociatedInstanceArgs',
+    'AllowListAssociatedInstanceArgsDict',
     'InstanceConfigServerArgs',
     'InstanceConfigServerArgsDict',
     'InstanceMongoArgs',
@@ -33,6 +35,98 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AllowListAssociatedInstanceArgsDict(TypedDict):
+        instance_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        已绑定当前白名单的实例 ID。
+        """
+        instance_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        已绑定当前白名单的实例名称。
+        """
+        project_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        实例所属的项目名称。
+        """
+        vpc: NotRequired[pulumi.Input[builtins.str]]
+        """
+        实例所属的私有网络 ID。
+        """
+elif False:
+    AllowListAssociatedInstanceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AllowListAssociatedInstanceArgs:
+    def __init__(__self__, *,
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] instance_id: 已绑定当前白名单的实例 ID。
+        :param pulumi.Input[builtins.str] instance_name: 已绑定当前白名单的实例名称。
+        :param pulumi.Input[builtins.str] project_name: 实例所属的项目名称。
+        :param pulumi.Input[builtins.str] vpc: 实例所属的私有网络 ID。
+        """
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        已绑定当前白名单的实例 ID。
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        已绑定当前白名单的实例名称。
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_name", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        实例所属的项目名称。
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def vpc(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        实例所属的私有网络 ID。
+        """
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc", value)
+
 
 if not MYPY:
     class InstanceConfigServerArgsDict(TypedDict):

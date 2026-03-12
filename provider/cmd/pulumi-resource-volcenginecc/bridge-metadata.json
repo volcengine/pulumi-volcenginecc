@@ -205,6 +205,13 @@
                     },
                     "protocol": {
                         "maxItemsOne": false
+                    },
+                    "service_network_spec": {
+                        "fields": {
+                            "private_network_ip": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -216,6 +223,13 @@
                     },
                     "upstream_spec": {
                         "fields": {
+                            "domain": {
+                                "fields": {
+                                    "domain_list": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
                             "ecs_instances": {
                                 "maxItemsOne": false
                             }
@@ -800,7 +814,12 @@
                 }
             },
             "volcenginecc_ecs_hpc_cluster": {
-                "current": "volcenginecc:ecs/hpcCluster:HpcCluster"
+                "current": "volcenginecc:ecs/hpcCluster:HpcCluster",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "volcenginecc_ecs_image": {
                 "current": "volcenginecc:ecs/image:Image",
@@ -1183,6 +1202,17 @@
             "volcenginecc_kms_key_ring": {
                 "current": "volcenginecc:kms/keyRing:KeyRing"
             },
+            "volcenginecc_mongodb_allow_list": {
+                "current": "volcenginecc:mongodb/allowList:AllowList",
+                "fields": {
+                    "allow_list": {
+                        "maxItemsOne": false
+                    },
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_mongodb_instance": {
                 "current": "volcenginecc:mongodb/instance:Instance",
                 "fields": {
@@ -1329,6 +1359,14 @@
                         "maxItemsOne": false
                     },
                     "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdsmssql_allow_list": {
+                "current": "volcenginecc:rdsmssql/allowList:AllowList",
+                "fields": {
+                    "associated_instances": {
                         "maxItemsOne": false
                     }
                 }
@@ -1553,6 +1591,9 @@
                     }
                 }
             },
+            "volcenginecc_rdspostgresql_database": {
+                "current": "volcenginecc:rdspostgresql/database:Database"
+            },
             "volcenginecc_rdspostgresql_db_account": {
                 "current": "volcenginecc:rdspostgresql/dbAccount:DbAccount",
                 "fields": {
@@ -1571,6 +1612,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_rdspostgresql_schema": {
+                "current": "volcenginecc:rdspostgresql/schema:Schema"
             },
             "volcenginecc_redis_account": {
                 "current": "volcenginecc:redis/account:Account"
@@ -2713,6 +2757,13 @@
                     },
                     "protocol": {
                         "maxItemsOne": false
+                    },
+                    "service_network_spec": {
+                        "fields": {
+                            "private_network_ip": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -2740,6 +2791,13 @@
                     },
                     "upstream_spec": {
                         "fields": {
+                            "domain": {
+                                "fields": {
+                                    "domain_list": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
                             "ecs_instances": {
                                 "maxItemsOne": false
                             }
@@ -3628,7 +3686,12 @@
                 }
             },
             "volcenginecc_ecs_hpc_cluster": {
-                "current": "volcenginecc:ecs/getHpcCluster:getHpcCluster"
+                "current": "volcenginecc:ecs/getHpcCluster:getHpcCluster",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "volcenginecc_ecs_hpc_clusters": {
                 "current": "volcenginecc:ecs/getHpcClusters:getHpcClusters",
@@ -4206,6 +4269,25 @@
                     }
                 }
             },
+            "volcenginecc_mongodb_allow_list": {
+                "current": "volcenginecc:mongodb/getAllowList:getAllowList",
+                "fields": {
+                    "allow_list": {
+                        "maxItemsOne": false
+                    },
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_mongodb_allow_lists": {
+                "current": "volcenginecc:mongodb/getAllowLists:getAllowLists",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_mongodb_instance": {
                 "current": "volcenginecc:mongodb/getInstance:getInstance",
                 "fields": {
@@ -4462,6 +4544,22 @@
             },
             "volcenginecc_rabbitmq_public_addresses": {
                 "current": "volcenginecc:rabbitmq/getPublicAddresses:getPublicAddresses",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdsmssql_allow_list": {
+                "current": "volcenginecc:rdsmssql/getAllowList:getAllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdsmssql_allow_lists": {
+                "current": "volcenginecc:rdsmssql/getAllowLists:getAllowLists",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -4752,6 +4850,17 @@
                     }
                 }
             },
+            "volcenginecc_rdspostgresql_database": {
+                "current": "volcenginecc:rdspostgresql/getDatabase:getDatabase"
+            },
+            "volcenginecc_rdspostgresql_databases": {
+                "current": "volcenginecc:rdspostgresql/getDatabases:getDatabases",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdspostgresql_db_account": {
                 "current": "volcenginecc:rdspostgresql/getDbAccount:getDbAccount",
                 "fields": {
@@ -4781,6 +4890,17 @@
             },
             "volcenginecc_rdspostgresql_db_endpoints": {
                 "current": "volcenginecc:rdspostgresql/getDbEndpoints:getDbEndpoints",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdspostgresql_schema": {
+                "current": "volcenginecc:rdspostgresql/getSchema:getSchema"
+            },
+            "volcenginecc_rdspostgresql_schemas": {
+                "current": "volcenginecc:rdspostgresql/getSchemas:getSchemas",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

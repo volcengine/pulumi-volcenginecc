@@ -5,7 +5,9 @@ package com.volcengine.volcenginecc.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.volcengine.volcenginecc.ecs.inputs.HpcClusterTagArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -76,6 +78,28 @@ public final class HpcClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * 项目名称。
+     * 
+     */
+    @Import(name="projectName")
+    private @Nullable Output<String> projectName;
+
+    /**
+     * @return 项目名称。
+     * 
+     */
+    public Optional<Output<String>> projectName() {
+        return Optional.ofNullable(this.projectName);
+    }
+
+    @Import(name="tags")
+    private @Nullable Output<List<HpcClusterTagArgs>> tags;
+
+    public Optional<Output<List<HpcClusterTagArgs>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * 更新时间，格式满足RFC3339。
      * 
      */
@@ -127,6 +151,8 @@ public final class HpcClusterState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.hpcClusterId = $.hpcClusterId;
         this.name = $.name;
+        this.projectName = $.projectName;
+        this.tags = $.tags;
         this.updatedTime = $.updatedTime;
         this.vpcId = $.vpcId;
         this.zoneId = $.zoneId;
@@ -232,6 +258,40 @@ public final class HpcClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param projectName 项目名称。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectName(@Nullable Output<String> projectName) {
+            $.projectName = projectName;
+            return this;
+        }
+
+        /**
+         * @param projectName 项目名称。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectName(String projectName) {
+            return projectName(Output.of(projectName));
+        }
+
+        public Builder tags(@Nullable Output<List<HpcClusterTagArgs>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(List<HpcClusterTagArgs> tags) {
+            return tags(Output.of(tags));
+        }
+
+        public Builder tags(HpcClusterTagArgs... tags) {
+            return tags(List.of(tags));
         }
 
         /**

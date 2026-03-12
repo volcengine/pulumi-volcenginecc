@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['HpcClusterArgs', 'HpcCluster']
 
@@ -22,25 +24,24 @@ class HpcClusterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  zone_id: pulumi.Input[builtins.str],
-                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[builtins.str]] = None):
+                 project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['HpcClusterTagArgs']]]] = None):
         """
         The set of arguments for constructing a HpcCluster resource.
         :param pulumi.Input[builtins.str] name: 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
         :param pulumi.Input[builtins.str] zone_id: 高性能计算集群所属可用区ID。
-        :param pulumi.Input[builtins.str] created_time: 创建时间，格式满足RFC3339。
         :param pulumi.Input[builtins.str] description: 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间，格式满足RFC3339。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "zone_id", zone_id)
-        if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if updated_time is not None:
-            pulumi.set(__self__, "updated_time", updated_time)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -67,18 +68,6 @@ class HpcClusterArgs:
         pulumi.set(self, "zone_id", value)
 
     @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        创建时间，格式满足RFC3339。
-        """
-        return pulumi.get(self, "created_time")
-
-    @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "created_time", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -91,16 +80,25 @@ class HpcClusterArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="updatedTime")
-    def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        更新时间，格式满足RFC3339。
+        项目名称。
         """
-        return pulumi.get(self, "updated_time")
+        return pulumi.get(self, "project_name")
 
-    @updated_time.setter
-    def updated_time(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "updated_time", value)
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HpcClusterTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HpcClusterTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -110,6 +108,8 @@ class _HpcClusterState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  hpc_cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['HpcClusterTagArgs']]]] = None,
                  updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -119,6 +119,7 @@ class _HpcClusterState:
         :param pulumi.Input[builtins.str] description: 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
         :param pulumi.Input[builtins.str] hpc_cluster_id: 高性能计算集群ID。
         :param pulumi.Input[builtins.str] name: 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
         :param pulumi.Input[builtins.str] updated_time: 更新时间，格式满足RFC3339。
         :param pulumi.Input[builtins.str] vpc_id: 私有网络ID。
         :param pulumi.Input[builtins.str] zone_id: 高性能计算集群所属可用区ID。
@@ -131,6 +132,10 @@ class _HpcClusterState:
             pulumi.set(__self__, "hpc_cluster_id", hpc_cluster_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if updated_time is not None:
             pulumi.set(__self__, "updated_time", updated_time)
         if vpc_id is not None:
@@ -187,6 +192,27 @@ class _HpcClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        项目名称。
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "project_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HpcClusterTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HpcClusterTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -229,10 +255,10 @@ class HpcCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HpcClusterTagArgs', 'HpcClusterTagArgsDict']]]]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -247,7 +273,12 @@ class HpcCluster(pulumi.CustomResource):
         e_cs_hpc_cluster_demo = volcenginecc.ecs.HpcCluster("ECSHpcClusterDemo",
             name="ECSHpcClusterDemo",
             zone_id="cn-beijing-a",
-            description="ECSHpcClusterDemo description")
+            description="ECSHpcClusterDemo description",
+            project_name="default",
+            tags=[{
+                "key": "env",
+                "value": "test",
+            }])
         ```
 
         ## Import
@@ -258,10 +289,9 @@ class HpcCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] created_time: 创建时间，格式满足RFC3339。
         :param pulumi.Input[builtins.str] description: 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
         :param pulumi.Input[builtins.str] name: 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间，格式满足RFC3339。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
         :param pulumi.Input[builtins.str] zone_id: 高性能计算集群所属可用区ID。
         """
         ...
@@ -282,7 +312,12 @@ class HpcCluster(pulumi.CustomResource):
         e_cs_hpc_cluster_demo = volcenginecc.ecs.HpcCluster("ECSHpcClusterDemo",
             name="ECSHpcClusterDemo",
             zone_id="cn-beijing-a",
-            description="ECSHpcClusterDemo description")
+            description="ECSHpcClusterDemo description",
+            project_name="default",
+            tags=[{
+                "key": "env",
+                "value": "test",
+            }])
         ```
 
         ## Import
@@ -306,10 +341,10 @@ class HpcCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HpcClusterTagArgs', 'HpcClusterTagArgsDict']]]]] = None,
                  zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,16 +355,18 @@ class HpcCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HpcClusterArgs.__new__(HpcClusterArgs)
 
-            __props__.__dict__["created_time"] = created_time
             __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            __props__.__dict__["updated_time"] = updated_time
+            __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["tags"] = tags
             if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__.__dict__["zone_id"] = zone_id
+            __props__.__dict__["created_time"] = None
             __props__.__dict__["hpc_cluster_id"] = None
+            __props__.__dict__["updated_time"] = None
             __props__.__dict__["vpc_id"] = None
         super(HpcCluster, __self__).__init__(
             'volcenginecc:ecs/hpcCluster:HpcCluster',
@@ -345,6 +382,8 @@ class HpcCluster(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             hpc_cluster_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            project_name: Optional[pulumi.Input[builtins.str]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HpcClusterTagArgs', 'HpcClusterTagArgsDict']]]]] = None,
             updated_time: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None,
             zone_id: Optional[pulumi.Input[builtins.str]] = None) -> 'HpcCluster':
@@ -359,6 +398,7 @@ class HpcCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
         :param pulumi.Input[builtins.str] hpc_cluster_id: 高性能计算集群ID。
         :param pulumi.Input[builtins.str] name: 高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
+        :param pulumi.Input[builtins.str] project_name: 项目名称。
         :param pulumi.Input[builtins.str] updated_time: 更新时间，格式满足RFC3339。
         :param pulumi.Input[builtins.str] vpc_id: 私有网络ID。
         :param pulumi.Input[builtins.str] zone_id: 高性能计算集群所属可用区ID。
@@ -371,6 +411,8 @@ class HpcCluster(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["hpc_cluster_id"] = hpc_cluster_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["updated_time"] = updated_time
         __props__.__dict__["vpc_id"] = vpc_id
         __props__.__dict__["zone_id"] = zone_id
@@ -407,6 +449,19 @@ class HpcCluster(pulumi.CustomResource):
         高性能计算集群名称。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在1～128之间。
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Output[builtins.str]:
+        """
+        项目名称。
+        """
+        return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Sequence['outputs.HpcClusterTag']]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedTime")

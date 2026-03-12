@@ -6,7 +6,9 @@ package com.volcengine.volcenginecc.ecs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.volcengine.volcenginecc.ecs.inputs.HpcClusterTagArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,21 +17,6 @@ import javax.annotation.Nullable;
 public final class HpcClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final HpcClusterArgs Empty = new HpcClusterArgs();
-
-    /**
-     * 创建时间，格式满足RFC3339。
-     * 
-     */
-    @Import(name="createdTime")
-    private @Nullable Output<String> createdTime;
-
-    /**
-     * @return 创建时间，格式满足RFC3339。
-     * 
-     */
-    public Optional<Output<String>> createdTime() {
-        return Optional.ofNullable(this.createdTime);
-    }
 
     /**
      * 高性能计算集群描述，默认为空字符串。必须以字母或中文开头。只能包含中文、字母、数字、下划线和中划线。长度限制在0～255之间。
@@ -62,18 +49,25 @@ public final class HpcClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 更新时间，格式满足RFC3339。
+     * 项目名称。
      * 
      */
-    @Import(name="updatedTime")
-    private @Nullable Output<String> updatedTime;
+    @Import(name="projectName")
+    private @Nullable Output<String> projectName;
 
     /**
-     * @return 更新时间，格式满足RFC3339。
+     * @return 项目名称。
      * 
      */
-    public Optional<Output<String>> updatedTime() {
-        return Optional.ofNullable(this.updatedTime);
+    public Optional<Output<String>> projectName() {
+        return Optional.ofNullable(this.projectName);
+    }
+
+    @Import(name="tags")
+    private @Nullable Output<List<HpcClusterTagArgs>> tags;
+
+    public Optional<Output<List<HpcClusterTagArgs>>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     /**
@@ -94,10 +88,10 @@ public final class HpcClusterArgs extends com.pulumi.resources.ResourceArgs {
     private HpcClusterArgs() {}
 
     private HpcClusterArgs(HpcClusterArgs $) {
-        this.createdTime = $.createdTime;
         this.description = $.description;
         this.name = $.name;
-        this.updatedTime = $.updatedTime;
+        this.projectName = $.projectName;
+        this.tags = $.tags;
         this.zoneId = $.zoneId;
     }
 
@@ -117,27 +111,6 @@ public final class HpcClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(HpcClusterArgs defaults) {
             $ = new HpcClusterArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param createdTime 创建时间，格式满足RFC3339。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder createdTime(@Nullable Output<String> createdTime) {
-            $.createdTime = createdTime;
-            return this;
-        }
-
-        /**
-         * @param createdTime 创建时间，格式满足RFC3339。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder createdTime(String createdTime) {
-            return createdTime(Output.of(createdTime));
         }
 
         /**
@@ -183,24 +156,37 @@ public final class HpcClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedTime 更新时间，格式满足RFC3339。
+         * @param projectName 项目名称。
          * 
          * @return builder
          * 
          */
-        public Builder updatedTime(@Nullable Output<String> updatedTime) {
-            $.updatedTime = updatedTime;
+        public Builder projectName(@Nullable Output<String> projectName) {
+            $.projectName = projectName;
             return this;
         }
 
         /**
-         * @param updatedTime 更新时间，格式满足RFC3339。
+         * @param projectName 项目名称。
          * 
          * @return builder
          * 
          */
-        public Builder updatedTime(String updatedTime) {
-            return updatedTime(Output.of(updatedTime));
+        public Builder projectName(String projectName) {
+            return projectName(Output.of(projectName));
+        }
+
+        public Builder tags(@Nullable Output<List<HpcClusterTagArgs>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(List<HpcClusterTagArgs> tags) {
+            return tags(Output.of(tags));
+        }
+
+        public Builder tags(HpcClusterTagArgs... tags) {
+            return tags(List.of(tags));
         }
 
         /**

@@ -50,6 +50,8 @@ class ScalingConfigurationEip(dict):
             suggest = "bandwidth_package_id"
         elif key == "billingType":
             suggest = "billing_type"
+        elif key == "releaseWithInstance":
+            suggest = "release_with_instance"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScalingConfigurationEip. Access the value via the '{suggest}' property getter instead.")
@@ -66,12 +68,14 @@ class ScalingConfigurationEip(dict):
                  bandwidth: Optional[builtins.int] = None,
                  bandwidth_package_id: Optional[builtins.str] = None,
                  billing_type: Optional[builtins.str] = None,
-                 isp: Optional[builtins.str] = None):
+                 isp: Optional[builtins.str] = None,
+                 release_with_instance: Optional[builtins.bool] = None):
         """
         :param builtins.int bandwidth: 公网IP的带宽峰值，默认为1，单位：Mbps。取值：当Eip.BillingType取值为PostPaidByBandwidth时，取值为1 ～ 500。当Eip.BillingType取值为PostPaidByTraffic时，取值为1 ～ 200。
         :param builtins.str bandwidth_package_id: 共享带宽包的ID，表示将公网IP加入到共享带宽包。 您可以调用 DescribeBandwidthPackages 接口，查询共享带宽包的ID。 公网IP加入到共享带宽包必须同时满足如下条件：二者的安全防护类型相同。二者的线路类型相同。共享带宽包为IPv4类型。
         :param builtins.str billing_type: 公网IP的计费类型，取值：PostPaidByBandwidth（默认）：按量计费-按带宽上限计费。PostPaidByTraffic：按量计费-按实际流量计费。
         :param builtins.str isp: 线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
+        :param builtins.bool release_with_instance: 公网IP是否随实例删除。仅按量计费公网IP且在ECS控制台删除实例时生效，在伸缩组中删除实例后公网IP的保留情况请参见实例管理中的详细说明。取值：true：公网IP随实例删除。false：公网IP不随实例删除。
         """
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
@@ -81,6 +85,8 @@ class ScalingConfigurationEip(dict):
             pulumi.set(__self__, "billing_type", billing_type)
         if isp is not None:
             pulumi.set(__self__, "isp", isp)
+        if release_with_instance is not None:
+            pulumi.set(__self__, "release_with_instance", release_with_instance)
 
     @property
     @pulumi.getter
@@ -113,6 +119,14 @@ class ScalingConfigurationEip(dict):
         线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
         """
         return pulumi.get(self, "isp")
+
+    @property
+    @pulumi.getter(name="releaseWithInstance")
+    def release_with_instance(self) -> Optional[builtins.bool]:
+        """
+        公网IP是否随实例删除。仅按量计费公网IP且在ECS控制台删除实例时生效，在伸缩组中删除实例后公网IP的保留情况请参见实例管理中的详细说明。取值：true：公网IP随实例删除。false：公网IP不随实例删除。
+        """
+        return pulumi.get(self, "release_with_instance")
 
 
 @pulumi.output_type
@@ -203,6 +217,12 @@ class ScalingConfigurationVolume(dict):
         suggest = None
         if key == "deleteWithInstance":
             suggest = "delete_with_instance"
+        elif key == "extraPerformanceIops":
+            suggest = "extra_performance_iops"
+        elif key == "extraPerformanceThroughputMb":
+            suggest = "extra_performance_throughput_mb"
+        elif key == "extraPerformanceTypeId":
+            suggest = "extra_performance_type_id"
         elif key == "volumeType":
             suggest = "volume_type"
 
@@ -219,15 +239,27 @@ class ScalingConfigurationVolume(dict):
 
     def __init__(__self__, *,
                  delete_with_instance: Optional[builtins.bool] = None,
+                 extra_performance_iops: Optional[builtins.int] = None,
+                 extra_performance_throughput_mb: Optional[builtins.int] = None,
+                 extra_performance_type_id: Optional[builtins.str] = None,
                  size: Optional[builtins.int] = None,
                  volume_type: Optional[builtins.str] = None):
         """
         :param builtins.bool delete_with_instance: 云盘是否随实例释放：true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
-        :param builtins.int size: 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
+        :param builtins.int extra_performance_iops: 通过此参数可配置云盘额外性能包IOPS性能大小，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceIOPS 表示第N个云盘的额外性能包IOPS大小：IOPS: 1-50000。Balance: 1-50000。
+        :param builtins.int extra_performance_throughput_mb: 通过此参数可配置云盘额外性能包吞吐性能大小，单位MB/s，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceThroughputMB 表示第N个云盘的额外性能包吞吐大小：Throughput：1-650。
+        :param builtins.str extra_performance_type_id: 通过此参数可为云盘购买额外性能，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包。取值：2～16。ExtraPerformanceTypeId 表示第N个云盘的额外性能包类型：IOPS:IOPS型，使用ExtraPerformanceIOPS参数。Balance: 均衡型，使用ExtraPerformanceIOPS参数。Throughput：吞吐量型，使用ExtraPerformanceThroughputMB参数。
+        :param builtins.int size: 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。如果是 ESSD_FlexPL 并使用额外性能，大小必须 >= 500 GB。
         :param builtins.str volume_type: 云盘的类型：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。
         """
         if delete_with_instance is not None:
             pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if extra_performance_iops is not None:
+            pulumi.set(__self__, "extra_performance_iops", extra_performance_iops)
+        if extra_performance_throughput_mb is not None:
+            pulumi.set(__self__, "extra_performance_throughput_mb", extra_performance_throughput_mb)
+        if extra_performance_type_id is not None:
+            pulumi.set(__self__, "extra_performance_type_id", extra_performance_type_id)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if volume_type is not None:
@@ -242,10 +274,34 @@ class ScalingConfigurationVolume(dict):
         return pulumi.get(self, "delete_with_instance")
 
     @property
+    @pulumi.getter(name="extraPerformanceIops")
+    def extra_performance_iops(self) -> Optional[builtins.int]:
+        """
+        通过此参数可配置云盘额外性能包IOPS性能大小，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceIOPS 表示第N个云盘的额外性能包IOPS大小：IOPS: 1-50000。Balance: 1-50000。
+        """
+        return pulumi.get(self, "extra_performance_iops")
+
+    @property
+    @pulumi.getter(name="extraPerformanceThroughputMb")
+    def extra_performance_throughput_mb(self) -> Optional[builtins.int]:
+        """
+        通过此参数可配置云盘额外性能包吞吐性能大小，单位MB/s，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceThroughputMB 表示第N个云盘的额外性能包吞吐大小：Throughput：1-650。
+        """
+        return pulumi.get(self, "extra_performance_throughput_mb")
+
+    @property
+    @pulumi.getter(name="extraPerformanceTypeId")
+    def extra_performance_type_id(self) -> Optional[builtins.str]:
+        """
+        通过此参数可为云盘购买额外性能，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包。取值：2～16。ExtraPerformanceTypeId 表示第N个云盘的额外性能包类型：IOPS:IOPS型，使用ExtraPerformanceIOPS参数。Balance: 均衡型，使用ExtraPerformanceIOPS参数。Throughput：吞吐量型，使用ExtraPerformanceThroughputMB参数。
+        """
+        return pulumi.get(self, "extra_performance_type_id")
+
+    @property
     @pulumi.getter
     def size(self) -> Optional[builtins.int]:
         """
-        云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
+        云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。如果是 ESSD_FlexPL 并使用额外性能，大小必须 >= 500 GB。
         """
         return pulumi.get(self, "size")
 
@@ -787,17 +843,20 @@ class GetScalingConfigurationEipResult(dict):
                  bandwidth: builtins.int,
                  bandwidth_package_id: builtins.str,
                  billing_type: builtins.str,
-                 isp: builtins.str):
+                 isp: builtins.str,
+                 release_with_instance: builtins.bool):
         """
         :param builtins.int bandwidth: 公网IP的带宽峰值，默认为1，单位：Mbps。取值：当Eip.BillingType取值为PostPaidByBandwidth时，取值为1 ～ 500。当Eip.BillingType取值为PostPaidByTraffic时，取值为1 ～ 200。
         :param builtins.str bandwidth_package_id: 共享带宽包的ID，表示将公网IP加入到共享带宽包。 您可以调用 DescribeBandwidthPackages 接口，查询共享带宽包的ID。 公网IP加入到共享带宽包必须同时满足如下条件：二者的安全防护类型相同。二者的线路类型相同。共享带宽包为IPv4类型。
         :param builtins.str billing_type: 公网IP的计费类型，取值：PostPaidByBandwidth（默认）：按量计费-按带宽上限计费。PostPaidByTraffic：按量计费-按实际流量计费。
         :param builtins.str isp: 线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
+        :param builtins.bool release_with_instance: 公网IP是否随实例删除。仅按量计费公网IP且在ECS控制台删除实例时生效，在伸缩组中删除实例后公网IP的保留情况请参见实例管理中的详细说明。取值：true：公网IP随实例删除。false：公网IP不随实例删除。
         """
         pulumi.set(__self__, "bandwidth", bandwidth)
         pulumi.set(__self__, "bandwidth_package_id", bandwidth_package_id)
         pulumi.set(__self__, "billing_type", billing_type)
         pulumi.set(__self__, "isp", isp)
+        pulumi.set(__self__, "release_with_instance", release_with_instance)
 
     @property
     @pulumi.getter
@@ -830,6 +889,14 @@ class GetScalingConfigurationEipResult(dict):
         线路类型，取值：BGP（默认）：BGP线路。若您的账号已申请使用静态单线，ISP还可以传入ChinaMobile（表示中国移动）、ChinaTelecom（表示中国电信）、ChinaUnicom（表示中国联通）。
         """
         return pulumi.get(self, "isp")
+
+    @property
+    @pulumi.getter(name="releaseWithInstance")
+    def release_with_instance(self) -> builtins.bool:
+        """
+        公网IP是否随实例删除。仅按量计费公网IP且在ECS控制台删除实例时生效，在伸缩组中删除实例后公网IP的保留情况请参见实例管理中的详细说明。取值：true：公网IP随实例删除。false：公网IP不随实例删除。
+        """
+        return pulumi.get(self, "release_with_instance")
 
 
 @pulumi.output_type
@@ -894,14 +961,23 @@ class GetScalingConfigurationTagResult(dict):
 class GetScalingConfigurationVolumeResult(dict):
     def __init__(__self__, *,
                  delete_with_instance: builtins.bool,
+                 extra_performance_iops: builtins.int,
+                 extra_performance_throughput_mb: builtins.int,
+                 extra_performance_type_id: builtins.str,
                  size: builtins.int,
                  volume_type: builtins.str):
         """
         :param builtins.bool delete_with_instance: 云盘是否随实例释放：true（默认值）：云盘随实例释放。false：云盘不随实例释放。取值为false时对系统盘无效，系统盘默认随实例释放，不允许保留。
-        :param builtins.int size: 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
+        :param builtins.int extra_performance_iops: 通过此参数可配置云盘额外性能包IOPS性能大小，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceIOPS 表示第N个云盘的额外性能包IOPS大小：IOPS: 1-50000。Balance: 1-50000。
+        :param builtins.int extra_performance_throughput_mb: 通过此参数可配置云盘额外性能包吞吐性能大小，单位MB/s，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceThroughputMB 表示第N个云盘的额外性能包吞吐大小：Throughput：1-650。
+        :param builtins.str extra_performance_type_id: 通过此参数可为云盘购买额外性能，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包。取值：2～16。ExtraPerformanceTypeId 表示第N个云盘的额外性能包类型：IOPS:IOPS型，使用ExtraPerformanceIOPS参数。Balance: 均衡型，使用ExtraPerformanceIOPS参数。Throughput：吞吐量型，使用ExtraPerformanceThroughputMB参数。
+        :param builtins.int size: 云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。如果是 ESSD_FlexPL 并使用额外性能，大小必须 >= 500 GB。
         :param builtins.str volume_type: 云盘的类型：ESSD*FlexPL：极速型SSDFlexPL。ESSD*PL0：极速型SSD PL0。
         """
         pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        pulumi.set(__self__, "extra_performance_iops", extra_performance_iops)
+        pulumi.set(__self__, "extra_performance_throughput_mb", extra_performance_throughput_mb)
+        pulumi.set(__self__, "extra_performance_type_id", extra_performance_type_id)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "volume_type", volume_type)
 
@@ -914,10 +990,34 @@ class GetScalingConfigurationVolumeResult(dict):
         return pulumi.get(self, "delete_with_instance")
 
     @property
+    @pulumi.getter(name="extraPerformanceIops")
+    def extra_performance_iops(self) -> builtins.int:
+        """
+        通过此参数可配置云盘额外性能包IOPS性能大小，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceIOPS 表示第N个云盘的额外性能包IOPS大小：IOPS: 1-50000。Balance: 1-50000。
+        """
+        return pulumi.get(self, "extra_performance_iops")
+
+    @property
+    @pulumi.getter(name="extraPerformanceThroughputMb")
+    def extra_performance_throughput_mb(self) -> builtins.int:
+        """
+        通过此参数可配置云盘额外性能包吞吐性能大小，单位MB/s，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包，取值：2～16。ExtraPerformanceThroughputMB 表示第N个云盘的额外性能包吞吐大小：Throughput：1-650。
+        """
+        return pulumi.get(self, "extra_performance_throughput_mb")
+
+    @property
+    @pulumi.getter(name="extraPerformanceTypeId")
+    def extra_performance_type_id(self) -> builtins.str:
+        """
+        通过此参数可为云盘购买额外性能，仅ESSD FlexPL支持。参数   - N：表示云盘的序号，序号为“1”表示系统盘，序号为“2”或大于“2”表示数据盘，仅数据盘支持额外性能包。取值：2～16。ExtraPerformanceTypeId 表示第N个云盘的额外性能包类型：IOPS:IOPS型，使用ExtraPerformanceIOPS参数。Balance: 均衡型，使用ExtraPerformanceIOPS参数。Throughput：吞吐量型，使用ExtraPerformanceThroughputMB参数。
+        """
+        return pulumi.get(self, "extra_performance_type_id")
+
+    @property
     @pulumi.getter
     def size(self) -> builtins.int:
         """
-        云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。
+        云盘的容量，单位为GiB。系统盘取值范围：10   - 500。数据盘取值范围：10   - 8192。如果是 ESSD_FlexPL 并使用额外性能，大小必须 >= 500 GB。
         """
         return pulumi.get(self, "size")
 
