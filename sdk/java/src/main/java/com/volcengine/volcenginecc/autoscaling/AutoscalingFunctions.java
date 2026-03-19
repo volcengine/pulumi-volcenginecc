@@ -14,12 +14,16 @@ import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingConfigurationArg
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingConfigurationPlainArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingGroupArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingGroupPlainArgs;
+import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingLifecycleHookArgs;
+import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingLifecycleHookPlainArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingPolicyArgs;
 import com.volcengine.volcenginecc.autoscaling.inputs.GetScalingPolicyPlainArgs;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingConfigurationResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingConfigurationsResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingGroupResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingGroupsResult;
+import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingLifecycleHookResult;
+import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingLifecycleHooksResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingPoliciesResult;
 import com.volcengine.volcenginecc.autoscaling.outputs.GetScalingPolicyResult;
 import java.util.concurrent.CompletableFuture;
@@ -192,6 +196,90 @@ public final class AutoscalingFunctions {
      */
     public static CompletableFuture<GetScalingGroupsResult> getScalingGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingGroups:getScalingGroups", TypeShape.of(GetScalingGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHookResult> getScalingLifecycleHook(GetScalingLifecycleHookArgs args) {
+        return getScalingLifecycleHook(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static CompletableFuture<GetScalingLifecycleHookResult> getScalingLifecycleHookPlain(GetScalingLifecycleHookPlainArgs args) {
+        return getScalingLifecycleHookPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHookResult> getScalingLifecycleHook(GetScalingLifecycleHookArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingLifecycleHook:getScalingLifecycleHook", TypeShape.of(GetScalingLifecycleHookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHookResult> getScalingLifecycleHook(GetScalingLifecycleHookArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingLifecycleHook:getScalingLifecycleHook", TypeShape.of(GetScalingLifecycleHookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static CompletableFuture<GetScalingLifecycleHookResult> getScalingLifecycleHookPlain(GetScalingLifecycleHookPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingLifecycleHook:getScalingLifecycleHook", TypeShape.of(GetScalingLifecycleHookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHooksResult> getScalingLifecycleHooks() {
+        return getScalingLifecycleHooks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static CompletableFuture<GetScalingLifecycleHooksResult> getScalingLifecycleHooksPlain() {
+        return getScalingLifecycleHooksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHooksResult> getScalingLifecycleHooks(InvokeArgs args) {
+        return getScalingLifecycleHooks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static CompletableFuture<GetScalingLifecycleHooksResult> getScalingLifecycleHooksPlain(InvokeArgs args) {
+        return getScalingLifecycleHooksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHooksResult> getScalingLifecycleHooks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingLifecycleHooks:getScalingLifecycleHooks", TypeShape.of(GetScalingLifecycleHooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static Output<GetScalingLifecycleHooksResult> getScalingLifecycleHooks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:autoscaling/getScalingLifecycleHooks:getScalingLifecycleHooks", TypeShape.of(GetScalingLifecycleHooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::AutoScaling::ScalingLifecycleHook
+     * 
+     */
+    public static CompletableFuture<GetScalingLifecycleHooksResult> getScalingLifecycleHooksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:autoscaling/getScalingLifecycleHooks:getScalingLifecycleHooks", TypeShape.of(GetScalingLifecycleHooksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::AutoScaling::ScalingPolicy

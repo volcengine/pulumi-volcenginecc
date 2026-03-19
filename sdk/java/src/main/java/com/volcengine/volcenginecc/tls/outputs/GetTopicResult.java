@@ -15,6 +15,11 @@ import java.util.Objects;
 @CustomType
 public final class GetTopicResult {
     /**
+     * @return 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     * 
+     */
+    private Boolean allowConsume;
+    /**
      * @return 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      * 
      */
@@ -29,6 +34,11 @@ public final class GetTopicResult {
      * 
      */
     private Integer coldTtl;
+    /**
+     * @return Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+     * 
+     */
+    private String consumeTopic;
     /**
      * @return 日志主题创建时间。
      * 
@@ -117,6 +127,13 @@ public final class GetTopicResult {
 
     private GetTopicResult() {}
     /**
+     * @return 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     * 
+     */
+    public Boolean allowConsume() {
+        return this.allowConsume;
+    }
+    /**
      * @return 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      * 
      */
@@ -136,6 +153,13 @@ public final class GetTopicResult {
      */
     public Integer coldTtl() {
         return this.coldTtl;
+    }
+    /**
+     * @return Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+     * 
+     */
+    public String consumeTopic() {
+        return this.consumeTopic;
     }
     /**
      * @return 日志主题创建时间。
@@ -266,9 +290,11 @@ public final class GetTopicResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean allowConsume;
         private Integer archiveTtl;
         private Boolean autoSplit;
         private Integer coldTtl;
+        private String consumeTopic;
         private String createdTime;
         private String description;
         private Boolean enableHotTtl;
@@ -289,9 +315,11 @@ public final class GetTopicResult {
         public Builder() {}
         public Builder(GetTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowConsume = defaults.allowConsume;
     	      this.archiveTtl = defaults.archiveTtl;
     	      this.autoSplit = defaults.autoSplit;
     	      this.coldTtl = defaults.coldTtl;
+    	      this.consumeTopic = defaults.consumeTopic;
     	      this.createdTime = defaults.createdTime;
     	      this.description = defaults.description;
     	      this.enableHotTtl = defaults.enableHotTtl;
@@ -311,6 +339,14 @@ public final class GetTopicResult {
     	      this.updatedTime = defaults.updatedTime;
         }
 
+        @CustomType.Setter
+        public Builder allowConsume(Boolean allowConsume) {
+            if (allowConsume == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "allowConsume");
+            }
+            this.allowConsume = allowConsume;
+            return this;
+        }
         @CustomType.Setter
         public Builder archiveTtl(Integer archiveTtl) {
             if (archiveTtl == null) {
@@ -333,6 +369,14 @@ public final class GetTopicResult {
               throw new MissingRequiredPropertyException("GetTopicResult", "coldTtl");
             }
             this.coldTtl = coldTtl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder consumeTopic(String consumeTopic) {
+            if (consumeTopic == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "consumeTopic");
+            }
+            this.consumeTopic = consumeTopic;
             return this;
         }
         @CustomType.Setter
@@ -476,9 +520,11 @@ public final class GetTopicResult {
         }
         public GetTopicResult build() {
             final var _resultValue = new GetTopicResult();
+            _resultValue.allowConsume = allowConsume;
             _resultValue.archiveTtl = archiveTtl;
             _resultValue.autoSplit = autoSplit;
             _resultValue.coldTtl = coldTtl;
+            _resultValue.consumeTopic = consumeTopic;
             _resultValue.createdTime = createdTime;
             _resultValue.description = description;
             _resultValue.enableHotTtl = enableHotTtl;

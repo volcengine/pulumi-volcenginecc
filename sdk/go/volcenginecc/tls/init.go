@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:tls/index:Index":
+		r = &Index{}
 	case "volcenginecc:tls/project:Project":
 		r = &Project{}
+	case "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask":
+		r = &ScheduleSqlTask{}
 	case "volcenginecc:tls/topic:Topic":
 		r = &Topic{}
 	default:
@@ -40,7 +44,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"tls/index",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"tls/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/scheduleSqlTask",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

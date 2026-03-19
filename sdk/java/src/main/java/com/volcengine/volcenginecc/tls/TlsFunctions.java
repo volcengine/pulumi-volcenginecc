@@ -10,17 +10,109 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.tls.inputs.GetIndexArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetIndexPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetProjectArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetProjectPlainArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetScheduleSqlTaskArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetScheduleSqlTaskPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.tls.outputs.GetIndexResult;
+import com.volcengine.volcenginecc.tls.outputs.GetIndicesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetProjectResult;
 import com.volcengine.volcenginecc.tls.outputs.GetProjectsResult;
+import com.volcengine.volcenginecc.tls.outputs.GetScheduleSqlTaskResult;
+import com.volcengine.volcenginecc.tls.outputs.GetScheduleSqlTasksResult;
 import com.volcengine.volcenginecc.tls.outputs.GetTopicResult;
 import com.volcengine.volcenginecc.tls.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class TlsFunctions {
+    /**
+     * Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndexResult> getIndex(GetIndexArgs args) {
+        return getIndex(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static CompletableFuture<GetIndexResult> getIndexPlain(GetIndexPlainArgs args) {
+        return getIndexPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndexResult> getIndex(GetIndexArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getIndex:getIndex", TypeShape.of(GetIndexResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndexResult> getIndex(GetIndexArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getIndex:getIndex", TypeShape.of(GetIndexResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static CompletableFuture<GetIndexResult> getIndexPlain(GetIndexPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getIndex:getIndex", TypeShape.of(GetIndexResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndicesResult> getIndices() {
+        return getIndices(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static CompletableFuture<GetIndicesResult> getIndicesPlain() {
+        return getIndicesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndicesResult> getIndices(InvokeArgs args) {
+        return getIndices(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static CompletableFuture<GetIndicesResult> getIndicesPlain(InvokeArgs args) {
+        return getIndicesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndicesResult> getIndices(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getIndices:getIndices", TypeShape.of(GetIndicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static Output<GetIndicesResult> getIndices(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getIndices:getIndices", TypeShape.of(GetIndicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Index
+     * 
+     */
+    public static CompletableFuture<GetIndicesResult> getIndicesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getIndices:getIndices", TypeShape.of(GetIndicesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::TLS::Project
      * 
@@ -104,6 +196,90 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetProjectsResult> getProjectsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTaskResult> getScheduleSqlTask(GetScheduleSqlTaskArgs args) {
+        return getScheduleSqlTask(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static CompletableFuture<GetScheduleSqlTaskResult> getScheduleSqlTaskPlain(GetScheduleSqlTaskPlainArgs args) {
+        return getScheduleSqlTaskPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTaskResult> getScheduleSqlTask(GetScheduleSqlTaskArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getScheduleSqlTask:getScheduleSqlTask", TypeShape.of(GetScheduleSqlTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTaskResult> getScheduleSqlTask(GetScheduleSqlTaskArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getScheduleSqlTask:getScheduleSqlTask", TypeShape.of(GetScheduleSqlTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static CompletableFuture<GetScheduleSqlTaskResult> getScheduleSqlTaskPlain(GetScheduleSqlTaskPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getScheduleSqlTask:getScheduleSqlTask", TypeShape.of(GetScheduleSqlTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTasksResult> getScheduleSqlTasks() {
+        return getScheduleSqlTasks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static CompletableFuture<GetScheduleSqlTasksResult> getScheduleSqlTasksPlain() {
+        return getScheduleSqlTasksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTasksResult> getScheduleSqlTasks(InvokeArgs args) {
+        return getScheduleSqlTasks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static CompletableFuture<GetScheduleSqlTasksResult> getScheduleSqlTasksPlain(InvokeArgs args) {
+        return getScheduleSqlTasksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTasksResult> getScheduleSqlTasks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getScheduleSqlTasks:getScheduleSqlTasks", TypeShape.of(GetScheduleSqlTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static Output<GetScheduleSqlTasksResult> getScheduleSqlTasks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getScheduleSqlTasks:getScheduleSqlTasks", TypeShape.of(GetScheduleSqlTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::ScheduleSqlTask
+     * 
+     */
+    public static CompletableFuture<GetScheduleSqlTasksResult> getScheduleSqlTasksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getScheduleSqlTasks:getScheduleSqlTasks", TypeShape.of(GetScheduleSqlTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TLS::Topic

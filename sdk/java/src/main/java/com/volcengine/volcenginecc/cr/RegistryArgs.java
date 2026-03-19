@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.cr;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.volcengine.volcenginecc.cr.inputs.RegistryStatusArgs;
 import com.volcengine.volcenginecc.cr.inputs.RegistryTagArgs;
 import java.lang.String;
 import java.util.List;
@@ -48,6 +49,21 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.project);
     }
 
+    /**
+     * 镜像仓库实例状态，由 Phase 和 Conditions 组成。合法的 Phase 和 Conditions 组合如下所示：{Creating, [Progressing]}：创建中,{Running, [Ok]}：运行中,{Running, [Degraded]}：运行中,{Stopped, [Balance]}：欠费关停,{Stopped, [Released]}：待回收,{Stopped, [Released, Balance]}：欠费关停,{Starting, [Progressing]}：启动中,{Deleting, [Progressing]}：销毁中,{Failed, [Unknown]}：异常
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<RegistryStatusArgs> status;
+
+    /**
+     * @return 镜像仓库实例状态，由 Phase 和 Conditions 组成。合法的 Phase 和 Conditions 组合如下所示：{Creating, [Progressing]}：创建中,{Running, [Ok]}：运行中,{Running, [Degraded]}：运行中,{Stopped, [Balance]}：欠费关停,{Stopped, [Released]}：待回收,{Stopped, [Released, Balance]}：欠费关停,{Starting, [Progressing]}：启动中,{Deleting, [Progressing]}：销毁中,{Failed, [Unknown]}：异常
+     * 
+     */
+    public Optional<Output<RegistryStatusArgs>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
     @Import(name="tags")
     private @Nullable Output<List<RegistryTagArgs>> tags;
 
@@ -75,6 +91,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     private RegistryArgs(RegistryArgs $) {
         this.name = $.name;
         this.project = $.project;
+        this.status = $.status;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -137,6 +154,27 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder project(String project) {
             return project(Output.of(project));
+        }
+
+        /**
+         * @param status 镜像仓库实例状态，由 Phase 和 Conditions 组成。合法的 Phase 和 Conditions 组合如下所示：{Creating, [Progressing]}：创建中,{Running, [Ok]}：运行中,{Running, [Degraded]}：运行中,{Stopped, [Balance]}：欠费关停,{Stopped, [Released]}：待回收,{Stopped, [Released, Balance]}：欠费关停,{Starting, [Progressing]}：启动中,{Deleting, [Progressing]}：销毁中,{Failed, [Unknown]}：异常
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<RegistryStatusArgs> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status 镜像仓库实例状态，由 Phase 和 Conditions 组成。合法的 Phase 和 Conditions 组合如下所示：{Creating, [Progressing]}：创建中,{Running, [Ok]}：运行中,{Running, [Degraded]}：运行中,{Stopped, [Balance]}：欠费关停,{Stopped, [Released]}：待回收,{Stopped, [Released, Balance]}：欠费关停,{Starting, [Progressing]}：启动中,{Deleting, [Progressing]}：销毁中,{Failed, [Unknown]}：异常
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(RegistryStatusArgs status) {
+            return status(Output.of(status));
         }
 
         public Builder tags(@Nullable Output<List<RegistryTagArgs>> tags) {

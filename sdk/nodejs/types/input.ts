@@ -1443,6 +1443,17 @@ export namespace autoscaling {
         value?: pulumi.Input<string>;
     }
 
+    export interface ScalingLifecycleHookLifecycleCommand {
+        /**
+         * 云助手命令ID，表示触发生命周期挂钩后在实例中执行云助手命令。如果命令执行成功，则按照CONTINUE执行挂起结束后的策略。如果命令执行失败/超时或生命周期挂钩超时，则按照LifecycleHookPolicy参数的配置执行挂起结束后的策略。
+         */
+        commandId?: pulumi.Input<string>;
+        /**
+         * 云助手命令中的参数和参数值。参数的个数范围为0~60，且需要注意：参数不允许为空字符串，最多支持64个字符。值允许为空字符串。参数与原始命令内容在Base64编码后，综合长度不能超过16KB。设置的参数名集合必须为创建命令时定义的参数集的子集。对于未传入的参数，使用默认值代替。
+         */
+        parameters?: pulumi.Input<string>;
+    }
+
     export interface ScalingPolicyAlarmPolicy {
         /**
          * 单指标监控时的监控指标详细信息。仅当ScalingPolicyType取值为Alarm时有效。
@@ -1864,6 +1875,2124 @@ export namespace cbr {
 }
 
 export namespace cdn {
+    export interface DomainAreaAccessRule {
+        /**
+         * 表示一个国家列表，对该列表应用白名单或者黑名单。当 Switch 是 true 时，该参数为必填。国家的名称使用简写来表示。多个国家名称使用英文逗号（,）分隔。
+         */
+        areas?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示 "地域访问控制" 特性的规则类型。该参数有以下取值：deny：表示白名单。allow：表示黑名单。
+         */
+        ruleType?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainBrowserCach {
+        /**
+         * 表示缓存行为的相关配置。
+         */
+        cacheAction?: pulumi.Input<inputs.cdn.DomainBrowserCachCacheAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainBrowserCachCondition>;
+    }
+
+    export interface DomainBrowserCachCacheAction {
+        /**
+         * 表示缓存的行为。当前您仅可指定 cache。cache 表示行为是缓存。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 该参数被多个 CDN 特性共享。
+         */
+        defaultPolicy?: pulumi.Input<string>;
+        /**
+         * 表示 Value 是否是大小写敏感的。该参数有以下取值：true：表示大小写不敏感。false：表示大小写敏感。该参数的默认值为 false。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示缓存的时间，单位为秒。时间范围为 0-315,360,000。315,360,000 表示 10年。如果您不希望内容分发网络对指定的内容进行缓存，您可以设置该参数为 0。
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    export interface DomainBrowserCachCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainBrowserCachConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainBrowserCachConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainCach {
+        /**
+         * 表示缓存行为的相关配置。
+         */
+        cacheAction?: pulumi.Input<inputs.cdn.DomainCachCacheAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainCachCondition>;
+    }
+
+    export interface DomainCachCacheAction {
+        /**
+         * 表示缓存的行为。当前您仅可指定 cache。cache 表示行为是缓存。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 该参数被多个 CDN 特性共享。
+         */
+        defaultPolicy?: pulumi.Input<string>;
+        /**
+         * 表示 Value 是否是大小写敏感的。该参数有以下取值：true：表示大小写不敏感。false：表示大小写敏感。该参数的默认值为 false。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示缓存的时间，单位为秒。时间范围为 0-315,360,000。315,360,000 表示 10年。如果您不希望内容分发网络对指定的内容进行缓存，您可以设置该参数为 0。
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    export interface DomainCachCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCachConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainCachConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainCacheHost {
+        cacheHostRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCacheHostCacheHostRule>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainCacheHostCacheHostRule {
+        /**
+         * 表示目标域名。 该目标域名必须是您账户下的一个加速域名。该参数指示 Domain 共享 CacheHost 的缓存。
+         */
+        cacheHostAction?: pulumi.Input<inputs.cdn.DomainCacheHostCacheHostRuleCacheHostAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainCacheHostCacheHostRuleCondition>;
+    }
+
+    export interface DomainCacheHostCacheHostRuleCacheHostAction {
+        /**
+         * 表示目标域名。 该目标域名必须是您账户下的一个加速域名。该参数指示 Domain 共享 CacheHost 的缓存。
+         */
+        cacheHost?: pulumi.Input<string>;
+    }
+
+    export interface DomainCacheHostCacheHostRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCacheHostCacheHostRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainCacheHostCacheHostRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainCacheKey {
+        /**
+         * 表示在 Condition 情况下，内容分发网络执行的操作。
+         */
+        cacheKeyAction?: pulumi.Input<inputs.cdn.DomainCacheKeyCacheKeyAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainCacheKeyCondition>;
+    }
+
+    export interface DomainCacheKeyCacheKeyAction {
+        cacheKeyComponents?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCacheKeyCacheKeyActionCacheKeyComponent>[]>;
+    }
+
+    export interface DomainCacheKeyCacheKeyActionCacheKeyComponent {
+        /**
+         * 执行动作，修改时需要指定。该参数有以下取值：exclude：缓存键不包括任何查询参数，也就是去参数缓存。include：缓存键包括所有的查询参数，也就是保留参数缓存。includePart：缓存键包括 Subobject 中的查询参数，也就是保留部分参数缓存。excludePart：缓存键不包括 Subobject 中的查询参数，也就是删除部分参数缓存。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示内容分发网络在匹配 Value 时，是否忽略大小写。该参数有以下取值：true：表示忽略大小写。false：表示不忽略大小写。该参数的默认值是 false。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示需要设置的对象。当前您仅可指定 queryString。queryString 表示请求 URL 中的查询参数。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 指定一个或者多个 Object 类型的对象。该参数的说明如下：如果Action 是 include 或者 exclude，Subobject的值必须是 *。* 表示全部查询参数。如果 Action 是 includePart 或者 excludePart，您可以指定一个或者多个查询参数。您指定的查询参数不能是 *，也不能包含连续斜杠（//）、百分号（%）、空格。多个查询参数名称使用英文分号（;）分隔。Subobject 的默认值是 *。
+         */
+        subobject?: pulumi.Input<string>;
+    }
+
+    export interface DomainCacheKeyCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCacheKeyConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainCacheKeyConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainCompression {
+        compressionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCompressionCompressionRule>[]>;
+        /**
+         * 智能压缩配置开关。该参数有以下取值：true：表示启用智能压缩。false：表示禁用智能压缩。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainCompressionCompressionRule {
+        /**
+         * 表示压缩操作的配置。
+         */
+        compressionAction?: pulumi.Input<inputs.cdn.DomainCompressionCompressionRuleCompressionAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainCompressionCompressionRuleCondition>;
+    }
+
+    export interface DomainCompressionCompressionRuleCompressionAction {
+        /**
+         * 如果匹配条件是基于 Content-Type 头部（此时，Condition 是 null 或不指定），该参数用来指定 Content-Type 的匹配条件，有以下取值：default: 表示匹配条件是 Content-Type 头部匹配默认 Content-Type 列表中包含的文件类型。customize：表示匹配条件是 Content-Type 头部匹配自定义的文件类型。如果 Conditon 不为 null，表示匹配条件是在 ConditionRule 中定义的。此时，该参数必须设置为 all。
+         */
+        compressionFormat?: pulumi.Input<string>;
+        /**
+         * 指定压缩的文件类型。该参数的说明如下：如果 CompressionFormat 为 default，该参数必须设置为 *，表示默认的 Content-Type 列表。该列表包含以下文件类型：text/html、text/xml、text/plain、text/css、application/javascript、application/x-javascript、application/rss+xml、text/javascript、image/tiff、image/svg+xml、application/json、application/xml、text/plain; charset=utf-8。如果 CompressionFormat 为 customize，需要指定一个或者多个文件类型。多个文件类型以逗号（,）分隔。如果 CompressionFormat 为 all，该参数必须设置为 *。
+         */
+        compressionTarget?: pulumi.Input<string>;
+        /**
+         * 压缩算法，gzip,br 指定类型压缩，default：默认所有文件压缩，次数Target为*；customize：自定义文件类型压缩. choices: [default, customize]
+         */
+        compressionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示文件大小范围的最小值，CDN 仅对大小在 MinFileSizeKB 和 MaxFileSizeKB 所表示的范围内的文件进行压缩。该参数的取值范围是 0   - 2,147,483,647，单位是 KB，使用的进制是 1,024。该参数的默认值是 0。
+         */
+        maxFileSizeKb?: pulumi.Input<number>;
+        /**
+         * 表示文件大小范围的最大值，取值范围是 0   - 2,147,483,647，单位是 KB，使用的进制是 1,024。如果不指定该参数，表示您不限制文件大小的上限。
+         */
+        minFileSizeKb?: pulumi.Input<number>;
+    }
+
+    export interface DomainCompressionCompressionRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCompressionCompressionRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainCompressionCompressionRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainConditionalOrigin {
+        /**
+         * 表示一个规则列表。列表中的每条规则中定义了一个过滤器以及内容分发网络对满足过滤条件的请求所执行的操作。
+         */
+        originRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainConditionalOriginOriginRule>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainConditionalOriginOriginRule {
+        /**
+         * 表示列表中一条规则的操作配置。
+         */
+        actions?: pulumi.Input<inputs.cdn.DomainConditionalOriginOriginRuleActions>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainConditionalOriginOriginRuleCondition>;
+    }
+
+    export interface DomainConditionalOriginOriginRuleActions {
+        originLines?: pulumi.Input<pulumi.Input<inputs.cdn.DomainConditionalOriginOriginRuleActionsOriginLine>[]>;
+    }
+
+    export interface DomainConditionalOriginOriginRuleActionsOriginLine {
+        /**
+         * 表示一个源站的地址。当 InstanceType 是 ip 时，Address 表示一个 IPv4 或者 IPv6 地址。当 InstanceType 是 domain 时，Address 表示一个域名。该域名不能是泛域名。如果您指定了 OriginLines，Address 必填。
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * 表示内容分发网络使用 HTTP 协议访问该源站时所使用的端口，取值范围是 1-65535，默认值是 80。如果源站没有开放该端口，您无需指定该参数。
+         */
+        httpPort?: pulumi.Input<string>;
+        /**
+         * 表示内容分发网络使用 HTTPS 协议访问该源站时所使用的端口，取值范围是 1-65535，默认值是 443。如果源站没有开放该端口，您无需指定该参数。
+         */
+        httpsPort?: pulumi.Input<string>;
+        /**
+         * 表示源站的类型。该参数有以下取值：ip：表示 IP 地址。domain：表示域名。如果您指定了 OriginLines，InstanceType 必填。
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * 如果源站服务器上有多个站点，该参数表示回源请求访问的站点域名。该参数的优先级高于全局 OriginHost 参数。该参数值的长度不能超过 1,024 个字符。该参数的默认值与全局 OriginHost 相同。
+         */
+        originHost?: pulumi.Input<string>;
+    }
+
+    export interface DomainConditionalOriginOriginRuleCondition {
+        conditionGroups?: pulumi.Input<pulumi.Input<inputs.cdn.DomainConditionalOriginOriginRuleConditionConditionGroup>[]>;
+        /**
+         * 表示这些条件组之间的关系。该参数有以下取值：or：表示关系是 "或"。在这个情况下，只要满足一个条件组，用户请求就匹配该规则。and：表示关系是 "与"。在这个情况下，必须满足所有条件组，用户请求才匹配该规则。该参数的默认值是 or。
+         */
+        connective?: pulumi.Input<string>;
+        /**
+         * 表示每个过滤条件是否是一个条件组。该参数值始终是 true，表示每个过滤条件是一个条件组。当前，每个条件组中只能包含一个过滤条件。
+         */
+        isGroup?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainConditionalOriginOriginRuleConditionConditionGroup {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainConditionalOriginOriginRuleConditionConditionGroupCondition>;
+    }
+
+    export interface DomainConditionalOriginOriginRuleConditionConditionGroupCondition {
+        /**
+         * 表示一个过滤类型。该参数有以下取值：path：表示请求 URL 中的完整路径。directory：表示路径中的任意一个目录。假设路径是 /a/b/c/d/file，则 /a/、/b/c/、/d/ 都是目录。filetype：表示路径末尾的扩展名。full*querystring：表示请求 URL 中的查询字符串。client*ip：表示客户端的 IP 地址或者 IP 地址的归属地。如果您指定了 Condition，Object 必填。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示一个对比类型。不同的 Object 对应不同的取值。当 Object 是 path、directory 或 filetype 时，该参数的取值有 equal、not*equal。当 Object 是 path 时，该参数还有额外取值 regex*match、regex*not*match。当 Object 是 full*querystring 时，该参数的取值有 regex*match、regex*not*match。当 Object 是 client*ip 时，该参数的取值有 equal、not*equal、belong、not*belong。各对比类型的说明如下：equal：表示如果 Object 匹配了 Value 中的某个过滤值，该请求就满足这个过滤条件。not*equal：表示如果 Object 不匹配 Value 中的所有过滤值，该请求才满足这个过滤条件。regex*match：表示如果 Value 中的某个正则表达式匹配了 Object 中的任何部分，该请求就满足这个过滤条件。regex*not*match：表示如果 Value 中的所有正则表达式都不匹配 Object 中的任何部分，该请求才满足这个过滤条件。belong：表示如果客户端 IP 地址归属地在 Value 所表示国家和地区列表中，该请求就满足这个过滤条件。not*belong：表示如果客户端 IP 地址归属地不在 Value 所表示国家和地区列表中，该请求才满足这个过滤条件。如果您指定了 Condition，Operator 必填。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示一个或者多个过滤值。过滤值之间使用分号（;）分隔。该参数的输入要求如下：当 Object 是 path、directory 或 filetype 时，所有过滤值的总长度不能超过 1,024 个字符，不能包含以下字符：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。当 Object 是 path 时，该参数有以下额外要求：每个过滤值必须以斜杠（/）开头，但不能以 / 结尾。您可以在过滤值中使用一个或者多个星号（*），每个星号表示一个或者多个字符。例如：/www/img/my*image.png。当 Object 是 directory 时，该参数有以下额外要求：每个过滤值必须以斜杠（/）开头和结尾。例如：/www/img/。当 Object 是 filetype 时，该参数有以下额外要求：每个过滤值无需以句点（.）开头。例如：png;txt。当 Object 是 full*querystring 时，该参数的输入要求如下：所有过滤值的总长度不能超过 256 个字符。过滤值可以包含数字、字母、百分号（%）、下划线（*）、中划线（-）。当 Object 是 client*ip 时，如果 Operator 是 equal 或者 not*equal，该参数的输入要求如下：IP 地址的数量不能超过 5 个。IP 地址必须是 IPv4 地址。如果您指定了 Condition，Value 必填。
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainCustomErrorPage {
+        errorPageRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCustomErrorPageErrorPageRule>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainCustomErrorPageErrorPageRule {
+        /**
+         * 表示规则的相关配置。
+         */
+        errorPageAction?: pulumi.Input<inputs.cdn.DomainCustomErrorPageErrorPageRuleErrorPageAction>;
+    }
+
+    export interface DomainCustomErrorPageErrorPageRuleErrorPageAction {
+        /**
+         * 表示实际的操作。当前您只能指定该参数值为 redirect。表示对客户端请求进行重定向。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示重定向的响应状态码。您可以根据需求选择合适的状态码。该参数的取值有 301、302、303、307、308。需要留意的是：对于 301 和 302，如果原请求使用的方法不是 GET，那么客户端向新的URL发送请求时，新请求使用的方法可能变成 GET。对于 303，新请求使用的方法是 GET。对于 307 和 308，新请求使用的方法与原请求相同，不会被改变。
+         */
+        redirectCode?: pulumi.Input<string>;
+        /**
+         * 表示跳转的目标地址，长度不能超过 1,024 个字符。地址必须包含协议，域名以及路径，并且符合 URL 的规范。
+         */
+        redirectUrl?: pulumi.Input<string>;
+        /**
+         * 表示一个状态码，取值范围是 400-599。您可以输入 4xx 或者 5xx。4xx 表示 400-499 之间的所有状态码。5xx 表示 500-599 之间的所有状态码。
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface DomainCustomizeAccessRule {
+        customizeInstances?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCustomizeAccessRuleCustomizeInstance>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainCustomizeAccessRuleCustomizeInstance {
+        /**
+         * 表示列表中一条规则的配置。
+         */
+        customizeRule?: pulumi.Input<inputs.cdn.DomainCustomizeAccessRuleCustomizeInstanceCustomizeRule>;
+    }
+
+    export interface DomainCustomizeAccessRuleCustomizeInstanceCustomizeRule {
+        /**
+         * 表示该规则中的黑名单或者白名单的配置。
+         */
+        accessAction?: pulumi.Input<inputs.cdn.DomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleAccessAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleCondition>;
+    }
+
+    export interface DomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleAccessAction {
+        /**
+         * 表示 CDN 是否接受 RequestHeader 的值为空的用户请求。头部值为空指的是以下任意情况：用户请求不包含 RequestHeader。用户请求包含 RequestHeader，但头部值为空（""）。
+         */
+        allowEmpty?: pulumi.Input<boolean>;
+        /**
+         * 表示一个正则表达式列表，用于匹配请求头的值。列表中的正则表达式不能超过 20 个，所有正则表达式总长度不能超过 1,024 个字符。正则表达式之间的关系是或。也就是说，如果一个用户请求中 RequestHeader 的值匹配任何一个正则表达式，该规则就匹配了这个请求。
+         */
+        listRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示一个指定的请求头。头部名称不区分大小写，并且有以下要求：名称的长度不超过 1,024 个字符，名称不能是 Referer、User-Agent 或 Origin。名称可以包含字母，数字，下划线（_），连字符（-）。名称不能以数字开头。
+         */
+        requestHeader?: pulumi.Input<string>;
+        /**
+         * 表示名单的类型。该参数有以下取值：allow：表示该规则中定义的是一个白名单。如果一个用户请求不匹配白名单，CDN 会拒绝该请求，响应 403 状态码。deny：表示该规则中定义的是一个黑名单。如果一个用户请求匹配了黑名单，CDN 会拒绝该请求，响应 403 状态码。
+         */
+        ruleType?: pulumi.Input<string>;
+    }
+
+    export interface DomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainDomainLock {
+        /**
+         * 表示该加速域名被锁定的原因。如果 Status 是 on，该参数值表示原因的描述。如果 Status 是 off，该参数值是空（""）。
+         */
+        remark?: pulumi.Input<string>;
+        /**
+         * 表示该加速域名的锁定状态。该参数有以下取值：on：表示该加速域名已被锁定。off：表示该加速域名未被锁定。
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface DomainDownloadSpeedLimit {
+        downloadSpeedLimitRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainDownloadSpeedLimitDownloadSpeedLimitRule>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainDownloadSpeedLimitDownloadSpeedLimitRule {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainDownloadSpeedLimitDownloadSpeedLimitRuleCondition>;
+        /**
+         * 表示限速配置。
+         */
+        downloadSpeedLimitAction?: pulumi.Input<inputs.cdn.DomainDownloadSpeedLimitDownloadSpeedLimitRuleDownloadSpeedLimitAction>;
+    }
+
+    export interface DomainDownloadSpeedLimitDownloadSpeedLimitRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainDownloadSpeedLimitDownloadSpeedLimitRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainDownloadSpeedLimitDownloadSpeedLimitRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainDownloadSpeedLimitDownloadSpeedLimitRuleDownloadSpeedLimitAction {
+        /**
+         * 表示单个请求的下载速度上限，单位是B/S。该参数的取值范围是 1-1,073,741,824,000,000，使用的进制转换是1,024。
+         */
+        speedLimitRate?: pulumi.Input<number>;
+        /**
+         * 表示一个数据量。在单个请求下载的数据量达到该值时，才对该请求启用下载限速。单位是Byte。该参数的取值范围是 0-1,073,741,824,000,000，使用的进制转换是1,024。
+         */
+        speedLimitRateAfter?: pulumi.Input<number>;
+        /**
+         * 表示限速发生的日期和时间段。
+         */
+        speedLimitTime?: pulumi.Input<inputs.cdn.DomainDownloadSpeedLimitDownloadSpeedLimitRuleDownloadSpeedLimitActionSpeedLimitTime>;
+    }
+
+    export interface DomainDownloadSpeedLimitDownloadSpeedLimitRuleDownloadSpeedLimitActionSpeedLimitTime {
+        /**
+         * 表示限速发生的开始时间。时间格式是 mm:ss。如果 DayWeek 的参数值是 unlimited, BeginTime 和 EndTime 参数的默认值会分别被设置为 00:00 和 23:59。
+         */
+        beginTime?: pulumi.Input<string>;
+        /**
+         * 表示限速发生的日期。该参数有以下取值：monday，tuesday，wednesday，thursday，friday，saturday，sunday，unlimited。unlimited 表示每天。您可以指定一个或多个值。多个值之间使用英文分号（;）分隔。
+         */
+        dayWeek?: pulumi.Input<string>;
+        /**
+         * 表示限速发生的结束时间。时间格式是 mm:ss。如果 DayWeek 的参数值是 unlimited, BeginTime 和 EndTime 参数的默认值会分别被设置为 00:00 和 23:59。
+         */
+        endTime?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpForcedRedirect {
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。启用后，内容分发网络会将收到的 HTTPS 请求重定向到 HTTP 请求。false：表示禁用该特性。内容分发网络不会将 HTTPS 请求重定向到 HTTP 请求。要启用该特性，您的加速域名必须已启用 HTTPS。
+         */
+        enableForcedRedirect?: pulumi.Input<boolean>;
+        /**
+         * 表示当收到 HTTPS 请求时，内容分发网络返回的重定向状态码。该参数有以下取值：301：表示 301 响应状态码。302：表示 302 响应状态码。该参数的默认值是 301。
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttps {
+        /**
+         * 表示 "访问双向认证" 特性的配置模块。要配置 "访问双向认证"。
+         */
+        certCheck?: pulumi.Input<inputs.cdn.DomainHttpsCertCheck>;
+        /**
+         * 表示要与加速域名关联的单本证书。
+         */
+        certInfo?: pulumi.Input<inputs.cdn.DomainHttpsCertInfo>;
+        certInfoLists?: pulumi.Input<pulumi.Input<inputs.cdn.DomainHttpsCertInfoList>[]>;
+        /**
+         * 表示是否允许请求 URL 中 Scheme 是 HTTP 的请求。该参数有以下取值：true：表示允许 Scheme 是 HTTP 的请求。false：表示不允许 Scheme 是 HTTP 的请求。该参数的默认值是 false。
+         */
+        disableHttp?: pulumi.Input<boolean>;
+        /**
+         * 表示 "HTTP 强制跳转到 HTTPS" 特性的配置模块。该特性默认是禁用。
+         */
+        forcedRedirect?: pulumi.Input<inputs.cdn.DomainHttpsForcedRedirect>;
+        /**
+         * 表示 HSTS 特性的配置模块。该特性默认是禁用。
+         */
+        hsts?: pulumi.Input<inputs.cdn.DomainHttpsHsts>;
+        /**
+         * HTTP/2 配置开关。该参数有以下取值：true：表示启用 HTTP/2。false：表示禁用 HTTP/2。要启用 HTTP/2，您必须先启用 HTTPS。该功能默认是禁用。但是在以下场景中，HTTP/2 默认是启用的：加速域名的业务类型是网页，也就是 ServiceType 是 web。加速域名已经启用了 HTTPS。
+         */
+        http2?: pulumi.Input<boolean>;
+        /**
+         * 指定是否启用 OCSP 装订。该参数有以下取值：true：表示启用 OCSP 装订。false：表示禁用 OCSP 装订。要启用 OCSP 装订，您必须先启用 HTTPS。该参数的默认值是 false。
+         */
+        ocsp?: pulumi.Input<boolean>;
+        /**
+         * 表示是否启用 HTTPS 特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。如果 Switch 是 true，您必须指定证书。如果您指定的是单本证书，您需要指定 CertInfo。如果您指定的是双证书，您需要指定 CertInfoList。您指定的证书可以是托管在证书中心，也可以是托管在内容分发网络。
+         */
+        switch?: pulumi.Input<boolean>;
+        /**
+         * 表示 "TLS 版本" 特性的配置模块。该参数指定用户请求可以使用的 TLS 版本，有以下取值：tlsv1.0：表示 TLS 1.0。tlsv1.1：表示 TLS 1.1。tlsv1.2：表示 TLS 1.2。tlsv1.3：表示 TLS 1.3。该参数的默认值是 ["tlsv1.1", "tlsv1.2", "tlsv1.3"]
+         */
+        tlsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainHttpsCertCheck {
+        certInfoLists?: pulumi.Input<pulumi.Input<inputs.cdn.DomainHttpsCertCheckCertInfoList>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainHttpsCertCheckCertInfoList {
+        /**
+         * 表示一个托管在内容分发网络的 CA 证书的 ID。ID 是以 certHosting  - 开头的。
+         */
+        certId?: pulumi.Input<string>;
+        /**
+         * 表示该 CA 证书的 Common Name (CN) 字段中的内容。
+         */
+        certName?: pulumi.Input<string>;
+        /**
+         * 表示一个待上传的 CA 证书。上传的证书是托管在内容分发网络的。
+         */
+        certificate?: pulumi.Input<inputs.cdn.DomainHttpsCertCheckCertInfoListCertificate>;
+        /**
+         * 表示该证书的签发时间，单位是 Unix 时间戳。
+         */
+        effectiveTime?: pulumi.Input<number>;
+        /**
+         * 表示该证书使用的加密算法。该参数有以下取值：inter*cert：表示 RSA 或 ECC 加密算法。sm*cert：表示 SM2 加密算法。
+         */
+        encryType?: pulumi.Input<string>;
+        /**
+         * 表示该证书的到期时间，单位是 Unix 时间戳。
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * 表示该证书托管的位置。该参数有以下取值：volc*cert*center：表示证书中心。cdn*cert*hosting：表示内容分发网络。
+         */
+        source?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsCertCheckCertInfoListCertificate {
+        /**
+         * 表示证书文件的内容。内容中的换行必须使用 \r\n 替换。该证书文件的扩展名是 .crt 或者 .pem，并且证书文件必须包含完整的证书链。
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * 表示国密证书的证书文件的内容。内容中的换行必须使用 \r\n 替换。该文件中包含的公钥用于加密会话密钥。文件的扩展名是 .crt 或者 .pem，并且证书文件必须包含完整的证书链。如果待上传的证书不是国密证书，该参数无效。
+         */
+        encryptionCert?: pulumi.Input<string>;
+        /**
+         * 表示国密证书的私钥文件的内容。内容中的换行必须使用 \r\n 替换。该文件用于解密，扩展名是 .key 或者 .pem。文件名类似 <domain>_encrypt.key。
+         */
+        encryptionKey?: pulumi.Input<string>;
+        /**
+         * 表示私钥文件的内容。内容中的换行必须使用 \r\n 替换。该私钥文件的扩展名是 .key 或者 .pem。如果该证书使用的加密算法是 RSA 或者 ECC，该文件是您要上传的服务器证书的私钥文件。文件名类似 <domain>.key。该私钥文件中包含的私钥用于验证服务器的签名和加密会话密钥。如果该证书使用的加密算法是 SM2，该文件是您要上传的国密证书的私钥文件。文件名类似 <domain>_sign.key。该私钥文件中包含的私钥用于验证服务器的签名。对于待上传的证书，该参数必填。
+         */
+        privateKey?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsCertInfo {
+        /**
+         * 表示一个托管在内容分发网络的 CA 证书的 ID。ID 是以 certHosting  - 开头的。
+         */
+        certId?: pulumi.Input<string>;
+        /**
+         * 表示该 CA 证书的 Common Name (CN) 字段中的内容。
+         */
+        certName?: pulumi.Input<string>;
+        /**
+         * 表示一个待上传的 CA 证书。上传的证书是托管在内容分发网络的。
+         */
+        certificate?: pulumi.Input<inputs.cdn.DomainHttpsCertInfoCertificate>;
+        /**
+         * 表示该证书的签发时间，单位是 Unix 时间戳。
+         */
+        effectiveTime?: pulumi.Input<number>;
+        /**
+         * 表示该证书使用的加密算法。该参数有以下取值：inter*cert：表示 RSA 或 ECC 加密算法。sm*cert：表示 SM2 加密算法。
+         */
+        encryType?: pulumi.Input<string>;
+        /**
+         * 表示该证书的到期时间，单位是 Unix 时间戳。
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * 表示该证书托管的位置。该参数有以下取值：volc*cert*center：表示证书中心。cdn*cert*hosting：表示内容分发网络。
+         */
+        source?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsCertInfoCertificate {
+        /**
+         * 表示证书文件的内容。内容中的换行必须使用 \r\n 替换。该证书文件的扩展名是 .crt 或者 .pem，并且证书文件必须包含完整的证书链。
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * 表示国密证书的证书文件的内容。内容中的换行必须使用 \r\n 替换。该文件中包含的公钥用于加密会话密钥。文件的扩展名是 .crt 或者 .pem，并且证书文件必须包含完整的证书链。如果待上传的证书不是国密证书，该参数无效。
+         */
+        encryptionCert?: pulumi.Input<string>;
+        /**
+         * 表示国密证书的私钥文件的内容。内容中的换行必须使用 \r\n 替换。该文件用于解密，扩展名是 .key 或者 .pem。文件名类似 <domain>_encrypt.key。
+         */
+        encryptionKey?: pulumi.Input<string>;
+        /**
+         * 表示私钥文件的内容。内容中的换行必须使用 \r\n 替换。该私钥文件的扩展名是 .key 或者 .pem。如果该证书使用的加密算法是 RSA 或者 ECC，该文件是您要上传的服务器证书的私钥文件。文件名类似 <domain>.key。该私钥文件中包含的私钥用于验证服务器的签名和加密会话密钥。如果该证书使用的加密算法是 SM2，该文件是您要上传的国密证书的私钥文件。文件名类似 <domain>_sign.key。该私钥文件中包含的私钥用于验证服务器的签名。对于待上传的证书，该参数必填。
+         */
+        privateKey?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsCertInfoList {
+        /**
+         * 表示一个托管在内容分发网络的 CA 证书的 ID。ID 是以 certHosting  - 开头的。
+         */
+        certId?: pulumi.Input<string>;
+        /**
+         * 表示该 CA 证书的 Common Name (CN) 字段中的内容。
+         */
+        certName?: pulumi.Input<string>;
+        /**
+         * 表示一个待上传的 CA 证书。上传的证书是托管在内容分发网络的。
+         */
+        certificate?: pulumi.Input<inputs.cdn.DomainHttpsCertInfoListCertificate>;
+        /**
+         * 表示该证书的签发时间，单位是 Unix 时间戳。
+         */
+        effectiveTime?: pulumi.Input<number>;
+        /**
+         * 表示该证书使用的加密算法。该参数有以下取值：inter*cert：表示 RSA 或 ECC 加密算法。sm*cert：表示 SM2 加密算法。
+         */
+        encryType?: pulumi.Input<string>;
+        /**
+         * 表示该证书的到期时间，单位是 Unix 时间戳。
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * 表示该证书托管的位置。该参数有以下取值：volc*cert*center：表示证书中心。cdn*cert*hosting：表示内容分发网络。
+         */
+        source?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsCertInfoListCertificate {
+        /**
+         * 表示证书文件的内容。内容中的换行必须使用 \r\n 替换。该证书文件的扩展名是 .crt 或者 .pem，并且证书文件必须包含完整的证书链。
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * 表示国密证书的证书文件的内容。内容中的换行必须使用 \r\n 替换。该文件中包含的公钥用于加密会话密钥。文件的扩展名是 .crt 或者 .pem，并且证书文件必须包含完整的证书链。如果待上传的证书不是国密证书，该参数无效。
+         */
+        encryptionCert?: pulumi.Input<string>;
+        /**
+         * 表示国密证书的私钥文件的内容。内容中的换行必须使用 \r\n 替换。该文件用于解密，扩展名是 .key 或者 .pem。文件名类似 <domain>_encrypt.key。
+         */
+        encryptionKey?: pulumi.Input<string>;
+        /**
+         * 表示私钥文件的内容。内容中的换行必须使用 \r\n 替换。该私钥文件的扩展名是 .key 或者 .pem。如果该证书使用的加密算法是 RSA 或者 ECC，该文件是您要上传的服务器证书的私钥文件。文件名类似 <domain>.key。该私钥文件中包含的私钥用于验证服务器的签名和加密会话密钥。如果该证书使用的加密算法是 SM2，该文件是您要上传的国密证书的私钥文件。文件名类似 <domain>_sign.key。该私钥文件中包含的私钥用于验证服务器的签名。对于待上传的证书，该参数必填。
+         */
+        privateKey?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsForcedRedirect {
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。启用后，内容分发网络会将收到的 HTTP 请求重定向到 HTTPS 请求。false：表示禁用该特性。禁用后，内容分发网络不会将 HTTP 请求重定向到 HTTPS 请求。要启用该特性，您的加速域名必须已启用 HTTPS。
+         */
+        enableForcedRedirect?: pulumi.Input<boolean>;
+        /**
+         * 表示当收到 HTTPS 请求时内容分发网络的重定向响应状态码。该参数有以下取值：301：表示返回的状态码是 301。302：表示返回的状态码是 302。该参数的默认值是 301。
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface DomainHttpsHsts {
+        /**
+         * 表示 HSTS 配置是否也应用于加速域名的子域名。该参数有以下取值：include：表示 HSTS 配置应用于子域名站点。exclude：表示 HSTS 配置不应用于子域名站点。该参数的默认值是 exclude。
+         */
+        subdomain?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+        /**
+         * 表示 Strict-Transport-Security 响应头在浏览器中的缓存过期时间，单位是秒。如果 Switch 是 true，该参数为必填。该参数的取值范围是 0   - 31,536,000。31,536,000 秒表示 365 天。如果该参数值为 0，其效果等同于禁用 HSTS 设置。
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    export interface DomainIPv6 {
+        /**
+         * 指定是否启用 IPv6 配置。该参数有以下取值：true：表示启用 IPv6。false：表示禁用 IPv6。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainIpAccessRule {
+        /**
+         * 表示黑名单或白名单中的 IP 地址。当 Switch 是 true 时，该参数为必填。您可以指定一个或者多个 IP 地址和 IP 地址网段。IP 地址和网段可以是 IPv4 或 IPv6 格式。您最多可输入 1,000 个地址。如果您指定了 SharedConfig，就不能指定该参数。
+         */
+        ips?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示 IP 名单的类型。当 Switch 是 true 时，该参数为必填。该参数有以下取值：allow：表示白名单。deny：表示黑名单。如果您指定了 SharedConfig，就不能指定该参数。
+         */
+        ruleType?: pulumi.Input<string>;
+        /**
+         * 表示一个全局配置。如果您指定了该参数，就不能指定 RuleType 和 Ip。
+         */
+        sharedConfig?: pulumi.Input<inputs.cdn.DomainIpAccessRuleSharedConfig>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainIpAccessRuleSharedConfig {
+        /**
+         * 表示一个全局配置的名称。
+         */
+        configName?: pulumi.Input<string>;
+    }
+
+    export interface DomainMethodDeniedRule {
+        /**
+         * 表示被禁用的一个或多个 HTTP 请求方法。当 Switch 是 true 时，该参数为必填。多个方法使用逗号（,）分隔。该参数有以下取值：get：表示禁用 GET 请求方法。post：表示禁用 POST 请求方法。delete：表示禁用 DELETE 请求方法。put：表示禁用 PUT 请求方法。head：表示禁用 HEAD 请求方法。patch：表示 PATCH 请求方法。connect：表示 CONNECT 请求方法。options：表示 OPTIONS 请求方法。
+         */
+        methods?: pulumi.Input<string>;
+        /**
+         * 配置开关 禁用方法，多个用逗号,分割，开启时必填. choices: [get, post, head, delete, put]
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainMultiRange {
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。该特性启用后，CDN 允许指定了多重范围的 Range 请求。false：表示不启用该特性。如果收到一个指定了多重范围的 Range 请求，CDN 会拒绝该请求并返回 416 响应状态码。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainNegativeCach {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainNegativeCachCondition>;
+        /**
+         * 表示一个列表。该列表的每个元素是一个状态码缓存规则。
+         */
+        negativeCacheRule?: pulumi.Input<inputs.cdn.DomainNegativeCachNegativeCacheRule>;
+    }
+
+    export interface DomainNegativeCachCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainNegativeCachConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainNegativeCachConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainNegativeCachNegativeCacheRule {
+        /**
+         * 表示缓存的行为。当前您仅可指定 cache。cache 表示行为是缓存。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示内容分发网络对请求的文件匹配 ConditionRule 时，是否忽略大小写。该参数有以下取值：true：表示忽略大小写。false：表示不忽略大小写。该参数的默认值是 false。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 指定一个需要缓存的状态码。状态码的范围是 400-599。您也可以指定 4xx 或者 5xx。4xx 表示 400 到 499 之间的所有状态码。5xx 表示 500 到 599 之间的所有状态码。
+         */
+        statusCode?: pulumi.Input<string>;
+        /**
+         * 表示状态码的缓存时间。单位是秒。时间的范围是 1-315,360,000。315,360,000 表示 10年。
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    export interface DomainOfflineCache {
+        /**
+         * 表示该特性的触发条件，该参数有以下取值：request*error：表示回源请求异常。当回源请求出现异常时，CDN 无法从源站获取文件，并且 CDN 没有获得任何来自源站的响应状态码。error*code：表示 CDN 无法从源站获取文件，并且源站的响应状态码是 5xx。request*error,error*code：表示以上两个条件都包含。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示具体的 5xx 响应状态码，范围是 500-599。多个状态码之间使用分号（;）分隔。您也可以输入 5xx，表示任意以数字 5 开头的状态码。当 Object 是 error*code 或者 request*error,error_code 时，该参数才有效。
+         */
+        statusCode?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainOrigin {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainOriginCondition>;
+        /**
+         * 表示源站配置。
+         */
+        originAction: pulumi.Input<inputs.cdn.DomainOriginOriginAction>;
+    }
+
+    export interface DomainOriginAccessRule {
+        /**
+         * 表示用户请求头的 Origin 头部为空（""）时，请求是否允许被放行。该参数有以下取值：true：表示允许。false：表示不允许。该参数的默认值是 false。
+         */
+        allowEmpty?: pulumi.Input<boolean>;
+        /**
+         * 表示 Origin 是否是大小写敏感的。该参数有以下取值：true: 表示 Origin 是大小写不敏感的。false: 表示 Origin 是大小写敏感的。该参数的默认值是 true。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * RuleType对应的地址列表。当 Switch 是 true 时，该参数为必填。您可以指定一个或者多个 IP 地址，CIDR 网段，域名和泛域名。域名可以是二级域名。IP 地址可以是 IPv4 和 IPv6 格式的地址。您最多可输入100个地址。输入域名时，无需包含http:// 或 https://。该参数值的长度不能超过 3000 个字符。
+         */
+        origins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Origin 名单配置类型。当 Switch 是 true 时，该参数为必填。该参数有以下取值：allow：表示白名单。deny：表示黑名单。
+         */
+        ruleType?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainOriginArg {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainOriginArgCondition>;
+        /**
+         * 表示在满足 Condition 条件时所执行的操作。
+         */
+        originArgAction?: pulumi.Input<inputs.cdn.DomainOriginArgOriginArgAction>;
+    }
+
+    export interface DomainOriginArgCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainOriginArgConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginArgConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginArgOriginArgAction {
+        originArgComponents?: pulumi.Input<pulumi.Input<inputs.cdn.DomainOriginArgOriginArgActionOriginArgComponent>[]>;
+    }
+
+    export interface DomainOriginArgOriginArgActionOriginArgComponent {
+        /**
+         * include: 表示回源请求 URL 中包含用户请求 URL 中的全部查询参数。exclude：表示回源请求 URL 中不包含用户请求 URL 中的任何查询参数。addPart：表示回源请求 URL 中包含用户请求 URL 中的全部查询参数，并额外包含 Subobject 中指定的查询参数。includePart：表示如果用户请求 URL 中包含 Subobject 中指定的查询参数，那么回源请求 URL 中包含这些指定的查询参数。excludePart：表示回源请求 URL 中包含用户请求 URL 中的全部查询参数，除了Subobject 中指定的查询参数。set：表示回源请求 URL 中包含用户请求 URL 中的全部查询参数。同时，对于您在 Subobject 中指定的查询参数和参数值，CDN 会执行以下操作:如果这些查询参数在用户请求 URL 中，CDN 会在回源请求 URL 中将这些参数的值设置为您指定的值。如果用户请求 URL 中不包含这些查询参数，CDN 会在回源请求 URL 中添加这些查询参数。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示 CDN 对哪个对象执行 Action。当前，该参数值只能是 queryString，表示请求 URL 中的查询字符串。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示一个或者多个查询参数。多个查询参数之间使用分号（;）分隔，总长度不能超过 1,024 个字符。Subobject 只能包含字母、数字、下划线（_）、逗号（,）、短横线（-）、句点（.）和感叹号（!）。在匹配请求 URL 中的查询参数时，Subobject 中的参数是大小写敏感的。Subobject 的额外说明如下：当 Action 是 include 或 exclude 时，Subobject 必须是 *，表示请求 URL 中的所有查询参数。当 Action 是 includePart 或 excludePart 时，Subobject 表示一个或者多个查询参数。例如 param1;param2。当 Action 是 addPart 或 set 时，Subobject 表示一个或者多个查询参数和参数值，格式是 key=value。例如 param1=val1;param2=val2;param3=val3。
+         */
+        subobject?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginCertCheck {
+        /**
+         * Switch
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainOriginCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainOriginConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginOriginAction {
+        originLines: pulumi.Input<pulumi.Input<inputs.cdn.DomainOriginOriginActionOriginLine>[]>;
+    }
+
+    export interface DomainOriginOriginActionOriginLine {
+        /**
+         * 表示源站地址。该参数有以下说明：如果 InstanceType 是 ip，您可以设置一个 IP 地址。IP 地址可以是 IPv4 或 IPv6 地址。如果 InstanceType 是 domain，您可以设置一个域名。该域名不能是泛域名。如果 InstanceType 是 tos，您可以设置一个对象存储桶的域名。该存储桶可以来自阿里云、腾讯云、AWS。如果您在该 API 请求中指定了多个源站配置：所有主源站配置中的 InstanceType 必须相同。所有备源站配置中的 InstanceType 也必须相同。如果主源站配置中的 InstanceType 是 ip 或者 domain，备源站配置中的 InstanceType 必须是 ip 或者 domain。主源站地址和和备源站地址的总数不能超过 50 个。
+         */
+        address: pulumi.Input<string>;
+        /**
+         * 表示内容分发网络使用 HTTP 协议访问该源站时所访问的端口，取值范围是 1-65535，默认值是 80。如果源站不支持该端口的访问，您指定默认值即可。该参数仅当 InstanceType 为 ip 或 domain 时才有效。
+         */
+        httpPort?: pulumi.Input<string>;
+        /**
+         * 表示内容分发网络使用 HTTPS 协议访问该源站时所访问的端口，取值范围是 1-65535，默认值是 443。如果源站不支持该端口的访问，您指定默认值即可。该参数仅当 InstanceType 为 ip 或 domain 时才有效。
+         */
+        httpsPort?: pulumi.Input<string>;
+        /**
+         * 表示源站的类型。该参数有以下取值：ip：表示源站是通过 IP 地址来访问的。domain：表示源站是通过域名来访问的。tos：表示源站是一个对象存储桶。
+         */
+        instanceType: pulumi.Input<string>;
+        /**
+         * 如果源站服务器上有多个站点，该参数表示回源请求访问的站点域名。该参数对所有源站配置生效，但是优先级低于源站配置中 OriginHost 参数。该参数的默认值与 Domain 相同。如果源站是一个对象存储桶，您无需指定该参数。其默认值与源站配置中的 Address 相同。
+         */
+        originHost?: pulumi.Input<string>;
+        /**
+         * 表示源站的类别。该参数有以下取值：   - primary：表示主源站。   - backup：表示备源站。 该 API 请求中至少需要包含一个主源站配置。备源站配置是可选的。
+         */
+        originType: pulumi.Input<string>;
+        /**
+         * 表示对象存储桶是否开启了私有读权限。该参数仅当 InstanceType 为 tos 时才有效。该参数有以下取值：true：表示开启了该权限。false：表示未开启该权限。该参数的默认值是 false。
+         */
+        privateBucketAccess?: pulumi.Input<boolean>;
+        /**
+         * 表示第三方云厂商的对象存储桶的鉴权信息。
+         */
+        privateBucketAuth?: pulumi.Input<inputs.cdn.DomainOriginOriginActionOriginLinePrivateBucketAuth>;
+        /**
+         * 该参数暂不对外开放，请勿使用该参数。
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * 表示该源站的权重，取值范围是 1-100，默认值是 1。权重越大，该源站在内容分发网络发送回源请求时被选择到的概率也越大。该参数仅当 InstanceType 为 ip 或 domain 时才有效。
+         */
+        weight?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginOriginActionOriginLinePrivateBucketAuth {
+        /**
+         * 表示对象存储桶所在的第三方云厂商。该参数有以下取值：cos：表示腾讯云。oss：表示阿里云。aws：表示 Amazon AWS。
+         */
+        authType?: pulumi.Input<string>;
+        /**
+         * 表示对象存储桶是否来自第三方云厂商。该参数有以下取值：true：表示对象存储桶来自第三方云厂商。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+        /**
+         * 表示该第三方云厂商的访问密钥。该参数仅当 Switch 是 true 时有效。
+         */
+        tosAuthInformation?: pulumi.Input<inputs.cdn.DomainOriginOriginActionOriginLinePrivateBucketAuthTosAuthInformation>;
+    }
+
+    export interface DomainOriginOriginActionOriginLinePrivateBucketAuthTosAuthInformation {
+        /**
+         * 表示您阿里云账号的 AccessKey ID、腾讯云账号的 SecretId 或者 AWS 账号的 access key ID。
+         */
+        accessKeyId?: pulumi.Input<string>;
+        /**
+         * 表示您阿里云账号的 AccessKey Secret、腾讯云账号的 SecretKey 或者 AWS 账号的 secret access key。
+         */
+        accessKeySecret?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginRetry {
+        /**
+         * 表示范围在 400-599 之间的一个或者多个状态码。多个状态码之间使用分号（;）分隔。您可以输入 4xx 或者 5xx，表示所有以数字 4 或 数字 5 开头的状态码。
+         */
+        statusCode?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainOriginRewrite {
+        originRewriteRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainOriginRewriteOriginRewriteRule>[]>;
+        /**
+         * 表示是否启用该模块。该参数有以下取值：true：表示启用该模块。false：表示禁用该模块。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainOriginRewriteOriginRewriteRule {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainOriginRewriteOriginRewriteRuleCondition>;
+        /**
+         * 表示一个回源路径改写的规则配置。
+         */
+        originRewriteAction?: pulumi.Input<inputs.cdn.DomainOriginRewriteOriginRewriteRuleOriginRewriteAction>;
+    }
+
+    export interface DomainOriginRewriteOriginRewriteRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainOriginRewriteOriginRewriteRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginRewriteOriginRewriteRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginRewriteOriginRewriteRuleOriginRewriteAction {
+        /**
+         * 表示改写类型。该参数有以下取值：rewrite*path：表示对请求 URL 中的路径进行改写。rewrite*url：表示对请求 URL 中的路径和查询字符串进行改写。该参数的默认值是 rewrite_path。
+         */
+        rewriteType?: pulumi.Input<string>;
+        /**
+         * 表示一个正则表达式，长度不能超过 1,024 个字符，用于匹配用户请求 URL 中的对象。对于一个用户请求，如果该正则表达式匹配了对象中的任何部分，这条规则就匹配了这个用户请求。当 RewriteType 是 rewrite*path 时，该对象指的是请求 URL 中的路径。当 RewriteType 是 rewrite*url 时，该对象指的是请求 URL 中的路径和查询字符串。
+         */
+        sourcePath?: pulumi.Input<string>;
+        /**
+         * 表示改写后，回源请求 URL 中的对象。当 RewriteType 是 rewrite*path 时，该对象是回源请求 URL 中的路径。当 RewriteType 是 rewrite*url 时，该对象是回源请求 URL 中的路径和查询字符串。您可以在 TargetPath 中使用 $1、$2、$3 等表示您在 SourcePath 的正则表达式中定义的组。
+         */
+        targetPath?: pulumi.Input<string>;
+    }
+
+    export interface DomainOriginSni {
+        /**
+         * 指定回源 SNI 的域名。当 Switch 是 true 时，该参数为必填。该参数值的长度不能超过 1,024 个字符。
+         */
+        sniDomain?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainPageOptimization {
+        /**
+         * 表示优化的对象。该参数有以下取值：html: 表示 HTML 页面。js: 表示 Javascript 代码。css: 表示 CSS 代码。该参数的默认值是 html。如果您指定了 js 或者 js，html 也必须指定。
+         */
+        optimizationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainQuic {
+        /**
+         * QUIC 配置开关。该参数有以下取值：true：表示启用 QUIC。false：表示禁用 QUIC。要启用 QUIC，您必须先启用 HTTPS。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainRedirectionRewrite {
+        redirectionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRedirectionRewriteRedirectionRule>[]>;
+        /**
+         * 表示是否启用该配置。该参数有以下取值：true：表示启用 URL 重定向改写。false：表示禁用 URL 重定向改写。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainRedirectionRewriteRedirectionRule {
+        /**
+         * 表示一个 URL 重定向改写的规则。
+         */
+        redirectionAction?: pulumi.Input<inputs.cdn.DomainRedirectionRewriteRedirectionRuleRedirectionAction>;
+    }
+
+    export interface DomainRedirectionRewriteRedirectionRuleRedirectionAction {
+        /**
+         * 表示 URL 重定向的响应状态码。该参数的取值有 301、302、303、307、308。需要留意的是：对于 301 和 302，如果原请求使用的方法不是 GET，那么客户端向新的URL发送请求时，新请求使用的方法可能变成 GET。对于 303，新请求使用的方法是 GET。对于 307 和 308，新请求使用的方法与原请求相同，不会被改变。
+         */
+        redirectCode?: pulumi.Input<string>;
+        /**
+         * 表示文件的原路径。也就是请求中包含的路径。路径必须以斜杠（/）开头并且不能包含连续斜杠（//）、百分号（%）、空格。该参数值的长度不能超过 1,024 个字符。
+         */
+        sourcePath?: pulumi.Input<string>;
+        /**
+         * 表示目标路径所归属站点的域名或者 IP 地址。IP 地址必须是 IPv4 类型的地址。该参数值的长度不能超过 1,024 个字符。该参数的默认值就是您的加速域名。
+         */
+        targetHost?: pulumi.Input<string>;
+        /**
+         * 表示跳转后的目标路径。路径必须以斜杠（/）开头并且不能包含连续斜杠（//）、百分号（%）、空格。该参数值的长度不能超过 1,024 个字符。
+         */
+        targetPath?: pulumi.Input<string>;
+        /**
+         * 表示 URL重定向后的新请求所使用的协议。该参数有以下取值：followclient：表示使用原请求的协议。http：表示新请求强制使用 HTTP 协议。https：表示新请求强制使用 HTTPS 协议。
+         */
+        targetProtocol?: pulumi.Input<string>;
+        /**
+         * 表示原请求 URL 中的查询参数的处理方式。
+         */
+        targetQueryComponents?: pulumi.Input<inputs.cdn.DomainRedirectionRewriteRedirectionRuleRedirectionActionTargetQueryComponents>;
+    }
+
+    export interface DomainRedirectionRewriteRedirectionRuleRedirectionActionTargetQueryComponents {
+        /**
+         * 表示原请求 URL 中的查询参数的处理方式。该参数有以下取值：include：表示在跳转后的 URL 中包含原请求 URL 中的所有查询参数。exclude：表示在跳转后的 URL 中不包含原请求 URL 中的任何查询参数。includePart：表示在跳转后的 URL 中包含原请求 URL 中特定的查询参数。excludePart：表示在跳转后的 URL 中不包含原请求 URL 中特定的查询参数。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示要保留或删除的查询参数。多个查询参数间使用英文分号（;）分隔。指定的查询参数不能包含连续斜杠（//）、百分号（"）、空格。Value 的默认值是 *，表示所有的查询参数。如果 Action 是 include 或者 exclude, 则 Value 必须为 *。如果 Action 是 includePart 或者 excludePart，您可以指定一个或者多个查询参数。此时，您指定的查询参数不能是 *。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainRefererAccessRule {
+        /**
+         * 表示用户请求头的 Referer 头部为空（""）时，内容分发网络是否接受该请求。该参数有以下取值：true：表示接受该请求。false：表示拒绝该请求。该参数的默认值是 false。
+         */
+        allowEmpty?: pulumi.Input<boolean>;
+        /**
+         * 表示一个 Referer 的列表，该参数的输入要求与 ReferersType 下 CommonType 类型的 Referers 的输入要求一致。建议您使用 ReferersType 来指定 Referer 列表。如果您指定了 SharedConfig，就不能指定该参数。
+         */
+        referers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示一个 ReferersType 对象。其包含一个 CommonType 对象和一个 RegularType 对象，分别表示一个常规的 Referer 列表和一个 Referer 正则表达式列表。如果您指定了 SharedConfig，就不能指定该参数。
+         */
+        referersType?: pulumi.Input<inputs.cdn.DomainRefererAccessRuleReferersType>;
+        /**
+         * 表示 Referer 名单的类型。当 Switch 是 true 时，该参数为必填。该参数有以下取值：allow：表示白名单。deny：表示黑名单。
+         */
+        ruleType?: pulumi.Input<string>;
+        /**
+         * 表示一个全局配置。如果您指定了该参数，就不能指定 Referers，也不能指定 ReferersType。
+         */
+        sharedConfig?: pulumi.Input<inputs.cdn.DomainRefererAccessRuleSharedConfig>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainRefererAccessRuleReferersType {
+        /**
+         * 表示一个 CommonType 对象，其包含一个常规 Referer 的列表。
+         */
+        commonType?: pulumi.Input<inputs.cdn.DomainRefererAccessRuleReferersTypeCommonType>;
+        /**
+         * 表示一个 RegularType 对象，其包含一个正则表达式列表用来匹配请求的 Referer 头部值。该参数为白名单功能。要使用该参数，请提交工单。需要注意的是，如果请求的 Referer 头部值匹配 CommonType 下的 Referers 名单或者 RegularType 下的 Referers 名单，内容分发网络就认为是匹配。
+         */
+        regularType?: pulumi.Input<inputs.cdn.DomainRefererAccessRuleReferersTypeRegularType>;
+    }
+
+    export interface DomainRefererAccessRuleReferersTypeCommonType {
+        /**
+         * 表示 CommonType 下的这个 Referers 列表在匹配时是否是大小写敏感的。该参数有以下取值：true: 表示大小写不敏感。false: 表示大小写敏感。该参数的默认值是 true。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示匹配 CommonType 下的这个 Referers 列表的 Referer 头部值是否必须以 HTTP 或者 HTTPS 开头。该参数有以下取值：true: 表示不以 HTTP 或者 HTTPS 开头的 Referer 头部值是合法的。在这个情况下，内容分发网络会尝试将其与 Referers 列表匹配。false: 表示不以 HTTP 或者 HTTPS 开头 Referer 头部值是非法的。在这个情况下，内容分发网络判定为不匹配 CommonType 下的这个 Referers 列表。该参数的默认值是 false。
+         */
+        ignoreScheme?: pulumi.Input<boolean>;
+        /**
+         * 表示一个常规 Referer 的列表。在该列表中，您可以指定一个或者多个 IP 地址，CIDR 网段，域名和泛域名。域名可以是二级域名。IP 地址可以是 IPv4 和 IPv6 格式的地址。您最多可输入 1,000 个 IP 地址。输入的域名不能包含 http:// 或 https://。在匹配时，内容分发网络会将请求 Referer 头部值中的域名与 Referer 列表进行匹配。该参数值的长度不能超过 30,000 个字符。
+         */
+        referers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainRefererAccessRuleReferersTypeRegularType {
+        /**
+         * 表示一个 Referer 正则表达式的列表。该参数值的长度不能超过 30,000 个字符。
+         */
+        referers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainRefererAccessRuleSharedConfig {
+        /**
+         * 表示一个全局配置的名称。
+         */
+        configName?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuth {
+        remoteAuthRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRule>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRule {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleCondition>;
+        /**
+         * 表示具体的鉴权配置。
+         */
+        remoteAuthRuleAction?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleAction>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleAction {
+        /**
+         * 表示鉴权服务器的配置。
+         */
+        authModeConfig?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthModeConfig>;
+        /**
+         * 内容分发网络需要对鉴权服务器返回的鉴权状态码进行处理。该参数表示相关的配置。
+         */
+        authResponseConfig?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfig>;
+        /**
+         * 表示鉴权请求的参数设置。
+         */
+        queryStringRules?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionQueryStringRules>;
+        /**
+         * 表示鉴权请求正文的规则。您可以不指定该参数或者设置该参数值为 default。default 表示请求正文为空（""）。
+         */
+        requestBodyRules?: pulumi.Input<string>;
+        /**
+         * 表示鉴权请求头的设置。您最多可以设置 50 个请求头。
+         */
+        requestHeaderRules?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionRequestHeaderRules>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthModeConfig {
+        /**
+         * 表示鉴权服务器的备地址。地址格式和要求与主地址相同。
+         */
+        backupRemoteAddr?: pulumi.Input<string>;
+        /**
+         * 表示鉴权服务器的主地址，长度不能超过 100 个字符。主地址的格式是 \n\n://\n\n:\n\n 或 \n\n://\n\n:\n\n，其中：\n\n 是 http 或者 https。\n\n 不能是 localhost。\n\n 不能是 127.0.0.1。\n\n 是可选的。
+         */
+        masterRemoteAddr?: pulumi.Input<string>;
+        /**
+         * 表示鉴权请求的路径。鉴权地址和请求路径组成了完整的鉴权 URL。内容分发网络会把用户的请求转发到该鉴权 URL。该参数有以下取值：constant：表示鉴权请求中的路径与用户请求中的路径相同。variable：表示您需要在 pathValue 参数中指定一个鉴权请求中的路径。
+         */
+        pathType?: pulumi.Input<string>;
+        /**
+         * 表示一个鉴权请求的路径，长度不能超过 100 个字符。路径必须以斜杠（/）开头，可以包含除了以下字符的可打印 ASCII 字符：连续斜杠（//）、百分号（%）、美元符号（$）、空格、问号（?）、Delete（ASCII code 127）
+         */
+        pathValue?: pulumi.Input<string>;
+        /**
+         * 表示在发送鉴权请求时，内容分发网络所使用的请求方法。该参数有以下取值：default：表示鉴权请求所使用的方法与用户的请求相同。get：表示鉴权请求使用 GET 方法。post：表示鉴权请求使用 POST方法。head：表示鉴权请求使用 HEAD 方法。
+         */
+        requestMethod?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfig {
+        /**
+         * 内容分发网络可以缓存鉴权状态码。该参数表示相关的配置。
+         */
+        cacheAction?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigCacheAction>;
+        /**
+         * 表示鉴权失败时，内容分发网络如何响应用户。
+         */
+        responseAction?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigResponseAction>;
+        /**
+         * 表示内容分发网络对鉴权状态码的处理方式。
+         */
+        statusCodeAction?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigStatusCodeAction>;
+        /**
+         * 表示鉴权超时后，内容分发网络如何处理鉴权请求。
+         */
+        timeOutAction?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigTimeOutAction>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigCacheAction {
+        /**
+         * 表示内容分发网络是否缓存鉴权状态码。该参数有以下取值：nocache：表示内容分发网络不缓存鉴权状态码。cache：内容分发网络缓存鉴权状态码。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 缓存 key 指定了用于区分不同请求 URI 的查询参数。每个参数都必须以 $ 开头。
+         */
+        cacheKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示鉴权状态码的缓存时间。单位是秒。取值范围是 1-86400。86400秒表示 24小时。
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigResponseAction {
+        /**
+         * 表示鉴权失败时，内容分发网络响应用户的状态码。您可以指定范围在 400-499 中的任意一个状态码。该参数的默认值是 403。
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigStatusCodeAction {
+        /**
+         * 表示如果鉴权状态码既不是 FailCode，又不是 SuccessCode 时，内容分发网络处理鉴权请求的方式。该参数有以下取值：reject：表示内容分发网络认为鉴权失败。pass：表示内容分发网络认为鉴权成功。
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * 表示鉴权失败时的鉴权状态码。您可以指定范围在 400-499 中的一个或者多个状态码。多个状态码使用英文分号（;）分隔。您也可以指定 4xx 表示 400-499 中的任意一个状态码。该参数的默认值是 401。
+         */
+        failCode?: pulumi.Input<string>;
+        /**
+         * 表示鉴权成功时的鉴权状态码。您可以指定范围在 200-299 中的一个或者多个状态码。多个状态码使用英文分号（;）分隔。您也可以指定 2xx 表示 200-299 中的任意一个状态码。该参数的默认值是 200。
+         */
+        successCode?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionAuthResponseConfigTimeOutAction {
+        /**
+         * 表示鉴权超时后，内容分发网络处理鉴权请求的策略。该参数有以下取值：reject：表示内容分发网络认为鉴权失败。pass：表示内容分发网络认为鉴权成功。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示鉴权超时的时间，单位是毫秒。该参数的默认值为 200，取值范围是 200   - 3600。
+         */
+        time?: pulumi.Input<number>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionQueryStringRules {
+        /**
+         * 表示鉴权请求参数的设置策略。
+         */
+        queryStringComponents?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionQueryStringRulesQueryStringComponents>;
+        queryStringInstances?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionQueryStringRulesQueryStringInstance>[]>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionQueryStringRulesQueryStringComponents {
+        /**
+         * 表示鉴权请求是否包含用户请求 URL 中的查询参数。该参数有以下取值：exclude：表示鉴权请求不包含任何查询参数。include：表示鉴权请求包含所有查询参数。includePart：表示鉴权请求包含指定的查询参数。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示 Action 参数所对应的参数值，长度不能超过1,024 个字符。该参数有以下取值：如果 Action 是 exclude 或 include，Value 必须是 *。如果 Action 是 includePart，您需要在 Value 参数中指定用户请求 URL 中的一个或者多个查询参数，多个查询参数使用英文分号（;）分隔。您不能指定 *。查询参数是区分大小写的，可以包含除了以下字符的可打印 ASCII 字符：双引号（"）、空格、Delete（ASCII code 127）该参数的默认值是 *。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionQueryStringRulesQueryStringInstance {
+        /**
+         * 表示如何设置鉴权请求参数。当前您只能设置 Action 为 set。set 表示设置参数。您需要在 Key 中指定您需要设置的鉴权请求参数。如果您指定的鉴权请求参数不存在，内容分发网络会在鉴权请求中添加该参数。如果您指定的鉴权请求参数已存在，内容分发网络会使用 Value 的值作为该鉴权请求参数的值。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示您需要设置的鉴权请求参数，长度不能超过 1,024 个字符。鉴权请求参数可以包含除了以下字符的可打印 ASCII 字符：双引号（"）、空格、Delete（ASCII code 127）
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 表示鉴权请求参数的值，长度不能超过 1,024 个字符，并且区分大小写。Value有以下取值：当 ValueType 是 constant 时，表示鉴权请求参数的值是一个常量。您需要指定该常量值。常量值不能以美元符号（$）开头，可以包含除了以下字符的可打印 ASCII 字符：双引号（"）、Delete（ASCII code 127）当 ValueType 是 variable 时，表示鉴权请求参数的值来自一个变量。您可以指定该变量列表中的变量。当 ValueType 是 customize 时，表示鉴权请求参数的值是列表中的变量与固定字符串拼接后的字符串。在拼接的字符串中，变量使用 ${变量名} 表示。示例值：bind${request*uri}to${local*ip}done
+         */
+        value?: pulumi.Input<string>;
+        /**
+         * 表示您在 Key 中设置的鉴权请求参数的类型。ValueType 有以下取值：constant：表示鉴权请求参数是一个常量。此时，您需要在 Value 中指定该常量的值。variable：表示鉴权请求参数的值来自一个变量。参见 Value 的说明。customize：表示鉴权请求参数的值是一个变量与固定字符串拼接后的字符串。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionRequestHeaderRules {
+        /**
+         * 表示鉴权请求头的设置策略。
+         */
+        requestHeaderComponents?: pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionRequestHeaderRulesRequestHeaderComponents>;
+        requestHeaderInstances?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionRequestHeaderRulesRequestHeaderInstance>[]>;
+        /**
+         * 表示鉴权请求中 HOST 头部的值。该参数的默认值是 default，表示 HOST 头部的值与您的加速域名相同。
+         */
+        requestHost?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionRequestHeaderRulesRequestHeaderComponents {
+        /**
+         * 表示鉴权请求头是否包含用户请求头。该参数有以下取值：exclude：表示鉴权请求头中不包含任何用户请求头。include：表示鉴权请求头中包含所有用户请求头。includePart：表示鉴权请求头包含指定的用户请求头。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 表示 Action 参数所对应的参数值，长度不能超过 1,024 个字符。该参数有以下说明：如果 Action 是 exclude 或 include，Value 必须是 *。如果 Action 是 includePart，Value 参数的取值是用户请求中的一个或者多个头部。多个头部使用英文分号（;）分隔。其取值不能只是 *，可以包含除了以下字符的可打印 ASCII 字符：下划线（_）、空格、双引号（"），Delete（ASCII code 127）该参数的默认值是 *。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainRemoteAuthRemoteAuthRuleRemoteAuthRuleActionRequestHeaderRulesRequestHeaderInstance {
+        /**
+         * 表示如何设置鉴权请求头。当前您只能设置该参数值为 set。set 表示设置请求头。此时，您需要在 Key 中指定您需要设置的请求头。如果您设置的请求头不存在，内容分发网络会在鉴权请求中添加该请求头。如果您设置的请求头已存在，内容分发网络会使用 Value 的值作为该请求头的值。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 指定一个头部的名称。名称的长度不能超过 1,024 个字符，不区分大小写。同时，名称可以包含除了以下字符的可打印 ASCII 字符：下划线（_）、空格、双引号（"），Delete（ASCII code 127）
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 表示 Key 的值。该参数仅当 Action 是 set 的时候才有效。如果 Action 不是 set，该参数无效。当 ValueType 是 constant 时，您需要指定一个固定字符串作为头部的值。。该头部值的长度不能超过 1,024 个字符，可以包含除了以下字符的可打印 ASCII 字符：美元符号（$）、Delete（ASCII code 127）
+         */
+        value?: pulumi.Input<string>;
+        /**
+         * 指定 Key 的取值类型。该参数仅当 Action 是 set 的时候才有效。如果 Action 不是 set，该参数无效。该参数有以下取值：constant：表示 Key 的值是一个固定字符串。variable：表示 Key 的值来自一个变量。customize：表示 Key 的值是一个变量与固定字符串拼接后的字符串。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestBlockRule {
+        blockRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRequestBlockRuleBlockRule>[]>;
+        /**
+         * 表示该模块的配置开关。该参数有以下取值：true：表示启用该模块。false：表示禁用该模块。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainRequestBlockRuleBlockRule {
+        /**
+         * 表示列表中一条规则的拦截配置。
+         */
+        blockAction?: pulumi.Input<inputs.cdn.DomainRequestBlockRuleBlockRuleBlockAction>;
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainRequestBlockRuleBlockRuleCondition>;
+        /**
+         * 表示规则的名称，长度不超过 20 个字符，可以包含字母、数字、下划线（_）、中划线（-）、汉字。一个汉字占 3 个字符。
+         */
+        ruleName?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestBlockRuleBlockRuleBlockAction {
+        /**
+         * 表示内容分发网络如何拦截匹配的请求。该参数有以下取值：refuse：表示内容分发网络拒绝请求并响应一个 4xx 的错误码。错误码在 StatusCode 中指定。redirect：表示内容分发网络将请求重定向到 RedirectUrl 中指定的 URL。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 当 Action 是 refuse 时，该参数是可选的，说明如下：如果指定该参数，该参数表示全局配置下的一个自定义响应页面的名称。也就是说，当内容分发网络拒绝请求时，返回该自定义页面。需要留意的是，"全局配置" 是一个白名单功能。要使用该功能，请 提交工单。如果不指定该参数，表示内容分发网络使用 StatusCode 中指定错误码的标准响应正文。当 Action 是 redirect 时，该参数无效，可以不指定。
+         */
+        errorPage?: pulumi.Input<string>;
+        /**
+         * 当 Action 是 redirect 时，该参数必填，表示重定向 URL。URL 必须以 http:// 或 https:// 开头，长度不能超过 1,024 个字符。当 Action 是 refuse 时，该参数无效，可以不指定。
+         */
+        redirectUrl?: pulumi.Input<string>;
+        /**
+         * 表示对于拦截的请求，内容分发网络的响应状态码。当 Action 是 refuse 时，该参数表示一个 400-499 范围内的错误码。当 Action 是 redirect 时，该参数有以下取值：301：表示响应状态码是 301。302：表示响应状态码是 302。
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestBlockRuleBlockRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRequestBlockRuleBlockRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestBlockRuleBlockRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestHeader {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainRequestHeaderCondition>;
+        /**
+         * 表示一个请求头的配置规则列表。每个规则都包含一个头部的相关操作设置。您最多可以添加 50 条规则。
+         */
+        requestHeaderAction?: pulumi.Input<inputs.cdn.DomainRequestHeaderRequestHeaderAction>;
+    }
+
+    export interface DomainRequestHeaderCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRequestHeaderConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestHeaderConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainRequestHeaderRequestHeaderAction {
+        requestHeaderInstances?: pulumi.Input<pulumi.Input<inputs.cdn.DomainRequestHeaderRequestHeaderActionRequestHeaderInstance>[]>;
+    }
+
+    export interface DomainRequestHeaderRequestHeaderActionRequestHeaderInstance {
+        /**
+         * 表示如何设置鉴权请求头。当前您只能设置该参数值为 set。set 表示设置请求头。此时，您需要在 Key 中指定您需要设置的请求头。如果您设置的请求头不存在，内容分发网络会在鉴权请求中添加该请求头。如果您设置的请求头已存在，内容分发网络会使用 Value 的值作为该请求头的值。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 指定一个头部的名称。名称的长度不能超过 1,024 个字符，不区分大小写。同时，名称可以包含除了以下字符的可打印 ASCII 字符：下划线（_）、空格、双引号（"），Delete（ASCII code 127）
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 表示 Key 的值。该参数仅当 Action 是 set 的时候才有效。如果 Action 不是 set，该参数无效。当 ValueType 是 constant 时，您需要指定一个固定字符串作为头部的值。。该头部值的长度不能超过 1,024 个字符，可以包含除了以下字符的可打印 ASCII 字符：美元符号（$）、Delete（ASCII code 127）
+         */
+        value?: pulumi.Input<string>;
+        /**
+         * 指定 Key 的取值类型。该参数仅当 Action 是 set 的时候才有效。如果 Action 不是 set，该参数无效。该参数有以下取值：constant：表示 Key 的值是一个固定字符串。variable：表示 Key 的值来自一个变量。customize：表示 Key 的值是一个变量与固定字符串拼接后的字符串。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface DomainResponseHeader {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainResponseHeaderCondition>;
+        /**
+         * 表示内容分发网络在响应用户请求的时候，对响应头的操作。
+         */
+        responseHeaderAction?: pulumi.Input<inputs.cdn.DomainResponseHeaderResponseHeaderAction>;
+    }
+
+    export interface DomainResponseHeaderCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainResponseHeaderConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainResponseHeaderConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainResponseHeaderResponseHeaderAction {
+        responseHeaderInstances?: pulumi.Input<pulumi.Input<inputs.cdn.DomainResponseHeaderResponseHeaderActionResponseHeaderInstance>[]>;
+    }
+
+    export interface DomainResponseHeaderResponseHeaderActionResponseHeaderInstance {
+        /**
+         * 表示在内容分发网络响应用户请求时，是否校验请求头中的 Origin 字段。该参数有以下取值：true：表示内容分发网络会校验 Origin 字段。如果校验成功，内容分发网络会在响应头中包含 Access-Control-Allow-Origin 字段。字段值与 Origin 字段值相同。如果校验失败，响应头中不会包含 Access-Control-Allow-Origin 字段。false：表示内容分发网络不会校验 Origin 字段。在响应头中，内容分发网络会包含 Access-Control-Allow-Origin 字段。字段值是您配置的 Access-Control-Allow-Origin 的内容。该参数的默认值是 false。该参数仅在以下条件都满足的情况下有效：Action 是 set。Key 是 Access-Control-Allow-Origin。ValueType 是 constant。
+         */
+        accessOriginControl?: pulumi.Input<boolean>;
+        /**
+         * 指定对响应头的操作。该参数有以下取值：set：表示设置一个头部。设置操作包括添加与修改。如果源站响应中已包含该头部，该头部的值会被覆盖。如果源站响应中没有包含该头部，该头部会被添加。delete，表示删除一个头部。
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * 指定一个头部的名称。名称不能超过 1,024个字符，不区分大小写，可以包含除了以下字符的可打印 ASCII 字符：下划线（_）、空格、双引号（"），Delete（ASCII code 127）
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 表示 Key 的值。该参数仅当 Action 是 set 的时候才有效。如果 Action 不是 set，该参数无效。当 ValueType 是 constant 时，您需要指定一个固定字符串作为头部的值。头部值的长度不能超过 1,024 个字符，可以包含除了以下字符的可打印 ASCII 字符：美元符号（$）、Delete（ASCII code 127）
+         */
+        value?: pulumi.Input<string>;
+        /**
+         * 指定 Key 的取值类型。该参数仅当 Action 是 set 的时候才有效。如果 Action 不是 set，该参数无效。该参数有以下取值：constant：表示 Key 的值是一个固定字符串。variable：表示 Key 的值来自一个变量。customize：表示 Key 的值是一个变量与固定字符串拼接后的字符串。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface DomainRewriteHls {
+        /**
+         * 表示签名参数的名称，长度不能超过 100 个字符。参数名称区分大小写，可以包含字母、数字、下划线（_）、中划线（-）、逗号（,）、句号（.）、感叹号（!）。该参数的默认值是 DrmAuthToken。
+         */
+        signName?: pulumi.Input<string>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。该参数的默认值是 false。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainSignedUrlAuth {
+        signedUrlAuthRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRule>[]>;
+        /**
+         * 表示是否启用该特性。该参数有以下取值：true：表示启用该特性。false：表示禁用该特性。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRule {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRuleCondition>;
+        /**
+         * 表示签名计算的配置。
+         */
+        signedUrlAuthAction?: pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthAction>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthAction {
+        /**
+         * 表示签名计算使用的算法。该配置有以下取值：md5：表示 MD5 算法。sha256：表示 SHA-256 算法。该参数的默认值是 md5。
+         */
+        authAlgorithm?: pulumi.Input<string>;
+        /**
+         * 表示备密钥。备密钥的长度为 6-40个字符可以包含除了 Delete（ASCII code 127）的可打印 ASCII 字符。
+         */
+        backupSecretKey?: pulumi.Input<string>;
+        /**
+         * 表示自定义签算变量。
+         */
+        customVariableRules?: pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthActionCustomVariableRules>;
+        /**
+         * 签名的有效时间，单位是秒。该参数与请求中包含时间戳搭配使用，用来计算签名的过期时间。该参数的取值范围是 0-315,360,000。签名的过期时间 = 时间戳 + Duration。在内容分发网络收到某个请求时，如果签名的过期时间小于当前时间，内容分发网络判定签名已过期。
+         */
+        duration?: pulumi.Input<number>;
+        /**
+         * 该参数暂不对外开放，请勿使用该参数。
+         */
+        keepOriginArg?: pulumi.Input<boolean>;
+        /**
+         * 表示主密钥，长度为 6-40个字符，可以包含除了 Delete（ASCII code 127）的可打印 ASCII 字符。
+         */
+        masterSecretKey?: pulumi.Input<string>;
+        /**
+         * 表示在响应一个 .m3u8 文件的请求时，内容分发网络是否对 .m3u8 文件中每个分片文件的 URL 添加签名参数。每个分片 URL 的签名是基于改写后分片 URL，使用签名规则计算的。该参数有以下取值：true：表示启用。false：表示禁用。
+         */
+        rewriteM3U8?: pulumi.Input<boolean>;
+        /**
+         * 表示 "M3U8 改写" 功能的配置。该配置仅当以下条件都满足时才有效：RewriteM3u8 是 true。URLAuthType 不是 typee。
+         */
+        rewriteM3U8Rule?: pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthActionRewriteM3U8Rule>;
+        /**
+         * 表示签名参数的名称，长度不能超过 100 个字符。参数名称区分大小写，可以包含字母、数字、下划线（_）、中划线（-）、逗号（,）、句号（.）、感叹号（!）。
+         */
+        signName?: pulumi.Input<string>;
+        /**
+         * 当 URLAuthType 为 typee 时，该参数为必填，表示需要纳入签名计算的字段。必须纳入签名计算的字段如下：key：秘钥，即MasterSecretKey或BackupSecretKey的传参内容。uri：表示用户请求资源的 URI。如果 URI 包含中文字符，您需要对 URI 编码。TimeName：表示时间戳参数的传参内容。可选择纳入签名计算的字段如下：domain：表示加速域名。referer：表示用户请求携带的 referer 值。ua：表示用户请求携带的 User-Agent 值。ip：表示用户请求的客户端 IP。origin：表示用户请求携带的 Origin 值。自定义变量：表示您在 CustomVariableInstances 中定义的变量名称。列表中填充的顺序即为签名计算时MD5()中各值顺序。
+         */
+        signatureRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 进制配置。该参数有以下取值：decimal：十进制。heximal：十六进制。当 URLAuthType 为 typed、typee 时，该参数为必填。当 URLAuthType 为 typec 时，无论您是否设置该参数，该参数的值会被强制设置为 heximal。对于 URLAuthType 的其他值，该参数不生效。
+         */
+        timeFormat?: pulumi.Input<string>;
+        /**
+         * 表示时间戳参数的名称。TimeName 的值可以包括英文字母、数字、下划线（_）、中划线（-）、句号（.）、逗号（,）、感叹号（!），长度为 1-100 个字符。TimenName 不能与 SignName 相同。当 URLAuthType 为 typed、typee 时，该参数为必填。对于其他类型，该参数不生效。
+         */
+        timeName?: pulumi.Input<string>;
+        /**
+         * 签名类型。
+         */
+        urlAuthType?: pulumi.Input<string>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthActionCustomVariableRules {
+        customVariableInstances?: pulumi.Input<pulumi.Input<inputs.cdn.DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthActionCustomVariableRulesCustomVariableInstance>[]>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthActionCustomVariableRulesCustomVariableInstance {
+        /**
+         * 表示变量的匹配方式。该参数的取值只能是 match。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示变量的类型。该参数有以下取值：queryString：表示该变量是请求中的一个查询参数。requestHeader：表示该变量是请求中的一个头部字段。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示变量的名称，长度不超过 100 个字符。变量名称的要求如下：如果 Type 是 queryString，变量名称可以包含字母、数字、连字符（-）、逗号（,）、句号（.）、感叹号（!）。如果 Type 是 requestHeader，变量名称可以包含除了以下字符的可打印 ASCII 字符：下划线（_）、空格、双引号（"）、冒号（:）、Delete（ASCII code 127）
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainSignedUrlAuthSignedUrlAuthRuleSignedUrlAuthActionRewriteM3U8Rule {
+        /**
+         * 表示在改写分片 URL 时是否保留 URL 中原有的参数。该参数有以下取值：true：表示删除原有参数。false：表示保留原有参数。
+         */
+        deleteParam?: pulumi.Input<boolean>;
+        /**
+         * 表示是否将来自该 M3U8 文件请求的不表示签名的查询参数添加到分片 URL 中。该参数有以下取值：true：表示在分片 URL 中添加查询参数。false：表示不添加查询参数。
+         */
+        keepM3U8Param?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainTag {
+        /**
+         * 标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainTimeout {
+        /**
+         * 指定是否启用回源超时时间的配置。该参数有以下取值：true：表示启用回源超时时间的配置。false：表示禁用回源超时时间的配置。此时，TCP 请求和 HTTP 请求的超时时间使用系统默认值，分别是 2 秒和 60 秒。
+         */
+        switch?: pulumi.Input<boolean>;
+        timeoutRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainTimeoutTimeoutRule>[]>;
+    }
+
+    export interface DomainTimeoutTimeoutRule {
+        /**
+         * 表示该配置模块的生效条件，由一组规则组成。
+         */
+        condition?: pulumi.Input<inputs.cdn.DomainTimeoutTimeoutRuleCondition>;
+        /**
+         * 表示超时时间的配置。
+         */
+        timeoutAction?: pulumi.Input<inputs.cdn.DomainTimeoutTimeoutRuleTimeoutAction>;
+    }
+
+    export interface DomainTimeoutTimeoutRuleCondition {
+        conditionRules?: pulumi.Input<pulumi.Input<inputs.cdn.DomainTimeoutTimeoutRuleConditionConditionRule>[]>;
+        /**
+         * 表示多条ConditionRule 之间的逻辑关系。该参数有以下取值：AND: 表示逻辑关系是 "AND"。OR：表示逻辑关系是 "OR"。该参数的默认值是 OR。
+         */
+        connective?: pulumi.Input<string>;
+    }
+
+    export interface DomainTimeoutTimeoutRuleConditionConditionRule {
+        /**
+         * 当 Object 是 query*name 或者 customize 时，该参数有效。如果 Object 是 query*name，该参数表示一个查询参数的名称。如果 Object 是 customize，该参数表示一个自定义头部的名称。Name 的长度不能超过 256 个字符，可以包含数字、字母、百分号（%）、下划线（_）、中划线（-）。
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 表示匹配对象的类型。内容分发网络对目标中指定类型的对象匹配规则。该参数有以下取值：path：表示对目标中的路径进行匹配。directory：表示对目标中的目录进行匹配。filetype：表示对目标中的文件后缀进行匹配。
+         */
+        object?: pulumi.Input<string>;
+        /**
+         * 表示匹配方式。该参数有以下取值：match：表示如果 Value 中某个值存在，就算匹配。
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * 表示目标类型。该参数取值是 url，表示目标是一个 URL。
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * 表示一个值的集合，多个值之间用分号（;）分隔，总长度不能超过 1,024 个字符，可以包含可打印 ASCII 字符，以下字符除外：连续斜杠（//）、空格、美元符号（$）、问号（?）、Delete（ASCII code 127）。如果集合中的任意一个值匹配了请求，就认为是匹配。当 Object 是 path 时，该参数表示一个或者多个路径。路径必须以斜杠（/）开头。您可以在路径中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 directory 时，该参数表示一个或者多个目录。目录必须以斜杠（/）开头和结尾。您可以在目录中使用一个或者多个星号（*），每个星号表示一个或者多个字符。当 Object 是 filetype 时，该参数表示一个或者多个文件后缀。后缀无需以句点（.）开头，
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DomainTimeoutTimeoutRuleTimeoutAction {
+        /**
+         * 表示 HTTP 请求的超时时间。该参数的取值范围是 5-60。
+         */
+        httpTimeout?: pulumi.Input<number>;
+        /**
+         * 表示 TCP 请求的超时时间。该参数的取值范围是 2-60。
+         */
+        tcpTimeout?: pulumi.Input<number>;
+    }
+
+    export interface DomainUaAccessRule {
+        /**
+         * 表示是否允许 UA 为空（""）或者不包含 UA 字段的请求访问加速域名。该参数有以下取值：true：表示允许。false：表示不允许。该参数的默认值是 false。
+         */
+        allowEmpty?: pulumi.Input<boolean>;
+        /**
+         * 表示 UA 字符串是否是大小写敏感的。该参数有以下取值：true: 表示 UA 字符串是大小写不敏感的。false: 表示 UA 字符串是大小写敏感的。该参数的默认值是 false。
+         */
+        ignoreCase?: pulumi.Input<boolean>;
+        /**
+         * 表示指定的是黑名单还是白名单。当 Switch 是 true 时，该参数为必填。该参数有以下取值：deny: 表示指定的是黑名单。allow: 表示指定的是白名单。
+         */
+        ruleType?: pulumi.Input<string>;
+        /**
+         * 表示是否启用 UA 黑白名单功能。该参数有以下取值：true: 表示启用。false: 表示禁用。
+         */
+        switch?: pulumi.Input<boolean>;
+        /**
+         * 表示一个 UA 的列表。当 Switch 是 true 时，该参数为必填。该列表最多包含 1,000 个 UA。该参数的说明如下：该参数值的长度不能超过 30,000 个字符。如果 RuleType 是 allow，表示仅允许包含列表中的 UA 的请求访问加速域名。如果 RuleType 是 deny，表示如果访问请求包含列表中的 UA，则不允许访问加速域名。UA 能包含的字符有以下限制：UA 中可以使用 * 表示一个或者多个字符。* 仅可以出现在 UA 的开头和末尾。UA 不能只包含 *或者空格。UA 可以包含除了 Delete（ASCII code 127）的可打印 ASCII 字符。UA 如果包含符号，符号必须是被 HTML 编码的。
+         */
+        userAgents?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainUrlNormalize {
+        /**
+         * 表示您需要启用的 URL 标准化选项列表。当 Switch 为 true 时，该参数为必填。列表中可以包含以下选项：dot*segments：表示将请求 URL 中的以下内容进行替换：/./：替换为单个斜杠（/）。/../：如果 /../ 前还有一个级别的目录，则删除 /../ 与该目录。如果 /../ 前没有目录，则保留原 URL。back*slashes：表示将请求 URL 中的反斜杠（\）替换为单个斜杠（/）。successive_slashes：表示将请求 URL 中连续斜杠（//）替换为单个斜杠（/）。
+         */
+        normalizeObjects?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 表示您需要启用的 URL 标准化选项列表。当 Switch 为 true 时，该参数为必填。列表中可以包含以下选项：dot*segments：表示将请求 URL 中的以下内容进行替换：/./：替换为单个斜杠（/）。/../：如果 /../ 前还有一个级别的目录，则删除 /../ 与该目录。如果 /../ 前没有目录，则保留原 URL。back*slashes：表示将请求 URL 中的反斜杠（\）替换为单个斜杠（/）。successive_slashes：表示将请求 URL 中连续斜杠（//）替换为单个斜杠（/）。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainVideoDrag {
+        /**
+         * 智能压缩配置开关。该参数有以下取值：true：表示启用视频拖拽。false：表示禁用视频拖拽。
+         */
+        switch?: pulumi.Input<boolean>;
+    }
+
     export interface ShareConfigAllowIpAccessRule {
         /**
          * 表示一个条目列表。列表中的每个条目是一个 IP 地址或 CIDR 网段。IP 地址和网段可以是 IPv4 和 IPv6 格式。列表的额度如下：对于 AddSharedConfig，列表中条目的数量不能超过 30,000 个。
@@ -3718,6 +5847,369 @@ export namespace efs {
 
 }
 
+export namespace emr {
+    export interface ClusterApplication {
+        /**
+         * 应用配置路径。
+         */
+        applicationConfigHome?: pulumi.Input<string>;
+        /**
+         * 应用安装路径。
+         */
+        applicationHome?: pulumi.Input<string>;
+        /**
+         * 应用名称。
+         */
+        applicationName?: pulumi.Input<string>;
+        /**
+         * 服务状态。NORMAL：正常；WARNING：告警；STOPPED：已停止；INIT：初始化中；INSTALLING：安装中；INSTALLED：已安装；STARTING：启动中；STARTED：已启动；STOPPING：停止中；UNINSTALLING：卸载中；UNINSTALLED：已卸载；EXCEPTION：异常。
+         */
+        applicationState?: pulumi.Input<string>;
+        /**
+         * 应用版本。
+         */
+        applicationVersion?: pulumi.Input<string>;
+        /**
+         * 应用用户组。
+         */
+        group?: pulumi.Input<string>;
+        /**
+         * 是否支持客户端。
+         */
+        supportClient?: pulumi.Input<boolean>;
+        /**
+         * 应用用户。
+         */
+        user?: pulumi.Input<string>;
+    }
+
+    export interface ClusterApplicationExtra {
+        applicationComponentLayouts?: pulumi.Input<pulumi.Input<inputs.emr.ClusterApplicationExtraApplicationComponentLayout>[]>;
+        applicationConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterApplicationExtraApplicationConfig>[]>;
+        /**
+         * 应用名称。
+         */
+        applicationName?: pulumi.Input<string>;
+        /**
+         * 元数据连接id。
+         */
+        connectionId?: pulumi.Input<string>;
+        /**
+         * 元数据连接类型。BUILT*IN*MYSQL：内置数据库。EXTERNAL*MYSQL：外置数据库。HIVE*METASTORE：HMS。
+         */
+        connectionType?: pulumi.Input<string>;
+    }
+
+    export interface ClusterApplicationExtraApplicationComponentLayout {
+        /**
+         * 组件名称。
+         */
+        componentName?: pulumi.Input<string>;
+        /**
+         * 组件的布局范围。
+         */
+        effectiveScope?: pulumi.Input<inputs.emr.ClusterApplicationExtraApplicationComponentLayoutEffectiveScope>;
+    }
+
+    export interface ClusterApplicationExtraApplicationComponentLayoutEffectiveScope {
+        /**
+         * 组件名列表，当EffectiveType=COMPONENT_NAME，必选。
+         */
+        componentNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 生效类型。CLUSTER，NODE*GROUP*NAME，NODE*GROUP*ID，NODE*GROUP*TYPE，NODE*NAME，NODE*ID，COMPONENT_NAME。
+         */
+        effectiveType?: pulumi.Input<string>;
+        /**
+         * 节点组ID列表，EffectiveType=NODE*GROUP*ID时，必选。
+         */
+        nodeGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点组名称列表，EffectiveType=NODE*GROUP*NAME时，必选。
+         */
+        nodeGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点组类型列表，EffectiveType=NODE*GROUP*TYPE时，必选。目前包括MASTER、CORE、TASK。
+         */
+        nodeGroupTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点ID列表，EffectiveType=NODE_ID时，必选。
+         */
+        nodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点名列表，EffectiveType=NODE_NAME时，必选。
+         */
+        nodeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterApplicationExtraApplicationConfig {
+        /**
+         * 组件实例名称。
+         */
+        componentInstanceName?: pulumi.Input<string>;
+        /**
+         * 组件名称。
+         */
+        componentName?: pulumi.Input<string>;
+        /**
+         * 配置文件名。
+         */
+        configFileName?: pulumi.Input<string>;
+        /**
+         * 配置项名称。
+         */
+        configItemKey?: pulumi.Input<string>;
+        /**
+         * 配置项值。
+         */
+        configItemValue?: pulumi.Input<string>;
+        /**
+         * 是否删除。
+         */
+        deleted?: pulumi.Input<boolean>;
+        /**
+         * 影响组件。
+         */
+        effectiveScope?: pulumi.Input<inputs.emr.ClusterApplicationExtraApplicationConfigEffectiveScope>;
+    }
+
+    export interface ClusterApplicationExtraApplicationConfigEffectiveScope {
+        /**
+         * 组件名列表，当EffectiveType=COMPONENT_NAME，必选。
+         */
+        componentNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 生效类型。CLUSTER，NODE*GROUP*NAME，NODE*GROUP*ID，NODE*GROUP*TYPE，NODE*NAME，NODE*ID，COMPONENT_NAME。
+         */
+        effectiveType?: pulumi.Input<string>;
+        /**
+         * 节点组ID列表，EffectiveType=NODE*GROUP*ID时，必选。
+         */
+        nodeGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点组名称列表，EffectiveType=NODE*GROUP*NAME时，必选。
+         */
+        nodeGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点组类型列表，EffectiveType=NODE*GROUP*TYPE时，必选。目前包括MASTER、CORE、TASK。
+         */
+        nodeGroupTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点ID列表，EffectiveType=NODE_ID时，必选。
+         */
+        nodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点名列表，EffectiveType=NODE_NAME时，必选。
+         */
+        nodeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterBootstrapScript {
+        /**
+         * 脚本执行范围。
+         */
+        effectiveScope?: pulumi.Input<inputs.emr.ClusterBootstrapScriptEffectiveScope>;
+        /**
+         * 执行失败策略。取值范围：FAILED*CONTINUE：失败后继续执行其他任务。FAILED*BLOCK：失败后中断，不再继续执行后续任务。当脚本为BOOTSTRAP时，会导致创建集群、扩容节点组操作中断并失败。默认值：FAILED_BLOCK。
+         */
+        executionFailStrategy?: pulumi.Input<string>;
+        /**
+         * 脚本的执行时机。仅scriptType=BOOTSTRAP时生效。BEFORE*APPLICATION*INSTALL：应用安装前。AFTER*APPLICATION*STARTED：应用启动后。默认值：BEFORE*APP*INSTALL
+         */
+        executionMoment?: pulumi.Input<string>;
+        /**
+         * 脚本执行优先级。取值范围：1~1000。默认值1。
+         */
+        priority?: pulumi.Input<string>;
+        /**
+         * 脚本参数。
+         */
+        scriptArgs?: pulumi.Input<string>;
+        /**
+         * 脚本名称。必填。长度为1~128个字符，必须以大小字母或中文开头，不能以 http:： 和 https:： 开头。可以包含中文、英文、数字、下划线（_）、或者短划线（-）。
+         */
+        scriptName?: pulumi.Input<string>;
+        /**
+         * 脚本所在TOS路径。必填。以 tos:： 开头。
+         */
+        scriptPath?: pulumi.Input<string>;
+        /**
+         * 脚本类型。NORMAL：普通脚本。BOOTSTRAP：引导脚本。
+         */
+        scriptType?: pulumi.Input<string>;
+    }
+
+    export interface ClusterBootstrapScriptEffectiveScope {
+        /**
+         * 组件名列表，当EffectiveType=COMPONENT_NAME，必选。
+         */
+        componentNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 生效类型。CLUSTER，NODE*GROUP*NAME，NODE*GROUP*ID，NODE*GROUP*TYPE，NODE*NAME，NODE*ID，COMPONENT_NAME。
+         */
+        effectiveType?: pulumi.Input<string>;
+        /**
+         * 节点组ID列表，EffectiveType=NODE*GROUP*ID时，必选。
+         */
+        nodeGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点组名称列表，EffectiveType=NODE*GROUP*NAME时，必选。
+         */
+        nodeGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点组类型列表，EffectiveType=NODE*GROUP*TYPE时，必选。目前包括MASTER、CORE、TASK。
+         */
+        nodeGroupTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点ID列表，EffectiveType=NODE_ID时，必选。
+         */
+        nodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 节点名列表，EffectiveType=NODE_NAME时，必选。
+         */
+        nodeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterChargePreConfig {
+        /**
+         * 是否开启自动续费。取值范围：true：开启。false：不开启。
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * 自动续费触发时的续费时长，当AutoRenew=true时，默认值=1。
+         */
+        autoRenewPeriod?: pulumi.Input<number>;
+        /**
+         * 自动续费触发时的续费时长单位，当AutoRenew=true时，默认值=Month。取值范围：Month：月。Year：年。
+         */
+        autoRenewPeriodUnit?: pulumi.Input<string>;
+        /**
+         * chargeType=PRE默认值=1，包月的购买时长单位。
+         */
+        chargePeriod?: pulumi.Input<number>;
+        /**
+         * chargeType=PRE时，默认值=Month，包月的购买时长单位，取值范围：Month：月。Year：年。
+         */
+        chargePeriodUnit?: pulumi.Input<string>;
+        /**
+         * 付费类型，取值范围：PRE，POST。
+         */
+        chargeType?: pulumi.Input<string>;
+    }
+
+    export interface ClusterNodeAttribute {
+        /**
+         * ECS实例角色。
+         */
+        ecsIamRole?: pulumi.Input<string>;
+        /**
+         * 可用区ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface ClusterNodeGroupAttribute {
+        /**
+         * 公网带宽。默认值 8M。后续如果用户侧调整了，emr侧需要同步该信息。
+         */
+        bandwidth?: pulumi.Input<number>;
+        /**
+         * 节点组付费类型。为空时，复用集群的chargeType。Master、Core组必须复用集群维度的付费类型。当集群的chargeType为PRE时，task节点组的chargeType允许设置为POST；当集群的chargeType为POST时，节点组的chargeType默认为POST，节点组上的此参数设置无效。
+         */
+        chargeType?: pulumi.Input<string>;
+        dataDisks?: pulumi.Input<pulumi.Input<inputs.emr.ClusterNodeGroupAttributeDataDisk>[]>;
+        /**
+         * 节点组的ecs机型列表。当前只支持设置1个机型。即List的长度限制为1。
+         */
+        ecsInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ecs的密钥对名称。
+         */
+        ecsKeyPairName?: pulumi.Input<string>;
+        /**
+         * Ecs root账号的密码。
+         */
+        ecsPassword?: pulumi.Input<string>;
+        /**
+         * 节点组当前期望购买的节点数量。
+         */
+        nodeCount?: pulumi.Input<number>;
+        /**
+         * 长度为1~128个字符，不能以 http:： 和 https:： 开头。可以包含中文、英文、数字、下划线（_）、或者短划线（-）。
+         */
+        nodeGroupName?: pulumi.Input<string>;
+        /**
+         * 节点组类型。
+         */
+        nodeGroupType?: pulumi.Input<string>;
+        /**
+         * 子网Id列表，目前只能传递一个参数，且各节点组的子网Id都是相同的。
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * 系统盘配置。
+         */
+        systemDisk?: pulumi.Input<inputs.emr.ClusterNodeGroupAttributeSystemDisk>;
+        /**
+         * 是否挂载公网ip。
+         */
+        withPublicIp?: pulumi.Input<boolean>;
+        /**
+         * 可用区ID。
+         */
+        zoneId?: pulumi.Input<string>;
+    }
+
+    export interface ClusterNodeGroupAttributeDataDisk {
+        /**
+         * 磁盘块数，默认值4，最大15，最小1。
+         */
+        count?: pulumi.Input<number>;
+        /**
+         * 磁盘大小，默认值80GB，最小60GB，最大2048GB，单位GB。
+         */
+        size?: pulumi.Input<number>;
+        /**
+         * 磁盘类型。ESSD*PL0 ：极速型SSD*PL0。ESSD*PL1 ：极速型SSD*PL1。ESSD*PL2 ：极速型SSD*PL2。ESSD*PL3 ：极速型SSD*PL3。ESSD*FLEXPL ：极速型SSD*FlexPL。ULTRA*DISK ：高效云盘。PTSSD ：性能型SSD。SSD ：通用型SSD。EHDD ：高效云盘。ZENYA*SSD ：Zenya。LOCAL*HDD ：大数据型HDD。LOCAL*SSD ：本地SSD型。LOCAL*SSD*SRIOV ：本地SSD型SRIOV
+         */
+        volumeType?: pulumi.Input<string>;
+    }
+
+    export interface ClusterNodeGroupAttributeSystemDisk {
+        /**
+         * 磁盘大小。
+         */
+        size?: pulumi.Input<number>;
+        /**
+         * 磁盘类型。
+         */
+        volumeType?: pulumi.Input<string>;
+    }
+
+    export interface ClusterStateChangeReason {
+        /**
+         * 状态更新码。
+         */
+        code?: pulumi.Input<string>;
+        /**
+         * 状态更新原因。
+         */
+        reason?: pulumi.Input<string>;
+    }
+
+    export interface ClusterTag {
+        /**
+         * 用户标签的标签键。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 用户标签的标签值。
+         */
+        value?: pulumi.Input<string>;
+    }
+
+}
+
 export namespace escloud {
     export interface InstanceInstanceConfiguration {
         /**
@@ -5080,6 +7572,51 @@ export namespace organization {
         value?: pulumi.Input<string>;
     }
 
+    export interface OrganizationOrganization {
+        /**
+         * 创建时间
+         */
+        createdTime?: pulumi.Input<string>;
+        /**
+         * 描述
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * 组织名称
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * 管理员ID
+         */
+        owner?: pulumi.Input<string>;
+        /**
+         * 状态
+         */
+        status?: pulumi.Input<number>;
+        /**
+         * 组织类型，企业组织固定是 1
+         */
+        type?: pulumi.Input<number>;
+        /**
+         * 更新时间
+         */
+        updatedTime?: pulumi.Input<string>;
+    }
+
+    export interface OrganizationOwner {
+        /**
+         * 账号ID
+         */
+        accountId?: pulumi.Input<number>;
+        /**
+         * 账号名称
+         */
+        accountName?: pulumi.Input<string>;
+        /**
+         * 主体名称
+         */
+        mainName?: pulumi.Input<string>;
+    }
 }
 
 export namespace privatelink {
@@ -6383,6 +8920,183 @@ export namespace storageebs {
 }
 
 export namespace tls {
+    export interface IndexFullText {
+        /**
+         * 是否大小写敏感。true：大小写敏感。false：大小写不敏感。
+         */
+        caseSensitive?: pulumi.Input<boolean>;
+        /**
+         * 全文索引的分词符。字符串中每个字符代表一个分词符。长度为 1~256 字节。仅支持以下字符中的一种或者多种：大小写字母、数字以及 !@#%^&*()-_=\\"', <>/?|;:\	\r[]{}.。支持同时配置包含中文和分词符。
+         */
+        delimiter?: pulumi.Input<string>;
+        /**
+         * 检索时，是否对日志的中文内容按照中文语法进行分词，默认为 false。true：日志内的中文字符：根据常见的中文语法对日志进行分词，不支持自定义中文内容的分词符。日志内的非中文字符：按照分词符参数中指定的分词符对日志进行分词。false：按照分词符参数中指定的分词符对日志进行分词。
+         */
+        includeChinese?: pulumi.Input<boolean>;
+    }
+
+    export interface IndexKeyValue {
+        /**
+         * 需要配置键值索引的字段名称，最多添加 100 个字段。仅支持字母、数字、空格、下划线（_）、连字符（-）和斜线（/），并且不支持以空格开头或结尾。同一个索引中 key 名称唯一。长度为 1~128 字符。对于 JSON 类型键值索引的子字段，需要通过.表示 JSON 字段之间的层级关系，例如 JSON 字段 namelist 中包含 text 类型的子字段 totalcount 和 JSON 类型的 info，info 中又包含字段 name，各个字段名称应分别配置为totalcount 和 info.name。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 需要配置键值索引的字段描述信息。
+         */
+        value?: pulumi.Input<inputs.tls.IndexKeyValueValue>;
+    }
+
+    export interface IndexKeyValueValue {
+        /**
+         * 该索引是否是自动索引添加。true：该索引为自动添加。false：该索引非自动添加。
+         */
+        autoIndexFlag?: pulumi.Input<boolean>;
+        /**
+         * 是否区分大小写。默认为 false。
+         */
+        caseSensitive?: pulumi.Input<boolean>;
+        /**
+         * 字段的分词符。默认为空（""）。字符串中每个字符代表一个分词符。长度为 0~256 字节，长度为 0 时表示不分词。仅支持以下字符中的一种或者多种：大小写字母、数字以及 !@#%^&*()-_=\\"', <>/?|;:\	\r[]{}.。支持同时配置包含中文和分词符。
+         */
+        delimiter?: pulumi.Input<string>;
+        /**
+         * 检索时，是否对日志的中文内容按照中文语法进行分词。启用：日志内的中文字符：根据常见的中文语法对日志进行分词，不支持自定义中文内容的分词符。日志内的非中文字符：按照分词符参数中指定的分词符对日志进行分词。未启用：按照分词符参数中指定的分词符对日志进行分词。
+         */
+        includeChinese?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段中所有值为文本的字段创建索引。
+         */
+        indexAll?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段开启自动索引和统计功能。true：开启自动索引和统计功能。false：不开启自动索引和统计功能。
+         */
+        indexSqlAll?: pulumi.Input<boolean>;
+        jsonKeys?: pulumi.Input<pulumi.Input<inputs.tls.IndexKeyValueValueJsonKey>[]>;
+        /**
+         * 字段是否开启分析功能。默认为 false。开启统计分析功能后，支持配置分词符和包含中文。
+         */
+        sqlFlag?: pulumi.Input<boolean>;
+        /**
+         * 字段类型。目前支持 long、double、text 和 json。long 和 double 类型不支持配置分词符、包含中文、大小写敏感。仅 json 类型支持进一步配置 JsonKeys 子字段。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface IndexKeyValueValueJsonKey {
+        /**
+         * 需要配置键值索引的字段名称，最多添加 100 个字段。仅支持字母、数字、空格、下划线（_）、连字符（-）和斜线（/），并且不支持以空格开头或结尾。同一个索引中 key 名称唯一。长度为 1~128 字符。对于 JSON 类型键值索引的子字段，需要通过.表示 JSON 字段之间的层级关系，例如 JSON 字段 namelist 中包含 text 类型的子字段 totalcount 和 JSON 类型的 info，info 中又包含字段 name，各个字段名称应分别配置为totalcount 和 info.name。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 需要配置键值索引的字段描述信息。
+         */
+        value?: pulumi.Input<inputs.tls.IndexKeyValueValueJsonKeyValue>;
+    }
+
+    export interface IndexKeyValueValueJsonKeyValue {
+        /**
+         * 该索引是否是自动索引添加。true：该索引为自动添加。false：该索引非自动添加。
+         */
+        autoIndexFlag?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段中所有值为文本的字段创建索引。
+         */
+        indexAll?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段开启自动索引和统计功能。true：开启自动索引和统计功能。false：不开启自动索引和统计功能。
+         */
+        indexSqlAll?: pulumi.Input<boolean>;
+        /**
+         * 字段是否开启分析功能。默认为 false。开启统计分析功能后，支持配置分词符和包含中文。
+         */
+        sqlFlag?: pulumi.Input<boolean>;
+        /**
+         * 字段类型。目前支持 long、double、text 和 json。long 和 double 类型不支持配置分词符、包含中文、大小写敏感。仅 json 类型支持进一步配置 JsonKeys 子字段。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface IndexUserInnerKeyValue {
+        /**
+         * 需要配置键值索引的字段名称，最多添加 100 个字段。仅支持字母、数字、空格、下划线（_）、连字符（-）和斜线（/），并且不支持以空格开头或结尾。同一个索引中 key 名称唯一。长度为 1~128 字符。对于 JSON 类型键值索引的子字段，需要通过.表示 JSON 字段之间的层级关系，例如 JSON 字段 namelist 中包含 text 类型的子字段 totalcount 和 JSON 类型的 info，info 中又包含字段 name，各个字段名称应分别配置为totalcount 和 info.name。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 需要配置键值索引的字段描述信息。
+         */
+        value?: pulumi.Input<inputs.tls.IndexUserInnerKeyValueValue>;
+    }
+
+    export interface IndexUserInnerKeyValueValue {
+        /**
+         * 该索引是否是自动索引添加。true：该索引为自动添加。false：该索引非自动添加。
+         */
+        autoIndexFlag?: pulumi.Input<boolean>;
+        /**
+         * 是否区分大小写。默认为 false。
+         */
+        caseSensitive?: pulumi.Input<boolean>;
+        /**
+         * 字段的分词符。默认为空（""）。字符串中每个字符代表一个分词符。长度为 0~256 字节，长度为 0 时表示不分词。仅支持以下字符中的一种或者多种：大小写字母、数字以及 !@#%^&*()-_=\\"', <>/?|;:\	\r[]{}.。支持同时配置包含中文和分词符。
+         */
+        delimiter?: pulumi.Input<string>;
+        /**
+         * 检索时，是否对日志的中文内容按照中文语法进行分词。启用：日志内的中文字符：根据常见的中文语法对日志进行分词，不支持自定义中文内容的分词符。日志内的非中文字符：按照分词符参数中指定的分词符对日志进行分词。未启用：按照分词符参数中指定的分词符对日志进行分词。
+         */
+        includeChinese?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段中所有值为文本的字段创建索引。
+         */
+        indexAll?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段开启自动索引和统计功能。true：开启自动索引和统计功能。false：不开启自动索引和统计功能。
+         */
+        indexSqlAll?: pulumi.Input<boolean>;
+        jsonKeys?: pulumi.Input<pulumi.Input<inputs.tls.IndexUserInnerKeyValueValueJsonKey>[]>;
+        /**
+         * 字段是否开启分析功能。默认为 false。开启统计分析功能后，支持配置分词符和包含中文。
+         */
+        sqlFlag?: pulumi.Input<boolean>;
+        /**
+         * 字段类型。目前支持 long、double、text 和 json。long 和 double 类型不支持配置分词符、包含中文、大小写敏感。仅 json 类型支持进一步配置 JsonKeys 子字段。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
+    export interface IndexUserInnerKeyValueValueJsonKey {
+        /**
+         * 需要配置键值索引的字段名称，最多添加 100 个字段。仅支持字母、数字、空格、下划线（_）、连字符（-）和斜线（/），并且不支持以空格开头或结尾。同一个索引中 key 名称唯一。长度为 1~128 字符。对于 JSON 类型键值索引的子字段，需要通过.表示 JSON 字段之间的层级关系，例如 JSON 字段 namelist 中包含 text 类型的子字段 totalcount 和 JSON 类型的 info，info 中又包含字段 name，各个字段名称应分别配置为totalcount 和 info.name。
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * 需要配置键值索引的字段描述信息。
+         */
+        value?: pulumi.Input<inputs.tls.IndexUserInnerKeyValueValueJsonKeyValue>;
+    }
+
+    export interface IndexUserInnerKeyValueValueJsonKeyValue {
+        /**
+         * 该索引是否是自动索引添加。true：该索引为自动添加。false：该索引非自动添加。
+         */
+        autoIndexFlag?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段中所有值为文本的字段创建索引。
+         */
+        indexAll?: pulumi.Input<boolean>;
+        /**
+         * 是否为 JSON 字段开启自动索引和统计功能。true：开启自动索引和统计功能。false：不开启自动索引和统计功能。
+         */
+        indexSqlAll?: pulumi.Input<boolean>;
+        /**
+         * 字段是否开启分析功能。默认为 false。开启统计分析功能后，支持配置分词符和包含中文。
+         */
+        sqlFlag?: pulumi.Input<boolean>;
+        /**
+         * 字段类型。目前支持 long、double、text 和 json。long 和 double 类型不支持配置分词符、包含中文、大小写敏感。仅 json 类型支持进一步配置 JsonKeys 子字段。
+         */
+        valueType?: pulumi.Input<string>;
+    }
+
     export interface ProjectTag {
         /**
          * 标签键。
@@ -6392,6 +9106,25 @@ export namespace tls {
          * 标签值。
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface ScheduleSqlTaskRequestCycle {
+        /**
+         * Cron 表达式，最小粒度为分钟，24 小时制。例如 0 18 * * * 表示每天 18 点整执行一次。
+         */
+        cronTab?: pulumi.Input<string>;
+        /**
+         * 设置 Type 为 Cron 时，还需设置时区。
+         */
+        cronTimeZone?: pulumi.Input<string>;
+        /**
+         * 调度的周期或者定期执行的时间点（距离 00:00 的分钟数），取值范围为 1~1440，单位为分钟。
+         */
+        time: pulumi.Input<number>;
+        /**
+         * 调度周期类型。可选值：Period、Fixed、Cron。
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface TopicTag {
@@ -6735,6 +9468,21 @@ export namespace transitrouter {
 }
 
 export namespace vedbm {
+    export interface DatabaseDatabasesPrivilege {
+        /**
+         * 需授权的账号名称
+         */
+        accountName?: pulumi.Input<string>;
+        /**
+         * 授权数据库权限类型：ReadWrite/ReadOnly/DDLOnly/DMLOnly/Custom
+         */
+        accountPrivilege?: pulumi.Input<string>;
+        /**
+         * 具体SQL操作权限，多个用英文逗号分隔；Custom类型时必填
+         */
+        accountPrivilegeDetails?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface InstanceChargeDetail {
         /**
          * 预付费场景下是否自动续费。取值：true：自动续费。false：不自动续费。

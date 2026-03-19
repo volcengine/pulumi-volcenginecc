@@ -25,6 +25,7 @@ class TopicArgs:
                  project_id: pulumi.Input[builtins.str],
                  shard_count: pulumi.Input[builtins.int],
                  topic_name: pulumi.Input[builtins.str],
+                 allow_consume: Optional[pulumi.Input[builtins.bool]] = None,
                  archive_ttl: Optional[pulumi.Input[builtins.int]] = None,
                  auto_split: Optional[pulumi.Input[builtins.bool]] = None,
                  cold_ttl: Optional[pulumi.Input[builtins.int]] = None,
@@ -43,6 +44,7 @@ class TopicArgs:
         :param pulumi.Input[builtins.str] project_id: 日志主题所属的日志项目 ID。
         :param pulumi.Input[builtins.int] shard_count: 日志分区的数量，默认创建 1 个分区，取值范围为 1～10。 每个分区提供的写入能力为 5MiB/s、500 次/s，读取能力为 20 MiB/s、100 次/s。请在创建日志主题时合理规划分区，创建后暂不支持修改分区数量。
         :param pulumi.Input[builtins.str] topic_name: 日志主题名称。
+        :param pulumi.Input[builtins.bool] allow_consume: 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
         :param pulumi.Input[builtins.int] archive_ttl: 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         :param pulumi.Input[builtins.bool] auto_split: 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
         :param pulumi.Input[builtins.int] cold_ttl: 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
@@ -59,6 +61,8 @@ class TopicArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "shard_count", shard_count)
         pulumi.set(__self__, "topic_name", topic_name)
+        if allow_consume is not None:
+            pulumi.set(__self__, "allow_consume", allow_consume)
         if archive_ttl is not None:
             pulumi.set(__self__, "archive_ttl", archive_ttl)
         if auto_split is not None:
@@ -121,6 +125,18 @@ class TopicArgs:
     @topic_name.setter
     def topic_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "topic_name", value)
+
+    @property
+    @pulumi.getter(name="allowConsume")
+    def allow_consume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        """
+        return pulumi.get(self, "allow_consume")
+
+    @allow_consume.setter
+    def allow_consume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "allow_consume", value)
 
     @property
     @pulumi.getter(name="archiveTtl")
@@ -279,9 +295,11 @@ class TopicArgs:
 @pulumi.input_type
 class _TopicState:
     def __init__(__self__, *,
+                 allow_consume: Optional[pulumi.Input[builtins.bool]] = None,
                  archive_ttl: Optional[pulumi.Input[builtins.int]] = None,
                  auto_split: Optional[pulumi.Input[builtins.bool]] = None,
                  cold_ttl: Optional[pulumi.Input[builtins.int]] = None,
+                 consume_topic: Optional[pulumi.Input[builtins.str]] = None,
                  created_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_hot_ttl: Optional[pulumi.Input[builtins.bool]] = None,
@@ -300,9 +318,11 @@ class _TopicState:
                  updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Topic resources.
+        :param pulumi.Input[builtins.bool] allow_consume: 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
         :param pulumi.Input[builtins.int] archive_ttl: 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         :param pulumi.Input[builtins.bool] auto_split: 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
         :param pulumi.Input[builtins.int] cold_ttl: 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
+        :param pulumi.Input[builtins.str] consume_topic: Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
         :param pulumi.Input[builtins.str] created_time: 日志主题创建时间。
         :param pulumi.Input[builtins.str] description: 日志主题描述信息。不支持 <>、'、\\、\\、所有 emoji 表情符号。长度为 0~64 个字符。
         :param pulumi.Input[builtins.bool] enable_hot_ttl: 是否开启分层存储。开启后，日志服务支持标准存储、低频存储和归档存储。设置 HotTtl、ArchiveTtl、ColdTtl 后，如果数据存储时间超过对应时长，那么数据会自动沉降至低频存储、归档存储进行后续保存，直到日志采集到服务端的总时长达到 Ttl 时，被后端服务自动清理。
@@ -319,12 +339,16 @@ class _TopicState:
         :param pulumi.Input[builtins.int] ttl: 日志在日志服务中的总保存时间，超过指定的日志存储时长后，此日志主题中的过期日志会被自动清除。单位为天，默认为 30 天。取值范围为 1～3650，指定为 3650 天表示永久存储。
         :param pulumi.Input[builtins.str] updated_time: 日志主题修改时间。
         """
+        if allow_consume is not None:
+            pulumi.set(__self__, "allow_consume", allow_consume)
         if archive_ttl is not None:
             pulumi.set(__self__, "archive_ttl", archive_ttl)
         if auto_split is not None:
             pulumi.set(__self__, "auto_split", auto_split)
         if cold_ttl is not None:
             pulumi.set(__self__, "cold_ttl", cold_ttl)
+        if consume_topic is not None:
+            pulumi.set(__self__, "consume_topic", consume_topic)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
         if description is not None:
@@ -357,6 +381,18 @@ class _TopicState:
             pulumi.set(__self__, "ttl", ttl)
         if updated_time is not None:
             pulumi.set(__self__, "updated_time", updated_time)
+
+    @property
+    @pulumi.getter(name="allowConsume")
+    def allow_consume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        """
+        return pulumi.get(self, "allow_consume")
+
+    @allow_consume.setter
+    def allow_consume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "allow_consume", value)
 
     @property
     @pulumi.getter(name="archiveTtl")
@@ -393,6 +429,18 @@ class _TopicState:
     @cold_ttl.setter
     def cold_ttl(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "cold_ttl", value)
+
+    @property
+    @pulumi.getter(name="consumeTopic")
+    def consume_topic(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+        """
+        return pulumi.get(self, "consume_topic")
+
+    @consume_topic.setter
+    def consume_topic(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "consume_topic", value)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -590,6 +638,7 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_consume: Optional[pulumi.Input[builtins.bool]] = None,
                  archive_ttl: Optional[pulumi.Input[builtins.int]] = None,
                  auto_split: Optional[pulumi.Input[builtins.bool]] = None,
                  cold_ttl: Optional[pulumi.Input[builtins.int]] = None,
@@ -625,16 +674,17 @@ class Topic(pulumi.CustomResource):
             auto_split=True,
             max_split_shard=256,
             tags=[{
-                "key": "env",
-                "value": "test",
+                "key": "key1",
+                "value": "v1",
             }],
             time_key="time",
             time_format="%Y-%m-%d %H:%M:%S",
             log_public_ip=False,
-            topic_name="test",
+            topic_name="ccapi-test",
             description="test",
-            project_id="44a425f0-a6ef-4a****",
-            enable_hot_ttl=False)
+            project_id="c6fef4c1-041f-434e-b0f4-d5e9*****",
+            enable_hot_ttl=False,
+            allow_consume=False)
         ```
 
         ## Import
@@ -645,6 +695,7 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.bool] allow_consume: 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
         :param pulumi.Input[builtins.int] archive_ttl: 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         :param pulumi.Input[builtins.bool] auto_split: 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
         :param pulumi.Input[builtins.int] cold_ttl: 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
@@ -685,16 +736,17 @@ class Topic(pulumi.CustomResource):
             auto_split=True,
             max_split_shard=256,
             tags=[{
-                "key": "env",
-                "value": "test",
+                "key": "key1",
+                "value": "v1",
             }],
             time_key="time",
             time_format="%Y-%m-%d %H:%M:%S",
             log_public_ip=False,
-            topic_name="test",
+            topic_name="ccapi-test",
             description="test",
-            project_id="44a425f0-a6ef-4a****",
-            enable_hot_ttl=False)
+            project_id="c6fef4c1-041f-434e-b0f4-d5e9*****",
+            enable_hot_ttl=False,
+            allow_consume=False)
         ```
 
         ## Import
@@ -718,6 +770,7 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_consume: Optional[pulumi.Input[builtins.bool]] = None,
                  archive_ttl: Optional[pulumi.Input[builtins.int]] = None,
                  auto_split: Optional[pulumi.Input[builtins.bool]] = None,
                  cold_ttl: Optional[pulumi.Input[builtins.int]] = None,
@@ -743,6 +796,7 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicArgs.__new__(TopicArgs)
 
+            __props__.__dict__["allow_consume"] = allow_consume
             __props__.__dict__["archive_ttl"] = archive_ttl
             __props__.__dict__["auto_split"] = auto_split
             __props__.__dict__["cold_ttl"] = cold_ttl
@@ -765,6 +819,7 @@ class Topic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["consume_topic"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["topic_id"] = None
             __props__.__dict__["updated_time"] = None
@@ -778,9 +833,11 @@ class Topic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_consume: Optional[pulumi.Input[builtins.bool]] = None,
             archive_ttl: Optional[pulumi.Input[builtins.int]] = None,
             auto_split: Optional[pulumi.Input[builtins.bool]] = None,
             cold_ttl: Optional[pulumi.Input[builtins.int]] = None,
+            consume_topic: Optional[pulumi.Input[builtins.str]] = None,
             created_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             enable_hot_ttl: Optional[pulumi.Input[builtins.bool]] = None,
@@ -804,9 +861,11 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.bool] allow_consume: 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
         :param pulumi.Input[builtins.int] archive_ttl: 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         :param pulumi.Input[builtins.bool] auto_split: 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
         :param pulumi.Input[builtins.int] cold_ttl: 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
+        :param pulumi.Input[builtins.str] consume_topic: Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
         :param pulumi.Input[builtins.str] created_time: 日志主题创建时间。
         :param pulumi.Input[builtins.str] description: 日志主题描述信息。不支持 <>、'、\\、\\、所有 emoji 表情符号。长度为 0~64 个字符。
         :param pulumi.Input[builtins.bool] enable_hot_ttl: 是否开启分层存储。开启后，日志服务支持标准存储、低频存储和归档存储。设置 HotTtl、ArchiveTtl、ColdTtl 后，如果数据存储时间超过对应时长，那么数据会自动沉降至低频存储、归档存储进行后续保存，直到日志采集到服务端的总时长达到 Ttl 时，被后端服务自动清理。
@@ -827,9 +886,11 @@ class Topic(pulumi.CustomResource):
 
         __props__ = _TopicState.__new__(_TopicState)
 
+        __props__.__dict__["allow_consume"] = allow_consume
         __props__.__dict__["archive_ttl"] = archive_ttl
         __props__.__dict__["auto_split"] = auto_split
         __props__.__dict__["cold_ttl"] = cold_ttl
+        __props__.__dict__["consume_topic"] = consume_topic
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["description"] = description
         __props__.__dict__["enable_hot_ttl"] = enable_hot_ttl
@@ -847,6 +908,14 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["ttl"] = ttl
         __props__.__dict__["updated_time"] = updated_time
         return Topic(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowConsume")
+    def allow_consume(self) -> pulumi.Output[builtins.bool]:
+        """
+        指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        """
+        return pulumi.get(self, "allow_consume")
 
     @property
     @pulumi.getter(name="archiveTtl")
@@ -871,6 +940,14 @@ class Topic(pulumi.CustomResource):
         低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
         """
         return pulumi.get(self, "cold_ttl")
+
+    @property
+    @pulumi.getter(name="consumeTopic")
+    def consume_topic(self) -> pulumi.Output[builtins.str]:
+        """
+        Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+        """
+        return pulumi.get(self, "consume_topic")
 
     @property
     @pulumi.getter(name="createdTime")

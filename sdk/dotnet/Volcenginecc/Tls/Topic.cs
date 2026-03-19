@@ -36,17 +36,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     ///         {
     ///             new Volcenginecc.Tls.Inputs.TopicTagArgs
     ///             {
-    ///                 Key = "env",
-    ///                 Value = "test",
+    ///                 Key = "key1",
+    ///                 Value = "v1",
     ///             },
     ///         },
     ///         TimeKey = "time",
     ///         TimeFormat = "%Y-%m-%d %H:%M:%S",
     ///         LogPublicIp = false,
-    ///         TopicName = "test",
+    ///         TopicName = "ccapi-test",
     ///         Description = "test",
-    ///         ProjectId = "44a425f0-a6ef-4a****",
+    ///         ProjectId = "c6fef4c1-041f-434e-b0f4-d5e9*****",
     ///         EnableHotTtl = false,
+    ///         AllowConsume = false,
     ///     });
     /// 
     /// });
@@ -61,6 +62,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     [VolcengineccResourceType("volcenginecc:tls/topic:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        /// </summary>
+        [Output("allowConsume")]
+        public Output<bool> AllowConsume { get; private set; } = null!;
+
         /// <summary>
         /// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         /// </summary>
@@ -78,6 +85,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
         /// </summary>
         [Output("coldTtl")]
         public Output<int> ColdTtl { get; private set; } = null!;
+
+        /// <summary>
+        /// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+        /// </summary>
+        [Output("consumeTopic")]
+        public Output<string> ConsumeTopic { get; private set; } = null!;
 
         /// <summary>
         /// 日志主题创建时间。
@@ -220,6 +233,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        /// </summary>
+        [Input("allowConsume")]
+        public Input<bool>? AllowConsume { get; set; }
+
+        /// <summary>
         /// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         /// </summary>
         [Input("archiveTtl")]
@@ -326,6 +345,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     public sealed class TopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        /// </summary>
+        [Input("allowConsume")]
+        public Input<bool>? AllowConsume { get; set; }
+
+        /// <summary>
         /// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         /// </summary>
         [Input("archiveTtl")]
@@ -342,6 +367,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
         /// </summary>
         [Input("coldTtl")]
         public Input<int>? ColdTtl { get; set; }
+
+        /// <summary>
+        /// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+        /// </summary>
+        [Input("consumeTopic")]
+        public Input<string>? ConsumeTopic { get; set; }
 
         /// <summary>
         /// 日志主题创建时间。

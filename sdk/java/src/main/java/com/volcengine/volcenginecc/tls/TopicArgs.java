@@ -21,6 +21,21 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     public static final TopicArgs Empty = new TopicArgs();
 
     /**
+     * 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     * 
+     */
+    @Import(name="allowConsume")
+    private @Nullable Output<Boolean> allowConsume;
+
+    /**
+     * @return 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     * 
+     */
+    public Optional<Output<Boolean>> allowConsume() {
+        return Optional.ofNullable(this.allowConsume);
+    }
+
+    /**
      * 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      * 
      */
@@ -255,6 +270,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     private TopicArgs() {}
 
     private TopicArgs(TopicArgs $) {
+        this.allowConsume = $.allowConsume;
         this.archiveTtl = $.archiveTtl;
         this.autoSplit = $.autoSplit;
         this.coldTtl = $.coldTtl;
@@ -289,6 +305,27 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TopicArgs defaults) {
             $ = new TopicArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowConsume 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowConsume(@Nullable Output<Boolean> allowConsume) {
+            $.allowConsume = allowConsume;
+            return this;
+        }
+
+        /**
+         * @param allowConsume 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowConsume(Boolean allowConsume) {
+            return allowConsume(Output.of(allowConsume));
         }
 
         /**

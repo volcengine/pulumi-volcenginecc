@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.organization.inputs.GetAccountArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetAccountPlainArgs;
+import com.volcengine.volcenginecc.organization.inputs.GetOrganizationArgs;
+import com.volcengine.volcenginecc.organization.inputs.GetOrganizationPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetUnitArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetUnitPlainArgs;
 import com.volcengine.volcenginecc.organization.outputs.GetAccountResult;
 import com.volcengine.volcenginecc.organization.outputs.GetAccountsResult;
+import com.volcengine.volcenginecc.organization.outputs.GetOrganizationResult;
+import com.volcengine.volcenginecc.organization.outputs.GetOrganizationsResult;
 import com.volcengine.volcenginecc.organization.outputs.GetUnitResult;
 import com.volcengine.volcenginecc.organization.outputs.GetUnitsResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class OrganizationFunctions {
      */
     public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:organization/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args) {
+        return getOrganization(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args) {
+        return getOrganizationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:organization/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationsResult> getOrganizations() {
+        return getOrganizations(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static CompletableFuture<GetOrganizationsResult> getOrganizationsPlain() {
+        return getOrganizationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationsResult> getOrganizations(InvokeArgs args) {
+        return getOrganizations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static CompletableFuture<GetOrganizationsResult> getOrganizationsPlain(InvokeArgs args) {
+        return getOrganizationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationsResult> getOrganizations(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getOrganizations:getOrganizations", TypeShape.of(GetOrganizationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static Output<GetOrganizationsResult> getOrganizations(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getOrganizations:getOrganizations", TypeShape.of(GetOrganizationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::Organization
+     * 
+     */
+    public static CompletableFuture<GetOrganizationsResult> getOrganizationsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:organization/getOrganizations:getOrganizations", TypeShape.of(GetOrganizationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::Organization::Unit

@@ -45,6 +45,8 @@ if typing.TYPE_CHECKING:
     ecs = __ecs
     import pulumi_volcenginecc.efs as __efs
     efs = __efs
+    import pulumi_volcenginecc.emr as __emr
+    emr = __emr
     import pulumi_volcenginecc.escloud as __escloud
     escloud = __escloud
     import pulumi_volcenginecc.filenas as __filenas
@@ -123,6 +125,7 @@ else:
     dns = _utilities.lazy_import('pulumi_volcenginecc.dns')
     ecs = _utilities.lazy_import('pulumi_volcenginecc.ecs')
     efs = _utilities.lazy_import('pulumi_volcenginecc.efs')
+    emr = _utilities.lazy_import('pulumi_volcenginecc.emr')
     escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
     fwcenter = _utilities.lazy_import('pulumi_volcenginecc.fwcenter')
@@ -287,6 +290,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "autoscaling/scalingLifecycleHook",
+  "fqn": "pulumi_volcenginecc.autoscaling",
+  "classes": {
+   "volcenginecc:autoscaling/scalingLifecycleHook:ScalingLifecycleHook": "ScalingLifecycleHook"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "autoscaling/scalingPolicy",
   "fqn": "pulumi_volcenginecc.autoscaling",
   "classes": {
@@ -339,6 +350,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.cbr",
   "classes": {
    "volcenginecc:cbr/vault:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cdn/domain",
+  "fqn": "pulumi_volcenginecc.cdn",
+  "classes": {
+   "volcenginecc:cdn/domain:Domain": "Domain"
   }
  },
  {
@@ -615,6 +634,30 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "emr/cluster",
+  "fqn": "pulumi_volcenginecc.emr",
+  "classes": {
+   "volcenginecc:emr/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "emr/clusterUser",
+  "fqn": "pulumi_volcenginecc.emr",
+  "classes": {
+   "volcenginecc:emr/clusterUser:ClusterUser": "ClusterUser"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "emr/clusterUserGroup",
+  "fqn": "pulumi_volcenginecc.emr",
+  "classes": {
+   "volcenginecc:emr/clusterUserGroup:ClusterUserGroup": "ClusterUserGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "escloud/instance",
   "fqn": "pulumi_volcenginecc.escloud",
   "classes": {
@@ -795,6 +838,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.organization",
   "classes": {
    "volcenginecc:organization/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "organization/organization",
+  "fqn": "pulumi_volcenginecc.organization",
+  "classes": {
+   "volcenginecc:organization/organization:Organization": "Organization"
   }
  },
  {
@@ -1039,10 +1090,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tls/index",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/index:Index": "Index"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tls/project",
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
    "volcenginecc:tls/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/scheduleSqlTask",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask": "ScheduleSqlTask"
   }
  },
  {
@@ -1099,6 +1166,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/vpnAttachment:VpnAttachment": "VpnAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vedbm/backup",
+  "fqn": "pulumi_volcenginecc.vedbm",
+  "classes": {
+   "volcenginecc:vedbm/backup:Backup": "Backup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vedbm/database",
+  "fqn": "pulumi_volcenginecc.vedbm",
+  "classes": {
+   "volcenginecc:vedbm/database:Database": "Database"
   }
  },
  {

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ScalingConfiguration{}
 	case "volcenginecc:autoscaling/scalingGroup:ScalingGroup":
 		r = &ScalingGroup{}
+	case "volcenginecc:autoscaling/scalingLifecycleHook:ScalingLifecycleHook":
+		r = &ScalingLifecycleHook{}
 	case "volcenginecc:autoscaling/scalingPolicy:ScalingPolicy":
 		r = &ScalingPolicy{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"autoscaling/scalingGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"autoscaling/scalingLifecycleHook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

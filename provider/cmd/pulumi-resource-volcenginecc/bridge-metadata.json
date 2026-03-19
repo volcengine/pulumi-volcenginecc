@@ -316,6 +316,9 @@
                     }
                 }
             },
+            "volcenginecc_autoscaling_scaling_lifecycle_hook": {
+                "current": "volcenginecc:autoscaling/scalingLifecycleHook:ScalingLifecycleHook"
+            },
             "volcenginecc_autoscaling_scaling_policy": {
                 "current": "volcenginecc:autoscaling/scalingPolicy:ScalingPolicy",
                 "fields": {
@@ -412,6 +415,524 @@
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cdn_domain": {
+                "current": "volcenginecc:cdn/domain:Domain",
+                "fields": {
+                    "area_access_rule": {
+                        "fields": {
+                            "area": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "backup_origin": {
+                        "maxItemsOne": false
+                    },
+                    "browser_cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cache_host": {
+                        "fields": {
+                            "cache_host_rule": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cache_key": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "cache_key_action": {
+                                    "fields": {
+                                        "cache_key_components": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "compression": {
+                        "fields": {
+                            "compression_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "compression_action": {
+                                            "fields": {
+                                                "compression_type": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "conditional_origin": {
+                        "fields": {
+                            "origin_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "actions": {
+                                            "fields": {
+                                                "origin_lines": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "condition": {
+                                            "fields": {
+                                                "condition_groups": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "condition": {
+                                                                "fields": {
+                                                                    "value": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "custom_error_page": {
+                        "fields": {
+                            "error_page_rule": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "customize_access_rule": {
+                        "fields": {
+                            "customize_instances": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "customize_rule": {
+                                            "fields": {
+                                                "access_action": {
+                                                    "fields": {
+                                                        "list_rules": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                },
+                                                "condition": {
+                                                    "fields": {
+                                                        "condition_rule": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "download_speed_limit": {
+                        "fields": {
+                            "download_speed_limit_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "https": {
+                        "fields": {
+                            "cert_check": {
+                                "fields": {
+                                    "cert_info_list": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "cert_info_list": {
+                                "maxItemsOne": false
+                            },
+                            "tls_version": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "ip_access_rule": {
+                        "fields": {
+                            "ip": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "negative_cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "origin": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "origin_action": {
+                                    "fields": {
+                                        "origin_lines": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "origin_access_rule": {
+                        "fields": {
+                            "origins": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "origin_arg": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "origin_arg_action": {
+                                    "fields": {
+                                        "origin_arg_components": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "origin_rewrite": {
+                        "fields": {
+                            "origin_rewrite_rule": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "page_optimization": {
+                        "fields": {
+                            "optimization_type": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "primary_origin": {
+                        "maxItemsOne": false
+                    },
+                    "redirection_rewrite": {
+                        "fields": {
+                            "redirection_rule": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "referer_access_rule": {
+                        "fields": {
+                            "referers": {
+                                "maxItemsOne": false
+                            },
+                            "referers_type": {
+                                "fields": {
+                                    "common_type": {
+                                        "fields": {
+                                            "referers": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    },
+                                    "regular_type": {
+                                        "fields": {
+                                            "referers": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "remote_auth": {
+                        "fields": {
+                            "remote_auth_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "remote_auth_rule_action": {
+                                            "fields": {
+                                                "auth_response_config": {
+                                                    "fields": {
+                                                        "cache_action": {
+                                                            "fields": {
+                                                                "cache_key": {
+                                                                    "maxItemsOne": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "query_string_rules": {
+                                                    "fields": {
+                                                        "query_string_instances": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                },
+                                                "request_header_rules": {
+                                                    "fields": {
+                                                        "request_header_instances": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "request_block_rule": {
+                        "fields": {
+                            "block_rule": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "request_header": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "request_header_action": {
+                                    "fields": {
+                                        "request_header_instances": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "response_header": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "response_header_action": {
+                                    "fields": {
+                                        "response_header_instances": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "signed_url_auth": {
+                        "fields": {
+                            "signed_url_auth_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "signed_url_auth_action": {
+                                            "fields": {
+                                                "custom_variable_rules": {
+                                                    "fields": {
+                                                        "custom_variable_instances": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                },
+                                                "signature_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "timeout": {
+                        "fields": {
+                            "timeout_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ua_access_rule": {
+                        "fields": {
+                            "user_agent": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "url_normalize": {
+                        "fields": {
+                            "normalize_object": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -997,6 +1518,149 @@
                     }
                 }
             },
+            "volcenginecc_emr_cluster": {
+                "current": "volcenginecc:emr/cluster:Cluster",
+                "fields": {
+                    "application_extras": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "application_component_layouts": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "effective_scope": {
+                                                "fields": {
+                                                    "component_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_types": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_names": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "application_configs": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "effective_scope": {
+                                                "fields": {
+                                                    "component_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_types": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_names": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "application_names": {
+                        "maxItemsOne": false
+                    },
+                    "applications": {
+                        "maxItemsOne": false
+                    },
+                    "bootstrap_scripts": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "effective_scope": {
+                                    "fields": {
+                                        "component_names": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_group_ids": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_group_names": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_group_types": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_ids": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_names": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cluster_domain_names": {
+                        "maxItemsOne": false
+                    },
+                    "node_group_attributes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "data_disks": {
+                                    "maxItemsOne": false
+                                },
+                                "ecs_instance_types": {
+                                    "maxItemsOne": false
+                                },
+                                "subnet_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_cluster_user": {
+                "current": "volcenginecc:emr/clusterUser:ClusterUser",
+                "fields": {
+                    "user_group_names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_cluster_user_group": {
+                "current": "volcenginecc:emr/clusterUserGroup:ClusterUserGroup",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_escloud_instance": {
                 "current": "volcenginecc:escloud/instance:Instance",
                 "fields": {
@@ -1282,6 +1946,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_organization_organization": {
+                "current": "volcenginecc:organization/organization:Organization"
             },
             "volcenginecc_organization_unit": {
                 "current": "volcenginecc:organization/unit:Unit"
@@ -1721,6 +2388,39 @@
                     }
                 }
             },
+            "volcenginecc_tls_index": {
+                "current": "volcenginecc:tls/index:Index",
+                "fields": {
+                    "key_value": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "value": {
+                                    "fields": {
+                                        "json_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "user_inner_key_value": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "value": {
+                                    "fields": {
+                                        "json_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "volcenginecc_tls_project": {
                 "current": "volcenginecc:tls/project:Project",
                 "fields": {
@@ -1728,6 +2428,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_tls_schedule_sql_task": {
+                "current": "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask"
             },
             "volcenginecc_tls_topic": {
                 "current": "volcenginecc:tls/topic:Topic",
@@ -1818,6 +2521,24 @@
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_backup": {
+                "current": "volcenginecc:vedbm/backup:Backup"
+            },
+            "volcenginecc_vedbm_database": {
+                "current": "volcenginecc:vedbm/database:Database",
+                "fields": {
+                    "databases_privileges": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "account_privilege_detail": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -2924,6 +3645,17 @@
                     }
                 }
             },
+            "volcenginecc_autoscaling_scaling_lifecycle_hook": {
+                "current": "volcenginecc:autoscaling/getScalingLifecycleHook:getScalingLifecycleHook"
+            },
+            "volcenginecc_autoscaling_scaling_lifecycle_hooks": {
+                "current": "volcenginecc:autoscaling/getScalingLifecycleHooks:getScalingLifecycleHooks",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_autoscaling_scaling_policies": {
                 "current": "volcenginecc:autoscaling/getScalingPolicies:getScalingPolicies",
                 "fields": {
@@ -3073,6 +3805,532 @@
             },
             "volcenginecc_cbr_vaults": {
                 "current": "volcenginecc:cbr/getVaults:getVaults",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cdn_domain": {
+                "current": "volcenginecc:cdn/getDomain:getDomain",
+                "fields": {
+                    "area_access_rule": {
+                        "fields": {
+                            "area": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "backup_origin": {
+                        "maxItemsOne": false
+                    },
+                    "browser_cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cache_host": {
+                        "fields": {
+                            "cache_host_rule": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cache_key": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "cache_key_action": {
+                                    "fields": {
+                                        "cache_key_components": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "compression": {
+                        "fields": {
+                            "compression_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "compression_action": {
+                                            "fields": {
+                                                "compression_type": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "conditional_origin": {
+                        "fields": {
+                            "origin_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "actions": {
+                                            "fields": {
+                                                "origin_lines": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "condition": {
+                                            "fields": {
+                                                "condition_groups": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "condition": {
+                                                                "fields": {
+                                                                    "value": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "custom_error_page": {
+                        "fields": {
+                            "error_page_rule": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "customize_access_rule": {
+                        "fields": {
+                            "customize_instances": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "customize_rule": {
+                                            "fields": {
+                                                "access_action": {
+                                                    "fields": {
+                                                        "list_rules": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                },
+                                                "condition": {
+                                                    "fields": {
+                                                        "condition_rule": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "download_speed_limit": {
+                        "fields": {
+                            "download_speed_limit_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "https": {
+                        "fields": {
+                            "cert_check": {
+                                "fields": {
+                                    "cert_info_list": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "cert_info_list": {
+                                "maxItemsOne": false
+                            },
+                            "tls_version": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "ip_access_rule": {
+                        "fields": {
+                            "ip": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "negative_cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "origin": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "origin_action": {
+                                    "fields": {
+                                        "origin_lines": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "origin_access_rule": {
+                        "fields": {
+                            "origins": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "origin_arg": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "origin_arg_action": {
+                                    "fields": {
+                                        "origin_arg_components": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "origin_rewrite": {
+                        "fields": {
+                            "origin_rewrite_rule": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "page_optimization": {
+                        "fields": {
+                            "optimization_type": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "primary_origin": {
+                        "maxItemsOne": false
+                    },
+                    "redirection_rewrite": {
+                        "fields": {
+                            "redirection_rule": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "referer_access_rule": {
+                        "fields": {
+                            "referers": {
+                                "maxItemsOne": false
+                            },
+                            "referers_type": {
+                                "fields": {
+                                    "common_type": {
+                                        "fields": {
+                                            "referers": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    },
+                                    "regular_type": {
+                                        "fields": {
+                                            "referers": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "remote_auth": {
+                        "fields": {
+                            "remote_auth_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "remote_auth_rule_action": {
+                                            "fields": {
+                                                "auth_response_config": {
+                                                    "fields": {
+                                                        "cache_action": {
+                                                            "fields": {
+                                                                "cache_key": {
+                                                                    "maxItemsOne": false
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "query_string_rules": {
+                                                    "fields": {
+                                                        "query_string_instances": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                },
+                                                "request_header_rules": {
+                                                    "fields": {
+                                                        "request_header_instances": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "request_block_rule": {
+                        "fields": {
+                            "block_rule": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "request_header": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "request_header_action": {
+                                    "fields": {
+                                        "request_header_instances": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "response_header": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition": {
+                                    "fields": {
+                                        "condition_rule": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "response_header_action": {
+                                    "fields": {
+                                        "response_header_instances": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "signed_url_auth": {
+                        "fields": {
+                            "signed_url_auth_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        },
+                                        "signed_url_auth_action": {
+                                            "fields": {
+                                                "custom_variable_rules": {
+                                                    "fields": {
+                                                        "custom_variable_instances": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                },
+                                                "signature_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "timeout": {
+                        "fields": {
+                            "timeout_rules": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "condition": {
+                                            "fields": {
+                                                "condition_rule": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ua_access_rule": {
+                        "fields": {
+                            "user_agent": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "url_normalize": {
+                        "fields": {
+                            "normalize_object": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_cdn_domains": {
+                "current": "volcenginecc:cdn/getDomains:getDomains",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -3936,6 +5194,176 @@
                     }
                 }
             },
+            "volcenginecc_emr_cluster": {
+                "current": "volcenginecc:emr/getCluster:getCluster",
+                "fields": {
+                    "application_extras": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "application_component_layouts": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "effective_scope": {
+                                                "fields": {
+                                                    "component_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_types": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_names": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "application_configs": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "effective_scope": {
+                                                "fields": {
+                                                    "component_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_names": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_group_types": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_ids": {
+                                                        "maxItemsOne": false
+                                                    },
+                                                    "node_names": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "application_names": {
+                        "maxItemsOne": false
+                    },
+                    "applications": {
+                        "maxItemsOne": false
+                    },
+                    "bootstrap_scripts": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "effective_scope": {
+                                    "fields": {
+                                        "component_names": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_group_ids": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_group_names": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_group_types": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_ids": {
+                                            "maxItemsOne": false
+                                        },
+                                        "node_names": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "cluster_domain_names": {
+                        "maxItemsOne": false
+                    },
+                    "node_group_attributes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "data_disks": {
+                                    "maxItemsOne": false
+                                },
+                                "ecs_instance_types": {
+                                    "maxItemsOne": false
+                                },
+                                "layout_component_names": {
+                                    "maxItemsOne": false
+                                },
+                                "subnet_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_cluster_user": {
+                "current": "volcenginecc:emr/getClusterUser:getClusterUser",
+                "fields": {
+                    "user_group_names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_cluster_user_group": {
+                "current": "volcenginecc:emr/getClusterUserGroup:getClusterUserGroup",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_cluster_user_groups": {
+                "current": "volcenginecc:emr/getClusterUserGroups:getClusterUserGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_cluster_users": {
+                "current": "volcenginecc:emr/getClusterUsers:getClusterUsers",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_clusters": {
+                "current": "volcenginecc:emr/getClusters:getClusters",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_escloud_instance": {
                 "current": "volcenginecc:escloud/getInstance:getInstance",
                 "fields": {
@@ -4400,6 +5828,17 @@
             },
             "volcenginecc_organization_accounts": {
                 "current": "volcenginecc:organization/getAccounts:getAccounts",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_organization_organization": {
+                "current": "volcenginecc:organization/getOrganization:getOrganization"
+            },
+            "volcenginecc_organization_organizations": {
+                "current": "volcenginecc:organization/getOrganizations:getOrganizations",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -5084,6 +6523,47 @@
                     }
                 }
             },
+            "volcenginecc_tls_index": {
+                "current": "volcenginecc:tls/getIndex:getIndex",
+                "fields": {
+                    "key_value": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "value": {
+                                    "fields": {
+                                        "json_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "user_inner_key_value": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "value": {
+                                    "fields": {
+                                        "json_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_tls_indices": {
+                "current": "volcenginecc:tls/getIndices:getIndices",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_tls_project": {
                 "current": "volcenginecc:tls/getProject:getProject",
                 "fields": {
@@ -5094,6 +6574,17 @@
             },
             "volcenginecc_tls_projects": {
                 "current": "volcenginecc:tls/getProjects:getProjects",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_schedule_sql_task": {
+                "current": "volcenginecc:tls/getScheduleSqlTask:getScheduleSqlTask"
+            },
+            "volcenginecc_tls_schedule_sql_tasks": {
+                "current": "volcenginecc:tls/getScheduleSqlTasks:getScheduleSqlTasks",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -5242,6 +6733,40 @@
             },
             "volcenginecc_transitrouter_vpn_attachments": {
                 "current": "volcenginecc:transitrouter/getVpnAttachments:getVpnAttachments",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_backup": {
+                "current": "volcenginecc:vedbm/getBackup:getBackup"
+            },
+            "volcenginecc_vedbm_backups": {
+                "current": "volcenginecc:vedbm/getBackups:getBackups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_database": {
+                "current": "volcenginecc:vedbm/getDatabase:getDatabase",
+                "fields": {
+                    "databases_privileges": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "account_privilege_detail": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_vedbm_databases": {
+                "current": "volcenginecc:vedbm/getDatabases:getDatabases",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

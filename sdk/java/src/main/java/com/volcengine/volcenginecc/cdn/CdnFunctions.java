@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cdn.inputs.GetDomainArgs;
+import com.volcengine.volcenginecc.cdn.inputs.GetDomainPlainArgs;
 import com.volcengine.volcenginecc.cdn.inputs.GetShareConfigArgs;
 import com.volcengine.volcenginecc.cdn.inputs.GetShareConfigPlainArgs;
+import com.volcengine.volcenginecc.cdn.outputs.GetDomainResult;
+import com.volcengine.volcenginecc.cdn.outputs.GetDomainsResult;
 import com.volcengine.volcenginecc.cdn.outputs.GetShareConfigResult;
 import com.volcengine.volcenginecc.cdn.outputs.GetShareConfigsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CdnFunctions {
+    /**
+     * Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
+        return getDomain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
+        return getDomainPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cdn/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cdn/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cdn/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainsResult> getDomains() {
+        return getDomains(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static CompletableFuture<GetDomainsResult> getDomainsPlain() {
+        return getDomainsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainsResult> getDomains(InvokeArgs args) {
+        return getDomains(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static CompletableFuture<GetDomainsResult> getDomainsPlain(InvokeArgs args) {
+        return getDomainsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainsResult> getDomains(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cdn/getDomains:getDomains", TypeShape.of(GetDomainsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static Output<GetDomainsResult> getDomains(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cdn/getDomains:getDomains", TypeShape.of(GetDomainsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CDN::Domain
+     * 
+     */
+    public static CompletableFuture<GetDomainsResult> getDomainsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cdn/getDomains:getDomains", TypeShape.of(GetDomainsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CDN::ShareConfig
      * 

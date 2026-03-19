@@ -28,7 +28,10 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, archive_ttl=None, auto_split=None, cold_ttl=None, created_time=None, description=None, enable_hot_ttl=None, enable_tracking=None, hot_ttl=None, id=None, log_public_ip=None, max_split_shard=None, project_id=None, shard_count=None, tags=None, time_format=None, time_key=None, topic_id=None, topic_name=None, ttl=None, updated_time=None):
+    def __init__(__self__, allow_consume=None, archive_ttl=None, auto_split=None, cold_ttl=None, consume_topic=None, created_time=None, description=None, enable_hot_ttl=None, enable_tracking=None, hot_ttl=None, id=None, log_public_ip=None, max_split_shard=None, project_id=None, shard_count=None, tags=None, time_format=None, time_key=None, topic_id=None, topic_name=None, ttl=None, updated_time=None):
+        if allow_consume and not isinstance(allow_consume, bool):
+            raise TypeError("Expected argument 'allow_consume' to be a bool")
+        pulumi.set(__self__, "allow_consume", allow_consume)
         if archive_ttl and not isinstance(archive_ttl, int):
             raise TypeError("Expected argument 'archive_ttl' to be a int")
         pulumi.set(__self__, "archive_ttl", archive_ttl)
@@ -38,6 +41,9 @@ class GetTopicResult:
         if cold_ttl and not isinstance(cold_ttl, int):
             raise TypeError("Expected argument 'cold_ttl' to be a int")
         pulumi.set(__self__, "cold_ttl", cold_ttl)
+        if consume_topic and not isinstance(consume_topic, str):
+            raise TypeError("Expected argument 'consume_topic' to be a str")
+        pulumi.set(__self__, "consume_topic", consume_topic)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -91,6 +97,14 @@ class GetTopicResult:
         pulumi.set(__self__, "updated_time", updated_time)
 
     @property
+    @pulumi.getter(name="allowConsume")
+    def allow_consume(self) -> builtins.bool:
+        """
+        指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        """
+        return pulumi.get(self, "allow_consume")
+
+    @property
     @pulumi.getter(name="archiveTtl")
     def archive_ttl(self) -> builtins.int:
         """
@@ -113,6 +127,14 @@ class GetTopicResult:
         低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
         """
         return pulumi.get(self, "cold_ttl")
+
+    @property
+    @pulumi.getter(name="consumeTopic")
+    def consume_topic(self) -> builtins.str:
+        """
+        Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+        """
+        return pulumi.get(self, "consume_topic")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -257,9 +279,11 @@ class AwaitableGetTopicResult(GetTopicResult):
         if False:
             yield self
         return GetTopicResult(
+            allow_consume=self.allow_consume,
             archive_ttl=self.archive_ttl,
             auto_split=self.auto_split,
             cold_ttl=self.cold_ttl,
+            consume_topic=self.consume_topic,
             created_time=self.created_time,
             description=self.description,
             enable_hot_ttl=self.enable_hot_ttl,
@@ -293,9 +317,11 @@ def get_topic(id: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('volcenginecc:tls/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
+        allow_consume=pulumi.get(__ret__, 'allow_consume'),
         archive_ttl=pulumi.get(__ret__, 'archive_ttl'),
         auto_split=pulumi.get(__ret__, 'auto_split'),
         cold_ttl=pulumi.get(__ret__, 'cold_ttl'),
+        consume_topic=pulumi.get(__ret__, 'consume_topic'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         enable_hot_ttl=pulumi.get(__ret__, 'enable_hot_ttl'),
@@ -326,9 +352,11 @@ def get_topic_output(id: Optional[pulumi.Input[builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:tls/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult)
     return __ret__.apply(lambda __response__: GetTopicResult(
+        allow_consume=pulumi.get(__response__, 'allow_consume'),
         archive_ttl=pulumi.get(__response__, 'archive_ttl'),
         auto_split=pulumi.get(__response__, 'auto_split'),
         cold_ttl=pulumi.get(__response__, 'cold_ttl'),
+        consume_topic=pulumi.get(__response__, 'consume_topic'),
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         enable_hot_ttl=pulumi.get(__response__, 'enable_hot_ttl'),

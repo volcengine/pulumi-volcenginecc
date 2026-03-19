@@ -24,16 +24,17 @@ import * as utilities from "../utilities";
  *     autoSplit: true,
  *     maxSplitShard: 256,
  *     tags: [{
- *         key: "env",
- *         value: "test",
+ *         key: "key1",
+ *         value: "v1",
  *     }],
  *     timeKey: "time",
  *     timeFormat: "%Y-%m-%d %H:%M:%S",
  *     logPublicIp: false,
- *     topicName: "test",
+ *     topicName: "ccapi-test",
  *     description: "test",
- *     projectId: "44a425f0-a6ef-4a****",
+ *     projectId: "c6fef4c1-041f-434e-b0f4-d5e9*****",
  *     enableHotTtl: false,
+ *     allowConsume: false,
  * });
  * ```
  *
@@ -72,6 +73,10 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
+     * 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     */
+    public readonly allowConsume!: pulumi.Output<boolean>;
+    /**
      * 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      */
     public readonly archiveTtl!: pulumi.Output<number>;
@@ -83,6 +88,10 @@ export class Topic extends pulumi.CustomResource {
      * 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
      */
     public readonly coldTtl!: pulumi.Output<number>;
+    /**
+     * Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+     */
+    public /*out*/ readonly consumeTopic!: pulumi.Output<string>;
     /**
      * 日志主题创建时间。
      */
@@ -158,9 +167,11 @@ export class Topic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicState | undefined;
+            resourceInputs["allowConsume"] = state ? state.allowConsume : undefined;
             resourceInputs["archiveTtl"] = state ? state.archiveTtl : undefined;
             resourceInputs["autoSplit"] = state ? state.autoSplit : undefined;
             resourceInputs["coldTtl"] = state ? state.coldTtl : undefined;
+            resourceInputs["consumeTopic"] = state ? state.consumeTopic : undefined;
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enableHotTtl"] = state ? state.enableHotTtl : undefined;
@@ -188,6 +199,7 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
+            resourceInputs["allowConsume"] = args ? args.allowConsume : undefined;
             resourceInputs["archiveTtl"] = args ? args.archiveTtl : undefined;
             resourceInputs["autoSplit"] = args ? args.autoSplit : undefined;
             resourceInputs["coldTtl"] = args ? args.coldTtl : undefined;
@@ -204,6 +216,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["timeKey"] = args ? args.timeKey : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["consumeTopic"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["topicId"] = undefined /*out*/;
             resourceInputs["updatedTime"] = undefined /*out*/;
@@ -218,6 +231,10 @@ export class Topic extends pulumi.CustomResource {
  */
 export interface TopicState {
     /**
+     * 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     */
+    allowConsume?: pulumi.Input<boolean>;
+    /**
      * 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      */
     archiveTtl?: pulumi.Input<number>;
@@ -229,6 +246,10 @@ export interface TopicState {
      * 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
      */
     coldTtl?: pulumi.Input<number>;
+    /**
+     * Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+     */
+    consumeTopic?: pulumi.Input<string>;
     /**
      * 日志主题创建时间。
      */
@@ -296,6 +317,10 @@ export interface TopicState {
  * The set of arguments for constructing a Topic resource.
  */
 export interface TopicArgs {
+    /**
+     * 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     */
+    allowConsume?: pulumi.Input<boolean>;
     /**
      * 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      */
