@@ -30,12 +30,16 @@ type LookupTopicArgs struct {
 
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
+	// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+	AllowConsume bool `pulumi:"allowConsume"`
 	// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 	ArchiveTtl int `pulumi:"archiveTtl"`
 	// 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
 	AutoSplit bool `pulumi:"autoSplit"`
 	// 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
 	ColdTtl int `pulumi:"coldTtl"`
+	// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+	ConsumeTopic string `pulumi:"consumeTopic"`
 	// 日志主题创建时间。
 	CreatedTime string `pulumi:"createdTime"`
 	// 日志主题描述信息。不支持 <>、'、\、\、所有 emoji 表情符号。长度为 0~64 个字符。
@@ -106,6 +110,11 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
+// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+func (o LookupTopicResultOutput) AllowConsume() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTopicResult) bool { return v.AllowConsume }).(pulumi.BoolOutput)
+}
+
 // 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 func (o LookupTopicResultOutput) ArchiveTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTopicResult) int { return v.ArchiveTtl }).(pulumi.IntOutput)
@@ -119,6 +128,11 @@ func (o LookupTopicResultOutput) AutoSplit() pulumi.BoolOutput {
 // 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
 func (o LookupTopicResultOutput) ColdTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTopicResult) int { return v.ColdTtl }).(pulumi.IntOutput)
+}
+
+// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+func (o LookupTopicResultOutput) ConsumeTopic() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.ConsumeTopic }).(pulumi.StringOutput)
 }
 
 // 日志主题创建时间。

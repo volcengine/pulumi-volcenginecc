@@ -10,13 +10,189 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vedbm.inputs.GetBackupArgs;
+import com.volcengine.volcenginecc.vedbm.inputs.GetBackupPlainArgs;
+import com.volcengine.volcenginecc.vedbm.inputs.GetDatabaseArgs;
+import com.volcengine.volcenginecc.vedbm.inputs.GetDatabasePlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.vedbm.outputs.GetBackupResult;
+import com.volcengine.volcenginecc.vedbm.outputs.GetBackupsResult;
+import com.volcengine.volcenginecc.vedbm.outputs.GetDatabaseResult;
+import com.volcengine.volcenginecc.vedbm.outputs.GetDatabasesResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VedbmFunctions {
+    /**
+     * Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args) {
+        return getBackup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupResult> getBackupPlain(GetBackupPlainArgs args) {
+        return getBackupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupResult> getBackupPlain(GetBackupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups() {
+        return getBackups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain() {
+        return getBackupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args) {
+        return getBackups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain(InvokeArgs args) {
+        return getBackupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
+        return getDatabase(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
+        return getDatabasePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabasesResult> getDatabases() {
+        return getDatabases(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain() {
+        return getDatabasesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabasesResult> getDatabases(InvokeArgs args) {
+        return getDatabases(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(InvokeArgs args) {
+        return getDatabasesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabasesResult> getDatabases(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static Output<GetDatabasesResult> getDatabases(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Database
+     * 
+     */
+    public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VEDBM::Instance
      * 

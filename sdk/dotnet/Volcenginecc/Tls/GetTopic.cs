@@ -65,6 +65,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+        /// </summary>
+        public readonly bool AllowConsume;
+        /// <summary>
         /// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
         /// </summary>
         public readonly int ArchiveTtl;
@@ -76,6 +80,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
         /// 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
         /// </summary>
         public readonly int ColdTtl;
+        /// <summary>
+        /// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+        /// </summary>
+        public readonly string ConsumeTopic;
         /// <summary>
         /// 日志主题创建时间。
         /// </summary>
@@ -147,11 +155,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
 
         [OutputConstructor]
         private GetTopicResult(
+            bool allowConsume,
+
             int archiveTtl,
 
             bool autoSplit,
 
             int coldTtl,
+
+            string consumeTopic,
 
             string createdTime,
 
@@ -187,9 +199,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
 
             string updatedTime)
         {
+            AllowConsume = allowConsume;
             ArchiveTtl = archiveTtl;
             AutoSplit = autoSplit;
             ColdTtl = coldTtl;
+            ConsumeTopic = consumeTopic;
             CreatedTime = createdTime;
             Description = description;
             EnableHotTtl = enableHotTtl;

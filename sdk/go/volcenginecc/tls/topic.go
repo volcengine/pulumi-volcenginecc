@@ -38,17 +38,18 @@ import (
 //				MaxSplitShard: pulumi.Int(256),
 //				Tags: tls.TopicTagArray{
 //					&tls.TopicTagArgs{
-//						Key:   pulumi.String("env"),
-//						Value: pulumi.String("test"),
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("v1"),
 //					},
 //				},
 //				TimeKey:      pulumi.String("time"),
 //				TimeFormat:   pulumi.String("%Y-%m-%d %H:%M:%S"),
 //				LogPublicIp:  pulumi.Bool(false),
-//				TopicName:    pulumi.String("test"),
+//				TopicName:    pulumi.String("ccapi-test"),
 //				Description:  pulumi.String("test"),
-//				ProjectId:    pulumi.String("44a425f0-a6ef-4a****"),
+//				ProjectId:    pulumi.String("c6fef4c1-041f-434e-b0f4-d5e9*****"),
 //				EnableHotTtl: pulumi.Bool(false),
+//				AllowConsume: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -67,12 +68,16 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
+	// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+	AllowConsume pulumi.BoolOutput `pulumi:"allowConsume"`
 	// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 	ArchiveTtl pulumi.IntOutput `pulumi:"archiveTtl"`
 	// 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
 	AutoSplit pulumi.BoolOutput `pulumi:"autoSplit"`
 	// 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
 	ColdTtl pulumi.IntOutput `pulumi:"coldTtl"`
+	// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+	ConsumeTopic pulumi.StringOutput `pulumi:"consumeTopic"`
 	// 日志主题创建时间。
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// 日志主题描述信息。不支持 <>、'、\、\、所有 emoji 表情符号。长度为 0~64 个字符。
@@ -145,12 +150,16 @@ func GetTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
+	// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+	AllowConsume *bool `pulumi:"allowConsume"`
 	// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 	ArchiveTtl *int `pulumi:"archiveTtl"`
 	// 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
 	AutoSplit *bool `pulumi:"autoSplit"`
 	// 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
 	ColdTtl *int `pulumi:"coldTtl"`
+	// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+	ConsumeTopic *string `pulumi:"consumeTopic"`
 	// 日志主题创建时间。
 	CreatedTime *string `pulumi:"createdTime"`
 	// 日志主题描述信息。不支持 <>、'、\、\、所有 emoji 表情符号。长度为 0~64 个字符。
@@ -185,12 +194,16 @@ type topicState struct {
 }
 
 type TopicState struct {
+	// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+	AllowConsume pulumi.BoolPtrInput
 	// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 	ArchiveTtl pulumi.IntPtrInput
 	// 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
 	AutoSplit pulumi.BoolPtrInput
 	// 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
 	ColdTtl pulumi.IntPtrInput
+	// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+	ConsumeTopic pulumi.StringPtrInput
 	// 日志主题创建时间。
 	CreatedTime pulumi.StringPtrInput
 	// 日志主题描述信息。不支持 <>、'、\、\、所有 emoji 表情符号。长度为 0~64 个字符。
@@ -229,6 +242,8 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+	AllowConsume *bool `pulumi:"allowConsume"`
 	// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 	ArchiveTtl *int `pulumi:"archiveTtl"`
 	// 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
@@ -264,6 +279,8 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+	AllowConsume pulumi.BoolPtrInput
 	// 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 	ArchiveTtl pulumi.IntPtrInput
 	// 是否开启分区的自动分裂功能。true：当写入的数据量连续 5 分钟超过已有分区服务能力时，日志服务会根据数据量自动分裂分区以满足业务需求，但分裂后的分区数量不可超出最大分裂数。最近 15 分钟内分裂出来的新分区不会自动分裂。false：不开启分区的自动分裂。
@@ -384,6 +401,11 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
+// 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+func (o TopicOutput) AllowConsume() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.AllowConsume }).(pulumi.BoolOutput)
+}
+
 // 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
 func (o TopicOutput) ArchiveTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.ArchiveTtl }).(pulumi.IntOutput)
@@ -397,6 +419,11 @@ func (o TopicOutput) AutoSplit() pulumi.BoolOutput {
 // 低频存储时长。该时长取值范围为 30~3650。标准存储时长 7 天及以上可实现低频存储。此参数仅在 EnableHotTtl 为 true 时生效。
 func (o TopicOutput) ColdTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.ColdTtl }).(pulumi.IntOutput)
+}
+
+// Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+func (o TopicOutput) ConsumeTopic() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.ConsumeTopic }).(pulumi.StringOutput)
 }
 
 // 日志主题创建时间。

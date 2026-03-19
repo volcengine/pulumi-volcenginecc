@@ -55,16 +55,17 @@ import javax.annotation.Nullable;
  *             .autoSplit(true)
  *             .maxSplitShard(256)
  *             .tags(TopicTagArgs.builder()
- *                 .key("env")
- *                 .value("test")
+ *                 .key("key1")
+ *                 .value("v1")
  *                 .build())
  *             .timeKey("time")
  *             .timeFormat("%Y-%m-%d %H:%M:%S")
  *             .logPublicIp(false)
- *             .topicName("test")
+ *             .topicName("ccapi-test")
  *             .description("test")
- *             .projectId("44a425f0-a6ef-4a****")
+ *             .projectId("c6fef4c1-041f-434e-b0f4-d5e9*****")
  *             .enableHotTtl(false)
+ *             .allowConsume(false)
  *             .build());
  * 
  *     }
@@ -82,6 +83,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="volcenginecc:tls/topic:Topic")
 public class Topic extends com.pulumi.resources.CustomResource {
+    /**
+     * 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     * 
+     */
+    @Export(name="allowConsume", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> allowConsume;
+
+    /**
+     * @return 指定日志主题是否已开启了 Kafka 协议消费功能。true：已开启。false：未开启。
+     * 
+     */
+    public Output<Boolean> allowConsume() {
+        return this.allowConsume;
+    }
     /**
      * 归档存储时长。该时长取值范围为 60~3650。满足如下任一条件时，可实现归档存储。标准存储时长 30 天及以上。标准存储时长 7 天及以上且低频存储时长 30 天及以上。此参数仅在 EnableHotTtl 为 true 时生效。
      * 
@@ -123,6 +138,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> coldTtl() {
         return this.coldTtl;
+    }
+    /**
+     * Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+     * 
+     */
+    @Export(name="consumeTopic", refs={String.class}, tree="[0]")
+    private Output<String> consumeTopic;
+
+    /**
+     * @return Kafka 协议消费主题 ID，格式为 out+日志主题 ID。通过 Kafka 协议消费此日志主题中的日志数据时，Topic 应指定为此 ID。
+     * 
+     */
+    public Output<String> consumeTopic() {
+        return this.consumeTopic;
     }
     /**
      * 日志主题创建时间。
