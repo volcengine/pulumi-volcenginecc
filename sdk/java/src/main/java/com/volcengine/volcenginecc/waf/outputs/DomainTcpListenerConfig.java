@@ -12,37 +12,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainTcpListenerConfig {
+    /**
+     * @return 接入协议类型。
+     * 
+     */
     private @Nullable String accessProtocol;
+    /**
+     * @return 防护模式。
+     * 
+     */
     private @Nullable Integer defenceMode;
+    /**
+     * @return 实例 ID。
+     * 
+     */
     private @Nullable String instanceId;
+    /**
+     * @return 实例名称。
+     * 
+     */
     private @Nullable String instanceName;
+    /**
+     * @return 监听器 ID。
+     * 
+     */
     private @Nullable String listenerId;
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     private @Nullable Integer lostAssociationFromAlb;
+    /**
+     * @return 监听器的端口号。
+     * 
+     */
     private @Nullable String port;
+    /**
+     * @return 监听器协议类型。
+     * 
+     */
     private @Nullable String protocol;
 
     private DomainTcpListenerConfig() {}
+    /**
+     * @return 接入协议类型。
+     * 
+     */
     public Optional<String> accessProtocol() {
         return Optional.ofNullable(this.accessProtocol);
     }
+    /**
+     * @return 防护模式。
+     * 
+     */
     public Optional<Integer> defenceMode() {
         return Optional.ofNullable(this.defenceMode);
     }
+    /**
+     * @return 实例 ID。
+     * 
+     */
     public Optional<String> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
+    /**
+     * @return 实例名称。
+     * 
+     */
     public Optional<String> instanceName() {
         return Optional.ofNullable(this.instanceName);
     }
+    /**
+     * @return 监听器 ID。
+     * 
+     */
     public Optional<String> listenerId() {
         return Optional.ofNullable(this.listenerId);
     }
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     public Optional<Integer> lostAssociationFromAlb() {
         return Optional.ofNullable(this.lostAssociationFromAlb);
     }
+    /**
+     * @return 监听器的端口号。
+     * 
+     */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return 监听器协议类型。
+     * 
+     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }

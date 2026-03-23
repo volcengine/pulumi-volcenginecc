@@ -259,8 +259,9 @@ type DomainCloudAccessConfig struct {
 	// 负载均衡实例名称。
 	InstanceName *string `pulumi:"instanceName"`
 	// 负载均衡监听器 ID。
-	ListenerId             *string `pulumi:"listenerId"`
-	LostAssociationFromAlb *int    `pulumi:"lostAssociationFromAlb"`
+	ListenerId *string `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb *int `pulumi:"lostAssociationFromAlb"`
 	// 监听器转发规则的端口号。
 	Port *string `pulumi:"port"`
 	// 监听器转发规则的协议类型。
@@ -288,8 +289,9 @@ type DomainCloudAccessConfigArgs struct {
 	// 负载均衡实例名称。
 	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
 	// 负载均衡监听器 ID。
-	ListenerId             pulumi.StringPtrInput `pulumi:"listenerId"`
-	LostAssociationFromAlb pulumi.IntPtrInput    `pulumi:"lostAssociationFromAlb"`
+	ListenerId pulumi.StringPtrInput `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb pulumi.IntPtrInput `pulumi:"lostAssociationFromAlb"`
 	// 监听器转发规则的端口号。
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// 监听器转发规则的协议类型。
@@ -372,6 +374,7 @@ func (o DomainCloudAccessConfigOutput) ListenerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainCloudAccessConfig) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
 }
 
+// 是否从 ALB 中丢失关联。
 func (o DomainCloudAccessConfigOutput) LostAssociationFromAlb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainCloudAccessConfig) *int { return v.LostAssociationFromAlb }).(pulumi.IntPtrOutput)
 }
@@ -563,14 +566,22 @@ func (o DomainProtocolPortsPtrOutput) Https() pulumi.IntArrayOutput {
 }
 
 type DomainTcpListenerConfig struct {
-	AccessProtocol         *string `pulumi:"accessProtocol"`
-	DefenceMode            *int    `pulumi:"defenceMode"`
-	InstanceId             *string `pulumi:"instanceId"`
-	InstanceName           *string `pulumi:"instanceName"`
-	ListenerId             *string `pulumi:"listenerId"`
-	LostAssociationFromAlb *int    `pulumi:"lostAssociationFromAlb"`
-	Port                   *string `pulumi:"port"`
-	Protocol               *string `pulumi:"protocol"`
+	// 接入协议类型。
+	AccessProtocol *string `pulumi:"accessProtocol"`
+	// 防护模式。
+	DefenceMode *int `pulumi:"defenceMode"`
+	// 实例 ID。
+	InstanceId *string `pulumi:"instanceId"`
+	// 实例名称。
+	InstanceName *string `pulumi:"instanceName"`
+	// 监听器 ID。
+	ListenerId *string `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb *int `pulumi:"lostAssociationFromAlb"`
+	// 监听器的端口号。
+	Port *string `pulumi:"port"`
+	// 监听器协议类型。
+	Protocol *string `pulumi:"protocol"`
 }
 
 // DomainTcpListenerConfigInput is an input type that accepts DomainTcpListenerConfigArgs and DomainTcpListenerConfigOutput values.
@@ -585,14 +596,22 @@ type DomainTcpListenerConfigInput interface {
 }
 
 type DomainTcpListenerConfigArgs struct {
-	AccessProtocol         pulumi.StringPtrInput `pulumi:"accessProtocol"`
-	DefenceMode            pulumi.IntPtrInput    `pulumi:"defenceMode"`
-	InstanceId             pulumi.StringPtrInput `pulumi:"instanceId"`
-	InstanceName           pulumi.StringPtrInput `pulumi:"instanceName"`
-	ListenerId             pulumi.StringPtrInput `pulumi:"listenerId"`
-	LostAssociationFromAlb pulumi.IntPtrInput    `pulumi:"lostAssociationFromAlb"`
-	Port                   pulumi.StringPtrInput `pulumi:"port"`
-	Protocol               pulumi.StringPtrInput `pulumi:"protocol"`
+	// 接入协议类型。
+	AccessProtocol pulumi.StringPtrInput `pulumi:"accessProtocol"`
+	// 防护模式。
+	DefenceMode pulumi.IntPtrInput `pulumi:"defenceMode"`
+	// 实例 ID。
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	// 实例名称。
+	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
+	// 监听器 ID。
+	ListenerId pulumi.StringPtrInput `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb pulumi.IntPtrInput `pulumi:"lostAssociationFromAlb"`
+	// 监听器的端口号。
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// 监听器协议类型。
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (DomainTcpListenerConfigArgs) ElementType() reflect.Type {
@@ -646,34 +665,42 @@ func (o DomainTcpListenerConfigOutput) ToDomainTcpListenerConfigOutputWithContex
 	return o
 }
 
+// 接入协议类型。
 func (o DomainTcpListenerConfigOutput) AccessProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.AccessProtocol }).(pulumi.StringPtrOutput)
 }
 
+// 防护模式。
 func (o DomainTcpListenerConfigOutput) DefenceMode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *int { return v.DefenceMode }).(pulumi.IntPtrOutput)
 }
 
+// 实例 ID。
 func (o DomainTcpListenerConfigOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// 实例名称。
 func (o DomainTcpListenerConfigOutput) InstanceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.InstanceName }).(pulumi.StringPtrOutput)
 }
 
+// 监听器 ID。
 func (o DomainTcpListenerConfigOutput) ListenerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
 }
 
+// 是否从 ALB 中丢失关联。
 func (o DomainTcpListenerConfigOutput) LostAssociationFromAlb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *int { return v.LostAssociationFromAlb }).(pulumi.IntPtrOutput)
 }
 
+// 监听器的端口号。
 func (o DomainTcpListenerConfigOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
+// 监听器协议类型。
 func (o DomainTcpListenerConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainTcpListenerConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -1255,8 +1282,9 @@ type GetDomainCloudAccessConfig struct {
 	// 负载均衡实例名称。
 	InstanceName string `pulumi:"instanceName"`
 	// 负载均衡监听器 ID。
-	ListenerId             string `pulumi:"listenerId"`
-	LostAssociationFromAlb int    `pulumi:"lostAssociationFromAlb"`
+	ListenerId string `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb int `pulumi:"lostAssociationFromAlb"`
 	// 监听器转发规则的端口号。
 	Port string `pulumi:"port"`
 	// 监听器转发规则的协议类型。
@@ -1284,8 +1312,9 @@ type GetDomainCloudAccessConfigArgs struct {
 	// 负载均衡实例名称。
 	InstanceName pulumi.StringInput `pulumi:"instanceName"`
 	// 负载均衡监听器 ID。
-	ListenerId             pulumi.StringInput `pulumi:"listenerId"`
-	LostAssociationFromAlb pulumi.IntInput    `pulumi:"lostAssociationFromAlb"`
+	ListenerId pulumi.StringInput `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb pulumi.IntInput `pulumi:"lostAssociationFromAlb"`
 	// 监听器转发规则的端口号。
 	Port pulumi.StringInput `pulumi:"port"`
 	// 监听器转发规则的协议类型。
@@ -1368,6 +1397,7 @@ func (o GetDomainCloudAccessConfigOutput) ListenerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainCloudAccessConfig) string { return v.ListenerId }).(pulumi.StringOutput)
 }
 
+// 是否从 ALB 中丢失关联。
 func (o GetDomainCloudAccessConfigOutput) LostAssociationFromAlb() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainCloudAccessConfig) int { return v.LostAssociationFromAlb }).(pulumi.IntOutput)
 }
@@ -1464,14 +1494,22 @@ func (o GetDomainProtocolPortsOutput) Https() pulumi.IntArrayOutput {
 }
 
 type GetDomainTcpListenerConfig struct {
-	AccessProtocol         string `pulumi:"accessProtocol"`
-	DefenceMode            int    `pulumi:"defenceMode"`
-	InstanceId             string `pulumi:"instanceId"`
-	InstanceName           string `pulumi:"instanceName"`
-	ListenerId             string `pulumi:"listenerId"`
-	LostAssociationFromAlb int    `pulumi:"lostAssociationFromAlb"`
-	Port                   string `pulumi:"port"`
-	Protocol               string `pulumi:"protocol"`
+	// 接入协议类型。
+	AccessProtocol string `pulumi:"accessProtocol"`
+	// 防护模式。
+	DefenceMode int `pulumi:"defenceMode"`
+	// 实例 ID。
+	InstanceId string `pulumi:"instanceId"`
+	// 实例名称。
+	InstanceName string `pulumi:"instanceName"`
+	// 监听器 ID。
+	ListenerId string `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb int `pulumi:"lostAssociationFromAlb"`
+	// 监听器的端口号。
+	Port string `pulumi:"port"`
+	// 监听器协议类型。
+	Protocol string `pulumi:"protocol"`
 }
 
 // GetDomainTcpListenerConfigInput is an input type that accepts GetDomainTcpListenerConfigArgs and GetDomainTcpListenerConfigOutput values.
@@ -1486,14 +1524,22 @@ type GetDomainTcpListenerConfigInput interface {
 }
 
 type GetDomainTcpListenerConfigArgs struct {
-	AccessProtocol         pulumi.StringInput `pulumi:"accessProtocol"`
-	DefenceMode            pulumi.IntInput    `pulumi:"defenceMode"`
-	InstanceId             pulumi.StringInput `pulumi:"instanceId"`
-	InstanceName           pulumi.StringInput `pulumi:"instanceName"`
-	ListenerId             pulumi.StringInput `pulumi:"listenerId"`
-	LostAssociationFromAlb pulumi.IntInput    `pulumi:"lostAssociationFromAlb"`
-	Port                   pulumi.StringInput `pulumi:"port"`
-	Protocol               pulumi.StringInput `pulumi:"protocol"`
+	// 接入协议类型。
+	AccessProtocol pulumi.StringInput `pulumi:"accessProtocol"`
+	// 防护模式。
+	DefenceMode pulumi.IntInput `pulumi:"defenceMode"`
+	// 实例 ID。
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// 实例名称。
+	InstanceName pulumi.StringInput `pulumi:"instanceName"`
+	// 监听器 ID。
+	ListenerId pulumi.StringInput `pulumi:"listenerId"`
+	// 是否从 ALB 中丢失关联。
+	LostAssociationFromAlb pulumi.IntInput `pulumi:"lostAssociationFromAlb"`
+	// 监听器的端口号。
+	Port pulumi.StringInput `pulumi:"port"`
+	// 监听器协议类型。
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (GetDomainTcpListenerConfigArgs) ElementType() reflect.Type {
@@ -1547,34 +1593,42 @@ func (o GetDomainTcpListenerConfigOutput) ToGetDomainTcpListenerConfigOutputWith
 	return o
 }
 
+// 接入协议类型。
 func (o GetDomainTcpListenerConfigOutput) AccessProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) string { return v.AccessProtocol }).(pulumi.StringOutput)
 }
 
+// 防护模式。
 func (o GetDomainTcpListenerConfigOutput) DefenceMode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) int { return v.DefenceMode }).(pulumi.IntOutput)
 }
 
+// 实例 ID。
 func (o GetDomainTcpListenerConfigOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// 实例名称。
 func (o GetDomainTcpListenerConfigOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) string { return v.InstanceName }).(pulumi.StringOutput)
 }
 
+// 监听器 ID。
 func (o GetDomainTcpListenerConfigOutput) ListenerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) string { return v.ListenerId }).(pulumi.StringOutput)
 }
 
+// 是否从 ALB 中丢失关联。
 func (o GetDomainTcpListenerConfigOutput) LostAssociationFromAlb() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) int { return v.LostAssociationFromAlb }).(pulumi.IntOutput)
 }
 
+// 监听器的端口号。
 func (o GetDomainTcpListenerConfigOutput) Port() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) string { return v.Port }).(pulumi.StringOutput)
 }
 
+// 监听器协议类型。
 func (o GetDomainTcpListenerConfigOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainTcpListenerConfig) string { return v.Protocol }).(pulumi.StringOutput)
 }

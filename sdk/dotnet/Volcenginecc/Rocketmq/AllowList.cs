@@ -13,27 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     /// <summary>
     /// RocketMQ访问白名单。
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var rocketMQAllowListDemo = new Volcenginecc.Rocketmq.AllowList("RocketMQAllowListDemo", new()
-    ///     {
-    ///         AllowListType = "IPv4",
-    ///         AllowListValue = "192.xxx.0.0/24",
-    ///         AllowListName = "ccapi-test",
-    ///         AllowListDesc = "this is a description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -84,12 +63,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         /// </summary>
         [Output("allowListType")]
         public Output<string> AllowListType { get; private set; } = null!;
-
-        /// <summary>
-        /// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        /// </summary>
-        [Output("applyDbInstanceNum")]
-        public Output<int> ApplyDbInstanceNum { get; private set; } = null!;
 
         /// <summary>
         /// 白名单下绑定的实例总数
@@ -183,12 +156,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         [Input("allowListType")]
         public Input<string>? AllowListType { get; set; }
 
-        /// <summary>
-        /// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        /// </summary>
-        [Input("applyDbInstanceNum")]
-        public Input<int>? ApplyDbInstanceNum { get; set; }
-
         [Input("associatedInstances")]
         private InputList<Inputs.AllowListAssociatedInstanceArgs>? _associatedInstances;
         public InputList<Inputs.AllowListAssociatedInstanceArgs> AssociatedInstances
@@ -252,12 +219,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         /// </summary>
         [Input("allowListType")]
         public Input<string>? AllowListType { get; set; }
-
-        /// <summary>
-        /// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        /// </summary>
-        [Input("applyDbInstanceNum")]
-        public Input<int>? ApplyDbInstanceNum { get; set; }
 
         /// <summary>
         /// 白名单下绑定的实例总数

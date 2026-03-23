@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.kafka.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.kafka.inputs.GetAllowListPlainArgs;
+import com.volcengine.volcenginecc.kafka.inputs.GetInstanceArgs;
+import com.volcengine.volcenginecc.kafka.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.kafka.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.kafka.inputs.GetTopicPlainArgs;
 import com.volcengine.volcenginecc.kafka.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.kafka.outputs.GetAllowListsResult;
+import com.volcengine.volcenginecc.kafka.outputs.GetInstanceResult;
+import com.volcengine.volcenginecc.kafka.outputs.GetInstancesResult;
 import com.volcengine.volcenginecc.kafka.outputs.GetTopicResult;
 import com.volcengine.volcenginecc.kafka.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class KafkaFunctions {
      */
     public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:kafka/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
+        return getInstance(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args) {
+        return getInstancePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kafka/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kafka/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kafka/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances() {
+        return getInstances(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
+        return getInstancesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances(InvokeArgs args) {
+        return getInstances(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args) {
+        return getInstancesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kafka/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kafka/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Kafka::Instance
+     * 
+     */
+    public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kafka/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::Kafka::Topic

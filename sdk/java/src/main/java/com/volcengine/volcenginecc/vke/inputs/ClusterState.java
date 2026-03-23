@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.vke.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.vke.inputs.ClusterClusterConfigArgs;
+import com.volcengine.volcenginecc.vke.inputs.ClusterIrsaConfigArgs;
 import com.volcengine.volcenginecc.vke.inputs.ClusterLoggingConfigArgs;
 import com.volcengine.volcenginecc.vke.inputs.ClusterMonitoringConfigArgs;
 import com.volcengine.volcenginecc.vke.inputs.ClusterNodeStatisticsArgs;
@@ -98,6 +99,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * IRSA（IAM Role for Service Account）能力相关参数配置。
+     * 
+     */
+    @Import(name="irsaConfig")
+    private @Nullable Output<ClusterIrsaConfigArgs> irsaConfig;
+
+    /**
+     * @return IRSA（IAM Role for Service Account）能力相关参数配置。
+     * 
+     */
+    public Optional<Output<ClusterIrsaConfigArgs>> irsaConfig() {
+        return Optional.ofNullable(this.irsaConfig);
     }
 
     /**
@@ -325,6 +341,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.createdTime = $.createdTime;
         this.deleteProtectionEnabled = $.deleteProtectionEnabled;
         this.description = $.description;
+        this.irsaConfig = $.irsaConfig;
         this.kubernetesVersion = $.kubernetesVersion;
         this.kubernetesVersionCreate = $.kubernetesVersionCreate;
         this.loggingConfig = $.loggingConfig;
@@ -463,6 +480,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param irsaConfig IRSA（IAM Role for Service Account）能力相关参数配置。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder irsaConfig(@Nullable Output<ClusterIrsaConfigArgs> irsaConfig) {
+            $.irsaConfig = irsaConfig;
+            return this;
+        }
+
+        /**
+         * @param irsaConfig IRSA（IAM Role for Service Account）能力相关参数配置。
+         * 
+         * @return builder
+         * 
+         */
+        public Builder irsaConfig(ClusterIrsaConfigArgs irsaConfig) {
+            return irsaConfig(Output.of(irsaConfig));
         }
 
         /**

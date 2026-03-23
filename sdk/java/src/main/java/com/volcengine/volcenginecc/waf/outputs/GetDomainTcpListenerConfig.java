@@ -11,37 +11,101 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainTcpListenerConfig {
+    /**
+     * @return 接入协议类型。
+     * 
+     */
     private String accessProtocol;
+    /**
+     * @return 防护模式。
+     * 
+     */
     private Integer defenceMode;
+    /**
+     * @return 实例 ID。
+     * 
+     */
     private String instanceId;
+    /**
+     * @return 实例名称。
+     * 
+     */
     private String instanceName;
+    /**
+     * @return 监听器 ID。
+     * 
+     */
     private String listenerId;
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     private Integer lostAssociationFromAlb;
+    /**
+     * @return 监听器的端口号。
+     * 
+     */
     private String port;
+    /**
+     * @return 监听器协议类型。
+     * 
+     */
     private String protocol;
 
     private GetDomainTcpListenerConfig() {}
+    /**
+     * @return 接入协议类型。
+     * 
+     */
     public String accessProtocol() {
         return this.accessProtocol;
     }
+    /**
+     * @return 防护模式。
+     * 
+     */
     public Integer defenceMode() {
         return this.defenceMode;
     }
+    /**
+     * @return 实例 ID。
+     * 
+     */
     public String instanceId() {
         return this.instanceId;
     }
+    /**
+     * @return 实例名称。
+     * 
+     */
     public String instanceName() {
         return this.instanceName;
     }
+    /**
+     * @return 监听器 ID。
+     * 
+     */
     public String listenerId() {
         return this.listenerId;
     }
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     public Integer lostAssociationFromAlb() {
         return this.lostAssociationFromAlb;
     }
+    /**
+     * @return 监听器的端口号。
+     * 
+     */
     public String port() {
         return this.port;
     }
+    /**
+     * @return 监听器协议类型。
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }

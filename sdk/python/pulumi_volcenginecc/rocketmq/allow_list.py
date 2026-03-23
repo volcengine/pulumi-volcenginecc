@@ -27,7 +27,6 @@ class AllowListArgs:
                  allow_list_category: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_desc: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_type: Optional[pulumi.Input[builtins.str]] = None,
-                 apply_db_instance_num: Optional[pulumi.Input[builtins.int]] = None,
                  associated_instances: Optional[pulumi.Input[Sequence[pulumi.Input['AllowListAssociatedInstanceArgs']]]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -37,7 +36,6 @@ class AllowListArgs:
         :param pulumi.Input[builtins.str] allow_list_category: 白名单分类。
         :param pulumi.Input[builtins.str] allow_list_desc: 白名单描述。
         :param pulumi.Input[builtins.str] allow_list_type: 白名单内的IP地址类型，当前仅支持IPv4。
-        :param pulumi.Input[builtins.int] apply_db_instance_num: 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
         :param pulumi.Input[builtins.str] instance_id: 实例ID。
         """
         pulumi.set(__self__, "allow_list_name", allow_list_name)
@@ -49,8 +47,6 @@ class AllowListArgs:
             pulumi.set(__self__, "allow_list_desc", allow_list_desc)
         if allow_list_type is not None:
             pulumi.set(__self__, "allow_list_type", allow_list_type)
-        if apply_db_instance_num is not None:
-            pulumi.set(__self__, "apply_db_instance_num", apply_db_instance_num)
         if associated_instances is not None:
             pulumi.set(__self__, "associated_instances", associated_instances)
         if instance_id is not None:
@@ -117,18 +113,6 @@ class AllowListArgs:
         pulumi.set(self, "allow_list_type", value)
 
     @property
-    @pulumi.getter(name="applyDbInstanceNum")
-    def apply_db_instance_num(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        """
-        return pulumi.get(self, "apply_db_instance_num")
-
-    @apply_db_instance_num.setter
-    def apply_db_instance_num(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "apply_db_instance_num", value)
-
-    @property
     @pulumi.getter(name="associatedInstances")
     def associated_instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AllowListAssociatedInstanceArgs']]]]:
         return pulumi.get(self, "associated_instances")
@@ -160,7 +144,6 @@ class _AllowListState:
                  allow_list_ip_num: Optional[pulumi.Input[builtins.int]] = None,
                  allow_list_name: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_type: Optional[pulumi.Input[builtins.str]] = None,
-                 apply_db_instance_num: Optional[pulumi.Input[builtins.int]] = None,
                  associated_instance_num: Optional[pulumi.Input[builtins.int]] = None,
                  associated_instances: Optional[pulumi.Input[Sequence[pulumi.Input['AllowListAssociatedInstanceArgs']]]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -173,7 +156,6 @@ class _AllowListState:
         :param pulumi.Input[builtins.int] allow_list_ip_num: 白名单内的 IP 地址（或地址段）总数。
         :param pulumi.Input[builtins.str] allow_list_name: 白名单名称。
         :param pulumi.Input[builtins.str] allow_list_type: 白名单内的IP地址类型，当前仅支持IPv4。
-        :param pulumi.Input[builtins.int] apply_db_instance_num: 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
         :param pulumi.Input[builtins.int] associated_instance_num: 白名单下绑定的实例总数
         :param pulumi.Input[builtins.str] instance_id: 实例ID。
         """
@@ -191,8 +173,6 @@ class _AllowListState:
             pulumi.set(__self__, "allow_list_name", allow_list_name)
         if allow_list_type is not None:
             pulumi.set(__self__, "allow_list_type", allow_list_type)
-        if apply_db_instance_num is not None:
-            pulumi.set(__self__, "apply_db_instance_num", apply_db_instance_num)
         if associated_instance_num is not None:
             pulumi.set(__self__, "associated_instance_num", associated_instance_num)
         if associated_instances is not None:
@@ -285,18 +265,6 @@ class _AllowListState:
         pulumi.set(self, "allow_list_type", value)
 
     @property
-    @pulumi.getter(name="applyDbInstanceNum")
-    def apply_db_instance_num(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        """
-        return pulumi.get(self, "apply_db_instance_num")
-
-    @apply_db_instance_num.setter
-    def apply_db_instance_num(self, value: Optional[pulumi.Input[builtins.int]]):
-        pulumi.set(self, "apply_db_instance_num", value)
-
-    @property
     @pulumi.getter(name="associatedInstanceNum")
     def associated_instance_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -341,25 +309,11 @@ class AllowList(pulumi.CustomResource):
                  allow_list_desc: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_name: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_type: Optional[pulumi.Input[builtins.str]] = None,
-                 apply_db_instance_num: Optional[pulumi.Input[builtins.int]] = None,
                  associated_instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AllowListAssociatedInstanceArgs', 'AllowListAssociatedInstanceArgsDict']]]]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         RocketMQ访问白名单。
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_volcenginecc as volcenginecc
-
-        rocket_mq_allow_list_demo = volcenginecc.rocketmq.AllowList("RocketMQAllowListDemo",
-            allow_list_type="IPv4",
-            allow_list="192.xxx.0.0/24",
-            allow_list_name="ccapi-test",
-            allow_list_desc="this is a description")
-        ```
 
         ## Import
 
@@ -374,7 +328,6 @@ class AllowList(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] allow_list_desc: 白名单描述。
         :param pulumi.Input[builtins.str] allow_list_name: 白名单名称。
         :param pulumi.Input[builtins.str] allow_list_type: 白名单内的IP地址类型，当前仅支持IPv4。
-        :param pulumi.Input[builtins.int] apply_db_instance_num: 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
         :param pulumi.Input[builtins.str] instance_id: 实例ID。
         """
         ...
@@ -385,19 +338,6 @@ class AllowList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         RocketMQ访问白名单。
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_volcenginecc as volcenginecc
-
-        rocket_mq_allow_list_demo = volcenginecc.rocketmq.AllowList("RocketMQAllowListDemo",
-            allow_list_type="IPv4",
-            allow_list="192.xxx.0.0/24",
-            allow_list_name="ccapi-test",
-            allow_list_desc="this is a description")
-        ```
 
         ## Import
 
@@ -425,7 +365,6 @@ class AllowList(pulumi.CustomResource):
                  allow_list_desc: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_name: Optional[pulumi.Input[builtins.str]] = None,
                  allow_list_type: Optional[pulumi.Input[builtins.str]] = None,
-                 apply_db_instance_num: Optional[pulumi.Input[builtins.int]] = None,
                  associated_instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AllowListAssociatedInstanceArgs', 'AllowListAssociatedInstanceArgsDict']]]]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -444,7 +383,6 @@ class AllowList(pulumi.CustomResource):
                 raise TypeError("Missing required property 'allow_list_name'")
             __props__.__dict__["allow_list_name"] = allow_list_name
             __props__.__dict__["allow_list_type"] = allow_list_type
-            __props__.__dict__["apply_db_instance_num"] = apply_db_instance_num
             __props__.__dict__["associated_instances"] = associated_instances
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["allow_list_id"] = None
@@ -467,7 +405,6 @@ class AllowList(pulumi.CustomResource):
             allow_list_ip_num: Optional[pulumi.Input[builtins.int]] = None,
             allow_list_name: Optional[pulumi.Input[builtins.str]] = None,
             allow_list_type: Optional[pulumi.Input[builtins.str]] = None,
-            apply_db_instance_num: Optional[pulumi.Input[builtins.int]] = None,
             associated_instance_num: Optional[pulumi.Input[builtins.int]] = None,
             associated_instances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AllowListAssociatedInstanceArgs', 'AllowListAssociatedInstanceArgsDict']]]]] = None,
             instance_id: Optional[pulumi.Input[builtins.str]] = None) -> 'AllowList':
@@ -485,7 +422,6 @@ class AllowList(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] allow_list_ip_num: 白名单内的 IP 地址（或地址段）总数。
         :param pulumi.Input[builtins.str] allow_list_name: 白名单名称。
         :param pulumi.Input[builtins.str] allow_list_type: 白名单内的IP地址类型，当前仅支持IPv4。
-        :param pulumi.Input[builtins.int] apply_db_instance_num: 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
         :param pulumi.Input[builtins.int] associated_instance_num: 白名单下绑定的实例总数
         :param pulumi.Input[builtins.str] instance_id: 实例ID。
         """
@@ -500,7 +436,6 @@ class AllowList(pulumi.CustomResource):
         __props__.__dict__["allow_list_ip_num"] = allow_list_ip_num
         __props__.__dict__["allow_list_name"] = allow_list_name
         __props__.__dict__["allow_list_type"] = allow_list_type
-        __props__.__dict__["apply_db_instance_num"] = apply_db_instance_num
         __props__.__dict__["associated_instance_num"] = associated_instance_num
         __props__.__dict__["associated_instances"] = associated_instances
         __props__.__dict__["instance_id"] = instance_id
@@ -561,14 +496,6 @@ class AllowList(pulumi.CustomResource):
         白名单内的IP地址类型，当前仅支持IPv4。
         """
         return pulumi.get(self, "allow_list_type")
-
-    @property
-    @pulumi.getter(name="applyDbInstanceNum")
-    def apply_db_instance_num(self) -> pulumi.Output[builtins.int]:
-        """
-        已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        """
-        return pulumi.get(self, "apply_db_instance_num")
 
     @property
     @pulumi.getter(name="associatedInstanceNum")

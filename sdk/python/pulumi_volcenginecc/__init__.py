@@ -762,6 +762,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "kafka/instance",
+  "fqn": "pulumi_volcenginecc.kafka",
+  "classes": {
+   "volcenginecc:kafka/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "kafka/topic",
   "fqn": "pulumi_volcenginecc.kafka",
   "classes": {
@@ -1166,6 +1174,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/vpnAttachment:VpnAttachment": "VpnAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vedbm/allowList",
+  "fqn": "pulumi_volcenginecc.vedbm",
+  "classes": {
+   "volcenginecc:vedbm/allowList:AllowList": "AllowList"
   }
  },
  {

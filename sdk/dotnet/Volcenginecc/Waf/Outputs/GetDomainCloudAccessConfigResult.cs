@@ -34,6 +34,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Waf.Outputs
         /// 负载均衡监听器 ID。
         /// </summary>
         public readonly string ListenerId;
+        /// <summary>
+        /// 是否从 ALB 中丢失关联。
+        /// </summary>
         public readonly int LostAssociationFromAlb;
         /// <summary>
         /// 监听器转发规则的端口号。

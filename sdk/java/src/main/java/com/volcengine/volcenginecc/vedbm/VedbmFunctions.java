@@ -10,12 +10,16 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vedbm.inputs.GetAllowListArgs;
+import com.volcengine.volcenginecc.vedbm.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetBackupArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetBackupPlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetDatabaseArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetDatabasePlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.vedbm.outputs.GetAllowListResult;
+import com.volcengine.volcenginecc.vedbm.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetBackupResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetBackupsResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetDatabaseResult;
@@ -25,6 +29,90 @@ import com.volcengine.volcenginecc.vedbm.outputs.GetInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VedbmFunctions {
+    /**
+     * Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args) {
+        return getAllowList(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListResult> getAllowListPlain(GetAllowListPlainArgs args) {
+        return getAllowListPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListResult> getAllowListPlain(GetAllowListPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists() {
+        return getAllowLists(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain() {
+        return getAllowListsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args) {
+        return getAllowLists(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args) {
+        return getAllowListsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VEDBM::Backup
      * 

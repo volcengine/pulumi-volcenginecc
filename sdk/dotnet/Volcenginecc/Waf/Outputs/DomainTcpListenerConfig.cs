@@ -14,13 +14,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Waf.Outputs
     [OutputType]
     public sealed class DomainTcpListenerConfig
     {
+        /// <summary>
+        /// 接入协议类型。
+        /// </summary>
         public readonly string? AccessProtocol;
+        /// <summary>
+        /// 防护模式。
+        /// </summary>
         public readonly int? DefenceMode;
+        /// <summary>
+        /// 实例 ID。
+        /// </summary>
         public readonly string? InstanceId;
+        /// <summary>
+        /// 实例名称。
+        /// </summary>
         public readonly string? InstanceName;
+        /// <summary>
+        /// 监听器 ID。
+        /// </summary>
         public readonly string? ListenerId;
+        /// <summary>
+        /// 是否从 ALB 中丢失关联。
+        /// </summary>
         public readonly int? LostAssociationFromAlb;
+        /// <summary>
+        /// 监听器的端口号。
+        /// </summary>
         public readonly string? Port;
+        /// <summary>
+        /// 监听器协议类型。
+        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]

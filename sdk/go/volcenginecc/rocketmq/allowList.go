@@ -14,35 +14,6 @@ import (
 
 // RocketMQ访问白名单。
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/rocketmq"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rocketmq.NewAllowList(ctx, "RocketMQAllowListDemo", &rocketmq.AllowListArgs{
-//				AllowListType: pulumi.String("IPv4"),
-//				AllowList:     pulumi.String("192.xxx.0.0/24"),
-//				AllowListName: pulumi.String("ccapi-test"),
-//				AllowListDesc: pulumi.String("this is a description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -65,8 +36,6 @@ type AllowList struct {
 	AllowListName pulumi.StringOutput `pulumi:"allowListName"`
 	// 白名单内的IP地址类型，当前仅支持IPv4。
 	AllowListType pulumi.StringOutput `pulumi:"allowListType"`
-	// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-	ApplyDbInstanceNum pulumi.IntOutput `pulumi:"applyDbInstanceNum"`
 	// 白名单下绑定的实例总数
 	AssociatedInstanceNum pulumi.IntOutput                       `pulumi:"associatedInstanceNum"`
 	AssociatedInstances   AllowListAssociatedInstanceArrayOutput `pulumi:"associatedInstances"`
@@ -121,8 +90,6 @@ type allowListState struct {
 	AllowListName *string `pulumi:"allowListName"`
 	// 白名单内的IP地址类型，当前仅支持IPv4。
 	AllowListType *string `pulumi:"allowListType"`
-	// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-	ApplyDbInstanceNum *int `pulumi:"applyDbInstanceNum"`
 	// 白名单下绑定的实例总数
 	AssociatedInstanceNum *int                          `pulumi:"associatedInstanceNum"`
 	AssociatedInstances   []AllowListAssociatedInstance `pulumi:"associatedInstances"`
@@ -145,8 +112,6 @@ type AllowListState struct {
 	AllowListName pulumi.StringPtrInput
 	// 白名单内的IP地址类型，当前仅支持IPv4。
 	AllowListType pulumi.StringPtrInput
-	// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-	ApplyDbInstanceNum pulumi.IntPtrInput
 	// 白名单下绑定的实例总数
 	AssociatedInstanceNum pulumi.IntPtrInput
 	AssociatedInstances   AllowListAssociatedInstanceArrayInput
@@ -168,9 +133,7 @@ type allowListArgs struct {
 	// 白名单名称。
 	AllowListName string `pulumi:"allowListName"`
 	// 白名单内的IP地址类型，当前仅支持IPv4。
-	AllowListType *string `pulumi:"allowListType"`
-	// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-	ApplyDbInstanceNum  *int                          `pulumi:"applyDbInstanceNum"`
+	AllowListType       *string                       `pulumi:"allowListType"`
 	AssociatedInstances []AllowListAssociatedInstance `pulumi:"associatedInstances"`
 	// 实例ID。
 	InstanceId *string `pulumi:"instanceId"`
@@ -187,9 +150,7 @@ type AllowListArgs struct {
 	// 白名单名称。
 	AllowListName pulumi.StringInput
 	// 白名单内的IP地址类型，当前仅支持IPv4。
-	AllowListType pulumi.StringPtrInput
-	// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-	ApplyDbInstanceNum  pulumi.IntPtrInput
+	AllowListType       pulumi.StringPtrInput
 	AssociatedInstances AllowListAssociatedInstanceArrayInput
 	// 实例ID。
 	InstanceId pulumi.StringPtrInput
@@ -315,11 +276,6 @@ func (o AllowListOutput) AllowListName() pulumi.StringOutput {
 // 白名单内的IP地址类型，当前仅支持IPv4。
 func (o AllowListOutput) AllowListType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AllowList) pulumi.StringOutput { return v.AllowListType }).(pulumi.StringOutput)
-}
-
-// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-func (o AllowListOutput) ApplyDbInstanceNum() pulumi.IntOutput {
-	return o.ApplyT(func(v *AllowList) pulumi.IntOutput { return v.ApplyDbInstanceNum }).(pulumi.IntOutput)
 }
 
 // 白名单下绑定的实例总数

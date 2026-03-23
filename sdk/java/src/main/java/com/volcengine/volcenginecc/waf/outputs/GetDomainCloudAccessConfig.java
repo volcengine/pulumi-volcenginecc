@@ -36,6 +36,10 @@ public final class GetDomainCloudAccessConfig {
      * 
      */
     private String listenerId;
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     private Integer lostAssociationFromAlb;
     /**
      * @return 监听器转发规则的端口号。
@@ -84,6 +88,10 @@ public final class GetDomainCloudAccessConfig {
     public String listenerId() {
         return this.listenerId;
     }
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     public Integer lostAssociationFromAlb() {
         return this.lostAssociationFromAlb;
     }

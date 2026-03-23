@@ -188,6 +188,7 @@ class DomainCloudAccessConfig(dict):
         :param builtins.str instance_id: 负载均衡实例 ID。
         :param builtins.str instance_name: 负载均衡实例名称。
         :param builtins.str listener_id: 负载均衡监听器 ID。
+        :param builtins.int lost_association_from_alb: 是否从 ALB 中丢失关联。
         :param builtins.str port: 监听器转发规则的端口号。
         :param builtins.str protocol: 监听器转发规则的协议类型。
         """
@@ -251,6 +252,9 @@ class DomainCloudAccessConfig(dict):
     @property
     @pulumi.getter(name="lostAssociationFromAlb")
     def lost_association_from_alb(self) -> Optional[builtins.int]:
+        """
+        是否从 ALB 中丢失关联。
+        """
         return pulumi.get(self, "lost_association_from_alb")
 
     @property
@@ -339,6 +343,16 @@ class DomainTcpListenerConfig(dict):
                  lost_association_from_alb: Optional[builtins.int] = None,
                  port: Optional[builtins.str] = None,
                  protocol: Optional[builtins.str] = None):
+        """
+        :param builtins.str access_protocol: 接入协议类型。
+        :param builtins.int defence_mode: 防护模式。
+        :param builtins.str instance_id: 实例 ID。
+        :param builtins.str instance_name: 实例名称。
+        :param builtins.str listener_id: 监听器 ID。
+        :param builtins.int lost_association_from_alb: 是否从 ALB 中丢失关联。
+        :param builtins.str port: 监听器的端口号。
+        :param builtins.str protocol: 监听器协议类型。
+        """
         if access_protocol is not None:
             pulumi.set(__self__, "access_protocol", access_protocol)
         if defence_mode is not None:
@@ -359,41 +373,65 @@ class DomainTcpListenerConfig(dict):
     @property
     @pulumi.getter(name="accessProtocol")
     def access_protocol(self) -> Optional[builtins.str]:
+        """
+        接入协议类型。
+        """
         return pulumi.get(self, "access_protocol")
 
     @property
     @pulumi.getter(name="defenceMode")
     def defence_mode(self) -> Optional[builtins.int]:
+        """
+        防护模式。
+        """
         return pulumi.get(self, "defence_mode")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[builtins.str]:
+        """
+        实例 ID。
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[builtins.str]:
+        """
+        实例名称。
+        """
         return pulumi.get(self, "instance_name")
 
     @property
     @pulumi.getter(name="listenerId")
     def listener_id(self) -> Optional[builtins.str]:
+        """
+        监听器 ID。
+        """
         return pulumi.get(self, "listener_id")
 
     @property
     @pulumi.getter(name="lostAssociationFromAlb")
     def lost_association_from_alb(self) -> Optional[builtins.int]:
+        """
+        是否从 ALB 中丢失关联。
+        """
         return pulumi.get(self, "lost_association_from_alb")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[builtins.str]:
+        """
+        监听器的端口号。
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> Optional[builtins.str]:
+        """
+        监听器协议类型。
+        """
         return pulumi.get(self, "protocol")
 
 
@@ -597,6 +635,7 @@ class GetDomainCloudAccessConfigResult(dict):
         :param builtins.str instance_id: 负载均衡实例 ID。
         :param builtins.str instance_name: 负载均衡实例名称。
         :param builtins.str listener_id: 负载均衡监听器 ID。
+        :param builtins.int lost_association_from_alb: 是否从 ALB 中丢失关联。
         :param builtins.str port: 监听器转发规则的端口号。
         :param builtins.str protocol: 监听器转发规则的协议类型。
         """
@@ -652,6 +691,9 @@ class GetDomainCloudAccessConfigResult(dict):
     @property
     @pulumi.getter(name="lostAssociationFromAlb")
     def lost_association_from_alb(self) -> builtins.int:
+        """
+        是否从 ALB 中丢失关联。
+        """
         return pulumi.get(self, "lost_association_from_alb")
 
     @property
@@ -711,6 +753,16 @@ class GetDomainTcpListenerConfigResult(dict):
                  lost_association_from_alb: builtins.int,
                  port: builtins.str,
                  protocol: builtins.str):
+        """
+        :param builtins.str access_protocol: 接入协议类型。
+        :param builtins.int defence_mode: 防护模式。
+        :param builtins.str instance_id: 实例 ID。
+        :param builtins.str instance_name: 实例名称。
+        :param builtins.str listener_id: 监听器 ID。
+        :param builtins.int lost_association_from_alb: 是否从 ALB 中丢失关联。
+        :param builtins.str port: 监听器的端口号。
+        :param builtins.str protocol: 监听器协议类型。
+        """
         pulumi.set(__self__, "access_protocol", access_protocol)
         pulumi.set(__self__, "defence_mode", defence_mode)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -723,41 +775,65 @@ class GetDomainTcpListenerConfigResult(dict):
     @property
     @pulumi.getter(name="accessProtocol")
     def access_protocol(self) -> builtins.str:
+        """
+        接入协议类型。
+        """
         return pulumi.get(self, "access_protocol")
 
     @property
     @pulumi.getter(name="defenceMode")
     def defence_mode(self) -> builtins.int:
+        """
+        防护模式。
+        """
         return pulumi.get(self, "defence_mode")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> builtins.str:
+        """
+        实例 ID。
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> builtins.str:
+        """
+        实例名称。
+        """
         return pulumi.get(self, "instance_name")
 
     @property
     @pulumi.getter(name="listenerId")
     def listener_id(self) -> builtins.str:
+        """
+        监听器 ID。
+        """
         return pulumi.get(self, "listener_id")
 
     @property
     @pulumi.getter(name="lostAssociationFromAlb")
     def lost_association_from_alb(self) -> builtins.int:
+        """
+        是否从 ALB 中丢失关联。
+        """
         return pulumi.get(self, "lost_association_from_alb")
 
     @property
     @pulumi.getter
     def port(self) -> builtins.str:
+        """
+        监听器的端口号。
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> builtins.str:
+        """
+        监听器协议类型。
+        """
         return pulumi.get(self, "protocol")
 
 

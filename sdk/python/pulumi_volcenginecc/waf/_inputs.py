@@ -214,6 +214,9 @@ if not MYPY:
         负载均衡监听器 ID。
         """
         lost_association_from_alb: NotRequired[pulumi.Input[builtins.int]]
+        """
+        是否从 ALB 中丢失关联。
+        """
         port: NotRequired[pulumi.Input[builtins.str]]
         """
         监听器转发规则的端口号。
@@ -242,6 +245,7 @@ class DomainCloudAccessConfigArgs:
         :param pulumi.Input[builtins.str] instance_id: 负载均衡实例 ID。
         :param pulumi.Input[builtins.str] instance_name: 负载均衡实例名称。
         :param pulumi.Input[builtins.str] listener_id: 负载均衡监听器 ID。
+        :param pulumi.Input[builtins.int] lost_association_from_alb: 是否从 ALB 中丢失关联。
         :param pulumi.Input[builtins.str] port: 监听器转发规则的端口号。
         :param pulumi.Input[builtins.str] protocol: 监听器转发规则的协议类型。
         """
@@ -325,6 +329,9 @@ class DomainCloudAccessConfigArgs:
     @property
     @pulumi.getter(name="lostAssociationFromAlb")
     def lost_association_from_alb(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        是否从 ALB 中丢失关联。
+        """
         return pulumi.get(self, "lost_association_from_alb")
 
     @lost_association_from_alb.setter
@@ -411,13 +418,37 @@ class DomainProtocolPortsArgs:
 if not MYPY:
     class DomainTcpListenerConfigArgsDict(TypedDict):
         access_protocol: NotRequired[pulumi.Input[builtins.str]]
+        """
+        接入协议类型。
+        """
         defence_mode: NotRequired[pulumi.Input[builtins.int]]
+        """
+        防护模式。
+        """
         instance_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        实例 ID。
+        """
         instance_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        实例名称。
+        """
         listener_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        监听器 ID。
+        """
         lost_association_from_alb: NotRequired[pulumi.Input[builtins.int]]
+        """
+        是否从 ALB 中丢失关联。
+        """
         port: NotRequired[pulumi.Input[builtins.str]]
+        """
+        监听器的端口号。
+        """
         protocol: NotRequired[pulumi.Input[builtins.str]]
+        """
+        监听器协议类型。
+        """
 elif False:
     DomainTcpListenerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -432,6 +463,16 @@ class DomainTcpListenerConfigArgs:
                  lost_association_from_alb: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] access_protocol: 接入协议类型。
+        :param pulumi.Input[builtins.int] defence_mode: 防护模式。
+        :param pulumi.Input[builtins.str] instance_id: 实例 ID。
+        :param pulumi.Input[builtins.str] instance_name: 实例名称。
+        :param pulumi.Input[builtins.str] listener_id: 监听器 ID。
+        :param pulumi.Input[builtins.int] lost_association_from_alb: 是否从 ALB 中丢失关联。
+        :param pulumi.Input[builtins.str] port: 监听器的端口号。
+        :param pulumi.Input[builtins.str] protocol: 监听器协议类型。
+        """
         if access_protocol is not None:
             pulumi.set(__self__, "access_protocol", access_protocol)
         if defence_mode is not None:
@@ -452,6 +493,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter(name="accessProtocol")
     def access_protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        接入协议类型。
+        """
         return pulumi.get(self, "access_protocol")
 
     @access_protocol.setter
@@ -461,6 +505,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter(name="defenceMode")
     def defence_mode(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        防护模式。
+        """
         return pulumi.get(self, "defence_mode")
 
     @defence_mode.setter
@@ -470,6 +517,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        实例 ID。
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -479,6 +529,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        实例名称。
+        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -488,6 +541,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter(name="listenerId")
     def listener_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        监听器 ID。
+        """
         return pulumi.get(self, "listener_id")
 
     @listener_id.setter
@@ -497,6 +553,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter(name="lostAssociationFromAlb")
     def lost_association_from_alb(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        是否从 ALB 中丢失关联。
+        """
         return pulumi.get(self, "lost_association_from_alb")
 
     @lost_association_from_alb.setter
@@ -506,6 +565,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        监听器的端口号。
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -515,6 +577,9 @@ class DomainTcpListenerConfigArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        监听器协议类型。
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter

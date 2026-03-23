@@ -1834,6 +1834,23 @@
                     }
                 }
             },
+            "volcenginecc_kafka_instance": {
+                "current": "volcenginecc:kafka/instance:Instance",
+                "fields": {
+                    "connection_info": {
+                        "maxItemsOne": false
+                    },
+                    "ip_white_list": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "topics": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_kafka_topic": {
                 "current": "volcenginecc:kafka/topic:Topic",
                 "fields": {
@@ -2524,6 +2541,14 @@
                     }
                 }
             },
+            "volcenginecc_vedbm_allow_list": {
+                "current": "volcenginecc:vedbm/allowList:AllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_vedbm_backup": {
                 "current": "volcenginecc:vedbm/backup:Backup"
             },
@@ -2649,6 +2674,9 @@
                             "flannel_config": {
                                 "fields": {
                                     "pod_cidrs": {
+                                        "maxItemsOne": false
+                                    },
+                                    "subnet_ids": {
                                         "maxItemsOne": false
                                     }
                                 }
@@ -5641,6 +5669,31 @@
                     }
                 }
             },
+            "volcenginecc_kafka_instance": {
+                "current": "volcenginecc:kafka/getInstance:getInstance",
+                "fields": {
+                    "connection_info": {
+                        "maxItemsOne": false
+                    },
+                    "ip_white_list": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "topics": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_kafka_instances": {
+                "current": "volcenginecc:kafka/getInstances:getInstances",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_kafka_topic": {
                 "current": "volcenginecc:kafka/getTopic:getTopic",
                 "fields": {
@@ -6739,6 +6792,22 @@
                     }
                 }
             },
+            "volcenginecc_vedbm_allow_list": {
+                "current": "volcenginecc:vedbm/getAllowList:getAllowList",
+                "fields": {
+                    "associated_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_allow_lists": {
+                "current": "volcenginecc:vedbm/getAllowLists:getAllowLists",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_vedbm_backup": {
                 "current": "volcenginecc:vedbm/getBackup:getBackup"
             },
@@ -6920,6 +6989,9 @@
                             "flannel_config": {
                                 "fields": {
                                     "pod_cidrs": {
+                                        "maxItemsOne": false
+                                    },
+                                    "subnet_ids": {
                                         "maxItemsOne": false
                                     }
                                 }

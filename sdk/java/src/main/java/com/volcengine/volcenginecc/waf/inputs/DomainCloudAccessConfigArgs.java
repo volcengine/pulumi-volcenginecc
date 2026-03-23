@@ -91,9 +91,17 @@ public final class DomainCloudAccessConfigArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.listenerId);
     }
 
+    /**
+     * 是否从 ALB 中丢失关联。
+     * 
+     */
     @Import(name="lostAssociationFromAlb")
     private @Nullable Output<Integer> lostAssociationFromAlb;
 
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     public Optional<Output<Integer>> lostAssociationFromAlb() {
         return Optional.ofNullable(this.lostAssociationFromAlb);
     }
@@ -264,11 +272,23 @@ public final class DomainCloudAccessConfigArgs extends com.pulumi.resources.Reso
             return listenerId(Output.of(listenerId));
         }
 
+        /**
+         * @param lostAssociationFromAlb 是否从 ALB 中丢失关联。
+         * 
+         * @return builder
+         * 
+         */
         public Builder lostAssociationFromAlb(@Nullable Output<Integer> lostAssociationFromAlb) {
             $.lostAssociationFromAlb = lostAssociationFromAlb;
             return this;
         }
 
+        /**
+         * @param lostAssociationFromAlb 是否从 ALB 中丢失关联。
+         * 
+         * @return builder
+         * 
+         */
         public Builder lostAssociationFromAlb(Integer lostAssociationFromAlb) {
             return lostAssociationFromAlb(Output.of(lostAssociationFromAlb));
         }

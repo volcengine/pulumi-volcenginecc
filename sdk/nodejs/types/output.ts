@@ -8781,6 +8781,21 @@ export namespace clb {
         value: string;
     }
 
+    export interface GetNlbAccessLog {
+        /**
+         * 是否开启访问日志。true：是。flase：否。
+         */
+        accessLogEnabled: boolean;
+        /**
+         * 日志项目的ID。
+         */
+        projectId: string;
+        /**
+         * 日志主题的ID。
+         */
+        topicId: string;
+    }
+
     export interface GetNlbListenerHealth {
         /**
          * 后端服务器的实例 ID或IP地址。
@@ -9148,6 +9163,21 @@ export namespace clb {
          * 用户标签的标签值。允许输入各国语言文字、数字、空格（ ）、下划线（_）、点号（.）、半角冒号（:）、斜杠（/）、等号（=）、加号（+）、中划线（-）和@（@）。大小写敏感。若标签值开头或结尾存在空格，系统会自动为其去除。
          */
         value: string;
+    }
+
+    export interface NlbAccessLog {
+        /**
+         * 是否开启访问日志。true：是。flase：否。
+         */
+        accessLogEnabled: boolean;
+        /**
+         * 日志项目的ID。
+         */
+        projectId: string;
+        /**
+         * 日志主题的ID。
+         */
+        topicId: string;
     }
 
     export interface NlbListenerHealth {
@@ -14884,6 +14914,75 @@ export namespace kafka {
         instanceName: string;
     }
 
+    export interface GetInstanceChargeInfo {
+        /**
+         * 包年包月实例到期后是否自动续费，true-自动续费 false(默认)-不自动续费,到期实例关停。
+         */
+        autoRenew: boolean;
+        /**
+         * 包年包月实例的到期时间。
+         */
+        chargeExpireTime: string;
+        /**
+         * 实例的计费开始时间。
+         */
+        chargeStartTime: string;
+        /**
+         * 实例的计费状态，支持的类型包括:  Normal-正常, Overdue-按量计费欠费, Expired-包年包月到期
+         */
+        chargeStatus: string;
+        /**
+         * 实例的计费类型，支持的类型包括: PostPaid-按量付费, PrePaid-包年包月。
+         */
+        chargeType: string;
+        /**
+         * 实例欠费关停后的预计释放时间。
+         */
+        overdueReclaimTime: string;
+        /**
+         * 实例的欠费关停时间。
+         */
+        overdueTime: string;
+        /**
+         * 包年包月类型实例的购买时长。
+         */
+        period: number;
+        /**
+         * 包年包月类型实例的生命周期单位，即指定以月（Month/Monthly）或以年（Year/Yearly）为单位购买。
+         */
+        periodUnit: string;
+    }
+
+    export interface GetInstanceConnectionInfo {
+        /**
+         * 实例的接入点类型。PLAINTEXT：默认接入点。SASL*PLAINTEXT：SASL接入点（私网）。SASL*SSL：SASL接入点（公网）。未开启公网访问时，不提供此接入点。
+         */
+        endpointType: string;
+        /**
+         * 实例私网访问域名。
+         */
+        internalEndpoint: string;
+        /**
+         * 接入点的网络类型。统一为 PrivateNetwork。
+         */
+        networkType: string;
+        /**
+         * 实例公网访问域名。
+         */
+        publicEndpoint: string;
+    }
+
+    export interface GetInstanceTag {
+        /**
+         * 标签的键。
+         */
+        key: string;
+        /**
+         * 标签的值。
+         */
+        value: string;
+    }
+
     export interface GetTopicAccessPolicy {
         /**
          * SASL 用户对于当前 Topic 的访问权限。PubSub：拥有发布、订阅权限。Pub：拥有发布权限。Sub：拥有订阅权限。
@@ -14902,6 +15001,75 @@ export namespace kafka {
         key: string;
         /**
          * 标签值。
+         */
+        value: string;
+    }
+
+    export interface InstanceChargeInfo {
+        /**
+         * 包年包月实例到期后是否自动续费，true-自动续费 false(默认)-不自动续费,到期实例关停。
+         */
+        autoRenew: boolean;
+        /**
+         * 包年包月实例的到期时间。
+         */
+        chargeExpireTime: string;
+        /**
+         * 实例的计费开始时间。
+         */
+        chargeStartTime: string;
+        /**
+         * 实例的计费状态，支持的类型包括:  Normal-正常, Overdue-按量计费欠费, Expired-包年包月到期
+         */
+        chargeStatus: string;
+        /**
+         * 实例的计费类型，支持的类型包括: PostPaid-按量付费, PrePaid-包年包月。
+         */
+        chargeType: string;
+        /**
+         * 实例欠费关停后的预计释放时间。
+         */
+        overdueReclaimTime: string;
+        /**
+         * 实例的欠费关停时间。
+         */
+        overdueTime: string;
+        /**
+         * 包年包月类型实例的购买时长。
+         */
+        period: number;
+        /**
+         * 包年包月类型实例的生命周期单位，即指定以月（Month/Monthly）或以年（Year/Yearly）为单位购买。
+         */
+        periodUnit: string;
+    }
+
+    export interface InstanceConnectionInfo {
+        /**
+         * 实例的接入点类型。PLAINTEXT：默认接入点。SASL*PLAINTEXT：SASL接入点（私网）。SASL*SSL：SASL接入点（公网）。未开启公网访问时，不提供此接入点。
+         */
+        endpointType: string;
+        /**
+         * 实例私网访问域名。
+         */
+        internalEndpoint: string;
+        /**
+         * 接入点的网络类型。统一为 PrivateNetwork。
+         */
+        networkType: string;
+        /**
+         * 实例公网访问域名。
+         */
+        publicEndpoint: string;
+    }
+
+    export interface InstanceTag {
+        /**
+         * 标签的键。
+         */
+        key: string;
+        /**
+         * 标签的值。
          */
         value: string;
     }
@@ -19596,6 +19764,13 @@ export namespace transitrouter {
 }
 
 export namespace vedbm {
+    export interface AllowListAssociatedInstance {
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+    }
+
     export interface DatabaseDatabasesPrivilege {
         /**
          * 需授权的账号名称
@@ -19609,6 +19784,21 @@ export namespace vedbm {
          * 具体SQL操作权限，多个用英文逗号分隔；Custom类型时必填
          */
         accountPrivilegeDetails: string[];
+    }
+
+    export interface GetAllowListAssociatedInstance {
+        /**
+         * 实例ID。
+         */
+        instanceId: string;
+        /**
+         * 实例名称。
+         */
+        instanceName: string;
+        /**
+         * 实例所属VPC ID。
+         */
+        vpc: string;
     }
 
     export interface GetDatabaseDatabasesPrivilege {
@@ -20210,6 +20400,10 @@ export namespace vke {
          */
         apiServerPublicAccessEnabled: boolean;
         /**
+         * 集群网络协议栈，参数值说明：Ipv4：Ipv4 单栈。Ipv6：【邀测·申请试用】Ipv6 单栈。DualStack：【邀测·申请试用】Ipv4 和 Ipv6 双栈。
+         */
+        ipFamily: string;
+        /**
          * 节点公网访问配置，参数值说明：false：未开启。true：已开启。
          */
         resourcePublicAccessDefaultEnabled: boolean;
@@ -20274,6 +20468,33 @@ export namespace vke {
         isp: string;
     }
 
+    export interface ClusterIrsaConfig {
+        /**
+         * 接受令牌的标识符。
+         */
+        audience: string;
+        /**
+         * 是否开启 IRSA 功能，参数值说明：true：开启,false：不开启
+         */
+        enabled: boolean;
+        /**
+         * OIDC（OpenID Connect）提供商 URL 地址，OIDC 提供商的唯一标识。
+         */
+        issuer: string;
+        /**
+         * JWKS（JSON Web Key Set）的 URL。文件内的公钥被用来验证从 OIDC 提供者返回的任何 JWT（JSON Web Tokens）。
+         */
+        jwksUrl: string;
+        /**
+         * OIDC 提供商 TRN。
+         */
+        oidcTrn: string;
+        /**
+         * OIDC 提供商的 JSON 格式配置文档，包含了有关 OIDC 提供商的信息。
+         */
+        openIdConfigUrl: string;
+    }
+
     export interface ClusterLoggingConfig {
         /**
          * 集群的日志项目（Log Project）ID。 如果为空，表示集群的日志项目未被创建。
@@ -20299,6 +20520,10 @@ export namespace vke {
 
     export interface ClusterMonitoringConfig {
         componentConfigs: outputs.vke.ClusterMonitoringConfigComponentConfig[];
+        /**
+         * 是否开启外部 Promtheus 采集集群控制面组件指标，参数值说明：true：开启。false：不开启。
+         */
+        enableMetricsExternalCollection: boolean;
         /**
          * 监控数据所属的工作区 ID。
          */
@@ -20367,6 +20592,10 @@ export namespace vke {
          * Flannel 容器网络的 Pod CIDR。
          */
         podCidrs: string[];
+        /**
+         * Flannel 容器网络模型对应的 Pod 子网 ID 列表。
+         */
+        subnetIds: string[];
     }
 
     export interface ClusterPodsConfigVpcCniConfig {
@@ -20914,6 +21143,10 @@ export namespace vke {
          */
         apiServerPublicAccessEnabled: boolean;
         /**
+         * 集群网络协议栈，参数值说明：Ipv4：Ipv4 单栈。Ipv6：【邀测·申请试用】Ipv6 单栈。DualStack：【邀测·申请试用】Ipv4 和 Ipv6 双栈。
+         */
+        ipFamily: string;
+        /**
          * 节点公网访问配置，参数值说明：false：未开启。true：已开启。
          */
         resourcePublicAccessDefaultEnabled: boolean;
@@ -20978,6 +21211,33 @@ export namespace vke {
         isp: string;
     }
 
+    export interface GetClusterIrsaConfig {
+        /**
+         * 接受令牌的标识符。
+         */
+        audience: string;
+        /**
+         * 是否开启 IRSA 功能，参数值说明：true：开启,false：不开启
+         */
+        enabled: boolean;
+        /**
+         * OIDC（OpenID Connect）提供商 URL 地址，OIDC 提供商的唯一标识。
+         */
+        issuer: string;
+        /**
+         * JWKS（JSON Web Key Set）的 URL。文件内的公钥被用来验证从 OIDC 提供者返回的任何 JWT（JSON Web Tokens）。
+         */
+        jwksUrl: string;
+        /**
+         * OIDC 提供商 TRN。
+         */
+        oidcTrn: string;
+        /**
+         * OIDC 提供商的 JSON 格式配置文档，包含了有关 OIDC 提供商的信息。
+         */
+        openIdConfigUrl: string;
+    }
+
     export interface GetClusterLoggingConfig {
         /**
          * 集群的日志项目（Log Project）ID。 如果为空，表示集群的日志项目未被创建。
@@ -21013,6 +21273,10 @@ export namespace vke {
          * 监控组件的配置列表。
          */
         componentConfigs: outputs.vke.GetClusterMonitoringConfigComponentConfig[];
+        /**
+         * 是否开启外部 Promtheus 采集集群控制面组件指标，参数值说明：true：开启。false：不开启。
+         */
+        enableMetricsExternalCollection: boolean;
         /**
          * 监控数据所属的工作区 ID。
          */
@@ -21081,6 +21345,10 @@ export namespace vke {
          * Flannel 容器网络的 Pod CIDR。
          */
         podCidrs: string[];
+        /**
+         * Flannel 容器网络模型对应的 Pod 子网 ID 列表。
+         */
+        subnetIds: string[];
     }
 
     export interface GetClusterPodsConfigVpcCniConfig {
@@ -24538,6 +24806,9 @@ export namespace waf {
          * 负载均衡监听器 ID。
          */
         listenerId: string;
+        /**
+         * 是否从 ALB 中丢失关联。
+         */
         lostAssociationFromAlb: number;
         /**
          * 监听器转发规则的端口号。
@@ -24561,13 +24832,37 @@ export namespace waf {
     }
 
     export interface DomainTcpListenerConfig {
+        /**
+         * 接入协议类型。
+         */
         accessProtocol: string;
+        /**
+         * 防护模式。
+         */
         defenceMode: number;
+        /**
+         * 实例 ID。
+         */
         instanceId: string;
+        /**
+         * 实例名称。
+         */
         instanceName: string;
+        /**
+         * 监听器 ID。
+         */
         listenerId: string;
+        /**
+         * 是否从 ALB 中丢失关联。
+         */
         lostAssociationFromAlb: number;
+        /**
+         * 监听器的端口号。
+         */
         port: string;
+        /**
+         * 监听器协议类型。
+         */
         protocol: string;
     }
 
@@ -24645,6 +24940,9 @@ export namespace waf {
          * 负载均衡监听器 ID。
          */
         listenerId: string;
+        /**
+         * 是否从 ALB 中丢失关联。
+         */
         lostAssociationFromAlb: number;
         /**
          * 监听器转发规则的端口号。
@@ -24668,13 +24966,37 @@ export namespace waf {
     }
 
     export interface GetDomainTcpListenerConfig {
+        /**
+         * 接入协议类型。
+         */
         accessProtocol: string;
+        /**
+         * 防护模式。
+         */
         defenceMode: number;
+        /**
+         * 实例 ID。
+         */
         instanceId: string;
+        /**
+         * 实例名称。
+         */
         instanceName: string;
+        /**
+         * 监听器 ID。
+         */
         listenerId: string;
+        /**
+         * 是否从 ALB 中丢失关联。
+         */
         lostAssociationFromAlb: number;
+        /**
+         * 监听器的端口号。
+         */
         port: string;
+        /**
+         * 监听器协议类型。
+         */
         protocol: string;
     }
 

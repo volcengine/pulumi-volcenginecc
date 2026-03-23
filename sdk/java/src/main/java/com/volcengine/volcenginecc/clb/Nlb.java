@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.clb.NlbArgs;
 import com.volcengine.volcenginecc.clb.inputs.NlbState;
+import com.volcengine.volcenginecc.clb.outputs.NlbAccessLog;
 import com.volcengine.volcenginecc.clb.outputs.NlbTag;
 import com.volcengine.volcenginecc.clb.outputs.NlbZoneMapping;
 import java.lang.Boolean;
@@ -35,6 +36,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="volcenginecc:clb/nlb:Nlb")
 public class Nlb extends com.pulumi.resources.CustomResource {
+    /**
+     * NLB实例的访问日志信息。
+     * 
+     */
+    @Export(name="accessLog", refs={NlbAccessLog.class}, tree="[0]")
+    private Output<NlbAccessLog> accessLog;
+
+    /**
+     * @return NLB实例的访问日志信息。
+     * 
+     */
+    public Output<NlbAccessLog> accessLog() {
+        return this.accessLog;
+    }
     /**
      * NLB实例所属的账号ID。
      * 

@@ -13,27 +13,51 @@ namespace Volcengine.Pulumi.Volcenginecc.Waf.Inputs
 
     public sealed class DomainTcpListenerConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// 接入协议类型。
+        /// </summary>
         [Input("accessProtocol")]
         public Input<string>? AccessProtocol { get; set; }
 
+        /// <summary>
+        /// 防护模式。
+        /// </summary>
         [Input("defenceMode")]
         public Input<int>? DefenceMode { get; set; }
 
+        /// <summary>
+        /// 实例 ID。
+        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        /// <summary>
+        /// 实例名称。
+        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
+        /// <summary>
+        /// 监听器 ID。
+        /// </summary>
         [Input("listenerId")]
         public Input<string>? ListenerId { get; set; }
 
+        /// <summary>
+        /// 是否从 ALB 中丢失关联。
+        /// </summary>
         [Input("lostAssociationFromAlb")]
         public Input<int>? LostAssociationFromAlb { get; set; }
 
+        /// <summary>
+        /// 监听器的端口号。
+        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
+        /// <summary>
+        /// 监听器协议类型。
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
