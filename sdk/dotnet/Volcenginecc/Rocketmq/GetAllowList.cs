@@ -93,10 +93,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         /// </summary>
         public readonly string AllowListType;
         /// <summary>
-        /// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        /// </summary>
-        public readonly int ApplyDbInstanceNum;
-        /// <summary>
         /// 白名单下绑定的实例总数
         /// </summary>
         public readonly int AssociatedInstanceNum;
@@ -129,8 +125,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 
             string allowListType,
 
-            int applyDbInstanceNum,
-
             int associatedInstanceNum,
 
             ImmutableArray<Outputs.GetAllowListAssociatedInstanceResult> associatedInstances,
@@ -146,7 +140,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
             AllowListIpNum = allowListIpNum;
             AllowListName = allowListName;
             AllowListType = allowListType;
-            ApplyDbInstanceNum = applyDbInstanceNum;
             AssociatedInstanceNum = associatedInstanceNum;
             AssociatedInstances = associatedInstances;
             Id = id;

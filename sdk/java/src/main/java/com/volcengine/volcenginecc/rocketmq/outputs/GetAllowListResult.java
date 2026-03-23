@@ -49,11 +49,6 @@ public final class GetAllowListResult {
      */
     private String allowListType;
     /**
-     * @return 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     * 
-     */
-    private Integer applyDbInstanceNum;
-    /**
      * @return 白名单下绑定的实例总数
      * 
      */
@@ -125,13 +120,6 @@ public final class GetAllowListResult {
         return this.allowListType;
     }
     /**
-     * @return 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     * 
-     */
-    public Integer applyDbInstanceNum() {
-        return this.applyDbInstanceNum;
-    }
-    /**
      * @return 白名单下绑定的实例总数
      * 
      */
@@ -176,7 +164,6 @@ public final class GetAllowListResult {
         private Integer allowListIpNum;
         private String allowListName;
         private String allowListType;
-        private Integer applyDbInstanceNum;
         private Integer associatedInstanceNum;
         private List<GetAllowListAssociatedInstance> associatedInstances;
         private String id;
@@ -191,7 +178,6 @@ public final class GetAllowListResult {
     	      this.allowListIpNum = defaults.allowListIpNum;
     	      this.allowListName = defaults.allowListName;
     	      this.allowListType = defaults.allowListType;
-    	      this.applyDbInstanceNum = defaults.applyDbInstanceNum;
     	      this.associatedInstanceNum = defaults.associatedInstanceNum;
     	      this.associatedInstances = defaults.associatedInstances;
     	      this.id = defaults.id;
@@ -255,14 +241,6 @@ public final class GetAllowListResult {
             return this;
         }
         @CustomType.Setter
-        public Builder applyDbInstanceNum(Integer applyDbInstanceNum) {
-            if (applyDbInstanceNum == null) {
-              throw new MissingRequiredPropertyException("GetAllowListResult", "applyDbInstanceNum");
-            }
-            this.applyDbInstanceNum = applyDbInstanceNum;
-            return this;
-        }
-        @CustomType.Setter
         public Builder associatedInstanceNum(Integer associatedInstanceNum) {
             if (associatedInstanceNum == null) {
               throw new MissingRequiredPropertyException("GetAllowListResult", "associatedInstanceNum");
@@ -306,7 +284,6 @@ public final class GetAllowListResult {
             _resultValue.allowListIpNum = allowListIpNum;
             _resultValue.allowListName = allowListName;
             _resultValue.allowListType = allowListType;
-            _resultValue.applyDbInstanceNum = applyDbInstanceNum;
             _resultValue.associatedInstanceNum = associatedInstanceNum;
             _resultValue.associatedInstances = associatedInstances;
             _resultValue.id = id;

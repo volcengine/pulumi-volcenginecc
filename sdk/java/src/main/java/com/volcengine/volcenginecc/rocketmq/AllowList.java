@@ -22,39 +22,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.volcengine.volcenginecc.rocketmq.AllowList;
- * import com.volcengine.volcenginecc.rocketmq.AllowListArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var rocketMQAllowListDemo = new AllowList("rocketMQAllowListDemo", AllowListArgs.builder()
- *             .allowListType("IPv4")
- *             .allowList("192.xxx.0.0/24")
- *             .allowListName("ccapi-test")
- *             .allowListDesc("this is a description")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -163,20 +130,6 @@ public class AllowList extends com.pulumi.resources.CustomResource {
      */
     public Output<String> allowListType() {
         return this.allowListType;
-    }
-    /**
-     * 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     * 
-     */
-    @Export(name="applyDbInstanceNum", refs={Integer.class}, tree="[0]")
-    private Output<Integer> applyDbInstanceNum;
-
-    /**
-     * @return 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     * 
-     */
-    public Output<Integer> applyDbInstanceNum() {
-        return this.applyDbInstanceNum;
     }
     /**
      * 白名单下绑定的实例总数

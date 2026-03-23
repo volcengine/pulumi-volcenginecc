@@ -43,6 +43,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Waf.Inputs
         [Input("listenerId")]
         public Input<string>? ListenerId { get; set; }
 
+        /// <summary>
+        /// 是否从 ALB 中丢失关联。
+        /// </summary>
         [Input("lostAssociationFromAlb")]
         public Input<int>? LostAssociationFromAlb { get; set; }
 

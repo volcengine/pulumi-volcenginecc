@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.rocketmq.inputs.AllowListAssociatedInstanceArgs;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,21 +93,6 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.allowListType);
     }
 
-    /**
-     * 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     * 
-     */
-    @Import(name="applyDbInstanceNum")
-    private @Nullable Output<Integer> applyDbInstanceNum;
-
-    /**
-     * @return 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     * 
-     */
-    public Optional<Output<Integer>> applyDbInstanceNum() {
-        return Optional.ofNullable(this.applyDbInstanceNum);
-    }
-
     @Import(name="associatedInstances")
     private @Nullable Output<List<AllowListAssociatedInstanceArgs>> associatedInstances;
 
@@ -139,7 +123,6 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         this.allowListDesc = $.allowListDesc;
         this.allowListName = $.allowListName;
         this.allowListType = $.allowListType;
-        this.applyDbInstanceNum = $.applyDbInstanceNum;
         this.associatedInstances = $.associatedInstances;
         this.instanceId = $.instanceId;
     }
@@ -265,27 +248,6 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allowListType(String allowListType) {
             return allowListType(Output.of(allowListType));
-        }
-
-        /**
-         * @param applyDbInstanceNum 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applyDbInstanceNum(@Nullable Output<Integer> applyDbInstanceNum) {
-            $.applyDbInstanceNum = applyDbInstanceNum;
-            return this;
-        }
-
-        /**
-         * @param applyDbInstanceNum 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applyDbInstanceNum(Integer applyDbInstanceNum) {
-            return applyDbInstanceNum(Output.of(applyDbInstanceNum));
         }
 
         public Builder associatedInstances(@Nullable Output<List<AllowListAssociatedInstanceArgs>> associatedInstances) {

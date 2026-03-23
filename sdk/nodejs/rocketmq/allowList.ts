@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 /**
  * RocketMQ访问白名单。
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
- *
- * const rocketMQAllowListDemo = new volcenginecc.rocketmq.AllowList("RocketMQAllowListDemo", {
- *     allowListType: "IPv4",
- *     allowList: "192.xxx.0.0/24",
- *     allowListName: "ccapi-test",
- *     allowListDesc: "this is a description",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -86,10 +72,6 @@ export class AllowList extends pulumi.CustomResource {
      */
     public readonly allowListType!: pulumi.Output<string>;
     /**
-     * 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     */
-    public readonly applyDbInstanceNum!: pulumi.Output<number>;
-    /**
      * 白名单下绑定的实例总数
      */
     public /*out*/ readonly associatedInstanceNum!: pulumi.Output<number>;
@@ -119,7 +101,6 @@ export class AllowList extends pulumi.CustomResource {
             resourceInputs["allowListIpNum"] = state ? state.allowListIpNum : undefined;
             resourceInputs["allowListName"] = state ? state.allowListName : undefined;
             resourceInputs["allowListType"] = state ? state.allowListType : undefined;
-            resourceInputs["applyDbInstanceNum"] = state ? state.applyDbInstanceNum : undefined;
             resourceInputs["associatedInstanceNum"] = state ? state.associatedInstanceNum : undefined;
             resourceInputs["associatedInstances"] = state ? state.associatedInstances : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
@@ -133,7 +114,6 @@ export class AllowList extends pulumi.CustomResource {
             resourceInputs["allowListDesc"] = args ? args.allowListDesc : undefined;
             resourceInputs["allowListName"] = args ? args.allowListName : undefined;
             resourceInputs["allowListType"] = args ? args.allowListType : undefined;
-            resourceInputs["applyDbInstanceNum"] = args ? args.applyDbInstanceNum : undefined;
             resourceInputs["associatedInstances"] = args ? args.associatedInstances : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["allowListId"] = undefined /*out*/;
@@ -178,10 +158,6 @@ export interface AllowListState {
      */
     allowListType?: pulumi.Input<string>;
     /**
-     * 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     */
-    applyDbInstanceNum?: pulumi.Input<number>;
-    /**
      * 白名单下绑定的实例总数
      */
     associatedInstanceNum?: pulumi.Input<number>;
@@ -216,10 +192,6 @@ export interface AllowListArgs {
      * 白名单内的IP地址类型，当前仅支持IPv4。
      */
     allowListType?: pulumi.Input<string>;
-    /**
-     * 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-     */
-    applyDbInstanceNum?: pulumi.Input<number>;
     associatedInstances?: pulumi.Input<pulumi.Input<inputs.rocketmq.AllowListAssociatedInstance>[]>;
     /**
      * 实例ID。

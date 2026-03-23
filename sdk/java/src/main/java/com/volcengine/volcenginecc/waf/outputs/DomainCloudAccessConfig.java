@@ -37,6 +37,10 @@ public final class DomainCloudAccessConfig {
      * 
      */
     private @Nullable String listenerId;
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     private @Nullable Integer lostAssociationFromAlb;
     /**
      * @return 监听器转发规则的端口号。
@@ -85,6 +89,10 @@ public final class DomainCloudAccessConfig {
     public Optional<String> listenerId() {
         return Optional.ofNullable(this.listenerId);
     }
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     public Optional<Integer> lostAssociationFromAlb() {
         return Optional.ofNullable(this.lostAssociationFromAlb);
     }

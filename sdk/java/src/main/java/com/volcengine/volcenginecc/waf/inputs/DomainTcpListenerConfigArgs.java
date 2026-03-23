@@ -16,58 +16,122 @@ public final class DomainTcpListenerConfigArgs extends com.pulumi.resources.Reso
 
     public static final DomainTcpListenerConfigArgs Empty = new DomainTcpListenerConfigArgs();
 
+    /**
+     * 接入协议类型。
+     * 
+     */
     @Import(name="accessProtocol")
     private @Nullable Output<String> accessProtocol;
 
+    /**
+     * @return 接入协议类型。
+     * 
+     */
     public Optional<Output<String>> accessProtocol() {
         return Optional.ofNullable(this.accessProtocol);
     }
 
+    /**
+     * 防护模式。
+     * 
+     */
     @Import(name="defenceMode")
     private @Nullable Output<Integer> defenceMode;
 
+    /**
+     * @return 防护模式。
+     * 
+     */
     public Optional<Output<Integer>> defenceMode() {
         return Optional.ofNullable(this.defenceMode);
     }
 
+    /**
+     * 实例 ID。
+     * 
+     */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
+    /**
+     * @return 实例 ID。
+     * 
+     */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
 
+    /**
+     * 实例名称。
+     * 
+     */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
+    /**
+     * @return 实例名称。
+     * 
+     */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
     }
 
+    /**
+     * 监听器 ID。
+     * 
+     */
     @Import(name="listenerId")
     private @Nullable Output<String> listenerId;
 
+    /**
+     * @return 监听器 ID。
+     * 
+     */
     public Optional<Output<String>> listenerId() {
         return Optional.ofNullable(this.listenerId);
     }
 
+    /**
+     * 是否从 ALB 中丢失关联。
+     * 
+     */
     @Import(name="lostAssociationFromAlb")
     private @Nullable Output<Integer> lostAssociationFromAlb;
 
+    /**
+     * @return 是否从 ALB 中丢失关联。
+     * 
+     */
     public Optional<Output<Integer>> lostAssociationFromAlb() {
         return Optional.ofNullable(this.lostAssociationFromAlb);
     }
 
+    /**
+     * 监听器的端口号。
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<String> port;
 
+    /**
+     * @return 监听器的端口号。
+     * 
+     */
     public Optional<Output<String>> port() {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * 监听器协议类型。
+     * 
+     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
+    /**
+     * @return 监听器协议类型。
+     * 
+     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -103,74 +167,170 @@ public final class DomainTcpListenerConfigArgs extends com.pulumi.resources.Reso
             $ = new DomainTcpListenerConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessProtocol 接入协议类型。
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessProtocol(@Nullable Output<String> accessProtocol) {
             $.accessProtocol = accessProtocol;
             return this;
         }
 
+        /**
+         * @param accessProtocol 接入协议类型。
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessProtocol(String accessProtocol) {
             return accessProtocol(Output.of(accessProtocol));
         }
 
+        /**
+         * @param defenceMode 防护模式。
+         * 
+         * @return builder
+         * 
+         */
         public Builder defenceMode(@Nullable Output<Integer> defenceMode) {
             $.defenceMode = defenceMode;
             return this;
         }
 
+        /**
+         * @param defenceMode 防护模式。
+         * 
+         * @return builder
+         * 
+         */
         public Builder defenceMode(Integer defenceMode) {
             return defenceMode(Output.of(defenceMode));
         }
 
+        /**
+         * @param instanceId 实例 ID。
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
+        /**
+         * @param instanceId 实例 ID。
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
+        /**
+         * @param instanceName 实例名称。
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
+        /**
+         * @param instanceName 实例名称。
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
+        /**
+         * @param listenerId 监听器 ID。
+         * 
+         * @return builder
+         * 
+         */
         public Builder listenerId(@Nullable Output<String> listenerId) {
             $.listenerId = listenerId;
             return this;
         }
 
+        /**
+         * @param listenerId 监听器 ID。
+         * 
+         * @return builder
+         * 
+         */
         public Builder listenerId(String listenerId) {
             return listenerId(Output.of(listenerId));
         }
 
+        /**
+         * @param lostAssociationFromAlb 是否从 ALB 中丢失关联。
+         * 
+         * @return builder
+         * 
+         */
         public Builder lostAssociationFromAlb(@Nullable Output<Integer> lostAssociationFromAlb) {
             $.lostAssociationFromAlb = lostAssociationFromAlb;
             return this;
         }
 
+        /**
+         * @param lostAssociationFromAlb 是否从 ALB 中丢失关联。
+         * 
+         * @return builder
+         * 
+         */
         public Builder lostAssociationFromAlb(Integer lostAssociationFromAlb) {
             return lostAssociationFromAlb(Output.of(lostAssociationFromAlb));
         }
 
+        /**
+         * @param port 监听器的端口号。
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<String> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port 监听器的端口号。
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(String port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param protocol 监听器协议类型。
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol 监听器协议类型。
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

@@ -28,7 +28,7 @@ class GetAllowListResult:
     """
     A collection of values returned by getAllowList.
     """
-    def __init__(__self__, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_ip_num=None, allow_list_name=None, allow_list_type=None, apply_db_instance_num=None, associated_instance_num=None, associated_instances=None, id=None, instance_id=None):
+    def __init__(__self__, allow_list=None, allow_list_category=None, allow_list_desc=None, allow_list_id=None, allow_list_ip_num=None, allow_list_name=None, allow_list_type=None, associated_instance_num=None, associated_instances=None, id=None, instance_id=None):
         if allow_list and not isinstance(allow_list, str):
             raise TypeError("Expected argument 'allow_list' to be a str")
         pulumi.set(__self__, "allow_list", allow_list)
@@ -50,9 +50,6 @@ class GetAllowListResult:
         if allow_list_type and not isinstance(allow_list_type, str):
             raise TypeError("Expected argument 'allow_list_type' to be a str")
         pulumi.set(__self__, "allow_list_type", allow_list_type)
-        if apply_db_instance_num and not isinstance(apply_db_instance_num, int):
-            raise TypeError("Expected argument 'apply_db_instance_num' to be a int")
-        pulumi.set(__self__, "apply_db_instance_num", apply_db_instance_num)
         if associated_instance_num and not isinstance(associated_instance_num, int):
             raise TypeError("Expected argument 'associated_instance_num' to be a int")
         pulumi.set(__self__, "associated_instance_num", associated_instance_num)
@@ -123,14 +120,6 @@ class GetAllowListResult:
         return pulumi.get(self, "allow_list_type")
 
     @property
-    @pulumi.getter(name="applyDbInstanceNum")
-    def apply_db_instance_num(self) -> builtins.int:
-        """
-        已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-        """
-        return pulumi.get(self, "apply_db_instance_num")
-
-    @property
     @pulumi.getter(name="associatedInstanceNum")
     def associated_instance_num(self) -> builtins.int:
         """
@@ -176,7 +165,6 @@ class AwaitableGetAllowListResult(GetAllowListResult):
             allow_list_ip_num=self.allow_list_ip_num,
             allow_list_name=self.allow_list_name,
             allow_list_type=self.allow_list_type,
-            apply_db_instance_num=self.apply_db_instance_num,
             associated_instance_num=self.associated_instance_num,
             associated_instances=self.associated_instances,
             id=self.id,
@@ -204,7 +192,6 @@ def get_allow_list(id: Optional[builtins.str] = None,
         allow_list_ip_num=pulumi.get(__ret__, 'allow_list_ip_num'),
         allow_list_name=pulumi.get(__ret__, 'allow_list_name'),
         allow_list_type=pulumi.get(__ret__, 'allow_list_type'),
-        apply_db_instance_num=pulumi.get(__ret__, 'apply_db_instance_num'),
         associated_instance_num=pulumi.get(__ret__, 'associated_instance_num'),
         associated_instances=pulumi.get(__ret__, 'associated_instances'),
         id=pulumi.get(__ret__, 'id'),
@@ -229,7 +216,6 @@ def get_allow_list_output(id: Optional[pulumi.Input[builtins.str]] = None,
         allow_list_ip_num=pulumi.get(__response__, 'allow_list_ip_num'),
         allow_list_name=pulumi.get(__response__, 'allow_list_name'),
         allow_list_type=pulumi.get(__response__, 'allow_list_type'),
-        apply_db_instance_num=pulumi.get(__response__, 'apply_db_instance_num'),
         associated_instance_num=pulumi.get(__response__, 'associated_instance_num'),
         associated_instances=pulumi.get(__response__, 'associated_instances'),
         id=pulumi.get(__response__, 'id'),

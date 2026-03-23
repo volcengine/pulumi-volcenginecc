@@ -44,8 +44,6 @@ type LookupAllowListResult struct {
 	AllowListName string `pulumi:"allowListName"`
 	// 白名单内的IP地址类型，当前仅支持IPv4。
 	AllowListType string `pulumi:"allowListType"`
-	// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-	ApplyDbInstanceNum int `pulumi:"applyDbInstanceNum"`
 	// 白名单下绑定的实例总数
 	AssociatedInstanceNum int `pulumi:"associatedInstanceNum"`
 	// 绑定的实例列表。
@@ -123,11 +121,6 @@ func (o LookupAllowListResultOutput) AllowListName() pulumi.StringOutput {
 // 白名单内的IP地址类型，当前仅支持IPv4。
 func (o LookupAllowListResultOutput) AllowListType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowListType }).(pulumi.StringOutput)
-}
-
-// 已应用实例数量，即当前该白名单所绑定的实例数。主要目的是确认本次修改的影响范围，避免误操作引发故障。
-func (o LookupAllowListResultOutput) ApplyDbInstanceNum() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupAllowListResult) int { return v.ApplyDbInstanceNum }).(pulumi.IntOutput)
 }
 
 // 白名单下绑定的实例总数
