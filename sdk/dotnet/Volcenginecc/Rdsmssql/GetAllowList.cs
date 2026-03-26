@@ -13,19 +13,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql
     public static class GetAllowList
     {
         /// <summary>
-        /// Data Source schema for Volcengine::RDSMsSQL::Allowlist
+        /// Data Source schema for Volcengine::RDSMsSQL::AllowList
         /// </summary>
         public static Task<GetAllowListResult> InvokeAsync(GetAllowListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAllowListResult>("volcenginecc:rdsmssql/getAllowList:getAllowList", args ?? new GetAllowListArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data Source schema for Volcengine::RDSMsSQL::Allowlist
+        /// Data Source schema for Volcengine::RDSMsSQL::AllowList
         /// </summary>
         public static Output<GetAllowListResult> Invoke(GetAllowListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAllowListResult>("volcenginecc:rdsmssql/getAllowList:getAllowList", args ?? new GetAllowListInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data Source schema for Volcengine::RDSMsSQL::Allowlist
+        /// Data Source schema for Volcengine::RDSMsSQL::AllowList
         /// </summary>
         public static Output<GetAllowListResult> Invoke(GetAllowListInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAllowListResult>("volcenginecc:rdsmssql/getAllowList:getAllowList", args ?? new GetAllowListInvokeArgs(), options.WithDefaults());

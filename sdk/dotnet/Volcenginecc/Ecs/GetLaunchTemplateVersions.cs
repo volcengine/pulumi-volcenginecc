@@ -13,19 +13,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     public static class GetLaunchTemplateVersions
     {
         /// <summary>
-        /// Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+        /// Plural Data Source schema for Volcengine::ECS::LaunchTemplateVersion
         /// </summary>
         public static Task<GetLaunchTemplateVersionsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateVersionsResult>("volcenginecc:ecs/getLaunchTemplateVersions:getLaunchTemplateVersions", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+        /// Plural Data Source schema for Volcengine::ECS::LaunchTemplateVersion
         /// </summary>
         public static Output<GetLaunchTemplateVersionsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateVersionsResult>("volcenginecc:ecs/getLaunchTemplateVersions:getLaunchTemplateVersions", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Plural Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+        /// Plural Data Source schema for Volcengine::ECS::LaunchTemplateVersion
         /// </summary>
         public static Output<GetLaunchTemplateVersionsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateVersionsResult>("volcenginecc:ecs/getLaunchTemplateVersions:getLaunchTemplateVersions", InvokeArgs.Empty, options.WithDefaults());

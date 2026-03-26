@@ -402,7 +402,7 @@ class AwaitableGetLaunchTemplateVersionResult(GetLaunchTemplateVersionResult):
 def get_launch_template_version(id: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchTemplateVersionResult:
     """
-    Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+    Data Source schema for Volcengine::ECS::LaunchTemplateVersion
 
 
     :param builtins.str id: Uniquely identifies the resource.
@@ -446,7 +446,7 @@ def get_launch_template_version(id: Optional[builtins.str] = None,
 def get_launch_template_version_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchTemplateVersionResult]:
     """
-    Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+    Data Source schema for Volcengine::ECS::LaunchTemplateVersion
 
 
     :param builtins.str id: Uniquely identifies the resource.

@@ -16,12 +16,16 @@ import com.volcengine.volcenginecc.emr.inputs.GetClusterUserArgs;
 import com.volcengine.volcenginecc.emr.inputs.GetClusterUserGroupArgs;
 import com.volcengine.volcenginecc.emr.inputs.GetClusterUserGroupPlainArgs;
 import com.volcengine.volcenginecc.emr.inputs.GetClusterUserPlainArgs;
+import com.volcengine.volcenginecc.emr.inputs.GetNodeGroupArgs;
+import com.volcengine.volcenginecc.emr.inputs.GetNodeGroupPlainArgs;
 import com.volcengine.volcenginecc.emr.outputs.GetClusterResult;
 import com.volcengine.volcenginecc.emr.outputs.GetClusterUserGroupResult;
 import com.volcengine.volcenginecc.emr.outputs.GetClusterUserGroupsResult;
 import com.volcengine.volcenginecc.emr.outputs.GetClusterUserResult;
 import com.volcengine.volcenginecc.emr.outputs.GetClusterUsersResult;
 import com.volcengine.volcenginecc.emr.outputs.GetClustersResult;
+import com.volcengine.volcenginecc.emr.outputs.GetNodeGroupResult;
+import com.volcengine.volcenginecc.emr.outputs.GetNodeGroupsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class EmrFunctions {
@@ -276,5 +280,89 @@ public final class EmrFunctions {
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:emr/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args) {
+        return getNodeGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static CompletableFuture<GetNodeGroupResult> getNodeGroupPlain(GetNodeGroupPlainArgs args) {
+        return getNodeGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:emr/getNodeGroup:getNodeGroup", TypeShape.of(GetNodeGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:emr/getNodeGroup:getNodeGroup", TypeShape.of(GetNodeGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static CompletableFuture<GetNodeGroupResult> getNodeGroupPlain(GetNodeGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:emr/getNodeGroup:getNodeGroup", TypeShape.of(GetNodeGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupsResult> getNodeGroups() {
+        return getNodeGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain() {
+        return getNodeGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupsResult> getNodeGroups(InvokeArgs args) {
+        return getNodeGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(InvokeArgs args) {
+        return getNodeGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupsResult> getNodeGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:emr/getNodeGroups:getNodeGroups", TypeShape.of(GetNodeGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static Output<GetNodeGroupsResult> getNodeGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:emr/getNodeGroups:getNodeGroups", TypeShape.of(GetNodeGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::EMR::NodeGroup
+     * 
+     */
+    public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:emr/getNodeGroups:getNodeGroups", TypeShape.of(GetNodeGroupsResult.class), args, Utilities.withVersion(options));
     }
 }

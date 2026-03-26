@@ -11,7 +11,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// Data Source schema for Volcengine::ECS::LaunchtemplateVersion
+// Data Source schema for Volcengine::ECS::LaunchTemplateVersion
 func LookupLaunchTemplateVersion(ctx *pulumi.Context, args *LookupLaunchTemplateVersionArgs, opts ...pulumi.InvokeOption) (*LookupLaunchTemplateVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchTemplateVersionResult

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Data Source schema for Volcengine::RDSMsSQL::Allowlist
+ * Data Source schema for Volcengine::RDSMsSQL::AllowList
  */
 export function getAllowList(args: GetAllowListArgs, opts?: pulumi.InvokeOptions): Promise<GetAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,7 +84,7 @@ export interface GetAllowListResult {
     readonly userAllowList: string;
 }
 /**
- * Data Source schema for Volcengine::RDSMsSQL::Allowlist
+ * Data Source schema for Volcengine::RDSMsSQL::AllowList
  */
 export function getAllowListOutput(args: GetAllowListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

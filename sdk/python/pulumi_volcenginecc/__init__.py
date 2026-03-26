@@ -658,6 +658,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "emr/nodeGroup",
+  "fqn": "pulumi_volcenginecc.emr",
+  "classes": {
+   "volcenginecc:emr/nodeGroup:NodeGroup": "NodeGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "escloud/instance",
   "fqn": "pulumi_volcenginecc.escloud",
   "classes": {

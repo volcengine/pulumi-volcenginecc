@@ -994,6 +994,9 @@
                     "cen_bandwidth_package_ids": {
                         "maxItemsOne": false
                     },
+                    "instances": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -1657,6 +1660,36 @@
                 "current": "volcenginecc:emr/clusterUserGroup:ClusterUserGroup",
                 "fields": {
                     "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_node_group": {
+                "current": "volcenginecc:emr/nodeGroup:NodeGroup",
+                "fields": {
+                    "application_layouts": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "layout_component_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "data_disks": {
+                        "maxItemsOne": false
+                    },
+                    "ecs_instance_types": {
+                        "maxItemsOne": false
+                    },
+                    "layout_component_names": {
+                        "maxItemsOne": false
+                    },
+                    "nodes": {
+                        "maxItemsOne": false
+                    },
+                    "subnet_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -4431,6 +4464,9 @@
                     "cen_bandwidth_package_ids": {
                         "maxItemsOne": false
                     },
+                    "instances": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -5386,6 +5422,44 @@
             },
             "volcenginecc_emr_clusters": {
                 "current": "volcenginecc:emr/getClusters:getClusters",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_node_group": {
+                "current": "volcenginecc:emr/getNodeGroup:getNodeGroup",
+                "fields": {
+                    "application_layouts": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "layout_component_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "data_disks": {
+                        "maxItemsOne": false
+                    },
+                    "ecs_instance_types": {
+                        "maxItemsOne": false
+                    },
+                    "layout_component_names": {
+                        "maxItemsOne": false
+                    },
+                    "nodes": {
+                        "maxItemsOne": false
+                    },
+                    "subnet_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_emr_node_groups": {
+                "current": "volcenginecc:emr/getNodeGroups:getNodeGroups",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
