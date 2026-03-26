@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.cen.CenArgs;
 import com.volcengine.volcenginecc.cen.inputs.CenState;
+import com.volcengine.volcenginecc.cen.outputs.CenInstance;
 import com.volcengine.volcenginecc.cen.outputs.CenTag;
 import java.lang.String;
 import java.util.List;
@@ -21,43 +22,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.volcengine.volcenginecc.cen.Cen;
- * import com.volcengine.volcenginecc.cen.CenArgs;
- * import com.pulumi.volcenginecc.cen.inputs.CenTagArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var cENCENDemo = new Cen("cENCENDemo", CenArgs.builder()
- *             .cenName("CENCENDemo")
- *             .description("CENCENDemo descripiton")
- *             .projectName("iac")
- *             .tags(CenTagArgs.builder()
- *                 .key("dev")
- *                 .value("test")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -152,6 +116,12 @@ public class Cen extends com.pulumi.resources.CustomResource {
      */
     public Output<String> description() {
         return this.description;
+    }
+    @Export(name="instances", refs={List.class,CenInstance.class}, tree="[0,1]")
+    private Output<List<CenInstance>> instances;
+
+    public Output<List<CenInstance>> instances() {
+        return this.instances;
     }
     /**
      * CEN实例所属项目的名称。不填则默认为default。

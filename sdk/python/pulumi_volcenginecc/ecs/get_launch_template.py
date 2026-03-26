@@ -162,7 +162,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
 def get_launch_template(id: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchTemplateResult:
     """
-    Data Source schema for Volcengine::ECS::Launchtemplate
+    Data Source schema for Volcengine::ECS::LaunchTemplate
 
 
     :param builtins.str id: Uniquely identifies the resource.
@@ -186,7 +186,7 @@ def get_launch_template(id: Optional[builtins.str] = None,
 def get_launch_template_output(id: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
-    Data Source schema for Volcengine::ECS::Launchtemplate
+    Data Source schema for Volcengine::ECS::LaunchTemplate
 
 
     :param builtins.str id: Uniquely identifies the resource.

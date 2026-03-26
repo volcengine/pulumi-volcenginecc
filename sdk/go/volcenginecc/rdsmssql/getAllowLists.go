@@ -11,7 +11,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// Plural Data Source schema for Volcengine::RDSMsSQL::Allowlist
+// Plural Data Source schema for Volcengine::RDSMsSQL::AllowList
 func GetAllowLists(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAllowListsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAllowListsResult

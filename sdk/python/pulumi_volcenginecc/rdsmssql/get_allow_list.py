@@ -198,7 +198,7 @@ class AwaitableGetAllowListResult(GetAllowListResult):
 def get_allow_list(id: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAllowListResult:
     """
-    Data Source schema for Volcengine::RDSMsSQL::Allowlist
+    Data Source schema for Volcengine::RDSMsSQL::AllowList
 
 
     :param builtins.str id: Uniquely identifies the resource.
@@ -225,7 +225,7 @@ def get_allow_list(id: Optional[builtins.str] = None,
 def get_allow_list_output(id: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAllowListResult]:
     """
-    Data Source schema for Volcengine::RDSMsSQL::Allowlist
+    Data Source schema for Volcengine::RDSMsSQL::AllowList
 
 
     :param builtins.str id: Uniquely identifies the resource.

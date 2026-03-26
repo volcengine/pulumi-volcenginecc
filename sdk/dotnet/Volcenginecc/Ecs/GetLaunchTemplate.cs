@@ -13,19 +13,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     public static class GetLaunchTemplate
     {
         /// <summary>
-        /// Data Source schema for Volcengine::ECS::Launchtemplate
+        /// Data Source schema for Volcengine::ECS::LaunchTemplate
         /// </summary>
         public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("volcenginecc:ecs/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data Source schema for Volcengine::ECS::Launchtemplate
+        /// Data Source schema for Volcengine::ECS::LaunchTemplate
         /// </summary>
         public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("volcenginecc:ecs/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data Source schema for Volcengine::ECS::Launchtemplate
+        /// Data Source schema for Volcengine::ECS::LaunchTemplate
         /// </summary>
         public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("volcenginecc:ecs/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());

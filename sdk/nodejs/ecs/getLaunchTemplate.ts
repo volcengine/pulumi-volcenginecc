@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Data Source schema for Volcengine::ECS::Launchtemplate
+ * Data Source schema for Volcengine::ECS::LaunchTemplate
  */
 export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,7 +72,7 @@ export interface GetLaunchTemplateResult {
     readonly updatedAt: string;
 }
 /**
- * Data Source schema for Volcengine::ECS::Launchtemplate
+ * Data Source schema for Volcengine::ECS::LaunchTemplate
  */
 export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLaunchTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

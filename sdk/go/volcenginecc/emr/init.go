@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterUser{}
 	case "volcenginecc:emr/clusterUserGroup:ClusterUserGroup":
 		r = &ClusterUserGroup{}
+	case "volcenginecc:emr/nodeGroup:NodeGroup":
+		r = &NodeGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"emr/clusterUserGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"emr/nodeGroup",
 		&module{version},
 	)
 }
