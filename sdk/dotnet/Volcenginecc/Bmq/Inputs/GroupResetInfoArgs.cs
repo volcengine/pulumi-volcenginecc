@@ -14,25 +14,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq.Inputs
     public sealed class GroupResetInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 重置方式为 OFFSET 时，该参数必传，指定重新消费的基准消费位置，取值如下：EARLIEST：基准消费位置为最早消费位点。CURRENT：基准消费位置为当前消费位点。LATEST：基准消费位置为最近消费位点。
+        /// If the reset mode is OFFSET, this parameter is required. Specify the reference consumption position for resuming consumption. Options: EARLIEST: Reference position is the earliest offset. CURRENT: Reference position is the current offset. LATEST: Reference position is the latest offset.
         /// </summary>
         [Input("offsetType")]
         public Input<string>? OffsetType { get; set; }
 
         /// <summary>
-        /// 分区序号。
+        /// Partition number
         /// </summary>
         [Input("partitionId")]
         public Input<int>? PartitionId { get; set; }
 
         /// <summary>
-        /// 重置方式，取值如下：TIMESTAMP：根据时间点重置消费位点，指定过去或将来的时间点，直接跳转到该时间点的位点开始消费。OFFSET：根据指定的 offset 重置消费位点，即从指定的位点开始消费，可以通过 offsetType 参数指定 offset。
+        /// Reset mode. Options: TIMESTAMP: Reset the consumption offset based on a timestamp. Specify a past or future time to jump directly to the offset at that time and start consuming. OFFSET: Reset the consumption offset based on a specified offset, starting consumption from that offset. You can specify the offset using the offsetType parameter.
         /// </summary>
         [Input("resetBy")]
         public Input<string>? ResetBy { get; set; }
 
         /// <summary>
-        /// 重置值。选择重置方式为 TIMESTAMP 时，该值为重新消费的时间点。例如 1722224612000。选择重置方式为 OFFSET 时，该值为相对于 OffsetType 中基准位点的 相对偏移量。例如 100。
+        /// Reset value. If TIMESTAMP is selected, this value is the timestamp for resuming consumption, e.g., 1722224612000. If OFFSET is selected, this value is the relative offset from the reference offset in OffsetType, e.g., 100.
         /// </summary>
         [Input("resetValue")]
         public Input<int>? ResetValue { get; set; }

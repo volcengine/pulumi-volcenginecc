@@ -14,19 +14,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Inputs
     public sealed class FileSystemTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 标签键。
+        /// Tag key.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+        /// Tag type. Value description: System: System tag, Custom: Custom tag.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// 标签值。
+        /// Tag value.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

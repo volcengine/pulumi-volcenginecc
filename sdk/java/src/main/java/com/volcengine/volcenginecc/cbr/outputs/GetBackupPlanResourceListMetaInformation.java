@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupPlanResourceListMetaInformation {
     /**
-     * @return ECS 的元数据，是一个 JSON string。
+     * @return ECS metadata, which is a JSON string
      * 
      */
     private String ecsMeta;
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。
+     * @return vePFS backup source metadata, which is a JSON string
      * 
      */
     private String vepfsMeta;
 
     private GetBackupPlanResourceListMetaInformation() {}
     /**
-     * @return ECS 的元数据，是一个 JSON string。
+     * @return ECS metadata, which is a JSON string
      * 
      */
     public String ecsMeta() {
         return this.ecsMeta;
     }
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。
+     * @return vePFS backup source metadata, which is a JSON string
      * 
      */
     public String vepfsMeta() {

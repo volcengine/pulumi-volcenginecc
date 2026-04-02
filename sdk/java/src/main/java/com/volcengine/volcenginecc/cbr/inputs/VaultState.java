@@ -18,14 +18,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     public static final VaultState Empty = new VaultState();
 
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -33,14 +33,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 访问域名。
+     * Access Domain Name
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return 访问域名。
+     * @return Access Domain Name
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -48,14 +48,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 项目名称。
+     * Project Name
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 项目名称。
+     * @return Project Name
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -70,14 +70,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份库 ID。
+     * Backup Repository ID
      * 
      */
     @Import(name="vaultId")
     private @Nullable Output<String> vaultId;
 
     /**
-     * @return 备份库 ID。
+     * @return Backup Repository ID
      * 
      */
     public Optional<Output<String>> vaultId() {
@@ -85,14 +85,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份库名称。
+     * Backup Repository Name
      * 
      */
     @Import(name="vaultName")
     private @Nullable Output<String> vaultName;
 
     /**
-     * @return 备份库名称。
+     * @return Backup Repository Name
      * 
      */
     public Optional<Output<String>> vaultName() {
@@ -129,7 +129,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint 访问域名。
+         * @param endpoint Access Domain Name
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint 访问域名。
+         * @param endpoint Access Domain Name
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project Name
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project Name
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultId 备份库 ID。
+         * @param vaultId Backup Repository ID
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultId 备份库 ID。
+         * @param vaultId Backup Repository ID
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultName 备份库名称。
+         * @param vaultName Backup Repository Name
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultName 备份库名称。
+         * @param vaultName Backup Repository Name
          * 
          * @return builder
          * 

@@ -14,31 +14,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
     public sealed class TopicQueuesInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        /// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
         /// </summary>
         [Input("endOffset")]
         public Input<int>? EndOffset { get; set; }
 
         /// <summary>
-        /// 该队列最近一次消息写入的时间。
+        /// The time of the most recent message written to this queue.
         /// </summary>
         [Input("lastUpdateTimestamp")]
         public Input<int>? LastUpdateTimestamp { get; set; }
 
         /// <summary>
-        /// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        /// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
         /// </summary>
         [Input("messageCount")]
         public Input<int>? MessageCount { get; set; }
 
         /// <summary>
-        /// 队列的编号 ID。
+        /// Queue ID.
         /// </summary>
         [Input("queueId")]
         public Input<string>? QueueId { get; set; }
 
         /// <summary>
-        /// 当前队列最早消息的偏移量。
+        /// The earliest message offset in the current queue.
         /// </summary>
         [Input("startOffset")]
         public Input<int>? StartOffset { get; set; }

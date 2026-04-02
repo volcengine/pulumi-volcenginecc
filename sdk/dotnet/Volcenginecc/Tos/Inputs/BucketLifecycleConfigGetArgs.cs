@@ -14,25 +14,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketLifecycleConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 指定未合并的分片任务（碎片）的过期属性。
+        /// Specify expiration attributes for unmerged multipart tasks (fragments)
         /// </summary>
         [Input("abortInCompleteMultipartUpload")]
         public Input<Inputs.BucketLifecycleConfigAbortInCompleteMultipartUploadGetArgs>? AbortInCompleteMultipartUpload { get; set; }
 
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+        /// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
         /// </summary>
         [Input("expiration")]
         public Input<Inputs.BucketLifecycleConfigExpirationGetArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// 指定规则生效的过滤条件。
+        /// Filter conditions for applying the rule
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketLifecycleConfigFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// 规则 ID。
+        /// Rule ID
         /// </summary>
         [Input("lifecycleRuleId")]
         public Input<string>? LifecycleRuleId { get; set; }
@@ -49,13 +49,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
         }
 
         /// <summary>
-        /// 规则所适用的前缀。
+        /// Prefix to which the rule applies
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// 是否启用规则。包括Enabled、Disabled。
+        /// Enable rule. Includes Enabled, Disabled.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

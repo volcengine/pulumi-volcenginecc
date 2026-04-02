@@ -11,74 +11,74 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketAclGrant {
     /**
-     * @return 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+     * @return Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
      * 
      */
     private String acl;
     /**
-     * @return 授予指定用户所有权限。
+     * @return Grant all permissions to the specified user
      * 
      */
     private String grantFullControl;
     /**
-     * @return 授予指定用户读权限。
+     * @return Grant read permission to the specified user
      * 
      */
     private String grantRead;
     /**
-     * @return 授予指定用户查看桶 ACL 的权限。
+     * @return Grant permission to specified user to view bucket ACL
      * 
      */
     private String grantReadAcp;
     /**
-     * @return 授予指定用户写权限。
+     * @return Grant write permission to specified user
      * 
      */
     private String grantWrite;
     /**
-     * @return 授予指定用户修改和删除桶 ACL 的权限。
+     * @return Grant permission to the specified user to modify and delete bucket ACL
      * 
      */
     private String grantWriteAcp;
 
     private GetBucketAclGrant() {}
     /**
-     * @return 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+     * @return Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
      * 
      */
     public String acl() {
         return this.acl;
     }
     /**
-     * @return 授予指定用户所有权限。
+     * @return Grant all permissions to the specified user
      * 
      */
     public String grantFullControl() {
         return this.grantFullControl;
     }
     /**
-     * @return 授予指定用户读权限。
+     * @return Grant read permission to the specified user
      * 
      */
     public String grantRead() {
         return this.grantRead;
     }
     /**
-     * @return 授予指定用户查看桶 ACL 的权限。
+     * @return Grant permission to specified user to view bucket ACL
      * 
      */
     public String grantReadAcp() {
         return this.grantReadAcp;
     }
     /**
-     * @return 授予指定用户写权限。
+     * @return Grant write permission to specified user
      * 
      */
     public String grantWrite() {
         return this.grantWrite;
     }
     /**
-     * @return 授予指定用户修改和删除桶 ACL 的权限。
+     * @return Grant permission to the specified user to modify and delete bucket ACL
      * 
      */
     public String grantWriteAcp() {

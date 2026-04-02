@@ -14,19 +14,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketLifecycleConfigTransitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+        /// Specific date for latest version object transition in lifecycle rules based on last modified time
         /// </summary>
         [Input("date")]
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+        /// Number of days to transition the latest version object in the lifecycle rule based on last modified time
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        /// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }

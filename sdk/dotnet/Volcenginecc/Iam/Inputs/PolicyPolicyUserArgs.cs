@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam.Inputs
     public sealed class PolicyPolicyUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 对应用户、角色、用户组的名称。
+        /// Name of the corresponding user, role, or user group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

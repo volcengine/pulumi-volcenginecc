@@ -31,11 +31,11 @@ export interface GetLaunchTemplateArgs {
  */
 export interface GetLaunchTemplateResult {
     /**
-     * 实例启动模板的创建时间。
+     * Instance launch template creation time
      */
     readonly createdAt: string;
     /**
-     * 实例启动模板的默认版本号。
+     * Instance launch template default version number
      */
     readonly defaultVersionNumber: number;
     /**
@@ -43,31 +43,31 @@ export interface GetLaunchTemplateResult {
      */
     readonly id: string;
     /**
-     * 实例启动模的最新版本号。
+     * Latest version number of the instance launch template.
      */
     readonly latestVersionNumber: number;
     /**
-     * 实例启动模板 ID。
+     * Instance launch template ID
      */
     readonly launchTemplateId: string;
     /**
-     * 实例启动模板名称。
+     * Instance launch template name.
      */
     readonly launchTemplateName: string;
     /**
-     * 实例启动模版所属项目。
+     * Project associated with the instance launch template.
      */
     readonly launchTemplateProjectName: string;
     /**
-     * 实例启动模版的标签信息。
+     * Instance launch template tag information
      */
     readonly launchTemplateTags: outputs.ecs.GetLaunchTemplateLaunchTemplateTag[];
     /**
-     * 实例启动模板版本信息。
+     * Instance launch template version information
      */
     readonly launchTemplateVersion: outputs.ecs.GetLaunchTemplateLaunchTemplateVersion;
     /**
-     * 实例启动模板的更新时间。
+     * Instance launch template update time
      */
     readonly updatedAt: string;
 }

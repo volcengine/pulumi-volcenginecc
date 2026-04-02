@@ -16,7 +16,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Outputs
     {
         public readonly ImmutableArray<Outputs.ClusterStatusCondition> Conditions;
         /// <summary>
-        /// 集群状态阶段
+        /// Cluster status phase.
         /// </summary>
         public readonly string? Phase;
 

@@ -17,42 +17,42 @@ import java.util.Objects;
 @CustomType
 public final class GetFileSystemResult {
     /**
-     * @return 接入点上限。
+     * @return Access point limit.
      * 
      */
     private Integer accessPointLimit;
     /**
-     * @return 文件系统计费配置。
+     * @return File system billing configuration.
      * 
      */
     private GetFileSystemChargeConfig chargeConfig;
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     private String chargeType;
     /**
-     * @return 文件系统创建时间。
+     * @return File system creation time.
      * 
      */
     private String createTime;
     /**
-     * @return 描述信息。
+     * @return Description.
      * 
      */
     private String description;
     /**
-     * @return 文件系统带宽可以降配的时间。
+     * @return Time when file system bandwidth can be downgraded.
      * 
      */
     private String downgradeUnlockTime;
     /**
-     * @return 文件系统 ID。
+     * @return File system ID.
      * 
      */
     private String fileSystemId;
     /**
-     * @return 文件系统名称。
+     * @return File system name.
      * 
      */
     private String fileSystemName;
@@ -62,118 +62,118 @@ public final class GetFileSystemResult {
      */
     private String id;
     /**
-     * @return Basic：基础型,Premium：高级型
+     * @return Basic: Basic type, Premium: Premium type.
      * 
      */
     private String instanceType;
     /**
-     * @return 挂载点上限。
+     * @return Mount point limit.
      * 
      */
     private Integer mountPointLimit;
     /**
-     * @return 文件系统性能信息。
+     * @return File system performance information.
      * 
      */
     private GetFileSystemPerformance performance;
     /**
-     * @return 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * @return File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     private String performanceDensity;
     /**
-     * @return 项目名称。
+     * @return Project name.
      * 
      */
     private String projectName;
     /**
-     * @return 协议类型
+     * @return Protocol type.
      * 
      */
     private List<String> protocolTypes;
     /**
-     * @return 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * @return File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      * 
      */
     private String status;
     /**
-     * @return 文件系统容量信息。
+     * @return File system capacity information.
      * 
      */
     private GetFileSystemStorage storage;
     /**
-     * @return 标签列表。
+     * @return Tag list.
      * 
      */
     private List<GetFileSystemTag> tags;
     /**
-     * @return 文件系统更新时间。
+     * @return File system update time.
      * 
      */
     private String updateTime;
     /**
-     * @return 可用区 ID。
+     * @return Availability zone ID.
      * 
      */
     private String zoneId;
     /**
-     * @return 可用区名称。
+     * @return Availability zone name.
      * 
      */
     private String zoneName;
 
     private GetFileSystemResult() {}
     /**
-     * @return 接入点上限。
+     * @return Access point limit.
      * 
      */
     public Integer accessPointLimit() {
         return this.accessPointLimit;
     }
     /**
-     * @return 文件系统计费配置。
+     * @return File system billing configuration.
      * 
      */
     public GetFileSystemChargeConfig chargeConfig() {
         return this.chargeConfig;
     }
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public String chargeType() {
         return this.chargeType;
     }
     /**
-     * @return 文件系统创建时间。
+     * @return File system creation time.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return 描述信息。
+     * @return Description.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return 文件系统带宽可以降配的时间。
+     * @return Time when file system bandwidth can be downgraded.
      * 
      */
     public String downgradeUnlockTime() {
         return this.downgradeUnlockTime;
     }
     /**
-     * @return 文件系统 ID。
+     * @return File system ID.
      * 
      */
     public String fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * @return 文件系统名称。
+     * @return File system name.
      * 
      */
     public String fileSystemName() {
@@ -187,84 +187,84 @@ public final class GetFileSystemResult {
         return this.id;
     }
     /**
-     * @return Basic：基础型,Premium：高级型
+     * @return Basic: Basic type, Premium: Premium type.
      * 
      */
     public String instanceType() {
         return this.instanceType;
     }
     /**
-     * @return 挂载点上限。
+     * @return Mount point limit.
      * 
      */
     public Integer mountPointLimit() {
         return this.mountPointLimit;
     }
     /**
-     * @return 文件系统性能信息。
+     * @return File system performance information.
      * 
      */
     public GetFileSystemPerformance performance() {
         return this.performance;
     }
     /**
-     * @return 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * @return File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     public String performanceDensity() {
         return this.performanceDensity;
     }
     /**
-     * @return 项目名称。
+     * @return Project name.
      * 
      */
     public String projectName() {
         return this.projectName;
     }
     /**
-     * @return 协议类型
+     * @return Protocol type.
      * 
      */
     public List<String> protocolTypes() {
         return this.protocolTypes;
     }
     /**
-     * @return 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * @return File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return 文件系统容量信息。
+     * @return File system capacity information.
      * 
      */
     public GetFileSystemStorage storage() {
         return this.storage;
     }
     /**
-     * @return 标签列表。
+     * @return Tag list.
      * 
      */
     public List<GetFileSystemTag> tags() {
         return this.tags;
     }
     /**
-     * @return 文件系统更新时间。
+     * @return File system update time.
      * 
      */
     public String updateTime() {
         return this.updateTime;
     }
     /**
-     * @return 可用区 ID。
+     * @return Availability zone ID.
      * 
      */
     public String zoneId() {
         return this.zoneId;
     }
     /**
-     * @return 可用区名称。
+     * @return Availability zone name.
      * 
      */
     public String zoneName() {

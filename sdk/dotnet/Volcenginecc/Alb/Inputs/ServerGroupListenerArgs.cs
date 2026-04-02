@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
     public sealed class ServerGroupListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 监听器的ID。
+        /// Listener ID.
         /// </summary>
         [Input("listenerId")]
         public Input<string>? ListenerId { get; set; }

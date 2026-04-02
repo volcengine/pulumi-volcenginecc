@@ -17,14 +17,14 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
     public static final GroupConsumedTopicArgs Empty = new GroupConsumedTopicArgs();
 
     /**
-     * Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+     * Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
      * 
      */
     @Import(name="queueNum")
     private @Nullable Output<Integer> queueNum;
 
     /**
-     * @return Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+     * @return Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
      * 
      */
     public Optional<Output<Integer>> queueNum() {
@@ -32,14 +32,14 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * 订阅规则。
+     * Subscription rules.
      * 
      */
     @Import(name="subString")
     private @Nullable Output<String> subString;
 
     /**
-     * @return 订阅规则。
+     * @return Subscription rules.
      * 
      */
     public Optional<Output<String>> subString() {
@@ -47,14 +47,14 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * 客户端订阅的 Topic 名称。
+     * Name of the Topic subscribed by the client.
      * 
      */
     @Import(name="topicName")
     private @Nullable Output<String> topicName;
 
     /**
-     * @return 客户端订阅的 Topic 名称。
+     * @return Name of the Topic subscribed by the client.
      * 
      */
     public Optional<Output<String>> topicName() {
@@ -88,7 +88,7 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param queueNum Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+         * @param queueNum Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param queueNum Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+         * @param queueNum Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subString 订阅规则。
+         * @param subString Subscription rules.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subString 订阅规则。
+         * @param subString Subscription rules.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param topicName 客户端订阅的 Topic 名称。
+         * @param topicName Name of the Topic subscribed by the client.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GroupConsumedTopicArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param topicName 客户端订阅的 Topic 名称。
+         * @param topicName Name of the Topic subscribed by the client.
          * 
          * @return builder
          * 

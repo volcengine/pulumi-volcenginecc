@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class GetFileSystemTag {
     /**
-     * @return 标签键。
+     * @return Tag key.
      * 
      */
     private String key;
     /**
-     * @return 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+     * @return Tag type. Value description: System: System tag, Custom: Custom tag.
      * 
      */
     private String type;
     /**
-     * @return 标签值。
+     * @return Tag value.
      * 
      */
     private String value;
 
     private GetFileSystemTag() {}
     /**
-     * @return 标签键。
+     * @return Tag key.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+     * @return Tag type. Value description: System: System tag, Custom: Custom tag.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return 标签值。
+     * @return Tag value.
      * 
      */
     public String value() {

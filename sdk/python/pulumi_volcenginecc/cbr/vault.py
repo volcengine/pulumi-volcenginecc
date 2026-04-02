@@ -26,8 +26,8 @@ class VaultArgs:
                  project_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Vault resource.
-        :param pulumi.Input[builtins.str] vault_name: 备份库名称。
-        :param pulumi.Input[builtins.str] project_name: 项目名称。
+        :param pulumi.Input[builtins.str] vault_name: Backup Repository Name
+        :param pulumi.Input[builtins.str] project_name: Project Name
         """
         pulumi.set(__self__, "vault_name", vault_name)
         if project_name is not None:
@@ -37,7 +37,7 @@ class VaultArgs:
     @pulumi.getter(name="vaultName")
     def vault_name(self) -> pulumi.Input[builtins.str]:
         """
-        备份库名称。
+        Backup Repository Name
         """
         return pulumi.get(self, "vault_name")
 
@@ -49,7 +49,7 @@ class VaultArgs:
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        项目名称。
+        Project Name
         """
         return pulumi.get(self, "project_name")
 
@@ -69,11 +69,11 @@ class _VaultState:
                  vault_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] endpoint: 访问域名。
-        :param pulumi.Input[builtins.str] project_name: 项目名称。
-        :param pulumi.Input[builtins.str] vault_id: 备份库 ID。
-        :param pulumi.Input[builtins.str] vault_name: 备份库名称。
+        :param pulumi.Input[builtins.str] created_time: Creation Time
+        :param pulumi.Input[builtins.str] endpoint: Access Domain Name
+        :param pulumi.Input[builtins.str] project_name: Project Name
+        :param pulumi.Input[builtins.str] vault_id: Backup Repository ID
+        :param pulumi.Input[builtins.str] vault_name: Backup Repository Name
         """
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
@@ -92,7 +92,7 @@ class _VaultState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -104,7 +104,7 @@ class _VaultState:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        访问域名。
+        Access Domain Name
         """
         return pulumi.get(self, "endpoint")
 
@@ -116,7 +116,7 @@ class _VaultState:
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        项目名称。
+        Project Name
         """
         return pulumi.get(self, "project_name")
 
@@ -137,7 +137,7 @@ class _VaultState:
     @pulumi.getter(name="vaultId")
     def vault_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份库 ID。
+        Backup Repository ID
         """
         return pulumi.get(self, "vault_id")
 
@@ -149,7 +149,7 @@ class _VaultState:
     @pulumi.getter(name="vaultName")
     def vault_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份库名称。
+        Backup Repository Name
         """
         return pulumi.get(self, "vault_name")
 
@@ -168,7 +168,7 @@ class Vault(pulumi.CustomResource):
                  vault_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        用于存放您的备份数据。
+        Used to store your backup data
 
         ## Example Usage
 
@@ -189,8 +189,8 @@ class Vault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] project_name: 项目名称。
-        :param pulumi.Input[builtins.str] vault_name: 备份库名称。
+        :param pulumi.Input[builtins.str] project_name: Project Name
+        :param pulumi.Input[builtins.str] vault_name: Backup Repository Name
         """
         ...
     @overload
@@ -199,7 +199,7 @@ class Vault(pulumi.CustomResource):
                  args: VaultArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        用于存放您的备份数据。
+        Used to store your backup data
 
         ## Example Usage
 
@@ -275,11 +275,11 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] endpoint: 访问域名。
-        :param pulumi.Input[builtins.str] project_name: 项目名称。
-        :param pulumi.Input[builtins.str] vault_id: 备份库 ID。
-        :param pulumi.Input[builtins.str] vault_name: 备份库名称。
+        :param pulumi.Input[builtins.str] created_time: Creation Time
+        :param pulumi.Input[builtins.str] endpoint: Access Domain Name
+        :param pulumi.Input[builtins.str] project_name: Project Name
+        :param pulumi.Input[builtins.str] vault_id: Backup Repository ID
+        :param pulumi.Input[builtins.str] vault_name: Backup Repository Name
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -297,7 +297,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -305,7 +305,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[builtins.str]:
         """
-        访问域名。
+        Access Domain Name
         """
         return pulumi.get(self, "endpoint")
 
@@ -313,7 +313,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[builtins.str]:
         """
-        项目名称。
+        Project Name
         """
         return pulumi.get(self, "project_name")
 
@@ -326,7 +326,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="vaultId")
     def vault_id(self) -> pulumi.Output[builtins.str]:
         """
-        备份库 ID。
+        Backup Repository ID
         """
         return pulumi.get(self, "vault_id")
 
@@ -334,7 +334,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="vaultName")
     def vault_name(self) -> pulumi.Output[builtins.str]:
         """
-        备份库名称。
+        Backup Repository Name
         """
         return pulumi.get(self, "vault_name")
 

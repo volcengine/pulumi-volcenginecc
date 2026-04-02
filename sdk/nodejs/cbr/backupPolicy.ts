@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 备份策略中定义了备份周期、备份类型等信息。后续通过备份计划关联备份策略与备份存储空间，实现自动备份。
+ * The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
  *
  * ## Example Usage
  *
@@ -59,51 +59,51 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * 创建此策略的账户 ID。
+     * Account ID that created this policy
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
-     * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      */
     public readonly backupType!: pulumi.Output<string>;
     /**
-     * 创建时间。
+     * Creation time
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * 备份周期，采用 crontab 表达式。
+     * Backup cycle, using a crontab expression
      */
     public readonly crontab!: pulumi.Output<string>;
     /**
-     * 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      */
     public readonly enablePolicy!: pulumi.Output<boolean>;
     /**
-     * 策略名称。
+     * Policy Name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * 该策略已关联的备份计划数量。
+     * Number of backup plans associated with this policy
      */
     public /*out*/ readonly planNumber!: pulumi.Output<number>;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
     /**
-     * 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      */
     public readonly retentionDay!: pulumi.Output<number>;
     /**
-     * 最大恢复点保留数量。
+     * Maximum number of restore points retained
      */
     public readonly retentionNumMax!: pulumi.Output<number>;
     /**
-     * 最小恢复点保留数量下限。
+     * Minimum restore point retention limit
      */
     public readonly retentionNumMin!: pulumi.Output<number>;
     /**
-     * 更新时间。
+     * Update time
      */
     public /*out*/ readonly updatedTime!: pulumi.Output<string>;
 
@@ -178,51 +178,51 @@ export class BackupPolicy extends pulumi.CustomResource {
  */
 export interface BackupPolicyState {
     /**
-     * 创建此策略的账户 ID。
+     * Account ID that created this policy
      */
     accountId?: pulumi.Input<string>;
     /**
-     * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      */
     backupType?: pulumi.Input<string>;
     /**
-     * 创建时间。
+     * Creation time
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * 备份周期，采用 crontab 表达式。
+     * Backup cycle, using a crontab expression
      */
     crontab?: pulumi.Input<string>;
     /**
-     * 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      */
     enablePolicy?: pulumi.Input<boolean>;
     /**
-     * 策略名称。
+     * Policy Name
      */
     name?: pulumi.Input<string>;
     /**
-     * 该策略已关联的备份计划数量。
+     * Number of backup plans associated with this policy
      */
     planNumber?: pulumi.Input<number>;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     policyId?: pulumi.Input<string>;
     /**
-     * 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      */
     retentionDay?: pulumi.Input<number>;
     /**
-     * 最大恢复点保留数量。
+     * Maximum number of restore points retained
      */
     retentionNumMax?: pulumi.Input<number>;
     /**
-     * 最小恢复点保留数量下限。
+     * Minimum restore point retention limit
      */
     retentionNumMin?: pulumi.Input<number>;
     /**
-     * 更新时间。
+     * Update time
      */
     updatedTime?: pulumi.Input<string>;
 }
@@ -232,31 +232,31 @@ export interface BackupPolicyState {
  */
 export interface BackupPolicyArgs {
     /**
-     * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      */
     backupType: pulumi.Input<string>;
     /**
-     * 备份周期，采用 crontab 表达式。
+     * Backup cycle, using a crontab expression
      */
     crontab: pulumi.Input<string>;
     /**
-     * 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      */
     enablePolicy: pulumi.Input<boolean>;
     /**
-     * 策略名称。
+     * Policy Name
      */
     name: pulumi.Input<string>;
     /**
-     * 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      */
     retentionDay: pulumi.Input<number>;
     /**
-     * 最大恢复点保留数量。
+     * Maximum number of restore points retained
      */
     retentionNumMax: pulumi.Input<number>;
     /**
-     * 最小恢复点保留数量下限。
+     * Minimum restore point retention limit
      */
     retentionNumMin: pulumi.Input<number>;
 }

@@ -15,12 +15,12 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupResourceResult {
     /**
-     * @return 创建此备份源的账户 ID。
+     * @return Account ID that created this backup source
      * 
      */
     private String accountId;
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     private String createdTime;
@@ -30,66 +30,66 @@ public final class GetBackupResourceResult {
      */
     private String id;
     /**
-     * @return 实例 ID。
+     * @return Instance ID
      * 
      */
     private String instanceId;
     /**
-     * @return 实例名称。
+     * @return Instance Name
      * 
      */
     private String instanceName;
     /**
-     * @return 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * @return Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      * 
      */
     private GetBackupResourceMetaInformation metaInformation;
     /**
-     * @return 关联的备份计划列表。
+     * @return List of Associated Backup Plans
      * 
      */
     private List<GetBackupResourcePlan> plans;
     /**
-     * @return 恢复点的数量
+     * @return Number of Restore Points
      * 
      */
     private Integer recoveryPointNumber;
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     private String resourceId;
     /**
-     * @return 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     private String resourceType;
     /**
-     * @return 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * @return Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      * 
      */
     private String status;
     /**
-     * @return 更新时间
+     * @return Update Time
      * 
      */
     private String updatedTime;
     /**
-     * @return 已经备份的字节数。
+     * @return Bytes Already Backed Up
      * 
      */
     private Integer usedCapacityInBytes;
 
     private GetBackupResourceResult() {}
     /**
-     * @return 创建此备份源的账户 ID。
+     * @return Account ID that created this backup source
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public String createdTime() {
@@ -103,70 +103,70 @@ public final class GetBackupResourceResult {
         return this.id;
     }
     /**
-     * @return 实例 ID。
+     * @return Instance ID
      * 
      */
     public String instanceId() {
         return this.instanceId;
     }
     /**
-     * @return 实例名称。
+     * @return Instance Name
      * 
      */
     public String instanceName() {
         return this.instanceName;
     }
     /**
-     * @return 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * @return Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      * 
      */
     public GetBackupResourceMetaInformation metaInformation() {
         return this.metaInformation;
     }
     /**
-     * @return 关联的备份计划列表。
+     * @return List of Associated Backup Plans
      * 
      */
     public List<GetBackupResourcePlan> plans() {
         return this.plans;
     }
     /**
-     * @return 恢复点的数量
+     * @return Number of Restore Points
      * 
      */
     public Integer recoveryPointNumber() {
         return this.recoveryPointNumber;
     }
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     public String resourceId() {
         return this.resourceId;
     }
     /**
-     * @return 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     public String resourceType() {
         return this.resourceType;
     }
     /**
-     * @return 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * @return Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return 更新时间
+     * @return Update Time
      * 
      */
     public String updatedTime() {
         return this.updatedTime;
     }
     /**
-     * @return 已经备份的字节数。
+     * @return Bytes Already Backed Up
      * 
      */
     public Integer usedCapacityInBytes() {

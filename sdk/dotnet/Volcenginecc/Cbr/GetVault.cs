@@ -65,11 +65,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class GetVaultResult
     {
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// 访问域名。
+        /// Access Domain Name
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
@@ -77,19 +77,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// 项目名称。
+        /// Project Name
         /// </summary>
         public readonly string ProjectName;
         /// <summary>
-        /// 备份库标签。
+        /// Backup Repository Tag
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVaultTagResult> Tags;
         /// <summary>
-        /// 备份库 ID。
+        /// Backup Repository ID
         /// </summary>
         public readonly string VaultId;
         /// <summary>
-        /// 备份库名称。
+        /// Backup Repository Name
         /// </summary>
         public readonly string VaultName;
 

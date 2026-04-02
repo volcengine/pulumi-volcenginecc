@@ -378,6 +378,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cen/grantInstance",
+  "fqn": "pulumi_volcenginecc.cen",
+  "classes": {
+   "volcenginecc:cen/grantInstance:GrantInstance": "GrantInstance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/acl",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
@@ -906,6 +914,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "privatezone/userVpcAuthorization",
+  "fqn": "pulumi_volcenginecc.privatezone",
+  "classes": {
+   "volcenginecc:privatezone/userVpcAuthorization:UserVpcAuthorization": "UserVpcAuthorization"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rabbitmq/instance",
   "fqn": "pulumi_volcenginecc.rabbitmq",
   "classes": {
@@ -1186,6 +1202,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vedbm/account",
+  "fqn": "pulumi_volcenginecc.vedbm",
+  "classes": {
+   "volcenginecc:vedbm/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vedbm/allowList",
   "fqn": "pulumi_volcenginecc.vedbm",
   "classes": {
@@ -1214,6 +1238,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vedbm",
   "classes": {
    "volcenginecc:vedbm/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vefaas/function",
+  "fqn": "pulumi_volcenginecc.vefaas",
+  "classes": {
+   "volcenginecc:vefaas/function:Function": "Function"
   }
  },
  {
@@ -1438,6 +1470,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpn",
   "classes": {
    "volcenginecc:vpn/customerGateway:CustomerGateway": "CustomerGateway"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpn/vpnConnection",
+  "fqn": "pulumi_volcenginecc.vpn",
+  "classes": {
+   "volcenginecc:vpn/vpnConnection:VpnConnection": "VpnConnection"
   }
  },
  {

@@ -11,7 +11,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 一组具有相同 Group ID 的消费端。当一个 Topic 被同一个 Group 的多个 Consumer 消费时，每一条消息都只会被投递到一个 Consumer，实现消费的负载均衡。通过 Group，您可以确保一个 Topic 的消息被并行消费。
+// A group of consumers with the same Group ID. When multiple consumers in the same Group consume a Topic, each message is delivered to only one consumer, enabling load balancing. Using Groups ensures that messages in a Topic are consumed in parallel.
 //
 // ## Import
 //
@@ -21,23 +21,23 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	// Consumer Group 创建时间。
+	// Consumer Group creation time
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Consumer Group 描述。
+	// Consumer Group description
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Consumer Group 的 ID。
+	// Consumer Group ID
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+	// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// 所属 BMQ 实例 ID。
+	// BMQ instance ID
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Consumer Group 所属用户的 ID。
+	// User ID of the Consumer Group owner
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Consumer Group 所属用户的名称。
+	// Name of the Consumer Group owner
 	OwnerName pulumi.StringOutput `pulumi:"ownerName"`
-	// 重置消费位点信息。
+	// Reset consumption offset information
 	ResetInfo GroupResetInfoOutput `pulumi:"resetInfo"`
-	// Consumer Group 的状态。
+	// Consumer Group status
 	Status     pulumi.StringOutput       `pulumi:"status"`
 	TopicInfos GroupTopicInfoArrayOutput `pulumi:"topicInfos"`
 }
@@ -72,45 +72,45 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// Consumer Group 创建时间。
+	// Consumer Group creation time
 	CreatedTime *string `pulumi:"createdTime"`
-	// Consumer Group 描述。
+	// Consumer Group description
 	Description *string `pulumi:"description"`
-	// Consumer Group 的 ID。
+	// Consumer Group ID
 	GroupId *string `pulumi:"groupId"`
-	// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+	// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
 	GroupName *string `pulumi:"groupName"`
-	// 所属 BMQ 实例 ID。
+	// BMQ instance ID
 	InstanceId *string `pulumi:"instanceId"`
-	// Consumer Group 所属用户的 ID。
+	// User ID of the Consumer Group owner
 	OwnerId *string `pulumi:"ownerId"`
-	// Consumer Group 所属用户的名称。
+	// Name of the Consumer Group owner
 	OwnerName *string `pulumi:"ownerName"`
-	// 重置消费位点信息。
+	// Reset consumption offset information
 	ResetInfo *GroupResetInfo `pulumi:"resetInfo"`
-	// Consumer Group 的状态。
+	// Consumer Group status
 	Status     *string          `pulumi:"status"`
 	TopicInfos []GroupTopicInfo `pulumi:"topicInfos"`
 }
 
 type GroupState struct {
-	// Consumer Group 创建时间。
+	// Consumer Group creation time
 	CreatedTime pulumi.StringPtrInput
-	// Consumer Group 描述。
+	// Consumer Group description
 	Description pulumi.StringPtrInput
-	// Consumer Group 的 ID。
+	// Consumer Group ID
 	GroupId pulumi.StringPtrInput
-	// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+	// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
 	GroupName pulumi.StringPtrInput
-	// 所属 BMQ 实例 ID。
+	// BMQ instance ID
 	InstanceId pulumi.StringPtrInput
-	// Consumer Group 所属用户的 ID。
+	// User ID of the Consumer Group owner
 	OwnerId pulumi.StringPtrInput
-	// Consumer Group 所属用户的名称。
+	// Name of the Consumer Group owner
 	OwnerName pulumi.StringPtrInput
-	// 重置消费位点信息。
+	// Reset consumption offset information
 	ResetInfo GroupResetInfoPtrInput
-	// Consumer Group 的状态。
+	// Consumer Group status
 	Status     pulumi.StringPtrInput
 	TopicInfos GroupTopicInfoArrayInput
 }
@@ -120,25 +120,25 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// Consumer Group 描述。
+	// Consumer Group description
 	Description *string `pulumi:"description"`
-	// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+	// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
 	GroupName *string `pulumi:"groupName"`
-	// 所属 BMQ 实例 ID。
+	// BMQ instance ID
 	InstanceId *string `pulumi:"instanceId"`
-	// 重置消费位点信息。
+	// Reset consumption offset information
 	ResetInfo *GroupResetInfo `pulumi:"resetInfo"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// Consumer Group 描述。
+	// Consumer Group description
 	Description pulumi.StringPtrInput
-	// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+	// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
 	GroupName pulumi.StringPtrInput
-	// 所属 BMQ 实例 ID。
+	// BMQ instance ID
 	InstanceId pulumi.StringPtrInput
-	// 重置消费位点信息。
+	// Reset consumption offset information
 	ResetInfo GroupResetInfoPtrInput
 }
 
@@ -229,47 +229,47 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
-// Consumer Group 创建时间。
+// Consumer Group creation time
 func (o GroupOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Consumer Group 描述。
+// Consumer Group description
 func (o GroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Consumer Group 的 ID。
+// Consumer Group ID
 func (o GroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
 func (o GroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// 所属 BMQ 实例 ID。
+// BMQ instance ID
 func (o GroupOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Consumer Group 所属用户的 ID。
+// User ID of the Consumer Group owner
 func (o GroupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Consumer Group 所属用户的名称。
+// Name of the Consumer Group owner
 func (o GroupOutput) OwnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.OwnerName }).(pulumi.StringOutput)
 }
 
-// 重置消费位点信息。
+// Reset consumption offset information
 func (o GroupOutput) ResetInfo() GroupResetInfoOutput {
 	return o.ApplyT(func(v *Group) GroupResetInfoOutput { return v.ResetInfo }).(GroupResetInfoOutput)
 }
 
-// Consumer Group 的状态。
+// Consumer Group status
 func (o GroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

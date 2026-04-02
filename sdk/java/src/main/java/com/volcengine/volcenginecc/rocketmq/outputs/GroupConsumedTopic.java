@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupConsumedTopic {
     /**
-     * @return Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+     * @return Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
      * 
      */
     private @Nullable Integer queueNum;
     /**
-     * @return 订阅规则。
+     * @return Subscription rules.
      * 
      */
     private @Nullable String subString;
     /**
-     * @return 客户端订阅的 Topic 名称。
+     * @return Name of the Topic subscribed by the client.
      * 
      */
     private @Nullable String topicName;
 
     private GroupConsumedTopic() {}
     /**
-     * @return Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+     * @return Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
      * 
      */
     public Optional<Integer> queueNum() {
         return Optional.ofNullable(this.queueNum);
     }
     /**
-     * @return 订阅规则。
+     * @return Subscription rules.
      * 
      */
     public Optional<String> subString() {
         return Optional.ofNullable(this.subString);
     }
     /**
-     * @return 客户端订阅的 Topic 名称。
+     * @return Name of the Topic subscribed by the client.
      * 
      */
     public Optional<String> topicName() {

@@ -73,7 +73,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> builtins.str:
         """
-        创建此备份源的账户 ID。
+        Account ID that created this backup source
         """
         return pulumi.get(self, "account_id")
 
@@ -81,7 +81,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> builtins.str:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -97,7 +97,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> builtins.str:
         """
-        实例 ID。
+        Instance ID
         """
         return pulumi.get(self, "instance_id")
 
@@ -105,7 +105,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> builtins.str:
         """
-        实例名称。
+        Instance Name
         """
         return pulumi.get(self, "instance_name")
 
@@ -113,7 +113,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="metaInformation")
     def meta_information(self) -> 'outputs.GetBackupResourceMetaInformationResult':
         """
-        资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+        Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
         """
         return pulumi.get(self, "meta_information")
 
@@ -121,7 +121,7 @@ class GetBackupResourceResult:
     @pulumi.getter
     def plans(self) -> Sequence['outputs.GetBackupResourcePlanResult']:
         """
-        关联的备份计划列表。
+        List of Associated Backup Plans
         """
         return pulumi.get(self, "plans")
 
@@ -129,7 +129,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="recoveryPointNumber")
     def recovery_point_number(self) -> builtins.int:
         """
-        恢复点的数量
+        Number of Restore Points
         """
         return pulumi.get(self, "recovery_point_number")
 
@@ -137,7 +137,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> builtins.str:
         """
-        备份源 ID。
+        Backup Source ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -145,7 +145,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> builtins.str:
         """
-        备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+        Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
         """
         return pulumi.get(self, "resource_type")
 
@@ -153,7 +153,7 @@ class GetBackupResourceResult:
     @pulumi.getter
     def status(self) -> builtins.str:
         """
-        备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+        Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
         """
         return pulumi.get(self, "status")
 
@@ -161,7 +161,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> builtins.str:
         """
-        更新时间
+        Update Time
         """
         return pulumi.get(self, "updated_time")
 
@@ -169,7 +169,7 @@ class GetBackupResourceResult:
     @pulumi.getter(name="usedCapacityInBytes")
     def used_capacity_in_bytes(self) -> builtins.int:
         """
-        已经备份的字节数。
+        Bytes Already Backed Up
         """
         return pulumi.get(self, "used_capacity_in_bytes")
 

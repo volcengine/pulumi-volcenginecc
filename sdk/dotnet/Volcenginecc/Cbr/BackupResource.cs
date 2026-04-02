@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
-    /// 指备份对象，是云备份操作的起点。它可以是备份源产品中的计算资源、服务实例或者一组协同工作的服务和资源的集合，例如 ECS 整机、云盘、对象存储 Bucket。
+    /// Refers to the backup object, which is the starting point for cloud backup operations. It can be a computing resource, service instance, or a group of collaborative services and resources from the backup source product, such as ECS full instance, cloud disk, or object storage bucket.
     /// 
     /// ## Example Usage
     /// 
@@ -43,31 +43,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public partial class BackupResource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 创建此备份源的账户 ID。
+        /// Account ID that created this backup source
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// 实例 ID。
+        /// Instance ID
         /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// 实例名称。
+        /// Instance Name
         /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
         /// <summary>
-        /// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+        /// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
         /// </summary>
         [Output("metaInformation")]
         public Output<Outputs.BackupResourceMetaInformation> MetaInformation { get; private set; } = null!;
@@ -76,37 +76,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         public Output<ImmutableArray<Outputs.BackupResourcePlan>> Plans { get; private set; } = null!;
 
         /// <summary>
-        /// 恢复点的数量
+        /// Number of Restore Points
         /// </summary>
         [Output("recoveryPointNumber")]
         public Output<int> RecoveryPointNumber { get; private set; } = null!;
 
         /// <summary>
-        /// 备份源 ID。
+        /// Backup Source ID
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+        /// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+        /// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// 更新时间
+        /// Update Time
         /// </summary>
         [Output("updatedTime")]
         public Output<string> UpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// 已经备份的字节数。
+        /// Bytes Already Backed Up
         /// </summary>
         [Output("usedCapacityInBytes")]
         public Output<int> UsedCapacityInBytes { get; private set; } = null!;
@@ -159,19 +159,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class BackupResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 实例 ID。
+        /// Instance ID
         /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
-        /// 实例名称。
+        /// Instance Name
         /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
-        /// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+        /// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -185,31 +185,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class BackupResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建此备份源的账户 ID。
+        /// Account ID that created this backup source
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// 实例 ID。
+        /// Instance ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// 实例名称。
+        /// Instance Name
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
         /// <summary>
-        /// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+        /// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
         /// </summary>
         [Input("metaInformation")]
         public Input<Inputs.BackupResourceMetaInformationGetArgs>? MetaInformation { get; set; }
@@ -223,37 +223,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         }
 
         /// <summary>
-        /// 恢复点的数量
+        /// Number of Restore Points
         /// </summary>
         [Input("recoveryPointNumber")]
         public Input<int>? RecoveryPointNumber { get; set; }
 
         /// <summary>
-        /// 备份源 ID。
+        /// Backup Source ID
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+        /// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+        /// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// 更新时间
+        /// Update Time
         /// </summary>
         [Input("updatedTime")]
         public Input<string>? UpdatedTime { get; set; }
 
         /// <summary>
-        /// 已经备份的字节数。
+        /// Bytes Already Backed Up
         /// </summary>
         [Input("usedCapacityInBytes")]
         public Input<int>? UsedCapacityInBytes { get; set; }

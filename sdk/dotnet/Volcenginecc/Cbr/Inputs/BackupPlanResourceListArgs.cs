@@ -14,19 +14,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Inputs
     public sealed class BackupPlanResourceListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+        /// Resource meta information, used to store additional configuration when creating a backup plan
         /// </summary>
         [Input("metaInformation", required: true)]
         public Input<Inputs.BackupPlanResourceListMetaInformationArgs> MetaInformation { get; set; } = null!;
 
         /// <summary>
-        /// 备份源 ID。
+        /// Backup Source ID
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+        /// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

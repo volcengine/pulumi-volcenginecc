@@ -61,7 +61,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> builtins.str:
         """
-        创建此计划的账户 ID。
+        Account ID that created this plan
         """
         return pulumi.get(self, "account_id")
 
@@ -69,7 +69,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> builtins.str:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -85,7 +85,7 @@ class GetBackupPlanResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        备份计划名称。
+        Backup Plan Name
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="planId")
     def plan_id(self) -> builtins.str:
         """
-        备份计划 ID。
+        Backup Plan ID
         """
         return pulumi.get(self, "plan_id")
 
@@ -101,7 +101,7 @@ class GetBackupPlanResult:
     @pulumi.getter
     def policy(self) -> 'outputs.GetBackupPlanPolicyResult':
         """
-        备份策略。
+        Backup Policy
         """
         return pulumi.get(self, "policy")
 
@@ -109,7 +109,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> builtins.str:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -117,7 +117,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="resourceLists")
     def resource_lists(self) -> Sequence['outputs.GetBackupPlanResourceListResult']:
         """
-        备份源列表。
+        Backup Source List
         """
         return pulumi.get(self, "resource_lists")
 
@@ -125,7 +125,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> builtins.str:
         """
-        更新时间。
+        Update Time
         """
         return pulumi.get(self, "updated_time")
 

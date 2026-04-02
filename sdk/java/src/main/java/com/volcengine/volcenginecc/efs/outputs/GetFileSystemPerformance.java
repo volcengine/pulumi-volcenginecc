@@ -12,86 +12,86 @@ import java.util.Objects;
 @CustomType
 public final class GetFileSystemPerformance {
     /**
-     * @return 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+     * @return Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
      * 
      */
     private String bandwidthMode;
     /**
-     * @return 基准带宽。
+     * @return Baseline bandwidth.
      * 
      */
     private Integer baselineBandwidth;
     /**
-     * @return 基准 IOPS。
+     * @return Baseline IOPS.
      * 
      */
     private Integer baselineIops;
     /**
-     * @return 突发带宽。
+     * @return Burst bandwidth.
      * 
      */
     private Integer burstBandwidth;
     /**
-     * @return 突发 IOPS。
+     * @return Burst IOPS.
      * 
      */
     private Integer burstIops;
     /**
-     * @return 预置带宽。
+     * @return Provisioned bandwidth.
      * 
      */
     private Integer provisionedBandwidth;
     /**
-     * @return 预置 IOPS。
+     * @return Provisioned IOPS.
      * 
      */
     private Integer provisionedIops;
 
     private GetFileSystemPerformance() {}
     /**
-     * @return 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+     * @return Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
      * 
      */
     public String bandwidthMode() {
         return this.bandwidthMode;
     }
     /**
-     * @return 基准带宽。
+     * @return Baseline bandwidth.
      * 
      */
     public Integer baselineBandwidth() {
         return this.baselineBandwidth;
     }
     /**
-     * @return 基准 IOPS。
+     * @return Baseline IOPS.
      * 
      */
     public Integer baselineIops() {
         return this.baselineIops;
     }
     /**
-     * @return 突发带宽。
+     * @return Burst bandwidth.
      * 
      */
     public Integer burstBandwidth() {
         return this.burstBandwidth;
     }
     /**
-     * @return 突发 IOPS。
+     * @return Burst IOPS.
      * 
      */
     public Integer burstIops() {
         return this.burstIops;
     }
     /**
-     * @return 预置带宽。
+     * @return Provisioned bandwidth.
      * 
      */
     public Integer provisionedBandwidth() {
         return this.provisionedBandwidth;
     }
     /**
-     * @return 预置 IOPS。
+     * @return Provisioned IOPS.
      * 
      */
     public Integer provisionedIops() {

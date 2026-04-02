@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Inputs
     public sealed class BackupResourcePlanGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 备份计划 ID
+        /// Backup Plan ID
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// 备份计划名称
+        /// Backup Plan Name
         /// </summary>
         [Input("planName")]
         public Input<string>? PlanName { get; set; }

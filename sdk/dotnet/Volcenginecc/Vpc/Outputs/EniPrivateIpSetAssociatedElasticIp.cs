@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Outputs
     public sealed class EniPrivateIpSetAssociatedElasticIp
     {
         /// <summary>
-        /// 公网IP的ID。
+        /// Public IP ID
         /// </summary>
         public readonly string? AllocationId;
 

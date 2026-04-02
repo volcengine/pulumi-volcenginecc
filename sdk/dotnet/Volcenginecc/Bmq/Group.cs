@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Bmq
 {
     /// <summary>
-    /// 一组具有相同 Group ID 的消费端。当一个 Topic 被同一个 Group 的多个 Consumer 消费时，每一条消息都只会被投递到一个 Consumer，实现消费的负载均衡。通过 Group，您可以确保一个 Topic 的消息被并行消费。
+    /// A group of consumers with the same Group ID. When multiple consumers in the same Group consume a Topic, each message is delivered to only one consumer, enabling load balancing. Using Groups ensures that messages in a Topic are consumed in parallel.
     /// 
     /// ## Import
     /// 
@@ -23,55 +23,55 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Consumer Group 创建时间。
+        /// Consumer Group creation time
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Consumer Group 描述。
+        /// Consumer Group description
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Consumer Group 的 ID。
+        /// Consumer Group ID
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+        /// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
-        /// 所属 BMQ 实例 ID。
+        /// BMQ instance ID
         /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// Consumer Group 所属用户的 ID。
+        /// User ID of the Consumer Group owner
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// Consumer Group 所属用户的名称。
+        /// Name of the Consumer Group owner
         /// </summary>
         [Output("ownerName")]
         public Output<string> OwnerName { get; private set; } = null!;
 
         /// <summary>
-        /// 重置消费位点信息。
+        /// Reset consumption offset information
         /// </summary>
         [Output("resetInfo")]
         public Output<Outputs.GroupResetInfo> ResetInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Consumer Group 的状态。
+        /// Consumer Group status
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -127,25 +127,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Consumer Group 描述。
+        /// Consumer Group description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+        /// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// 所属 BMQ 实例 ID。
+        /// BMQ instance ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// 重置消费位点信息。
+        /// Reset consumption offset information
         /// </summary>
         [Input("resetInfo")]
         public Input<Inputs.GroupResetInfoArgs>? ResetInfo { get; set; }
@@ -159,55 +159,55 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Consumer Group 创建时间。
+        /// Consumer Group creation time
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// Consumer Group 描述。
+        /// Consumer Group description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Consumer Group 的 ID。
+        /// Consumer Group ID
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+        /// Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// 所属 BMQ 实例 ID。
+        /// BMQ instance ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// Consumer Group 所属用户的 ID。
+        /// User ID of the Consumer Group owner
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// Consumer Group 所属用户的名称。
+        /// Name of the Consumer Group owner
         /// </summary>
         [Input("ownerName")]
         public Input<string>? OwnerName { get; set; }
 
         /// <summary>
-        /// 重置消费位点信息。
+        /// Reset consumption offset information
         /// </summary>
         [Input("resetInfo")]
         public Input<Inputs.GroupResetInfoGetArgs>? ResetInfo { get; set; }
 
         /// <summary>
-        /// Consumer Group 的状态。
+        /// Consumer Group status
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

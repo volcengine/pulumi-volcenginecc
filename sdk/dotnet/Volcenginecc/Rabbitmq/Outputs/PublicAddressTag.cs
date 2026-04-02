@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Rabbitmq.Outputs
     public sealed class PublicAddressTag
     {
         /// <summary>
-        /// 标签的键。
+        /// Tag key.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// 标签的值。
+        /// Tag value.
         /// </summary>
         public readonly string? Value;
 

@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
-    /// 备份策略中定义了备份周期、备份类型等信息。后续通过备份计划关联备份策略与备份存储空间，实现自动备份。
+    /// The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
     /// 
     /// ## Example Usage
     /// 
@@ -47,73 +47,73 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 创建此策略的账户 ID。
+        /// Account ID that created this policy
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        /// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         /// </summary>
         [Output("backupType")]
         public Output<string> BackupType { get; private set; } = null!;
 
         /// <summary>
-        /// 创建时间。
+        /// Creation time
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// 备份周期，采用 crontab 表达式。
+        /// Backup cycle, using a crontab expression
         /// </summary>
         [Output("crontab")]
         public Output<string> Crontab { get; private set; } = null!;
 
         /// <summary>
-        /// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        /// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         /// </summary>
         [Output("enablePolicy")]
         public Output<bool> EnablePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// 策略名称。
+        /// Policy Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// 该策略已关联的备份计划数量。
+        /// Number of backup plans associated with this policy
         /// </summary>
         [Output("planNumber")]
         public Output<int> PlanNumber { get; private set; } = null!;
 
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        /// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         /// </summary>
         [Output("retentionDay")]
         public Output<int> RetentionDay { get; private set; } = null!;
 
         /// <summary>
-        /// 最大恢复点保留数量。
+        /// Maximum number of restore points retained
         /// </summary>
         [Output("retentionNumMax")]
         public Output<int> RetentionNumMax { get; private set; } = null!;
 
         /// <summary>
-        /// 最小恢复点保留数量下限。
+        /// Minimum restore point retention limit
         /// </summary>
         [Output("retentionNumMin")]
         public Output<int> RetentionNumMin { get; private set; } = null!;
 
         /// <summary>
-        /// 更新时间。
+        /// Update time
         /// </summary>
         [Output("updatedTime")]
         public Output<string> UpdatedTime { get; private set; } = null!;
@@ -166,43 +166,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class BackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        /// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         /// </summary>
         [Input("backupType", required: true)]
         public Input<string> BackupType { get; set; } = null!;
 
         /// <summary>
-        /// 备份周期，采用 crontab 表达式。
+        /// Backup cycle, using a crontab expression
         /// </summary>
         [Input("crontab", required: true)]
         public Input<string> Crontab { get; set; } = null!;
 
         /// <summary>
-        /// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        /// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         /// </summary>
         [Input("enablePolicy", required: true)]
         public Input<bool> EnablePolicy { get; set; } = null!;
 
         /// <summary>
-        /// 策略名称。
+        /// Policy Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        /// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         /// </summary>
         [Input("retentionDay", required: true)]
         public Input<int> RetentionDay { get; set; } = null!;
 
         /// <summary>
-        /// 最大恢复点保留数量。
+        /// Maximum number of restore points retained
         /// </summary>
         [Input("retentionNumMax", required: true)]
         public Input<int> RetentionNumMax { get; set; } = null!;
 
         /// <summary>
-        /// 最小恢复点保留数量下限。
+        /// Minimum restore point retention limit
         /// </summary>
         [Input("retentionNumMin", required: true)]
         public Input<int> RetentionNumMin { get; set; } = null!;
@@ -216,73 +216,73 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class BackupPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建此策略的账户 ID。
+        /// Account ID that created this policy
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        /// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         /// </summary>
         [Input("backupType")]
         public Input<string>? BackupType { get; set; }
 
         /// <summary>
-        /// 创建时间。
+        /// Creation time
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// 备份周期，采用 crontab 表达式。
+        /// Backup cycle, using a crontab expression
         /// </summary>
         [Input("crontab")]
         public Input<string>? Crontab { get; set; }
 
         /// <summary>
-        /// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        /// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         /// </summary>
         [Input("enablePolicy")]
         public Input<bool>? EnablePolicy { get; set; }
 
         /// <summary>
-        /// 策略名称。
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// 该策略已关联的备份计划数量。
+        /// Number of backup plans associated with this policy
         /// </summary>
         [Input("planNumber")]
         public Input<int>? PlanNumber { get; set; }
 
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        /// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         /// </summary>
         [Input("retentionDay")]
         public Input<int>? RetentionDay { get; set; }
 
         /// <summary>
-        /// 最大恢复点保留数量。
+        /// Maximum number of restore points retained
         /// </summary>
         [Input("retentionNumMax")]
         public Input<int>? RetentionNumMax { get; set; }
 
         /// <summary>
-        /// 最小恢复点保留数量下限。
+        /// Minimum restore point retention limit
         /// </summary>
         [Input("retentionNumMin")]
         public Input<int>? RetentionNumMin { get; set; }
 
         /// <summary>
-        /// 更新时间。
+        /// Update time
         /// </summary>
         [Input("updatedTime")]
         public Input<string>? UpdatedTime { get; set; }

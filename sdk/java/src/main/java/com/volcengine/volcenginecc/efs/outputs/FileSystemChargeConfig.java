@@ -12,62 +12,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FileSystemChargeConfig {
     /**
-     * @return 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+     * @return Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
      * 
      */
     private @Nullable String chargeStatus;
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     private @Nullable String chargeType;
     /**
-     * @return 到期时间。
+     * @return Expiration time.
      * 
      */
     private @Nullable String expireTime;
     /**
-     * @return 回收时间。
+     * @return Recycle time.
      * 
      */
     private @Nullable String reclaimTime;
     /**
-     * @return 关停时间。
+     * @return Shutdown time.
      * 
      */
     private @Nullable String stopTime;
 
     private FileSystemChargeConfig() {}
     /**
-     * @return 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+     * @return Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
      * 
      */
     public Optional<String> chargeStatus() {
         return Optional.ofNullable(this.chargeStatus);
     }
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public Optional<String> chargeType() {
         return Optional.ofNullable(this.chargeType);
     }
     /**
-     * @return 到期时间。
+     * @return Expiration time.
      * 
      */
     public Optional<String> expireTime() {
         return Optional.ofNullable(this.expireTime);
     }
     /**
-     * @return 回收时间。
+     * @return Recycle time.
      * 
      */
     public Optional<String> reclaimTime() {
         return Optional.ofNullable(this.reclaimTime);
     }
     /**
-     * @return 关停时间。
+     * @return Shutdown time.
      * 
      */
     public Optional<String> stopTime() {

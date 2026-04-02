@@ -15,15 +15,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Outputs
     public sealed class GetBucketAclResult
     {
         /// <summary>
-        /// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+        /// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
         /// </summary>
         public readonly bool BucketAclDelivered;
         /// <summary>
-        /// 对象的访问控制权限根节点。
+        /// Root node for object access control permissions
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketAclGrantResult> Grants;
         /// <summary>
-        /// 对象所有者。
+        /// Object owner
         /// </summary>
         public readonly Outputs.GetBucketAclOwnerResult Owner;
 

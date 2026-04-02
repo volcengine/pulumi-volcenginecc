@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql.Inputs
     public sealed class AllowListAssociatedInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 实例ID。
+        /// Instance ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }

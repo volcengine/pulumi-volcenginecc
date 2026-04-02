@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigNonCurrentVersionTransition {
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+     * @return Specific date for historical version object transition in lifecycle rules based on last modified time
      * 
      */
     private @Nullable String nonCurrentDate;
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+     * @return Number of days to transition historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private @Nullable Integer nonCurrentDays;
     /**
-     * @return 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     private @Nullable String storageClass;
 
     private BucketLifecycleConfigNonCurrentVersionTransition() {}
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+     * @return Specific date for historical version object transition in lifecycle rules based on last modified time
      * 
      */
     public Optional<String> nonCurrentDate() {
         return Optional.ofNullable(this.nonCurrentDate);
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+     * @return Number of days to transition historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Integer> nonCurrentDays() {
         return Optional.ofNullable(this.nonCurrentDays);
     }
     /**
-     * @return 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     public Optional<String> storageClass() {

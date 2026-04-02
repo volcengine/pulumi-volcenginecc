@@ -15,19 +15,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Outputs
     public sealed class FileSystemStorage
     {
         /// <summary>
-        /// 容量上限，单位为 MiB。
+        /// Capacity limit, in MiB.
         /// </summary>
         public readonly int? CapacityLimit;
         /// <summary>
-        /// 已用容量，单位为 MiB。
+        /// Used capacity, in MiB.
         /// </summary>
         public readonly int? CapacityUsed;
         /// <summary>
-        /// 文件数上限。
+        /// File count limit.
         /// </summary>
         public readonly int? InodeLimit;
         /// <summary>
-        /// 已用文件数。
+        /// Used file count.
         /// </summary>
         public readonly int? InodeUsed;
 

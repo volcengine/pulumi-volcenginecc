@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Emr.Outputs
     public sealed class GetClusterApplicationExtraApplicationComponentLayoutResult
     {
         /// <summary>
-        /// 组件名称。
+        /// Component name.
         /// </summary>
         public readonly string ComponentName;
         /// <summary>
-        /// 组件的布局范围。
+        /// Component layout scope.
         /// </summary>
         public readonly Outputs.GetClusterApplicationExtraApplicationComponentLayoutEffectiveScopeResult EffectiveScope;
 

@@ -31,19 +31,19 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
-     * 每个 RocketMQ 密钥对于当前 Topic 的权限，支持批量设置权限。若未设置，每个密钥对于当前 Topic 维持密钥的默认权限。
+     * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
      */
     readonly accessPolicies: outputs.rocketmq.GetTopicAccessPolicy[];
     /**
-     * Topic 创建时间。
+     * Topic creation time.
      */
     readonly createdTime: string;
     /**
-     * Topic 的描述信息，长度为 0~128 个字符。
+     * Topic description, length: 0–128 characters.
      */
     readonly description: string;
     /**
-     * 消费者组信息列表。
+     * Consumer group information list.
      */
     readonly groupsInfos: outputs.rocketmq.GetTopicGroupsInfo[];
     /**
@@ -51,35 +51,35 @@ export interface GetTopicResult {
      */
     readonly id: string;
     /**
-     * 实例 ID。
+     * Instance ID.
      */
     readonly instanceId: string;
     /**
-     * 实例名称。
+     * Instance name.
      */
     readonly instanceName: string;
     /**
-     * 消息类型。设置此参数表示根据指定的消息类型筛选 Topic 列表。取值说明如下：0：普通消息。1：事务消息。2：分区顺序消息。3：全局顺序消息。4：延时消息。
+     * Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
      */
     readonly messageType: number;
     /**
-     * 设置当前 Topic 的队列数量，最大不可超过当前实例剩余可用队列数。每个实例规格的队列数量限制请参考产品规格。在 4.x 版本实例中创建 Topic 时，请参考以下说明设置队列数：全局顺序类型的 Topic 队列数默认为 1。其他类型 Topic 的队列数和计算规格有关，n3 及以下规格的队列数默认为 6，n3 以上规格的队列数默认是 broker 组数的两倍。队列数建议设置为计算节点数的倍数，否则可能造成不同 Broker 之间数据不均衡。例如规格 rocketmq.n3.x2.medium 的计算节点数为 3，队列数建议设置为 3 的倍数，即 3、6、9 等。在 5.x 版本实例中创建 Topic 时，请参考以下说明设置队列数：全局顺序类型的 Topic 队列数默认为 1。其他类型 Topic 的队列数默认是 broker 组数的两倍。非顺序场景性能不受队列个数影响，更多队列仅用于提升顺序消费并发性能。
+     * Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
      */
     readonly queueNumber: number;
     /**
-     * 队列信息列表。
+     * Queue information list.
      */
     readonly queuesInfos: outputs.rocketmq.GetTopicQueuesInfo[];
     /**
-     * 每个 RocketMQ 密钥对于当前 Topic 的权限，读字段
+     * Permissions for each RocketMQ key on the current Topic, permission field
      */
     readonly readAccessPolicies: outputs.rocketmq.GetTopicReadAccessPolicy[];
     /**
-     * 服务状态。Creating：创建中，Running：运行中，Deleting：删除中，Abnormal：异常，Updating：更新中。
+     * Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
      */
     readonly serviceStatus: string;
     /**
-     * Topic 的名称。命名规则如下：长度为 3~100 个字符。只能包含英文、数字、连字符（-）以及下划线（*）。Topic 名称中不可包含以下保留字符或特殊前缀。保留字符：RMQ*SYS*TRANS*OP*HALF*TOPIC、BenchmarkTest、TBW102、OFFSET*MOVED*EVENT、SELF*TEST*TOPIC、RMQ*SYS*TRANS*HALF*TOPIC、SCHEDULE*TOPIC*XXXX、RMQ*SYS*TRACE*TOPIC。特殊前缀：rocketmq-broker-、%RETRY%、rmq*sys_、%DLQ%。
+     * Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
      */
     readonly topicName: string;
 }

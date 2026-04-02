@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。
+ * A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
  *
  * ## Import
  *
@@ -44,53 +44,53 @@ export class Bucket extends pulumi.CustomResource {
     }
 
     /**
-     * 桶的访问控制权限。
+     * Bucket access control permissions
      */
     public readonly acl!: pulumi.Output<outputs.tos.BucketAcl>;
     public readonly aclGrant!: pulumi.Output<outputs.tos.BucketAclGrant>;
     /**
-     * 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      */
     public readonly azRedundancy!: pulumi.Output<string>;
     /**
-     * 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      */
     public readonly bucketType!: pulumi.Output<string>;
     /**
-     * 桶的创建时间。
+     * Bucket creation time
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
-     * 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      */
     public readonly enableVersionStatus!: pulumi.Output<string>;
     /**
-     * 存储桶的 TOS 协议公网访问域名。
+     * TOS protocol public access domain name for the bucket
      */
     public /*out*/ readonly extranetEndpoint!: pulumi.Output<string>;
     /**
-     * 存储桶的 TOS 协议私网访问域名
+     * Private network access domain name for the bucket's TOS protocol
      */
     public /*out*/ readonly intranetEndpoint!: pulumi.Output<string>;
     public readonly lifecycleConfigs!: pulumi.Output<outputs.tos.BucketLifecycleConfig[]>;
     /**
-     * 桶所在区域。
+     * Bucket region
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
     /**
-     * 桶名。
+     * Bucket name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * 存储桶所属项目。
+     * Project associated with the bucket
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
-     * 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      */
     public readonly storageClass!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.tos.BucketTag[]>;
@@ -154,53 +154,53 @@ export class Bucket extends pulumi.CustomResource {
  */
 export interface BucketState {
     /**
-     * 桶的访问控制权限。
+     * Bucket access control permissions
      */
     acl?: pulumi.Input<inputs.tos.BucketAcl>;
     aclGrant?: pulumi.Input<inputs.tos.BucketAclGrant>;
     /**
-     * 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      */
     azRedundancy?: pulumi.Input<string>;
     /**
-     * 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      */
     bucketType?: pulumi.Input<string>;
     /**
-     * 桶的创建时间。
+     * Bucket creation time
      */
     creationDate?: pulumi.Input<string>;
     /**
-     * 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      */
     enableVersionStatus?: pulumi.Input<string>;
     /**
-     * 存储桶的 TOS 协议公网访问域名。
+     * TOS protocol public access domain name for the bucket
      */
     extranetEndpoint?: pulumi.Input<string>;
     /**
-     * 存储桶的 TOS 协议私网访问域名
+     * Private network access domain name for the bucket's TOS protocol
      */
     intranetEndpoint?: pulumi.Input<string>;
     lifecycleConfigs?: pulumi.Input<pulumi.Input<inputs.tos.BucketLifecycleConfig>[]>;
     /**
-     * 桶所在区域。
+     * Bucket region
      */
     location?: pulumi.Input<string>;
     /**
-     * 桶名。
+     * Bucket name
      */
     name?: pulumi.Input<string>;
     /**
-     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     policy?: pulumi.Input<string>;
     /**
-     * 存储桶所属项目。
+     * Project associated with the bucket
      */
     projectName?: pulumi.Input<string>;
     /**
-     * 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      */
     storageClass?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.tos.BucketTag>[]>;
@@ -211,37 +211,37 @@ export interface BucketState {
  */
 export interface BucketArgs {
     /**
-     * 桶的访问控制权限。
+     * Bucket access control permissions
      */
     acl?: pulumi.Input<inputs.tos.BucketAcl>;
     aclGrant?: pulumi.Input<inputs.tos.BucketAclGrant>;
     /**
-     * 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      */
     azRedundancy?: pulumi.Input<string>;
     /**
-     * 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      */
     bucketType?: pulumi.Input<string>;
     /**
-     * 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      */
     enableVersionStatus?: pulumi.Input<string>;
     lifecycleConfigs?: pulumi.Input<pulumi.Input<inputs.tos.BucketLifecycleConfig>[]>;
     /**
-     * 桶名。
+     * Bucket name
      */
     name: pulumi.Input<string>;
     /**
-     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     policy?: pulumi.Input<string>;
     /**
-     * 存储桶所属项目。
+     * Project associated with the bucket
      */
     projectName?: pulumi.Input<string>;
     /**
-     * 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      */
     storageClass?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.tos.BucketTag>[]>;

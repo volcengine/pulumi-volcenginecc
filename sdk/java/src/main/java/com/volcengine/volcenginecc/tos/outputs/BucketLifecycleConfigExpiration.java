@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigExpiration {
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+     * @return Specific date for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     private @Nullable String date;
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+     * @return Number of days for deleting the latest version object based on last modified time in lifecycle rules
      * 
      */
     private @Nullable Integer days;
 
     private BucketLifecycleConfigExpiration() {}
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+     * @return Specific date for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public Optional<String> date() {
         return Optional.ofNullable(this.date);
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+     * @return Number of days for deleting the latest version object based on last modified time in lifecycle rules
      * 
      */
     public Optional<Integer> days() {

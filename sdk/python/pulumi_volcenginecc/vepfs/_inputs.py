@@ -28,11 +28,11 @@ if not MYPY:
     class InstanceCapacityInfoArgsDict(TypedDict):
         total_ti_b: NotRequired[pulumi.Input[builtins.int]]
         """
-        文件系统总容量，单位为 TiB。
+        Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
         """
         used_gi_b: NotRequired[pulumi.Input[builtins.int]]
         """
-        已使用容量（GiB）。
+        Used capacity (GiB).
         """
 elif False:
     InstanceCapacityInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -43,8 +43,8 @@ class InstanceCapacityInfoArgs:
                  total_ti_b: Optional[pulumi.Input[builtins.int]] = None,
                  used_gi_b: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] total_ti_b: 文件系统总容量，单位为 TiB。
-        :param pulumi.Input[builtins.int] used_gi_b: 已使用容量（GiB）。
+        :param pulumi.Input[builtins.int] total_ti_b: Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
+        :param pulumi.Input[builtins.int] used_gi_b: Used capacity (GiB).
         """
         if total_ti_b is not None:
             pulumi.set(__self__, "total_ti_b", total_ti_b)
@@ -55,7 +55,7 @@ class InstanceCapacityInfoArgs:
     @pulumi.getter(name="totalTiB")
     def total_ti_b(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        文件系统总容量，单位为 TiB。
+        Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
         """
         return pulumi.get(self, "total_ti_b")
 
@@ -67,7 +67,7 @@ class InstanceCapacityInfoArgs:
     @pulumi.getter(name="usedGiB")
     def used_gi_b(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        已使用容量（GiB）。
+        Used capacity (GiB).
         """
         return pulumi.get(self, "used_gi_b")
 
@@ -80,11 +80,11 @@ if not MYPY:
     class InstanceTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        用户标签的标签键。
+        User tag key.
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        用户标签的标签值。
+        User tag value.
         """
 elif False:
     InstanceTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -95,8 +95,8 @@ class InstanceTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 用户标签的标签键。
-        :param pulumi.Input[builtins.str] value: 用户标签的标签值。
+        :param pulumi.Input[builtins.str] key: User tag key.
+        :param pulumi.Input[builtins.str] value: User tag value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -107,7 +107,7 @@ class InstanceTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用户标签的标签键。
+        User tag key.
         """
         return pulumi.get(self, "key")
 
@@ -119,7 +119,7 @@ class InstanceTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用户标签的标签值。
+        User tag value.
         """
         return pulumi.get(self, "value")
 

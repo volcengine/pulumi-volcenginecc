@@ -65,23 +65,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
-        /// 创建此策略的账户 ID。
+        /// Account ID that created this policy
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        /// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         /// </summary>
         public readonly string BackupType;
         /// <summary>
-        /// 创建时间。
+        /// Creation time
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// 备份周期，采用 crontab 表达式。
+        /// Backup cycle, using a crontab expression
         /// </summary>
         public readonly string Crontab;
         /// <summary>
-        /// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        /// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         /// </summary>
         public readonly bool EnablePolicy;
         /// <summary>
@@ -89,31 +89,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// 策略名称。
+        /// Policy Name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// 该策略已关联的备份计划数量。
+        /// Number of backup plans associated with this policy
         /// </summary>
         public readonly int PlanNumber;
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         public readonly string PolicyId;
         /// <summary>
-        /// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        /// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         /// </summary>
         public readonly int RetentionDay;
         /// <summary>
-        /// 最大恢复点保留数量。
+        /// Maximum number of restore points retained
         /// </summary>
         public readonly int RetentionNumMax;
         /// <summary>
-        /// 最小恢复点保留数量下限。
+        /// Minimum restore point retention limit
         /// </summary>
         public readonly int RetentionNumMin;
         /// <summary>
-        /// 更新时间。
+        /// Update time
         /// </summary>
         public readonly string UpdatedTime;
 

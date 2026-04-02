@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketAclOwnerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 展示名。
+        /// Display name
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// 账号ID。
+        /// Account ID
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }

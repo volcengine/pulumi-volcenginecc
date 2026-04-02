@@ -16,14 +16,14 @@ public final class BucketLifecycleConfigAbortInCompleteMultipartUploadArgs exten
     public static final BucketLifecycleConfigAbortInCompleteMultipartUploadArgs Empty = new BucketLifecycleConfigAbortInCompleteMultipartUploadArgs();
 
     /**
-     * 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+     * Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
      * 
      */
     @Import(name="daysAfterInitiation")
     private @Nullable Output<Integer> daysAfterInitiation;
 
     /**
-     * @return 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+     * @return Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
      * 
      */
     public Optional<Output<Integer>> daysAfterInitiation() {
@@ -55,7 +55,7 @@ public final class BucketLifecycleConfigAbortInCompleteMultipartUploadArgs exten
         }
 
         /**
-         * @param daysAfterInitiation 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+         * @param daysAfterInitiation Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class BucketLifecycleConfigAbortInCompleteMultipartUploadArgs exten
         }
 
         /**
-         * @param daysAfterInitiation 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+         * @param daysAfterInitiation Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
          * 
          * @return builder
          * 

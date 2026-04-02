@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Inputs
     public sealed class VaultTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 标签键。
+        /// Tag Key
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// 标签值。
+        /// Tag Value
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -67,7 +67,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowList")
     def allow_list(self) -> builtins.str:
         """
-        IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+        IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
         """
         return pulumi.get(self, "allow_list")
 
@@ -75,7 +75,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowListCategory")
     def allow_list_category(self) -> builtins.str:
         """
-        白名单分类。
+        Allowlist Category
         """
         return pulumi.get(self, "allow_list_category")
 
@@ -83,7 +83,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowListDesc")
     def allow_list_desc(self) -> builtins.str:
         """
-        白名单描述。
+        Allowlist Description
         """
         return pulumi.get(self, "allow_list_desc")
 
@@ -91,7 +91,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowListId")
     def allow_list_id(self) -> builtins.str:
         """
-        白名单的id。
+        Allowlist ID
         """
         return pulumi.get(self, "allow_list_id")
 
@@ -99,7 +99,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowListIpNum")
     def allow_list_ip_num(self) -> builtins.int:
         """
-        白名单内的 IP 地址（或地址段）总数。
+        Total number of IP addresses (or address ranges) in the allowlist
         """
         return pulumi.get(self, "allow_list_ip_num")
 
@@ -107,7 +107,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowListName")
     def allow_list_name(self) -> builtins.str:
         """
-        白名单名称。
+        Allowlist Name
         """
         return pulumi.get(self, "allow_list_name")
 
@@ -115,7 +115,7 @@ class GetAllowListResult:
     @pulumi.getter(name="allowListType")
     def allow_list_type(self) -> builtins.str:
         """
-        白名单内的IP地址类型，当前仅支持IPv4。
+        IP address type in the allowlist. Only IPv4 is supported
         """
         return pulumi.get(self, "allow_list_type")
 
@@ -123,7 +123,7 @@ class GetAllowListResult:
     @pulumi.getter(name="associatedInstanceNum")
     def associated_instance_num(self) -> builtins.int:
         """
-        白名单下绑定的实例总数
+        Total number of instances bound to the allowlist
         """
         return pulumi.get(self, "associated_instance_num")
 
@@ -131,7 +131,7 @@ class GetAllowListResult:
     @pulumi.getter(name="associatedInstances")
     def associated_instances(self) -> Sequence['outputs.GetAllowListAssociatedInstanceResult']:
         """
-        绑定的实例列表。
+        Bound Instance List
         """
         return pulumi.get(self, "associated_instances")
 
@@ -147,7 +147,7 @@ class GetAllowListResult:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> builtins.str:
         """
-        实例ID。
+        Instance ID
         """
         return pulumi.get(self, "instance_id")
 

@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Fwcenter.Outputs
     public sealed class GetDnsControlPolicySourceResult
     {
         /// <summary>
-        /// VPC地域信息。
+        /// VPC region information.
         /// </summary>
         public readonly string Region;
         /// <summary>

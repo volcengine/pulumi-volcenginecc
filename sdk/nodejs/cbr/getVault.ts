@@ -31,11 +31,11 @@ export interface GetVaultArgs {
  */
 export interface GetVaultResult {
     /**
-     * 创建时间。
+     * Creation Time
      */
     readonly createdTime: string;
     /**
-     * 访问域名。
+     * Access Domain Name
      */
     readonly endpoint: string;
     /**
@@ -43,19 +43,19 @@ export interface GetVaultResult {
      */
     readonly id: string;
     /**
-     * 项目名称。
+     * Project Name
      */
     readonly projectName: string;
     /**
-     * 备份库标签。
+     * Backup Repository Tag
      */
     readonly tags: outputs.cbr.GetVaultTag[];
     /**
-     * 备份库 ID。
+     * Backup Repository ID
      */
     readonly vaultId: string;
     /**
-     * 备份库名称。
+     * Backup Repository Name
      */
     readonly vaultName: string;
 }

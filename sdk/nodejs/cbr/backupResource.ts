@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 指备份对象，是云备份操作的起点。它可以是备份源产品中的计算资源、服务实例或者一组协同工作的服务和资源的集合，例如 ECS 整机、云盘、对象存储 Bucket。
+ * Refers to the backup object, which is the starting point for cloud backup operations. It can be a computing resource, service instance, or a group of collaborative services and resources from the backup source product, such as ECS full instance, cloud disk, or object storage bucket.
  *
  * ## Example Usage
  *
@@ -57,48 +57,48 @@ export class BackupResource extends pulumi.CustomResource {
     }
 
     /**
-     * 创建此备份源的账户 ID。
+     * Account ID that created this backup source
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
-     * 创建时间。
+     * Creation Time
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * 实例 ID。
+     * Instance ID
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
-     * 实例名称。
+     * Instance Name
      */
     public readonly instanceName!: pulumi.Output<string>;
     /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      */
     public /*out*/ readonly metaInformation!: pulumi.Output<outputs.cbr.BackupResourceMetaInformation>;
     public /*out*/ readonly plans!: pulumi.Output<outputs.cbr.BackupResourcePlan[]>;
     /**
-     * 恢复点的数量
+     * Number of Restore Points
      */
     public /*out*/ readonly recoveryPointNumber!: pulumi.Output<number>;
     /**
-     * 备份源 ID。
+     * Backup Source ID
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      */
     public readonly resourceType!: pulumi.Output<string>;
     /**
-     * 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * 更新时间
+     * Update Time
      */
     public /*out*/ readonly updatedTime!: pulumi.Output<string>;
     /**
-     * 已经备份的字节数。
+     * Bytes Already Backed Up
      */
     public /*out*/ readonly usedCapacityInBytes!: pulumi.Output<number>;
 
@@ -161,48 +161,48 @@ export class BackupResource extends pulumi.CustomResource {
  */
 export interface BackupResourceState {
     /**
-     * 创建此备份源的账户 ID。
+     * Account ID that created this backup source
      */
     accountId?: pulumi.Input<string>;
     /**
-     * 创建时间。
+     * Creation Time
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * 实例 ID。
+     * Instance ID
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * 实例名称。
+     * Instance Name
      */
     instanceName?: pulumi.Input<string>;
     /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      */
     metaInformation?: pulumi.Input<inputs.cbr.BackupResourceMetaInformation>;
     plans?: pulumi.Input<pulumi.Input<inputs.cbr.BackupResourcePlan>[]>;
     /**
-     * 恢复点的数量
+     * Number of Restore Points
      */
     recoveryPointNumber?: pulumi.Input<number>;
     /**
-     * 备份源 ID。
+     * Backup Source ID
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      */
     status?: pulumi.Input<string>;
     /**
-     * 更新时间
+     * Update Time
      */
     updatedTime?: pulumi.Input<string>;
     /**
-     * 已经备份的字节数。
+     * Bytes Already Backed Up
      */
     usedCapacityInBytes?: pulumi.Input<number>;
 }
@@ -212,15 +212,15 @@ export interface BackupResourceState {
  */
 export interface BackupResourceArgs {
     /**
-     * 实例 ID。
+     * Instance ID
      */
     instanceId: pulumi.Input<string>;
     /**
-     * 实例名称。
+     * Instance Name
      */
     instanceName: pulumi.Input<string>;
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      */
     resourceType: pulumi.Input<string>;
 }

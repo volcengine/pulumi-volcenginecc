@@ -11,50 +11,50 @@ import java.util.Objects;
 @CustomType
 public final class GetFileSystemStorage {
     /**
-     * @return 容量上限，单位为 MiB。
+     * @return Capacity limit, in MiB.
      * 
      */
     private Integer capacityLimit;
     /**
-     * @return 已用容量，单位为 MiB。
+     * @return Used capacity, in MiB.
      * 
      */
     private Integer capacityUsed;
     /**
-     * @return 文件数上限。
+     * @return File count limit.
      * 
      */
     private Integer inodeLimit;
     /**
-     * @return 已用文件数。
+     * @return Used file count.
      * 
      */
     private Integer inodeUsed;
 
     private GetFileSystemStorage() {}
     /**
-     * @return 容量上限，单位为 MiB。
+     * @return Capacity limit, in MiB.
      * 
      */
     public Integer capacityLimit() {
         return this.capacityLimit;
     }
     /**
-     * @return 已用容量，单位为 MiB。
+     * @return Used capacity, in MiB.
      * 
      */
     public Integer capacityUsed() {
         return this.capacityUsed;
     }
     /**
-     * @return 文件数上限。
+     * @return File count limit.
      * 
      */
     public Integer inodeLimit() {
         return this.inodeLimit;
     }
     /**
-     * @return 已用文件数。
+     * @return Used file count.
      * 
      */
     public Integer inodeUsed() {

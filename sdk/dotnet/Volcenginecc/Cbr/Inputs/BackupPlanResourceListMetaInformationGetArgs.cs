@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Inputs
     public sealed class BackupPlanResourceListMetaInformationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ECS 的元数据，是一个 JSON string。
+        /// ECS metadata, which is a JSON string
         /// </summary>
         [Input("ecsMeta")]
         public Input<string>? EcsMeta { get; set; }
 
         /// <summary>
-        /// vePFS 备份源元数据，是一个 JSON string。
+        /// vePFS backup source metadata, which is a JSON string
         /// </summary>
         [Input("vepfsMeta")]
         public Input<string>? VepfsMeta { get; set; }

@@ -12,7 +12,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。
+// A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
 //
 // ## Import
 //
@@ -22,31 +22,31 @@ import (
 type Bucket struct {
 	pulumi.CustomResourceState
 
-	// 桶的访问控制权限。
+	// Bucket access control permissions
 	Acl      BucketAclOutput      `pulumi:"acl"`
 	AclGrant BucketAclGrantOutput `pulumi:"aclGrant"`
-	// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+	// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
 	AzRedundancy pulumi.StringOutput `pulumi:"azRedundancy"`
-	// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+	// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
 	BucketType pulumi.StringOutput `pulumi:"bucketType"`
-	// 桶的创建时间。
+	// Bucket creation time
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+	// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
 	EnableVersionStatus pulumi.StringOutput `pulumi:"enableVersionStatus"`
-	// 存储桶的 TOS 协议公网访问域名。
+	// TOS protocol public access domain name for the bucket
 	ExtranetEndpoint pulumi.StringOutput `pulumi:"extranetEndpoint"`
-	// 存储桶的 TOS 协议私网访问域名
+	// Private network access domain name for the bucket's TOS protocol
 	IntranetEndpoint pulumi.StringOutput              `pulumi:"intranetEndpoint"`
 	LifecycleConfigs BucketLifecycleConfigArrayOutput `pulumi:"lifecycleConfigs"`
-	// 桶所在区域。
+	// Bucket region
 	Location pulumi.StringOutput `pulumi:"location"`
-	// 桶名。
+	// Bucket name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// 存储桶所属项目。
+	// Project associated with the bucket
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+	// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
 	StorageClass pulumi.StringOutput  `pulumi:"storageClass"`
 	Tags         BucketTagArrayOutput `pulumi:"tags"`
 }
@@ -84,61 +84,61 @@ func GetBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bucket resources.
 type bucketState struct {
-	// 桶的访问控制权限。
+	// Bucket access control permissions
 	Acl      *BucketAcl      `pulumi:"acl"`
 	AclGrant *BucketAclGrant `pulumi:"aclGrant"`
-	// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+	// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
 	AzRedundancy *string `pulumi:"azRedundancy"`
-	// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+	// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
 	BucketType *string `pulumi:"bucketType"`
-	// 桶的创建时间。
+	// Bucket creation time
 	CreationDate *string `pulumi:"creationDate"`
-	// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+	// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
 	EnableVersionStatus *string `pulumi:"enableVersionStatus"`
-	// 存储桶的 TOS 协议公网访问域名。
+	// TOS protocol public access domain name for the bucket
 	ExtranetEndpoint *string `pulumi:"extranetEndpoint"`
-	// 存储桶的 TOS 协议私网访问域名
+	// Private network access domain name for the bucket's TOS protocol
 	IntranetEndpoint *string                 `pulumi:"intranetEndpoint"`
 	LifecycleConfigs []BucketLifecycleConfig `pulumi:"lifecycleConfigs"`
-	// 桶所在区域。
+	// Bucket region
 	Location *string `pulumi:"location"`
-	// 桶名。
+	// Bucket name
 	Name *string `pulumi:"name"`
-	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy *string `pulumi:"policy"`
-	// 存储桶所属项目。
+	// Project associated with the bucket
 	ProjectName *string `pulumi:"projectName"`
-	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+	// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
 	StorageClass *string     `pulumi:"storageClass"`
 	Tags         []BucketTag `pulumi:"tags"`
 }
 
 type BucketState struct {
-	// 桶的访问控制权限。
+	// Bucket access control permissions
 	Acl      BucketAclPtrInput
 	AclGrant BucketAclGrantPtrInput
-	// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+	// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
 	AzRedundancy pulumi.StringPtrInput
-	// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+	// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
 	BucketType pulumi.StringPtrInput
-	// 桶的创建时间。
+	// Bucket creation time
 	CreationDate pulumi.StringPtrInput
-	// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+	// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
 	EnableVersionStatus pulumi.StringPtrInput
-	// 存储桶的 TOS 协议公网访问域名。
+	// TOS protocol public access domain name for the bucket
 	ExtranetEndpoint pulumi.StringPtrInput
-	// 存储桶的 TOS 协议私网访问域名
+	// Private network access domain name for the bucket's TOS protocol
 	IntranetEndpoint pulumi.StringPtrInput
 	LifecycleConfigs BucketLifecycleConfigArrayInput
-	// 桶所在区域。
+	// Bucket region
 	Location pulumi.StringPtrInput
-	// 桶名。
+	// Bucket name
 	Name pulumi.StringPtrInput
-	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy pulumi.StringPtrInput
-	// 存储桶所属项目。
+	// Project associated with the bucket
 	ProjectName pulumi.StringPtrInput
-	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+	// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
 	StorageClass pulumi.StringPtrInput
 	Tags         BucketTagArrayInput
 }
@@ -148,46 +148,46 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	// 桶的访问控制权限。
+	// Bucket access control permissions
 	Acl      *BucketAcl      `pulumi:"acl"`
 	AclGrant *BucketAclGrant `pulumi:"aclGrant"`
-	// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+	// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
 	AzRedundancy *string `pulumi:"azRedundancy"`
-	// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+	// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
 	BucketType *string `pulumi:"bucketType"`
-	// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+	// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
 	EnableVersionStatus *string                 `pulumi:"enableVersionStatus"`
 	LifecycleConfigs    []BucketLifecycleConfig `pulumi:"lifecycleConfigs"`
-	// 桶名。
+	// Bucket name
 	Name string `pulumi:"name"`
-	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy *string `pulumi:"policy"`
-	// 存储桶所属项目。
+	// Project associated with the bucket
 	ProjectName *string `pulumi:"projectName"`
-	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+	// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
 	StorageClass *string     `pulumi:"storageClass"`
 	Tags         []BucketTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
-	// 桶的访问控制权限。
+	// Bucket access control permissions
 	Acl      BucketAclPtrInput
 	AclGrant BucketAclGrantPtrInput
-	// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+	// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
 	AzRedundancy pulumi.StringPtrInput
-	// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+	// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
 	BucketType pulumi.StringPtrInput
-	// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+	// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
 	EnableVersionStatus pulumi.StringPtrInput
 	LifecycleConfigs    BucketLifecycleConfigArrayInput
-	// 桶名。
+	// Bucket name
 	Name pulumi.StringInput
-	// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy pulumi.StringPtrInput
-	// 存储桶所属项目。
+	// Project associated with the bucket
 	ProjectName pulumi.StringPtrInput
-	// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+	// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
 	StorageClass pulumi.StringPtrInput
 	Tags         BucketTagArrayInput
 }
@@ -279,7 +279,7 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
-// 桶的访问控制权限。
+// Bucket access control permissions
 func (o BucketOutput) Acl() BucketAclOutput {
 	return o.ApplyT(func(v *Bucket) BucketAclOutput { return v.Acl }).(BucketAclOutput)
 }
@@ -288,32 +288,32 @@ func (o BucketOutput) AclGrant() BucketAclGrantOutput {
 	return o.ApplyT(func(v *Bucket) BucketAclGrantOutput { return v.AclGrant }).(BucketAclGrantOutput)
 }
 
-// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
 func (o BucketOutput) AzRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.AzRedundancy }).(pulumi.StringOutput)
 }
 
-// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
 func (o BucketOutput) BucketType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketType }).(pulumi.StringOutput)
 }
 
-// 桶的创建时间。
+// Bucket creation time
 func (o BucketOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
 func (o BucketOutput) EnableVersionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.EnableVersionStatus }).(pulumi.StringOutput)
 }
 
-// 存储桶的 TOS 协议公网访问域名。
+// TOS protocol public access domain name for the bucket
 func (o BucketOutput) ExtranetEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.ExtranetEndpoint }).(pulumi.StringOutput)
 }
 
-// 存储桶的 TOS 协议私网访问域名
+// Private network access domain name for the bucket's TOS protocol
 func (o BucketOutput) IntranetEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.IntranetEndpoint }).(pulumi.StringOutput)
 }
@@ -322,27 +322,27 @@ func (o BucketOutput) LifecycleConfigs() BucketLifecycleConfigArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketLifecycleConfigArrayOutput { return v.LifecycleConfigs }).(BucketLifecycleConfigArrayOutput)
 }
 
-// 桶所在区域。
+// Bucket region
 func (o BucketOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// 桶名。
+// Bucket name
 func (o BucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 func (o BucketOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// 存储桶所属项目。
+// Project associated with the bucket
 func (o BucketOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
 func (o BucketOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.StorageClass }).(pulumi.StringOutput)
 }

@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketLifecycleConfigTransition {
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+     * @return Specific date for latest version object transition in lifecycle rules based on last modified time
      * 
      */
     private String date;
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+     * @return Number of days to transition the latest version object in the lifecycle rule based on last modified time
      * 
      */
     private Integer days;
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     private String storageClass;
 
     private GetBucketLifecycleConfigTransition() {}
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+     * @return Specific date for latest version object transition in lifecycle rules based on last modified time
      * 
      */
     public String date() {
         return this.date;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+     * @return Number of days to transition the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public Integer days() {
         return this.days;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     public String storageClass() {

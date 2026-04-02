@@ -16,14 +16,14 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
     public static final TopicGroupsInfoArgs Empty = new TopicGroupsInfoArgs();
 
     /**
-     * 消费组的 Group ID。
+     * Group ID of the consumer group.
      * 
      */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
     /**
-     * @return 消费组的 Group ID。
+     * @return Group ID of the consumer group.
      * 
      */
     public Optional<Output<String>> groupId() {
@@ -31,14 +31,14 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+     * Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
      * 
      */
     @Import(name="messageModel")
     private @Nullable Output<String> messageModel;
 
     /**
-     * @return 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+     * @return Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
      * 
      */
     public Optional<Output<String>> messageModel() {
@@ -46,14 +46,14 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+     * Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
      * 
      */
     @Import(name="subString")
     private @Nullable Output<String> subString;
 
     /**
-     * @return 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+     * @return Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
      * 
      */
     public Optional<Output<String>> subString() {
@@ -87,7 +87,7 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param groupId 消费组的 Group ID。
+         * @param groupId Group ID of the consumer group.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param groupId 消费组的 Group ID。
+         * @param groupId Group ID of the consumer group.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param messageModel 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+         * @param messageModel Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param messageModel 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+         * @param messageModel Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subString 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+         * @param subString Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TopicGroupsInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subString 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+         * @param subString Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
          * 
          * @return builder
          * 

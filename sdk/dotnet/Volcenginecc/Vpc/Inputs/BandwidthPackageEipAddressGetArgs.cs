@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Inputs
     public sealed class BandwidthPackageEipAddressGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 分配ID
+        /// Allocation ID
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }

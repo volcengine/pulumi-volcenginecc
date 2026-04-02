@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Ark.Outputs
     public sealed class EndpointModelReference
     {
         /// <summary>
-        /// 定制模型的ID。
+        /// Custom model ID
         /// </summary>
         public readonly string? CustomModelId;
         /// <summary>
-        /// 基础模型。
+        /// Base model
         /// </summary>
         public readonly Outputs.EndpointModelReferenceFoundationModel? FoundationModel;
 

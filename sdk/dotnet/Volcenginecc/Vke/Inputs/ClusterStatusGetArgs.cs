@@ -22,7 +22,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Inputs
         }
 
         /// <summary>
-        /// 集群状态阶段
+        /// Cluster status phase.
         /// </summary>
         [Input("phase")]
         public Input<string>? Phase { get; set; }

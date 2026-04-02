@@ -97,7 +97,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="accessPointLimit")
     def access_point_limit(self) -> builtins.int:
         """
-        接入点上限。
+        Access point limit.
         """
         return pulumi.get(self, "access_point_limit")
 
@@ -105,7 +105,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="chargeConfig")
     def charge_config(self) -> 'outputs.GetFileSystemChargeConfigResult':
         """
-        文件系统计费配置。
+        File system billing configuration.
         """
         return pulumi.get(self, "charge_config")
 
@@ -113,7 +113,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="chargeType")
     def charge_type(self) -> builtins.str:
         """
-        计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         """
         return pulumi.get(self, "charge_type")
 
@@ -121,7 +121,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="createTime")
     def create_time(self) -> builtins.str:
         """
-        文件系统创建时间。
+        File system creation time.
         """
         return pulumi.get(self, "create_time")
 
@@ -129,7 +129,7 @@ class GetFileSystemResult:
     @pulumi.getter
     def description(self) -> builtins.str:
         """
-        描述信息。
+        Description.
         """
         return pulumi.get(self, "description")
 
@@ -137,7 +137,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="downgradeUnlockTime")
     def downgrade_unlock_time(self) -> builtins.str:
         """
-        文件系统带宽可以降配的时间。
+        Time when file system bandwidth can be downgraded.
         """
         return pulumi.get(self, "downgrade_unlock_time")
 
@@ -145,7 +145,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> builtins.str:
         """
-        文件系统 ID。
+        File system ID.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -153,7 +153,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="fileSystemName")
     def file_system_name(self) -> builtins.str:
         """
-        文件系统名称。
+        File system name.
         """
         return pulumi.get(self, "file_system_name")
 
@@ -169,7 +169,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> builtins.str:
         """
-        Basic：基础型,Premium：高级型
+        Basic: Basic type, Premium: Premium type.
         """
         return pulumi.get(self, "instance_type")
 
@@ -177,7 +177,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="mountPointLimit")
     def mount_point_limit(self) -> builtins.int:
         """
-        挂载点上限。
+        Mount point limit.
         """
         return pulumi.get(self, "mount_point_limit")
 
@@ -185,7 +185,7 @@ class GetFileSystemResult:
     @pulumi.getter
     def performance(self) -> 'outputs.GetFileSystemPerformanceResult':
         """
-        文件系统性能信息。
+        File system performance information.
         """
         return pulumi.get(self, "performance")
 
@@ -193,7 +193,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="performanceDensity")
     def performance_density(self) -> builtins.str:
         """
-        文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+        File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
         """
         return pulumi.get(self, "performance_density")
 
@@ -201,7 +201,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="projectName")
     def project_name(self) -> builtins.str:
         """
-        项目名称。
+        Project name.
         """
         return pulumi.get(self, "project_name")
 
@@ -209,7 +209,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> Sequence[builtins.str]:
         """
-        协议类型
+        Protocol type.
         """
         return pulumi.get(self, "protocol_types")
 
@@ -217,7 +217,7 @@ class GetFileSystemResult:
     @pulumi.getter
     def status(self) -> builtins.str:
         """
-        文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+        File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
         """
         return pulumi.get(self, "status")
 
@@ -225,7 +225,7 @@ class GetFileSystemResult:
     @pulumi.getter
     def storage(self) -> 'outputs.GetFileSystemStorageResult':
         """
-        文件系统容量信息。
+        File system capacity information.
         """
         return pulumi.get(self, "storage")
 
@@ -233,7 +233,7 @@ class GetFileSystemResult:
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetFileSystemTagResult']:
         """
-        标签列表。
+        Tag list.
         """
         return pulumi.get(self, "tags")
 
@@ -241,7 +241,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> builtins.str:
         """
-        文件系统更新时间。
+        File system update time.
         """
         return pulumi.get(self, "update_time")
 
@@ -249,7 +249,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> builtins.str:
         """
-        可用区 ID。
+        Availability zone ID.
         """
         return pulumi.get(self, "zone_id")
 
@@ -257,7 +257,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> builtins.str:
         """
-        可用区名称。
+        Availability zone name.
         """
         return pulumi.get(self, "zone_name")
 

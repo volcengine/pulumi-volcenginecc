@@ -19,14 +19,14 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final BackupPlanArgs Empty = new BackupPlanArgs();
 
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return 备份计划名称。
+     * @return Backup Plan Name
      * 
      */
     public Output<String> name() {
@@ -34,14 +34,14 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -82,7 +82,7 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name 备份计划名称。
+         * @param name Backup Plan Name
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name 备份计划名称。
+         * @param name Backup Plan Name
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId 备份策略 ID。
+         * @param policyId Backup Policy ID
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId 备份策略 ID。
+         * @param policyId Backup Policy ID
          * 
          * @return builder
          * 

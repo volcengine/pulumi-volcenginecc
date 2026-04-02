@@ -15,15 +15,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Outputs
     public sealed class GetGroupConsumedTopicResult
     {
         /// <summary>
-        /// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        /// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
         /// </summary>
         public readonly int QueueNum;
         /// <summary>
-        /// 订阅规则。
+        /// Subscription rules.
         /// </summary>
         public readonly string SubString;
         /// <summary>
-        /// 客户端订阅的 Topic 名称。
+        /// Name of the Topic subscribed by the client.
         /// </summary>
         public readonly string TopicName;
 

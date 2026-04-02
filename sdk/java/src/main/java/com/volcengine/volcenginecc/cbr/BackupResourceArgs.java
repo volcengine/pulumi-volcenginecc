@@ -15,14 +15,14 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
     public static final BackupResourceArgs Empty = new BackupResourceArgs();
 
     /**
-     * 实例 ID。
+     * Instance ID
      * 
      */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
     /**
-     * @return 实例 ID。
+     * @return Instance ID
      * 
      */
     public Output<String> instanceId() {
@@ -30,14 +30,14 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 实例名称。
+     * Instance Name
      * 
      */
     @Import(name="instanceName", required=true)
     private Output<String> instanceName;
 
     /**
-     * @return 实例名称。
+     * @return Instance Name
      * 
      */
     public Output<String> instanceName() {
@@ -45,14 +45,14 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     public Output<String> resourceType() {
@@ -86,7 +86,7 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceName 实例名称。
+         * @param instanceName Instance Name
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceName 实例名称。
+         * @param instanceName Instance Name
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceType 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+         * @param resourceType Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class BackupResourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceType 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+         * @param resourceType Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
          * 
          * @return builder
          * 

@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity.Outputs
     public sealed class GroupMember
     {
         /// <summary>
-        /// 用户id。
+        /// User ID
         /// </summary>
         public readonly string? UserId;
 

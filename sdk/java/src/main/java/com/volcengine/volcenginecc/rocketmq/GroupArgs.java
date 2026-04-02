@@ -19,14 +19,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final GroupArgs Empty = new GroupArgs();
 
     /**
-     * Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+     * Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
      * 
      */
     @Import(name="consumeMessageOrderly")
     private @Nullable Output<Boolean> consumeMessageOrderly;
 
     /**
-     * @return Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+     * @return Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
      * 
      */
     public Optional<Output<Boolean>> consumeMessageOrderly() {
@@ -34,14 +34,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Group 的简单描述。
+     * Brief description of the Group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Group 的简单描述。
+     * @return Brief description of the Group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Group 的 ID。长度限制为 7~120 个字符，只能包含字母、数字、短划线（-）和下划线（*）。推荐以 GID  - 或 GID* 开头。创建 Group 后无法修改 ID，请谨慎设置。对于2023年6月5日及之前创建的 RocketMQ 实例，Group 名称不可超过 93 个字符。
+     * Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
      * 
      */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
     /**
-     * @return Group 的 ID。长度限制为 7~120 个字符，只能包含字母、数字、短划线（-）和下划线（*）。推荐以 GID  - 或 GID* 开头。创建 Group 后无法修改 ID，请谨慎设置。对于2023年6月5日及之前创建的 RocketMQ 实例，Group 名称不可超过 93 个字符。
+     * @return Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
      * 
      */
     public Output<String> groupId() {
@@ -64,14 +64,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Group 的协议标识，用于备注该 Group 的生产消费协议类型。可指定为 TCP。
+     * Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
      * 
      */
     @Import(name="groupType", required=true)
     private Output<String> groupType;
 
     /**
-     * @return Group 的协议标识，用于备注该 Group 的生产消费协议类型。可指定为 TCP。
+     * @return Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
      * 
      */
     public Output<String> groupType() {
@@ -79,14 +79,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例 ID。
+     * Instance ID.
      * 
      */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
     /**
-     * @return 实例 ID。
+     * @return Instance ID.
      * 
      */
     public Output<String> instanceId() {
@@ -94,14 +94,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 消费最大重试次数。
+     * Maximum number of consumption retries.
      * 
      */
     @Import(name="retryMaxTimes")
     private @Nullable Output<Integer> retryMaxTimes;
 
     /**
-     * @return 消费最大重试次数。
+     * @return Maximum number of consumption retries.
      * 
      */
     public Optional<Output<Integer>> retryMaxTimes() {
@@ -138,7 +138,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consumeMessageOrderly Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+         * @param consumeMessageOrderly Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consumeMessageOrderly Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+         * @param consumeMessageOrderly Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Group 的简单描述。
+         * @param description Brief description of the Group.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Group 的简单描述。
+         * @param description Brief description of the Group.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupId Group 的 ID。长度限制为 7~120 个字符，只能包含字母、数字、短划线（-）和下划线（*）。推荐以 GID  - 或 GID* 开头。创建 Group 后无法修改 ID，请谨慎设置。对于2023年6月5日及之前创建的 RocketMQ 实例，Group 名称不可超过 93 个字符。
+         * @param groupId Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupId Group 的 ID。长度限制为 7~120 个字符，只能包含字母、数字、短划线（-）和下划线（*）。推荐以 GID  - 或 GID* 开头。创建 Group 后无法修改 ID，请谨慎设置。对于2023年6月5日及之前创建的 RocketMQ 实例，Group 名称不可超过 93 个字符。
+         * @param groupId Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupType Group 的协议标识，用于备注该 Group 的生产消费协议类型。可指定为 TCP。
+         * @param groupType Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupType Group 的协议标识，用于备注该 Group 的生产消费协议类型。可指定为 TCP。
+         * @param groupType Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryMaxTimes 消费最大重试次数。
+         * @param retryMaxTimes Maximum number of consumption retries.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryMaxTimes 消费最大重试次数。
+         * @param retryMaxTimes Maximum number of consumption retries.
          * 
          * @return builder
          * 

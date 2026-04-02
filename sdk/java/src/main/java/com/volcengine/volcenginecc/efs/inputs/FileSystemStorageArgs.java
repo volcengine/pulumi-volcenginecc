@@ -16,14 +16,14 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
     public static final FileSystemStorageArgs Empty = new FileSystemStorageArgs();
 
     /**
-     * 容量上限，单位为 MiB。
+     * Capacity limit, in MiB.
      * 
      */
     @Import(name="capacityLimit")
     private @Nullable Output<Integer> capacityLimit;
 
     /**
-     * @return 容量上限，单位为 MiB。
+     * @return Capacity limit, in MiB.
      * 
      */
     public Optional<Output<Integer>> capacityLimit() {
@@ -31,14 +31,14 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * 已用容量，单位为 MiB。
+     * Used capacity, in MiB.
      * 
      */
     @Import(name="capacityUsed")
     private @Nullable Output<Integer> capacityUsed;
 
     /**
-     * @return 已用容量，单位为 MiB。
+     * @return Used capacity, in MiB.
      * 
      */
     public Optional<Output<Integer>> capacityUsed() {
@@ -46,14 +46,14 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * 文件数上限。
+     * File count limit.
      * 
      */
     @Import(name="inodeLimit")
     private @Nullable Output<Integer> inodeLimit;
 
     /**
-     * @return 文件数上限。
+     * @return File count limit.
      * 
      */
     public Optional<Output<Integer>> inodeLimit() {
@@ -61,14 +61,14 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * 已用文件数。
+     * Used file count.
      * 
      */
     @Import(name="inodeUsed")
     private @Nullable Output<Integer> inodeUsed;
 
     /**
-     * @return 已用文件数。
+     * @return Used file count.
      * 
      */
     public Optional<Output<Integer>> inodeUsed() {
@@ -103,7 +103,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param capacityLimit 容量上限，单位为 MiB。
+         * @param capacityLimit Capacity limit, in MiB.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param capacityLimit 容量上限，单位为 MiB。
+         * @param capacityLimit Capacity limit, in MiB.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param capacityUsed 已用容量，单位为 MiB。
+         * @param capacityUsed Used capacity, in MiB.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param capacityUsed 已用容量，单位为 MiB。
+         * @param capacityUsed Used capacity, in MiB.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param inodeLimit 文件数上限。
+         * @param inodeLimit File count limit.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param inodeLimit 文件数上限。
+         * @param inodeLimit File count limit.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param inodeUsed 已用文件数。
+         * @param inodeUsed Used file count.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class FileSystemStorageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param inodeUsed 已用文件数。
+         * @param inodeUsed Used file count.
          * 
          * @return builder
          * 

@@ -65,11 +65,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class GetBackupPlanResult
     {
         /// <summary>
-        /// 创建此计划的账户 ID。
+        /// Account ID that created this plan
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
@@ -77,27 +77,27 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// 备份计划名称。
+        /// Backup Plan Name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// 备份计划 ID。
+        /// Backup Plan ID
         /// </summary>
         public readonly string PlanId;
         /// <summary>
-        /// 备份策略。
+        /// Backup Policy
         /// </summary>
         public readonly Outputs.GetBackupPlanPolicyResult Policy;
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         public readonly string PolicyId;
         /// <summary>
-        /// 备份源列表。
+        /// Backup Source List
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBackupPlanResourceListResult> ResourceLists;
         /// <summary>
-        /// 更新时间。
+        /// Update Time
         /// </summary>
         public readonly string UpdatedTime;
 

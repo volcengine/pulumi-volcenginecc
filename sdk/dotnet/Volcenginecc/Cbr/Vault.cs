@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
-    /// 用于存放您的备份数据。
+    /// Used to store your backup data
     /// 
     /// ## Example Usage
     /// 
@@ -42,19 +42,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// 访问域名。
+        /// Access Domain Name
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// 项目名称。
+        /// Project Name
         /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
@@ -63,13 +63,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         public Output<ImmutableArray<Outputs.VaultTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// 备份库 ID。
+        /// Backup Repository ID
         /// </summary>
         [Output("vaultId")]
         public Output<string> VaultId { get; private set; } = null!;
 
         /// <summary>
-        /// 备份库名称。
+        /// Backup Repository Name
         /// </summary>
         [Output("vaultName")]
         public Output<string> VaultName { get; private set; } = null!;
@@ -122,13 +122,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 项目名称。
+        /// Project Name
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// 备份库名称。
+        /// Backup Repository Name
         /// </summary>
         [Input("vaultName", required: true)]
         public Input<string> VaultName { get; set; } = null!;
@@ -142,19 +142,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// 访问域名。
+        /// Access Domain Name
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// 项目名称。
+        /// Project Name
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
@@ -168,13 +168,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         }
 
         /// <summary>
-        /// 备份库 ID。
+        /// Backup Repository ID
         /// </summary>
         [Input("vaultId")]
         public Input<string>? VaultId { get; set; }
 
         /// <summary>
-        /// 备份库名称。
+        /// Backup Repository Name
         /// </summary>
         [Input("vaultName")]
         public Input<string>? VaultName { get; set; }

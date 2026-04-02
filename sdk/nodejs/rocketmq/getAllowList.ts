@@ -31,39 +31,39 @@ export interface GetAllowListArgs {
  */
 export interface GetAllowListResult {
     /**
-     * IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      */
     readonly allowList: string;
     /**
-     * 白名单分类。
+     * Allowlist Category
      */
     readonly allowListCategory: string;
     /**
-     * 白名单描述。
+     * Allowlist Description
      */
     readonly allowListDesc: string;
     /**
-     * 白名单的id。
+     * Allowlist ID
      */
     readonly allowListId: string;
     /**
-     * 白名单内的 IP 地址（或地址段）总数。
+     * Total number of IP addresses (or address ranges) in the allowlist
      */
     readonly allowListIpNum: number;
     /**
-     * 白名单名称。
+     * Allowlist Name
      */
     readonly allowListName: string;
     /**
-     * 白名单内的IP地址类型，当前仅支持IPv4。
+     * IP address type in the allowlist. Only IPv4 is supported
      */
     readonly allowListType: string;
     /**
-     * 白名单下绑定的实例总数
+     * Total number of instances bound to the allowlist
      */
     readonly associatedInstanceNum: number;
     /**
-     * 绑定的实例列表。
+     * Bound Instance List
      */
     readonly associatedInstances: outputs.rocketmq.GetAllowListAssociatedInstance[];
     /**
@@ -71,7 +71,7 @@ export interface GetAllowListResult {
      */
     readonly id: string;
     /**
-     * 实例ID。
+     * Instance ID
      */
     readonly instanceId: string;
 }

@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Outputs
     public sealed class GetBackupResourceMetaInformationResult
     {
         /// <summary>
-        /// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+        /// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
         /// </summary>
         public readonly string EcsMeta;
         /// <summary>
-        /// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+        /// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
         /// </summary>
         public readonly string VepfsMeta;
 

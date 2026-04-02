@@ -20,14 +20,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     public static final BackupResourceState Empty = new BackupResourceState();
 
     /**
-     * 创建此备份源的账户 ID。
+     * Account ID that created this backup source
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return 创建此备份源的账户 ID。
+     * @return Account ID that created this backup source
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -35,14 +35,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -50,14 +50,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 实例 ID。
+     * Instance ID
      * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return 实例 ID。
+     * @return Instance ID
      * 
      */
     public Optional<Output<String>> instanceId() {
@@ -65,14 +65,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 实例名称。
+     * Instance Name
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return 实例名称。
+     * @return Instance Name
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -80,14 +80,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      * 
      */
     @Import(name="metaInformation")
     private @Nullable Output<BackupResourceMetaInformationArgs> metaInformation;
 
     /**
-     * @return 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * @return Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      * 
      */
     public Optional<Output<BackupResourceMetaInformationArgs>> metaInformation() {
@@ -102,14 +102,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 恢复点的数量
+     * Number of Restore Points
      * 
      */
     @Import(name="recoveryPointNumber")
     private @Nullable Output<Integer> recoveryPointNumber;
 
     /**
-     * @return 恢复点的数量
+     * @return Number of Restore Points
      * 
      */
     public Optional<Output<Integer>> recoveryPointNumber() {
@@ -117,14 +117,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 备份源 ID。
+     * Backup Source ID
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -132,14 +132,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -147,14 +147,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * @return Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      * 
      */
     public Optional<Output<String>> status() {
@@ -162,14 +162,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 更新时间
+     * Update Time
      * 
      */
     @Import(name="updatedTime")
     private @Nullable Output<String> updatedTime;
 
     /**
-     * @return 更新时间
+     * @return Update Time
      * 
      */
     public Optional<Output<String>> updatedTime() {
@@ -177,14 +177,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 已经备份的字节数。
+     * Bytes Already Backed Up
      * 
      */
     @Import(name="usedCapacityInBytes")
     private @Nullable Output<Integer> usedCapacityInBytes;
 
     /**
-     * @return 已经备份的字节数。
+     * @return Bytes Already Backed Up
      * 
      */
     public Optional<Output<Integer>> usedCapacityInBytes() {
@@ -227,7 +227,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId 创建此备份源的账户 ID。
+         * @param accountId Account ID that created this backup source
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountId 创建此备份源的账户 ID。
+         * @param accountId Account ID that created this backup source
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceName 实例名称。
+         * @param instanceName Instance Name
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceName 实例名称。
+         * @param instanceName Instance Name
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param metaInformation 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+         * @param metaInformation Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param metaInformation 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+         * @param metaInformation Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param recoveryPointNumber 恢复点的数量
+         * @param recoveryPointNumber Number of Restore Points
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param recoveryPointNumber 恢复点的数量
+         * @param recoveryPointNumber Number of Restore Points
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceId 备份源 ID。
+         * @param resourceId Backup Source ID
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceId 备份源 ID。
+         * @param resourceId Backup Source ID
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceType 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+         * @param resourceType Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceType 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+         * @param resourceType Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+         * @param status Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+         * @param status Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param updatedTime 更新时间
+         * @param updatedTime Update Time
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param updatedTime 更新时间
+         * @param updatedTime Update Time
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param usedCapacityInBytes 已经备份的字节数。
+         * @param usedCapacityInBytes Bytes Already Backed Up
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param usedCapacityInBytes 已经备份的字节数。
+         * @param usedCapacityInBytes Bytes Already Backed Up
          * 
          * @return builder
          * 

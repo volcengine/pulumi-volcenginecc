@@ -14,31 +14,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Inputs
     public sealed class FileSystemChargeConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+        /// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
         /// </summary>
         [Input("chargeStatus")]
         public Input<string>? ChargeStatus { get; set; }
 
         /// <summary>
-        /// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        /// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         /// </summary>
         [Input("chargeType")]
         public Input<string>? ChargeType { get; set; }
 
         /// <summary>
-        /// 到期时间。
+        /// Expiration time.
         /// </summary>
         [Input("expireTime")]
         public Input<string>? ExpireTime { get; set; }
 
         /// <summary>
-        /// 回收时间。
+        /// Recycle time.
         /// </summary>
         [Input("reclaimTime")]
         public Input<string>? ReclaimTime { get; set; }
 
         /// <summary>
-        /// 关停时间。
+        /// Shutdown time.
         /// </summary>
         [Input("stopTime")]
         public Input<string>? StopTime { get; set; }

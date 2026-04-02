@@ -20,7 +20,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * 文件系统是一种通过目录树结构管理文件的存储系统，分为本地文件系统和远程文件系统，此处特指远程文件系统，支持多个计算节点并发访问，共享数据集。
+ * A file system is a storage system that manages files through a directory tree structure. It is divided into local file systems and remote file systems. This refers specifically to remote file systems, which support concurrent access by multiple compute nodes and shared datasets.
  * 
  * ## Example Usage
  * 
@@ -37,224 +37,224 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:efs/fileSystem:FileSystem")
 public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
-     * 接入点上限。
+     * Access point limit.
      * 
      */
     @Export(name="accessPointLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> accessPointLimit;
 
     /**
-     * @return 接入点上限。
+     * @return Access point limit.
      * 
      */
     public Output<Integer> accessPointLimit() {
         return this.accessPointLimit;
     }
     /**
-     * 文件系统计费配置。
+     * File system billing configuration.
      * 
      */
     @Export(name="chargeConfig", refs={FileSystemChargeConfig.class}, tree="[0]")
     private Output<FileSystemChargeConfig> chargeConfig;
 
     /**
-     * @return 文件系统计费配置。
+     * @return File system billing configuration.
      * 
      */
     public Output<FileSystemChargeConfig> chargeConfig() {
         return this.chargeConfig;
     }
     /**
-     * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     @Export(name="chargeType", refs={String.class}, tree="[0]")
     private Output<String> chargeType;
 
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public Output<String> chargeType() {
         return this.chargeType;
     }
     /**
-     * 文件系统创建时间。
+     * File system creation time.
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
-     * @return 文件系统创建时间。
+     * @return File system creation time.
      * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
-     * 描述信息。
+     * Description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return 描述信息。
+     * @return Description.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * 文件系统带宽可以降配的时间。
+     * Time when file system bandwidth can be downgraded.
      * 
      */
     @Export(name="downgradeUnlockTime", refs={String.class}, tree="[0]")
     private Output<String> downgradeUnlockTime;
 
     /**
-     * @return 文件系统带宽可以降配的时间。
+     * @return Time when file system bandwidth can be downgraded.
      * 
      */
     public Output<String> downgradeUnlockTime() {
         return this.downgradeUnlockTime;
     }
     /**
-     * 文件系统 ID。
+     * File system ID.
      * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
-     * @return 文件系统 ID。
+     * @return File system ID.
      * 
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * 文件系统名称。
+     * File system name.
      * 
      */
     @Export(name="fileSystemName", refs={String.class}, tree="[0]")
     private Output<String> fileSystemName;
 
     /**
-     * @return 文件系统名称。
+     * @return File system name.
      * 
      */
     public Output<String> fileSystemName() {
         return this.fileSystemName;
     }
     /**
-     * Basic：基础型,Premium：高级型
+     * Basic: Basic type, Premium: Premium type.
      * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
-     * @return Basic：基础型,Premium：高级型
+     * @return Basic: Basic type, Premium: Premium type.
      * 
      */
     public Output<String> instanceType() {
         return this.instanceType;
     }
     /**
-     * 挂载点上限。
+     * Mount point limit.
      * 
      */
     @Export(name="mountPointLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> mountPointLimit;
 
     /**
-     * @return 挂载点上限。
+     * @return Mount point limit.
      * 
      */
     public Output<Integer> mountPointLimit() {
         return this.mountPointLimit;
     }
     /**
-     * 文件系统性能信息。
+     * File system performance information.
      * 
      */
     @Export(name="performance", refs={FileSystemPerformance.class}, tree="[0]")
     private Output<FileSystemPerformance> performance;
 
     /**
-     * @return 文件系统性能信息。
+     * @return File system performance information.
      * 
      */
     public Output<FileSystemPerformance> performance() {
         return this.performance;
     }
     /**
-     * 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     @Export(name="performanceDensity", refs={String.class}, tree="[0]")
     private Output<String> performanceDensity;
 
     /**
-     * @return 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * @return File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     public Output<String> performanceDensity() {
         return this.performanceDensity;
     }
     /**
-     * 项目名称。
+     * Project name.
      * 
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
-     * @return 项目名称。
+     * @return Project name.
      * 
      */
     public Output<String> projectName() {
         return this.projectName;
     }
     /**
-     * 协议类型
+     * Protocol type.
      * 
      */
     @Export(name="protocolTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protocolTypes;
 
     /**
-     * @return 协议类型
+     * @return Protocol type.
      * 
      */
     public Output<List<String>> protocolTypes() {
         return this.protocolTypes;
     }
     /**
-     * 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * @return File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * 文件系统容量信息。
+     * File system capacity information.
      * 
      */
     @Export(name="storage", refs={FileSystemStorage.class}, tree="[0]")
     private Output<FileSystemStorage> storage;
 
     /**
-     * @return 文件系统容量信息。
+     * @return File system capacity information.
      * 
      */
     public Output<FileSystemStorage> storage() {
@@ -267,42 +267,42 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.tags;
     }
     /**
-     * 文件系统更新时间。
+     * File system update time.
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**
-     * @return 文件系统更新时间。
+     * @return File system update time.
      * 
      */
     public Output<String> updateTime() {
         return this.updateTime;
     }
     /**
-     * 可用区 ID。
+     * Availability zone ID.
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**
-     * @return 可用区 ID。
+     * @return Availability zone ID.
      * 
      */
     public Output<String> zoneId() {
         return this.zoneId;
     }
     /**
-     * 可用区名称。
+     * Availability zone name.
      * 
      */
     @Export(name="zoneName", refs={String.class}, tree="[0]")
     private Output<String> zoneName;
 
     /**
-     * @return 可用区名称。
+     * @return Availability zone name.
      * 
      */
     public Output<String> zoneName() {

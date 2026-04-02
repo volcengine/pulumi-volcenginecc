@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam.Outputs
     public sealed class GroupUser
     {
         /// <summary>
-        /// 用户名。
+        /// Username.
         /// </summary>
         public readonly string? UserName;
 

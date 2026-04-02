@@ -18,14 +18,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     public static final FileSystemPerformanceArgs Empty = new FileSystemPerformanceArgs();
 
     /**
-     * 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+     * Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
      * 
      */
     @Import(name="bandwidthMode", required=true)
     private Output<String> bandwidthMode;
 
     /**
-     * @return 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+     * @return Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
      * 
      */
     public Output<String> bandwidthMode() {
@@ -33,14 +33,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 基准带宽。
+     * Baseline bandwidth.
      * 
      */
     @Import(name="baselineBandwidth")
     private @Nullable Output<Integer> baselineBandwidth;
 
     /**
-     * @return 基准带宽。
+     * @return Baseline bandwidth.
      * 
      */
     public Optional<Output<Integer>> baselineBandwidth() {
@@ -48,14 +48,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 基准 IOPS。
+     * Baseline IOPS.
      * 
      */
     @Import(name="baselineIops")
     private @Nullable Output<Integer> baselineIops;
 
     /**
-     * @return 基准 IOPS。
+     * @return Baseline IOPS.
      * 
      */
     public Optional<Output<Integer>> baselineIops() {
@@ -63,14 +63,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 突发带宽。
+     * Burst bandwidth.
      * 
      */
     @Import(name="burstBandwidth")
     private @Nullable Output<Integer> burstBandwidth;
 
     /**
-     * @return 突发带宽。
+     * @return Burst bandwidth.
      * 
      */
     public Optional<Output<Integer>> burstBandwidth() {
@@ -78,14 +78,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 突发 IOPS。
+     * Burst IOPS.
      * 
      */
     @Import(name="burstIops")
     private @Nullable Output<Integer> burstIops;
 
     /**
-     * @return 突发 IOPS。
+     * @return Burst IOPS.
      * 
      */
     public Optional<Output<Integer>> burstIops() {
@@ -93,14 +93,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 预置带宽。
+     * Provisioned bandwidth.
      * 
      */
     @Import(name="provisionedBandwidth")
     private @Nullable Output<Integer> provisionedBandwidth;
 
     /**
-     * @return 预置带宽。
+     * @return Provisioned bandwidth.
      * 
      */
     public Optional<Output<Integer>> provisionedBandwidth() {
@@ -108,14 +108,14 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 预置 IOPS。
+     * Provisioned IOPS.
      * 
      */
     @Import(name="provisionedIops")
     private @Nullable Output<Integer> provisionedIops;
 
     /**
-     * @return 预置 IOPS。
+     * @return Provisioned IOPS.
      * 
      */
     public Optional<Output<Integer>> provisionedIops() {
@@ -153,7 +153,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param bandwidthMode 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+         * @param bandwidthMode Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param bandwidthMode 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+         * @param bandwidthMode Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param baselineBandwidth 基准带宽。
+         * @param baselineBandwidth Baseline bandwidth.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param baselineBandwidth 基准带宽。
+         * @param baselineBandwidth Baseline bandwidth.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param baselineIops 基准 IOPS。
+         * @param baselineIops Baseline IOPS.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param baselineIops 基准 IOPS。
+         * @param baselineIops Baseline IOPS.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param burstBandwidth 突发带宽。
+         * @param burstBandwidth Burst bandwidth.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param burstBandwidth 突发带宽。
+         * @param burstBandwidth Burst bandwidth.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param burstIops 突发 IOPS。
+         * @param burstIops Burst IOPS.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param burstIops 突发 IOPS。
+         * @param burstIops Burst IOPS.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param provisionedBandwidth 预置带宽。
+         * @param provisionedBandwidth Provisioned bandwidth.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param provisionedBandwidth 预置带宽。
+         * @param provisionedBandwidth Provisioned bandwidth.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param provisionedIops 预置 IOPS。
+         * @param provisionedIops Provisioned IOPS.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class FileSystemPerformanceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param provisionedIops 预置 IOPS。
+         * @param provisionedIops Provisioned IOPS.
          * 
          * @return builder
          * 

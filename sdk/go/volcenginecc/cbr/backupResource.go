@@ -12,7 +12,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 指备份对象，是云备份操作的起点。它可以是备份源产品中的计算资源、服务实例或者一组协同工作的服务和资源的集合，例如 ECS 整机、云盘、对象存储 Bucket。
+// Refers to the backup object, which is the starting point for cloud backup operations. It can be a computing resource, service instance, or a group of collaborative services and resources from the backup source product, such as ECS full instance, cloud disk, or object storage bucket.
 //
 // ## Example Usage
 //
@@ -50,28 +50,28 @@ import (
 type BackupResource struct {
 	pulumi.CustomResourceState
 
-	// 创建此备份源的账户 ID。
+	// Account ID that created this backup source
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// 实例 ID。
+	// Instance ID
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// 实例名称。
+	// Instance Name
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+	// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
 	MetaInformation BackupResourceMetaInformationOutput `pulumi:"metaInformation"`
 	Plans           BackupResourcePlanArrayOutput       `pulumi:"plans"`
-	// 恢复点的数量
+	// Number of Restore Points
 	RecoveryPointNumber pulumi.IntOutput `pulumi:"recoveryPointNumber"`
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+	// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+	// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// 更新时间
+	// Update Time
 	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
-	// 已经备份的字节数。
+	// Bytes Already Backed Up
 	UsedCapacityInBytes pulumi.IntOutput `pulumi:"usedCapacityInBytes"`
 }
 
@@ -114,54 +114,54 @@ func GetBackupResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupResource resources.
 type backupResourceState struct {
-	// 创建此备份源的账户 ID。
+	// Account ID that created this backup source
 	AccountId *string `pulumi:"accountId"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime *string `pulumi:"createdTime"`
-	// 实例 ID。
+	// Instance ID
 	InstanceId *string `pulumi:"instanceId"`
-	// 实例名称。
+	// Instance Name
 	InstanceName *string `pulumi:"instanceName"`
-	// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+	// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
 	MetaInformation *BackupResourceMetaInformation `pulumi:"metaInformation"`
 	Plans           []BackupResourcePlan           `pulumi:"plans"`
-	// 恢复点的数量
+	// Number of Restore Points
 	RecoveryPointNumber *int `pulumi:"recoveryPointNumber"`
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId *string `pulumi:"resourceId"`
-	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+	// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
 	ResourceType *string `pulumi:"resourceType"`
-	// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+	// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
 	Status *string `pulumi:"status"`
-	// 更新时间
+	// Update Time
 	UpdatedTime *string `pulumi:"updatedTime"`
-	// 已经备份的字节数。
+	// Bytes Already Backed Up
 	UsedCapacityInBytes *int `pulumi:"usedCapacityInBytes"`
 }
 
 type BackupResourceState struct {
-	// 创建此备份源的账户 ID。
+	// Account ID that created this backup source
 	AccountId pulumi.StringPtrInput
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringPtrInput
-	// 实例 ID。
+	// Instance ID
 	InstanceId pulumi.StringPtrInput
-	// 实例名称。
+	// Instance Name
 	InstanceName pulumi.StringPtrInput
-	// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+	// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
 	MetaInformation BackupResourceMetaInformationPtrInput
 	Plans           BackupResourcePlanArrayInput
-	// 恢复点的数量
+	// Number of Restore Points
 	RecoveryPointNumber pulumi.IntPtrInput
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId pulumi.StringPtrInput
-	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+	// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
 	ResourceType pulumi.StringPtrInput
-	// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+	// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
 	Status pulumi.StringPtrInput
-	// 更新时间
+	// Update Time
 	UpdatedTime pulumi.StringPtrInput
-	// 已经备份的字节数。
+	// Bytes Already Backed Up
 	UsedCapacityInBytes pulumi.IntPtrInput
 }
 
@@ -170,21 +170,21 @@ func (BackupResourceState) ElementType() reflect.Type {
 }
 
 type backupResourceArgs struct {
-	// 实例 ID。
+	// Instance ID
 	InstanceId string `pulumi:"instanceId"`
-	// 实例名称。
+	// Instance Name
 	InstanceName string `pulumi:"instanceName"`
-	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+	// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
 	ResourceType string `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a BackupResource resource.
 type BackupResourceArgs struct {
-	// 实例 ID。
+	// Instance ID
 	InstanceId pulumi.StringInput
-	// 实例名称。
+	// Instance Name
 	InstanceName pulumi.StringInput
-	// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+	// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
 	ResourceType pulumi.StringInput
 }
 
@@ -275,27 +275,27 @@ func (o BackupResourceOutput) ToBackupResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// 创建此备份源的账户 ID。
+// Account ID that created this backup source
 func (o BackupResourceOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// 创建时间。
+// Creation Time
 func (o BackupResourceOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 实例 ID。
+// Instance ID
 func (o BackupResourceOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// 实例名称。
+// Instance Name
 func (o BackupResourceOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
 func (o BackupResourceOutput) MetaInformation() BackupResourceMetaInformationOutput {
 	return o.ApplyT(func(v *BackupResource) BackupResourceMetaInformationOutput { return v.MetaInformation }).(BackupResourceMetaInformationOutput)
 }
@@ -304,32 +304,32 @@ func (o BackupResourceOutput) Plans() BackupResourcePlanArrayOutput {
 	return o.ApplyT(func(v *BackupResource) BackupResourcePlanArrayOutput { return v.Plans }).(BackupResourcePlanArrayOutput)
 }
 
-// 恢复点的数量
+// Number of Restore Points
 func (o BackupResourceOutput) RecoveryPointNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.IntOutput { return v.RecoveryPointNumber }).(pulumi.IntOutput)
 }
 
-// 备份源 ID。
+// Backup Source ID
 func (o BackupResourceOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
 func (o BackupResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
 func (o BackupResourceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// 更新时间
+// Update Time
 func (o BackupResourceOutput) UpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
-// 已经备份的字节数。
+// Bytes Already Backed Up
 func (o BackupResourceOutput) UsedCapacityInBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *BackupResource) pulumi.IntOutput { return v.UsedCapacityInBytes }).(pulumi.IntOutput)
 }

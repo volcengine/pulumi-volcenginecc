@@ -16,14 +16,14 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
     public static final BackupPlanResourceListArgs Empty = new BackupPlanResourceListArgs();
 
     /**
-     * 资源的meta信息，创建备份计划时，用于存储额外的配置。
+     * Resource meta information, used to store additional configuration when creating a backup plan
      * 
      */
     @Import(name="metaInformation", required=true)
     private Output<BackupPlanResourceListMetaInformationArgs> metaInformation;
 
     /**
-     * @return 资源的meta信息，创建备份计划时，用于存储额外的配置。
+     * @return Resource meta information, used to store additional configuration when creating a backup plan
      * 
      */
     public Output<BackupPlanResourceListMetaInformationArgs> metaInformation() {
@@ -31,14 +31,14 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 备份源 ID。
+     * Backup Source ID
      * 
      */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     public Output<String> resourceId() {
@@ -46,14 +46,14 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+     * Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+     * @return Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
      * 
      */
     public Output<String> resourceType() {
@@ -87,7 +87,7 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metaInformation 资源的meta信息，创建备份计划时，用于存储额外的配置。
+         * @param metaInformation Resource meta information, used to store additional configuration when creating a backup plan
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metaInformation 资源的meta信息，创建备份计划时，用于存储额外的配置。
+         * @param metaInformation Resource meta information, used to store additional configuration when creating a backup plan
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceId 备份源 ID。
+         * @param resourceId Backup Source ID
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceId 备份源 ID。
+         * @param resourceId Backup Source ID
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceType 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+         * @param resourceType Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BackupPlanResourceListArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceType 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+         * @param resourceType Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
          * 
          * @return builder
          * 

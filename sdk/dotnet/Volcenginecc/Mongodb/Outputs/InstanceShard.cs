@@ -16,7 +16,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb.Outputs
     {
         public readonly ImmutableArray<Outputs.InstanceShardNode> Nodes;
         /// <summary>
-        /// Shard 节点的 ID。
+        /// Shard node ID.
         /// </summary>
         public readonly string? ShardId;
 

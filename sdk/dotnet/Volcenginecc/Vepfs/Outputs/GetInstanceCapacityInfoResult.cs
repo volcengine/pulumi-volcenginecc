@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs.Outputs
     public sealed class GetInstanceCapacityInfoResult
     {
         /// <summary>
-        /// 文件系统总容量，单位为 TiB。
+        /// Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
         /// </summary>
         public readonly int TotalTiB;
         /// <summary>
-        /// 已使用容量（GiB）。
+        /// Used capacity (GiB).
         /// </summary>
         public readonly int UsedGiB;
 

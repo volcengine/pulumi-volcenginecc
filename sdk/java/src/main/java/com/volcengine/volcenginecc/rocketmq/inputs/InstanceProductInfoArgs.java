@@ -16,14 +16,14 @@ public final class InstanceProductInfoArgs extends com.pulumi.resources.Resource
     public static final InstanceProductInfoArgs Empty = new InstanceProductInfoArgs();
 
     /**
-     * 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+     * Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
      * 
      */
     @Import(name="sendReceiveRatio")
     private @Nullable Output<Integer> sendReceiveRatio;
 
     /**
-     * @return 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+     * @return Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
      * 
      */
     public Optional<Output<Integer>> sendReceiveRatio() {
@@ -55,7 +55,7 @@ public final class InstanceProductInfoArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sendReceiveRatio 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         * @param sendReceiveRatio Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class InstanceProductInfoArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sendReceiveRatio 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         * @param sendReceiveRatio Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
          * 
          * @return builder
          * 

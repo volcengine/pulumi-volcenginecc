@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb.Outputs
     public sealed class GetServerGroupListenerResult
     {
         /// <summary>
-        /// 监听器的ID。
+        /// Listener ID.
         /// </summary>
         public readonly string ListenerId;
 

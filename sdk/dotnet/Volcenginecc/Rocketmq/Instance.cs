@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
-    /// 消息队列 RocketMQ版是基于 Apache RocketMQ 构建的分布式消息中间件服务，完全兼容开源 RocketMQ 的各个组件与概念，同时具备低延迟、弹性高可靠、高吞吐等特性优势，业务代码无需改造，帮助用户快速迁移上云。
+    /// RocketMQ Message Queue is a distributed messaging middleware service built on Apache RocketMQ. It is fully compatible with all open-source RocketMQ components and concepts, offering low latency, high elasticity and high reliability, and high throughput. No changes to business code are required, enabling users to quickly migrate to the cloud.
     /// 
     /// ## Import
     /// 
@@ -23,43 +23,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 实例所属的账号 ID。
+        /// Account ID to which the instance belongs.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+        /// List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
         /// </summary>
         [Output("allowListIds")]
         public Output<ImmutableArray<string>> AllowListIds { get; private set; } = null!;
 
         /// <summary>
-        /// 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+        /// Whether private network domain name supports public resolution. true: enabled false: disabled
         /// </summary>
         [Output("applyPrivateDnsToPublic")]
         public Output<bool> ApplyPrivateDnsToPublic { get; private set; } = null!;
 
         /// <summary>
-        /// 实例规格更改时，是否自动创建队列。
+        /// Whether to automatically create queues when the instance specification changes.
         /// </summary>
         [Output("autoScaleQueue")]
         public Output<bool> AutoScaleQueue { get; private set; } = null!;
 
         /// <summary>
-        /// 剩余可创建的分区数量。
+        /// Remaining number of partitions that can be created.
         /// </summary>
         [Output("availableQueueNumber")]
         public Output<int> AvailableQueueNumber { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的计费方式等计费信息。
+        /// Billing method and related billing information for the instance.
         /// </summary>
         [Output("chargeDetail")]
         public Output<Outputs.InstanceChargeDetail> ChargeDetail { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+        /// Instance compute specification. You can view the currently available compute specifications in the product specifications list.
         /// </summary>
         [Output("computeSpec")]
         public Output<string> ComputeSpec { get; private set; } = null!;
@@ -68,97 +68,97 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         public Output<ImmutableArray<Outputs.InstanceConnectionInfo>> ConnectionInfos { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的创建时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+        /// Instance creation time. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+        /// EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
         /// </summary>
         [Output("eipId")]
         public Output<string> EipId { get; private set; } = null!;
 
         /// <summary>
-        /// 是否使用 SSL 加密。
+        /// Whether to use SSL encryption.
         /// </summary>
         [Output("enableSsl")]
         public Output<bool> EnableSsl { get; private set; } = null!;
 
         /// <summary>
-        /// 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+        /// Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
         /// </summary>
         [Output("fileReservedTime")]
         public Output<int> FileReservedTime { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的简单描述。长度范围为 1~128 个字符。
+        /// Brief description of the instance. Length range: 1–128 characters.
         /// </summary>
         [Output("instanceDescription")]
         public Output<string> InstanceDescription { get; private set; } = null!;
 
         /// <summary>
-        /// 实例 ID。
+        /// Instance ID.
         /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+        /// Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
         /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
         /// <summary>
-        /// 实例状态。
+        /// Instance status.
         /// </summary>
         [Output("instanceStatus")]
         public Output<string> InstanceStatus { get; private set; } = null!;
 
         /// <summary>
-        /// IP 版本， 可选直为 IPv4 或者 DualStack。
+        /// IP version. Options are IPv4 or DualStack.
         /// </summary>
         [Output("ipVersionType")]
         public Output<string> IpVersionType { get; private set; } = null!;
 
         /// <summary>
-        /// 实例网络类型，固定为 PrivateNetwork。
+        /// Instance network type, fixed as PrivateNetwork.
         /// </summary>
         [Output("networkTypes")]
         public Output<string> NetworkTypes { get; private set; } = null!;
 
         /// <summary>
-        /// 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        /// Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         /// </summary>
         [Output("productInfo")]
         public Output<Outputs.InstanceProductInfo> ProductInfo { get; private set; } = null!;
 
         /// <summary>
-        /// 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+        /// The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named 'default'.
         /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
-        /// 实例所在的地域 ID。
+        /// Region ID where the instance is located.
         /// </summary>
         [Output("regionId")]
         public Output<string> RegionId { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+        /// The instance's public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
         /// </summary>
         [Output("sslMode")]
         public Output<string> SslMode { get; private set; } = null!;
 
         /// <summary>
-        /// 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+        /// Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
         /// </summary>
         [Output("storageSpace")]
         public Output<int> StorageSpace { get; private set; } = null!;
 
         /// <summary>
-        /// 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+        /// VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -167,43 +167,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         public Output<ImmutableArray<Outputs.InstanceTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// 当前实例已经创建的消费组（Group）个数。
+        /// Number of consumer groups (Group) currently created for the instance.
         /// </summary>
         [Output("usedGroupNumber")]
         public Output<int> UsedGroupNumber { get; private set; } = null!;
 
         /// <summary>
-        /// 实例已经使用的队列数。
+        /// Number of queues already used by the instance.
         /// </summary>
         [Output("usedQueueNumber")]
         public Output<int> UsedQueueNumber { get; private set; } = null!;
 
         /// <summary>
-        /// 实例已用储空间。单位为 GiB。
+        /// Used storage space for the instance, in GiB.
         /// </summary>
         [Output("usedStorageSpace")]
         public Output<int> UsedStorageSpace { get; private set; } = null!;
 
         /// <summary>
-        /// 当前实例已创建的 Topic 个数。
+        /// Number of topics created in the current instance.
         /// </summary>
         [Output("usedTopicNumber")]
         public Output<int> UsedTopicNumber { get; private set; } = null!;
 
         /// <summary>
-        /// 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+        /// Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+        /// VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+        /// Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         private InputList<string>? _allowListIds;
 
         /// <summary>
-        /// 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+        /// List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
         /// </summary>
         public InputList<string> AllowListIds
         {
@@ -268,91 +268,91 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 实例规格更改时，是否自动创建队列。
+        /// Whether to automatically create queues when the instance specification changes.
         /// </summary>
         [Input("autoScaleQueue")]
         public Input<bool>? AutoScaleQueue { get; set; }
 
         /// <summary>
-        /// 实例的计费方式等计费信息。
+        /// Billing method and related billing information for the instance.
         /// </summary>
         [Input("chargeDetail", required: true)]
         public Input<Inputs.InstanceChargeDetailArgs> ChargeDetail { get; set; } = null!;
 
         /// <summary>
-        /// 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+        /// Instance compute specification. You can view the currently available compute specifications in the product specifications list.
         /// </summary>
         [Input("computeSpec", required: true)]
         public Input<string> ComputeSpec { get; set; } = null!;
 
         /// <summary>
-        /// EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+        /// EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
         /// </summary>
         [Input("eipId")]
         public Input<string>? EipId { get; set; }
 
         /// <summary>
-        /// 是否使用 SSL 加密。
+        /// Whether to use SSL encryption.
         /// </summary>
         [Input("enableSsl")]
         public Input<bool>? EnableSsl { get; set; }
 
         /// <summary>
-        /// 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+        /// Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
         /// </summary>
         [Input("fileReservedTime", required: true)]
         public Input<int> FileReservedTime { get; set; } = null!;
 
         /// <summary>
-        /// 实例的简单描述。长度范围为 1~128 个字符。
+        /// Brief description of the instance. Length range: 1–128 characters.
         /// </summary>
         [Input("instanceDescription")]
         public Input<string>? InstanceDescription { get; set; }
 
         /// <summary>
-        /// 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+        /// Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
         /// <summary>
-        /// IP 版本， 可选直为 IPv4 或者 DualStack。
+        /// IP version. Options are IPv4 or DualStack.
         /// </summary>
         [Input("ipVersionType")]
         public Input<string>? IpVersionType { get; set; }
 
         /// <summary>
-        /// 实例网络类型，固定为 PrivateNetwork。
+        /// Instance network type, fixed as PrivateNetwork.
         /// </summary>
         [Input("networkTypes", required: true)]
         public Input<string> NetworkTypes { get; set; } = null!;
 
         /// <summary>
-        /// 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        /// Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         /// </summary>
         [Input("productInfo")]
         public Input<Inputs.InstanceProductInfoArgs>? ProductInfo { get; set; }
 
         /// <summary>
-        /// 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+        /// The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named 'default'.
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+        /// The instance's public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
         /// </summary>
         [Input("sslMode")]
         public Input<string>? SslMode { get; set; }
 
         /// <summary>
-        /// 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+        /// Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
         /// </summary>
         [Input("storageSpace", required: true)]
         public Input<int> StorageSpace { get; set; } = null!;
 
         /// <summary>
-        /// 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+        /// VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -366,19 +366,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+        /// Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
         /// <summary>
-        /// 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+        /// VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
         /// <summary>
-        /// 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+        /// Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
         /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
@@ -392,7 +392,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 实例所属的账号 ID。
+        /// Account ID to which the instance belongs.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -401,7 +401,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         private InputList<string>? _allowListIds;
 
         /// <summary>
-        /// 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+        /// List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
         /// </summary>
         public InputList<string> AllowListIds
         {
@@ -410,31 +410,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+        /// Whether private network domain name supports public resolution. true: enabled false: disabled
         /// </summary>
         [Input("applyPrivateDnsToPublic")]
         public Input<bool>? ApplyPrivateDnsToPublic { get; set; }
 
         /// <summary>
-        /// 实例规格更改时，是否自动创建队列。
+        /// Whether to automatically create queues when the instance specification changes.
         /// </summary>
         [Input("autoScaleQueue")]
         public Input<bool>? AutoScaleQueue { get; set; }
 
         /// <summary>
-        /// 剩余可创建的分区数量。
+        /// Remaining number of partitions that can be created.
         /// </summary>
         [Input("availableQueueNumber")]
         public Input<int>? AvailableQueueNumber { get; set; }
 
         /// <summary>
-        /// 实例的计费方式等计费信息。
+        /// Billing method and related billing information for the instance.
         /// </summary>
         [Input("chargeDetail")]
         public Input<Inputs.InstanceChargeDetailGetArgs>? ChargeDetail { get; set; }
 
         /// <summary>
-        /// 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+        /// Instance compute specification. You can view the currently available compute specifications in the product specifications list.
         /// </summary>
         [Input("computeSpec")]
         public Input<string>? ComputeSpec { get; set; }
@@ -448,97 +448,97 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 实例的创建时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+        /// Instance creation time. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
-        /// EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+        /// EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
         /// </summary>
         [Input("eipId")]
         public Input<string>? EipId { get; set; }
 
         /// <summary>
-        /// 是否使用 SSL 加密。
+        /// Whether to use SSL encryption.
         /// </summary>
         [Input("enableSsl")]
         public Input<bool>? EnableSsl { get; set; }
 
         /// <summary>
-        /// 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+        /// Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
         /// </summary>
         [Input("fileReservedTime")]
         public Input<int>? FileReservedTime { get; set; }
 
         /// <summary>
-        /// 实例的简单描述。长度范围为 1~128 个字符。
+        /// Brief description of the instance. Length range: 1–128 characters.
         /// </summary>
         [Input("instanceDescription")]
         public Input<string>? InstanceDescription { get; set; }
 
         /// <summary>
-        /// 实例 ID。
+        /// Instance ID.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+        /// Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
         /// <summary>
-        /// 实例状态。
+        /// Instance status.
         /// </summary>
         [Input("instanceStatus")]
         public Input<string>? InstanceStatus { get; set; }
 
         /// <summary>
-        /// IP 版本， 可选直为 IPv4 或者 DualStack。
+        /// IP version. Options are IPv4 or DualStack.
         /// </summary>
         [Input("ipVersionType")]
         public Input<string>? IpVersionType { get; set; }
 
         /// <summary>
-        /// 实例网络类型，固定为 PrivateNetwork。
+        /// Instance network type, fixed as PrivateNetwork.
         /// </summary>
         [Input("networkTypes")]
         public Input<string>? NetworkTypes { get; set; }
 
         /// <summary>
-        /// 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        /// Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         /// </summary>
         [Input("productInfo")]
         public Input<Inputs.InstanceProductInfoGetArgs>? ProductInfo { get; set; }
 
         /// <summary>
-        /// 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+        /// The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named 'default'.
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// 实例所在的地域 ID。
+        /// Region ID where the instance is located.
         /// </summary>
         [Input("regionId")]
         public Input<string>? RegionId { get; set; }
 
         /// <summary>
-        /// 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+        /// The instance's public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
         /// </summary>
         [Input("sslMode")]
         public Input<string>? SslMode { get; set; }
 
         /// <summary>
-        /// 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+        /// Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
         /// </summary>
         [Input("storageSpace")]
         public Input<int>? StorageSpace { get; set; }
 
         /// <summary>
-        /// 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+        /// VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -552,43 +552,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 当前实例已经创建的消费组（Group）个数。
+        /// Number of consumer groups (Group) currently created for the instance.
         /// </summary>
         [Input("usedGroupNumber")]
         public Input<int>? UsedGroupNumber { get; set; }
 
         /// <summary>
-        /// 实例已经使用的队列数。
+        /// Number of queues already used by the instance.
         /// </summary>
         [Input("usedQueueNumber")]
         public Input<int>? UsedQueueNumber { get; set; }
 
         /// <summary>
-        /// 实例已用储空间。单位为 GiB。
+        /// Used storage space for the instance, in GiB.
         /// </summary>
         [Input("usedStorageSpace")]
         public Input<int>? UsedStorageSpace { get; set; }
 
         /// <summary>
-        /// 当前实例已创建的 Topic 个数。
+        /// Number of topics created in the current instance.
         /// </summary>
         [Input("usedTopicNumber")]
         public Input<int>? UsedTopicNumber { get; set; }
 
         /// <summary>
-        /// 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+        /// Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+        /// VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+        /// Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

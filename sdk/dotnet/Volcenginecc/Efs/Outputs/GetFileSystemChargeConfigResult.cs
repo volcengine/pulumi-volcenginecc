@@ -15,23 +15,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Outputs
     public sealed class GetFileSystemChargeConfigResult
     {
         /// <summary>
-        /// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+        /// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
         /// </summary>
         public readonly string ChargeStatus;
         /// <summary>
-        /// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        /// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         /// </summary>
         public readonly string ChargeType;
         /// <summary>
-        /// 到期时间。
+        /// Expiration time.
         /// </summary>
         public readonly string ExpireTime;
         /// <summary>
-        /// 回收时间。
+        /// Recycle time.
         /// </summary>
         public readonly string ReclaimTime;
         /// <summary>
-        /// 关停时间。
+        /// Shutdown time.
         /// </summary>
         public readonly string StopTime;
 

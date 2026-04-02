@@ -16,14 +16,14 @@ public final class TopicAccessPolicyArgs extends com.pulumi.resources.ResourceAr
     public static final TopicAccessPolicyArgs Empty = new TopicAccessPolicyArgs();
 
     /**
-     * RocketMQ 密钥的 AccessKey。
+     * AccessKey of the RocketMQ key.
      * 
      */
     @Import(name="accessKey")
     private @Nullable Output<String> accessKey;
 
     /**
-     * @return RocketMQ 密钥的 AccessKey。
+     * @return AccessKey of the RocketMQ key.
      * 
      */
     public Optional<Output<String>> accessKey() {
@@ -31,14 +31,14 @@ public final class TopicAccessPolicyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+     * User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
      * 
      */
     @Import(name="authority")
     private @Nullable Output<String> authority;
 
     /**
-     * @return 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+     * @return User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
      * 
      */
     public Optional<Output<String>> authority() {
@@ -71,7 +71,7 @@ public final class TopicAccessPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessKey RocketMQ 密钥的 AccessKey。
+         * @param accessKey AccessKey of the RocketMQ key.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TopicAccessPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessKey RocketMQ 密钥的 AccessKey。
+         * @param accessKey AccessKey of the RocketMQ key.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class TopicAccessPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authority 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+         * @param authority User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TopicAccessPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authority 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+         * @param authority User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
          * 
          * @return builder
          * 

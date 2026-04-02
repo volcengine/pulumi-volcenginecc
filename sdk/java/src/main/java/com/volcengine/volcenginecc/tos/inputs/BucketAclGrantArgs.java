@@ -16,14 +16,14 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
     public static final BucketAclGrantArgs Empty = new BucketAclGrantArgs();
 
     /**
-     * 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+     * Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
      * 
      */
     @Import(name="acl")
     private @Nullable Output<String> acl;
 
     /**
-     * @return 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+     * @return Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
      * 
      */
     public Optional<Output<String>> acl() {
@@ -31,14 +31,14 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 授予指定用户所有权限。
+     * Grant all permissions to the specified user
      * 
      */
     @Import(name="grantFullControl")
     private @Nullable Output<String> grantFullControl;
 
     /**
-     * @return 授予指定用户所有权限。
+     * @return Grant all permissions to the specified user
      * 
      */
     public Optional<Output<String>> grantFullControl() {
@@ -46,14 +46,14 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 授予指定用户读权限。
+     * Grant read permission to the specified user
      * 
      */
     @Import(name="grantRead")
     private @Nullable Output<String> grantRead;
 
     /**
-     * @return 授予指定用户读权限。
+     * @return Grant read permission to the specified user
      * 
      */
     public Optional<Output<String>> grantRead() {
@@ -61,14 +61,14 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 授予指定用户查看桶 ACL 的权限。
+     * Grant permission to specified user to view bucket ACL
      * 
      */
     @Import(name="grantReadAcp")
     private @Nullable Output<String> grantReadAcp;
 
     /**
-     * @return 授予指定用户查看桶 ACL 的权限。
+     * @return Grant permission to specified user to view bucket ACL
      * 
      */
     public Optional<Output<String>> grantReadAcp() {
@@ -76,14 +76,14 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 授予指定用户写权限。
+     * Grant write permission to specified user
      * 
      */
     @Import(name="grantWrite")
     private @Nullable Output<String> grantWrite;
 
     /**
-     * @return 授予指定用户写权限。
+     * @return Grant write permission to specified user
      * 
      */
     public Optional<Output<String>> grantWrite() {
@@ -91,14 +91,14 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 授予指定用户修改和删除桶 ACL 的权限。
+     * Grant permission to the specified user to modify and delete bucket ACL
      * 
      */
     @Import(name="grantWriteAcp")
     private @Nullable Output<String> grantWriteAcp;
 
     /**
-     * @return 授予指定用户修改和删除桶 ACL 的权限。
+     * @return Grant permission to the specified user to modify and delete bucket ACL
      * 
      */
     public Optional<Output<String>> grantWriteAcp() {
@@ -135,7 +135,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param acl 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+         * @param acl Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param acl 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+         * @param acl Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantFullControl 授予指定用户所有权限。
+         * @param grantFullControl Grant all permissions to the specified user
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantFullControl 授予指定用户所有权限。
+         * @param grantFullControl Grant all permissions to the specified user
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantRead 授予指定用户读权限。
+         * @param grantRead Grant read permission to the specified user
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantRead 授予指定用户读权限。
+         * @param grantRead Grant read permission to the specified user
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantReadAcp 授予指定用户查看桶 ACL 的权限。
+         * @param grantReadAcp Grant permission to specified user to view bucket ACL
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantReadAcp 授予指定用户查看桶 ACL 的权限。
+         * @param grantReadAcp Grant permission to specified user to view bucket ACL
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantWrite 授予指定用户写权限。
+         * @param grantWrite Grant write permission to specified user
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantWrite 授予指定用户写权限。
+         * @param grantWrite Grant write permission to specified user
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantWriteAcp 授予指定用户修改和删除桶 ACL 的权限。
+         * @param grantWriteAcp Grant permission to the specified user to modify and delete bucket ACL
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class BucketAclGrantArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param grantWriteAcp 授予指定用户修改和删除桶 ACL 的权限。
+         * @param grantWriteAcp Grant permission to the specified user to modify and delete bucket ACL
          * 
          * @return builder
          * 

@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls.Outputs
     public sealed class GetProjectTagResult
     {
         /// <summary>
-        /// 标签键。
+        /// Tag key
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// 标签值。
+        /// Tag value
         /// </summary>
         public readonly string Value;
 

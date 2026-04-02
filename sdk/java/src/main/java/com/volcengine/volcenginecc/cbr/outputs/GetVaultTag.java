@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetVaultTag {
     /**
-     * @return 标签键。
+     * @return Tag Key
      * 
      */
     private String key;
     /**
-     * @return 标签值。
+     * @return Tag Value
      * 
      */
     private String value;
 
     private GetVaultTag() {}
     /**
-     * @return 标签键。
+     * @return Tag Key
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return 标签值。
+     * @return Tag Value
      * 
      */
     public String value() {

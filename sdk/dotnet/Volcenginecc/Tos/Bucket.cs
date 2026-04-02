@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
-    /// 存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。
+    /// A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
     /// 
     /// ## Import
     /// 
@@ -23,7 +23,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 桶的访问控制权限。
+        /// Bucket access control permissions
         /// </summary>
         [Output("acl")]
         public Output<Outputs.BucketAcl> Acl { get; private set; } = null!;
@@ -32,37 +32,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Output<Outputs.BucketAclGrant> AclGrant { get; private set; } = null!;
 
         /// <summary>
-        /// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+        /// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         /// </summary>
         [Output("azRedundancy")]
         public Output<string> AzRedundancy { get; private set; } = null!;
 
         /// <summary>
-        /// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+        /// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         /// </summary>
         [Output("bucketType")]
         public Output<string> BucketType { get; private set; } = null!;
 
         /// <summary>
-        /// 桶的创建时间。
+        /// Bucket creation time
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        /// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         /// </summary>
         [Output("enableVersionStatus")]
         public Output<string> EnableVersionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// 存储桶的 TOS 协议公网访问域名。
+        /// TOS protocol public access domain name for the bucket
         /// </summary>
         [Output("extranetEndpoint")]
         public Output<string> ExtranetEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// 存储桶的 TOS 协议私网访问域名
+        /// Private network access domain name for the bucket's TOS protocol
         /// </summary>
         [Output("intranetEndpoint")]
         public Output<string> IntranetEndpoint { get; private set; } = null!;
@@ -71,31 +71,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Output<ImmutableArray<Outputs.BucketLifecycleConfig>> LifecycleConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// 桶所在区域。
+        /// Bucket region
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// 桶名。
+        /// Bucket name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// 存储桶所属项目。
+        /// Project associated with the bucket
         /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
-        /// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        /// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         /// </summary>
         [Output("storageClass")]
         public Output<string> StorageClass { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 桶的访问控制权限。
+        /// Bucket access control permissions
         /// </summary>
         [Input("acl")]
         public Input<Inputs.BucketAclArgs>? Acl { get; set; }
@@ -160,19 +160,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Input<Inputs.BucketAclGrantArgs>? AclGrant { get; set; }
 
         /// <summary>
-        /// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+        /// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         /// </summary>
         [Input("azRedundancy")]
         public Input<string>? AzRedundancy { get; set; }
 
         /// <summary>
-        /// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+        /// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         /// </summary>
         [Input("bucketType")]
         public Input<string>? BucketType { get; set; }
 
         /// <summary>
-        /// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        /// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         /// </summary>
         [Input("enableVersionStatus")]
         public Input<string>? EnableVersionStatus { get; set; }
@@ -186,25 +186,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         }
 
         /// <summary>
-        /// 桶名。
+        /// Bucket name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// 存储桶所属项目。
+        /// Project associated with the bucket
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        /// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }
@@ -226,7 +226,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     public sealed class BucketState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 桶的访问控制权限。
+        /// Bucket access control permissions
         /// </summary>
         [Input("acl")]
         public Input<Inputs.BucketAclGetArgs>? Acl { get; set; }
@@ -235,37 +235,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Input<Inputs.BucketAclGrantGetArgs>? AclGrant { get; set; }
 
         /// <summary>
-        /// 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+        /// Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         /// </summary>
         [Input("azRedundancy")]
         public Input<string>? AzRedundancy { get; set; }
 
         /// <summary>
-        /// 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+        /// Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         /// </summary>
         [Input("bucketType")]
         public Input<string>? BucketType { get; set; }
 
         /// <summary>
-        /// 桶的创建时间。
+        /// Bucket creation time
         /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
         /// <summary>
-        /// 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        /// Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         /// </summary>
         [Input("enableVersionStatus")]
         public Input<string>? EnableVersionStatus { get; set; }
 
         /// <summary>
-        /// 存储桶的 TOS 协议公网访问域名。
+        /// TOS protocol public access domain name for the bucket
         /// </summary>
         [Input("extranetEndpoint")]
         public Input<string>? ExtranetEndpoint { get; set; }
 
         /// <summary>
-        /// 存储桶的 TOS 协议私网访问域名
+        /// Private network access domain name for the bucket's TOS protocol
         /// </summary>
         [Input("intranetEndpoint")]
         public Input<string>? IntranetEndpoint { get; set; }
@@ -279,31 +279,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         }
 
         /// <summary>
-        /// 桶所在区域。
+        /// Bucket region
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// 桶名。
+        /// Bucket name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// 存储桶所属项目。
+        /// Project associated with the bucket
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        /// Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }

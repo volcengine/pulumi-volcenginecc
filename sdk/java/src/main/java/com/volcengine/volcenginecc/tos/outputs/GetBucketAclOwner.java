@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketAclOwner {
     /**
-     * @return 展示名。
+     * @return Display name
      * 
      */
     private String displayName;
     /**
-     * @return 账号ID。
+     * @return Account ID
      * 
      */
     private String ownerId;
 
     private GetBucketAclOwner() {}
     /**
-     * @return 展示名。
+     * @return Display name
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return 账号ID。
+     * @return Account ID
      * 
      */
     public String ownerId() {

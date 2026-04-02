@@ -14,31 +14,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
     public sealed class InstanceConnectionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 实例的接入点 IP 地址。
+        /// Instance endpoint IP address.
         /// </summary>
         [Input("endpointAddressIp")]
         public Input<string>? EndpointAddressIp { get; set; }
 
         /// <summary>
-        /// 实例的接入点类型。
+        /// Instance access point type.
         /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// 实例的私网接入点地址。
+        /// Private network endpoint address for the instance.
         /// </summary>
         [Input("internalEndpoint")]
         public Input<string>? InternalEndpoint { get; set; }
 
         /// <summary>
-        /// 实例的接入点类型。
+        /// Instance access point type.
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// 实例的公网接入点地址。
+        /// Public access point address of the instance.
         /// </summary>
         [Input("publicEndpoint")]
         public Input<string>? PublicEndpoint { get; set; }

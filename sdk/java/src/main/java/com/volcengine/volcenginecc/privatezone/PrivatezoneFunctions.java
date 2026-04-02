@@ -16,12 +16,16 @@ import com.volcengine.volcenginecc.privatezone.inputs.GetResolverEndpointArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverEndpointPlainArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverRuleArgs;
 import com.volcengine.volcenginecc.privatezone.inputs.GetResolverRulePlainArgs;
+import com.volcengine.volcenginecc.privatezone.inputs.GetUserVpcAuthorizationArgs;
+import com.volcengine.volcenginecc.privatezone.inputs.GetUserVpcAuthorizationPlainArgs;
 import com.volcengine.volcenginecc.privatezone.outputs.GetRecordResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetRecordsResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverEndpointResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverEndpointsResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverRuleResult;
 import com.volcengine.volcenginecc.privatezone.outputs.GetResolverRulesResult;
+import com.volcengine.volcenginecc.privatezone.outputs.GetUserVpcAuthorizationResult;
+import com.volcengine.volcenginecc.privatezone.outputs.GetUserVpcAuthorizationsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class PrivatezoneFunctions {
@@ -276,5 +280,89 @@ public final class PrivatezoneFunctions {
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:privatezone/getResolverRules:getResolverRules", TypeShape.of(GetResolverRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationResult> getUserVpcAuthorization(GetUserVpcAuthorizationArgs args) {
+        return getUserVpcAuthorization(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static CompletableFuture<GetUserVpcAuthorizationResult> getUserVpcAuthorizationPlain(GetUserVpcAuthorizationPlainArgs args) {
+        return getUserVpcAuthorizationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationResult> getUserVpcAuthorization(GetUserVpcAuthorizationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getUserVpcAuthorization:getUserVpcAuthorization", TypeShape.of(GetUserVpcAuthorizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationResult> getUserVpcAuthorization(GetUserVpcAuthorizationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getUserVpcAuthorization:getUserVpcAuthorization", TypeShape.of(GetUserVpcAuthorizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static CompletableFuture<GetUserVpcAuthorizationResult> getUserVpcAuthorizationPlain(GetUserVpcAuthorizationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:privatezone/getUserVpcAuthorization:getUserVpcAuthorization", TypeShape.of(GetUserVpcAuthorizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationsResult> getUserVpcAuthorizations() {
+        return getUserVpcAuthorizations(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static CompletableFuture<GetUserVpcAuthorizationsResult> getUserVpcAuthorizationsPlain() {
+        return getUserVpcAuthorizationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationsResult> getUserVpcAuthorizations(InvokeArgs args) {
+        return getUserVpcAuthorizations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static CompletableFuture<GetUserVpcAuthorizationsResult> getUserVpcAuthorizationsPlain(InvokeArgs args) {
+        return getUserVpcAuthorizationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationsResult> getUserVpcAuthorizations(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getUserVpcAuthorizations:getUserVpcAuthorizations", TypeShape.of(GetUserVpcAuthorizationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static Output<GetUserVpcAuthorizationsResult> getUserVpcAuthorizations(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatezone/getUserVpcAuthorizations:getUserVpcAuthorizations", TypeShape.of(GetUserVpcAuthorizationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateZone::UserVPCAuthorization
+     * 
+     */
+    public static CompletableFuture<GetUserVpcAuthorizationsResult> getUserVpcAuthorizationsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:privatezone/getUserVpcAuthorizations:getUserVpcAuthorizations", TypeShape.of(GetUserVpcAuthorizationsResult.class), args, Utilities.withVersion(options));
     }
 }

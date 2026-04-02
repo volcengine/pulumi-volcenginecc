@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Outputs
     public sealed class GetGatewayServiceAuthSpecResult
     {
         /// <summary>
-        /// 是否开启认证。
+        /// Whether authentication is enabled.
         /// </summary>
         public readonly bool Enable;
 

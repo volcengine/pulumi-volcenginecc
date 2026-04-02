@@ -22,14 +22,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     public static final FileSystemState Empty = new FileSystemState();
 
     /**
-     * 接入点上限。
+     * Access point limit.
      * 
      */
     @Import(name="accessPointLimit")
     private @Nullable Output<Integer> accessPointLimit;
 
     /**
-     * @return 接入点上限。
+     * @return Access point limit.
      * 
      */
     public Optional<Output<Integer>> accessPointLimit() {
@@ -37,14 +37,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统计费配置。
+     * File system billing configuration.
      * 
      */
     @Import(name="chargeConfig")
     private @Nullable Output<FileSystemChargeConfigArgs> chargeConfig;
 
     /**
-     * @return 文件系统计费配置。
+     * @return File system billing configuration.
      * 
      */
     public Optional<Output<FileSystemChargeConfigArgs>> chargeConfig() {
@@ -52,14 +52,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     @Import(name="chargeType")
     private @Nullable Output<String> chargeType;
 
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public Optional<Output<String>> chargeType() {
@@ -67,14 +67,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统创建时间。
+     * File system creation time.
      * 
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
-     * @return 文件系统创建时间。
+     * @return File system creation time.
      * 
      */
     public Optional<Output<String>> createTime() {
@@ -82,14 +82,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 描述信息。
+     * Description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return 描述信息。
+     * @return Description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -97,14 +97,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统带宽可以降配的时间。
+     * Time when file system bandwidth can be downgraded.
      * 
      */
     @Import(name="downgradeUnlockTime")
     private @Nullable Output<String> downgradeUnlockTime;
 
     /**
-     * @return 文件系统带宽可以降配的时间。
+     * @return Time when file system bandwidth can be downgraded.
      * 
      */
     public Optional<Output<String>> downgradeUnlockTime() {
@@ -112,14 +112,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统 ID。
+     * File system ID.
      * 
      */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
     /**
-     * @return 文件系统 ID。
+     * @return File system ID.
      * 
      */
     public Optional<Output<String>> fileSystemId() {
@@ -127,14 +127,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统名称。
+     * File system name.
      * 
      */
     @Import(name="fileSystemName")
     private @Nullable Output<String> fileSystemName;
 
     /**
-     * @return 文件系统名称。
+     * @return File system name.
      * 
      */
     public Optional<Output<String>> fileSystemName() {
@@ -142,14 +142,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Basic：基础型,Premium：高级型
+     * Basic: Basic type, Premium: Premium type.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return Basic：基础型,Premium：高级型
+     * @return Basic: Basic type, Premium: Premium type.
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -157,14 +157,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 挂载点上限。
+     * Mount point limit.
      * 
      */
     @Import(name="mountPointLimit")
     private @Nullable Output<Integer> mountPointLimit;
 
     /**
-     * @return 挂载点上限。
+     * @return Mount point limit.
      * 
      */
     public Optional<Output<Integer>> mountPointLimit() {
@@ -172,14 +172,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统性能信息。
+     * File system performance information.
      * 
      */
     @Import(name="performance")
     private @Nullable Output<FileSystemPerformanceArgs> performance;
 
     /**
-     * @return 文件系统性能信息。
+     * @return File system performance information.
      * 
      */
     public Optional<Output<FileSystemPerformanceArgs>> performance() {
@@ -187,14 +187,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     @Import(name="performanceDensity")
     private @Nullable Output<String> performanceDensity;
 
     /**
-     * @return 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * @return File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     public Optional<Output<String>> performanceDensity() {
@@ -202,14 +202,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 项目名称。
+     * Project name.
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 项目名称。
+     * @return Project name.
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -217,14 +217,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 协议类型
+     * Protocol type.
      * 
      */
     @Import(name="protocolTypes")
     private @Nullable Output<List<String>> protocolTypes;
 
     /**
-     * @return 协议类型
+     * @return Protocol type.
      * 
      */
     public Optional<Output<List<String>>> protocolTypes() {
@@ -232,14 +232,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * @return File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      * 
      */
     public Optional<Output<String>> status() {
@@ -247,14 +247,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统容量信息。
+     * File system capacity information.
      * 
      */
     @Import(name="storage")
     private @Nullable Output<FileSystemStorageArgs> storage;
 
     /**
-     * @return 文件系统容量信息。
+     * @return File system capacity information.
      * 
      */
     public Optional<Output<FileSystemStorageArgs>> storage() {
@@ -269,14 +269,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统更新时间。
+     * File system update time.
      * 
      */
     @Import(name="updateTime")
     private @Nullable Output<String> updateTime;
 
     /**
-     * @return 文件系统更新时间。
+     * @return File system update time.
      * 
      */
     public Optional<Output<String>> updateTime() {
@@ -284,14 +284,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 可用区 ID。
+     * Availability zone ID.
      * 
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
-     * @return 可用区 ID。
+     * @return Availability zone ID.
      * 
      */
     public Optional<Output<String>> zoneId() {
@@ -299,14 +299,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 可用区名称。
+     * Availability zone name.
      * 
      */
     @Import(name="zoneName")
     private @Nullable Output<String> zoneName;
 
     /**
-     * @return 可用区名称。
+     * @return Availability zone name.
      * 
      */
     public Optional<Output<String>> zoneName() {
@@ -357,7 +357,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPointLimit 接入点上限。
+         * @param accessPointLimit Access point limit.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPointLimit 接入点上限。
+         * @param accessPointLimit Access point limit.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeConfig 文件系统计费配置。
+         * @param chargeConfig File system billing configuration.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeConfig 文件系统计费配置。
+         * @param chargeConfig File system billing configuration.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeType 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         * @param chargeType Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeType 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         * @param chargeType Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 文件系统创建时间。
+         * @param createTime File system creation time.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 文件系统创建时间。
+         * @param createTime File system creation time.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description 描述信息。
+         * @param description Description.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description 描述信息。
+         * @param description Description.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param downgradeUnlockTime 文件系统带宽可以降配的时间。
+         * @param downgradeUnlockTime Time when file system bandwidth can be downgraded.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param downgradeUnlockTime 文件系统带宽可以降配的时间。
+         * @param downgradeUnlockTime Time when file system bandwidth can be downgraded.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemId 文件系统 ID。
+         * @param fileSystemId File system ID.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemId 文件系统 ID。
+         * @param fileSystemId File system ID.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemName 文件系统名称。
+         * @param fileSystemName File system name.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemName 文件系统名称。
+         * @param fileSystemName File system name.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Basic：基础型,Premium：高级型
+         * @param instanceType Basic: Basic type, Premium: Premium type.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Basic：基础型,Premium：高级型
+         * @param instanceType Basic: Basic type, Premium: Premium type.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mountPointLimit 挂载点上限。
+         * @param mountPointLimit Mount point limit.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mountPointLimit 挂载点上限。
+         * @param mountPointLimit Mount point limit.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performance 文件系统性能信息。
+         * @param performance File system performance information.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performance 文件系统性能信息。
+         * @param performance File system performance information.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceDensity 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+         * @param performanceDensity File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceDensity 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+         * @param performanceDensity File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project name.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project name.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolTypes 协议类型
+         * @param protocolTypes Protocol type.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolTypes 协议类型
+         * @param protocolTypes Protocol type.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolTypes 协议类型
+         * @param protocolTypes Protocol type.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+         * @param status File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+         * @param status File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storage 文件系统容量信息。
+         * @param storage File system capacity information.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storage 文件系统容量信息。
+         * @param storage File system capacity information.
          * 
          * @return builder
          * 
@@ -716,7 +716,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime 文件系统更新时间。
+         * @param updateTime File system update time.
          * 
          * @return builder
          * 
@@ -727,7 +727,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime 文件系统更新时间。
+         * @param updateTime File system update time.
          * 
          * @return builder
          * 
@@ -737,7 +737,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId 可用区 ID。
+         * @param zoneId Availability zone ID.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId 可用区 ID。
+         * @param zoneId Availability zone ID.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneName 可用区名称。
+         * @param zoneName Availability zone name.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneName 可用区名称。
+         * @param zoneName Availability zone name.
          * 
          * @return builder
          * 

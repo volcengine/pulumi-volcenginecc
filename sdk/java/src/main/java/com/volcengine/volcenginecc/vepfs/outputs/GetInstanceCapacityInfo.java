@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceCapacityInfo {
     /**
-     * @return 文件系统总容量，单位为 TiB。
+     * @return Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
      * 
      */
     private Integer totalTiB;
     /**
-     * @return 已使用容量（GiB）。
+     * @return Used capacity (GiB).
      * 
      */
     private Integer usedGiB;
 
     private GetInstanceCapacityInfo() {}
     /**
-     * @return 文件系统总容量，单位为 TiB。
+     * @return Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
      * 
      */
     public Integer totalTiB() {
         return this.totalTiB;
     }
     /**
-     * @return 已使用容量（GiB）。
+     * @return Used capacity (GiB).
      * 
      */
     public Integer usedGiB() {

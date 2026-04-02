@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:vefaas/function:Function":
+		r = &Function{}
 	case "volcenginecc:vefaas/kafkaTrigger:KafkaTrigger":
 		r = &KafkaTrigger{}
 	case "volcenginecc:vefaas/sandbox:Sandbox":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vefaas/function",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vefaas/kafkaTrigger",

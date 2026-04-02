@@ -65,11 +65,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class GetBackupResourceResult
     {
         /// <summary>
-        /// 创建此备份源的账户 ID。
+        /// Account ID that created this backup source
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
@@ -77,43 +77,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// 实例 ID。
+        /// Instance ID
         /// </summary>
         public readonly string InstanceId;
         /// <summary>
-        /// 实例名称。
+        /// Instance Name
         /// </summary>
         public readonly string InstanceName;
         /// <summary>
-        /// 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+        /// Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
         /// </summary>
         public readonly Outputs.GetBackupResourceMetaInformationResult MetaInformation;
         /// <summary>
-        /// 关联的备份计划列表。
+        /// List of Associated Backup Plans
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBackupResourcePlanResult> Plans;
         /// <summary>
-        /// 恢复点的数量
+        /// Number of Restore Points
         /// </summary>
         public readonly int RecoveryPointNumber;
         /// <summary>
-        /// 备份源 ID。
+        /// Backup Source ID
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+        /// Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
-        /// 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+        /// Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// 更新时间
+        /// Update Time
         /// </summary>
         public readonly string UpdatedTime;
         /// <summary>
-        /// 已经备份的字节数。
+        /// Bytes Already Backed Up
         /// </summary>
         public readonly int UsedCapacityInBytes;
 

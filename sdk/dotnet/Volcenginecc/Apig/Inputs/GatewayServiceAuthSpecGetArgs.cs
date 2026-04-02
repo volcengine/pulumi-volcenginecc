@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Inputs
     public sealed class GatewayServiceAuthSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 是否开启认证。
+        /// Whether authentication is enabled.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }

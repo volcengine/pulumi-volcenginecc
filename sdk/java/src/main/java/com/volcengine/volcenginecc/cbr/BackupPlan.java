@@ -17,7 +17,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * 当需要对备份源进行自动备份时，可以创建备份计划，在备份计划中关联备份源和备份策略，指定备份存储空间，并设置备份数据保留规则等。在创建备份计划后，系统将按照关联备份策略配置，对指定备份源进行统一自动备份。
+ * To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
  * 
  * ## Example Usage
  * 
@@ -34,84 +34,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:cbr/backupPlan:BackupPlan")
 public class BackupPlan extends com.pulumi.resources.CustomResource {
     /**
-     * 创建此计划的账户 ID。
+     * Account ID that created this plan
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return 创建此计划的账户 ID。
+     * @return Account ID that created this plan
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return 备份计划名称。
+     * @return Backup Plan Name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * 备份计划 ID。
+     * Backup Plan ID
      * 
      */
     @Export(name="planId", refs={String.class}, tree="[0]")
     private Output<String> planId;
 
     /**
-     * @return 备份计划 ID。
+     * @return Backup Plan ID
      * 
      */
     public Output<String> planId() {
         return this.planId;
     }
     /**
-     * 备份策略。
+     * Backup Policy
      * 
      */
     @Export(name="policy", refs={BackupPlanPolicy.class}, tree="[0]")
     private Output<BackupPlanPolicy> policy;
 
     /**
-     * @return 备份策略。
+     * @return Backup Policy
      * 
      */
     public Output<BackupPlanPolicy> policy() {
         return this.policy;
     }
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public Output<String> policyId() {
@@ -124,14 +124,14 @@ public class BackupPlan extends com.pulumi.resources.CustomResource {
         return this.resourceLists;
     }
     /**
-     * 更新时间。
+     * Update Time
      * 
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     public Output<String> updatedTime() {

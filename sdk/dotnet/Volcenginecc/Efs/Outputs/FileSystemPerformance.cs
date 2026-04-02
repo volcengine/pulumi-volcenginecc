@@ -15,31 +15,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Outputs
     public sealed class FileSystemPerformance
     {
         /// <summary>
-        /// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+        /// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
         /// </summary>
         public readonly string BandwidthMode;
         /// <summary>
-        /// 基准带宽。
+        /// Baseline bandwidth.
         /// </summary>
         public readonly int? BaselineBandwidth;
         /// <summary>
-        /// 基准 IOPS。
+        /// Baseline IOPS.
         /// </summary>
         public readonly int? BaselineIops;
         /// <summary>
-        /// 突发带宽。
+        /// Burst bandwidth.
         /// </summary>
         public readonly int? BurstBandwidth;
         /// <summary>
-        /// 突发 IOPS。
+        /// Burst IOPS.
         /// </summary>
         public readonly int? BurstIops;
         /// <summary>
-        /// 预置带宽。
+        /// Provisioned bandwidth.
         /// </summary>
         public readonly int? ProvisionedBandwidth;
         /// <summary>
-        /// 预置 IOPS。
+        /// Provisioned IOPS.
         /// </summary>
         public readonly int? ProvisionedIops;
 

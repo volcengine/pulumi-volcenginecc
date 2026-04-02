@@ -15,19 +15,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Outputs
     public sealed class BucketLifecycleConfigFilter
     {
         /// <summary>
-        /// 是否启用相等条件。包括Enabled、Disabled。
+        /// Equality condition status. Includes Enabled, Disabled
         /// </summary>
         public readonly string? GreaterThanIncludeEqual;
         /// <summary>
-        /// 是否启用相等条件。包括Enabled、Disabled。
+        /// Equality condition status. Includes Enabled, Disabled
         /// </summary>
         public readonly string? LessThanIncludeEqual;
         /// <summary>
-        /// 设置规则生效于大于指定大小的对象。
+        /// Apply rule to objects larger than the specified size
         /// </summary>
         public readonly int? ObjectSizeGreaterThan;
         /// <summary>
-        /// 设置规则生效于小于指定大小的对象。
+        /// Apply rule to objects smaller than the specified size
         /// </summary>
         public readonly int? ObjectSizeLessThan;
 

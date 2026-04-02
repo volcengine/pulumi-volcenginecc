@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
     public static final BucketLifecycleConfigNonCurrentVersionTransitionArgs Empty = new BucketLifecycleConfigNonCurrentVersionTransitionArgs();
 
     /**
-     * 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+     * Specific date for historical version object transition in lifecycle rules based on last modified time
      * 
      */
     @Import(name="nonCurrentDate")
     private @Nullable Output<String> nonCurrentDate;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+     * @return Specific date for historical version object transition in lifecycle rules based on last modified time
      * 
      */
     public Optional<Output<String>> nonCurrentDate() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
     }
 
     /**
-     * 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+     * Number of days to transition historical version objects in the lifecycle rule based on last modified time
      * 
      */
     @Import(name="nonCurrentDays")
     private @Nullable Output<Integer> nonCurrentDays;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+     * @return Number of days to transition historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Output<Integer>> nonCurrentDays() {
@@ -47,14 +47,14 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
     }
 
     /**
-     * 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
     /**
-     * @return 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     public Optional<Output<String>> storageClass() {
@@ -88,7 +88,7 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
         }
 
         /**
-         * @param nonCurrentDate 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+         * @param nonCurrentDate Specific date for historical version object transition in lifecycle rules based on last modified time
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
         }
 
         /**
-         * @param nonCurrentDate 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+         * @param nonCurrentDate Specific date for historical version object transition in lifecycle rules based on last modified time
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
         }
 
         /**
-         * @param nonCurrentDays 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+         * @param nonCurrentDays Number of days to transition historical version objects in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
         }
 
         /**
-         * @param nonCurrentDays 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+         * @param nonCurrentDays Number of days to transition historical version objects in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
         }
 
         /**
-         * @param storageClass 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+         * @param storageClass Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketLifecycleConfigNonCurrentVersionTransitionArgs extends 
         }
 
         /**
-         * @param storageClass 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+         * @param storageClass Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
          * 
          * @return builder
          * 

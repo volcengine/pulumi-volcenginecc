@@ -48,12 +48,12 @@ if not MYPY:
     class BucketAclArgsDict(TypedDict):
         bucket_acl_delivered: NotRequired[pulumi.Input[builtins.bool]]
         """
-        是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+        Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
         """
         grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketAclGrantArgsDict']]]]
         owner: NotRequired[pulumi.Input['BucketAclOwnerArgsDict']]
         """
-        对象所有者。
+        Object owner
         """
 elif False:
     BucketAclArgsDict: TypeAlias = Mapping[str, Any]
@@ -65,8 +65,8 @@ class BucketAclArgs:
                  grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketAclGrantArgs']]]] = None,
                  owner: Optional[pulumi.Input['BucketAclOwnerArgs']] = None):
         """
-        :param pulumi.Input[builtins.bool] bucket_acl_delivered: 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
-        :param pulumi.Input['BucketAclOwnerArgs'] owner: 对象所有者。
+        :param pulumi.Input[builtins.bool] bucket_acl_delivered: Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
+        :param pulumi.Input['BucketAclOwnerArgs'] owner: Object owner
         """
         if bucket_acl_delivered is not None:
             pulumi.set(__self__, "bucket_acl_delivered", bucket_acl_delivered)
@@ -79,7 +79,7 @@ class BucketAclArgs:
     @pulumi.getter(name="bucketAclDelivered")
     def bucket_acl_delivered(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+        Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
         """
         return pulumi.get(self, "bucket_acl_delivered")
 
@@ -100,7 +100,7 @@ class BucketAclArgs:
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input['BucketAclOwnerArgs']]:
         """
-        对象所有者。
+        Object owner
         """
         return pulumi.get(self, "owner")
 
@@ -113,27 +113,27 @@ if not MYPY:
     class BucketAclGrantArgsDict(TypedDict):
         acl: NotRequired[pulumi.Input[builtins.str]]
         """
-        桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+        Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
         """
         grant_full_control: NotRequired[pulumi.Input[builtins.str]]
         """
-        授予指定用户所有权限。
+        Grant all permissions to the specified user
         """
         grant_read: NotRequired[pulumi.Input[builtins.str]]
         """
-        授予指定用户读权限。
+        Grant read permission to the specified user
         """
         grant_read_acp: NotRequired[pulumi.Input[builtins.str]]
         """
-        授予指定用户查看桶 ACL 的权限。
+        Grant permission to specified user to view bucket ACL
         """
         grant_write: NotRequired[pulumi.Input[builtins.str]]
         """
-        授予指定用户写权限。
+        Grant write permission to specified user
         """
         grant_write_acp: NotRequired[pulumi.Input[builtins.str]]
         """
-        授予指定用户修改和删除桶 ACL 的权限。
+        Grant permission to the specified user to modify and delete bucket ACL
         """
 elif False:
     BucketAclGrantArgsDict: TypeAlias = Mapping[str, Any]
@@ -148,12 +148,12 @@ class BucketAclGrantArgs:
                  grant_write: Optional[pulumi.Input[builtins.str]] = None,
                  grant_write_acp: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] acl: 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
-        :param pulumi.Input[builtins.str] grant_full_control: 授予指定用户所有权限。
-        :param pulumi.Input[builtins.str] grant_read: 授予指定用户读权限。
-        :param pulumi.Input[builtins.str] grant_read_acp: 授予指定用户查看桶 ACL 的权限。
-        :param pulumi.Input[builtins.str] grant_write: 授予指定用户写权限。
-        :param pulumi.Input[builtins.str] grant_write_acp: 授予指定用户修改和删除桶 ACL 的权限。
+        :param pulumi.Input[builtins.str] acl: Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
+        :param pulumi.Input[builtins.str] grant_full_control: Grant all permissions to the specified user
+        :param pulumi.Input[builtins.str] grant_read: Grant read permission to the specified user
+        :param pulumi.Input[builtins.str] grant_read_acp: Grant permission to specified user to view bucket ACL
+        :param pulumi.Input[builtins.str] grant_write: Grant write permission to specified user
+        :param pulumi.Input[builtins.str] grant_write_acp: Grant permission to the specified user to modify and delete bucket ACL
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -172,7 +172,7 @@ class BucketAclGrantArgs:
     @pulumi.getter
     def acl(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+        Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
         """
         return pulumi.get(self, "acl")
 
@@ -184,7 +184,7 @@ class BucketAclGrantArgs:
     @pulumi.getter(name="grantFullControl")
     def grant_full_control(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        授予指定用户所有权限。
+        Grant all permissions to the specified user
         """
         return pulumi.get(self, "grant_full_control")
 
@@ -196,7 +196,7 @@ class BucketAclGrantArgs:
     @pulumi.getter(name="grantRead")
     def grant_read(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        授予指定用户读权限。
+        Grant read permission to the specified user
         """
         return pulumi.get(self, "grant_read")
 
@@ -208,7 +208,7 @@ class BucketAclGrantArgs:
     @pulumi.getter(name="grantReadAcp")
     def grant_read_acp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        授予指定用户查看桶 ACL 的权限。
+        Grant permission to specified user to view bucket ACL
         """
         return pulumi.get(self, "grant_read_acp")
 
@@ -220,7 +220,7 @@ class BucketAclGrantArgs:
     @pulumi.getter(name="grantWrite")
     def grant_write(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        授予指定用户写权限。
+        Grant write permission to specified user
         """
         return pulumi.get(self, "grant_write")
 
@@ -232,7 +232,7 @@ class BucketAclGrantArgs:
     @pulumi.getter(name="grantWriteAcp")
     def grant_write_acp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        授予指定用户修改和删除桶 ACL 的权限。
+        Grant permission to the specified user to modify and delete bucket ACL
         """
         return pulumi.get(self, "grant_write_acp")
 
@@ -245,11 +245,11 @@ if not MYPY:
     class BucketAclOwnerArgsDict(TypedDict):
         display_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        展示名。
+        Display name
         """
         owner_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        账号ID。
+        Account ID
         """
 elif False:
     BucketAclOwnerArgsDict: TypeAlias = Mapping[str, Any]
@@ -260,8 +260,8 @@ class BucketAclOwnerArgs:
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] display_name: 展示名。
-        :param pulumi.Input[builtins.str] owner_id: 账号ID。
+        :param pulumi.Input[builtins.str] display_name: Display name
+        :param pulumi.Input[builtins.str] owner_id: Account ID
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -272,7 +272,7 @@ class BucketAclOwnerArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        展示名。
+        Display name
         """
         return pulumi.get(self, "display_name")
 
@@ -284,7 +284,7 @@ class BucketAclOwnerArgs:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        账号ID。
+        Account ID
         """
         return pulumi.get(self, "owner_id")
 
@@ -297,29 +297,29 @@ if not MYPY:
     class BucketLifecycleConfigArgsDict(TypedDict):
         abort_in_complete_multipart_upload: NotRequired[pulumi.Input['BucketLifecycleConfigAbortInCompleteMultipartUploadArgsDict']]
         """
-        指定未合并的分片任务（碎片）的过期属性。
+        Specify expiration attributes for unmerged multipart tasks (fragments)
         """
         expiration: NotRequired[pulumi.Input['BucketLifecycleConfigExpirationArgsDict']]
         """
-        基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+        Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
         """
         filter: NotRequired[pulumi.Input['BucketLifecycleConfigFilterArgsDict']]
         """
-        指定规则生效的过滤条件。
+        Filter conditions for applying the rule
         """
         lifecycle_rule_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        规则 ID。
+        Rule ID
         """
         no_current_version_expiration: NotRequired[pulumi.Input['BucketLifecycleConfigNoCurrentVersionExpirationArgsDict']]
         non_current_version_transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigNonCurrentVersionTransitionArgsDict']]]]
         prefix: NotRequired[pulumi.Input[builtins.str]]
         """
-        规则所适用的前缀。
+        Prefix to which the rule applies
         """
         status: NotRequired[pulumi.Input[builtins.str]]
         """
-        是否启用规则。包括Enabled、Disabled。
+        Enable rule. Includes Enabled, Disabled.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigTagArgsDict']]]]
         transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigTransitionArgsDict']]]]
@@ -340,12 +340,12 @@ class BucketLifecycleConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigTagArgs']]]] = None,
                  transitions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigTransitionArgs']]]] = None):
         """
-        :param pulumi.Input['BucketLifecycleConfigAbortInCompleteMultipartUploadArgs'] abort_in_complete_multipart_upload: 指定未合并的分片任务（碎片）的过期属性。
-        :param pulumi.Input['BucketLifecycleConfigExpirationArgs'] expiration: 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
-        :param pulumi.Input['BucketLifecycleConfigFilterArgs'] filter: 指定规则生效的过滤条件。
-        :param pulumi.Input[builtins.str] lifecycle_rule_id: 规则 ID。
-        :param pulumi.Input[builtins.str] prefix: 规则所适用的前缀。
-        :param pulumi.Input[builtins.str] status: 是否启用规则。包括Enabled、Disabled。
+        :param pulumi.Input['BucketLifecycleConfigAbortInCompleteMultipartUploadArgs'] abort_in_complete_multipart_upload: Specify expiration attributes for unmerged multipart tasks (fragments)
+        :param pulumi.Input['BucketLifecycleConfigExpirationArgs'] expiration: Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
+        :param pulumi.Input['BucketLifecycleConfigFilterArgs'] filter: Filter conditions for applying the rule
+        :param pulumi.Input[builtins.str] lifecycle_rule_id: Rule ID
+        :param pulumi.Input[builtins.str] prefix: Prefix to which the rule applies
+        :param pulumi.Input[builtins.str] status: Enable rule. Includes Enabled, Disabled.
         """
         if abort_in_complete_multipart_upload is not None:
             pulumi.set(__self__, "abort_in_complete_multipart_upload", abort_in_complete_multipart_upload)
@@ -372,7 +372,7 @@ class BucketLifecycleConfigArgs:
     @pulumi.getter(name="abortInCompleteMultipartUpload")
     def abort_in_complete_multipart_upload(self) -> Optional[pulumi.Input['BucketLifecycleConfigAbortInCompleteMultipartUploadArgs']]:
         """
-        指定未合并的分片任务（碎片）的过期属性。
+        Specify expiration attributes for unmerged multipart tasks (fragments)
         """
         return pulumi.get(self, "abort_in_complete_multipart_upload")
 
@@ -384,7 +384,7 @@ class BucketLifecycleConfigArgs:
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input['BucketLifecycleConfigExpirationArgs']]:
         """
-        基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+        Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
         """
         return pulumi.get(self, "expiration")
 
@@ -396,7 +396,7 @@ class BucketLifecycleConfigArgs:
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['BucketLifecycleConfigFilterArgs']]:
         """
-        指定规则生效的过滤条件。
+        Filter conditions for applying the rule
         """
         return pulumi.get(self, "filter")
 
@@ -408,7 +408,7 @@ class BucketLifecycleConfigArgs:
     @pulumi.getter(name="lifecycleRuleId")
     def lifecycle_rule_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        规则 ID。
+        Rule ID
         """
         return pulumi.get(self, "lifecycle_rule_id")
 
@@ -438,7 +438,7 @@ class BucketLifecycleConfigArgs:
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        规则所适用的前缀。
+        Prefix to which the rule applies
         """
         return pulumi.get(self, "prefix")
 
@@ -450,7 +450,7 @@ class BucketLifecycleConfigArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        是否启用规则。包括Enabled、Disabled。
+        Enable rule. Includes Enabled, Disabled.
         """
         return pulumi.get(self, "status")
 
@@ -481,7 +481,7 @@ if not MYPY:
     class BucketLifecycleConfigAbortInCompleteMultipartUploadArgsDict(TypedDict):
         days_after_initiation: NotRequired[pulumi.Input[builtins.int]]
         """
-        指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+        Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
         """
 elif False:
     BucketLifecycleConfigAbortInCompleteMultipartUploadArgsDict: TypeAlias = Mapping[str, Any]
@@ -491,7 +491,7 @@ class BucketLifecycleConfigAbortInCompleteMultipartUploadArgs:
     def __init__(__self__, *,
                  days_after_initiation: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] days_after_initiation: 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+        :param pulumi.Input[builtins.int] days_after_initiation: Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
         """
         if days_after_initiation is not None:
             pulumi.set(__self__, "days_after_initiation", days_after_initiation)
@@ -500,7 +500,7 @@ class BucketLifecycleConfigAbortInCompleteMultipartUploadArgs:
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+        Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
         """
         return pulumi.get(self, "days_after_initiation")
 
@@ -513,11 +513,11 @@ if not MYPY:
     class BucketLifecycleConfigExpirationArgsDict(TypedDict):
         date: NotRequired[pulumi.Input[builtins.str]]
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+        Specific date for deleting the latest version object in the lifecycle rule based on last modified time
         """
         days: NotRequired[pulumi.Input[builtins.int]]
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+        Number of days for deleting the latest version object based on last modified time in lifecycle rules
         """
 elif False:
     BucketLifecycleConfigExpirationArgsDict: TypeAlias = Mapping[str, Any]
@@ -528,8 +528,8 @@ class BucketLifecycleConfigExpirationArgs:
                  date: Optional[pulumi.Input[builtins.str]] = None,
                  days: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] date: 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
-        :param pulumi.Input[builtins.int] days: 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+        :param pulumi.Input[builtins.str] date: Specific date for deleting the latest version object in the lifecycle rule based on last modified time
+        :param pulumi.Input[builtins.int] days: Number of days for deleting the latest version object based on last modified time in lifecycle rules
         """
         if date is not None:
             pulumi.set(__self__, "date", date)
@@ -540,7 +540,7 @@ class BucketLifecycleConfigExpirationArgs:
     @pulumi.getter
     def date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+        Specific date for deleting the latest version object in the lifecycle rule based on last modified time
         """
         return pulumi.get(self, "date")
 
@@ -552,7 +552,7 @@ class BucketLifecycleConfigExpirationArgs:
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+        Number of days for deleting the latest version object based on last modified time in lifecycle rules
         """
         return pulumi.get(self, "days")
 
@@ -565,19 +565,19 @@ if not MYPY:
     class BucketLifecycleConfigFilterArgsDict(TypedDict):
         greater_than_include_equal: NotRequired[pulumi.Input[builtins.str]]
         """
-        是否启用相等条件。包括Enabled、Disabled。
+        Equality condition status. Includes Enabled, Disabled
         """
         less_than_include_equal: NotRequired[pulumi.Input[builtins.str]]
         """
-        是否启用相等条件。包括Enabled、Disabled。
+        Equality condition status. Includes Enabled, Disabled
         """
         object_size_greater_than: NotRequired[pulumi.Input[builtins.int]]
         """
-        设置规则生效于大于指定大小的对象。
+        Apply rule to objects larger than the specified size
         """
         object_size_less_than: NotRequired[pulumi.Input[builtins.int]]
         """
-        设置规则生效于小于指定大小的对象。
+        Apply rule to objects smaller than the specified size
         """
 elif False:
     BucketLifecycleConfigFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -590,10 +590,10 @@ class BucketLifecycleConfigFilterArgs:
                  object_size_greater_than: Optional[pulumi.Input[builtins.int]] = None,
                  object_size_less_than: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] greater_than_include_equal: 是否启用相等条件。包括Enabled、Disabled。
-        :param pulumi.Input[builtins.str] less_than_include_equal: 是否启用相等条件。包括Enabled、Disabled。
-        :param pulumi.Input[builtins.int] object_size_greater_than: 设置规则生效于大于指定大小的对象。
-        :param pulumi.Input[builtins.int] object_size_less_than: 设置规则生效于小于指定大小的对象。
+        :param pulumi.Input[builtins.str] greater_than_include_equal: Equality condition status. Includes Enabled, Disabled
+        :param pulumi.Input[builtins.str] less_than_include_equal: Equality condition status. Includes Enabled, Disabled
+        :param pulumi.Input[builtins.int] object_size_greater_than: Apply rule to objects larger than the specified size
+        :param pulumi.Input[builtins.int] object_size_less_than: Apply rule to objects smaller than the specified size
         """
         if greater_than_include_equal is not None:
             pulumi.set(__self__, "greater_than_include_equal", greater_than_include_equal)
@@ -608,7 +608,7 @@ class BucketLifecycleConfigFilterArgs:
     @pulumi.getter(name="greaterThanIncludeEqual")
     def greater_than_include_equal(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        是否启用相等条件。包括Enabled、Disabled。
+        Equality condition status. Includes Enabled, Disabled
         """
         return pulumi.get(self, "greater_than_include_equal")
 
@@ -620,7 +620,7 @@ class BucketLifecycleConfigFilterArgs:
     @pulumi.getter(name="lessThanIncludeEqual")
     def less_than_include_equal(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        是否启用相等条件。包括Enabled、Disabled。
+        Equality condition status. Includes Enabled, Disabled
         """
         return pulumi.get(self, "less_than_include_equal")
 
@@ -632,7 +632,7 @@ class BucketLifecycleConfigFilterArgs:
     @pulumi.getter(name="objectSizeGreaterThan")
     def object_size_greater_than(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        设置规则生效于大于指定大小的对象。
+        Apply rule to objects larger than the specified size
         """
         return pulumi.get(self, "object_size_greater_than")
 
@@ -644,7 +644,7 @@ class BucketLifecycleConfigFilterArgs:
     @pulumi.getter(name="objectSizeLessThan")
     def object_size_less_than(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        设置规则生效于小于指定大小的对象。
+        Apply rule to objects smaller than the specified size
         """
         return pulumi.get(self, "object_size_less_than")
 
@@ -657,11 +657,11 @@ if not MYPY:
     class BucketLifecycleConfigNoCurrentVersionExpirationArgsDict(TypedDict):
         non_current_date: NotRequired[pulumi.Input[builtins.str]]
         """
-        基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+        Specific date for deleting historical version objects in the lifecycle rule based on last modified time
         """
         non_current_days: NotRequired[pulumi.Input[builtins.int]]
         """
-        基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+        Number of days to delete historical version objects in the lifecycle rule based on last modified time
         """
 elif False:
     BucketLifecycleConfigNoCurrentVersionExpirationArgsDict: TypeAlias = Mapping[str, Any]
@@ -672,8 +672,8 @@ class BucketLifecycleConfigNoCurrentVersionExpirationArgs:
                  non_current_date: Optional[pulumi.Input[builtins.str]] = None,
                  non_current_days: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] non_current_date: 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
-        :param pulumi.Input[builtins.int] non_current_days: 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+        :param pulumi.Input[builtins.str] non_current_date: Specific date for deleting historical version objects in the lifecycle rule based on last modified time
+        :param pulumi.Input[builtins.int] non_current_days: Number of days to delete historical version objects in the lifecycle rule based on last modified time
         """
         if non_current_date is not None:
             pulumi.set(__self__, "non_current_date", non_current_date)
@@ -684,7 +684,7 @@ class BucketLifecycleConfigNoCurrentVersionExpirationArgs:
     @pulumi.getter(name="nonCurrentDate")
     def non_current_date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+        Specific date for deleting historical version objects in the lifecycle rule based on last modified time
         """
         return pulumi.get(self, "non_current_date")
 
@@ -696,7 +696,7 @@ class BucketLifecycleConfigNoCurrentVersionExpirationArgs:
     @pulumi.getter(name="nonCurrentDays")
     def non_current_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+        Number of days to delete historical version objects in the lifecycle rule based on last modified time
         """
         return pulumi.get(self, "non_current_days")
 
@@ -709,15 +709,15 @@ if not MYPY:
     class BucketLifecycleConfigNonCurrentVersionTransitionArgsDict(TypedDict):
         non_current_date: NotRequired[pulumi.Input[builtins.str]]
         """
-        基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+        Specific date for historical version object transition in lifecycle rules based on last modified time
         """
         non_current_days: NotRequired[pulumi.Input[builtins.int]]
         """
-        基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+        Number of days to transition historical version objects in the lifecycle rule based on last modified time
         """
         storage_class: NotRequired[pulumi.Input[builtins.str]]
         """
-        存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
 elif False:
     BucketLifecycleConfigNonCurrentVersionTransitionArgsDict: TypeAlias = Mapping[str, Any]
@@ -729,9 +729,9 @@ class BucketLifecycleConfigNonCurrentVersionTransitionArgs:
                  non_current_days: Optional[pulumi.Input[builtins.int]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] non_current_date: 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
-        :param pulumi.Input[builtins.int] non_current_days: 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
-        :param pulumi.Input[builtins.str] storage_class: 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        :param pulumi.Input[builtins.str] non_current_date: Specific date for historical version object transition in lifecycle rules based on last modified time
+        :param pulumi.Input[builtins.int] non_current_days: Number of days to transition historical version objects in the lifecycle rule based on last modified time
+        :param pulumi.Input[builtins.str] storage_class: Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
         if non_current_date is not None:
             pulumi.set(__self__, "non_current_date", non_current_date)
@@ -744,7 +744,7 @@ class BucketLifecycleConfigNonCurrentVersionTransitionArgs:
     @pulumi.getter(name="nonCurrentDate")
     def non_current_date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+        Specific date for historical version object transition in lifecycle rules based on last modified time
         """
         return pulumi.get(self, "non_current_date")
 
@@ -756,7 +756,7 @@ class BucketLifecycleConfigNonCurrentVersionTransitionArgs:
     @pulumi.getter(name="nonCurrentDays")
     def non_current_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+        Number of days to transition historical version objects in the lifecycle rule based on last modified time
         """
         return pulumi.get(self, "non_current_days")
 
@@ -768,7 +768,7 @@ class BucketLifecycleConfigNonCurrentVersionTransitionArgs:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
         return pulumi.get(self, "storage_class")
 
@@ -781,11 +781,11 @@ if not MYPY:
     class BucketLifecycleConfigTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键。
+        Tag key
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值。
+        Tag value
         """
 elif False:
     BucketLifecycleConfigTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -796,8 +796,8 @@ class BucketLifecycleConfigTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键。
-        :param pulumi.Input[builtins.str] value: 标签值。
+        :param pulumi.Input[builtins.str] key: Tag key
+        :param pulumi.Input[builtins.str] value: Tag value
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -808,7 +808,7 @@ class BucketLifecycleConfigTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键。
+        Tag key
         """
         return pulumi.get(self, "key")
 
@@ -820,7 +820,7 @@ class BucketLifecycleConfigTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值。
+        Tag value
         """
         return pulumi.get(self, "value")
 
@@ -833,15 +833,15 @@ if not MYPY:
     class BucketLifecycleConfigTransitionArgsDict(TypedDict):
         date: NotRequired[pulumi.Input[builtins.str]]
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+        Specific date for latest version object transition in lifecycle rules based on last modified time
         """
         days: NotRequired[pulumi.Input[builtins.int]]
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+        Number of days to transition the latest version object in the lifecycle rule based on last modified time
         """
         storage_class: NotRequired[pulumi.Input[builtins.str]]
         """
-        基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
 elif False:
     BucketLifecycleConfigTransitionArgsDict: TypeAlias = Mapping[str, Any]
@@ -853,9 +853,9 @@ class BucketLifecycleConfigTransitionArgs:
                  days: Optional[pulumi.Input[builtins.int]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] date: 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
-        :param pulumi.Input[builtins.int] days: 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
-        :param pulumi.Input[builtins.str] storage_class: 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        :param pulumi.Input[builtins.str] date: Specific date for latest version object transition in lifecycle rules based on last modified time
+        :param pulumi.Input[builtins.int] days: Number of days to transition the latest version object in the lifecycle rule based on last modified time
+        :param pulumi.Input[builtins.str] storage_class: Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
         if date is not None:
             pulumi.set(__self__, "date", date)
@@ -868,7 +868,7 @@ class BucketLifecycleConfigTransitionArgs:
     @pulumi.getter
     def date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+        Specific date for latest version object transition in lifecycle rules based on last modified time
         """
         return pulumi.get(self, "date")
 
@@ -880,7 +880,7 @@ class BucketLifecycleConfigTransitionArgs:
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+        Number of days to transition the latest version object in the lifecycle rule based on last modified time
         """
         return pulumi.get(self, "days")
 
@@ -892,7 +892,7 @@ class BucketLifecycleConfigTransitionArgs:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+        Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
         return pulumi.get(self, "storage_class")
 
@@ -905,11 +905,11 @@ if not MYPY:
     class BucketTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键。
+        Tag key
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值。
+        Tag value
         """
 elif False:
     BucketTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -920,8 +920,8 @@ class BucketTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键。
-        :param pulumi.Input[builtins.str] value: 标签值。
+        :param pulumi.Input[builtins.str] key: Tag key
+        :param pulumi.Input[builtins.str] value: Tag value
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -932,7 +932,7 @@ class BucketTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键。
+        Tag key
         """
         return pulumi.get(self, "key")
 
@@ -944,7 +944,7 @@ class BucketTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值。
+        Tag value
         """
         return pulumi.get(self, "value")
 

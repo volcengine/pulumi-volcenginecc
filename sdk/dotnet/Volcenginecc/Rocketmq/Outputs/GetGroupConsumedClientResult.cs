@@ -15,23 +15,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Outputs
     public sealed class GetGroupConsumedClientResult
     {
         /// <summary>
-        /// 该消费者实例的地址和端口。
+        /// Address and port of this consumer instance.
         /// </summary>
         public readonly string ClientAddress;
         /// <summary>
-        /// 该消费者实例的 ID。
+        /// ID of this consumer instance.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// 消息堆积量。
+        /// Message backlog.
         /// </summary>
         public readonly int Diff;
         /// <summary>
-        /// 消费者应用的开发语言。
+        /// Development language of the consumer application.
         /// </summary>
         public readonly string Language;
         /// <summary>
-        /// 消费端版本。
+        /// Consumer version.
         /// </summary>
         public readonly string Version;
 

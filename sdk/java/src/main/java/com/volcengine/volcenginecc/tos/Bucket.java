@@ -19,7 +19,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * 存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。
+ * A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
  * 
  * ## Example Usage
  * 
@@ -36,14 +36,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:tos/bucket:Bucket")
 public class Bucket extends com.pulumi.resources.CustomResource {
     /**
-     * 桶的访问控制权限。
+     * Bucket access control permissions
      * 
      */
     @Export(name="acl", refs={BucketAcl.class}, tree="[0]")
     private Output<BucketAcl> acl;
 
     /**
-     * @return 桶的访问控制权限。
+     * @return Bucket access control permissions
      * 
      */
     public Output<BucketAcl> acl() {
@@ -56,84 +56,84 @@ public class Bucket extends com.pulumi.resources.CustomResource {
         return this.aclGrant;
     }
     /**
-     * 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      * 
      */
     @Export(name="azRedundancy", refs={String.class}, tree="[0]")
     private Output<String> azRedundancy;
 
     /**
-     * @return 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * @return Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      * 
      */
     public Output<String> azRedundancy() {
         return this.azRedundancy;
     }
     /**
-     * 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      * 
      */
     @Export(name="bucketType", refs={String.class}, tree="[0]")
     private Output<String> bucketType;
 
     /**
-     * @return 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * @return Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      * 
      */
     public Output<String> bucketType() {
         return this.bucketType;
     }
     /**
-     * 桶的创建时间。
+     * Bucket creation time
      * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
-     * @return 桶的创建时间。
+     * @return Bucket creation time
      * 
      */
     public Output<String> creationDate() {
         return this.creationDate;
     }
     /**
-     * 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      * 
      */
     @Export(name="enableVersionStatus", refs={String.class}, tree="[0]")
     private Output<String> enableVersionStatus;
 
     /**
-     * @return 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * @return Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      * 
      */
     public Output<String> enableVersionStatus() {
         return this.enableVersionStatus;
     }
     /**
-     * 存储桶的 TOS 协议公网访问域名。
+     * TOS protocol public access domain name for the bucket
      * 
      */
     @Export(name="extranetEndpoint", refs={String.class}, tree="[0]")
     private Output<String> extranetEndpoint;
 
     /**
-     * @return 存储桶的 TOS 协议公网访问域名。
+     * @return TOS protocol public access domain name for the bucket
      * 
      */
     public Output<String> extranetEndpoint() {
         return this.extranetEndpoint;
     }
     /**
-     * 存储桶的 TOS 协议私网访问域名
+     * Private network access domain name for the bucket&#39;s TOS protocol
      * 
      */
     @Export(name="intranetEndpoint", refs={String.class}, tree="[0]")
     private Output<String> intranetEndpoint;
 
     /**
-     * @return 存储桶的 TOS 协议私网访问域名
+     * @return Private network access domain name for the bucket&#39;s TOS protocol
      * 
      */
     public Output<String> intranetEndpoint() {
@@ -146,70 +146,70 @@ public class Bucket extends com.pulumi.resources.CustomResource {
         return this.lifecycleConfigs;
     }
     /**
-     * 桶所在区域。
+     * Bucket region
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return 桶所在区域。
+     * @return Bucket region
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * 桶名。
+     * Bucket name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return 桶名。
+     * @return Bucket name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * 存储桶所属项目。
+     * Project associated with the bucket
      * 
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
-     * @return 存储桶所属项目。
+     * @return Project associated with the bucket
      * 
      */
     public Output<String> projectName() {
         return this.projectName;
     }
     /**
-     * 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      * 
      */
     @Export(name="storageClass", refs={String.class}, tree="[0]")
     private Output<String> storageClass;
 
     /**
-     * @return 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * @return Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      * 
      */
     public Output<String> storageClass() {

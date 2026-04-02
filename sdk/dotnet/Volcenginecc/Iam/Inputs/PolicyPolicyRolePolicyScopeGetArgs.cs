@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam.Inputs
     public sealed class PolicyPolicyRolePolicyScopeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 项目名。
+        /// Project name.
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }

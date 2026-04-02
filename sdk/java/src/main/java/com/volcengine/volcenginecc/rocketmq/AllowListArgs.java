@@ -19,14 +19,14 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
     public static final AllowListArgs Empty = new AllowListArgs();
 
     /**
-     * IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      * 
      */
     @Import(name="allowList")
     private @Nullable Output<String> allowList;
 
     /**
-     * @return IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * @return IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      * 
      */
     public Optional<Output<String>> allowList() {
@@ -34,14 +34,14 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 白名单分类。
+     * Allowlist Category
      * 
      */
     @Import(name="allowListCategory")
     private @Nullable Output<String> allowListCategory;
 
     /**
-     * @return 白名单分类。
+     * @return Allowlist Category
      * 
      */
     public Optional<Output<String>> allowListCategory() {
@@ -49,14 +49,14 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 白名单描述。
+     * Allowlist Description
      * 
      */
     @Import(name="allowListDesc")
     private @Nullable Output<String> allowListDesc;
 
     /**
-     * @return 白名单描述。
+     * @return Allowlist Description
      * 
      */
     public Optional<Output<String>> allowListDesc() {
@@ -64,14 +64,14 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 白名单名称。
+     * Allowlist Name
      * 
      */
     @Import(name="allowListName", required=true)
     private Output<String> allowListName;
 
     /**
-     * @return 白名单名称。
+     * @return Allowlist Name
      * 
      */
     public Output<String> allowListName() {
@@ -79,14 +79,14 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 白名单内的IP地址类型，当前仅支持IPv4。
+     * IP address type in the allowlist. Only IPv4 is supported
      * 
      */
     @Import(name="allowListType")
     private @Nullable Output<String> allowListType;
 
     /**
-     * @return 白名单内的IP地址类型，当前仅支持IPv4。
+     * @return IP address type in the allowlist. Only IPv4 is supported
      * 
      */
     public Optional<Output<String>> allowListType() {
@@ -101,14 +101,14 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例ID。
+     * Instance ID
      * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return 实例ID。
+     * @return Instance ID
      * 
      */
     public Optional<Output<String>> instanceId() {
@@ -146,7 +146,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowList IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+         * @param allowList IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowList IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+         * @param allowList IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListCategory 白名单分类。
+         * @param allowListCategory Allowlist Category
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListCategory 白名单分类。
+         * @param allowListCategory Allowlist Category
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListDesc 白名单描述。
+         * @param allowListDesc Allowlist Description
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListDesc 白名单描述。
+         * @param allowListDesc Allowlist Description
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListName 白名单名称。
+         * @param allowListName Allowlist Name
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListName 白名单名称。
+         * @param allowListName Allowlist Name
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListType 白名单内的IP地址类型，当前仅支持IPv4。
+         * @param allowListType IP address type in the allowlist. Only IPv4 is supported
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListType 白名单内的IP地址类型，当前仅支持IPv4。
+         * @param allowListType IP address type in the allowlist. Only IPv4 is supported
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId 实例ID。
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class AllowListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId 实例ID。
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 

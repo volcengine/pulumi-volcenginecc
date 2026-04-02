@@ -35,14 +35,14 @@ class BucketArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
-        :param pulumi.Input[builtins.str] name: 桶名。
-        :param pulumi.Input['BucketAclArgs'] acl: 桶的访问控制权限。
-        :param pulumi.Input[builtins.str] az_redundancy: 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
-        :param pulumi.Input[builtins.str] bucket_type: 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
-        :param pulumi.Input[builtins.str] enable_version_status: 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
-        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
-        :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
-        :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input['BucketAclArgs'] acl: Bucket access control permissions
+        :param pulumi.Input[builtins.str] az_redundancy: Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
+        :param pulumi.Input[builtins.str] bucket_type: Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
+        :param pulumi.Input[builtins.str] enable_version_status: Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
+        :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
+        :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
+        :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         pulumi.set(__self__, "name", name)
         if acl is not None:
@@ -70,7 +70,7 @@ class BucketArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        桶名。
+        Bucket name
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +82,7 @@ class BucketArgs:
     @pulumi.getter
     def acl(self) -> Optional[pulumi.Input['BucketAclArgs']]:
         """
-        桶的访问控制权限。
+        Bucket access control permissions
         """
         return pulumi.get(self, "acl")
 
@@ -103,7 +103,7 @@ class BucketArgs:
     @pulumi.getter(name="azRedundancy")
     def az_redundancy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+        Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         """
         return pulumi.get(self, "az_redundancy")
 
@@ -115,7 +115,7 @@ class BucketArgs:
     @pulumi.getter(name="bucketType")
     def bucket_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+        Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         """
         return pulumi.get(self, "bucket_type")
 
@@ -127,7 +127,7 @@ class BucketArgs:
     @pulumi.getter(name="enableVersionStatus")
     def enable_version_status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         """
         return pulumi.get(self, "enable_version_status")
 
@@ -148,7 +148,7 @@ class BucketArgs:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         """
         return pulumi.get(self, "policy")
 
@@ -160,7 +160,7 @@ class BucketArgs:
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储桶所属项目。
+        Project associated with the bucket
         """
         return pulumi.get(self, "project_name")
 
@@ -172,7 +172,7 @@ class BucketArgs:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         return pulumi.get(self, "storage_class")
 
@@ -210,18 +210,18 @@ class _BucketState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Bucket resources.
-        :param pulumi.Input['BucketAclArgs'] acl: 桶的访问控制权限。
-        :param pulumi.Input[builtins.str] az_redundancy: 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
-        :param pulumi.Input[builtins.str] bucket_type: 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
-        :param pulumi.Input[builtins.str] creation_date: 桶的创建时间。
-        :param pulumi.Input[builtins.str] enable_version_status: 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
-        :param pulumi.Input[builtins.str] extranet_endpoint: 存储桶的 TOS 协议公网访问域名。
-        :param pulumi.Input[builtins.str] intranet_endpoint: 存储桶的 TOS 协议私网访问域名
-        :param pulumi.Input[builtins.str] location: 桶所在区域。
-        :param pulumi.Input[builtins.str] name: 桶名。
-        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
-        :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
-        :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        :param pulumi.Input['BucketAclArgs'] acl: Bucket access control permissions
+        :param pulumi.Input[builtins.str] az_redundancy: Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
+        :param pulumi.Input[builtins.str] bucket_type: Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
+        :param pulumi.Input[builtins.str] creation_date: Bucket creation time
+        :param pulumi.Input[builtins.str] enable_version_status: Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
+        :param pulumi.Input[builtins.str] extranet_endpoint: TOS protocol public access domain name for the bucket
+        :param pulumi.Input[builtins.str] intranet_endpoint: Private network access domain name for the bucket's TOS protocol
+        :param pulumi.Input[builtins.str] location: Bucket region
+        :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
+        :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
+        :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -258,7 +258,7 @@ class _BucketState:
     @pulumi.getter
     def acl(self) -> Optional[pulumi.Input['BucketAclArgs']]:
         """
-        桶的访问控制权限。
+        Bucket access control permissions
         """
         return pulumi.get(self, "acl")
 
@@ -279,7 +279,7 @@ class _BucketState:
     @pulumi.getter(name="azRedundancy")
     def az_redundancy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+        Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         """
         return pulumi.get(self, "az_redundancy")
 
@@ -291,7 +291,7 @@ class _BucketState:
     @pulumi.getter(name="bucketType")
     def bucket_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+        Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         """
         return pulumi.get(self, "bucket_type")
 
@@ -303,7 +303,7 @@ class _BucketState:
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的创建时间。
+        Bucket creation time
         """
         return pulumi.get(self, "creation_date")
 
@@ -315,7 +315,7 @@ class _BucketState:
     @pulumi.getter(name="enableVersionStatus")
     def enable_version_status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         """
         return pulumi.get(self, "enable_version_status")
 
@@ -327,7 +327,7 @@ class _BucketState:
     @pulumi.getter(name="extranetEndpoint")
     def extranet_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储桶的 TOS 协议公网访问域名。
+        TOS protocol public access domain name for the bucket
         """
         return pulumi.get(self, "extranet_endpoint")
 
@@ -339,7 +339,7 @@ class _BucketState:
     @pulumi.getter(name="intranetEndpoint")
     def intranet_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储桶的 TOS 协议私网访问域名
+        Private network access domain name for the bucket's TOS protocol
         """
         return pulumi.get(self, "intranet_endpoint")
 
@@ -360,7 +360,7 @@ class _BucketState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶所在区域。
+        Bucket region
         """
         return pulumi.get(self, "location")
 
@@ -372,7 +372,7 @@ class _BucketState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶名。
+        Bucket name
         """
         return pulumi.get(self, "name")
 
@@ -384,7 +384,7 @@ class _BucketState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         """
         return pulumi.get(self, "policy")
 
@@ -396,7 +396,7 @@ class _BucketState:
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        存储桶所属项目。
+        Project associated with the bucket
         """
         return pulumi.get(self, "project_name")
 
@@ -408,7 +408,7 @@ class _BucketState:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         return pulumi.get(self, "storage_class")
 
@@ -445,7 +445,7 @@ class Bucket(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketTagArgs', 'BucketTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。
+        A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
 
         ## Import
 
@@ -455,14 +455,14 @@ class Bucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BucketAclArgs', 'BucketAclArgsDict']] acl: 桶的访问控制权限。
-        :param pulumi.Input[builtins.str] az_redundancy: 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
-        :param pulumi.Input[builtins.str] bucket_type: 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
-        :param pulumi.Input[builtins.str] enable_version_status: 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
-        :param pulumi.Input[builtins.str] name: 桶名。
-        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
-        :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
-        :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        :param pulumi.Input[Union['BucketAclArgs', 'BucketAclArgsDict']] acl: Bucket access control permissions
+        :param pulumi.Input[builtins.str] az_redundancy: Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
+        :param pulumi.Input[builtins.str] bucket_type: Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
+        :param pulumi.Input[builtins.str] enable_version_status: Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
+        :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
+        :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
+        :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         ...
     @overload
@@ -471,7 +471,7 @@ class Bucket(pulumi.CustomResource):
                  args: BucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        存储桶是存储对象（Object）的容器，所有的对象都必须隶属于某个存储桶。存储桶具有各种配置属性，包括地域、访问权限等。您可以根据实际需求，创建不同类型的存储桶来存储不同的数据。
+        A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
 
         ## Import
 
@@ -563,18 +563,18 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BucketAclArgs', 'BucketAclArgsDict']] acl: 桶的访问控制权限。
-        :param pulumi.Input[builtins.str] az_redundancy: 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
-        :param pulumi.Input[builtins.str] bucket_type: 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
-        :param pulumi.Input[builtins.str] creation_date: 桶的创建时间。
-        :param pulumi.Input[builtins.str] enable_version_status: 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
-        :param pulumi.Input[builtins.str] extranet_endpoint: 存储桶的 TOS 协议公网访问域名。
-        :param pulumi.Input[builtins.str] intranet_endpoint: 存储桶的 TOS 协议私网访问域名
-        :param pulumi.Input[builtins.str] location: 桶所在区域。
-        :param pulumi.Input[builtins.str] name: 桶名。
-        :param pulumi.Input[builtins.str] policy: JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
-        :param pulumi.Input[builtins.str] project_name: 存储桶所属项目。
-        :param pulumi.Input[builtins.str] storage_class: 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        :param pulumi.Input[Union['BucketAclArgs', 'BucketAclArgsDict']] acl: Bucket access control permissions
+        :param pulumi.Input[builtins.str] az_redundancy: Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
+        :param pulumi.Input[builtins.str] bucket_type: Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
+        :param pulumi.Input[builtins.str] creation_date: Bucket creation time
+        :param pulumi.Input[builtins.str] enable_version_status: Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
+        :param pulumi.Input[builtins.str] extranet_endpoint: TOS protocol public access domain name for the bucket
+        :param pulumi.Input[builtins.str] intranet_endpoint: Private network access domain name for the bucket's TOS protocol
+        :param pulumi.Input[builtins.str] location: Bucket region
+        :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
+        :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
+        :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -601,7 +601,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def acl(self) -> pulumi.Output['outputs.BucketAcl']:
         """
-        桶的访问控制权限。
+        Bucket access control permissions
         """
         return pulumi.get(self, "acl")
 
@@ -614,7 +614,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="azRedundancy")
     def az_redundancy(self) -> pulumi.Output[builtins.str]:
         """
-        桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+        Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         """
         return pulumi.get(self, "az_redundancy")
 
@@ -622,7 +622,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="bucketType")
     def bucket_type(self) -> pulumi.Output[builtins.str]:
         """
-        桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+        Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         """
         return pulumi.get(self, "bucket_type")
 
@@ -630,7 +630,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[builtins.str]:
         """
-        桶的创建时间。
+        Bucket creation time
         """
         return pulumi.get(self, "creation_date")
 
@@ -638,7 +638,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="enableVersionStatus")
     def enable_version_status(self) -> pulumi.Output[builtins.str]:
         """
-        存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+        Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         """
         return pulumi.get(self, "enable_version_status")
 
@@ -646,7 +646,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="extranetEndpoint")
     def extranet_endpoint(self) -> pulumi.Output[builtins.str]:
         """
-        存储桶的 TOS 协议公网访问域名。
+        TOS protocol public access domain name for the bucket
         """
         return pulumi.get(self, "extranet_endpoint")
 
@@ -654,7 +654,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="intranetEndpoint")
     def intranet_endpoint(self) -> pulumi.Output[builtins.str]:
         """
-        存储桶的 TOS 协议私网访问域名
+        Private network access domain name for the bucket's TOS protocol
         """
         return pulumi.get(self, "intranet_endpoint")
 
@@ -667,7 +667,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        桶所在区域。
+        Bucket region
         """
         return pulumi.get(self, "location")
 
@@ -675,7 +675,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        桶名。
+        Bucket name
         """
         return pulumi.get(self, "name")
 
@@ -683,7 +683,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[builtins.str]:
         """
-        JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+        String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         """
         return pulumi.get(self, "policy")
 
@@ -691,7 +691,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[builtins.str]:
         """
-        存储桶所属项目。
+        Project associated with the bucket
         """
         return pulumi.get(self, "project_name")
 
@@ -699,7 +699,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> pulumi.Output[builtins.str]:
         """
-        桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+        Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
         """
         return pulumi.get(self, "storage_class")
 

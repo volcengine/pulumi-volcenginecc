@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AllowListAssociatedInstance struct {
-	// 实例ID。
+	// Instance ID
 	InstanceId *string `pulumi:"instanceId"`
 }
 
@@ -30,7 +30,7 @@ type AllowListAssociatedInstanceInput interface {
 }
 
 type AllowListAssociatedInstanceArgs struct {
-	// 实例ID。
+	// Instance ID
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 }
 
@@ -85,7 +85,7 @@ func (o AllowListAssociatedInstanceOutput) ToAllowListAssociatedInstanceOutputWi
 	return o
 }
 
-// 实例ID。
+// Instance ID
 func (o AllowListAssociatedInstanceOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AllowListAssociatedInstance) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
@@ -111,15 +111,15 @@ func (o AllowListAssociatedInstanceArrayOutput) Index(i pulumi.IntInput) AllowLi
 }
 
 type GroupConsumedClient struct {
-	// 该消费者实例的地址和端口。
+	// Address and port of this consumer instance.
 	ClientAddress *string `pulumi:"clientAddress"`
-	// 该消费者实例的 ID。
+	// ID of this consumer instance.
 	ClientId *string `pulumi:"clientId"`
-	// 消息堆积量。
+	// Message backlog.
 	Diff *int `pulumi:"diff"`
-	// 消费者应用的开发语言。
+	// Development language of the consumer application.
 	Language *string `pulumi:"language"`
-	// 消费端版本。
+	// Consumer version.
 	Version *string `pulumi:"version"`
 }
 
@@ -135,15 +135,15 @@ type GroupConsumedClientInput interface {
 }
 
 type GroupConsumedClientArgs struct {
-	// 该消费者实例的地址和端口。
+	// Address and port of this consumer instance.
 	ClientAddress pulumi.StringPtrInput `pulumi:"clientAddress"`
-	// 该消费者实例的 ID。
+	// ID of this consumer instance.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// 消息堆积量。
+	// Message backlog.
 	Diff pulumi.IntPtrInput `pulumi:"diff"`
-	// 消费者应用的开发语言。
+	// Development language of the consumer application.
 	Language pulumi.StringPtrInput `pulumi:"language"`
-	// 消费端版本。
+	// Consumer version.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -198,27 +198,27 @@ func (o GroupConsumedClientOutput) ToGroupConsumedClientOutputWithContext(ctx co
 	return o
 }
 
-// 该消费者实例的地址和端口。
+// Address and port of this consumer instance.
 func (o GroupConsumedClientOutput) ClientAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConsumedClient) *string { return v.ClientAddress }).(pulumi.StringPtrOutput)
 }
 
-// 该消费者实例的 ID。
+// ID of this consumer instance.
 func (o GroupConsumedClientOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConsumedClient) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// 消息堆积量。
+// Message backlog.
 func (o GroupConsumedClientOutput) Diff() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupConsumedClient) *int { return v.Diff }).(pulumi.IntPtrOutput)
 }
 
-// 消费者应用的开发语言。
+// Development language of the consumer application.
 func (o GroupConsumedClientOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConsumedClient) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// 消费端版本。
+// Consumer version.
 func (o GroupConsumedClientOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConsumedClient) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -244,11 +244,11 @@ func (o GroupConsumedClientArrayOutput) Index(i pulumi.IntInput) GroupConsumedCl
 }
 
 type GroupConsumedTopic struct {
-	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
 	QueueNum *int `pulumi:"queueNum"`
-	// 订阅规则。
+	// Subscription rules.
 	SubString *string `pulumi:"subString"`
-	// 客户端订阅的 Topic 名称。
+	// Name of the Topic subscribed by the client.
 	TopicName *string `pulumi:"topicName"`
 }
 
@@ -264,11 +264,11 @@ type GroupConsumedTopicInput interface {
 }
 
 type GroupConsumedTopicArgs struct {
-	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
 	QueueNum pulumi.IntPtrInput `pulumi:"queueNum"`
-	// 订阅规则。
+	// Subscription rules.
 	SubString pulumi.StringPtrInput `pulumi:"subString"`
-	// 客户端订阅的 Topic 名称。
+	// Name of the Topic subscribed by the client.
 	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
 }
 
@@ -323,17 +323,17 @@ func (o GroupConsumedTopicOutput) ToGroupConsumedTopicOutputWithContext(ctx cont
 	return o
 }
 
-// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
 func (o GroupConsumedTopicOutput) QueueNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupConsumedTopic) *int { return v.QueueNum }).(pulumi.IntPtrOutput)
 }
 
-// 订阅规则。
+// Subscription rules.
 func (o GroupConsumedTopicOutput) SubString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConsumedTopic) *string { return v.SubString }).(pulumi.StringPtrOutput)
 }
 
-// 客户端订阅的 Topic 名称。
+// Name of the Topic subscribed by the client.
 func (o GroupConsumedTopicOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConsumedTopic) *string { return v.TopicName }).(pulumi.StringPtrOutput)
 }
@@ -359,23 +359,23 @@ func (o GroupConsumedTopicArrayOutput) Index(i pulumi.IntInput) GroupConsumedTop
 }
 
 type InstanceChargeDetail struct {
-	// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+	// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 	AutoRenew *bool `pulumi:"autoRenew"`
-	// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+	// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 	ChargeExpireTime *string `pulumi:"chargeExpireTime"`
-	// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	ChargeStartTime *string `pulumi:"chargeStartTime"`
-	// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+	// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 	ChargeStatus *string `pulumi:"chargeStatus"`
-	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+	// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 	ChargeType *string `pulumi:"chargeType"`
-	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueReclaimTime *string `pulumi:"overdueReclaimTime"`
-	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueTime *string `pulumi:"overdueTime"`
-	// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+	// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 	Period *int `pulumi:"period"`
-	// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+	// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 	PeriodUnit *string `pulumi:"periodUnit"`
 }
 
@@ -391,23 +391,23 @@ type InstanceChargeDetailInput interface {
 }
 
 type InstanceChargeDetailArgs struct {
-	// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+	// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
-	// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+	// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 	ChargeExpireTime pulumi.StringPtrInput `pulumi:"chargeExpireTime"`
-	// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	ChargeStartTime pulumi.StringPtrInput `pulumi:"chargeStartTime"`
-	// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+	// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 	ChargeStatus pulumi.StringPtrInput `pulumi:"chargeStatus"`
-	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+	// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 	ChargeType pulumi.StringPtrInput `pulumi:"chargeType"`
-	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueReclaimTime pulumi.StringPtrInput `pulumi:"overdueReclaimTime"`
-	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueTime pulumi.StringPtrInput `pulumi:"overdueTime"`
-	// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+	// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 	Period pulumi.IntPtrInput `pulumi:"period"`
-	// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+	// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 	PeriodUnit pulumi.StringPtrInput `pulumi:"periodUnit"`
 }
 
@@ -488,47 +488,47 @@ func (o InstanceChargeDetailOutput) ToInstanceChargeDetailPtrOutputWithContext(c
 	}).(InstanceChargeDetailPtrOutput)
 }
 
-// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 func (o InstanceChargeDetailOutput) AutoRenew() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
 }
 
-// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 func (o InstanceChargeDetailOutput) ChargeExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.ChargeExpireTime }).(pulumi.StringPtrOutput)
 }
 
-// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o InstanceChargeDetailOutput) ChargeStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.ChargeStartTime }).(pulumi.StringPtrOutput)
 }
 
-// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 func (o InstanceChargeDetailOutput) ChargeStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.ChargeStatus }).(pulumi.StringPtrOutput)
 }
 
-// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 func (o InstanceChargeDetailOutput) ChargeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.ChargeType }).(pulumi.StringPtrOutput)
 }
 
-// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o InstanceChargeDetailOutput) OverdueReclaimTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.OverdueReclaimTime }).(pulumi.StringPtrOutput)
 }
 
-// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o InstanceChargeDetailOutput) OverdueTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.OverdueTime }).(pulumi.StringPtrOutput)
 }
 
-// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 func (o InstanceChargeDetailOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *int { return v.Period }).(pulumi.IntPtrOutput)
 }
 
-// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 func (o InstanceChargeDetailOutput) PeriodUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceChargeDetail) *string { return v.PeriodUnit }).(pulumi.StringPtrOutput)
 }
@@ -557,7 +557,7 @@ func (o InstanceChargeDetailPtrOutput) Elem() InstanceChargeDetailOutput {
 	}).(InstanceChargeDetailOutput)
 }
 
-// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 func (o InstanceChargeDetailPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *bool {
 		if v == nil {
@@ -567,7 +567,7 @@ func (o InstanceChargeDetailPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 func (o InstanceChargeDetailPtrOutput) ChargeExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -577,7 +577,7 @@ func (o InstanceChargeDetailPtrOutput) ChargeExpireTime() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o InstanceChargeDetailPtrOutput) ChargeStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -587,7 +587,7 @@ func (o InstanceChargeDetailPtrOutput) ChargeStartTime() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 func (o InstanceChargeDetailPtrOutput) ChargeStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -597,7 +597,7 @@ func (o InstanceChargeDetailPtrOutput) ChargeStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 func (o InstanceChargeDetailPtrOutput) ChargeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -607,7 +607,7 @@ func (o InstanceChargeDetailPtrOutput) ChargeType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o InstanceChargeDetailPtrOutput) OverdueReclaimTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -617,7 +617,7 @@ func (o InstanceChargeDetailPtrOutput) OverdueReclaimTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o InstanceChargeDetailPtrOutput) OverdueTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -627,7 +627,7 @@ func (o InstanceChargeDetailPtrOutput) OverdueTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 func (o InstanceChargeDetailPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *int {
 		if v == nil {
@@ -637,7 +637,7 @@ func (o InstanceChargeDetailPtrOutput) Period() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 func (o InstanceChargeDetailPtrOutput) PeriodUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceChargeDetail) *string {
 		if v == nil {
@@ -648,15 +648,15 @@ func (o InstanceChargeDetailPtrOutput) PeriodUnit() pulumi.StringPtrOutput {
 }
 
 type InstanceConnectionInfo struct {
-	// 实例的接入点 IP 地址。
+	// Instance endpoint IP address.
 	EndpointAddressIp *string `pulumi:"endpointAddressIp"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	EndpointType *string `pulumi:"endpointType"`
-	// 实例的私网接入点地址。
+	// Private network endpoint address for the instance.
 	InternalEndpoint *string `pulumi:"internalEndpoint"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	NetworkType *string `pulumi:"networkType"`
-	// 实例的公网接入点地址。
+	// Public access point address of the instance.
 	PublicEndpoint *string `pulumi:"publicEndpoint"`
 }
 
@@ -672,15 +672,15 @@ type InstanceConnectionInfoInput interface {
 }
 
 type InstanceConnectionInfoArgs struct {
-	// 实例的接入点 IP 地址。
+	// Instance endpoint IP address.
 	EndpointAddressIp pulumi.StringPtrInput `pulumi:"endpointAddressIp"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// 实例的私网接入点地址。
+	// Private network endpoint address for the instance.
 	InternalEndpoint pulumi.StringPtrInput `pulumi:"internalEndpoint"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	NetworkType pulumi.StringPtrInput `pulumi:"networkType"`
-	// 实例的公网接入点地址。
+	// Public access point address of the instance.
 	PublicEndpoint pulumi.StringPtrInput `pulumi:"publicEndpoint"`
 }
 
@@ -735,27 +735,27 @@ func (o InstanceConnectionInfoOutput) ToInstanceConnectionInfoOutputWithContext(
 	return o
 }
 
-// 实例的接入点 IP 地址。
+// Instance endpoint IP address.
 func (o InstanceConnectionInfoOutput) EndpointAddressIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectionInfo) *string { return v.EndpointAddressIp }).(pulumi.StringPtrOutput)
 }
 
-// 实例的接入点类型。
+// Instance access point type.
 func (o InstanceConnectionInfoOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectionInfo) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// 实例的私网接入点地址。
+// Private network endpoint address for the instance.
 func (o InstanceConnectionInfoOutput) InternalEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectionInfo) *string { return v.InternalEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// 实例的接入点类型。
+// Instance access point type.
 func (o InstanceConnectionInfoOutput) NetworkType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectionInfo) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
-// 实例的公网接入点地址。
+// Public access point address of the instance.
 func (o InstanceConnectionInfoOutput) PublicEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectionInfo) *string { return v.PublicEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -781,7 +781,7 @@ func (o InstanceConnectionInfoArrayOutput) Index(i pulumi.IntInput) InstanceConn
 }
 
 type InstanceProductInfo struct {
-	// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+	// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 	SendReceiveRatio *int `pulumi:"sendReceiveRatio"`
 }
 
@@ -797,7 +797,7 @@ type InstanceProductInfoInput interface {
 }
 
 type InstanceProductInfoArgs struct {
-	// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+	// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 	SendReceiveRatio pulumi.IntPtrInput `pulumi:"sendReceiveRatio"`
 }
 
@@ -878,7 +878,7 @@ func (o InstanceProductInfoOutput) ToInstanceProductInfoPtrOutputWithContext(ctx
 	}).(InstanceProductInfoPtrOutput)
 }
 
-// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 func (o InstanceProductInfoOutput) SendReceiveRatio() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceProductInfo) *int { return v.SendReceiveRatio }).(pulumi.IntPtrOutput)
 }
@@ -907,7 +907,7 @@ func (o InstanceProductInfoPtrOutput) Elem() InstanceProductInfoOutput {
 	}).(InstanceProductInfoOutput)
 }
 
-// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 func (o InstanceProductInfoPtrOutput) SendReceiveRatio() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceProductInfo) *int {
 		if v == nil {
@@ -918,9 +918,9 @@ func (o InstanceProductInfoPtrOutput) SendReceiveRatio() pulumi.IntPtrOutput {
 }
 
 type InstanceTag struct {
-	// 标签键。
+	// Tag key.
 	Key *string `pulumi:"key"`
-	// 标签值。
+	// Tag value.
 	Value *string `pulumi:"value"`
 }
 
@@ -936,9 +936,9 @@ type InstanceTagInput interface {
 }
 
 type InstanceTagArgs struct {
-	// 标签键。
+	// Tag key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签值。
+	// Tag value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -993,12 +993,12 @@ func (o InstanceTagOutput) ToInstanceTagOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// 标签键。
+// Tag key.
 func (o InstanceTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签值。
+// Tag value.
 func (o InstanceTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1024,9 +1024,9 @@ func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
 }
 
 type TopicAccessPolicy struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey *string `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority *string `pulumi:"authority"`
 }
 
@@ -1042,9 +1042,9 @@ type TopicAccessPolicyInput interface {
 }
 
 type TopicAccessPolicyArgs struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority pulumi.StringPtrInput `pulumi:"authority"`
 }
 
@@ -1099,12 +1099,12 @@ func (o TopicAccessPolicyOutput) ToTopicAccessPolicyOutputWithContext(ctx contex
 	return o
 }
 
-// RocketMQ 密钥的 AccessKey。
+// AccessKey of the RocketMQ key.
 func (o TopicAccessPolicyOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicAccessPolicy) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 func (o TopicAccessPolicyOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicAccessPolicy) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
@@ -1130,11 +1130,11 @@ func (o TopicAccessPolicyArrayOutput) Index(i pulumi.IntInput) TopicAccessPolicy
 }
 
 type TopicGroupsInfo struct {
-	// 消费组的 Group ID。
+	// Group ID of the consumer group.
 	GroupId *string `pulumi:"groupId"`
-	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
 	MessageModel *string `pulumi:"messageModel"`
-	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
 	SubString *string `pulumi:"subString"`
 }
 
@@ -1150,11 +1150,11 @@ type TopicGroupsInfoInput interface {
 }
 
 type TopicGroupsInfoArgs struct {
-	// 消费组的 Group ID。
+	// Group ID of the consumer group.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
 	MessageModel pulumi.StringPtrInput `pulumi:"messageModel"`
-	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
 	SubString pulumi.StringPtrInput `pulumi:"subString"`
 }
 
@@ -1209,17 +1209,17 @@ func (o TopicGroupsInfoOutput) ToTopicGroupsInfoOutputWithContext(ctx context.Co
 	return o
 }
 
-// 消费组的 Group ID。
+// Group ID of the consumer group.
 func (o TopicGroupsInfoOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicGroupsInfo) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
 func (o TopicGroupsInfoOutput) MessageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicGroupsInfo) *string { return v.MessageModel }).(pulumi.StringPtrOutput)
 }
 
-// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
 func (o TopicGroupsInfoOutput) SubString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicGroupsInfo) *string { return v.SubString }).(pulumi.StringPtrOutput)
 }
@@ -1245,15 +1245,15 @@ func (o TopicGroupsInfoArrayOutput) Index(i pulumi.IntInput) TopicGroupsInfoOutp
 }
 
 type TopicQueuesInfo struct {
-	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
 	EndOffset *int `pulumi:"endOffset"`
-	// 该队列最近一次消息写入的时间。
+	// The time of the most recent message written to this queue.
 	LastUpdateTimestamp *int `pulumi:"lastUpdateTimestamp"`
-	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
 	MessageCount *int `pulumi:"messageCount"`
-	// 队列的编号 ID。
+	// Queue ID.
 	QueueId *string `pulumi:"queueId"`
-	// 当前队列最早消息的偏移量。
+	// The earliest message offset in the current queue.
 	StartOffset *int `pulumi:"startOffset"`
 }
 
@@ -1269,15 +1269,15 @@ type TopicQueuesInfoInput interface {
 }
 
 type TopicQueuesInfoArgs struct {
-	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
 	EndOffset pulumi.IntPtrInput `pulumi:"endOffset"`
-	// 该队列最近一次消息写入的时间。
+	// The time of the most recent message written to this queue.
 	LastUpdateTimestamp pulumi.IntPtrInput `pulumi:"lastUpdateTimestamp"`
-	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
 	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
-	// 队列的编号 ID。
+	// Queue ID.
 	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
-	// 当前队列最早消息的偏移量。
+	// The earliest message offset in the current queue.
 	StartOffset pulumi.IntPtrInput `pulumi:"startOffset"`
 }
 
@@ -1332,27 +1332,27 @@ func (o TopicQueuesInfoOutput) ToTopicQueuesInfoOutputWithContext(ctx context.Co
 	return o
 }
 
-// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
 func (o TopicQueuesInfoOutput) EndOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.EndOffset }).(pulumi.IntPtrOutput)
 }
 
-// 该队列最近一次消息写入的时间。
+// The time of the most recent message written to this queue.
 func (o TopicQueuesInfoOutput) LastUpdateTimestamp() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.LastUpdateTimestamp }).(pulumi.IntPtrOutput)
 }
 
-// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
 func (o TopicQueuesInfoOutput) MessageCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
 }
 
-// 队列的编号 ID。
+// Queue ID.
 func (o TopicQueuesInfoOutput) QueueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicQueuesInfo) *string { return v.QueueId }).(pulumi.StringPtrOutput)
 }
 
-// 当前队列最早消息的偏移量。
+// The earliest message offset in the current queue.
 func (o TopicQueuesInfoOutput) StartOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicQueuesInfo) *int { return v.StartOffset }).(pulumi.IntPtrOutput)
 }
@@ -1378,9 +1378,9 @@ func (o TopicQueuesInfoArrayOutput) Index(i pulumi.IntInput) TopicQueuesInfoOutp
 }
 
 type TopicReadAccessPolicy struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey *string `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority *string `pulumi:"authority"`
 }
 
@@ -1396,9 +1396,9 @@ type TopicReadAccessPolicyInput interface {
 }
 
 type TopicReadAccessPolicyArgs struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority pulumi.StringPtrInput `pulumi:"authority"`
 }
 
@@ -1453,12 +1453,12 @@ func (o TopicReadAccessPolicyOutput) ToTopicReadAccessPolicyOutputWithContext(ct
 	return o
 }
 
-// RocketMQ 密钥的 AccessKey。
+// AccessKey of the RocketMQ key.
 func (o TopicReadAccessPolicyOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicReadAccessPolicy) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 func (o TopicReadAccessPolicyOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicReadAccessPolicy) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
@@ -1484,11 +1484,11 @@ func (o TopicReadAccessPolicyArrayOutput) Index(i pulumi.IntInput) TopicReadAcce
 }
 
 type GetAllowListAssociatedInstance struct {
-	// 实例ID。
+	// Instance ID
 	InstanceId string `pulumi:"instanceId"`
-	// 实例名称。
+	// Instance Name
 	InstanceName string `pulumi:"instanceName"`
-	// 实例所属VPC ID。
+	// VPC ID of the instance
 	Vpc string `pulumi:"vpc"`
 }
 
@@ -1504,11 +1504,11 @@ type GetAllowListAssociatedInstanceInput interface {
 }
 
 type GetAllowListAssociatedInstanceArgs struct {
-	// 实例ID。
+	// Instance ID
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// 实例名称。
+	// Instance Name
 	InstanceName pulumi.StringInput `pulumi:"instanceName"`
-	// 实例所属VPC ID。
+	// VPC ID of the instance
 	Vpc pulumi.StringInput `pulumi:"vpc"`
 }
 
@@ -1563,17 +1563,17 @@ func (o GetAllowListAssociatedInstanceOutput) ToGetAllowListAssociatedInstanceOu
 	return o
 }
 
-// 实例ID。
+// Instance ID
 func (o GetAllowListAssociatedInstanceOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAllowListAssociatedInstance) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// 实例名称。
+// Instance Name
 func (o GetAllowListAssociatedInstanceOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAllowListAssociatedInstance) string { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// 实例所属VPC ID。
+// VPC ID of the instance
 func (o GetAllowListAssociatedInstanceOutput) Vpc() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAllowListAssociatedInstance) string { return v.Vpc }).(pulumi.StringOutput)
 }
@@ -1599,15 +1599,15 @@ func (o GetAllowListAssociatedInstanceArrayOutput) Index(i pulumi.IntInput) GetA
 }
 
 type GetGroupConsumedClient struct {
-	// 该消费者实例的地址和端口。
+	// Address and port of this consumer instance.
 	ClientAddress string `pulumi:"clientAddress"`
-	// 该消费者实例的 ID。
+	// ID of this consumer instance.
 	ClientId string `pulumi:"clientId"`
-	// 消息堆积量。
+	// Message backlog.
 	Diff int `pulumi:"diff"`
-	// 消费者应用的开发语言。
+	// Development language of the consumer application.
 	Language string `pulumi:"language"`
-	// 消费端版本。
+	// Consumer version.
 	Version string `pulumi:"version"`
 }
 
@@ -1623,15 +1623,15 @@ type GetGroupConsumedClientInput interface {
 }
 
 type GetGroupConsumedClientArgs struct {
-	// 该消费者实例的地址和端口。
+	// Address and port of this consumer instance.
 	ClientAddress pulumi.StringInput `pulumi:"clientAddress"`
-	// 该消费者实例的 ID。
+	// ID of this consumer instance.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// 消息堆积量。
+	// Message backlog.
 	Diff pulumi.IntInput `pulumi:"diff"`
-	// 消费者应用的开发语言。
+	// Development language of the consumer application.
 	Language pulumi.StringInput `pulumi:"language"`
-	// 消费端版本。
+	// Consumer version.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -1686,27 +1686,27 @@ func (o GetGroupConsumedClientOutput) ToGetGroupConsumedClientOutputWithContext(
 	return o
 }
 
-// 该消费者实例的地址和端口。
+// Address and port of this consumer instance.
 func (o GetGroupConsumedClientOutput) ClientAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.ClientAddress }).(pulumi.StringOutput)
 }
 
-// 该消费者实例的 ID。
+// ID of this consumer instance.
 func (o GetGroupConsumedClientOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// 消息堆积量。
+// Message backlog.
 func (o GetGroupConsumedClientOutput) Diff() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupConsumedClient) int { return v.Diff }).(pulumi.IntOutput)
 }
 
-// 消费者应用的开发语言。
+// Development language of the consumer application.
 func (o GetGroupConsumedClientOutput) Language() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.Language }).(pulumi.StringOutput)
 }
 
-// 消费端版本。
+// Consumer version.
 func (o GetGroupConsumedClientOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupConsumedClient) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1732,11 +1732,11 @@ func (o GetGroupConsumedClientArrayOutput) Index(i pulumi.IntInput) GetGroupCons
 }
 
 type GetGroupConsumedTopic struct {
-	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
 	QueueNum int `pulumi:"queueNum"`
-	// 订阅规则。
+	// Subscription rules.
 	SubString string `pulumi:"subString"`
-	// 客户端订阅的 Topic 名称。
+	// Name of the Topic subscribed by the client.
 	TopicName string `pulumi:"topicName"`
 }
 
@@ -1752,11 +1752,11 @@ type GetGroupConsumedTopicInput interface {
 }
 
 type GetGroupConsumedTopicArgs struct {
-	// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+	// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
 	QueueNum pulumi.IntInput `pulumi:"queueNum"`
-	// 订阅规则。
+	// Subscription rules.
 	SubString pulumi.StringInput `pulumi:"subString"`
-	// 客户端订阅的 Topic 名称。
+	// Name of the Topic subscribed by the client.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
 
@@ -1811,17 +1811,17 @@ func (o GetGroupConsumedTopicOutput) ToGetGroupConsumedTopicOutputWithContext(ct
 	return o
 }
 
-// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
 func (o GetGroupConsumedTopicOutput) QueueNum() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupConsumedTopic) int { return v.QueueNum }).(pulumi.IntOutput)
 }
 
-// 订阅规则。
+// Subscription rules.
 func (o GetGroupConsumedTopicOutput) SubString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupConsumedTopic) string { return v.SubString }).(pulumi.StringOutput)
 }
 
-// 客户端订阅的 Topic 名称。
+// Name of the Topic subscribed by the client.
 func (o GetGroupConsumedTopicOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupConsumedTopic) string { return v.TopicName }).(pulumi.StringOutput)
 }
@@ -1847,23 +1847,23 @@ func (o GetGroupConsumedTopicArrayOutput) Index(i pulumi.IntInput) GetGroupConsu
 }
 
 type GetInstanceChargeDetail struct {
-	// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+	// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 	AutoRenew bool `pulumi:"autoRenew"`
-	// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+	// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 	ChargeExpireTime string `pulumi:"chargeExpireTime"`
-	// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	ChargeStartTime string `pulumi:"chargeStartTime"`
-	// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+	// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 	ChargeStatus string `pulumi:"chargeStatus"`
-	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+	// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 	ChargeType string `pulumi:"chargeType"`
-	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueReclaimTime string `pulumi:"overdueReclaimTime"`
-	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueTime string `pulumi:"overdueTime"`
-	// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+	// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 	Period int `pulumi:"period"`
-	// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+	// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 	PeriodUnit string `pulumi:"periodUnit"`
 }
 
@@ -1879,23 +1879,23 @@ type GetInstanceChargeDetailInput interface {
 }
 
 type GetInstanceChargeDetailArgs struct {
-	// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+	// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 	AutoRenew pulumi.BoolInput `pulumi:"autoRenew"`
-	// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+	// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 	ChargeExpireTime pulumi.StringInput `pulumi:"chargeExpireTime"`
-	// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	ChargeStartTime pulumi.StringInput `pulumi:"chargeStartTime"`
-	// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+	// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 	ChargeStatus pulumi.StringInput `pulumi:"chargeStatus"`
-	// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+	// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 	ChargeType pulumi.StringInput `pulumi:"chargeType"`
-	// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueReclaimTime pulumi.StringInput `pulumi:"overdueReclaimTime"`
-	// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+	// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 	OverdueTime pulumi.StringInput `pulumi:"overdueTime"`
-	// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+	// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 	Period pulumi.IntInput `pulumi:"period"`
-	// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+	// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 	PeriodUnit pulumi.StringInput `pulumi:"periodUnit"`
 }
 
@@ -1925,61 +1925,61 @@ func (o GetInstanceChargeDetailOutput) ToGetInstanceChargeDetailOutputWithContex
 	return o
 }
 
-// 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+// Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
 func (o GetInstanceChargeDetailOutput) AutoRenew() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) bool { return v.AutoRenew }).(pulumi.BoolOutput)
 }
 
-// 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+// Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
 func (o GetInstanceChargeDetailOutput) ChargeExpireTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.ChargeExpireTime }).(pulumi.StringOutput)
 }
 
-// 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o GetInstanceChargeDetailOutput) ChargeStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.ChargeStartTime }).(pulumi.StringOutput)
 }
 
-// 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+// Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
 func (o GetInstanceChargeDetailOutput) ChargeStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.ChargeStatus }).(pulumi.StringOutput)
 }
 
-// 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+// Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
 func (o GetInstanceChargeDetailOutput) ChargeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.ChargeType }).(pulumi.StringOutput)
 }
 
-// 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o GetInstanceChargeDetailOutput) OverdueReclaimTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.OverdueReclaimTime }).(pulumi.StringOutput)
 }
 
-// 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+// Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
 func (o GetInstanceChargeDetailOutput) OverdueTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.OverdueTime }).(pulumi.StringOutput)
 }
 
-// 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+// Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
 func (o GetInstanceChargeDetailOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) int { return v.Period }).(pulumi.IntOutput)
 }
 
-// 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+// Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
 func (o GetInstanceChargeDetailOutput) PeriodUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceChargeDetail) string { return v.PeriodUnit }).(pulumi.StringOutput)
 }
 
 type GetInstanceConnectionInfo struct {
-	// 实例的接入点 IP 地址。
+	// Instance endpoint IP address.
 	EndpointAddressIp string `pulumi:"endpointAddressIp"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	EndpointType string `pulumi:"endpointType"`
-	// 实例的私网接入点地址。
+	// Private network endpoint address for the instance.
 	InternalEndpoint string `pulumi:"internalEndpoint"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	NetworkType string `pulumi:"networkType"`
-	// 实例的公网接入点地址。
+	// Public access point address of the instance.
 	PublicEndpoint string `pulumi:"publicEndpoint"`
 }
 
@@ -1995,15 +1995,15 @@ type GetInstanceConnectionInfoInput interface {
 }
 
 type GetInstanceConnectionInfoArgs struct {
-	// 实例的接入点 IP 地址。
+	// Instance endpoint IP address.
 	EndpointAddressIp pulumi.StringInput `pulumi:"endpointAddressIp"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// 实例的私网接入点地址。
+	// Private network endpoint address for the instance.
 	InternalEndpoint pulumi.StringInput `pulumi:"internalEndpoint"`
-	// 实例的接入点类型。
+	// Instance access point type.
 	NetworkType pulumi.StringInput `pulumi:"networkType"`
-	// 实例的公网接入点地址。
+	// Public access point address of the instance.
 	PublicEndpoint pulumi.StringInput `pulumi:"publicEndpoint"`
 }
 
@@ -2058,27 +2058,27 @@ func (o GetInstanceConnectionInfoOutput) ToGetInstanceConnectionInfoOutputWithCo
 	return o
 }
 
-// 实例的接入点 IP 地址。
+// Instance endpoint IP address.
 func (o GetInstanceConnectionInfoOutput) EndpointAddressIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceConnectionInfo) string { return v.EndpointAddressIp }).(pulumi.StringOutput)
 }
 
-// 实例的接入点类型。
+// Instance access point type.
 func (o GetInstanceConnectionInfoOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceConnectionInfo) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// 实例的私网接入点地址。
+// Private network endpoint address for the instance.
 func (o GetInstanceConnectionInfoOutput) InternalEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceConnectionInfo) string { return v.InternalEndpoint }).(pulumi.StringOutput)
 }
 
-// 实例的接入点类型。
+// Instance access point type.
 func (o GetInstanceConnectionInfoOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceConnectionInfo) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
-// 实例的公网接入点地址。
+// Public access point address of the instance.
 func (o GetInstanceConnectionInfoOutput) PublicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceConnectionInfo) string { return v.PublicEndpoint }).(pulumi.StringOutput)
 }
@@ -2104,7 +2104,7 @@ func (o GetInstanceConnectionInfoArrayOutput) Index(i pulumi.IntInput) GetInstan
 }
 
 type GetInstanceProductInfo struct {
-	// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+	// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 	SendReceiveRatio int `pulumi:"sendReceiveRatio"`
 }
 
@@ -2120,7 +2120,7 @@ type GetInstanceProductInfoInput interface {
 }
 
 type GetInstanceProductInfoArgs struct {
-	// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+	// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 	SendReceiveRatio pulumi.IntInput `pulumi:"sendReceiveRatio"`
 }
 
@@ -2150,15 +2150,15 @@ func (o GetInstanceProductInfoOutput) ToGetInstanceProductInfoOutputWithContext(
 	return o
 }
 
-// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
 func (o GetInstanceProductInfoOutput) SendReceiveRatio() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceProductInfo) int { return v.SendReceiveRatio }).(pulumi.IntOutput)
 }
 
 type GetInstanceTag struct {
-	// 标签键。
+	// Tag key.
 	Key string `pulumi:"key"`
-	// 标签值。
+	// Tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -2174,9 +2174,9 @@ type GetInstanceTagInput interface {
 }
 
 type GetInstanceTagArgs struct {
-	// 标签键。
+	// Tag key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签值。
+	// Tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2231,12 +2231,12 @@ func (o GetInstanceTagOutput) ToGetInstanceTagOutputWithContext(ctx context.Cont
 	return o
 }
 
-// 标签键。
+// Tag key.
 func (o GetInstanceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签值。
+// Tag value.
 func (o GetInstanceTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2262,9 +2262,9 @@ func (o GetInstanceTagArrayOutput) Index(i pulumi.IntInput) GetInstanceTagOutput
 }
 
 type GetTopicAccessPolicy struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey string `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority string `pulumi:"authority"`
 }
 
@@ -2280,9 +2280,9 @@ type GetTopicAccessPolicyInput interface {
 }
 
 type GetTopicAccessPolicyArgs struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority pulumi.StringInput `pulumi:"authority"`
 }
 
@@ -2337,12 +2337,12 @@ func (o GetTopicAccessPolicyOutput) ToGetTopicAccessPolicyOutputWithContext(ctx 
 	return o
 }
 
-// RocketMQ 密钥的 AccessKey。
+// AccessKey of the RocketMQ key.
 func (o GetTopicAccessPolicyOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicAccessPolicy) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 func (o GetTopicAccessPolicyOutput) Authority() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicAccessPolicy) string { return v.Authority }).(pulumi.StringOutput)
 }
@@ -2368,11 +2368,11 @@ func (o GetTopicAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetTopicAccess
 }
 
 type GetTopicGroupsInfo struct {
-	// 消费组的 Group ID。
+	// Group ID of the consumer group.
 	GroupId string `pulumi:"groupId"`
-	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
 	MessageModel string `pulumi:"messageModel"`
-	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
 	SubString string `pulumi:"subString"`
 }
 
@@ -2388,11 +2388,11 @@ type GetTopicGroupsInfoInput interface {
 }
 
 type GetTopicGroupsInfoArgs struct {
-	// 消费组的 Group ID。
+	// Group ID of the consumer group.
 	GroupId pulumi.StringInput `pulumi:"groupId"`
-	// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+	// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
 	MessageModel pulumi.StringInput `pulumi:"messageModel"`
-	// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+	// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
 	SubString pulumi.StringInput `pulumi:"subString"`
 }
 
@@ -2447,17 +2447,17 @@ func (o GetTopicGroupsInfoOutput) ToGetTopicGroupsInfoOutputWithContext(ctx cont
 	return o
 }
 
-// 消费组的 Group ID。
+// Group ID of the consumer group.
 func (o GetTopicGroupsInfoOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicGroupsInfo) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
 func (o GetTopicGroupsInfoOutput) MessageModel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicGroupsInfo) string { return v.MessageModel }).(pulumi.StringOutput)
 }
 
-// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
 func (o GetTopicGroupsInfoOutput) SubString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicGroupsInfo) string { return v.SubString }).(pulumi.StringOutput)
 }
@@ -2483,15 +2483,15 @@ func (o GetTopicGroupsInfoArrayOutput) Index(i pulumi.IntInput) GetTopicGroupsIn
 }
 
 type GetTopicQueuesInfo struct {
-	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
 	EndOffset int `pulumi:"endOffset"`
-	// 该队列最近一次消息写入的时间。
+	// The time of the most recent message written to this queue.
 	LastUpdateTimestamp int `pulumi:"lastUpdateTimestamp"`
-	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
 	MessageCount int `pulumi:"messageCount"`
-	// 队列的编号 ID。
+	// Queue ID.
 	QueueId string `pulumi:"queueId"`
-	// 当前队列最早消息的偏移量。
+	// The earliest message offset in the current queue.
 	StartOffset int `pulumi:"startOffset"`
 }
 
@@ -2507,15 +2507,15 @@ type GetTopicQueuesInfoInput interface {
 }
 
 type GetTopicQueuesInfoArgs struct {
-	// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+	// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
 	EndOffset pulumi.IntInput `pulumi:"endOffset"`
-	// 该队列最近一次消息写入的时间。
+	// The time of the most recent message written to this queue.
 	LastUpdateTimestamp pulumi.IntInput `pulumi:"lastUpdateTimestamp"`
-	// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+	// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
 	MessageCount pulumi.IntInput `pulumi:"messageCount"`
-	// 队列的编号 ID。
+	// Queue ID.
 	QueueId pulumi.StringInput `pulumi:"queueId"`
-	// 当前队列最早消息的偏移量。
+	// The earliest message offset in the current queue.
 	StartOffset pulumi.IntInput `pulumi:"startOffset"`
 }
 
@@ -2570,27 +2570,27 @@ func (o GetTopicQueuesInfoOutput) ToGetTopicQueuesInfoOutputWithContext(ctx cont
 	return o
 }
 
-// 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+// The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
 func (o GetTopicQueuesInfoOutput) EndOffset() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.EndOffset }).(pulumi.IntOutput)
 }
 
-// 该队列最近一次消息写入的时间。
+// The time of the most recent message written to this queue.
 func (o GetTopicQueuesInfoOutput) LastUpdateTimestamp() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.LastUpdateTimestamp }).(pulumi.IntOutput)
 }
 
-// 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+// The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
 func (o GetTopicQueuesInfoOutput) MessageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.MessageCount }).(pulumi.IntOutput)
 }
 
-// 队列的编号 ID。
+// Queue ID.
 func (o GetTopicQueuesInfoOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicQueuesInfo) string { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// 当前队列最早消息的偏移量。
+// The earliest message offset in the current queue.
 func (o GetTopicQueuesInfoOutput) StartOffset() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTopicQueuesInfo) int { return v.StartOffset }).(pulumi.IntOutput)
 }
@@ -2616,9 +2616,9 @@ func (o GetTopicQueuesInfoArrayOutput) Index(i pulumi.IntInput) GetTopicQueuesIn
 }
 
 type GetTopicReadAccessPolicy struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey string `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority string `pulumi:"authority"`
 }
 
@@ -2634,9 +2634,9 @@ type GetTopicReadAccessPolicyInput interface {
 }
 
 type GetTopicReadAccessPolicyArgs struct {
-	// RocketMQ 密钥的 AccessKey。
+	// AccessKey of the RocketMQ key.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+	// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 	Authority pulumi.StringInput `pulumi:"authority"`
 }
 
@@ -2691,12 +2691,12 @@ func (o GetTopicReadAccessPolicyOutput) ToGetTopicReadAccessPolicyOutputWithCont
 	return o
 }
 
-// RocketMQ 密钥的 AccessKey。
+// AccessKey of the RocketMQ key.
 func (o GetTopicReadAccessPolicyOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicReadAccessPolicy) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
 func (o GetTopicReadAccessPolicyOutput) Authority() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTopicReadAccessPolicy) string { return v.Authority }).(pulumi.StringOutput)
 }

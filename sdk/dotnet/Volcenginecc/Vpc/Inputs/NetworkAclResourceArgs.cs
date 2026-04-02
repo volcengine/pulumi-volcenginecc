@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Inputs
     public sealed class NetworkAclResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 关联资源的ID。
+        /// Associated resource ID.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

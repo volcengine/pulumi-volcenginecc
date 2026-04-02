@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
-    /// 当需要对备份源进行自动备份时，可以创建备份计划，在备份计划中关联备份源和备份策略，指定备份存储空间，并设置备份数据保留规则等。在创建备份计划后，系统将按照关联备份策略配置，对指定备份源进行统一自动备份。
+    /// To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
     /// 
     /// ## Import
     /// 
@@ -23,37 +23,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public partial class BackupPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 创建此计划的账户 ID。
+        /// Account ID that created this plan
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// 备份计划名称。
+        /// Backup Plan Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// 备份计划 ID。
+        /// Backup Plan ID
         /// </summary>
         [Output("planId")]
         public Output<string> PlanId { get; private set; } = null!;
 
         /// <summary>
-        /// 备份策略。
+        /// Backup Policy
         /// </summary>
         [Output("policy")]
         public Output<Outputs.BackupPlanPolicy> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         public Output<ImmutableArray<Outputs.BackupPlanResourceList>> ResourceLists { get; private set; } = null!;
 
         /// <summary>
-        /// 更新时间。
+        /// Update Time
         /// </summary>
         [Output("updatedTime")]
         public Output<string> UpdatedTime { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class BackupPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 备份计划名称。
+        /// Backup Plan Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
@@ -143,37 +143,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     public sealed class BackupPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建此计划的账户 ID。
+        /// Account ID that created this plan
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// 备份计划名称。
+        /// Backup Plan Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// 备份计划 ID。
+        /// Backup Plan ID
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// 备份策略。
+        /// Backup Policy
         /// </summary>
         [Input("policy")]
         public Input<Inputs.BackupPlanPolicyGetArgs>? Policy { get; set; }
 
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
@@ -187,7 +187,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
         }
 
         /// <summary>
-        /// 更新时间。
+        /// Update Time
         /// </summary>
         [Input("updatedTime")]
         public Input<string>? UpdatedTime { get; set; }

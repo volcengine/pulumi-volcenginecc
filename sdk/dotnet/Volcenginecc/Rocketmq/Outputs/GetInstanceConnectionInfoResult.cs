@@ -15,23 +15,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Outputs
     public sealed class GetInstanceConnectionInfoResult
     {
         /// <summary>
-        /// 实例的接入点 IP 地址。
+        /// Instance endpoint IP address.
         /// </summary>
         public readonly string EndpointAddressIp;
         /// <summary>
-        /// 实例的接入点类型。
+        /// Instance access point type.
         /// </summary>
         public readonly string EndpointType;
         /// <summary>
-        /// 实例的私网接入点地址。
+        /// Private network endpoint address for the instance.
         /// </summary>
         public readonly string InternalEndpoint;
         /// <summary>
-        /// 实例的接入点类型。
+        /// Instance access point type.
         /// </summary>
         public readonly string NetworkType;
         /// <summary>
-        /// 实例的公网接入点地址。
+        /// Public access point address of the instance.
         /// </summary>
         public readonly string PublicEndpoint;
 

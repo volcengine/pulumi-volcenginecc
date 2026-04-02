@@ -46,7 +46,7 @@ if not MYPY:
     class AllowListAssociatedInstanceArgsDict(TypedDict):
         instance_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例ID。
+        Instance ID
         """
 elif False:
     AllowListAssociatedInstanceArgsDict: TypeAlias = Mapping[str, Any]
@@ -56,7 +56,7 @@ class AllowListAssociatedInstanceArgs:
     def __init__(__self__, *,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] instance_id: 实例ID。
+        :param pulumi.Input[builtins.str] instance_id: Instance ID
         """
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
@@ -65,7 +65,7 @@ class AllowListAssociatedInstanceArgs:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例ID。
+        Instance ID
         """
         return pulumi.get(self, "instance_id")
 
@@ -78,23 +78,23 @@ if not MYPY:
     class GroupConsumedClientArgsDict(TypedDict):
         client_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        该消费者实例的地址和端口。
+        Address and port of this consumer instance.
         """
         client_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        该消费者实例的 ID。
+        ID of this consumer instance.
         """
         diff: NotRequired[pulumi.Input[builtins.int]]
         """
-        消息堆积量。
+        Message backlog.
         """
         language: NotRequired[pulumi.Input[builtins.str]]
         """
-        消费者应用的开发语言。
+        Development language of the consumer application.
         """
         version: NotRequired[pulumi.Input[builtins.str]]
         """
-        消费端版本。
+        Consumer version.
         """
 elif False:
     GroupConsumedClientArgsDict: TypeAlias = Mapping[str, Any]
@@ -108,11 +108,11 @@ class GroupConsumedClientArgs:
                  language: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] client_address: 该消费者实例的地址和端口。
-        :param pulumi.Input[builtins.str] client_id: 该消费者实例的 ID。
-        :param pulumi.Input[builtins.int] diff: 消息堆积量。
-        :param pulumi.Input[builtins.str] language: 消费者应用的开发语言。
-        :param pulumi.Input[builtins.str] version: 消费端版本。
+        :param pulumi.Input[builtins.str] client_address: Address and port of this consumer instance.
+        :param pulumi.Input[builtins.str] client_id: ID of this consumer instance.
+        :param pulumi.Input[builtins.int] diff: Message backlog.
+        :param pulumi.Input[builtins.str] language: Development language of the consumer application.
+        :param pulumi.Input[builtins.str] version: Consumer version.
         """
         if client_address is not None:
             pulumi.set(__self__, "client_address", client_address)
@@ -129,7 +129,7 @@ class GroupConsumedClientArgs:
     @pulumi.getter(name="clientAddress")
     def client_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        该消费者实例的地址和端口。
+        Address and port of this consumer instance.
         """
         return pulumi.get(self, "client_address")
 
@@ -141,7 +141,7 @@ class GroupConsumedClientArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        该消费者实例的 ID。
+        ID of this consumer instance.
         """
         return pulumi.get(self, "client_id")
 
@@ -153,7 +153,7 @@ class GroupConsumedClientArgs:
     @pulumi.getter
     def diff(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        消息堆积量。
+        Message backlog.
         """
         return pulumi.get(self, "diff")
 
@@ -165,7 +165,7 @@ class GroupConsumedClientArgs:
     @pulumi.getter
     def language(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        消费者应用的开发语言。
+        Development language of the consumer application.
         """
         return pulumi.get(self, "language")
 
@@ -177,7 +177,7 @@ class GroupConsumedClientArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        消费端版本。
+        Consumer version.
         """
         return pulumi.get(self, "version")
 
@@ -190,15 +190,15 @@ if not MYPY:
     class GroupConsumedTopicArgsDict(TypedDict):
         queue_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
         """
         sub_string: NotRequired[pulumi.Input[builtins.str]]
         """
-        订阅规则。
+        Subscription rules.
         """
         topic_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        客户端订阅的 Topic 名称。
+        Name of the Topic subscribed by the client.
         """
 elif False:
     GroupConsumedTopicArgsDict: TypeAlias = Mapping[str, Any]
@@ -210,9 +210,9 @@ class GroupConsumedTopicArgs:
                  sub_string: Optional[pulumi.Input[builtins.str]] = None,
                  topic_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.int] queue_num: Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
-        :param pulumi.Input[builtins.str] sub_string: 订阅规则。
-        :param pulumi.Input[builtins.str] topic_name: 客户端订阅的 Topic 名称。
+        :param pulumi.Input[builtins.int] queue_num: Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
+        :param pulumi.Input[builtins.str] sub_string: Subscription rules.
+        :param pulumi.Input[builtins.str] topic_name: Name of the Topic subscribed by the client.
         """
         if queue_num is not None:
             pulumi.set(__self__, "queue_num", queue_num)
@@ -225,7 +225,7 @@ class GroupConsumedTopicArgs:
     @pulumi.getter(name="queueNum")
     def queue_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
         """
         return pulumi.get(self, "queue_num")
 
@@ -237,7 +237,7 @@ class GroupConsumedTopicArgs:
     @pulumi.getter(name="subString")
     def sub_string(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        订阅规则。
+        Subscription rules.
         """
         return pulumi.get(self, "sub_string")
 
@@ -249,7 +249,7 @@ class GroupConsumedTopicArgs:
     @pulumi.getter(name="topicName")
     def topic_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        客户端订阅的 Topic 名称。
+        Name of the Topic subscribed by the client.
         """
         return pulumi.get(self, "topic_name")
 
@@ -262,39 +262,39 @@ if not MYPY:
     class InstanceChargeDetailArgsDict(TypedDict):
         auto_renew: NotRequired[pulumi.Input[builtins.bool]]
         """
-        包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+        Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
         """
         charge_expire_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+        Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
         """
         charge_start_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+        Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         """
         charge_status: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+        Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
         """
         charge_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+        Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
         """
         overdue_reclaim_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+        Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         """
         overdue_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+        Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         """
         period: NotRequired[pulumi.Input[builtins.int]]
         """
-        包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+        Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
         """
         period_unit: NotRequired[pulumi.Input[builtins.str]]
         """
-        包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+        Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
         """
 elif False:
     InstanceChargeDetailArgsDict: TypeAlias = Mapping[str, Any]
@@ -312,15 +312,15 @@ class InstanceChargeDetailArgs:
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.bool] auto_renew: 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
-        :param pulumi.Input[builtins.str] charge_expire_time: 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
-        :param pulumi.Input[builtins.str] charge_start_time: 实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
-        :param pulumi.Input[builtins.str] charge_status: 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
-        :param pulumi.Input[builtins.str] charge_type: 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
-        :param pulumi.Input[builtins.str] overdue_reclaim_time: 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
-        :param pulumi.Input[builtins.str] overdue_time: 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
-        :param pulumi.Input[builtins.int] period: 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
-        :param pulumi.Input[builtins.str] period_unit: 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+        :param pulumi.Input[builtins.bool] auto_renew: Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
+        :param pulumi.Input[builtins.str] charge_expire_time: Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
+        :param pulumi.Input[builtins.str] charge_start_time: Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
+        :param pulumi.Input[builtins.str] charge_status: Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
+        :param pulumi.Input[builtins.str] charge_type: Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
+        :param pulumi.Input[builtins.str] overdue_reclaim_time: Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
+        :param pulumi.Input[builtins.str] overdue_time: Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
+        :param pulumi.Input[builtins.int] period: Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
+        :param pulumi.Input[builtins.str] period_unit: Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
         """
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
@@ -345,7 +345,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+        Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
         """
         return pulumi.get(self, "auto_renew")
 
@@ -357,7 +357,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="chargeExpireTime")
     def charge_expire_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        包年包月实例的到期时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+        Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
         """
         return pulumi.get(self, "charge_expire_time")
 
@@ -369,7 +369,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="chargeStartTime")
     def charge_start_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的开始计费时间。时间显示格式为YYYY-MM-DD'T'HH:MM:SS'Z'。
+        Billing start time for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         """
         return pulumi.get(self, "charge_start_time")
 
@@ -381,7 +381,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="chargeStatus")
     def charge_status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+        Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
         """
         return pulumi.get(self, "charge_status")
 
@@ -393,7 +393,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="chargeType")
     def charge_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+        Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
         """
         return pulumi.get(self, "charge_type")
 
@@ -405,7 +405,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="overdueReclaimTime")
     def overdue_reclaim_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+        Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         """
         return pulumi.get(self, "overdue_reclaim_time")
 
@@ -417,7 +417,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="overdueTime")
     def overdue_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的欠费关停时间。时间显示格式为 YYYY-MM-DD'T'HH:MM:SS'Z'。
+        Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD'T'HH:MM:SS'Z'.
         """
         return pulumi.get(self, "overdue_time")
 
@@ -429,7 +429,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+        Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
         """
         return pulumi.get(self, "period")
 
@@ -441,7 +441,7 @@ class InstanceChargeDetailArgs:
     @pulumi.getter(name="periodUnit")
     def period_unit(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+        Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
         """
         return pulumi.get(self, "period_unit")
 
@@ -454,23 +454,23 @@ if not MYPY:
     class InstanceConnectionInfoArgsDict(TypedDict):
         endpoint_address_ip: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的接入点 IP 地址。
+        Instance endpoint IP address.
         """
         endpoint_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的接入点类型。
+        Instance access point type.
         """
         internal_endpoint: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的私网接入点地址。
+        Private network endpoint address for the instance.
         """
         network_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的接入点类型。
+        Instance access point type.
         """
         public_endpoint: NotRequired[pulumi.Input[builtins.str]]
         """
-        实例的公网接入点地址。
+        Public access point address of the instance.
         """
 elif False:
     InstanceConnectionInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -484,11 +484,11 @@ class InstanceConnectionInfoArgs:
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  public_endpoint: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] endpoint_address_ip: 实例的接入点 IP 地址。
-        :param pulumi.Input[builtins.str] endpoint_type: 实例的接入点类型。
-        :param pulumi.Input[builtins.str] internal_endpoint: 实例的私网接入点地址。
-        :param pulumi.Input[builtins.str] network_type: 实例的接入点类型。
-        :param pulumi.Input[builtins.str] public_endpoint: 实例的公网接入点地址。
+        :param pulumi.Input[builtins.str] endpoint_address_ip: Instance endpoint IP address.
+        :param pulumi.Input[builtins.str] endpoint_type: Instance access point type.
+        :param pulumi.Input[builtins.str] internal_endpoint: Private network endpoint address for the instance.
+        :param pulumi.Input[builtins.str] network_type: Instance access point type.
+        :param pulumi.Input[builtins.str] public_endpoint: Public access point address of the instance.
         """
         if endpoint_address_ip is not None:
             pulumi.set(__self__, "endpoint_address_ip", endpoint_address_ip)
@@ -505,7 +505,7 @@ class InstanceConnectionInfoArgs:
     @pulumi.getter(name="endpointAddressIp")
     def endpoint_address_ip(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的接入点 IP 地址。
+        Instance endpoint IP address.
         """
         return pulumi.get(self, "endpoint_address_ip")
 
@@ -517,7 +517,7 @@ class InstanceConnectionInfoArgs:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的接入点类型。
+        Instance access point type.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -529,7 +529,7 @@ class InstanceConnectionInfoArgs:
     @pulumi.getter(name="internalEndpoint")
     def internal_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的私网接入点地址。
+        Private network endpoint address for the instance.
         """
         return pulumi.get(self, "internal_endpoint")
 
@@ -541,7 +541,7 @@ class InstanceConnectionInfoArgs:
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的接入点类型。
+        Instance access point type.
         """
         return pulumi.get(self, "network_type")
 
@@ -553,7 +553,7 @@ class InstanceConnectionInfoArgs:
     @pulumi.getter(name="publicEndpoint")
     def public_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        实例的公网接入点地址。
+        Public access point address of the instance.
         """
         return pulumi.get(self, "public_endpoint")
 
@@ -566,7 +566,7 @@ if not MYPY:
     class InstanceProductInfoArgsDict(TypedDict):
         send_receive_ratio: NotRequired[pulumi.Input[builtins.int]]
         """
-        修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         """
 elif False:
     InstanceProductInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -576,7 +576,7 @@ class InstanceProductInfoArgs:
     def __init__(__self__, *,
                  send_receive_ratio: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] send_receive_ratio: 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        :param pulumi.Input[builtins.int] send_receive_ratio: Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         """
         if send_receive_ratio is not None:
             pulumi.set(__self__, "send_receive_ratio", send_receive_ratio)
@@ -585,7 +585,7 @@ class InstanceProductInfoArgs:
     @pulumi.getter(name="sendReceiveRatio")
     def send_receive_ratio(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         """
         return pulumi.get(self, "send_receive_ratio")
 
@@ -598,11 +598,11 @@ if not MYPY:
     class InstanceTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键。
+        Tag key.
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值。
+        Tag value.
         """
 elif False:
     InstanceTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -613,8 +613,8 @@ class InstanceTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键。
-        :param pulumi.Input[builtins.str] value: 标签值。
+        :param pulumi.Input[builtins.str] key: Tag key.
+        :param pulumi.Input[builtins.str] value: Tag value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -625,7 +625,7 @@ class InstanceTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键。
+        Tag key.
         """
         return pulumi.get(self, "key")
 
@@ -637,7 +637,7 @@ class InstanceTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值。
+        Tag value.
         """
         return pulumi.get(self, "value")
 
@@ -650,11 +650,11 @@ if not MYPY:
     class TopicAccessPolicyArgsDict(TypedDict):
         access_key: NotRequired[pulumi.Input[builtins.str]]
         """
-        RocketMQ 密钥的 AccessKey。
+        AccessKey of the RocketMQ key.
         """
         authority: NotRequired[pulumi.Input[builtins.str]]
         """
-        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
 elif False:
     TopicAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -665,8 +665,8 @@ class TopicAccessPolicyArgs:
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
                  authority: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] access_key: RocketMQ 密钥的 AccessKey。
-        :param pulumi.Input[builtins.str] authority: 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        :param pulumi.Input[builtins.str] access_key: AccessKey of the RocketMQ key.
+        :param pulumi.Input[builtins.str] authority: User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
@@ -677,7 +677,7 @@ class TopicAccessPolicyArgs:
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        RocketMQ 密钥的 AccessKey。
+        AccessKey of the RocketMQ key.
         """
         return pulumi.get(self, "access_key")
 
@@ -689,7 +689,7 @@ class TopicAccessPolicyArgs:
     @pulumi.getter
     def authority(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
         return pulumi.get(self, "authority")
 
@@ -702,15 +702,15 @@ if not MYPY:
     class TopicGroupsInfoArgsDict(TypedDict):
         group_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        消费组的 Group ID。
+        Group ID of the consumer group.
         """
         message_model: NotRequired[pulumi.Input[builtins.str]]
         """
-        消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
         """
         sub_string: NotRequired[pulumi.Input[builtins.str]]
         """
-        订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
         """
 elif False:
     TopicGroupsInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -722,9 +722,9 @@ class TopicGroupsInfoArgs:
                  message_model: Optional[pulumi.Input[builtins.str]] = None,
                  sub_string: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] group_id: 消费组的 Group ID。
-        :param pulumi.Input[builtins.str] message_model: 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
-        :param pulumi.Input[builtins.str] sub_string: 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        :param pulumi.Input[builtins.str] group_id: Group ID of the consumer group.
+        :param pulumi.Input[builtins.str] message_model: Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
+        :param pulumi.Input[builtins.str] sub_string: Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -737,7 +737,7 @@ class TopicGroupsInfoArgs:
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        消费组的 Group ID。
+        Group ID of the consumer group.
         """
         return pulumi.get(self, "group_id")
 
@@ -749,7 +749,7 @@ class TopicGroupsInfoArgs:
     @pulumi.getter(name="messageModel")
     def message_model(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
         """
         return pulumi.get(self, "message_model")
 
@@ -761,7 +761,7 @@ class TopicGroupsInfoArgs:
     @pulumi.getter(name="subString")
     def sub_string(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
         """
         return pulumi.get(self, "sub_string")
 
@@ -774,23 +774,23 @@ if not MYPY:
     class TopicQueuesInfoArgsDict(TypedDict):
         end_offset: NotRequired[pulumi.Input[builtins.int]]
         """
-        当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
         """
         last_update_timestamp: NotRequired[pulumi.Input[builtins.int]]
         """
-        该队列最近一次消息写入的时间。
+        The time of the most recent message written to this queue.
         """
         message_count: NotRequired[pulumi.Input[builtins.int]]
         """
-        当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
         """
         queue_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        队列的编号 ID。
+        Queue ID.
         """
         start_offset: NotRequired[pulumi.Input[builtins.int]]
         """
-        当前队列最早消息的偏移量。
+        The earliest message offset in the current queue.
         """
 elif False:
     TopicQueuesInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -804,11 +804,11 @@ class TopicQueuesInfoArgs:
                  queue_id: Optional[pulumi.Input[builtins.str]] = None,
                  start_offset: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] end_offset: 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
-        :param pulumi.Input[builtins.int] last_update_timestamp: 该队列最近一次消息写入的时间。
-        :param pulumi.Input[builtins.int] message_count: 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
-        :param pulumi.Input[builtins.str] queue_id: 队列的编号 ID。
-        :param pulumi.Input[builtins.int] start_offset: 当前队列最早消息的偏移量。
+        :param pulumi.Input[builtins.int] end_offset: The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
+        :param pulumi.Input[builtins.int] last_update_timestamp: The time of the most recent message written to this queue.
+        :param pulumi.Input[builtins.int] message_count: The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
+        :param pulumi.Input[builtins.str] queue_id: Queue ID.
+        :param pulumi.Input[builtins.int] start_offset: The earliest message offset in the current queue.
         """
         if end_offset is not None:
             pulumi.set(__self__, "end_offset", end_offset)
@@ -825,7 +825,7 @@ class TopicQueuesInfoArgs:
     @pulumi.getter(name="endOffset")
     def end_offset(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+        The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
         """
         return pulumi.get(self, "end_offset")
 
@@ -837,7 +837,7 @@ class TopicQueuesInfoArgs:
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        该队列最近一次消息写入的时间。
+        The time of the most recent message written to this queue.
         """
         return pulumi.get(self, "last_update_timestamp")
 
@@ -849,7 +849,7 @@ class TopicQueuesInfoArgs:
     @pulumi.getter(name="messageCount")
     def message_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+        The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
         """
         return pulumi.get(self, "message_count")
 
@@ -861,7 +861,7 @@ class TopicQueuesInfoArgs:
     @pulumi.getter(name="queueId")
     def queue_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        队列的编号 ID。
+        Queue ID.
         """
         return pulumi.get(self, "queue_id")
 
@@ -873,7 +873,7 @@ class TopicQueuesInfoArgs:
     @pulumi.getter(name="startOffset")
     def start_offset(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        当前队列最早消息的偏移量。
+        The earliest message offset in the current queue.
         """
         return pulumi.get(self, "start_offset")
 
@@ -886,11 +886,11 @@ if not MYPY:
     class TopicReadAccessPolicyArgsDict(TypedDict):
         access_key: NotRequired[pulumi.Input[builtins.str]]
         """
-        RocketMQ 密钥的 AccessKey。
+        AccessKey of the RocketMQ key.
         """
         authority: NotRequired[pulumi.Input[builtins.str]]
         """
-        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
 elif False:
     TopicReadAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -901,8 +901,8 @@ class TopicReadAccessPolicyArgs:
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
                  authority: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] access_key: RocketMQ 密钥的 AccessKey。
-        :param pulumi.Input[builtins.str] authority: 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        :param pulumi.Input[builtins.str] access_key: AccessKey of the RocketMQ key.
+        :param pulumi.Input[builtins.str] authority: User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
@@ -913,7 +913,7 @@ class TopicReadAccessPolicyArgs:
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        RocketMQ 密钥的 AccessKey。
+        AccessKey of the RocketMQ key.
         """
         return pulumi.get(self, "access_key")
 
@@ -925,7 +925,7 @@ class TopicReadAccessPolicyArgs:
     @pulumi.getter
     def authority(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
         return pulumi.get(self, "authority")
 

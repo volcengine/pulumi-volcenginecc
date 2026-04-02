@@ -18,7 +18,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * 指备份对象，是云备份操作的起点。它可以是备份源产品中的计算资源、服务实例或者一组协同工作的服务和资源的集合，例如 ECS 整机、云盘、对象存储 Bucket。
+ * Refers to the backup object, which is the starting point for cloud backup operations. It can be a computing resource, service instance, or a group of collaborative services and resources from the backup source product, such as ECS full instance, cloud disk, or object storage bucket.
  * 
  * ## Example Usage
  * 
@@ -67,70 +67,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:cbr/backupResource:BackupResource")
 public class BackupResource extends com.pulumi.resources.CustomResource {
     /**
-     * 创建此备份源的账户 ID。
+     * Account ID that created this backup source
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return 创建此备份源的账户 ID。
+     * @return Account ID that created this backup source
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * 实例 ID。
+     * Instance ID
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
-     * @return 实例 ID。
+     * @return Instance ID
      * 
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
-     * 实例名称。
+     * Instance Name
      * 
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
-     * @return 实例名称。
+     * @return Instance Name
      * 
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      * 
      */
     @Export(name="metaInformation", refs={BackupResourceMetaInformation.class}, tree="[0]")
     private Output<BackupResourceMetaInformation> metaInformation;
 
     /**
-     * @return 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * @return Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      * 
      */
     public Output<BackupResourceMetaInformation> metaInformation() {
@@ -143,84 +143,84 @@ public class BackupResource extends com.pulumi.resources.CustomResource {
         return this.plans;
     }
     /**
-     * 恢复点的数量
+     * Number of Restore Points
      * 
      */
     @Export(name="recoveryPointNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> recoveryPointNumber;
 
     /**
-     * @return 恢复点的数量
+     * @return Number of Restore Points
      * 
      */
     public Output<Integer> recoveryPointNumber() {
         return this.recoveryPointNumber;
     }
     /**
-     * 备份源 ID。
+     * Backup Source ID
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
-     * @return 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      * 
      */
     public Output<String> resourceType() {
         return this.resourceType;
     }
     /**
-     * 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * @return Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * 更新时间
+     * Update Time
      * 
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
-     * @return 更新时间
+     * @return Update Time
      * 
      */
     public Output<String> updatedTime() {
         return this.updatedTime;
     }
     /**
-     * 已经备份的字节数。
+     * Bytes Already Backed Up
      * 
      */
     @Export(name="usedCapacityInBytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> usedCapacityInBytes;
 
     /**
-     * @return 已经备份的字节数。
+     * @return Bytes Already Backed Up
      * 
      */
     public Output<Integer> usedCapacityInBytes() {

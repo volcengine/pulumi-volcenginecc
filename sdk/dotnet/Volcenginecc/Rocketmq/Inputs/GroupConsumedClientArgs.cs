@@ -14,31 +14,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
     public sealed class GroupConsumedClientArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 该消费者实例的地址和端口。
+        /// Address and port of this consumer instance.
         /// </summary>
         [Input("clientAddress")]
         public Input<string>? ClientAddress { get; set; }
 
         /// <summary>
-        /// 该消费者实例的 ID。
+        /// ID of this consumer instance.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// 消息堆积量。
+        /// Message backlog.
         /// </summary>
         [Input("diff")]
         public Input<int>? Diff { get; set; }
 
         /// <summary>
-        /// 消费者应用的开发语言。
+        /// Development language of the consumer application.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }
 
         /// <summary>
-        /// 消费端版本。
+        /// Consumer version.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

@@ -16,14 +16,14 @@ public final class BucketAclOwnerArgs extends com.pulumi.resources.ResourceArgs 
     public static final BucketAclOwnerArgs Empty = new BucketAclOwnerArgs();
 
     /**
-     * 展示名。
+     * Display name
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return 展示名。
+     * @return Display name
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -31,14 +31,14 @@ public final class BucketAclOwnerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * 账号ID。
+     * Account ID
      * 
      */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
     /**
-     * @return 账号ID。
+     * @return Account ID
      * 
      */
     public Optional<Output<String>> ownerId() {
@@ -71,7 +71,7 @@ public final class BucketAclOwnerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName 展示名。
+         * @param displayName Display name
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BucketAclOwnerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName 展示名。
+         * @param displayName Display name
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BucketAclOwnerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ownerId 账号ID。
+         * @param ownerId Account ID
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BucketAclOwnerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ownerId 账号ID。
+         * @param ownerId Account ID
          * 
          * @return builder
          * 

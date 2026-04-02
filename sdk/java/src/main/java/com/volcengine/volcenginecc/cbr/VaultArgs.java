@@ -17,14 +17,14 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     public static final VaultArgs Empty = new VaultArgs();
 
     /**
-     * 项目名称。
+     * Project Name
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 项目名称。
+     * @return Project Name
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -32,14 +32,14 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份库名称。
+     * Backup Repository Name
      * 
      */
     @Import(name="vaultName", required=true)
     private Output<String> vaultName;
 
     /**
-     * @return 备份库名称。
+     * @return Backup Repository Name
      * 
      */
     public Output<String> vaultName() {
@@ -72,7 +72,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project Name
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project Name
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultName 备份库名称。
+         * @param vaultName Backup Repository Name
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vaultName 备份库名称。
+         * @param vaultName Backup Repository Name
          * 
          * @return builder
          * 

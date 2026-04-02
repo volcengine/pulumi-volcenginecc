@@ -16,7 +16,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * 备份策略中定义了备份周期、备份类型等信息。后续通过备份计划关联备份策略与备份存储空间，实现自动备份。
+ * The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
  * 
  * ## Example Usage
  * 
@@ -69,168 +69,168 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:cbr/backupPolicy:BackupPolicy")
 public class BackupPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * 创建此策略的账户 ID。
+     * Account ID that created this policy
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return 创建此策略的账户 ID。
+     * @return Account ID that created this policy
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      * 
      */
     @Export(name="backupType", refs={String.class}, tree="[0]")
     private Output<String> backupType;
 
     /**
-     * @return 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * @return Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      * 
      */
     public Output<String> backupType() {
         return this.backupType;
     }
     /**
-     * 创建时间。
+     * Creation time
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation time
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * 备份周期，采用 crontab 表达式。
+     * Backup cycle, using a crontab expression
      * 
      */
     @Export(name="crontab", refs={String.class}, tree="[0]")
     private Output<String> crontab;
 
     /**
-     * @return 备份周期，采用 crontab 表达式。
+     * @return Backup cycle, using a crontab expression
      * 
      */
     public Output<String> crontab() {
         return this.crontab;
     }
     /**
-     * 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      * 
      */
     @Export(name="enablePolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enablePolicy;
 
     /**
-     * @return 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * @return Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      * 
      */
     public Output<Boolean> enablePolicy() {
         return this.enablePolicy;
     }
     /**
-     * 策略名称。
+     * Policy Name
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return 策略名称。
+     * @return Policy Name
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * 该策略已关联的备份计划数量。
+     * Number of backup plans associated with this policy
      * 
      */
     @Export(name="planNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> planNumber;
 
     /**
-     * @return 该策略已关联的备份计划数量。
+     * @return Number of backup plans associated with this policy
      * 
      */
     public Output<Integer> planNumber() {
         return this.planNumber;
     }
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public Output<String> policyId() {
         return this.policyId;
     }
     /**
-     * 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      * 
      */
     @Export(name="retentionDay", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionDay;
 
     /**
-     * @return 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * @return Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      * 
      */
     public Output<Integer> retentionDay() {
         return this.retentionDay;
     }
     /**
-     * 最大恢复点保留数量。
+     * Maximum number of restore points retained
      * 
      */
     @Export(name="retentionNumMax", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionNumMax;
 
     /**
-     * @return 最大恢复点保留数量。
+     * @return Maximum number of restore points retained
      * 
      */
     public Output<Integer> retentionNumMax() {
         return this.retentionNumMax;
     }
     /**
-     * 最小恢复点保留数量下限。
+     * Minimum restore point retention limit
      * 
      */
     @Export(name="retentionNumMin", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionNumMin;
 
     /**
-     * @return 最小恢复点保留数量下限。
+     * @return Minimum restore point retention limit
      * 
      */
     public Output<Integer> retentionNumMin() {
         return this.retentionNumMin;
     }
     /**
-     * 更新时间。
+     * Update time
      * 
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
-     * @return 更新时间。
+     * @return Update time
      * 
      */
     public Output<String> updatedTime() {

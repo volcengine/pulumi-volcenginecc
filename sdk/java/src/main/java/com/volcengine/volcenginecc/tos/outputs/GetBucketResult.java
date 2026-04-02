@@ -16,33 +16,33 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketResult {
     /**
-     * @return 桶的访问控制权限。
+     * @return Bucket access control permissions
      * 
      */
     private GetBucketAcl acl;
     private GetBucketAclGrant aclGrant;
     /**
-     * @return 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * @return Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      * 
      */
     private String azRedundancy;
     /**
-     * @return 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * @return Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      * 
      */
     private String bucketType;
     /**
-     * @return 桶的创建时间。
+     * @return Bucket creation time
      * 
      */
     private String creationDate;
     /**
-     * @return 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * @return Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      * 
      */
     private String enableVersionStatus;
     /**
-     * @return 存储桶的 TOS 协议公网访问域名。
+     * @return TOS protocol public access domain name for the bucket
      * 
      */
     private String extranetEndpoint;
@@ -52,49 +52,49 @@ public final class GetBucketResult {
      */
     private String id;
     /**
-     * @return 存储桶的 TOS 协议私网访问域名
+     * @return Private network access domain name for the bucket&#39;s TOS protocol
      * 
      */
     private String intranetEndpoint;
     /**
-     * @return 存储桶的声明周期。
+     * @return Bucket lifecycle
      * 
      */
     private List<GetBucketLifecycleConfig> lifecycleConfigs;
     /**
-     * @return 桶所在区域。
+     * @return Bucket region
      * 
      */
     private String location;
     /**
-     * @return 桶名。
+     * @return Bucket name
      * 
      */
     private String name;
     /**
-     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
     private String policy;
     /**
-     * @return 存储桶所属项目。
+     * @return Project associated with the bucket
      * 
      */
     private String projectName;
     /**
-     * @return 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * @return Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      * 
      */
     private String storageClass;
     /**
-     * @return 存储桶的标签信息。
+     * @return Bucket tag information
      * 
      */
     private List<GetBucketTag> tags;
 
     private GetBucketResult() {}
     /**
-     * @return 桶的访问控制权限。
+     * @return Bucket access control permissions
      * 
      */
     public GetBucketAcl acl() {
@@ -104,35 +104,35 @@ public final class GetBucketResult {
         return this.aclGrant;
     }
     /**
-     * @return 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * @return Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      * 
      */
     public String azRedundancy() {
         return this.azRedundancy;
     }
     /**
-     * @return 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * @return Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      * 
      */
     public String bucketType() {
         return this.bucketType;
     }
     /**
-     * @return 桶的创建时间。
+     * @return Bucket creation time
      * 
      */
     public String creationDate() {
         return this.creationDate;
     }
     /**
-     * @return 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * @return Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      * 
      */
     public String enableVersionStatus() {
         return this.enableVersionStatus;
     }
     /**
-     * @return 存储桶的 TOS 协议公网访问域名。
+     * @return TOS protocol public access domain name for the bucket
      * 
      */
     public String extranetEndpoint() {
@@ -146,56 +146,56 @@ public final class GetBucketResult {
         return this.id;
     }
     /**
-     * @return 存储桶的 TOS 协议私网访问域名
+     * @return Private network access domain name for the bucket&#39;s TOS protocol
      * 
      */
     public String intranetEndpoint() {
         return this.intranetEndpoint;
     }
     /**
-     * @return 存储桶的声明周期。
+     * @return Bucket lifecycle
      * 
      */
     public List<GetBucketLifecycleConfig> lifecycleConfigs() {
         return this.lifecycleConfigs;
     }
     /**
-     * @return 桶所在区域。
+     * @return Bucket region
      * 
      */
     public String location() {
         return this.location;
     }
     /**
-     * @return 桶名。
+     * @return Bucket name
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
     public String policy() {
         return this.policy;
     }
     /**
-     * @return 存储桶所属项目。
+     * @return Project associated with the bucket
      * 
      */
     public String projectName() {
         return this.projectName;
     }
     /**
-     * @return 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * @return Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      * 
      */
     public String storageClass() {
         return this.storageClass;
     }
     /**
-     * @return 存储桶的标签信息。
+     * @return Bucket tag information
      * 
      */
     public List<GetBucketTag> tags() {

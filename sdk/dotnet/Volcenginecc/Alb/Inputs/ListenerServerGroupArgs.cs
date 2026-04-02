@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
     public sealed class ListenerServerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 服务器组 ID 。
+        /// Server group ID.
         /// </summary>
         [Input("serverGroupId")]
         public Input<string>? ServerGroupId { get; set; }
 
         /// <summary>
-        /// 服务器组名称。
+        /// Server group name.
         /// </summary>
         [Input("serverGroupName")]
         public Input<string>? ServerGroupName { get; set; }

@@ -15,40 +15,40 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Outputs
     public sealed class GetBucketLifecycleConfigResult
     {
         /// <summary>
-        /// 指定未合并的分片任务（碎片）的过期属性。
+        /// Specify expiration attributes for unmerged multipart tasks (fragments)
         /// </summary>
         public readonly Outputs.GetBucketLifecycleConfigAbortInCompleteMultipartUploadResult AbortInCompleteMultipartUpload;
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+        /// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
         /// </summary>
         public readonly Outputs.GetBucketLifecycleConfigExpirationResult Expiration;
         /// <summary>
-        /// 指定规则生效的过滤条件。
+        /// Filter conditions for applying the rule
         /// </summary>
         public readonly Outputs.GetBucketLifecycleConfigFilterResult Filter;
         /// <summary>
-        /// 规则 ID。
+        /// Rule ID
         /// </summary>
         public readonly string LifecycleRuleId;
         public readonly Outputs.GetBucketLifecycleConfigNoCurrentVersionExpirationResult NoCurrentVersionExpiration;
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。
+        /// Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketLifecycleConfigNonCurrentVersionTransitionResult> NonCurrentVersionTransitions;
         /// <summary>
-        /// 规则所适用的前缀。
+        /// Prefix to which the rule applies
         /// </summary>
         public readonly string Prefix;
         /// <summary>
-        /// 是否启用规则。包括Enabled、Disabled。
+        /// Enable rule. Includes Enabled, Disabled.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// 标签。
+        /// Tag
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketLifecycleConfigTagResult> Tags;
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。
+        /// Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketLifecycleConfigTransitionResult> Transitions;
 

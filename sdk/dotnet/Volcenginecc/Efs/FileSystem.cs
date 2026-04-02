@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Efs
 {
     /// <summary>
-    /// 文件系统是一种通过目录树结构管理文件的存储系统，分为本地文件系统和远程文件系统，此处特指远程文件系统，支持多个计算节点并发访问，共享数据集。
+    /// A file system is a storage system that manages files through a directory tree structure. It is divided into local file systems and remote file systems. This refers specifically to remote file systems, which support concurrent access by multiple compute nodes and shared datasets.
     /// 
     /// ## Import
     /// 
@@ -23,97 +23,97 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
     public partial class FileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 接入点上限。
+        /// Access point limit.
         /// </summary>
         [Output("accessPointLimit")]
         public Output<int> AccessPointLimit { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统计费配置。
+        /// File system billing configuration.
         /// </summary>
         [Output("chargeConfig")]
         public Output<Outputs.FileSystemChargeConfig> ChargeConfig { get; private set; } = null!;
 
         /// <summary>
-        /// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        /// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         /// </summary>
         [Output("chargeType")]
         public Output<string> ChargeType { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统创建时间。
+        /// File system creation time.
         /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// 描述信息。
+        /// Description.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统带宽可以降配的时间。
+        /// Time when file system bandwidth can be downgraded.
         /// </summary>
         [Output("downgradeUnlockTime")]
         public Output<string> DowngradeUnlockTime { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统 ID。
+        /// File system ID.
         /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统名称。
+        /// File system name.
         /// </summary>
         [Output("fileSystemName")]
         public Output<string> FileSystemName { get; private set; } = null!;
 
         /// <summary>
-        /// Basic：基础型,Premium：高级型
+        /// Basic: Basic type, Premium: Premium type.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// 挂载点上限。
+        /// Mount point limit.
         /// </summary>
         [Output("mountPointLimit")]
         public Output<int> MountPointLimit { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统性能信息。
+        /// File system performance information.
         /// </summary>
         [Output("performance")]
         public Output<Outputs.FileSystemPerformance> Performance { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+        /// File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
         /// </summary>
         [Output("performanceDensity")]
         public Output<string> PerformanceDensity { get; private set; } = null!;
 
         /// <summary>
-        /// 项目名称。
+        /// Project name.
         /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
-        /// 协议类型
+        /// Protocol type.
         /// </summary>
         [Output("protocolTypes")]
         public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+        /// File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统容量信息。
+        /// File system capacity information.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.FileSystemStorage> Storage { get; private set; } = null!;
@@ -122,19 +122,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
         public Output<ImmutableArray<Outputs.FileSystemTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// 文件系统更新时间。
+        /// File system update time.
         /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
         /// <summary>
-        /// 可用区 ID。
+        /// Availability zone ID.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// 可用区名称。
+        /// Availability zone name.
         /// </summary>
         [Output("zoneName")]
         public Output<string> ZoneName { get; private set; } = null!;
@@ -187,43 +187,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
     public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        /// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         /// </summary>
         [Input("chargeType")]
         public Input<string>? ChargeType { get; set; }
 
         /// <summary>
-        /// 描述信息。
+        /// Description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 文件系统名称。
+        /// File system name.
         /// </summary>
         [Input("fileSystemName", required: true)]
         public Input<string> FileSystemName { get; set; } = null!;
 
         /// <summary>
-        /// Basic：基础型,Premium：高级型
+        /// Basic: Basic type, Premium: Premium type.
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// 文件系统性能信息。
+        /// File system performance information.
         /// </summary>
         [Input("performance", required: true)]
         public Input<Inputs.FileSystemPerformanceArgs> Performance { get; set; } = null!;
 
         /// <summary>
-        /// 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+        /// File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
         /// </summary>
         [Input("performanceDensity", required: true)]
         public Input<string> PerformanceDensity { get; set; } = null!;
 
         /// <summary>
-        /// 项目名称。
+        /// Project name.
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
@@ -237,7 +237,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
         }
 
         /// <summary>
-        /// 可用区 ID。
+        /// Availability zone ID.
         /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
@@ -251,79 +251,79 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
     public sealed class FileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 接入点上限。
+        /// Access point limit.
         /// </summary>
         [Input("accessPointLimit")]
         public Input<int>? AccessPointLimit { get; set; }
 
         /// <summary>
-        /// 文件系统计费配置。
+        /// File system billing configuration.
         /// </summary>
         [Input("chargeConfig")]
         public Input<Inputs.FileSystemChargeConfigGetArgs>? ChargeConfig { get; set; }
 
         /// <summary>
-        /// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        /// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         /// </summary>
         [Input("chargeType")]
         public Input<string>? ChargeType { get; set; }
 
         /// <summary>
-        /// 文件系统创建时间。
+        /// File system creation time.
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
-        /// 描述信息。
+        /// Description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// 文件系统带宽可以降配的时间。
+        /// Time when file system bandwidth can be downgraded.
         /// </summary>
         [Input("downgradeUnlockTime")]
         public Input<string>? DowngradeUnlockTime { get; set; }
 
         /// <summary>
-        /// 文件系统 ID。
+        /// File system ID.
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
         /// <summary>
-        /// 文件系统名称。
+        /// File system name.
         /// </summary>
         [Input("fileSystemName")]
         public Input<string>? FileSystemName { get; set; }
 
         /// <summary>
-        /// Basic：基础型,Premium：高级型
+        /// Basic: Basic type, Premium: Premium type.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// 挂载点上限。
+        /// Mount point limit.
         /// </summary>
         [Input("mountPointLimit")]
         public Input<int>? MountPointLimit { get; set; }
 
         /// <summary>
-        /// 文件系统性能信息。
+        /// File system performance information.
         /// </summary>
         [Input("performance")]
         public Input<Inputs.FileSystemPerformanceGetArgs>? Performance { get; set; }
 
         /// <summary>
-        /// 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+        /// File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
         /// </summary>
         [Input("performanceDensity")]
         public Input<string>? PerformanceDensity { get; set; }
 
         /// <summary>
-        /// 项目名称。
+        /// Project name.
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
@@ -332,7 +332,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
         private InputList<string>? _protocolTypes;
 
         /// <summary>
-        /// 协议类型
+        /// Protocol type.
         /// </summary>
         public InputList<string> ProtocolTypes
         {
@@ -341,13 +341,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
         }
 
         /// <summary>
-        /// 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+        /// File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// 文件系统容量信息。
+        /// File system capacity information.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.FileSystemStorageGetArgs>? Storage { get; set; }
@@ -361,19 +361,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
         }
 
         /// <summary>
-        /// 文件系统更新时间。
+        /// File system update time.
         /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }
 
         /// <summary>
-        /// 可用区 ID。
+        /// Availability zone ID.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
 
         /// <summary>
-        /// 可用区名称。
+        /// Availability zone name.
         /// </summary>
         [Input("zoneName")]
         public Input<string>? ZoneName { get; set; }

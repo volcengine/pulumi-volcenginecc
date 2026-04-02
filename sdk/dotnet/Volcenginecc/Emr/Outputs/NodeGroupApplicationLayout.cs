@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Emr.Outputs
     public sealed class NodeGroupApplicationLayout
     {
         /// <summary>
-        /// 应用名称。
+        /// Application name.
         /// </summary>
         public readonly string? ApplicationName;
         /// <summary>
-        /// 组件的自定义配置参数列表。
+        /// Custom configuration parameter list for the component.
         /// </summary>
         public readonly ImmutableArray<string> LayoutComponentNames;
 

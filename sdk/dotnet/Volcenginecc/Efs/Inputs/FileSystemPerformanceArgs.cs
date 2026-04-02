@@ -14,43 +14,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Inputs
     public sealed class FileSystemPerformanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+        /// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
         /// </summary>
         [Input("bandwidthMode", required: true)]
         public Input<string> BandwidthMode { get; set; } = null!;
 
         /// <summary>
-        /// 基准带宽。
+        /// Baseline bandwidth.
         /// </summary>
         [Input("baselineBandwidth")]
         public Input<int>? BaselineBandwidth { get; set; }
 
         /// <summary>
-        /// 基准 IOPS。
+        /// Baseline IOPS.
         /// </summary>
         [Input("baselineIops")]
         public Input<int>? BaselineIops { get; set; }
 
         /// <summary>
-        /// 突发带宽。
+        /// Burst bandwidth.
         /// </summary>
         [Input("burstBandwidth")]
         public Input<int>? BurstBandwidth { get; set; }
 
         /// <summary>
-        /// 突发 IOPS。
+        /// Burst IOPS.
         /// </summary>
         [Input("burstIops")]
         public Input<int>? BurstIops { get; set; }
 
         /// <summary>
-        /// 预置带宽。
+        /// Provisioned bandwidth.
         /// </summary>
         [Input("provisionedBandwidth")]
         public Input<int>? ProvisionedBandwidth { get; set; }
 
         /// <summary>
-        /// 预置 IOPS。
+        /// Provisioned IOPS.
         /// </summary>
         [Input("provisionedIops")]
         public Input<int>? ProvisionedIops { get; set; }

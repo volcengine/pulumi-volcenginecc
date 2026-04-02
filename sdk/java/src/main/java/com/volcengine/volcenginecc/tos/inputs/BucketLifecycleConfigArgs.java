@@ -24,14 +24,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     public static final BucketLifecycleConfigArgs Empty = new BucketLifecycleConfigArgs();
 
     /**
-     * 指定未合并的分片任务（碎片）的过期属性。
+     * Specify expiration attributes for unmerged multipart tasks (fragments)
      * 
      */
     @Import(name="abortInCompleteMultipartUpload")
     private @Nullable Output<BucketLifecycleConfigAbortInCompleteMultipartUploadArgs> abortInCompleteMultipartUpload;
 
     /**
-     * @return 指定未合并的分片任务（碎片）的过期属性。
+     * @return Specify expiration attributes for unmerged multipart tasks (fragments)
      * 
      */
     public Optional<Output<BucketLifecycleConfigAbortInCompleteMultipartUploadArgs>> abortInCompleteMultipartUpload() {
@@ -39,14 +39,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+     * Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     @Import(name="expiration")
     private @Nullable Output<BucketLifecycleConfigExpirationArgs> expiration;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+     * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Output<BucketLifecycleConfigExpirationArgs>> expiration() {
@@ -54,14 +54,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 指定规则生效的过滤条件。
+     * Filter conditions for applying the rule
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketLifecycleConfigFilterArgs> filter;
 
     /**
-     * @return 指定规则生效的过滤条件。
+     * @return Filter conditions for applying the rule
      * 
      */
     public Optional<Output<BucketLifecycleConfigFilterArgs>> filter() {
@@ -69,14 +69,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 规则 ID。
+     * Rule ID
      * 
      */
     @Import(name="lifecycleRuleId")
     private @Nullable Output<String> lifecycleRuleId;
 
     /**
-     * @return 规则 ID。
+     * @return Rule ID
      * 
      */
     public Optional<Output<String>> lifecycleRuleId() {
@@ -98,14 +98,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 规则所适用的前缀。
+     * Prefix to which the rule applies
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return 规则所适用的前缀。
+     * @return Prefix to which the rule applies
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -113,14 +113,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * 是否启用规则。包括Enabled、Disabled。
+     * Enable rule. Includes Enabled, Disabled.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return 是否启用规则。包括Enabled、Disabled。
+     * @return Enable rule. Includes Enabled, Disabled.
      * 
      */
     public Optional<Output<String>> status() {
@@ -175,7 +175,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param abortInCompleteMultipartUpload 指定未合并的分片任务（碎片）的过期属性。
+         * @param abortInCompleteMultipartUpload Specify expiration attributes for unmerged multipart tasks (fragments)
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param abortInCompleteMultipartUpload 指定未合并的分片任务（碎片）的过期属性。
+         * @param abortInCompleteMultipartUpload Specify expiration attributes for unmerged multipart tasks (fragments)
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param expiration 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+         * @param expiration Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param expiration 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+         * @param expiration Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param filter 指定规则生效的过滤条件。
+         * @param filter Filter conditions for applying the rule
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param filter 指定规则生效的过滤条件。
+         * @param filter Filter conditions for applying the rule
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param lifecycleRuleId 规则 ID。
+         * @param lifecycleRuleId Rule ID
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param lifecycleRuleId 规则 ID。
+         * @param lifecycleRuleId Rule ID
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param prefix 规则所适用的前缀。
+         * @param prefix Prefix to which the rule applies
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param prefix 规则所适用的前缀。
+         * @param prefix Prefix to which the rule applies
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status 是否启用规则。包括Enabled、Disabled。
+         * @param status Enable rule. Includes Enabled, Disabled.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status 是否启用规则。包括Enabled、Disabled。
+         * @param status Enable rule. Includes Enabled, Disabled.
          * 
          * @return builder
          * 

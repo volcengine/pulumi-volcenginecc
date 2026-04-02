@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vedbm.inputs.GetAccountArgs;
+import com.volcengine.volcenginecc.vedbm.inputs.GetAccountPlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetBackupArgs;
@@ -18,6 +20,8 @@ import com.volcengine.volcenginecc.vedbm.inputs.GetDatabaseArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetDatabasePlainArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.vedbm.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.vedbm.outputs.GetAccountResult;
+import com.volcengine.volcenginecc.vedbm.outputs.GetAccountsResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.vedbm.outputs.GetBackupResult;
@@ -29,6 +33,90 @@ import com.volcengine.volcenginecc.vedbm.outputs.GetInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VedbmFunctions {
+    /**
+     * Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
+        return getAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
+        return getAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts() {
+        return getAccounts(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain() {
+        return getAccountsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args) {
+        return getAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args) {
+        return getAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vedbm/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEDBM::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vedbm/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VEDBM::AllowList
      * 

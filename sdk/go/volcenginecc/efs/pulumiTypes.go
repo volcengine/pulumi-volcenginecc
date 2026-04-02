@@ -14,15 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type FileSystemChargeConfig struct {
-	// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+	// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 	ChargeStatus *string `pulumi:"chargeStatus"`
-	// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+	// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 	ChargeType *string `pulumi:"chargeType"`
-	// 到期时间。
+	// Expiration time.
 	ExpireTime *string `pulumi:"expireTime"`
-	// 回收时间。
+	// Recycle time.
 	ReclaimTime *string `pulumi:"reclaimTime"`
-	// 关停时间。
+	// Shutdown time.
 	StopTime *string `pulumi:"stopTime"`
 }
 
@@ -38,15 +38,15 @@ type FileSystemChargeConfigInput interface {
 }
 
 type FileSystemChargeConfigArgs struct {
-	// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+	// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 	ChargeStatus pulumi.StringPtrInput `pulumi:"chargeStatus"`
-	// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+	// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 	ChargeType pulumi.StringPtrInput `pulumi:"chargeType"`
-	// 到期时间。
+	// Expiration time.
 	ExpireTime pulumi.StringPtrInput `pulumi:"expireTime"`
-	// 回收时间。
+	// Recycle time.
 	ReclaimTime pulumi.StringPtrInput `pulumi:"reclaimTime"`
-	// 关停时间。
+	// Shutdown time.
 	StopTime pulumi.StringPtrInput `pulumi:"stopTime"`
 }
 
@@ -127,27 +127,27 @@ func (o FileSystemChargeConfigOutput) ToFileSystemChargeConfigPtrOutputWithConte
 	}).(FileSystemChargeConfigPtrOutput)
 }
 
-// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 func (o FileSystemChargeConfigOutput) ChargeStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemChargeConfig) *string { return v.ChargeStatus }).(pulumi.StringPtrOutput)
 }
 
-// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 func (o FileSystemChargeConfigOutput) ChargeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemChargeConfig) *string { return v.ChargeType }).(pulumi.StringPtrOutput)
 }
 
-// 到期时间。
+// Expiration time.
 func (o FileSystemChargeConfigOutput) ExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemChargeConfig) *string { return v.ExpireTime }).(pulumi.StringPtrOutput)
 }
 
-// 回收时间。
+// Recycle time.
 func (o FileSystemChargeConfigOutput) ReclaimTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemChargeConfig) *string { return v.ReclaimTime }).(pulumi.StringPtrOutput)
 }
 
-// 关停时间。
+// Shutdown time.
 func (o FileSystemChargeConfigOutput) StopTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemChargeConfig) *string { return v.StopTime }).(pulumi.StringPtrOutput)
 }
@@ -176,7 +176,7 @@ func (o FileSystemChargeConfigPtrOutput) Elem() FileSystemChargeConfigOutput {
 	}).(FileSystemChargeConfigOutput)
 }
 
-// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 func (o FileSystemChargeConfigPtrOutput) ChargeStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemChargeConfig) *string {
 		if v == nil {
@@ -186,7 +186,7 @@ func (o FileSystemChargeConfigPtrOutput) ChargeStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 func (o FileSystemChargeConfigPtrOutput) ChargeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemChargeConfig) *string {
 		if v == nil {
@@ -196,7 +196,7 @@ func (o FileSystemChargeConfigPtrOutput) ChargeType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 到期时间。
+// Expiration time.
 func (o FileSystemChargeConfigPtrOutput) ExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemChargeConfig) *string {
 		if v == nil {
@@ -206,7 +206,7 @@ func (o FileSystemChargeConfigPtrOutput) ExpireTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 回收时间。
+// Recycle time.
 func (o FileSystemChargeConfigPtrOutput) ReclaimTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemChargeConfig) *string {
 		if v == nil {
@@ -216,7 +216,7 @@ func (o FileSystemChargeConfigPtrOutput) ReclaimTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 关停时间。
+// Shutdown time.
 func (o FileSystemChargeConfigPtrOutput) StopTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemChargeConfig) *string {
 		if v == nil {
@@ -227,19 +227,19 @@ func (o FileSystemChargeConfigPtrOutput) StopTime() pulumi.StringPtrOutput {
 }
 
 type FileSystemPerformance struct {
-	// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+	// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 	BandwidthMode string `pulumi:"bandwidthMode"`
-	// 基准带宽。
+	// Baseline bandwidth.
 	BaselineBandwidth *int `pulumi:"baselineBandwidth"`
-	// 基准 IOPS。
+	// Baseline IOPS.
 	BaselineIops *int `pulumi:"baselineIops"`
-	// 突发带宽。
+	// Burst bandwidth.
 	BurstBandwidth *int `pulumi:"burstBandwidth"`
-	// 突发 IOPS。
+	// Burst IOPS.
 	BurstIops *int `pulumi:"burstIops"`
-	// 预置带宽。
+	// Provisioned bandwidth.
 	ProvisionedBandwidth *int `pulumi:"provisionedBandwidth"`
-	// 预置 IOPS。
+	// Provisioned IOPS.
 	ProvisionedIops *int `pulumi:"provisionedIops"`
 }
 
@@ -255,19 +255,19 @@ type FileSystemPerformanceInput interface {
 }
 
 type FileSystemPerformanceArgs struct {
-	// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+	// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 	BandwidthMode pulumi.StringInput `pulumi:"bandwidthMode"`
-	// 基准带宽。
+	// Baseline bandwidth.
 	BaselineBandwidth pulumi.IntPtrInput `pulumi:"baselineBandwidth"`
-	// 基准 IOPS。
+	// Baseline IOPS.
 	BaselineIops pulumi.IntPtrInput `pulumi:"baselineIops"`
-	// 突发带宽。
+	// Burst bandwidth.
 	BurstBandwidth pulumi.IntPtrInput `pulumi:"burstBandwidth"`
-	// 突发 IOPS。
+	// Burst IOPS.
 	BurstIops pulumi.IntPtrInput `pulumi:"burstIops"`
-	// 预置带宽。
+	// Provisioned bandwidth.
 	ProvisionedBandwidth pulumi.IntPtrInput `pulumi:"provisionedBandwidth"`
-	// 预置 IOPS。
+	// Provisioned IOPS.
 	ProvisionedIops pulumi.IntPtrInput `pulumi:"provisionedIops"`
 }
 
@@ -348,37 +348,37 @@ func (o FileSystemPerformanceOutput) ToFileSystemPerformancePtrOutputWithContext
 	}).(FileSystemPerformancePtrOutput)
 }
 
-// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 func (o FileSystemPerformanceOutput) BandwidthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemPerformance) string { return v.BandwidthMode }).(pulumi.StringOutput)
 }
 
-// 基准带宽。
+// Baseline bandwidth.
 func (o FileSystemPerformanceOutput) BaselineBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemPerformance) *int { return v.BaselineBandwidth }).(pulumi.IntPtrOutput)
 }
 
-// 基准 IOPS。
+// Baseline IOPS.
 func (o FileSystemPerformanceOutput) BaselineIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemPerformance) *int { return v.BaselineIops }).(pulumi.IntPtrOutput)
 }
 
-// 突发带宽。
+// Burst bandwidth.
 func (o FileSystemPerformanceOutput) BurstBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemPerformance) *int { return v.BurstBandwidth }).(pulumi.IntPtrOutput)
 }
 
-// 突发 IOPS。
+// Burst IOPS.
 func (o FileSystemPerformanceOutput) BurstIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemPerformance) *int { return v.BurstIops }).(pulumi.IntPtrOutput)
 }
 
-// 预置带宽。
+// Provisioned bandwidth.
 func (o FileSystemPerformanceOutput) ProvisionedBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemPerformance) *int { return v.ProvisionedBandwidth }).(pulumi.IntPtrOutput)
 }
 
-// 预置 IOPS。
+// Provisioned IOPS.
 func (o FileSystemPerformanceOutput) ProvisionedIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemPerformance) *int { return v.ProvisionedIops }).(pulumi.IntPtrOutput)
 }
@@ -407,7 +407,7 @@ func (o FileSystemPerformancePtrOutput) Elem() FileSystemPerformanceOutput {
 	}).(FileSystemPerformanceOutput)
 }
 
-// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 func (o FileSystemPerformancePtrOutput) BandwidthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *string {
 		if v == nil {
@@ -417,7 +417,7 @@ func (o FileSystemPerformancePtrOutput) BandwidthMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 基准带宽。
+// Baseline bandwidth.
 func (o FileSystemPerformancePtrOutput) BaselineBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *int {
 		if v == nil {
@@ -427,7 +427,7 @@ func (o FileSystemPerformancePtrOutput) BaselineBandwidth() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// 基准 IOPS。
+// Baseline IOPS.
 func (o FileSystemPerformancePtrOutput) BaselineIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *int {
 		if v == nil {
@@ -437,7 +437,7 @@ func (o FileSystemPerformancePtrOutput) BaselineIops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 突发带宽。
+// Burst bandwidth.
 func (o FileSystemPerformancePtrOutput) BurstBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *int {
 		if v == nil {
@@ -447,7 +447,7 @@ func (o FileSystemPerformancePtrOutput) BurstBandwidth() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 突发 IOPS。
+// Burst IOPS.
 func (o FileSystemPerformancePtrOutput) BurstIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *int {
 		if v == nil {
@@ -457,7 +457,7 @@ func (o FileSystemPerformancePtrOutput) BurstIops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 预置带宽。
+// Provisioned bandwidth.
 func (o FileSystemPerformancePtrOutput) ProvisionedBandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *int {
 		if v == nil {
@@ -467,7 +467,7 @@ func (o FileSystemPerformancePtrOutput) ProvisionedBandwidth() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// 预置 IOPS。
+// Provisioned IOPS.
 func (o FileSystemPerformancePtrOutput) ProvisionedIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemPerformance) *int {
 		if v == nil {
@@ -478,13 +478,13 @@ func (o FileSystemPerformancePtrOutput) ProvisionedIops() pulumi.IntPtrOutput {
 }
 
 type FileSystemStorage struct {
-	// 容量上限，单位为 MiB。
+	// Capacity limit, in MiB.
 	CapacityLimit *int `pulumi:"capacityLimit"`
-	// 已用容量，单位为 MiB。
+	// Used capacity, in MiB.
 	CapacityUsed *int `pulumi:"capacityUsed"`
-	// 文件数上限。
+	// File count limit.
 	InodeLimit *int `pulumi:"inodeLimit"`
-	// 已用文件数。
+	// Used file count.
 	InodeUsed *int `pulumi:"inodeUsed"`
 }
 
@@ -500,13 +500,13 @@ type FileSystemStorageInput interface {
 }
 
 type FileSystemStorageArgs struct {
-	// 容量上限，单位为 MiB。
+	// Capacity limit, in MiB.
 	CapacityLimit pulumi.IntPtrInput `pulumi:"capacityLimit"`
-	// 已用容量，单位为 MiB。
+	// Used capacity, in MiB.
 	CapacityUsed pulumi.IntPtrInput `pulumi:"capacityUsed"`
-	// 文件数上限。
+	// File count limit.
 	InodeLimit pulumi.IntPtrInput `pulumi:"inodeLimit"`
-	// 已用文件数。
+	// Used file count.
 	InodeUsed pulumi.IntPtrInput `pulumi:"inodeUsed"`
 }
 
@@ -587,22 +587,22 @@ func (o FileSystemStorageOutput) ToFileSystemStoragePtrOutputWithContext(ctx con
 	}).(FileSystemStoragePtrOutput)
 }
 
-// 容量上限，单位为 MiB。
+// Capacity limit, in MiB.
 func (o FileSystemStorageOutput) CapacityLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemStorage) *int { return v.CapacityLimit }).(pulumi.IntPtrOutput)
 }
 
-// 已用容量，单位为 MiB。
+// Used capacity, in MiB.
 func (o FileSystemStorageOutput) CapacityUsed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemStorage) *int { return v.CapacityUsed }).(pulumi.IntPtrOutput)
 }
 
-// 文件数上限。
+// File count limit.
 func (o FileSystemStorageOutput) InodeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemStorage) *int { return v.InodeLimit }).(pulumi.IntPtrOutput)
 }
 
-// 已用文件数。
+// Used file count.
 func (o FileSystemStorageOutput) InodeUsed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemStorage) *int { return v.InodeUsed }).(pulumi.IntPtrOutput)
 }
@@ -631,7 +631,7 @@ func (o FileSystemStoragePtrOutput) Elem() FileSystemStorageOutput {
 	}).(FileSystemStorageOutput)
 }
 
-// 容量上限，单位为 MiB。
+// Capacity limit, in MiB.
 func (o FileSystemStoragePtrOutput) CapacityLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemStorage) *int {
 		if v == nil {
@@ -641,7 +641,7 @@ func (o FileSystemStoragePtrOutput) CapacityLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 已用容量，单位为 MiB。
+// Used capacity, in MiB.
 func (o FileSystemStoragePtrOutput) CapacityUsed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemStorage) *int {
 		if v == nil {
@@ -651,7 +651,7 @@ func (o FileSystemStoragePtrOutput) CapacityUsed() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 文件数上限。
+// File count limit.
 func (o FileSystemStoragePtrOutput) InodeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemStorage) *int {
 		if v == nil {
@@ -661,7 +661,7 @@ func (o FileSystemStoragePtrOutput) InodeLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 已用文件数。
+// Used file count.
 func (o FileSystemStoragePtrOutput) InodeUsed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemStorage) *int {
 		if v == nil {
@@ -672,11 +672,11 @@ func (o FileSystemStoragePtrOutput) InodeUsed() pulumi.IntPtrOutput {
 }
 
 type FileSystemTag struct {
-	// 标签键。
+	// Tag key.
 	Key *string `pulumi:"key"`
-	// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+	// Tag type. Value description: System: System tag, Custom: Custom tag.
 	Type *string `pulumi:"type"`
-	// 标签值。
+	// Tag value.
 	Value *string `pulumi:"value"`
 }
 
@@ -692,11 +692,11 @@ type FileSystemTagInput interface {
 }
 
 type FileSystemTagArgs struct {
-	// 标签键。
+	// Tag key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+	// Tag type. Value description: System: System tag, Custom: Custom tag.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// 标签值。
+	// Tag value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -751,17 +751,17 @@ func (o FileSystemTagOutput) ToFileSystemTagOutputWithContext(ctx context.Contex
 	return o
 }
 
-// 标签键。
+// Tag key.
 func (o FileSystemTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+// Tag type. Value description: System: System tag, Custom: Custom tag.
 func (o FileSystemTagOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemTag) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// 标签值。
+// Tag value.
 func (o FileSystemTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -787,15 +787,15 @@ func (o FileSystemTagArrayOutput) Index(i pulumi.IntInput) FileSystemTagOutput {
 }
 
 type GetFileSystemChargeConfig struct {
-	// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+	// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 	ChargeStatus string `pulumi:"chargeStatus"`
-	// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+	// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 	ChargeType string `pulumi:"chargeType"`
-	// 到期时间。
+	// Expiration time.
 	ExpireTime string `pulumi:"expireTime"`
-	// 回收时间。
+	// Recycle time.
 	ReclaimTime string `pulumi:"reclaimTime"`
-	// 关停时间。
+	// Shutdown time.
 	StopTime string `pulumi:"stopTime"`
 }
 
@@ -811,15 +811,15 @@ type GetFileSystemChargeConfigInput interface {
 }
 
 type GetFileSystemChargeConfigArgs struct {
-	// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+	// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 	ChargeStatus pulumi.StringInput `pulumi:"chargeStatus"`
-	// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+	// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 	ChargeType pulumi.StringInput `pulumi:"chargeType"`
-	// 到期时间。
+	// Expiration time.
 	ExpireTime pulumi.StringInput `pulumi:"expireTime"`
-	// 回收时间。
+	// Recycle time.
 	ReclaimTime pulumi.StringInput `pulumi:"reclaimTime"`
-	// 关停时间。
+	// Shutdown time.
 	StopTime pulumi.StringInput `pulumi:"stopTime"`
 }
 
@@ -849,45 +849,45 @@ func (o GetFileSystemChargeConfigOutput) ToGetFileSystemChargeConfigOutputWithCo
 	return o
 }
 
-// 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+// Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
 func (o GetFileSystemChargeConfigOutput) ChargeStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemChargeConfig) string { return v.ChargeStatus }).(pulumi.StringOutput)
 }
 
-// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 func (o GetFileSystemChargeConfigOutput) ChargeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemChargeConfig) string { return v.ChargeType }).(pulumi.StringOutput)
 }
 
-// 到期时间。
+// Expiration time.
 func (o GetFileSystemChargeConfigOutput) ExpireTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemChargeConfig) string { return v.ExpireTime }).(pulumi.StringOutput)
 }
 
-// 回收时间。
+// Recycle time.
 func (o GetFileSystemChargeConfigOutput) ReclaimTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemChargeConfig) string { return v.ReclaimTime }).(pulumi.StringOutput)
 }
 
-// 关停时间。
+// Shutdown time.
 func (o GetFileSystemChargeConfigOutput) StopTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemChargeConfig) string { return v.StopTime }).(pulumi.StringOutput)
 }
 
 type GetFileSystemPerformance struct {
-	// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+	// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 	BandwidthMode string `pulumi:"bandwidthMode"`
-	// 基准带宽。
+	// Baseline bandwidth.
 	BaselineBandwidth int `pulumi:"baselineBandwidth"`
-	// 基准 IOPS。
+	// Baseline IOPS.
 	BaselineIops int `pulumi:"baselineIops"`
-	// 突发带宽。
+	// Burst bandwidth.
 	BurstBandwidth int `pulumi:"burstBandwidth"`
-	// 突发 IOPS。
+	// Burst IOPS.
 	BurstIops int `pulumi:"burstIops"`
-	// 预置带宽。
+	// Provisioned bandwidth.
 	ProvisionedBandwidth int `pulumi:"provisionedBandwidth"`
-	// 预置 IOPS。
+	// Provisioned IOPS.
 	ProvisionedIops int `pulumi:"provisionedIops"`
 }
 
@@ -903,19 +903,19 @@ type GetFileSystemPerformanceInput interface {
 }
 
 type GetFileSystemPerformanceArgs struct {
-	// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+	// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 	BandwidthMode pulumi.StringInput `pulumi:"bandwidthMode"`
-	// 基准带宽。
+	// Baseline bandwidth.
 	BaselineBandwidth pulumi.IntInput `pulumi:"baselineBandwidth"`
-	// 基准 IOPS。
+	// Baseline IOPS.
 	BaselineIops pulumi.IntInput `pulumi:"baselineIops"`
-	// 突发带宽。
+	// Burst bandwidth.
 	BurstBandwidth pulumi.IntInput `pulumi:"burstBandwidth"`
-	// 突发 IOPS。
+	// Burst IOPS.
 	BurstIops pulumi.IntInput `pulumi:"burstIops"`
-	// 预置带宽。
+	// Provisioned bandwidth.
 	ProvisionedBandwidth pulumi.IntInput `pulumi:"provisionedBandwidth"`
-	// 预置 IOPS。
+	// Provisioned IOPS.
 	ProvisionedIops pulumi.IntInput `pulumi:"provisionedIops"`
 }
 
@@ -945,49 +945,49 @@ func (o GetFileSystemPerformanceOutput) ToGetFileSystemPerformanceOutputWithCont
 	return o
 }
 
-// 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+// Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
 func (o GetFileSystemPerformanceOutput) BandwidthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) string { return v.BandwidthMode }).(pulumi.StringOutput)
 }
 
-// 基准带宽。
+// Baseline bandwidth.
 func (o GetFileSystemPerformanceOutput) BaselineBandwidth() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) int { return v.BaselineBandwidth }).(pulumi.IntOutput)
 }
 
-// 基准 IOPS。
+// Baseline IOPS.
 func (o GetFileSystemPerformanceOutput) BaselineIops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) int { return v.BaselineIops }).(pulumi.IntOutput)
 }
 
-// 突发带宽。
+// Burst bandwidth.
 func (o GetFileSystemPerformanceOutput) BurstBandwidth() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) int { return v.BurstBandwidth }).(pulumi.IntOutput)
 }
 
-// 突发 IOPS。
+// Burst IOPS.
 func (o GetFileSystemPerformanceOutput) BurstIops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) int { return v.BurstIops }).(pulumi.IntOutput)
 }
 
-// 预置带宽。
+// Provisioned bandwidth.
 func (o GetFileSystemPerformanceOutput) ProvisionedBandwidth() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) int { return v.ProvisionedBandwidth }).(pulumi.IntOutput)
 }
 
-// 预置 IOPS。
+// Provisioned IOPS.
 func (o GetFileSystemPerformanceOutput) ProvisionedIops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemPerformance) int { return v.ProvisionedIops }).(pulumi.IntOutput)
 }
 
 type GetFileSystemStorage struct {
-	// 容量上限，单位为 MiB。
+	// Capacity limit, in MiB.
 	CapacityLimit int `pulumi:"capacityLimit"`
-	// 已用容量，单位为 MiB。
+	// Used capacity, in MiB.
 	CapacityUsed int `pulumi:"capacityUsed"`
-	// 文件数上限。
+	// File count limit.
 	InodeLimit int `pulumi:"inodeLimit"`
-	// 已用文件数。
+	// Used file count.
 	InodeUsed int `pulumi:"inodeUsed"`
 }
 
@@ -1003,13 +1003,13 @@ type GetFileSystemStorageInput interface {
 }
 
 type GetFileSystemStorageArgs struct {
-	// 容量上限，单位为 MiB。
+	// Capacity limit, in MiB.
 	CapacityLimit pulumi.IntInput `pulumi:"capacityLimit"`
-	// 已用容量，单位为 MiB。
+	// Used capacity, in MiB.
 	CapacityUsed pulumi.IntInput `pulumi:"capacityUsed"`
-	// 文件数上限。
+	// File count limit.
 	InodeLimit pulumi.IntInput `pulumi:"inodeLimit"`
-	// 已用文件数。
+	// Used file count.
 	InodeUsed pulumi.IntInput `pulumi:"inodeUsed"`
 }
 
@@ -1039,32 +1039,32 @@ func (o GetFileSystemStorageOutput) ToGetFileSystemStorageOutputWithContext(ctx 
 	return o
 }
 
-// 容量上限，单位为 MiB。
+// Capacity limit, in MiB.
 func (o GetFileSystemStorageOutput) CapacityLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemStorage) int { return v.CapacityLimit }).(pulumi.IntOutput)
 }
 
-// 已用容量，单位为 MiB。
+// Used capacity, in MiB.
 func (o GetFileSystemStorageOutput) CapacityUsed() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemStorage) int { return v.CapacityUsed }).(pulumi.IntOutput)
 }
 
-// 文件数上限。
+// File count limit.
 func (o GetFileSystemStorageOutput) InodeLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemStorage) int { return v.InodeLimit }).(pulumi.IntOutput)
 }
 
-// 已用文件数。
+// Used file count.
 func (o GetFileSystemStorageOutput) InodeUsed() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileSystemStorage) int { return v.InodeUsed }).(pulumi.IntOutput)
 }
 
 type GetFileSystemTag struct {
-	// 标签键。
+	// Tag key.
 	Key string `pulumi:"key"`
-	// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+	// Tag type. Value description: System: System tag, Custom: Custom tag.
 	Type string `pulumi:"type"`
-	// 标签值。
+	// Tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -1080,11 +1080,11 @@ type GetFileSystemTagInput interface {
 }
 
 type GetFileSystemTagArgs struct {
-	// 标签键。
+	// Tag key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+	// Tag type. Value description: System: System tag, Custom: Custom tag.
 	Type pulumi.StringInput `pulumi:"type"`
-	// 标签值。
+	// Tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1139,17 +1139,17 @@ func (o GetFileSystemTagOutput) ToGetFileSystemTagOutputWithContext(ctx context.
 	return o
 }
 
-// 标签键。
+// Tag key.
 func (o GetFileSystemTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+// Tag type. Value description: System: System tag, Custom: Custom tag.
 func (o GetFileSystemTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemTag) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// 标签值。
+// Tag value.
 func (o GetFileSystemTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemTag) string { return v.Value }).(pulumi.StringOutput)
 }

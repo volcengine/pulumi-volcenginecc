@@ -13,122 +13,122 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupPlanPolicy {
     /**
-     * @return 创建此策略的账户 ID。
+     * @return Account ID that created this policy
      * 
      */
     private String accountId;
     /**
-     * @return 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * @return Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
      * 
      */
     private String backupType;
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     private String createdTime;
     /**
-     * @return 用于指定备份周期，支持标准 crontab 表达式配置。
+     * @return Specifies the backup schedule. Supports standard crontab expressions
      * 
      */
     private String crontab;
     /**
-     * @return 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+     * @return Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
      * 
      */
     private Boolean enablePolicy;
     /**
-     * @return 策略名称。
+     * @return Policy Name
      * 
      */
     private String name;
     /**
-     * @return 该策略已关联的备份计划数量。
+     * @return Number of backup plans associated with this policy
      * 
      */
     private Integer planNumber;
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     private String policyId;
     /**
-     * @return 恢复点保留时间，-1 表示持续保留。
+     * @return Retention time for recovery points. -1 means retain indefinitely
      * 
      */
     private Integer retentionDay;
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     private String updatedTime;
 
     private GetBackupPlanPolicy() {}
     /**
-     * @return 创建此策略的账户 ID。
+     * @return Account ID that created this policy
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * @return Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
      * 
      */
     public String backupType() {
         return this.backupType;
     }
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public String createdTime() {
         return this.createdTime;
     }
     /**
-     * @return 用于指定备份周期，支持标准 crontab 表达式配置。
+     * @return Specifies the backup schedule. Supports standard crontab expressions
      * 
      */
     public String crontab() {
         return this.crontab;
     }
     /**
-     * @return 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+     * @return Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
      * 
      */
     public Boolean enablePolicy() {
         return this.enablePolicy;
     }
     /**
-     * @return 策略名称。
+     * @return Policy Name
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return 该策略已关联的备份计划数量。
+     * @return Number of backup plans associated with this policy
      * 
      */
     public Integer planNumber() {
         return this.planNumber;
     }
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public String policyId() {
         return this.policyId;
     }
     /**
-     * @return 恢复点保留时间，-1 表示持续保留。
+     * @return Retention time for recovery points. -1 means retain indefinitely
      * 
      */
     public Integer retentionDay() {
         return this.retentionDay;
     }
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     public String updatedTime() {

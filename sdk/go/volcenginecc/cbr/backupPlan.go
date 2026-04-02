@@ -12,7 +12,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 当需要对备份源进行自动备份时，可以创建备份计划，在备份计划中关联备份源和备份策略，指定备份存储空间，并设置备份数据保留规则等。在创建备份计划后，系统将按照关联备份策略配置，对指定备份源进行统一自动备份。
+// To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
 //
 // ## Import
 //
@@ -22,20 +22,20 @@ import (
 type BackupPlan struct {
 	pulumi.CustomResourceState
 
-	// 创建此计划的账户 ID。
+	// Account ID that created this plan
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// 备份计划名称。
+	// Backup Plan Name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// 备份计划 ID。
+	// Backup Plan ID
 	PlanId pulumi.StringOutput `pulumi:"planId"`
-	// 备份策略。
+	// Backup Policy
 	Policy BackupPlanPolicyOutput `pulumi:"policy"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId      pulumi.StringOutput               `pulumi:"policyId"`
 	ResourceLists BackupPlanResourceListArrayOutput `pulumi:"resourceLists"`
-	// 更新时间。
+	// Update Time
 	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 }
 
@@ -75,38 +75,38 @@ func GetBackupPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPlan resources.
 type backupPlanState struct {
-	// 创建此计划的账户 ID。
+	// Account ID that created this plan
 	AccountId *string `pulumi:"accountId"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime *string `pulumi:"createdTime"`
-	// 备份计划名称。
+	// Backup Plan Name
 	Name *string `pulumi:"name"`
-	// 备份计划 ID。
+	// Backup Plan ID
 	PlanId *string `pulumi:"planId"`
-	// 备份策略。
+	// Backup Policy
 	Policy *BackupPlanPolicy `pulumi:"policy"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId      *string                  `pulumi:"policyId"`
 	ResourceLists []BackupPlanResourceList `pulumi:"resourceLists"`
-	// 更新时间。
+	// Update Time
 	UpdatedTime *string `pulumi:"updatedTime"`
 }
 
 type BackupPlanState struct {
-	// 创建此计划的账户 ID。
+	// Account ID that created this plan
 	AccountId pulumi.StringPtrInput
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringPtrInput
-	// 备份计划名称。
+	// Backup Plan Name
 	Name pulumi.StringPtrInput
-	// 备份计划 ID。
+	// Backup Plan ID
 	PlanId pulumi.StringPtrInput
-	// 备份策略。
+	// Backup Policy
 	Policy BackupPlanPolicyPtrInput
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId      pulumi.StringPtrInput
 	ResourceLists BackupPlanResourceListArrayInput
-	// 更新时间。
+	// Update Time
 	UpdatedTime pulumi.StringPtrInput
 }
 
@@ -115,18 +115,18 @@ func (BackupPlanState) ElementType() reflect.Type {
 }
 
 type backupPlanArgs struct {
-	// 备份计划名称。
+	// Backup Plan Name
 	Name string `pulumi:"name"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId      *string                  `pulumi:"policyId"`
 	ResourceLists []BackupPlanResourceList `pulumi:"resourceLists"`
 }
 
 // The set of arguments for constructing a BackupPlan resource.
 type BackupPlanArgs struct {
-	// 备份计划名称。
+	// Backup Plan Name
 	Name pulumi.StringInput
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId      pulumi.StringPtrInput
 	ResourceLists BackupPlanResourceListArrayInput
 }
@@ -218,32 +218,32 @@ func (o BackupPlanOutput) ToBackupPlanOutputWithContext(ctx context.Context) Bac
 	return o
 }
 
-// 创建此计划的账户 ID。
+// Account ID that created this plan
 func (o BackupPlanOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// 创建时间。
+// Creation Time
 func (o BackupPlanOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 备份计划名称。
+// Backup Plan Name
 func (o BackupPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// 备份计划 ID。
+// Backup Plan ID
 func (o BackupPlanOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// 备份策略。
+// Backup Policy
 func (o BackupPlanOutput) Policy() BackupPlanPolicyOutput {
 	return o.ApplyT(func(v *BackupPlan) BackupPlanPolicyOutput { return v.Policy }).(BackupPlanPolicyOutput)
 }
 
-// 备份策略 ID。
+// Backup Policy ID
 func (o BackupPlanOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
@@ -252,7 +252,7 @@ func (o BackupPlanOutput) ResourceLists() BackupPlanResourceListArrayOutput {
 	return o.ApplyT(func(v *BackupPlan) BackupPlanResourceListArrayOutput { return v.ResourceLists }).(BackupPlanResourceListArrayOutput)
 }
 
-// 更新时间。
+// Update Time
 func (o BackupPlanOutput) UpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPlan) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }

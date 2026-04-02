@@ -19,14 +19,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     public static final BackupPlanState Empty = new BackupPlanState();
 
     /**
-     * 创建此计划的账户 ID。
+     * Account ID that created this plan
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return 创建此计划的账户 ID。
+     * @return Account ID that created this plan
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -34,14 +34,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -49,14 +49,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return 备份计划名称。
+     * @return Backup Plan Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份计划 ID。
+     * Backup Plan ID
      * 
      */
     @Import(name="planId")
     private @Nullable Output<String> planId;
 
     /**
-     * @return 备份计划 ID。
+     * @return Backup Plan ID
      * 
      */
     public Optional<Output<String>> planId() {
@@ -79,14 +79,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份策略。
+     * Backup Policy
      * 
      */
     @Import(name="policy")
     private @Nullable Output<BackupPlanPolicyArgs> policy;
 
     /**
-     * @return 备份策略。
+     * @return Backup Policy
      * 
      */
     public Optional<Output<BackupPlanPolicyArgs>> policy() {
@@ -94,14 +94,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -116,14 +116,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 更新时间。
+     * Update Time
      * 
      */
     @Import(name="updatedTime")
     private @Nullable Output<String> updatedTime;
 
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     public Optional<Output<String>> updatedTime() {
@@ -162,7 +162,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId 创建此计划的账户 ID。
+         * @param accountId Account ID that created this plan
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId 创建此计划的账户 ID。
+         * @param accountId Account ID that created this plan
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name 备份计划名称。
+         * @param name Backup Plan Name
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name 备份计划名称。
+         * @param name Backup Plan Name
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param planId 备份计划 ID。
+         * @param planId Backup Plan ID
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param planId 备份计划 ID。
+         * @param planId Backup Plan ID
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy 备份策略。
+         * @param policy Backup Policy
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy 备份策略。
+         * @param policy Backup Policy
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId 备份策略 ID。
+         * @param policyId Backup Policy ID
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId 备份策略 ID。
+         * @param policyId Backup Policy ID
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedTime 更新时间。
+         * @param updatedTime Update Time
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedTime 更新时间。
+         * @param updatedTime Update Time
          * 
          * @return builder
          * 

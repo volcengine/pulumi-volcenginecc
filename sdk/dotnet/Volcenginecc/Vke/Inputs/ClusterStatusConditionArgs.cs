@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Inputs
     public sealed class ClusterStatusConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 条件类型
+        /// Condition type
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

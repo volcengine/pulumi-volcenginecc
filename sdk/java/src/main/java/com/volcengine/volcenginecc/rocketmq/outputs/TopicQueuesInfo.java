@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TopicQueuesInfo {
     /**
-     * @return 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+     * @return The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
      * 
      */
     private @Nullable Integer endOffset;
     /**
-     * @return 该队列最近一次消息写入的时间。
+     * @return The time of the most recent message written to this queue.
      * 
      */
     private @Nullable Integer lastUpdateTimestamp;
     /**
-     * @return 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+     * @return The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
      * 
      */
     private @Nullable Integer messageCount;
     /**
-     * @return 队列的编号 ID。
+     * @return Queue ID.
      * 
      */
     private @Nullable String queueId;
     /**
-     * @return 当前队列最早消息的偏移量。
+     * @return The earliest message offset in the current queue.
      * 
      */
     private @Nullable Integer startOffset;
 
     private TopicQueuesInfo() {}
     /**
-     * @return 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+     * @return The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
      * 
      */
     public Optional<Integer> endOffset() {
         return Optional.ofNullable(this.endOffset);
     }
     /**
-     * @return 该队列最近一次消息写入的时间。
+     * @return The time of the most recent message written to this queue.
      * 
      */
     public Optional<Integer> lastUpdateTimestamp() {
         return Optional.ofNullable(this.lastUpdateTimestamp);
     }
     /**
-     * @return 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+     * @return The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
      * 
      */
     public Optional<Integer> messageCount() {
         return Optional.ofNullable(this.messageCount);
     }
     /**
-     * @return 队列的编号 ID。
+     * @return Queue ID.
      * 
      */
     public Optional<String> queueId() {
         return Optional.ofNullable(this.queueId);
     }
     /**
-     * @return 当前队列最早消息的偏移量。
+     * @return The earliest message offset in the current queue.
      * 
      */
     public Optional<Integer> startOffset() {

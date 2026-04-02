@@ -16,14 +16,14 @@ public final class InstanceCapacityInfoArgs extends com.pulumi.resources.Resourc
     public static final InstanceCapacityInfoArgs Empty = new InstanceCapacityInfoArgs();
 
     /**
-     * 文件系统总容量，单位为 TiB。
+     * Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
      * 
      */
     @Import(name="totalTiB")
     private @Nullable Output<Integer> totalTiB;
 
     /**
-     * @return 文件系统总容量，单位为 TiB。
+     * @return Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
      * 
      */
     public Optional<Output<Integer>> totalTiB() {
@@ -31,14 +31,14 @@ public final class InstanceCapacityInfoArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 已使用容量（GiB）。
+     * Used capacity (GiB).
      * 
      */
     @Import(name="usedGiB")
     private @Nullable Output<Integer> usedGiB;
 
     /**
-     * @return 已使用容量（GiB）。
+     * @return Used capacity (GiB).
      * 
      */
     public Optional<Output<Integer>> usedGiB() {
@@ -71,7 +71,7 @@ public final class InstanceCapacityInfoArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param totalTiB 文件系统总容量，单位为 TiB。
+         * @param totalTiB Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class InstanceCapacityInfoArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param totalTiB 文件系统总容量，单位为 TiB。
+         * @param totalTiB Total file system capacity, unit: TiB. Note: Disk balancing time varies based on cluster capacity, cluster load, and other factors. For clusters above the PiB level, expansion typically requires day-level disk balancing time. The expansion capacity becomes effective (and is billed) only after disk balancing is complete.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class InstanceCapacityInfoArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usedGiB 已使用容量（GiB）。
+         * @param usedGiB Used capacity (GiB).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class InstanceCapacityInfoArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usedGiB 已使用容量（GiB）。
+         * @param usedGiB Used capacity (GiB).
          * 
          * @return builder
          * 
