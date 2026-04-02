@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Outputs
     public sealed class ClusterStatusCondition
     {
         /// <summary>
-        /// 条件类型
+        /// Condition type
         /// </summary>
         public readonly string? Type;
 

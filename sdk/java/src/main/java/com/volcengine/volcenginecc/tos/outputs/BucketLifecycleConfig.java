@@ -20,34 +20,34 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfig {
     /**
-     * @return 指定未合并的分片任务（碎片）的过期属性。
+     * @return Specify expiration attributes for unmerged multipart tasks (fragments)
      * 
      */
     private @Nullable BucketLifecycleConfigAbortInCompleteMultipartUpload abortInCompleteMultipartUpload;
     /**
-     * @return 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+     * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     private @Nullable BucketLifecycleConfigExpiration expiration;
     /**
-     * @return 指定规则生效的过滤条件。
+     * @return Filter conditions for applying the rule
      * 
      */
     private @Nullable BucketLifecycleConfigFilter filter;
     /**
-     * @return 规则 ID。
+     * @return Rule ID
      * 
      */
     private @Nullable String lifecycleRuleId;
     private @Nullable BucketLifecycleConfigNoCurrentVersionExpiration noCurrentVersionExpiration;
     private @Nullable List<BucketLifecycleConfigNonCurrentVersionTransition> nonCurrentVersionTransitions;
     /**
-     * @return 规则所适用的前缀。
+     * @return Prefix to which the rule applies
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return 是否启用规则。包括Enabled、Disabled。
+     * @return Enable rule. Includes Enabled, Disabled.
      * 
      */
     private @Nullable String status;
@@ -56,28 +56,28 @@ public final class BucketLifecycleConfig {
 
     private BucketLifecycleConfig() {}
     /**
-     * @return 指定未合并的分片任务（碎片）的过期属性。
+     * @return Specify expiration attributes for unmerged multipart tasks (fragments)
      * 
      */
     public Optional<BucketLifecycleConfigAbortInCompleteMultipartUpload> abortInCompleteMultipartUpload() {
         return Optional.ofNullable(this.abortInCompleteMultipartUpload);
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+     * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public Optional<BucketLifecycleConfigExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
     /**
-     * @return 指定规则生效的过滤条件。
+     * @return Filter conditions for applying the rule
      * 
      */
     public Optional<BucketLifecycleConfigFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
     /**
-     * @return 规则 ID。
+     * @return Rule ID
      * 
      */
     public Optional<String> lifecycleRuleId() {
@@ -90,14 +90,14 @@ public final class BucketLifecycleConfig {
         return this.nonCurrentVersionTransitions == null ? List.of() : this.nonCurrentVersionTransitions;
     }
     /**
-     * @return 规则所适用的前缀。
+     * @return Prefix to which the rule applies
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return 是否启用规则。包括Enabled、Disabled。
+     * @return Enable rule. Includes Enabled, Disabled.
      * 
      */
     public Optional<String> status() {

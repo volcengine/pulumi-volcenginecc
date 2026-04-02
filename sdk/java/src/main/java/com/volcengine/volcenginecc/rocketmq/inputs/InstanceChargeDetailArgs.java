@@ -18,14 +18,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     public static final InstanceChargeDetailArgs Empty = new InstanceChargeDetailArgs();
 
     /**
-     * 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+     * Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
      * 
      */
     @Import(name="autoRenew")
     private @Nullable Output<Boolean> autoRenew;
 
     /**
-     * @return 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+     * @return Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
      * 
      */
     public Optional<Output<Boolean>> autoRenew() {
@@ -33,14 +33,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+     * Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
      * 
      */
     @Import(name="chargeExpireTime")
     private @Nullable Output<String> chargeExpireTime;
 
     /**
-     * @return 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+     * @return Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
      * 
      */
     public Optional<Output<String>> chargeExpireTime() {
@@ -48,14 +48,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 实例的开始计费时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * Billing start time for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     @Import(name="chargeStartTime")
     private @Nullable Output<String> chargeStartTime;
 
     /**
-     * @return 实例的开始计费时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * @return Billing start time for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     public Optional<Output<String>> chargeStartTime() {
@@ -63,14 +63,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+     * Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
      * 
      */
     @Import(name="chargeStatus")
     private @Nullable Output<String> chargeStatus;
 
     /**
-     * @return 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+     * @return Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
      * 
      */
     public Optional<Output<String>> chargeStatus() {
@@ -78,14 +78,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+     * Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
      * 
      */
     @Import(name="chargeType")
     private @Nullable Output<String> chargeType;
 
     /**
-     * @return 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+     * @return Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
      * 
      */
     public Optional<Output<String>> chargeType() {
@@ -93,14 +93,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     @Import(name="overdueReclaimTime")
     private @Nullable Output<String> overdueReclaimTime;
 
     /**
-     * @return 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * @return Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     public Optional<Output<String>> overdueReclaimTime() {
@@ -108,14 +108,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     @Import(name="overdueTime")
     private @Nullable Output<String> overdueTime;
 
     /**
-     * @return 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * @return Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     public Optional<Output<String>> overdueTime() {
@@ -123,14 +123,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+     * Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
      * 
      */
     @Import(name="period")
     private @Nullable Output<Integer> period;
 
     /**
-     * @return 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+     * @return Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
      * 
      */
     public Optional<Output<Integer>> period() {
@@ -138,14 +138,14 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+     * Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
      * 
      */
     @Import(name="periodUnit")
     private @Nullable Output<String> periodUnit;
 
     /**
-     * @return 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+     * @return Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
      * 
      */
     public Optional<Output<String>> periodUnit() {
@@ -185,7 +185,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoRenew 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+         * @param autoRenew Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param autoRenew 包年包月实例到期后是否自动续费。true：自动续费。false：不自动续费。到期后需要手动续费，否则实例将被关停。
+         * @param autoRenew Whether the subscription instance is automatically renewed upon expiration. true: automatically renewed. false: not automatically renewed. Manual renewal is required after expiration; otherwise, the instance will be shut down.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeExpireTime 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+         * @param chargeExpireTime Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeExpireTime 包年包月实例的到期时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。按量付费实例此字段默认显示为 1970-01-01T00:00:00Z。
+         * @param chargeExpireTime Expiration time for yearly/monthly subscription instances. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;. For pay-as-you-go instances, this field defaults to 1970-01-01T00:00:00Z.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeStartTime 实例的开始计费时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param chargeStartTime Billing start time for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeStartTime 实例的开始计费时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param chargeStartTime Billing start time for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeStatus 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+         * @param chargeStatus Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeStatus 实例的计费状态。包括：Normal：正常Overdue：按量计费欠费Expired：包年包月到期
+         * @param chargeStatus Instance billing status. Includes: Normal: normal Overdue: pay-as-you-go overdue Expired: subscription expired
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeType 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+         * @param chargeType Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param chargeType 实例的计费类型。支持的类型包括：PostPaid ：按量付费PrePaid：包年包月
+         * @param chargeType Billing type for the instance. Supported types include: PostPaid: pay-as-you-go; PrePaid: yearly/monthly subscription
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param overdueReclaimTime 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param overdueReclaimTime Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param overdueReclaimTime 实例欠费关停后的预计释放时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param overdueReclaimTime Estimated release time after the instance is suspended due to overdue payment. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param overdueTime 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param overdueTime Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param overdueTime 实例的欠费关停时间。时间显示格式为 YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param overdueTime Suspension time due to overdue payment for the instance. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param period 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+         * @param period Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param period 包年包月类型实例的购买时长。PeriodUnit 指定为 Monthly 时，取值范围为 1~9。PeriodUnit 指定为 Yearly 时，取值范围为 1~3。仅包年包月类型的实例需要指定，即 ChargeType 指定为 PrePaid 时必选。
+         * @param period Purchase duration for subscription instances. When PeriodUnit is set to Monthly, the value range is 1–9. When PeriodUnit is set to Yearly, the value range is 1–3. Only required for subscription instances, that is, when ChargeType is set to PrePaid.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param periodUnit 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+         * @param periodUnit Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class InstanceChargeDetailArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param periodUnit 包年包月类型实例的生命周期单位，即指定以月或以年为单位购买。其中：Monthly：（默认）包月Yearly：包年
+         * @param periodUnit Lifecycle unit for subscription-based instances, specifying whether to purchase by month or by year. Monthly: (default) monthly subscription Yearly: annual subscription
          * 
          * @return builder
          * 

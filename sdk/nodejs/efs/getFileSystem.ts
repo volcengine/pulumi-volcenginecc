@@ -31,35 +31,35 @@ export interface GetFileSystemArgs {
  */
 export interface GetFileSystemResult {
     /**
-     * 接入点上限。
+     * Access point limit.
      */
     readonly accessPointLimit: number;
     /**
-     * 文件系统计费配置。
+     * File system billing configuration.
      */
     readonly chargeConfig: outputs.efs.GetFileSystemChargeConfig;
     /**
-     * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      */
     readonly chargeType: string;
     /**
-     * 文件系统创建时间。
+     * File system creation time.
      */
     readonly createTime: string;
     /**
-     * 描述信息。
+     * Description.
      */
     readonly description: string;
     /**
-     * 文件系统带宽可以降配的时间。
+     * Time when file system bandwidth can be downgraded.
      */
     readonly downgradeUnlockTime: string;
     /**
-     * 文件系统 ID。
+     * File system ID.
      */
     readonly fileSystemId: string;
     /**
-     * 文件系统名称。
+     * File system name.
      */
     readonly fileSystemName: string;
     /**
@@ -67,51 +67,51 @@ export interface GetFileSystemResult {
      */
     readonly id: string;
     /**
-     * Basic：基础型,Premium：高级型
+     * Basic: Basic type, Premium: Premium type.
      */
     readonly instanceType: string;
     /**
-     * 挂载点上限。
+     * Mount point limit.
      */
     readonly mountPointLimit: number;
     /**
-     * 文件系统性能信息。
+     * File system performance information.
      */
     readonly performance: outputs.efs.GetFileSystemPerformance;
     /**
-     * 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      */
     readonly performanceDensity: string;
     /**
-     * 项目名称。
+     * Project name.
      */
     readonly projectName: string;
     /**
-     * 协议类型
+     * Protocol type.
      */
     readonly protocolTypes: string[];
     /**
-     * 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+     * File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
      */
     readonly status: string;
     /**
-     * 文件系统容量信息。
+     * File system capacity information.
      */
     readonly storage: outputs.efs.GetFileSystemStorage;
     /**
-     * 标签列表。
+     * Tag list.
      */
     readonly tags: outputs.efs.GetFileSystemTag[];
     /**
-     * 文件系统更新时间。
+     * File system update time.
      */
     readonly updateTime: string;
     /**
-     * 可用区 ID。
+     * Availability zone ID.
      */
     readonly zoneId: string;
     /**
-     * 可用区名称。
+     * Availability zone name.
      */
     readonly zoneName: string;
 }

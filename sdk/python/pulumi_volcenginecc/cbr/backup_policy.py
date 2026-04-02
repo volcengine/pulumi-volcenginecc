@@ -29,13 +29,13 @@ class BackupPolicyArgs:
                  retention_num_min: pulumi.Input[builtins.int]):
         """
         The set of arguments for constructing a BackupPolicy resource.
-        :param pulumi.Input[builtins.str] backup_type: 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
-        :param pulumi.Input[builtins.str] crontab: 备份周期，采用 crontab 表达式。
-        :param pulumi.Input[builtins.bool] enable_policy: 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
-        :param pulumi.Input[builtins.str] name: 策略名称。
-        :param pulumi.Input[builtins.int] retention_day: 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
-        :param pulumi.Input[builtins.int] retention_num_max: 最大恢复点保留数量。
-        :param pulumi.Input[builtins.int] retention_num_min: 最小恢复点保留数量下限。
+        :param pulumi.Input[builtins.str] backup_type: Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
+        :param pulumi.Input[builtins.str] crontab: Backup cycle, using a crontab expression
+        :param pulumi.Input[builtins.bool] enable_policy: Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
+        :param pulumi.Input[builtins.str] name: Policy Name
+        :param pulumi.Input[builtins.int] retention_day: Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
+        :param pulumi.Input[builtins.int] retention_num_max: Maximum number of restore points retained
+        :param pulumi.Input[builtins.int] retention_num_min: Minimum restore point retention limit
         """
         pulumi.set(__self__, "backup_type", backup_type)
         pulumi.set(__self__, "crontab", crontab)
@@ -49,7 +49,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="backupType")
     def backup_type(self) -> pulumi.Input[builtins.str]:
         """
-        备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         """
         return pulumi.get(self, "backup_type")
 
@@ -61,7 +61,7 @@ class BackupPolicyArgs:
     @pulumi.getter
     def crontab(self) -> pulumi.Input[builtins.str]:
         """
-        备份周期，采用 crontab 表达式。
+        Backup cycle, using a crontab expression
         """
         return pulumi.get(self, "crontab")
 
@@ -73,7 +73,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="enablePolicy")
     def enable_policy(self) -> pulumi.Input[builtins.bool]:
         """
-        策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         """
         return pulumi.get(self, "enable_policy")
 
@@ -85,7 +85,7 @@ class BackupPolicyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        策略名称。
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -97,7 +97,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="retentionDay")
     def retention_day(self) -> pulumi.Input[builtins.int]:
         """
-        恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         """
         return pulumi.get(self, "retention_day")
 
@@ -109,7 +109,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="retentionNumMax")
     def retention_num_max(self) -> pulumi.Input[builtins.int]:
         """
-        最大恢复点保留数量。
+        Maximum number of restore points retained
         """
         return pulumi.get(self, "retention_num_max")
 
@@ -121,7 +121,7 @@ class BackupPolicyArgs:
     @pulumi.getter(name="retentionNumMin")
     def retention_num_min(self) -> pulumi.Input[builtins.int]:
         """
-        最小恢复点保留数量下限。
+        Minimum restore point retention limit
         """
         return pulumi.get(self, "retention_num_min")
 
@@ -147,18 +147,18 @@ class _BackupPolicyState:
                  updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicy resources.
-        :param pulumi.Input[builtins.str] account_id: 创建此策略的账户 ID。
-        :param pulumi.Input[builtins.str] backup_type: 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] crontab: 备份周期，采用 crontab 表达式。
-        :param pulumi.Input[builtins.bool] enable_policy: 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
-        :param pulumi.Input[builtins.str] name: 策略名称。
-        :param pulumi.Input[builtins.int] plan_number: 该策略已关联的备份计划数量。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
-        :param pulumi.Input[builtins.int] retention_day: 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
-        :param pulumi.Input[builtins.int] retention_num_max: 最大恢复点保留数量。
-        :param pulumi.Input[builtins.int] retention_num_min: 最小恢复点保留数量下限。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间。
+        :param pulumi.Input[builtins.str] account_id: Account ID that created this policy
+        :param pulumi.Input[builtins.str] backup_type: Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
+        :param pulumi.Input[builtins.str] created_time: Creation time
+        :param pulumi.Input[builtins.str] crontab: Backup cycle, using a crontab expression
+        :param pulumi.Input[builtins.bool] enable_policy: Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
+        :param pulumi.Input[builtins.str] name: Policy Name
+        :param pulumi.Input[builtins.int] plan_number: Number of backup plans associated with this policy
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
+        :param pulumi.Input[builtins.int] retention_day: Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
+        :param pulumi.Input[builtins.int] retention_num_max: Maximum number of restore points retained
+        :param pulumi.Input[builtins.int] retention_num_min: Minimum restore point retention limit
+        :param pulumi.Input[builtins.str] updated_time: Update time
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -189,7 +189,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建此策略的账户 ID。
+        Account ID that created this policy
         """
         return pulumi.get(self, "account_id")
 
@@ -201,7 +201,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="backupType")
     def backup_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         """
         return pulumi.get(self, "backup_type")
 
@@ -213,7 +213,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建时间。
+        Creation time
         """
         return pulumi.get(self, "created_time")
 
@@ -225,7 +225,7 @@ class _BackupPolicyState:
     @pulumi.getter
     def crontab(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份周期，采用 crontab 表达式。
+        Backup cycle, using a crontab expression
         """
         return pulumi.get(self, "crontab")
 
@@ -237,7 +237,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="enablePolicy")
     def enable_policy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         """
         return pulumi.get(self, "enable_policy")
 
@@ -249,7 +249,7 @@ class _BackupPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        策略名称。
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -261,7 +261,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="planNumber")
     def plan_number(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        该策略已关联的备份计划数量。
+        Number of backup plans associated with this policy
         """
         return pulumi.get(self, "plan_number")
 
@@ -273,7 +273,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -285,7 +285,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="retentionDay")
     def retention_day(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         """
         return pulumi.get(self, "retention_day")
 
@@ -297,7 +297,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="retentionNumMax")
     def retention_num_max(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        最大恢复点保留数量。
+        Maximum number of restore points retained
         """
         return pulumi.get(self, "retention_num_max")
 
@@ -309,7 +309,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="retentionNumMin")
     def retention_num_min(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        最小恢复点保留数量下限。
+        Minimum restore point retention limit
         """
         return pulumi.get(self, "retention_num_min")
 
@@ -321,7 +321,7 @@ class _BackupPolicyState:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        更新时间。
+        Update time
         """
         return pulumi.get(self, "updated_time")
 
@@ -345,7 +345,7 @@ class BackupPolicy(pulumi.CustomResource):
                  retention_num_min: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
-        备份策略中定义了备份周期、备份类型等信息。后续通过备份计划关联备份策略与备份存储空间，实现自动备份。
+        The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
 
         ## Example Usage
 
@@ -371,13 +371,13 @@ class BackupPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] backup_type: 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
-        :param pulumi.Input[builtins.str] crontab: 备份周期，采用 crontab 表达式。
-        :param pulumi.Input[builtins.bool] enable_policy: 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
-        :param pulumi.Input[builtins.str] name: 策略名称。
-        :param pulumi.Input[builtins.int] retention_day: 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
-        :param pulumi.Input[builtins.int] retention_num_max: 最大恢复点保留数量。
-        :param pulumi.Input[builtins.int] retention_num_min: 最小恢复点保留数量下限。
+        :param pulumi.Input[builtins.str] backup_type: Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
+        :param pulumi.Input[builtins.str] crontab: Backup cycle, using a crontab expression
+        :param pulumi.Input[builtins.bool] enable_policy: Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
+        :param pulumi.Input[builtins.str] name: Policy Name
+        :param pulumi.Input[builtins.int] retention_day: Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
+        :param pulumi.Input[builtins.int] retention_num_max: Maximum number of restore points retained
+        :param pulumi.Input[builtins.int] retention_num_min: Minimum restore point retention limit
         """
         ...
     @overload
@@ -386,7 +386,7 @@ class BackupPolicy(pulumi.CustomResource):
                  args: BackupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        备份策略中定义了备份周期、备份类型等信息。后续通过备份计划关联备份策略与备份存储空间，实现自动备份。
+        The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
 
         ## Example Usage
 
@@ -496,18 +496,18 @@ class BackupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_id: 创建此策略的账户 ID。
-        :param pulumi.Input[builtins.str] backup_type: 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] crontab: 备份周期，采用 crontab 表达式。
-        :param pulumi.Input[builtins.bool] enable_policy: 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
-        :param pulumi.Input[builtins.str] name: 策略名称。
-        :param pulumi.Input[builtins.int] plan_number: 该策略已关联的备份计划数量。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
-        :param pulumi.Input[builtins.int] retention_day: 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
-        :param pulumi.Input[builtins.int] retention_num_max: 最大恢复点保留数量。
-        :param pulumi.Input[builtins.int] retention_num_min: 最小恢复点保留数量下限。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间。
+        :param pulumi.Input[builtins.str] account_id: Account ID that created this policy
+        :param pulumi.Input[builtins.str] backup_type: Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
+        :param pulumi.Input[builtins.str] created_time: Creation time
+        :param pulumi.Input[builtins.str] crontab: Backup cycle, using a crontab expression
+        :param pulumi.Input[builtins.bool] enable_policy: Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
+        :param pulumi.Input[builtins.str] name: Policy Name
+        :param pulumi.Input[builtins.int] plan_number: Number of backup plans associated with this policy
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
+        :param pulumi.Input[builtins.int] retention_day: Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
+        :param pulumi.Input[builtins.int] retention_num_max: Maximum number of restore points retained
+        :param pulumi.Input[builtins.int] retention_num_min: Minimum restore point retention limit
+        :param pulumi.Input[builtins.str] updated_time: Update time
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -531,7 +531,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[builtins.str]:
         """
-        创建此策略的账户 ID。
+        Account ID that created this policy
         """
         return pulumi.get(self, "account_id")
 
@@ -539,7 +539,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="backupType")
     def backup_type(self) -> pulumi.Output[builtins.str]:
         """
-        备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         """
         return pulumi.get(self, "backup_type")
 
@@ -547,7 +547,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
         """
-        创建时间。
+        Creation time
         """
         return pulumi.get(self, "created_time")
 
@@ -555,7 +555,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def crontab(self) -> pulumi.Output[builtins.str]:
         """
-        备份周期，采用 crontab 表达式。
+        Backup cycle, using a crontab expression
         """
         return pulumi.get(self, "crontab")
 
@@ -563,7 +563,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="enablePolicy")
     def enable_policy(self) -> pulumi.Output[builtins.bool]:
         """
-        策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         """
         return pulumi.get(self, "enable_policy")
 
@@ -571,7 +571,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        策略名称。
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -579,7 +579,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="planNumber")
     def plan_number(self) -> pulumi.Output[builtins.int]:
         """
-        该策略已关联的备份计划数量。
+        Number of backup plans associated with this policy
         """
         return pulumi.get(self, "plan_number")
 
@@ -587,7 +587,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[builtins.str]:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -595,7 +595,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="retentionDay")
     def retention_day(self) -> pulumi.Output[builtins.int]:
         """
-        恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         """
         return pulumi.get(self, "retention_day")
 
@@ -603,7 +603,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="retentionNumMax")
     def retention_num_max(self) -> pulumi.Output[builtins.int]:
         """
-        最大恢复点保留数量。
+        Maximum number of restore points retained
         """
         return pulumi.get(self, "retention_num_max")
 
@@ -611,7 +611,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="retentionNumMin")
     def retention_num_min(self) -> pulumi.Output[builtins.int]:
         """
-        最小恢复点保留数量下限。
+        Minimum restore point retention limit
         """
         return pulumi.get(self, "retention_num_min")
 
@@ -619,7 +619,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> pulumi.Output[builtins.str]:
         """
-        更新时间。
+        Update time
         """
         return pulumi.get(self, "updated_time")
 

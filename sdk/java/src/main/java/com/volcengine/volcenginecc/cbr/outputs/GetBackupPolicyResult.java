@@ -13,27 +13,27 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupPolicyResult {
     /**
-     * @return 创建此策略的账户 ID。
+     * @return Account ID that created this policy
      * 
      */
     private String accountId;
     /**
-     * @return 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * @return Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      * 
      */
     private String backupType;
     /**
-     * @return 创建时间。
+     * @return Creation time
      * 
      */
     private String createdTime;
     /**
-     * @return 备份周期，采用 crontab 表达式。
+     * @return Backup cycle, using a crontab expression
      * 
      */
     private String crontab;
     /**
-     * @return 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * @return Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      * 
      */
     private Boolean enablePolicy;
@@ -43,72 +43,72 @@ public final class GetBackupPolicyResult {
      */
     private String id;
     /**
-     * @return 策略名称。
+     * @return Policy Name
      * 
      */
     private String name;
     /**
-     * @return 该策略已关联的备份计划数量。
+     * @return Number of backup plans associated with this policy
      * 
      */
     private Integer planNumber;
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     private String policyId;
     /**
-     * @return 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * @return Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      * 
      */
     private Integer retentionDay;
     /**
-     * @return 最大恢复点保留数量。
+     * @return Maximum number of restore points retained
      * 
      */
     private Integer retentionNumMax;
     /**
-     * @return 最小恢复点保留数量下限。
+     * @return Minimum restore point retention limit
      * 
      */
     private Integer retentionNumMin;
     /**
-     * @return 更新时间。
+     * @return Update time
      * 
      */
     private String updatedTime;
 
     private GetBackupPolicyResult() {}
     /**
-     * @return 创建此策略的账户 ID。
+     * @return Account ID that created this policy
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * @return Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      * 
      */
     public String backupType() {
         return this.backupType;
     }
     /**
-     * @return 创建时间。
+     * @return Creation time
      * 
      */
     public String createdTime() {
         return this.createdTime;
     }
     /**
-     * @return 备份周期，采用 crontab 表达式。
+     * @return Backup cycle, using a crontab expression
      * 
      */
     public String crontab() {
         return this.crontab;
     }
     /**
-     * @return 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * @return Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      * 
      */
     public Boolean enablePolicy() {
@@ -122,49 +122,49 @@ public final class GetBackupPolicyResult {
         return this.id;
     }
     /**
-     * @return 策略名称。
+     * @return Policy Name
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return 该策略已关联的备份计划数量。
+     * @return Number of backup plans associated with this policy
      * 
      */
     public Integer planNumber() {
         return this.planNumber;
     }
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public String policyId() {
         return this.policyId;
     }
     /**
-     * @return 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * @return Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      * 
      */
     public Integer retentionDay() {
         return this.retentionDay;
     }
     /**
-     * @return 最大恢复点保留数量。
+     * @return Maximum number of restore points retained
      * 
      */
     public Integer retentionNumMax() {
         return this.retentionNumMax;
     }
     /**
-     * @return 最小恢复点保留数量下限。
+     * @return Minimum restore point retention limit
      * 
      */
     public Integer retentionNumMin() {
         return this.retentionNumMin;
     }
     /**
-     * @return 更新时间。
+     * @return Update time
      * 
      */
     public String updatedTime() {

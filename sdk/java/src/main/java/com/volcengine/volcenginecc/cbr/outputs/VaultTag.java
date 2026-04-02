@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VaultTag {
     /**
-     * @return 标签键。
+     * @return Tag Key
      * 
      */
     private @Nullable String key;
     /**
-     * @return 标签值。
+     * @return Tag Value
      * 
      */
     private @Nullable String value;
 
     private VaultTag() {}
     /**
-     * @return 标签键。
+     * @return Tag Key
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return 标签值。
+     * @return Tag Value
      * 
      */
     public Optional<String> value() {

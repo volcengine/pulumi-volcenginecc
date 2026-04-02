@@ -11,7 +11,7 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
-    /// RocketMQ访问白名单。
+    /// RocketMQ Access Allowlist
     /// 
     /// ## Import
     /// 
@@ -23,49 +23,49 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     public partial class AllowList : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+        /// IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
         /// </summary>
         [Output("allowList")]
         public Output<string> AllowListValue { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单分类。
+        /// Allowlist Category
         /// </summary>
         [Output("allowListCategory")]
         public Output<string> AllowListCategory { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单描述。
+        /// Allowlist Description
         /// </summary>
         [Output("allowListDesc")]
         public Output<string> AllowListDesc { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单的id。
+        /// Allowlist ID
         /// </summary>
         [Output("allowListId")]
         public Output<string> AllowListId { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单内的 IP 地址（或地址段）总数。
+        /// Total number of IP addresses (or address ranges) in the allowlist
         /// </summary>
         [Output("allowListIpNum")]
         public Output<int> AllowListIpNum { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单名称。
+        /// Allowlist Name
         /// </summary>
         [Output("allowListName")]
         public Output<string> AllowListName { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单内的IP地址类型，当前仅支持IPv4。
+        /// IP address type in the allowlist. Only IPv4 is supported
         /// </summary>
         [Output("allowListType")]
         public Output<string> AllowListType { get; private set; } = null!;
 
         /// <summary>
-        /// 白名单下绑定的实例总数
+        /// Total number of instances bound to the allowlist
         /// </summary>
         [Output("associatedInstanceNum")]
         public Output<int> AssociatedInstanceNum { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         public Output<ImmutableArray<Outputs.AllowListAssociatedInstance>> AssociatedInstances { get; private set; } = null!;
 
         /// <summary>
-        /// 实例ID。
+        /// Instance ID
         /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
@@ -127,31 +127,31 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     public sealed class AllowListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+        /// IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
         /// </summary>
         [Input("allowList")]
         public Input<string>? AllowListValue { get; set; }
 
         /// <summary>
-        /// 白名单分类。
+        /// Allowlist Category
         /// </summary>
         [Input("allowListCategory")]
         public Input<string>? AllowListCategory { get; set; }
 
         /// <summary>
-        /// 白名单描述。
+        /// Allowlist Description
         /// </summary>
         [Input("allowListDesc")]
         public Input<string>? AllowListDesc { get; set; }
 
         /// <summary>
-        /// 白名单名称。
+        /// Allowlist Name
         /// </summary>
         [Input("allowListName", required: true)]
         public Input<string> AllowListName { get; set; } = null!;
 
         /// <summary>
-        /// 白名单内的IP地址类型，当前仅支持IPv4。
+        /// IP address type in the allowlist. Only IPv4 is supported
         /// </summary>
         [Input("allowListType")]
         public Input<string>? AllowListType { get; set; }
@@ -165,7 +165,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 实例ID。
+        /// Instance ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
@@ -179,49 +179,49 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     public sealed class AllowListState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+        /// IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
         /// </summary>
         [Input("allowList")]
         public Input<string>? AllowListValue { get; set; }
 
         /// <summary>
-        /// 白名单分类。
+        /// Allowlist Category
         /// </summary>
         [Input("allowListCategory")]
         public Input<string>? AllowListCategory { get; set; }
 
         /// <summary>
-        /// 白名单描述。
+        /// Allowlist Description
         /// </summary>
         [Input("allowListDesc")]
         public Input<string>? AllowListDesc { get; set; }
 
         /// <summary>
-        /// 白名单的id。
+        /// Allowlist ID
         /// </summary>
         [Input("allowListId")]
         public Input<string>? AllowListId { get; set; }
 
         /// <summary>
-        /// 白名单内的 IP 地址（或地址段）总数。
+        /// Total number of IP addresses (or address ranges) in the allowlist
         /// </summary>
         [Input("allowListIpNum")]
         public Input<int>? AllowListIpNum { get; set; }
 
         /// <summary>
-        /// 白名单名称。
+        /// Allowlist Name
         /// </summary>
         [Input("allowListName")]
         public Input<string>? AllowListName { get; set; }
 
         /// <summary>
-        /// 白名单内的IP地址类型，当前仅支持IPv4。
+        /// IP address type in the allowlist. Only IPv4 is supported
         /// </summary>
         [Input("allowListType")]
         public Input<string>? AllowListType { get; set; }
 
         /// <summary>
-        /// 白名单下绑定的实例总数
+        /// Total number of instances bound to the allowlist
         /// </summary>
         [Input("associatedInstanceNum")]
         public Input<int>? AssociatedInstanceNum { get; set; }
@@ -235,7 +235,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         }
 
         /// <summary>
-        /// 实例ID。
+        /// Instance ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }

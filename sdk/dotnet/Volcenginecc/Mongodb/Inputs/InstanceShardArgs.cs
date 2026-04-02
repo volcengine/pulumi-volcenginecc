@@ -22,7 +22,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb.Inputs
         }
 
         /// <summary>
-        /// Shard 节点的 ID。
+        /// Shard node ID.
         /// </summary>
         [Input("shardId")]
         public Input<string>? ShardId { get; set; }

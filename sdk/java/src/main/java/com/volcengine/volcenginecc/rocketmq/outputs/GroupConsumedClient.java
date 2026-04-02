@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupConsumedClient {
     /**
-     * @return 该消费者实例的地址和端口。
+     * @return Address and port of this consumer instance.
      * 
      */
     private @Nullable String clientAddress;
     /**
-     * @return 该消费者实例的 ID。
+     * @return ID of this consumer instance.
      * 
      */
     private @Nullable String clientId;
     /**
-     * @return 消息堆积量。
+     * @return Message backlog.
      * 
      */
     private @Nullable Integer diff;
     /**
-     * @return 消费者应用的开发语言。
+     * @return Development language of the consumer application.
      * 
      */
     private @Nullable String language;
     /**
-     * @return 消费端版本。
+     * @return Consumer version.
      * 
      */
     private @Nullable String version;
 
     private GroupConsumedClient() {}
     /**
-     * @return 该消费者实例的地址和端口。
+     * @return Address and port of this consumer instance.
      * 
      */
     public Optional<String> clientAddress() {
         return Optional.ofNullable(this.clientAddress);
     }
     /**
-     * @return 该消费者实例的 ID。
+     * @return ID of this consumer instance.
      * 
      */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
     /**
-     * @return 消息堆积量。
+     * @return Message backlog.
      * 
      */
     public Optional<Integer> diff() {
         return Optional.ofNullable(this.diff);
     }
     /**
-     * @return 消费者应用的开发语言。
+     * @return Development language of the consumer application.
      * 
      */
     public Optional<String> language() {
         return Optional.ofNullable(this.language);
     }
     /**
-     * @return 消费端版本。
+     * @return Consumer version.
      * 
      */
     public Optional<String> version() {

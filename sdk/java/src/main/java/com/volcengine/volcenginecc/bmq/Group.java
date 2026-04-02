@@ -17,7 +17,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * 一组具有相同 Group ID 的消费端。当一个 Topic 被同一个 Group 的多个 Consumer 消费时，每一条消息都只会被投递到一个 Consumer，实现消费的负载均衡。通过 Group，您可以确保一个 Topic 的消息被并行消费。
+ * A group of consumers with the same Group ID. When multiple consumers in the same Group consume a Topic, each message is delivered to only one consumer, enabling load balancing. Using Groups ensures that messages in a Topic are consumed in parallel.
  * 
  * ## Example Usage
  * 
@@ -34,126 +34,126 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:bmq/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
-     * Consumer Group 创建时间。
+     * Consumer Group creation time
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return Consumer Group 创建时间。
+     * @return Consumer Group creation time
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * Consumer Group 描述。
+     * Consumer Group description
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Consumer Group 描述。
+     * @return Consumer Group description
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Consumer Group 的 ID。
+     * Consumer Group ID
      * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
-     * @return Consumer Group 的 ID。
+     * @return Consumer Group ID
      * 
      */
     public Output<String> groupId() {
         return this.groupId;
     }
     /**
-     * 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+     * Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
      * 
      */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
-     * @return 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+     * @return Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
      * 
      */
     public Output<String> groupName() {
         return this.groupName;
     }
     /**
-     * 所属 BMQ 实例 ID。
+     * BMQ instance ID
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
-     * @return 所属 BMQ 实例 ID。
+     * @return BMQ instance ID
      * 
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
-     * Consumer Group 所属用户的 ID。
+     * User ID of the Consumer Group owner
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
-     * @return Consumer Group 所属用户的 ID。
+     * @return User ID of the Consumer Group owner
      * 
      */
     public Output<String> ownerId() {
         return this.ownerId;
     }
     /**
-     * Consumer Group 所属用户的名称。
+     * Name of the Consumer Group owner
      * 
      */
     @Export(name="ownerName", refs={String.class}, tree="[0]")
     private Output<String> ownerName;
 
     /**
-     * @return Consumer Group 所属用户的名称。
+     * @return Name of the Consumer Group owner
      * 
      */
     public Output<String> ownerName() {
         return this.ownerName;
     }
     /**
-     * 重置消费位点信息。
+     * Reset consumption offset information
      * 
      */
     @Export(name="resetInfo", refs={GroupResetInfo.class}, tree="[0]")
     private Output<GroupResetInfo> resetInfo;
 
     /**
-     * @return 重置消费位点信息。
+     * @return Reset consumption offset information
      * 
      */
     public Output<GroupResetInfo> resetInfo() {
         return this.resetInfo;
     }
     /**
-     * Consumer Group 的状态。
+     * Consumer Group status
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Consumer Group 的状态。
+     * @return Consumer Group status
      * 
      */
     public Output<String> status() {

@@ -30,27 +30,27 @@ type LookupAllowListArgs struct {
 
 // A collection of values returned by getAllowList.
 type LookupAllowListResult struct {
-	// IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+	// IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
 	AllowList string `pulumi:"allowList"`
-	// 白名单分类。
+	// Allowlist Category
 	AllowListCategory string `pulumi:"allowListCategory"`
-	// 白名单描述。
+	// Allowlist Description
 	AllowListDesc string `pulumi:"allowListDesc"`
-	// 白名单的id。
+	// Allowlist ID
 	AllowListId string `pulumi:"allowListId"`
-	// 白名单内的 IP 地址（或地址段）总数。
+	// Total number of IP addresses (or address ranges) in the allowlist
 	AllowListIpNum int `pulumi:"allowListIpNum"`
-	// 白名单名称。
+	// Allowlist Name
 	AllowListName string `pulumi:"allowListName"`
-	// 白名单内的IP地址类型，当前仅支持IPv4。
+	// IP address type in the allowlist. Only IPv4 is supported
 	AllowListType string `pulumi:"allowListType"`
-	// 白名单下绑定的实例总数
+	// Total number of instances bound to the allowlist
 	AssociatedInstanceNum int `pulumi:"associatedInstanceNum"`
-	// 绑定的实例列表。
+	// Bound Instance List
 	AssociatedInstances []GetAllowListAssociatedInstance `pulumi:"associatedInstances"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
-	// 实例ID。
+	// Instance ID
 	InstanceId string `pulumi:"instanceId"`
 }
 
@@ -88,47 +88,47 @@ func (o LookupAllowListResultOutput) ToLookupAllowListResultOutputWithContext(ct
 	return o
 }
 
-// IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+// IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
 func (o LookupAllowListResultOutput) AllowList() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowList }).(pulumi.StringOutput)
 }
 
-// 白名单分类。
+// Allowlist Category
 func (o LookupAllowListResultOutput) AllowListCategory() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowListCategory }).(pulumi.StringOutput)
 }
 
-// 白名单描述。
+// Allowlist Description
 func (o LookupAllowListResultOutput) AllowListDesc() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowListDesc }).(pulumi.StringOutput)
 }
 
-// 白名单的id。
+// Allowlist ID
 func (o LookupAllowListResultOutput) AllowListId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowListId }).(pulumi.StringOutput)
 }
 
-// 白名单内的 IP 地址（或地址段）总数。
+// Total number of IP addresses (or address ranges) in the allowlist
 func (o LookupAllowListResultOutput) AllowListIpNum() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupAllowListResult) int { return v.AllowListIpNum }).(pulumi.IntOutput)
 }
 
-// 白名单名称。
+// Allowlist Name
 func (o LookupAllowListResultOutput) AllowListName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowListName }).(pulumi.StringOutput)
 }
 
-// 白名单内的IP地址类型，当前仅支持IPv4。
+// IP address type in the allowlist. Only IPv4 is supported
 func (o LookupAllowListResultOutput) AllowListType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.AllowListType }).(pulumi.StringOutput)
 }
 
-// 白名单下绑定的实例总数
+// Total number of instances bound to the allowlist
 func (o LookupAllowListResultOutput) AssociatedInstanceNum() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupAllowListResult) int { return v.AssociatedInstanceNum }).(pulumi.IntOutput)
 }
 
-// 绑定的实例列表。
+// Bound Instance List
 func (o LookupAllowListResultOutput) AssociatedInstances() GetAllowListAssociatedInstanceArrayOutput {
 	return o.ApplyT(func(v LookupAllowListResult) []GetAllowListAssociatedInstance { return v.AssociatedInstances }).(GetAllowListAssociatedInstanceArrayOutput)
 }
@@ -138,7 +138,7 @@ func (o LookupAllowListResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// 实例ID。
+// Instance ID
 func (o LookupAllowListResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAllowListResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }

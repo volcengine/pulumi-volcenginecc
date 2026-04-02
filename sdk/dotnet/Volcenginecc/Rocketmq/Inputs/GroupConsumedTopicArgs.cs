@@ -14,19 +14,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
     public sealed class GroupConsumedTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+        /// Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
         /// </summary>
         [Input("queueNum")]
         public Input<int>? QueueNum { get; set; }
 
         /// <summary>
-        /// 订阅规则。
+        /// Subscription rules.
         /// </summary>
         [Input("subString")]
         public Input<string>? SubString { get; set; }
 
         /// <summary>
-        /// 客户端订阅的 Topic 名称。
+        /// Name of the Topic subscribed by the client.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

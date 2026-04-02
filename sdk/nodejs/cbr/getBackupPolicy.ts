@@ -29,23 +29,23 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
-     * 创建此策略的账户 ID。
+     * Account ID that created this policy
      */
     readonly accountId: string;
     /**
-     * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
      */
     readonly backupType: string;
     /**
-     * 创建时间。
+     * Creation time
      */
     readonly createdTime: string;
     /**
-     * 备份周期，采用 crontab 表达式。
+     * Backup cycle, using a crontab expression
      */
     readonly crontab: string;
     /**
-     * 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+     * Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
      */
     readonly enablePolicy: boolean;
     /**
@@ -53,31 +53,31 @@ export interface GetBackupPolicyResult {
      */
     readonly id: string;
     /**
-     * 策略名称。
+     * Policy Name
      */
     readonly name: string;
     /**
-     * 该策略已关联的备份计划数量。
+     * Number of backup plans associated with this policy
      */
     readonly planNumber: number;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     readonly policyId: string;
     /**
-     * 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+     * Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
      */
     readonly retentionDay: number;
     /**
-     * 最大恢复点保留数量。
+     * Maximum number of restore points retained
      */
     readonly retentionNumMax: number;
     /**
-     * 最小恢复点保留数量下限。
+     * Minimum restore point retention limit
      */
     readonly retentionNumMin: number;
     /**
-     * 更新时间。
+     * Update time
      */
     readonly updatedTime: string;
 }

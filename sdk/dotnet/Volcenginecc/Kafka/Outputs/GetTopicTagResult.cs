@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Kafka.Outputs
     public sealed class GetTopicTagResult
     {
         /// <summary>
-        /// 标签键。
+        /// Label key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// 标签值。
+        /// Tag value.
         /// </summary>
         public readonly string Value;
 

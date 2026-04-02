@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class BackupPlanResourceList {
     /**
-     * @return 资源的meta信息，创建备份计划时，用于存储额外的配置。
+     * @return Resource meta information, used to store additional configuration when creating a backup plan
      * 
      */
     private BackupPlanResourceListMetaInformation metaInformation;
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     private String resourceId;
     /**
-     * @return 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+     * @return Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
      * 
      */
     private String resourceType;
 
     private BackupPlanResourceList() {}
     /**
-     * @return 资源的meta信息，创建备份计划时，用于存储额外的配置。
+     * @return Resource meta information, used to store additional configuration when creating a backup plan
      * 
      */
     public BackupPlanResourceListMetaInformation metaInformation() {
         return this.metaInformation;
     }
     /**
-     * @return 备份源 ID。
+     * @return Backup Source ID
      * 
      */
     public String resourceId() {
         return this.resourceId;
     }
     /**
-     * @return 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+     * @return Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
      * 
      */
     public String resourceType() {

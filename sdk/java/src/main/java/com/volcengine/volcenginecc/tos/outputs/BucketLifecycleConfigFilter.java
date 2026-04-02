@@ -13,50 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigFilter {
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     private @Nullable String greaterThanIncludeEqual;
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     private @Nullable String lessThanIncludeEqual;
     /**
-     * @return 设置规则生效于大于指定大小的对象。
+     * @return Apply rule to objects larger than the specified size
      * 
      */
     private @Nullable Integer objectSizeGreaterThan;
     /**
-     * @return 设置规则生效于小于指定大小的对象。
+     * @return Apply rule to objects smaller than the specified size
      * 
      */
     private @Nullable Integer objectSizeLessThan;
 
     private BucketLifecycleConfigFilter() {}
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     public Optional<String> greaterThanIncludeEqual() {
         return Optional.ofNullable(this.greaterThanIncludeEqual);
     }
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     public Optional<String> lessThanIncludeEqual() {
         return Optional.ofNullable(this.lessThanIncludeEqual);
     }
     /**
-     * @return 设置规则生效于大于指定大小的对象。
+     * @return Apply rule to objects larger than the specified size
      * 
      */
     public Optional<Integer> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
     /**
-     * @return 设置规则生效于小于指定大小的对象。
+     * @return Apply rule to objects smaller than the specified size
      * 
      */
     public Optional<Integer> objectSizeLessThan() {

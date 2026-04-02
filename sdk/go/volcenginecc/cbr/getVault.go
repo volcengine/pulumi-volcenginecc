@@ -30,19 +30,19 @@ type LookupVaultArgs struct {
 
 // A collection of values returned by getVault.
 type LookupVaultResult struct {
-	// 创建时间。
+	// Creation Time
 	CreatedTime string `pulumi:"createdTime"`
-	// 访问域名。
+	// Access Domain Name
 	Endpoint string `pulumi:"endpoint"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
-	// 项目名称。
+	// Project Name
 	ProjectName string `pulumi:"projectName"`
-	// 备份库标签。
+	// Backup Repository Tag
 	Tags []GetVaultTag `pulumi:"tags"`
-	// 备份库 ID。
+	// Backup Repository ID
 	VaultId string `pulumi:"vaultId"`
-	// 备份库名称。
+	// Backup Repository Name
 	VaultName string `pulumi:"vaultName"`
 }
 
@@ -80,12 +80,12 @@ func (o LookupVaultResultOutput) ToLookupVaultResultOutputWithContext(ctx contex
 	return o
 }
 
-// 创建时间。
+// Creation Time
 func (o LookupVaultResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 访问域名。
+// Access Domain Name
 func (o LookupVaultResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -95,22 +95,22 @@ func (o LookupVaultResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// 项目名称。
+// Project Name
 func (o LookupVaultResultOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// 备份库标签。
+// Backup Repository Tag
 func (o LookupVaultResultOutput) Tags() GetVaultTagArrayOutput {
 	return o.ApplyT(func(v LookupVaultResult) []GetVaultTag { return v.Tags }).(GetVaultTagArrayOutput)
 }
 
-// 备份库 ID。
+// Backup Repository ID
 func (o LookupVaultResultOutput) VaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.VaultId }).(pulumi.StringOutput)
 }
 
-// 备份库名称。
+// Backup Repository Name
 func (o LookupVaultResultOutput) VaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.VaultName }).(pulumi.StringOutput)
 }

@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupResourceMetaInformation {
     /**
-     * @return ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+     * @return ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
      * 
      */
     private String ecsMeta;
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+     * @return vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
      * 
      */
     private String vepfsMeta;
 
     private GetBackupResourceMetaInformation() {}
     /**
-     * @return ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+     * @return ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
      * 
      */
     public String ecsMeta() {
         return this.ecsMeta;
     }
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+     * @return vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
      * 
      */
     public String vepfsMeta() {

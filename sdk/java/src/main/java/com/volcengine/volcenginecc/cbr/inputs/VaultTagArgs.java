@@ -16,14 +16,14 @@ public final class VaultTagArgs extends com.pulumi.resources.ResourceArgs {
     public static final VaultTagArgs Empty = new VaultTagArgs();
 
     /**
-     * 标签键。
+     * Tag Key
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return 标签键。
+     * @return Tag Key
      * 
      */
     public Optional<Output<String>> key() {
@@ -31,14 +31,14 @@ public final class VaultTagArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 标签值。
+     * Tag Value
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return 标签值。
+     * @return Tag Value
      * 
      */
     public Optional<Output<String>> value() {
@@ -71,7 +71,7 @@ public final class VaultTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key 标签键。
+         * @param key Tag Key
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class VaultTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key 标签键。
+         * @param key Tag Key
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class VaultTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value 标签值。
+         * @param value Tag Value
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VaultTagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value 标签值。
+         * @param value Tag Value
          * 
          * @return builder
          * 

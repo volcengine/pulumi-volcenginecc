@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Outputs
     public sealed class UpstreamUpstreamSpecVeFaas
     {
         /// <summary>
-        /// 函数ID。
+        /// Function ID
         /// </summary>
         public readonly string? FunctionId;
 

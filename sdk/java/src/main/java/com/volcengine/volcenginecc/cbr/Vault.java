@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * 用于存放您的备份数据。
+ * Used to store your backup data
  * 
  * ## Example Usage
  * 
@@ -64,42 +64,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:cbr/vault:Vault")
 public class Vault extends com.pulumi.resources.CustomResource {
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * 访问域名。
+     * Access Domain Name
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return 访问域名。
+     * @return Access Domain Name
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * 项目名称。
+     * Project Name
      * 
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
-     * @return 项目名称。
+     * @return Project Name
      * 
      */
     public Output<String> projectName() {
@@ -112,28 +112,28 @@ public class Vault extends com.pulumi.resources.CustomResource {
         return this.tags;
     }
     /**
-     * 备份库 ID。
+     * Backup Repository ID
      * 
      */
     @Export(name="vaultId", refs={String.class}, tree="[0]")
     private Output<String> vaultId;
 
     /**
-     * @return 备份库 ID。
+     * @return Backup Repository ID
      * 
      */
     public Output<String> vaultId() {
         return this.vaultId;
     }
     /**
-     * 备份库名称。
+     * Backup Repository Name
      * 
      */
     @Export(name="vaultName", refs={String.class}, tree="[0]")
     private Output<String> vaultName;
 
     /**
-     * @return 备份库名称。
+     * @return Backup Repository Name
      * 
      */
     public Output<String> vaultName() {

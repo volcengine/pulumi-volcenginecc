@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Outputs
     public sealed class GetVaultTagResult
     {
         /// <summary>
-        /// 标签键。
+        /// Tag Key
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// 标签值。
+        /// Tag Value
         /// </summary>
         public readonly string Value;
 

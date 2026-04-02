@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketLifecycleConfigExpirationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+        /// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
         /// </summary>
         [Input("date")]
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+        /// Number of days for deleting the latest version object based on last modified time in lifecycle rules
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }

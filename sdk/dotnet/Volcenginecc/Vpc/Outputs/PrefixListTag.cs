@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Outputs
     public sealed class PrefixListTag
     {
         /// <summary>
-        /// 用户标签的标签键。
+        /// Tag key of the user tag.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// 用户标签的标签值。
+        /// Tag value of the user tag.
         /// </summary>
         public readonly string? Value;
 

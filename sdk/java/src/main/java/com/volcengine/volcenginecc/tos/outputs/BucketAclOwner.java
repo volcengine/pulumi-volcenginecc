@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAclOwner {
     /**
-     * @return 展示名。
+     * @return Display name
      * 
      */
     private @Nullable String displayName;
     /**
-     * @return 账号ID。
+     * @return Account ID
      * 
      */
     private @Nullable String ownerId;
 
     private BucketAclOwner() {}
     /**
-     * @return 展示名。
+     * @return Display name
      * 
      */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
     /**
-     * @return 账号ID。
+     * @return Account ID
      * 
      */
     public Optional<String> ownerId() {

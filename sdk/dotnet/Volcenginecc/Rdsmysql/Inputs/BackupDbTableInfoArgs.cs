@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql.Inputs
     public sealed class BackupDbTableInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 数据库名。
+        /// Database name
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -23,7 +23,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql.Inputs
         private InputList<string>? _tables;
 
         /// <summary>
-        /// 表名列表。
+        /// Table name list
         /// </summary>
         public InputList<string> Tables
         {

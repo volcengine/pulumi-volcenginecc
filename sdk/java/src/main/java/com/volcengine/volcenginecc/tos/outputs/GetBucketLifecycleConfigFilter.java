@@ -12,50 +12,50 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketLifecycleConfigFilter {
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     private String greaterThanIncludeEqual;
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     private String lessThanIncludeEqual;
     /**
-     * @return 设置规则生效于大于指定大小的对象。
+     * @return Apply rule to objects larger than the specified size
      * 
      */
     private Integer objectSizeGreaterThan;
     /**
-     * @return 设置规则生效于小于指定大小的对象。
+     * @return Apply rule to objects smaller than the specified size
      * 
      */
     private Integer objectSizeLessThan;
 
     private GetBucketLifecycleConfigFilter() {}
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     public String greaterThanIncludeEqual() {
         return this.greaterThanIncludeEqual;
     }
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     public String lessThanIncludeEqual() {
         return this.lessThanIncludeEqual;
     }
     /**
-     * @return 设置规则生效于大于指定大小的对象。
+     * @return Apply rule to objects larger than the specified size
      * 
      */
     public Integer objectSizeGreaterThan() {
         return this.objectSizeGreaterThan;
     }
     /**
-     * @return 设置规则生效于小于指定大小的对象。
+     * @return Apply rule to objects smaller than the specified size
      * 
      */
     public Integer objectSizeLessThan() {

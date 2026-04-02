@@ -14,19 +14,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
     public sealed class TopicGroupsInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 消费组的 Group ID。
+        /// Group ID of the consumer group.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+        /// Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
         /// </summary>
         [Input("messageModel")]
         public Input<string>? MessageModel { get; set; }
 
         /// <summary>
-        /// 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+        /// Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
         /// </summary>
         [Input("subString")]
         public Input<string>? SubString { get; set; }

@@ -14,61 +14,61 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Inputs
     public sealed class BackupPlanPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 创建此策略的账户 ID。
+        /// Account ID that created this policy
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        /// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
         /// </summary>
         [Input("backupType")]
         public Input<string>? BackupType { get; set; }
 
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// 用于指定备份周期，支持标准 crontab 表达式配置。
+        /// Specifies the backup schedule. Supports standard crontab expressions
         /// </summary>
         [Input("crontab")]
         public Input<string>? Crontab { get; set; }
 
         /// <summary>
-        /// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+        /// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
         /// </summary>
         [Input("enablePolicy")]
         public Input<bool>? EnablePolicy { get; set; }
 
         /// <summary>
-        /// 策略名称。
+        /// Policy Name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// 该策略已关联的备份计划数量。
+        /// Number of backup plans associated with this policy
         /// </summary>
         [Input("planNumber")]
         public Input<int>? PlanNumber { get; set; }
 
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// 恢复点保留时间，-1 表示持续保留。
+        /// Retention time for recovery points. -1 means retain indefinitely
         /// </summary>
         [Input("retentionDay")]
         public Input<int>? RetentionDay { get; set; }
 
         /// <summary>
-        /// 更新时间。
+        /// Update Time
         /// </summary>
         [Input("updatedTime")]
         public Input<string>? UpdatedTime { get; set; }

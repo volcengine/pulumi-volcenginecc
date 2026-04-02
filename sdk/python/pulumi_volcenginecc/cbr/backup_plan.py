@@ -27,8 +27,8 @@ class BackupPlanArgs:
                  policy_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
-        :param pulumi.Input[builtins.str] name: 备份计划名称。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
+        :param pulumi.Input[builtins.str] name: Backup Plan Name
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_lists", resource_lists)
@@ -39,7 +39,7 @@ class BackupPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        备份计划名称。
+        Backup Plan Name
         """
         return pulumi.get(self, "name")
 
@@ -60,7 +60,7 @@ class BackupPlanArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -82,13 +82,13 @@ class _BackupPlanState:
                  updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPlan resources.
-        :param pulumi.Input[builtins.str] account_id: 创建此计划的账户 ID。
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] name: 备份计划名称。
-        :param pulumi.Input[builtins.str] plan_id: 备份计划 ID。
-        :param pulumi.Input['BackupPlanPolicyArgs'] policy: 备份策略。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间。
+        :param pulumi.Input[builtins.str] account_id: Account ID that created this plan
+        :param pulumi.Input[builtins.str] created_time: Creation Time
+        :param pulumi.Input[builtins.str] name: Backup Plan Name
+        :param pulumi.Input[builtins.str] plan_id: Backup Plan ID
+        :param pulumi.Input['BackupPlanPolicyArgs'] policy: Backup Policy
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
+        :param pulumi.Input[builtins.str] updated_time: Update Time
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -111,7 +111,7 @@ class _BackupPlanState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建此计划的账户 ID。
+        Account ID that created this plan
         """
         return pulumi.get(self, "account_id")
 
@@ -123,7 +123,7 @@ class _BackupPlanState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -135,7 +135,7 @@ class _BackupPlanState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份计划名称。
+        Backup Plan Name
         """
         return pulumi.get(self, "name")
 
@@ -147,7 +147,7 @@ class _BackupPlanState:
     @pulumi.getter(name="planId")
     def plan_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份计划 ID。
+        Backup Plan ID
         """
         return pulumi.get(self, "plan_id")
 
@@ -159,7 +159,7 @@ class _BackupPlanState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input['BackupPlanPolicyArgs']]:
         """
-        备份策略。
+        Backup Policy
         """
         return pulumi.get(self, "policy")
 
@@ -171,7 +171,7 @@ class _BackupPlanState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -192,7 +192,7 @@ class _BackupPlanState:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        更新时间。
+        Update Time
         """
         return pulumi.get(self, "updated_time")
 
@@ -212,7 +212,7 @@ class BackupPlan(pulumi.CustomResource):
                  resource_lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPlanResourceListArgs', 'BackupPlanResourceListArgsDict']]]]] = None,
                  __props__=None):
         """
-        当需要对备份源进行自动备份时，可以创建备份计划，在备份计划中关联备份源和备份策略，指定备份存储空间，并设置备份数据保留规则等。在创建备份计划后，系统将按照关联备份策略配置，对指定备份源进行统一自动备份。
+        To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
 
         ## Import
 
@@ -222,8 +222,8 @@ class BackupPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] name: 备份计划名称。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
+        :param pulumi.Input[builtins.str] name: Backup Plan Name
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
         """
         ...
     @overload
@@ -232,7 +232,7 @@ class BackupPlan(pulumi.CustomResource):
                  args: BackupPlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        当需要对备份源进行自动备份时，可以创建备份计划，在备份计划中关联备份源和备份策略，指定备份存储空间，并设置备份数据保留规则等。在创建备份计划后，系统将按照关联备份策略配置，对指定备份源进行统一自动备份。
+        To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
 
         ## Import
 
@@ -304,13 +304,13 @@ class BackupPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_id: 创建此计划的账户 ID。
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] name: 备份计划名称。
-        :param pulumi.Input[builtins.str] plan_id: 备份计划 ID。
-        :param pulumi.Input[Union['BackupPlanPolicyArgs', 'BackupPlanPolicyArgsDict']] policy: 备份策略。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间。
+        :param pulumi.Input[builtins.str] account_id: Account ID that created this plan
+        :param pulumi.Input[builtins.str] created_time: Creation Time
+        :param pulumi.Input[builtins.str] name: Backup Plan Name
+        :param pulumi.Input[builtins.str] plan_id: Backup Plan ID
+        :param pulumi.Input[Union['BackupPlanPolicyArgs', 'BackupPlanPolicyArgsDict']] policy: Backup Policy
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
+        :param pulumi.Input[builtins.str] updated_time: Update Time
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -330,7 +330,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[builtins.str]:
         """
-        创建此计划的账户 ID。
+        Account ID that created this plan
         """
         return pulumi.get(self, "account_id")
 
@@ -338,7 +338,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -346,7 +346,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        备份计划名称。
+        Backup Plan Name
         """
         return pulumi.get(self, "name")
 
@@ -354,7 +354,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="planId")
     def plan_id(self) -> pulumi.Output[builtins.str]:
         """
-        备份计划 ID。
+        Backup Plan ID
         """
         return pulumi.get(self, "plan_id")
 
@@ -362,7 +362,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.BackupPlanPolicy']:
         """
-        备份策略。
+        Backup Policy
         """
         return pulumi.get(self, "policy")
 
@@ -370,7 +370,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[builtins.str]:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -383,7 +383,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> pulumi.Output[builtins.str]:
         """
-        更新时间。
+        Update Time
         """
         return pulumi.get(self, "updated_time")
 

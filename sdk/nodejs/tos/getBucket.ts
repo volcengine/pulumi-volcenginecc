@@ -31,28 +31,28 @@ export interface GetBucketArgs {
  */
 export interface GetBucketResult {
     /**
-     * 桶的访问控制权限。
+     * Bucket access control permissions
      */
     readonly acl: outputs.tos.GetBucketAcl;
     readonly aclGrant: outputs.tos.GetBucketAclGrant;
     /**
-     * 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      */
     readonly azRedundancy: string;
     /**
-     * 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      */
     readonly bucketType: string;
     /**
-     * 桶的创建时间。
+     * Bucket creation time
      */
     readonly creationDate: string;
     /**
-     * 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      */
     readonly enableVersionStatus: string;
     /**
-     * 存储桶的 TOS 协议公网访问域名。
+     * TOS protocol public access domain name for the bucket
      */
     readonly extranetEndpoint: string;
     /**
@@ -60,35 +60,35 @@ export interface GetBucketResult {
      */
     readonly id: string;
     /**
-     * 存储桶的 TOS 协议私网访问域名
+     * Private network access domain name for the bucket's TOS protocol
      */
     readonly intranetEndpoint: string;
     /**
-     * 存储桶的声明周期。
+     * Bucket lifecycle
      */
     readonly lifecycleConfigs: outputs.tos.GetBucketLifecycleConfig[];
     /**
-     * 桶所在区域。
+     * Bucket region
      */
     readonly location: string;
     /**
-     * 桶名。
+     * Bucket name
      */
     readonly name: string;
     /**
-     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     readonly policy: string;
     /**
-     * 存储桶所属项目。
+     * Project associated with the bucket
      */
     readonly projectName: string;
     /**
-     * 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      */
     readonly storageClass: string;
     /**
-     * 存储桶的标签信息。
+     * Bucket tag information
      */
     readonly tags: outputs.tos.GetBucketTag[];
 }

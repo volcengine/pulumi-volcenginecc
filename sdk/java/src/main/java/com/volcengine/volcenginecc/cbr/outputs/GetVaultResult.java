@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetVaultResult {
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     private String createdTime;
     /**
-     * @return 访问域名。
+     * @return Access Domain Name
      * 
      */
     private String endpoint;
@@ -28,36 +28,36 @@ public final class GetVaultResult {
      */
     private String id;
     /**
-     * @return 项目名称。
+     * @return Project Name
      * 
      */
     private String projectName;
     /**
-     * @return 备份库标签。
+     * @return Backup Repository Tag
      * 
      */
     private List<GetVaultTag> tags;
     /**
-     * @return 备份库 ID。
+     * @return Backup Repository ID
      * 
      */
     private String vaultId;
     /**
-     * @return 备份库名称。
+     * @return Backup Repository Name
      * 
      */
     private String vaultName;
 
     private GetVaultResult() {}
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public String createdTime() {
         return this.createdTime;
     }
     /**
-     * @return 访问域名。
+     * @return Access Domain Name
      * 
      */
     public String endpoint() {
@@ -71,28 +71,28 @@ public final class GetVaultResult {
         return this.id;
     }
     /**
-     * @return 项目名称。
+     * @return Project Name
      * 
      */
     public String projectName() {
         return this.projectName;
     }
     /**
-     * @return 备份库标签。
+     * @return Backup Repository Tag
      * 
      */
     public List<GetVaultTag> tags() {
         return this.tags;
     }
     /**
-     * @return 备份库 ID。
+     * @return Backup Repository ID
      * 
      */
     public String vaultId() {
         return this.vaultId;
     }
     /**
-     * @return 备份库名称。
+     * @return Backup Repository Name
      * 
      */
     public String vaultName() {

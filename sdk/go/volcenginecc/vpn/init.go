@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:vpn/customerGateway:CustomerGateway":
 		r = &CustomerGateway{}
+	case "volcenginecc:vpn/vpnConnection:VpnConnection":
+		r = &VpnConnection{}
 	case "volcenginecc:vpn/vpnGateway:VpnGateway":
 		r = &VpnGateway{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vpn/customerGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpn/vpnConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -14,47 +14,47 @@ import java.util.Objects;
 @CustomType
 public final class GetAllowListResult {
     /**
-     * @return IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * @return IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      * 
      */
     private String allowList;
     /**
-     * @return 白名单分类。
+     * @return Allowlist Category
      * 
      */
     private String allowListCategory;
     /**
-     * @return 白名单描述。
+     * @return Allowlist Description
      * 
      */
     private String allowListDesc;
     /**
-     * @return 白名单的id。
+     * @return Allowlist ID
      * 
      */
     private String allowListId;
     /**
-     * @return 白名单内的 IP 地址（或地址段）总数。
+     * @return Total number of IP addresses (or address ranges) in the allowlist
      * 
      */
     private Integer allowListIpNum;
     /**
-     * @return 白名单名称。
+     * @return Allowlist Name
      * 
      */
     private String allowListName;
     /**
-     * @return 白名单内的IP地址类型，当前仅支持IPv4。
+     * @return IP address type in the allowlist. Only IPv4 is supported
      * 
      */
     private String allowListType;
     /**
-     * @return 白名单下绑定的实例总数
+     * @return Total number of instances bound to the allowlist
      * 
      */
     private Integer associatedInstanceNum;
     /**
-     * @return 绑定的实例列表。
+     * @return Bound Instance List
      * 
      */
     private List<GetAllowListAssociatedInstance> associatedInstances;
@@ -64,70 +64,70 @@ public final class GetAllowListResult {
      */
     private String id;
     /**
-     * @return 实例ID。
+     * @return Instance ID
      * 
      */
     private String instanceId;
 
     private GetAllowListResult() {}
     /**
-     * @return IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * @return IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      * 
      */
     public String allowList() {
         return this.allowList;
     }
     /**
-     * @return 白名单分类。
+     * @return Allowlist Category
      * 
      */
     public String allowListCategory() {
         return this.allowListCategory;
     }
     /**
-     * @return 白名单描述。
+     * @return Allowlist Description
      * 
      */
     public String allowListDesc() {
         return this.allowListDesc;
     }
     /**
-     * @return 白名单的id。
+     * @return Allowlist ID
      * 
      */
     public String allowListId() {
         return this.allowListId;
     }
     /**
-     * @return 白名单内的 IP 地址（或地址段）总数。
+     * @return Total number of IP addresses (or address ranges) in the allowlist
      * 
      */
     public Integer allowListIpNum() {
         return this.allowListIpNum;
     }
     /**
-     * @return 白名单名称。
+     * @return Allowlist Name
      * 
      */
     public String allowListName() {
         return this.allowListName;
     }
     /**
-     * @return 白名单内的IP地址类型，当前仅支持IPv4。
+     * @return IP address type in the allowlist. Only IPv4 is supported
      * 
      */
     public String allowListType() {
         return this.allowListType;
     }
     /**
-     * @return 白名单下绑定的实例总数
+     * @return Total number of instances bound to the allowlist
      * 
      */
     public Integer associatedInstanceNum() {
         return this.associatedInstanceNum;
     }
     /**
-     * @return 绑定的实例列表。
+     * @return Bound Instance List
      * 
      */
     public List<GetAllowListAssociatedInstance> associatedInstances() {
@@ -141,7 +141,7 @@ public final class GetAllowListResult {
         return this.id;
     }
     /**
-     * @return 实例ID。
+     * @return Instance ID
      * 
      */
     public String instanceId() {

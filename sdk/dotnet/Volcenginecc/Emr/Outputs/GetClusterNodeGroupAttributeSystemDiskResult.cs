@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Emr.Outputs
     public sealed class GetClusterNodeGroupAttributeSystemDiskResult
     {
         /// <summary>
-        /// 磁盘大小。
+        /// Disk size.
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// 磁盘类型。
+        /// Disk type.
         /// </summary>
         public readonly string VolumeType;
 

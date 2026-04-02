@@ -12,62 +12,62 @@ import java.util.Objects;
 @CustomType
 public final class GetTopicQueuesInfo {
     /**
-     * @return 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+     * @return The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
      * 
      */
     private Integer endOffset;
     /**
-     * @return 该队列最近一次消息写入的时间。
+     * @return The time of the most recent message written to this queue.
      * 
      */
     private Integer lastUpdateTimestamp;
     /**
-     * @return 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+     * @return The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
      * 
      */
     private Integer messageCount;
     /**
-     * @return 队列的编号 ID。
+     * @return Queue ID.
      * 
      */
     private String queueId;
     /**
-     * @return 当前队列最早消息的偏移量。
+     * @return The earliest message offset in the current queue.
      * 
      */
     private Integer startOffset;
 
     private GetTopicQueuesInfo() {}
     /**
-     * @return 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+     * @return The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
      * 
      */
     public Integer endOffset() {
         return this.endOffset;
     }
     /**
-     * @return 该队列最近一次消息写入的时间。
+     * @return The time of the most recent message written to this queue.
      * 
      */
     public Integer lastUpdateTimestamp() {
         return this.lastUpdateTimestamp;
     }
     /**
-     * @return 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+     * @return The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
      * 
      */
     public Integer messageCount() {
         return this.messageCount;
     }
     /**
-     * @return 队列的编号 ID。
+     * @return Queue ID.
      * 
      */
     public String queueId() {
         return this.queueId;
     }
     /**
-     * @return 当前队列最早消息的偏移量。
+     * @return The earliest message offset in the current queue.
      * 
      */
     public Integer startOffset() {

@@ -18,14 +18,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     public static final BackupPlanPolicyArgs Empty = new BackupPlanPolicyArgs();
 
     /**
-     * 创建此策略的账户 ID。
+     * Account ID that created this policy
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return 创建此策略的账户 ID。
+     * @return Account ID that created this policy
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -33,14 +33,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
      * 
      */
     @Import(name="backupType")
     private @Nullable Output<String> backupType;
 
     /**
-     * @return 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+     * @return Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
      * 
      */
     public Optional<Output<String>> backupType() {
@@ -48,14 +48,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 创建时间。
+     * Creation Time
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -63,14 +63,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 用于指定备份周期，支持标准 crontab 表达式配置。
+     * Specifies the backup schedule. Supports standard crontab expressions
      * 
      */
     @Import(name="crontab")
     private @Nullable Output<String> crontab;
 
     /**
-     * @return 用于指定备份周期，支持标准 crontab 表达式配置。
+     * @return Specifies the backup schedule. Supports standard crontab expressions
      * 
      */
     public Optional<Output<String>> crontab() {
@@ -78,14 +78,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+     * Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
      * 
      */
     @Import(name="enablePolicy")
     private @Nullable Output<Boolean> enablePolicy;
 
     /**
-     * @return 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+     * @return Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
      * 
      */
     public Optional<Output<Boolean>> enablePolicy() {
@@ -93,14 +93,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 策略名称。
+     * Policy Name
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return 策略名称。
+     * @return Policy Name
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 该策略已关联的备份计划数量。
+     * Number of backup plans associated with this policy
      * 
      */
     @Import(name="planNumber")
     private @Nullable Output<Integer> planNumber;
 
     /**
-     * @return 该策略已关联的备份计划数量。
+     * @return Number of backup plans associated with this policy
      * 
      */
     public Optional<Output<Integer>> planNumber() {
@@ -123,14 +123,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -138,14 +138,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 恢复点保留时间，-1 表示持续保留。
+     * Retention time for recovery points. -1 means retain indefinitely
      * 
      */
     @Import(name="retentionDay")
     private @Nullable Output<Integer> retentionDay;
 
     /**
-     * @return 恢复点保留时间，-1 表示持续保留。
+     * @return Retention time for recovery points. -1 means retain indefinitely
      * 
      */
     public Optional<Output<Integer>> retentionDay() {
@@ -153,14 +153,14 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * 更新时间。
+     * Update Time
      * 
      */
     @Import(name="updatedTime")
     private @Nullable Output<String> updatedTime;
 
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     public Optional<Output<String>> updatedTime() {
@@ -201,7 +201,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId 创建此策略的账户 ID。
+         * @param accountId Account ID that created this policy
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param accountId 创建此策略的账户 ID。
+         * @param accountId Account ID that created this policy
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param backupType 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+         * @param backupType Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param backupType 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+         * @param backupType Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createdTime 创建时间。
+         * @param createdTime Creation Time
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param crontab 用于指定备份周期，支持标准 crontab 表达式配置。
+         * @param crontab Specifies the backup schedule. Supports standard crontab expressions
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param crontab 用于指定备份周期，支持标准 crontab 表达式配置。
+         * @param crontab Specifies the backup schedule. Supports standard crontab expressions
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enablePolicy 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+         * @param enablePolicy Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enablePolicy 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+         * @param enablePolicy Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name 策略名称。
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name 策略名称。
+         * @param name Policy Name
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param planNumber 该策略已关联的备份计划数量。
+         * @param planNumber Number of backup plans associated with this policy
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param planNumber 该策略已关联的备份计划数量。
+         * @param planNumber Number of backup plans associated with this policy
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId 备份策略 ID。
+         * @param policyId Backup Policy ID
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyId 备份策略 ID。
+         * @param policyId Backup Policy ID
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionDay 恢复点保留时间，-1 表示持续保留。
+         * @param retentionDay Retention time for recovery points. -1 means retain indefinitely
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionDay 恢复点保留时间，-1 表示持续保留。
+         * @param retentionDay Retention time for recovery points. -1 means retain indefinitely
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param updatedTime 更新时间。
+         * @param updatedTime Update Time
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class BackupPlanPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param updatedTime 更新时间。
+         * @param updatedTime Update Time
          * 
          * @return builder
          * 

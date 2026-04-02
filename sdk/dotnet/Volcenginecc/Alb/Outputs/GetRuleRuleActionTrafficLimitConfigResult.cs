@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
     public sealed class GetRuleRuleActionTrafficLimitConfigResult
     {
         /// <summary>
-        /// 每秒请求数。
+        /// Requests per second.
         /// </summary>
         public readonly int Qps;
 

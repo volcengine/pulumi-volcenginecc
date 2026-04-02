@@ -72,7 +72,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> builtins.str:
         """
-        创建此策略的账户 ID。
+        Account ID that created this policy
         """
         return pulumi.get(self, "account_id")
 
@@ -80,7 +80,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="backupType")
     def backup_type(self) -> builtins.str:
         """
-        备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
         """
         return pulumi.get(self, "backup_type")
 
@@ -88,7 +88,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> builtins.str:
         """
-        创建时间。
+        Creation time
         """
         return pulumi.get(self, "created_time")
 
@@ -96,7 +96,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def crontab(self) -> builtins.str:
         """
-        备份周期，采用 crontab 表达式。
+        Backup cycle, using a crontab expression
         """
         return pulumi.get(self, "crontab")
 
@@ -104,7 +104,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="enablePolicy")
     def enable_policy(self) -> builtins.bool:
         """
-        策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+        Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
         """
         return pulumi.get(self, "enable_policy")
 
@@ -120,7 +120,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        策略名称。
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -128,7 +128,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="planNumber")
     def plan_number(self) -> builtins.int:
         """
-        该策略已关联的备份计划数量。
+        Number of backup plans associated with this policy
         """
         return pulumi.get(self, "plan_number")
 
@@ -136,7 +136,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> builtins.str:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -144,7 +144,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="retentionDay")
     def retention_day(self) -> builtins.int:
         """
-        恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+        Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
         """
         return pulumi.get(self, "retention_day")
 
@@ -152,7 +152,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="retentionNumMax")
     def retention_num_max(self) -> builtins.int:
         """
-        最大恢复点保留数量。
+        Maximum number of restore points retained
         """
         return pulumi.get(self, "retention_num_max")
 
@@ -160,7 +160,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="retentionNumMin")
     def retention_num_min(self) -> builtins.int:
         """
-        最小恢复点保留数量下限。
+        Minimum restore point retention limit
         """
         return pulumi.get(self, "retention_num_min")
 
@@ -168,7 +168,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> builtins.str:
         """
-        更新时间。
+        Update time
         """
         return pulumi.get(self, "updated_time")
 

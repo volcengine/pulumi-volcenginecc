@@ -23,7 +23,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Outputs
         /// </summary>
         public readonly string IamUserSk;
         /// <summary>
-        /// 日志项目ID。
+        /// Log project ID
         /// </summary>
         public readonly string ProjectId;
         /// <summary>

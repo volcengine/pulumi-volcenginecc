@@ -14,37 +14,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq.Inputs
     public sealed class GroupTopicInfoPartitionInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 当前消费位点。
+        /// Current consumption offset
         /// </summary>
         [Input("currentOffset")]
         public Input<int>? CurrentOffset { get; set; }
 
         /// <summary>
-        /// Consumer Group 的名称。
+        /// Consumer Group name
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// 分区中未被消费的消息条数。
+        /// Number of unconsumed messages in the partition
         /// </summary>
         [Input("lag")]
         public Input<int>? Lag { get; set; }
 
         /// <summary>
-        /// 最新消费位点。
+        /// Latest consumption offset
         /// </summary>
         [Input("latestOffset")]
         public Input<int>? LatestOffset { get; set; }
 
         /// <summary>
-        /// 分区序号。
+        /// Partition number
         /// </summary>
         [Input("partitionId")]
         public Input<int>? PartitionId { get; set; }
 
         /// <summary>
-        /// Consumer Group 订阅的 Topic 名称。
+        /// Name of the Topic subscribed by the Consumer Group
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

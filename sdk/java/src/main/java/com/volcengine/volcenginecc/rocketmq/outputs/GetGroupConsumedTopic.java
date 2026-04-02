@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupConsumedTopic {
     /**
-     * @return Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+     * @return Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
      * 
      */
     private Integer queueNum;
     /**
-     * @return 订阅规则。
+     * @return Subscription rules.
      * 
      */
     private String subString;
     /**
-     * @return 客户端订阅的 Topic 名称。
+     * @return Name of the Topic subscribed by the client.
      * 
      */
     private String topicName;
 
     private GetGroupConsumedTopic() {}
     /**
-     * @return Topic 对应的队列数。每个 Topic 下有一到多个队列用于存储消息。
+     * @return Number of queues associated with the Topic. Each Topic contains one or more queues for storing messages.
      * 
      */
     public Integer queueNum() {
         return this.queueNum;
     }
     /**
-     * @return 订阅规则。
+     * @return Subscription rules.
      * 
      */
     public String subString() {
         return this.subString;
     }
     /**
-     * @return 客户端订阅的 Topic 名称。
+     * @return Name of the Topic subscribed by the client.
      * 
      */
     public String topicName() {

@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
     public static final BucketLifecycleConfigFilterArgs Empty = new BucketLifecycleConfigFilterArgs();
 
     /**
-     * 是否启用相等条件。包括Enabled、Disabled。
+     * Equality condition status. Includes Enabled, Disabled
      * 
      */
     @Import(name="greaterThanIncludeEqual")
     private @Nullable Output<String> greaterThanIncludeEqual;
 
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     public Optional<Output<String>> greaterThanIncludeEqual() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
     }
 
     /**
-     * 是否启用相等条件。包括Enabled、Disabled。
+     * Equality condition status. Includes Enabled, Disabled
      * 
      */
     @Import(name="lessThanIncludeEqual")
     private @Nullable Output<String> lessThanIncludeEqual;
 
     /**
-     * @return 是否启用相等条件。包括Enabled、Disabled。
+     * @return Equality condition status. Includes Enabled, Disabled
      * 
      */
     public Optional<Output<String>> lessThanIncludeEqual() {
@@ -47,14 +47,14 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
     }
 
     /**
-     * 设置规则生效于大于指定大小的对象。
+     * Apply rule to objects larger than the specified size
      * 
      */
     @Import(name="objectSizeGreaterThan")
     private @Nullable Output<Integer> objectSizeGreaterThan;
 
     /**
-     * @return 设置规则生效于大于指定大小的对象。
+     * @return Apply rule to objects larger than the specified size
      * 
      */
     public Optional<Output<Integer>> objectSizeGreaterThan() {
@@ -62,14 +62,14 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
     }
 
     /**
-     * 设置规则生效于小于指定大小的对象。
+     * Apply rule to objects smaller than the specified size
      * 
      */
     @Import(name="objectSizeLessThan")
     private @Nullable Output<Integer> objectSizeLessThan;
 
     /**
-     * @return 设置规则生效于小于指定大小的对象。
+     * @return Apply rule to objects smaller than the specified size
      * 
      */
     public Optional<Output<Integer>> objectSizeLessThan() {
@@ -104,7 +104,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param greaterThanIncludeEqual 是否启用相等条件。包括Enabled、Disabled。
+         * @param greaterThanIncludeEqual Equality condition status. Includes Enabled, Disabled
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param greaterThanIncludeEqual 是否启用相等条件。包括Enabled、Disabled。
+         * @param greaterThanIncludeEqual Equality condition status. Includes Enabled, Disabled
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param lessThanIncludeEqual 是否启用相等条件。包括Enabled、Disabled。
+         * @param lessThanIncludeEqual Equality condition status. Includes Enabled, Disabled
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param lessThanIncludeEqual 是否启用相等条件。包括Enabled、Disabled。
+         * @param lessThanIncludeEqual Equality condition status. Includes Enabled, Disabled
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param objectSizeGreaterThan 设置规则生效于大于指定大小的对象。
+         * @param objectSizeGreaterThan Apply rule to objects larger than the specified size
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param objectSizeGreaterThan 设置规则生效于大于指定大小的对象。
+         * @param objectSizeGreaterThan Apply rule to objects larger than the specified size
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param objectSizeLessThan 设置规则生效于小于指定大小的对象。
+         * @param objectSizeLessThan Apply rule to objects smaller than the specified size
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BucketLifecycleConfigFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param objectSizeLessThan 设置规则生效于小于指定大小的对象。
+         * @param objectSizeLessThan Apply rule to objects smaller than the specified size
          * 
          * @return builder
          * 

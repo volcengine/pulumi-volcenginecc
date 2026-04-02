@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Outputs
     public sealed class InstanceProductInfo
     {
         /// <summary>
-        /// 修改读写限流比例，默认读写比例各占 50%。假设设置为 40，表示发送的 TPS 比列为 40%，订阅比列为 60%。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+        /// Edit the read/write throttling ratio. The default read/write ratio is 50% each. For example, if set to 40, the sending TPS ratio is 40% and the subscription ratio is 60%. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
         /// </summary>
         public readonly int? SendReceiveRatio;
 

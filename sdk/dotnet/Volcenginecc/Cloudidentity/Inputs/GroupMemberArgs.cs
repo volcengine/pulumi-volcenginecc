@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity.Inputs
     public sealed class GroupMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 用户id。
+        /// User ID
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

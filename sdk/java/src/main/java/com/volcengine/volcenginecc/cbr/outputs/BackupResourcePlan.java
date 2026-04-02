@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BackupResourcePlan {
     /**
-     * @return 备份计划 ID
+     * @return Backup Plan ID
      * 
      */
     private @Nullable String planId;
     /**
-     * @return 备份计划名称
+     * @return Backup Plan Name
      * 
      */
     private @Nullable String planName;
 
     private BackupResourcePlan() {}
     /**
-     * @return 备份计划 ID
+     * @return Backup Plan ID
      * 
      */
     public Optional<String> planId() {
         return Optional.ofNullable(this.planId);
     }
     /**
-     * @return 备份计划名称
+     * @return Backup Plan Name
      * 
      */
     public Optional<String> planName() {

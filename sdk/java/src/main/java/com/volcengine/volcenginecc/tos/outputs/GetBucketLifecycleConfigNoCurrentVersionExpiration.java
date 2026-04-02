@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketLifecycleConfigNoCurrentVersionExpiration {
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+     * @return Specific date for deleting historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private String nonCurrentDate;
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+     * @return Number of days to delete historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private Integer nonCurrentDays;
 
     private GetBucketLifecycleConfigNoCurrentVersionExpiration() {}
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+     * @return Specific date for deleting historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public String nonCurrentDate() {
         return this.nonCurrentDate;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+     * @return Number of days to delete historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Integer nonCurrentDays() {

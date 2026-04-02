@@ -32,23 +32,23 @@ if not MYPY:
     class FileSystemChargeConfigArgsDict(TypedDict):
         charge_status: NotRequired[pulumi.Input[builtins.str]]
         """
-        计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+        Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
         """
         charge_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         """
         expire_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        到期时间。
+        Expiration time.
         """
         reclaim_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        回收时间。
+        Recycle time.
         """
         stop_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        关停时间。
+        Shutdown time.
         """
 elif False:
     FileSystemChargeConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -62,11 +62,11 @@ class FileSystemChargeConfigArgs:
                  reclaim_time: Optional[pulumi.Input[builtins.str]] = None,
                  stop_time: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] charge_status: 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
-        :param pulumi.Input[builtins.str] charge_type: 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
-        :param pulumi.Input[builtins.str] expire_time: 到期时间。
-        :param pulumi.Input[builtins.str] reclaim_time: 回收时间。
-        :param pulumi.Input[builtins.str] stop_time: 关停时间。
+        :param pulumi.Input[builtins.str] charge_status: Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
+        :param pulumi.Input[builtins.str] charge_type: Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
+        :param pulumi.Input[builtins.str] expire_time: Expiration time.
+        :param pulumi.Input[builtins.str] reclaim_time: Recycle time.
+        :param pulumi.Input[builtins.str] stop_time: Shutdown time.
         """
         if charge_status is not None:
             pulumi.set(__self__, "charge_status", charge_status)
@@ -83,7 +83,7 @@ class FileSystemChargeConfigArgs:
     @pulumi.getter(name="chargeStatus")
     def charge_status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+        Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
         """
         return pulumi.get(self, "charge_status")
 
@@ -95,7 +95,7 @@ class FileSystemChargeConfigArgs:
     @pulumi.getter(name="chargeType")
     def charge_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         """
         return pulumi.get(self, "charge_type")
 
@@ -107,7 +107,7 @@ class FileSystemChargeConfigArgs:
     @pulumi.getter(name="expireTime")
     def expire_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        到期时间。
+        Expiration time.
         """
         return pulumi.get(self, "expire_time")
 
@@ -119,7 +119,7 @@ class FileSystemChargeConfigArgs:
     @pulumi.getter(name="reclaimTime")
     def reclaim_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        回收时间。
+        Recycle time.
         """
         return pulumi.get(self, "reclaim_time")
 
@@ -131,7 +131,7 @@ class FileSystemChargeConfigArgs:
     @pulumi.getter(name="stopTime")
     def stop_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        关停时间。
+        Shutdown time.
         """
         return pulumi.get(self, "stop_time")
 
@@ -144,31 +144,31 @@ if not MYPY:
     class FileSystemPerformanceArgsDict(TypedDict):
         bandwidth_mode: pulumi.Input[builtins.str]
         """
-        带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+        Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
         """
         baseline_bandwidth: NotRequired[pulumi.Input[builtins.int]]
         """
-        基准带宽。
+        Baseline bandwidth.
         """
         baseline_iops: NotRequired[pulumi.Input[builtins.int]]
         """
-        基准 IOPS。
+        Baseline IOPS.
         """
         burst_bandwidth: NotRequired[pulumi.Input[builtins.int]]
         """
-        突发带宽。
+        Burst bandwidth.
         """
         burst_iops: NotRequired[pulumi.Input[builtins.int]]
         """
-        突发 IOPS。
+        Burst IOPS.
         """
         provisioned_bandwidth: NotRequired[pulumi.Input[builtins.int]]
         """
-        预置带宽。
+        Provisioned bandwidth.
         """
         provisioned_iops: NotRequired[pulumi.Input[builtins.int]]
         """
-        预置 IOPS。
+        Provisioned IOPS.
         """
 elif False:
     FileSystemPerformanceArgsDict: TypeAlias = Mapping[str, Any]
@@ -184,13 +184,13 @@ class FileSystemPerformanceArgs:
                  provisioned_bandwidth: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_iops: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] bandwidth_mode: 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
-        :param pulumi.Input[builtins.int] baseline_bandwidth: 基准带宽。
-        :param pulumi.Input[builtins.int] baseline_iops: 基准 IOPS。
-        :param pulumi.Input[builtins.int] burst_bandwidth: 突发带宽。
-        :param pulumi.Input[builtins.int] burst_iops: 突发 IOPS。
-        :param pulumi.Input[builtins.int] provisioned_bandwidth: 预置带宽。
-        :param pulumi.Input[builtins.int] provisioned_iops: 预置 IOPS。
+        :param pulumi.Input[builtins.str] bandwidth_mode: Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
+        :param pulumi.Input[builtins.int] baseline_bandwidth: Baseline bandwidth.
+        :param pulumi.Input[builtins.int] baseline_iops: Baseline IOPS.
+        :param pulumi.Input[builtins.int] burst_bandwidth: Burst bandwidth.
+        :param pulumi.Input[builtins.int] burst_iops: Burst IOPS.
+        :param pulumi.Input[builtins.int] provisioned_bandwidth: Provisioned bandwidth.
+        :param pulumi.Input[builtins.int] provisioned_iops: Provisioned IOPS.
         """
         pulumi.set(__self__, "bandwidth_mode", bandwidth_mode)
         if baseline_bandwidth is not None:
@@ -210,7 +210,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="bandwidthMode")
     def bandwidth_mode(self) -> pulumi.Input[builtins.str]:
         """
-        带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+        Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
         """
         return pulumi.get(self, "bandwidth_mode")
 
@@ -222,7 +222,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="baselineBandwidth")
     def baseline_bandwidth(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        基准带宽。
+        Baseline bandwidth.
         """
         return pulumi.get(self, "baseline_bandwidth")
 
@@ -234,7 +234,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="baselineIops")
     def baseline_iops(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        基准 IOPS。
+        Baseline IOPS.
         """
         return pulumi.get(self, "baseline_iops")
 
@@ -246,7 +246,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="burstBandwidth")
     def burst_bandwidth(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        突发带宽。
+        Burst bandwidth.
         """
         return pulumi.get(self, "burst_bandwidth")
 
@@ -258,7 +258,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="burstIops")
     def burst_iops(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        突发 IOPS。
+        Burst IOPS.
         """
         return pulumi.get(self, "burst_iops")
 
@@ -270,7 +270,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="provisionedBandwidth")
     def provisioned_bandwidth(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        预置带宽。
+        Provisioned bandwidth.
         """
         return pulumi.get(self, "provisioned_bandwidth")
 
@@ -282,7 +282,7 @@ class FileSystemPerformanceArgs:
     @pulumi.getter(name="provisionedIops")
     def provisioned_iops(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        预置 IOPS。
+        Provisioned IOPS.
         """
         return pulumi.get(self, "provisioned_iops")
 
@@ -295,19 +295,19 @@ if not MYPY:
     class FileSystemStorageArgsDict(TypedDict):
         capacity_limit: NotRequired[pulumi.Input[builtins.int]]
         """
-        容量上限，单位为 MiB。
+        Capacity limit, in MiB.
         """
         capacity_used: NotRequired[pulumi.Input[builtins.int]]
         """
-        已用容量，单位为 MiB。
+        Used capacity, in MiB.
         """
         inode_limit: NotRequired[pulumi.Input[builtins.int]]
         """
-        文件数上限。
+        File count limit.
         """
         inode_used: NotRequired[pulumi.Input[builtins.int]]
         """
-        已用文件数。
+        Used file count.
         """
 elif False:
     FileSystemStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -320,10 +320,10 @@ class FileSystemStorageArgs:
                  inode_limit: Optional[pulumi.Input[builtins.int]] = None,
                  inode_used: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] capacity_limit: 容量上限，单位为 MiB。
-        :param pulumi.Input[builtins.int] capacity_used: 已用容量，单位为 MiB。
-        :param pulumi.Input[builtins.int] inode_limit: 文件数上限。
-        :param pulumi.Input[builtins.int] inode_used: 已用文件数。
+        :param pulumi.Input[builtins.int] capacity_limit: Capacity limit, in MiB.
+        :param pulumi.Input[builtins.int] capacity_used: Used capacity, in MiB.
+        :param pulumi.Input[builtins.int] inode_limit: File count limit.
+        :param pulumi.Input[builtins.int] inode_used: Used file count.
         """
         if capacity_limit is not None:
             pulumi.set(__self__, "capacity_limit", capacity_limit)
@@ -338,7 +338,7 @@ class FileSystemStorageArgs:
     @pulumi.getter(name="capacityLimit")
     def capacity_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        容量上限，单位为 MiB。
+        Capacity limit, in MiB.
         """
         return pulumi.get(self, "capacity_limit")
 
@@ -350,7 +350,7 @@ class FileSystemStorageArgs:
     @pulumi.getter(name="capacityUsed")
     def capacity_used(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        已用容量，单位为 MiB。
+        Used capacity, in MiB.
         """
         return pulumi.get(self, "capacity_used")
 
@@ -362,7 +362,7 @@ class FileSystemStorageArgs:
     @pulumi.getter(name="inodeLimit")
     def inode_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        文件数上限。
+        File count limit.
         """
         return pulumi.get(self, "inode_limit")
 
@@ -374,7 +374,7 @@ class FileSystemStorageArgs:
     @pulumi.getter(name="inodeUsed")
     def inode_used(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        已用文件数。
+        Used file count.
         """
         return pulumi.get(self, "inode_used")
 
@@ -387,15 +387,15 @@ if not MYPY:
     class FileSystemTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键。
+        Tag key.
         """
         type: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+        Tag type. Value description: System: System tag, Custom: Custom tag.
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值。
+        Tag value.
         """
 elif False:
     FileSystemTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -407,9 +407,9 @@ class FileSystemTagArgs:
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键。
-        :param pulumi.Input[builtins.str] type: 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
-        :param pulumi.Input[builtins.str] value: 标签值。
+        :param pulumi.Input[builtins.str] key: Tag key.
+        :param pulumi.Input[builtins.str] type: Tag type. Value description: System: System tag, Custom: Custom tag.
+        :param pulumi.Input[builtins.str] value: Tag value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -422,7 +422,7 @@ class FileSystemTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键。
+        Tag key.
         """
         return pulumi.get(self, "key")
 
@@ -434,7 +434,7 @@ class FileSystemTagArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+        Tag type. Value description: System: System tag, Custom: Custom tag.
         """
         return pulumi.get(self, "type")
 
@@ -446,7 +446,7 @@ class FileSystemTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值。
+        Tag value.
         """
         return pulumi.get(self, "value")
 

@@ -16,14 +16,14 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
     public static final InstanceConnectionInfoArgs Empty = new InstanceConnectionInfoArgs();
 
     /**
-     * 实例的接入点 IP 地址。
+     * Instance endpoint IP address.
      * 
      */
     @Import(name="endpointAddressIp")
     private @Nullable Output<String> endpointAddressIp;
 
     /**
-     * @return 实例的接入点 IP 地址。
+     * @return Instance endpoint IP address.
      * 
      */
     public Optional<Output<String>> endpointAddressIp() {
@@ -31,14 +31,14 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 实例的接入点类型。
+     * Instance access point type.
      * 
      */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     public Optional<Output<String>> endpointType() {
@@ -46,14 +46,14 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 实例的私网接入点地址。
+     * Private network endpoint address for the instance.
      * 
      */
     @Import(name="internalEndpoint")
     private @Nullable Output<String> internalEndpoint;
 
     /**
-     * @return 实例的私网接入点地址。
+     * @return Private network endpoint address for the instance.
      * 
      */
     public Optional<Output<String>> internalEndpoint() {
@@ -61,14 +61,14 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 实例的接入点类型。
+     * Instance access point type.
      * 
      */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     public Optional<Output<String>> networkType() {
@@ -76,14 +76,14 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 实例的公网接入点地址。
+     * Public access point address of the instance.
      * 
      */
     @Import(name="publicEndpoint")
     private @Nullable Output<String> publicEndpoint;
 
     /**
-     * @return 实例的公网接入点地址。
+     * @return Public access point address of the instance.
      * 
      */
     public Optional<Output<String>> publicEndpoint() {
@@ -119,7 +119,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param endpointAddressIp 实例的接入点 IP 地址。
+         * @param endpointAddressIp Instance endpoint IP address.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param endpointAddressIp 实例的接入点 IP 地址。
+         * @param endpointAddressIp Instance endpoint IP address.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param endpointType 实例的接入点类型。
+         * @param endpointType Instance access point type.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param endpointType 实例的接入点类型。
+         * @param endpointType Instance access point type.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param internalEndpoint 实例的私网接入点地址。
+         * @param internalEndpoint Private network endpoint address for the instance.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param internalEndpoint 实例的私网接入点地址。
+         * @param internalEndpoint Private network endpoint address for the instance.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param networkType 实例的接入点类型。
+         * @param networkType Instance access point type.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param networkType 实例的接入点类型。
+         * @param networkType Instance access point type.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param publicEndpoint 实例的公网接入点地址。
+         * @param publicEndpoint Public access point address of the instance.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class InstanceConnectionInfoArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param publicEndpoint 实例的公网接入点地址。
+         * @param publicEndpoint Public access point address of the instance.
          * 
          * @return builder
          * 

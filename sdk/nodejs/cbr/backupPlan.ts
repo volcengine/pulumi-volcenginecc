@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 当需要对备份源进行自动备份时，可以创建备份计划，在备份计划中关联备份源和备份策略，指定备份存储空间，并设置备份数据保留规则等。在创建备份计划后，系统将按照关联备份策略配置，对指定备份源进行统一自动备份。
+ * To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
  *
  * ## Import
  *
@@ -44,32 +44,32 @@ export class BackupPlan extends pulumi.CustomResource {
     }
 
     /**
-     * 创建此计划的账户 ID。
+     * Account ID that created this plan
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
-     * 创建时间。
+     * Creation Time
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * 备份计划 ID。
+     * Backup Plan ID
      */
     public /*out*/ readonly planId!: pulumi.Output<string>;
     /**
-     * 备份策略。
+     * Backup Policy
      */
     public /*out*/ readonly policy!: pulumi.Output<outputs.cbr.BackupPlanPolicy>;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     public readonly policyId!: pulumi.Output<string>;
     public readonly resourceLists!: pulumi.Output<outputs.cbr.BackupPlanResourceList[]>;
     /**
-     * 更新时间。
+     * Update Time
      */
     public /*out*/ readonly updatedTime!: pulumi.Output<string>;
 
@@ -121,32 +121,32 @@ export class BackupPlan extends pulumi.CustomResource {
  */
 export interface BackupPlanState {
     /**
-     * 创建此计划的账户 ID。
+     * Account ID that created this plan
      */
     accountId?: pulumi.Input<string>;
     /**
-     * 创建时间。
+     * Creation Time
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      */
     name?: pulumi.Input<string>;
     /**
-     * 备份计划 ID。
+     * Backup Plan ID
      */
     planId?: pulumi.Input<string>;
     /**
-     * 备份策略。
+     * Backup Policy
      */
     policy?: pulumi.Input<inputs.cbr.BackupPlanPolicy>;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     policyId?: pulumi.Input<string>;
     resourceLists?: pulumi.Input<pulumi.Input<inputs.cbr.BackupPlanResourceList>[]>;
     /**
-     * 更新时间。
+     * Update Time
      */
     updatedTime?: pulumi.Input<string>;
 }
@@ -156,11 +156,11 @@ export interface BackupPlanState {
  */
 export interface BackupPlanArgs {
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      */
     name: pulumi.Input<string>;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     policyId?: pulumi.Input<string>;
     resourceLists: pulumi.Input<pulumi.Input<inputs.cbr.BackupPlanResourceList>[]>;

@@ -19,76 +19,76 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketLifecycleConfig {
     /**
-     * @return 指定未合并的分片任务（碎片）的过期属性。
+     * @return Specify expiration attributes for unmerged multipart tasks (fragments)
      * 
      */
     private GetBucketLifecycleConfigAbortInCompleteMultipartUpload abortInCompleteMultipartUpload;
     /**
-     * @return 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+     * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     private GetBucketLifecycleConfigExpiration expiration;
     /**
-     * @return 指定规则生效的过滤条件。
+     * @return Filter conditions for applying the rule
      * 
      */
     private GetBucketLifecycleConfigFilter filter;
     /**
-     * @return 规则 ID。
+     * @return Rule ID
      * 
      */
     private String lifecycleRuleId;
     private GetBucketLifecycleConfigNoCurrentVersionExpiration noCurrentVersionExpiration;
     /**
-     * @return 基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。
+     * @return Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private List<GetBucketLifecycleConfigNonCurrentVersionTransition> nonCurrentVersionTransitions;
     /**
-     * @return 规则所适用的前缀。
+     * @return Prefix to which the rule applies
      * 
      */
     private String prefix;
     /**
-     * @return 是否启用规则。包括Enabled、Disabled。
+     * @return Enable rule. Includes Enabled, Disabled.
      * 
      */
     private String status;
     /**
-     * @return 标签。
+     * @return Tag
      * 
      */
     private List<GetBucketLifecycleConfigTag> tags;
     /**
-     * @return 基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。
+     * @return Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
      * 
      */
     private List<GetBucketLifecycleConfigTransition> transitions;
 
     private GetBucketLifecycleConfig() {}
     /**
-     * @return 指定未合并的分片任务（碎片）的过期属性。
+     * @return Specify expiration attributes for unmerged multipart tasks (fragments)
      * 
      */
     public GetBucketLifecycleConfigAbortInCompleteMultipartUpload abortInCompleteMultipartUpload() {
         return this.abortInCompleteMultipartUpload;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+     * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public GetBucketLifecycleConfigExpiration expiration() {
         return this.expiration;
     }
     /**
-     * @return 指定规则生效的过滤条件。
+     * @return Filter conditions for applying the rule
      * 
      */
     public GetBucketLifecycleConfigFilter filter() {
         return this.filter;
     }
     /**
-     * @return 规则 ID。
+     * @return Rule ID
      * 
      */
     public String lifecycleRuleId() {
@@ -98,35 +98,35 @@ public final class GetBucketLifecycleConfig {
         return this.noCurrentVersionExpiration;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。
+     * @return Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public List<GetBucketLifecycleConfigNonCurrentVersionTransition> nonCurrentVersionTransitions() {
         return this.nonCurrentVersionTransitions;
     }
     /**
-     * @return 规则所适用的前缀。
+     * @return Prefix to which the rule applies
      * 
      */
     public String prefix() {
         return this.prefix;
     }
     /**
-     * @return 是否启用规则。包括Enabled、Disabled。
+     * @return Enable rule. Includes Enabled, Disabled.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return 标签。
+     * @return Tag
      * 
      */
     public List<GetBucketLifecycleConfigTag> tags() {
         return this.tags;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。
+     * @return Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public List<GetBucketLifecycleConfigTransition> transitions() {

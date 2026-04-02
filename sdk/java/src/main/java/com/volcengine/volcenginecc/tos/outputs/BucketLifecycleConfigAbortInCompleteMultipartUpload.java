@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigAbortInCompleteMultipartUpload {
     /**
-     * @return 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+     * @return Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
      * 
      */
     private @Nullable Integer daysAfterInitiation;
 
     private BucketLifecycleConfigAbortInCompleteMultipartUpload() {}
     /**
-     * @return 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+     * @return Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
      * 
      */
     public Optional<Integer> daysAfterInitiation() {

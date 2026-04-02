@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Outputs
     public sealed class BucketAclOwner
     {
         /// <summary>
-        /// 展示名。
+        /// Display name
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// 账号ID。
+        /// Account ID
         /// </summary>
         public readonly string? OwnerId;
 

@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam.Inputs
     public sealed class GroupUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 用户名。
+        /// Username.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

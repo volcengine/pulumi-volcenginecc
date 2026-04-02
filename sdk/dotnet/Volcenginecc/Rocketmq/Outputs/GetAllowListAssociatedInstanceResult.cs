@@ -15,15 +15,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Outputs
     public sealed class GetAllowListAssociatedInstanceResult
     {
         /// <summary>
-        /// 实例ID。
+        /// Instance ID
         /// </summary>
         public readonly string InstanceId;
         /// <summary>
-        /// 实例名称。
+        /// Instance Name
         /// </summary>
         public readonly string InstanceName;
         /// <summary>
-        /// 实例所属VPC ID。
+        /// VPC ID of the instance
         /// </summary>
         public readonly string Vpc;
 

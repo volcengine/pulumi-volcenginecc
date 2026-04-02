@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FileSystemTag {
     /**
-     * @return 标签键。
+     * @return Tag key.
      * 
      */
     private @Nullable String key;
     /**
-     * @return 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+     * @return Tag type. Value description: System: System tag, Custom: Custom tag.
      * 
      */
     private @Nullable String type;
     /**
-     * @return 标签值。
+     * @return Tag value.
      * 
      */
     private @Nullable String value;
 
     private FileSystemTag() {}
     /**
-     * @return 标签键。
+     * @return Tag key.
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+     * @return Tag type. Value description: System: System tag, Custom: Custom tag.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return 标签值。
+     * @return Tag value.
      * 
      */
     public Optional<String> value() {

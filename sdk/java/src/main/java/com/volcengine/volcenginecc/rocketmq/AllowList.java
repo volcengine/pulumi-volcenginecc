@@ -17,7 +17,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * RocketMQ访问白名单。
+ * RocketMQ Access Allowlist
  * 
  * ## Example Usage
  * 
@@ -34,112 +34,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="volcenginecc:rocketmq/allowList:AllowList")
 public class AllowList extends com.pulumi.resources.CustomResource {
     /**
-     * IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      * 
      */
     @Export(name="allowList", refs={String.class}, tree="[0]")
     private Output<String> allowList;
 
     /**
-     * @return IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * @return IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      * 
      */
     public Output<String> allowList() {
         return this.allowList;
     }
     /**
-     * 白名单分类。
+     * Allowlist Category
      * 
      */
     @Export(name="allowListCategory", refs={String.class}, tree="[0]")
     private Output<String> allowListCategory;
 
     /**
-     * @return 白名单分类。
+     * @return Allowlist Category
      * 
      */
     public Output<String> allowListCategory() {
         return this.allowListCategory;
     }
     /**
-     * 白名单描述。
+     * Allowlist Description
      * 
      */
     @Export(name="allowListDesc", refs={String.class}, tree="[0]")
     private Output<String> allowListDesc;
 
     /**
-     * @return 白名单描述。
+     * @return Allowlist Description
      * 
      */
     public Output<String> allowListDesc() {
         return this.allowListDesc;
     }
     /**
-     * 白名单的id。
+     * Allowlist ID
      * 
      */
     @Export(name="allowListId", refs={String.class}, tree="[0]")
     private Output<String> allowListId;
 
     /**
-     * @return 白名单的id。
+     * @return Allowlist ID
      * 
      */
     public Output<String> allowListId() {
         return this.allowListId;
     }
     /**
-     * 白名单内的 IP 地址（或地址段）总数。
+     * Total number of IP addresses (or address ranges) in the allowlist
      * 
      */
     @Export(name="allowListIpNum", refs={Integer.class}, tree="[0]")
     private Output<Integer> allowListIpNum;
 
     /**
-     * @return 白名单内的 IP 地址（或地址段）总数。
+     * @return Total number of IP addresses (or address ranges) in the allowlist
      * 
      */
     public Output<Integer> allowListIpNum() {
         return this.allowListIpNum;
     }
     /**
-     * 白名单名称。
+     * Allowlist Name
      * 
      */
     @Export(name="allowListName", refs={String.class}, tree="[0]")
     private Output<String> allowListName;
 
     /**
-     * @return 白名单名称。
+     * @return Allowlist Name
      * 
      */
     public Output<String> allowListName() {
         return this.allowListName;
     }
     /**
-     * 白名单内的IP地址类型，当前仅支持IPv4。
+     * IP address type in the allowlist. Only IPv4 is supported
      * 
      */
     @Export(name="allowListType", refs={String.class}, tree="[0]")
     private Output<String> allowListType;
 
     /**
-     * @return 白名单内的IP地址类型，当前仅支持IPv4。
+     * @return IP address type in the allowlist. Only IPv4 is supported
      * 
      */
     public Output<String> allowListType() {
         return this.allowListType;
     }
     /**
-     * 白名单下绑定的实例总数
+     * Total number of instances bound to the allowlist
      * 
      */
     @Export(name="associatedInstanceNum", refs={Integer.class}, tree="[0]")
     private Output<Integer> associatedInstanceNum;
 
     /**
-     * @return 白名单下绑定的实例总数
+     * @return Total number of instances bound to the allowlist
      * 
      */
     public Output<Integer> associatedInstanceNum() {
@@ -152,14 +152,14 @@ public class AllowList extends com.pulumi.resources.CustomResource {
         return this.associatedInstances;
     }
     /**
-     * 实例ID。
+     * Instance ID
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
-     * @return 实例ID。
+     * @return Instance ID
      * 
      */
     public Output<String> instanceId() {

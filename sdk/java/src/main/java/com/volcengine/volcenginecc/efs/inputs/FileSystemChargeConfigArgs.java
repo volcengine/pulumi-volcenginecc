@@ -16,14 +16,14 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
     public static final FileSystemChargeConfigArgs Empty = new FileSystemChargeConfigArgs();
 
     /**
-     * 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+     * Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
      * 
      */
     @Import(name="chargeStatus")
     private @Nullable Output<String> chargeStatus;
 
     /**
-     * @return 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+     * @return Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
      * 
      */
     public Optional<Output<String>> chargeStatus() {
@@ -31,14 +31,14 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     @Import(name="chargeType")
     private @Nullable Output<String> chargeType;
 
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public Optional<Output<String>> chargeType() {
@@ -46,14 +46,14 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 到期时间。
+     * Expiration time.
      * 
      */
     @Import(name="expireTime")
     private @Nullable Output<String> expireTime;
 
     /**
-     * @return 到期时间。
+     * @return Expiration time.
      * 
      */
     public Optional<Output<String>> expireTime() {
@@ -61,14 +61,14 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 回收时间。
+     * Recycle time.
      * 
      */
     @Import(name="reclaimTime")
     private @Nullable Output<String> reclaimTime;
 
     /**
-     * @return 回收时间。
+     * @return Recycle time.
      * 
      */
     public Optional<Output<String>> reclaimTime() {
@@ -76,14 +76,14 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * 关停时间。
+     * Shutdown time.
      * 
      */
     @Import(name="stopTime")
     private @Nullable Output<String> stopTime;
 
     /**
-     * @return 关停时间。
+     * @return Shutdown time.
      * 
      */
     public Optional<Output<String>> stopTime() {
@@ -119,7 +119,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param chargeStatus 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+         * @param chargeStatus Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param chargeStatus 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+         * @param chargeStatus Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param chargeType 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         * @param chargeType Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param chargeType 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         * @param chargeType Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expireTime 到期时间。
+         * @param expireTime Expiration time.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expireTime 到期时间。
+         * @param expireTime Expiration time.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param reclaimTime 回收时间。
+         * @param reclaimTime Recycle time.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param reclaimTime 回收时间。
+         * @param reclaimTime Recycle time.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param stopTime 关停时间。
+         * @param stopTime Shutdown time.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class FileSystemChargeConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param stopTime 关停时间。
+         * @param stopTime Shutdown time.
          * 
          * @return builder
          * 

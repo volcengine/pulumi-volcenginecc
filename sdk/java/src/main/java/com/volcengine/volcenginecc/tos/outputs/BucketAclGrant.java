@@ -12,74 +12,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAclGrant {
     /**
-     * @return 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+     * @return Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
      * 
      */
     private @Nullable String acl;
     /**
-     * @return 授予指定用户所有权限。
+     * @return Grant all permissions to the specified user
      * 
      */
     private @Nullable String grantFullControl;
     /**
-     * @return 授予指定用户读权限。
+     * @return Grant read permission to the specified user
      * 
      */
     private @Nullable String grantRead;
     /**
-     * @return 授予指定用户查看桶 ACL 的权限。
+     * @return Grant permission to specified user to view bucket ACL
      * 
      */
     private @Nullable String grantReadAcp;
     /**
-     * @return 授予指定用户写权限。
+     * @return Grant write permission to specified user
      * 
      */
     private @Nullable String grantWrite;
     /**
-     * @return 授予指定用户修改和删除桶 ACL 的权限。
+     * @return Grant permission to the specified user to modify and delete bucket ACL
      * 
      */
     private @Nullable String grantWriteAcp;
 
     private BucketAclGrant() {}
     /**
-     * @return 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+     * @return Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
      * 
      */
     public Optional<String> acl() {
         return Optional.ofNullable(this.acl);
     }
     /**
-     * @return 授予指定用户所有权限。
+     * @return Grant all permissions to the specified user
      * 
      */
     public Optional<String> grantFullControl() {
         return Optional.ofNullable(this.grantFullControl);
     }
     /**
-     * @return 授予指定用户读权限。
+     * @return Grant read permission to the specified user
      * 
      */
     public Optional<String> grantRead() {
         return Optional.ofNullable(this.grantRead);
     }
     /**
-     * @return 授予指定用户查看桶 ACL 的权限。
+     * @return Grant permission to specified user to view bucket ACL
      * 
      */
     public Optional<String> grantReadAcp() {
         return Optional.ofNullable(this.grantReadAcp);
     }
     /**
-     * @return 授予指定用户写权限。
+     * @return Grant write permission to specified user
      * 
      */
     public Optional<String> grantWrite() {
         return Optional.ofNullable(this.grantWrite);
     }
     /**
-     * @return 授予指定用户修改和删除桶 ACL 的权限。
+     * @return Grant permission to the specified user to modify and delete bucket ACL
      * 
      */
     public Optional<String> grantWriteAcp() {

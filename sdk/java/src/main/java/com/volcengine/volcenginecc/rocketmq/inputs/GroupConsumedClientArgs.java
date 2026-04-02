@@ -17,14 +17,14 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
     public static final GroupConsumedClientArgs Empty = new GroupConsumedClientArgs();
 
     /**
-     * 该消费者实例的地址和端口。
+     * Address and port of this consumer instance.
      * 
      */
     @Import(name="clientAddress")
     private @Nullable Output<String> clientAddress;
 
     /**
-     * @return 该消费者实例的地址和端口。
+     * @return Address and port of this consumer instance.
      * 
      */
     public Optional<Output<String>> clientAddress() {
@@ -32,14 +32,14 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * 该消费者实例的 ID。
+     * ID of this consumer instance.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return 该消费者实例的 ID。
+     * @return ID of this consumer instance.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -47,14 +47,14 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * 消息堆积量。
+     * Message backlog.
      * 
      */
     @Import(name="diff")
     private @Nullable Output<Integer> diff;
 
     /**
-     * @return 消息堆积量。
+     * @return Message backlog.
      * 
      */
     public Optional<Output<Integer>> diff() {
@@ -62,14 +62,14 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * 消费者应用的开发语言。
+     * Development language of the consumer application.
      * 
      */
     @Import(name="language")
     private @Nullable Output<String> language;
 
     /**
-     * @return 消费者应用的开发语言。
+     * @return Development language of the consumer application.
      * 
      */
     public Optional<Output<String>> language() {
@@ -77,14 +77,14 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * 消费端版本。
+     * Consumer version.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return 消费端版本。
+     * @return Consumer version.
      * 
      */
     public Optional<Output<String>> version() {
@@ -120,7 +120,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param clientAddress 该消费者实例的地址和端口。
+         * @param clientAddress Address and port of this consumer instance.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param clientAddress 该消费者实例的地址和端口。
+         * @param clientAddress Address and port of this consumer instance.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param clientId 该消费者实例的 ID。
+         * @param clientId ID of this consumer instance.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param clientId 该消费者实例的 ID。
+         * @param clientId ID of this consumer instance.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param diff 消息堆积量。
+         * @param diff Message backlog.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param diff 消息堆积量。
+         * @param diff Message backlog.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param language 消费者应用的开发语言。
+         * @param language Development language of the consumer application.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param language 消费者应用的开发语言。
+         * @param language Development language of the consumer application.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param version 消费端版本。
+         * @param version Consumer version.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GroupConsumedClientArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param version 消费端版本。
+         * @param version Consumer version.
          * 
          * @return builder
          * 

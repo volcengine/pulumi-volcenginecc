@@ -11,62 +11,62 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceConnectionInfo {
     /**
-     * @return 实例的接入点 IP 地址。
+     * @return Instance endpoint IP address.
      * 
      */
     private String endpointAddressIp;
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     private String endpointType;
     /**
-     * @return 实例的私网接入点地址。
+     * @return Private network endpoint address for the instance.
      * 
      */
     private String internalEndpoint;
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     private String networkType;
     /**
-     * @return 实例的公网接入点地址。
+     * @return Public access point address of the instance.
      * 
      */
     private String publicEndpoint;
 
     private GetInstanceConnectionInfo() {}
     /**
-     * @return 实例的接入点 IP 地址。
+     * @return Instance endpoint IP address.
      * 
      */
     public String endpointAddressIp() {
         return this.endpointAddressIp;
     }
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     public String endpointType() {
         return this.endpointType;
     }
     /**
-     * @return 实例的私网接入点地址。
+     * @return Private network endpoint address for the instance.
      * 
      */
     public String internalEndpoint() {
         return this.internalEndpoint;
     }
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     public String networkType() {
         return this.networkType;
     }
     /**
-     * @return 实例的公网接入点地址。
+     * @return Public access point address of the instance.
      * 
      */
     public String publicEndpoint() {

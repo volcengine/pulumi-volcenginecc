@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketLifecycleConfigNoCurrentVersionExpirationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+        /// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
         /// </summary>
         [Input("nonCurrentDate")]
         public Input<string>? NonCurrentDate { get; set; }
 
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+        /// Number of days to delete historical version objects in the lifecycle rule based on last modified time
         /// </summary>
         [Input("nonCurrentDays")]
         public Input<int>? NonCurrentDays { get; set; }

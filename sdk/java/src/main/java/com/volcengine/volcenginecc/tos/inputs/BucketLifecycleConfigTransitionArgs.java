@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
     public static final BucketLifecycleConfigTransitionArgs Empty = new BucketLifecycleConfigTransitionArgs();
 
     /**
-     * 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+     * Specific date for latest version object transition in lifecycle rules based on last modified time
      * 
      */
     @Import(name="date")
     private @Nullable Output<String> date;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+     * @return Specific date for latest version object transition in lifecycle rules based on last modified time
      * 
      */
     public Optional<Output<String>> date() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
     }
 
     /**
-     * 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+     * Number of days to transition the latest version object in the lifecycle rule based on last modified time
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+     * @return Number of days to transition the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -47,14 +47,14 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
     }
 
     /**
-     * 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     public Optional<Output<String>> storageClass() {
@@ -88,7 +88,7 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param date 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+         * @param date Specific date for latest version object transition in lifecycle rules based on last modified time
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param date 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+         * @param date Specific date for latest version object transition in lifecycle rules based on last modified time
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param days 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+         * @param days Number of days to transition the latest version object in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param days 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+         * @param days Number of days to transition the latest version object in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param storageClass 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+         * @param storageClass Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketLifecycleConfigTransitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param storageClass 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+         * @param storageClass Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
          * 
          * @return builder
          * 

@@ -15,11 +15,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Outputs
     public sealed class BackupResourcePlan
     {
         /// <summary>
-        /// 备份计划 ID
+        /// Backup Plan ID
         /// </summary>
         public readonly string? PlanId;
         /// <summary>
-        /// 备份计划名称
+        /// Backup Plan Name
         /// </summary>
         public readonly string? PlanName;
 

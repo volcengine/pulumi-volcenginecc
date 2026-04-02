@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FileSystemStorage {
     /**
-     * @return 容量上限，单位为 MiB。
+     * @return Capacity limit, in MiB.
      * 
      */
     private @Nullable Integer capacityLimit;
     /**
-     * @return 已用容量，单位为 MiB。
+     * @return Used capacity, in MiB.
      * 
      */
     private @Nullable Integer capacityUsed;
     /**
-     * @return 文件数上限。
+     * @return File count limit.
      * 
      */
     private @Nullable Integer inodeLimit;
     /**
-     * @return 已用文件数。
+     * @return Used file count.
      * 
      */
     private @Nullable Integer inodeUsed;
 
     private FileSystemStorage() {}
     /**
-     * @return 容量上限，单位为 MiB。
+     * @return Capacity limit, in MiB.
      * 
      */
     public Optional<Integer> capacityLimit() {
         return Optional.ofNullable(this.capacityLimit);
     }
     /**
-     * @return 已用容量，单位为 MiB。
+     * @return Used capacity, in MiB.
      * 
      */
     public Optional<Integer> capacityUsed() {
         return Optional.ofNullable(this.capacityUsed);
     }
     /**
-     * @return 文件数上限。
+     * @return File count limit.
      * 
      */
     public Optional<Integer> inodeLimit() {
         return Optional.ofNullable(this.inodeLimit);
     }
     /**
-     * @return 已用文件数。
+     * @return Used file count.
      * 
      */
     public Optional<Integer> inodeUsed() {

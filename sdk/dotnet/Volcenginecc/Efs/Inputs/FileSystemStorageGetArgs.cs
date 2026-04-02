@@ -14,25 +14,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Inputs
     public sealed class FileSystemStorageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 容量上限，单位为 MiB。
+        /// Capacity limit, in MiB.
         /// </summary>
         [Input("capacityLimit")]
         public Input<int>? CapacityLimit { get; set; }
 
         /// <summary>
-        /// 已用容量，单位为 MiB。
+        /// Used capacity, in MiB.
         /// </summary>
         [Input("capacityUsed")]
         public Input<int>? CapacityUsed { get; set; }
 
         /// <summary>
-        /// 文件数上限。
+        /// File count limit.
         /// </summary>
         [Input("inodeLimit")]
         public Input<int>? InodeLimit { get; set; }
 
         /// <summary>
-        /// 已用文件数。
+        /// Used file count.
         /// </summary>
         [Input("inodeUsed")]
         public Input<int>? InodeUsed { get; set; }

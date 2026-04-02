@@ -15,15 +15,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs.Outputs
     public sealed class FileSystemTag
     {
         /// <summary>
-        /// 标签键。
+        /// Tag key.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// 标签类型。取值说明如下：System：系统标签,Custom：自定义标签。
+        /// Tag type. Value description: System: System tag, Custom: Custom tag.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// 标签值。
+        /// Tag value.
         /// </summary>
         public readonly string? Value;
 

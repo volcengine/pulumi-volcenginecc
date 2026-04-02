@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm.Outputs
     public sealed class AllowListAssociatedInstance
     {
         /// <summary>
-        /// 实例ID。
+        /// Instance ID.
         /// </summary>
         public readonly string? InstanceId;
 

@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke.Outputs
     public sealed class ClusterClusterConfigApiServerEndpointsPublicIp
     {
         /// <summary>
-        /// 公网 IP 的 IPv4 地址。
+        /// IPv4 address of the public IP.
         /// </summary>
         public readonly string? Ipv4;
 

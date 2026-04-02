@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vefaas.inputs.GetFunctionArgs;
+import com.volcengine.volcenginecc.vefaas.inputs.GetFunctionPlainArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetKafkaTriggerArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetKafkaTriggerPlainArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetSandboxArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetSandboxPlainArgs;
+import com.volcengine.volcenginecc.vefaas.outputs.GetFunctionResult;
+import com.volcengine.volcenginecc.vefaas.outputs.GetFunctionsResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetKafkaTriggerResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetKafkaTriggersResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetSandboxResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.vefaas.outputs.GetSandboxesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VefaasFunctions {
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionResult> getFunction(GetFunctionArgs args) {
+        return getFunction(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args) {
+        return getFunctionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionResult> getFunction(GetFunctionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionResult> getFunction(GetFunctionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions() {
+        return getFunctions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain() {
+        return getFunctionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args) {
+        return getFunctions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args) {
+        return getFunctionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Function
+     * 
+     */
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VEFAAS::KafkaTrigger
      * 

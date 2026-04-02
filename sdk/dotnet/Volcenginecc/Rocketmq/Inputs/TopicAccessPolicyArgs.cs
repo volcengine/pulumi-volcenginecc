@@ -14,13 +14,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
     public sealed class TopicAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// RocketMQ 密钥的 AccessKey。
+        /// AccessKey of the RocketMQ key.
         /// </summary>
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
         /// <summary>
-        /// 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+        /// User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         /// </summary>
         [Input("authority")]
         public Input<string>? Authority { get; set; }

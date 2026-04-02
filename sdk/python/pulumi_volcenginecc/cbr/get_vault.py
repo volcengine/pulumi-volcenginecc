@@ -55,7 +55,7 @@ class GetVaultResult:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> builtins.str:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -63,7 +63,7 @@ class GetVaultResult:
     @pulumi.getter
     def endpoint(self) -> builtins.str:
         """
-        访问域名。
+        Access Domain Name
         """
         return pulumi.get(self, "endpoint")
 
@@ -79,7 +79,7 @@ class GetVaultResult:
     @pulumi.getter(name="projectName")
     def project_name(self) -> builtins.str:
         """
-        项目名称。
+        Project Name
         """
         return pulumi.get(self, "project_name")
 
@@ -87,7 +87,7 @@ class GetVaultResult:
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetVaultTagResult']:
         """
-        备份库标签。
+        Backup Repository Tag
         """
         return pulumi.get(self, "tags")
 
@@ -95,7 +95,7 @@ class GetVaultResult:
     @pulumi.getter(name="vaultId")
     def vault_id(self) -> builtins.str:
         """
-        备份库 ID。
+        Backup Repository ID
         """
         return pulumi.get(self, "vault_id")
 
@@ -103,7 +103,7 @@ class GetVaultResult:
     @pulumi.getter(name="vaultName")
     def vault_name(self) -> builtins.str:
         """
-        备份库名称。
+        Backup Repository Name
         """
         return pulumi.get(self, "vault_name")
 

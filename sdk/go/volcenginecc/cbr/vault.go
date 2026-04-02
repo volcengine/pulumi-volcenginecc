@@ -12,7 +12,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 用于存放您的备份数据。
+// Used to store your backup data
 //
 // ## Example Usage
 //
@@ -49,16 +49,16 @@ import (
 type Vault struct {
 	pulumi.CustomResourceState
 
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// 访问域名。
+	// Access Domain Name
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// 项目名称。
+	// Project Name
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	Tags        VaultTagArrayOutput `pulumi:"tags"`
-	// 备份库 ID。
+	// Backup Repository ID
 	VaultId pulumi.StringOutput `pulumi:"vaultId"`
-	// 备份库名称。
+	// Backup Repository Name
 	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
 
@@ -95,30 +95,30 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
-	// 创建时间。
+	// Creation Time
 	CreatedTime *string `pulumi:"createdTime"`
-	// 访问域名。
+	// Access Domain Name
 	Endpoint *string `pulumi:"endpoint"`
-	// 项目名称。
+	// Project Name
 	ProjectName *string    `pulumi:"projectName"`
 	Tags        []VaultTag `pulumi:"tags"`
-	// 备份库 ID。
+	// Backup Repository ID
 	VaultId *string `pulumi:"vaultId"`
-	// 备份库名称。
+	// Backup Repository Name
 	VaultName *string `pulumi:"vaultName"`
 }
 
 type VaultState struct {
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringPtrInput
-	// 访问域名。
+	// Access Domain Name
 	Endpoint pulumi.StringPtrInput
-	// 项目名称。
+	// Project Name
 	ProjectName pulumi.StringPtrInput
 	Tags        VaultTagArrayInput
-	// 备份库 ID。
+	// Backup Repository ID
 	VaultId pulumi.StringPtrInput
-	// 备份库名称。
+	// Backup Repository Name
 	VaultName pulumi.StringPtrInput
 }
 
@@ -127,17 +127,17 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
-	// 项目名称。
+	// Project Name
 	ProjectName *string `pulumi:"projectName"`
-	// 备份库名称。
+	// Backup Repository Name
 	VaultName string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
-	// 项目名称。
+	// Project Name
 	ProjectName pulumi.StringPtrInput
-	// 备份库名称。
+	// Backup Repository Name
 	VaultName pulumi.StringInput
 }
 
@@ -228,17 +228,17 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
 }
 
-// 创建时间。
+// Creation Time
 func (o VaultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 访问域名。
+// Access Domain Name
 func (o VaultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// 项目名称。
+// Project Name
 func (o VaultOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
@@ -247,12 +247,12 @@ func (o VaultOutput) Tags() VaultTagArrayOutput {
 	return o.ApplyT(func(v *Vault) VaultTagArrayOutput { return v.Tags }).(VaultTagArrayOutput)
 }
 
-// 备份库 ID。
+// Backup Repository ID
 func (o VaultOutput) VaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.VaultId }).(pulumi.StringOutput)
 }
 
-// 备份库名称。
+// Backup Repository Name
 func (o VaultOutput) VaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.VaultName }).(pulumi.StringOutput)
 }

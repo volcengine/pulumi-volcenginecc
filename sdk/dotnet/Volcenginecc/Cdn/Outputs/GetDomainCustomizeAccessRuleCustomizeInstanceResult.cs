@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cdn.Outputs
     public sealed class GetDomainCustomizeAccessRuleCustomizeInstanceResult
     {
         /// <summary>
-        /// 表示列表中一条规则的配置。
+        /// Describes the configuration for a rule in the list.
         /// </summary>
         public readonly Outputs.GetDomainCustomizeAccessRuleCustomizeInstanceCustomizeRuleResult CustomizeRule;
 

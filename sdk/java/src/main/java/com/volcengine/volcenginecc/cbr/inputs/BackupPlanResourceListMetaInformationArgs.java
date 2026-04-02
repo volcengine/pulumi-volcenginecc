@@ -16,14 +16,14 @@ public final class BackupPlanResourceListMetaInformationArgs extends com.pulumi.
     public static final BackupPlanResourceListMetaInformationArgs Empty = new BackupPlanResourceListMetaInformationArgs();
 
     /**
-     * ECS 的元数据，是一个 JSON string。
+     * ECS metadata, which is a JSON string
      * 
      */
     @Import(name="ecsMeta")
     private @Nullable Output<String> ecsMeta;
 
     /**
-     * @return ECS 的元数据，是一个 JSON string。
+     * @return ECS metadata, which is a JSON string
      * 
      */
     public Optional<Output<String>> ecsMeta() {
@@ -31,14 +31,14 @@ public final class BackupPlanResourceListMetaInformationArgs extends com.pulumi.
     }
 
     /**
-     * vePFS 备份源元数据，是一个 JSON string。
+     * vePFS backup source metadata, which is a JSON string
      * 
      */
     @Import(name="vepfsMeta")
     private @Nullable Output<String> vepfsMeta;
 
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。
+     * @return vePFS backup source metadata, which is a JSON string
      * 
      */
     public Optional<Output<String>> vepfsMeta() {
@@ -71,7 +71,7 @@ public final class BackupPlanResourceListMetaInformationArgs extends com.pulumi.
         }
 
         /**
-         * @param ecsMeta ECS 的元数据，是一个 JSON string。
+         * @param ecsMeta ECS metadata, which is a JSON string
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BackupPlanResourceListMetaInformationArgs extends com.pulumi.
         }
 
         /**
-         * @param ecsMeta ECS 的元数据，是一个 JSON string。
+         * @param ecsMeta ECS metadata, which is a JSON string
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BackupPlanResourceListMetaInformationArgs extends com.pulumi.
         }
 
         /**
-         * @param vepfsMeta vePFS 备份源元数据，是一个 JSON string。
+         * @param vepfsMeta vePFS backup source metadata, which is a JSON string
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BackupPlanResourceListMetaInformationArgs extends com.pulumi.
         }
 
         /**
-         * @param vepfsMeta vePFS 备份源元数据，是一个 JSON string。
+         * @param vepfsMeta vePFS backup source metadata, which is a JSON string
          * 
          * @return builder
          * 

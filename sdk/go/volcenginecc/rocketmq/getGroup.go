@@ -30,43 +30,43 @@ type LookupGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
-	// Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+	// Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
 	ConsumeMessageOrderly bool `pulumi:"consumeMessageOrderly"`
-	// 消费客户端列表。
+	// Consumer client list.
 	ConsumedClients []GetGroupConsumedClient `pulumi:"consumedClients"`
-	// 该 Group 下消费者实例群组订阅的 Topic 信息。
+	// Topic information subscribed by consumer instance groups under this Group.
 	ConsumedTopics []GetGroupConsumedTopic `pulumi:"consumedTopics"`
-	// Group 的创建时间。
+	// Group creation time.
 	CreatedTime string `pulumi:"createdTime"`
-	// Group 的简单描述。
+	// Brief description of the Group.
 	Description string `pulumi:"description"`
-	// Group 的 ID。长度限制为 7~120 个字符，只能包含字母、数字、短划线（-）和下划线（*）。推荐以 GID  - 或 GID* 开头。创建 Group 后无法修改 ID，请谨慎设置。对于2023年6月5日及之前创建的 RocketMQ 实例，Group 名称不可超过 93 个字符。
+	// Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
 	GroupId string `pulumi:"groupId"`
-	// Group 的协议标识，用于备注该 Group 的生产消费协议类型。可指定为 TCP。
+	// Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
 	GroupType string `pulumi:"groupType"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
-	// 实例 ID。
+	// Instance ID.
 	InstanceId string `pulumi:"instanceId"`
-	// Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+	// Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
 	IsSubSame bool `pulumi:"isSubSame"`
-	// 是否顺序消费。
+	// Whether consumption is sequential.
 	LastUpdateTimestamp string `pulumi:"lastUpdateTimestamp"`
-	// 消息延迟时间，消费者实例群组最早的一条未消费消息的生产时间与当前时间的差值。单位为毫秒。
+	// Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
 	MessageDelayTime string `pulumi:"messageDelayTime"`
-	// 消息消费模式。默认为集群模式，请勿在同一 Group 下同时配置集群模式和广播模式。Clustering：集群消费模式，Broadcasting：广播消费模式。
+	// Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
 	MessageModel string `pulumi:"messageModel"`
-	// 消费最大重试次数。
+	// Maximum number of consumption retries.
 	RetryMaxTimes int `pulumi:"retryMaxTimes"`
-	// RocketMQ 版本。
+	// RocketMQ version.
 	RocketmqVersion string `pulumi:"rocketmqVersion"`
-	// 服务状态。Creating：创建中，Running：运行中，Deleting：删除中，Abnormal：异常，Updating：更新中。
+	// Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
 	ServiceStatus string `pulumi:"serviceStatus"`
-	// 消费组状态。Online：消费中，Offline：未消费。
+	// Consumer group status. Online: Consuming, Offline: Not consuming.
 	Status string `pulumi:"status"`
-	// 该 Group 下消费者实例群组接收消息的总 TPS，单位为条/秒。
+	// Total TPS of consumer instance groups under this Group, measured in messages per second.
 	TotalConsumedRate string `pulumi:"totalConsumedRate"`
-	// 消费者实例群组的未消费消息的总量。此处显示的消息堆积量为未过滤 Tag 的总堆积量，包括 Topic 下所有 Tag 的消息。
+	// Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
 	TotalDiff int `pulumi:"totalDiff"`
 }
 
@@ -104,37 +104,37 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
-// Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+// Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
 func (o LookupGroupResultOutput) ConsumeMessageOrderly() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupGroupResult) bool { return v.ConsumeMessageOrderly }).(pulumi.BoolOutput)
 }
 
-// 消费客户端列表。
+// Consumer client list.
 func (o LookupGroupResultOutput) ConsumedClients() GetGroupConsumedClientArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupConsumedClient { return v.ConsumedClients }).(GetGroupConsumedClientArrayOutput)
 }
 
-// 该 Group 下消费者实例群组订阅的 Topic 信息。
+// Topic information subscribed by consumer instance groups under this Group.
 func (o LookupGroupResultOutput) ConsumedTopics() GetGroupConsumedTopicArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupConsumedTopic { return v.ConsumedTopics }).(GetGroupConsumedTopicArrayOutput)
 }
 
-// Group 的创建时间。
+// Group creation time.
 func (o LookupGroupResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Group 的简单描述。
+// Brief description of the Group.
 func (o LookupGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Group 的 ID。长度限制为 7~120 个字符，只能包含字母、数字、短划线（-）和下划线（*）。推荐以 GID  - 或 GID* 开头。创建 Group 后无法修改 ID，请谨慎设置。对于2023年6月5日及之前创建的 RocketMQ 实例，Group 名称不可超过 93 个字符。
+// Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
 func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// Group 的协议标识，用于备注该 Group 的生产消费协议类型。可指定为 TCP。
+// Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
 func (o LookupGroupResultOutput) GroupType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.GroupType }).(pulumi.StringOutput)
 }
@@ -144,57 +144,57 @@ func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// 实例 ID。
+// Instance ID.
 func (o LookupGroupResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Group 内消费者实例群组的订阅关系是否一致。true：一致，false：不一致。
+// Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
 func (o LookupGroupResultOutput) IsSubSame() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupGroupResult) bool { return v.IsSubSame }).(pulumi.BoolOutput)
 }
 
-// 是否顺序消费。
+// Whether consumption is sequential.
 func (o LookupGroupResultOutput) LastUpdateTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.LastUpdateTimestamp }).(pulumi.StringOutput)
 }
 
-// 消息延迟时间，消费者实例群组最早的一条未消费消息的生产时间与当前时间的差值。单位为毫秒。
+// Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
 func (o LookupGroupResultOutput) MessageDelayTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.MessageDelayTime }).(pulumi.StringOutput)
 }
 
-// 消息消费模式。默认为集群模式，请勿在同一 Group 下同时配置集群模式和广播模式。Clustering：集群消费模式，Broadcasting：广播消费模式。
+// Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
 func (o LookupGroupResultOutput) MessageModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.MessageModel }).(pulumi.StringOutput)
 }
 
-// 消费最大重试次数。
+// Maximum number of consumption retries.
 func (o LookupGroupResultOutput) RetryMaxTimes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.RetryMaxTimes }).(pulumi.IntOutput)
 }
 
-// RocketMQ 版本。
+// RocketMQ version.
 func (o LookupGroupResultOutput) RocketmqVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.RocketmqVersion }).(pulumi.StringOutput)
 }
 
-// 服务状态。Creating：创建中，Running：运行中，Deleting：删除中，Abnormal：异常，Updating：更新中。
+// Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
 func (o LookupGroupResultOutput) ServiceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.ServiceStatus }).(pulumi.StringOutput)
 }
 
-// 消费组状态。Online：消费中，Offline：未消费。
+// Consumer group status. Online: Consuming, Offline: Not consuming.
 func (o LookupGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// 该 Group 下消费者实例群组接收消息的总 TPS，单位为条/秒。
+// Total TPS of consumer instance groups under this Group, measured in messages per second.
 func (o LookupGroupResultOutput) TotalConsumedRate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.TotalConsumedRate }).(pulumi.StringOutput)
 }
 
-// 消费者实例群组的未消费消息的总量。此处显示的消息堆积量为未过滤 Tag 的总堆积量，包括 Topic 下所有 Tag 的消息。
+// Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
 func (o LookupGroupResultOutput) TotalDiff() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.TotalDiff }).(pulumi.IntOutput)
 }

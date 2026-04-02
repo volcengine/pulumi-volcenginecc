@@ -14,86 +14,86 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FileSystemPerformance {
     /**
-     * @return 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+     * @return Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
      * 
      */
     private String bandwidthMode;
     /**
-     * @return 基准带宽。
+     * @return Baseline bandwidth.
      * 
      */
     private @Nullable Integer baselineBandwidth;
     /**
-     * @return 基准 IOPS。
+     * @return Baseline IOPS.
      * 
      */
     private @Nullable Integer baselineIops;
     /**
-     * @return 突发带宽。
+     * @return Burst bandwidth.
      * 
      */
     private @Nullable Integer burstBandwidth;
     /**
-     * @return 突发 IOPS。
+     * @return Burst IOPS.
      * 
      */
     private @Nullable Integer burstIops;
     /**
-     * @return 预置带宽。
+     * @return Provisioned bandwidth.
      * 
      */
     private @Nullable Integer provisionedBandwidth;
     /**
-     * @return 预置 IOPS。
+     * @return Provisioned IOPS.
      * 
      */
     private @Nullable Integer provisionedIops;
 
     private FileSystemPerformance() {}
     /**
-     * @return 带宽模式，取值说明如下：Baseline：基线带宽模式,Provisioned：预置带宽模式
+     * @return Bandwidth mode. Value description: Baseline: Baseline bandwidth mode, Provisioned: Provisioned bandwidth mode.
      * 
      */
     public String bandwidthMode() {
         return this.bandwidthMode;
     }
     /**
-     * @return 基准带宽。
+     * @return Baseline bandwidth.
      * 
      */
     public Optional<Integer> baselineBandwidth() {
         return Optional.ofNullable(this.baselineBandwidth);
     }
     /**
-     * @return 基准 IOPS。
+     * @return Baseline IOPS.
      * 
      */
     public Optional<Integer> baselineIops() {
         return Optional.ofNullable(this.baselineIops);
     }
     /**
-     * @return 突发带宽。
+     * @return Burst bandwidth.
      * 
      */
     public Optional<Integer> burstBandwidth() {
         return Optional.ofNullable(this.burstBandwidth);
     }
     /**
-     * @return 突发 IOPS。
+     * @return Burst IOPS.
      * 
      */
     public Optional<Integer> burstIops() {
         return Optional.ofNullable(this.burstIops);
     }
     /**
-     * @return 预置带宽。
+     * @return Provisioned bandwidth.
      * 
      */
     public Optional<Integer> provisionedBandwidth() {
         return Optional.ofNullable(this.provisionedBandwidth);
     }
     /**
-     * @return 预置 IOPS。
+     * @return Provisioned IOPS.
      * 
      */
     public Optional<Integer> provisionedIops() {

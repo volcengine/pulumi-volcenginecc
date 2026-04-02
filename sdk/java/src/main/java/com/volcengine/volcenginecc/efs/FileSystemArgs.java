@@ -20,14 +20,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     public static final FileSystemArgs Empty = new FileSystemArgs();
 
     /**
-     * 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     @Import(name="chargeType")
     private @Nullable Output<String> chargeType;
 
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public Optional<Output<String>> chargeType() {
@@ -35,14 +35,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 描述信息。
+     * Description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return 描述信息。
+     * @return Description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统名称。
+     * File system name.
      * 
      */
     @Import(name="fileSystemName", required=true)
     private Output<String> fileSystemName;
 
     /**
-     * @return 文件系统名称。
+     * @return File system name.
      * 
      */
     public Output<String> fileSystemName() {
@@ -65,14 +65,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Basic：基础型,Premium：高级型
+     * Basic: Basic type, Premium: Premium type.
      * 
      */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
     /**
-     * @return Basic：基础型,Premium：高级型
+     * @return Basic: Basic type, Premium: Premium type.
      * 
      */
     public Output<String> instanceType() {
@@ -80,14 +80,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统性能信息。
+     * File system performance information.
      * 
      */
     @Import(name="performance", required=true)
     private Output<FileSystemPerformanceArgs> performance;
 
     /**
-     * @return 文件系统性能信息。
+     * @return File system performance information.
      * 
      */
     public Output<FileSystemPerformanceArgs> performance() {
@@ -95,14 +95,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     @Import(name="performanceDensity", required=true)
     private Output<String> performanceDensity;
 
     /**
-     * @return 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+     * @return File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
      * 
      */
     public Output<String> performanceDensity() {
@@ -110,14 +110,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 项目名称。
+     * Project name.
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 项目名称。
+     * @return Project name.
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -132,14 +132,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 可用区 ID。
+     * Availability zone ID.
      * 
      */
     @Import(name="zoneId", required=true)
     private Output<String> zoneId;
 
     /**
-     * @return 可用区 ID。
+     * @return Availability zone ID.
      * 
      */
     public Output<String> zoneId() {
@@ -179,7 +179,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeType 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         * @param chargeType Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeType 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+         * @param chargeType Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description 描述信息。
+         * @param description Description.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description 描述信息。
+         * @param description Description.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemName 文件系统名称。
+         * @param fileSystemName File system name.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemName 文件系统名称。
+         * @param fileSystemName File system name.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Basic：基础型,Premium：高级型
+         * @param instanceType Basic: Basic type, Premium: Premium type.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Basic：基础型,Premium：高级型
+         * @param instanceType Basic: Basic type, Premium: Premium type.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performance 文件系统性能信息。
+         * @param performance File system performance information.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performance 文件系统性能信息。
+         * @param performance File system performance information.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceDensity 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+         * @param performanceDensity File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceDensity 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+         * @param performanceDensity File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project name.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 项目名称。
+         * @param projectName Project name.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId 可用区 ID。
+         * @param zoneId Availability zone ID.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId 可用区 ID。
+         * @param zoneId Availability zone ID.
          * 
          * @return builder
          * 

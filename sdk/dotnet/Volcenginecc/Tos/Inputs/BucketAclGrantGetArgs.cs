@@ -14,37 +14,37 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketAclGrantGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+        /// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// 授予指定用户所有权限。
+        /// Grant all permissions to the specified user
         /// </summary>
         [Input("grantFullControl")]
         public Input<string>? GrantFullControl { get; set; }
 
         /// <summary>
-        /// 授予指定用户读权限。
+        /// Grant read permission to the specified user
         /// </summary>
         [Input("grantRead")]
         public Input<string>? GrantRead { get; set; }
 
         /// <summary>
-        /// 授予指定用户查看桶 ACL 的权限。
+        /// Grant permission to specified user to view bucket ACL
         /// </summary>
         [Input("grantReadAcp")]
         public Input<string>? GrantReadAcp { get; set; }
 
         /// <summary>
-        /// 授予指定用户写权限。
+        /// Grant write permission to specified user
         /// </summary>
         [Input("grantWrite")]
         public Input<string>? GrantWrite { get; set; }
 
         /// <summary>
-        /// 授予指定用户修改和删除桶 ACL 的权限。
+        /// Grant permission to the specified user to modify and delete bucket ACL
         /// </summary>
         [Input("grantWriteAcp")]
         public Input<string>? GrantWriteAcp { get; set; }

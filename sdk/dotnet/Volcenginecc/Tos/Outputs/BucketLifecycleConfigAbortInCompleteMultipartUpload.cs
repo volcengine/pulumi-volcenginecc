@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Outputs
     public sealed class BucketLifecycleConfigAbortInCompleteMultipartUpload
     {
         /// <summary>
-        /// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+        /// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
         /// </summary>
         public readonly int? DaysAfterInitiation;
 

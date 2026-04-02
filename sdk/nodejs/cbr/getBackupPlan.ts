@@ -31,11 +31,11 @@ export interface GetBackupPlanArgs {
  */
 export interface GetBackupPlanResult {
     /**
-     * 创建此计划的账户 ID。
+     * Account ID that created this plan
      */
     readonly accountId: string;
     /**
-     * 创建时间。
+     * Creation Time
      */
     readonly createdTime: string;
     /**
@@ -43,27 +43,27 @@ export interface GetBackupPlanResult {
      */
     readonly id: string;
     /**
-     * 备份计划名称。
+     * Backup Plan Name
      */
     readonly name: string;
     /**
-     * 备份计划 ID。
+     * Backup Plan ID
      */
     readonly planId: string;
     /**
-     * 备份策略。
+     * Backup Policy
      */
     readonly policy: outputs.cbr.GetBackupPlanPolicy;
     /**
-     * 备份策略 ID。
+     * Backup Policy ID
      */
     readonly policyId: string;
     /**
-     * 备份源列表。
+     * Backup Source List
      */
     readonly resourceLists: outputs.cbr.GetBackupPlanResourceList[];
     /**
-     * 更新时间。
+     * Update Time
      */
     readonly updatedTime: string;
 }

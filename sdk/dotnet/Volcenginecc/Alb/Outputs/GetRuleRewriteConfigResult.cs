@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Outputs
     public sealed class GetRuleRewriteConfigResult
     {
         /// <summary>
-        /// 重写路径。
+        /// Rewrite path.
         /// </summary>
         public readonly string RewritePath;
 

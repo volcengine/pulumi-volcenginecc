@@ -22,14 +22,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     public static final BucketArgs Empty = new BucketArgs();
 
     /**
-     * 桶的访问控制权限。
+     * Bucket access control permissions
      * 
      */
     @Import(name="acl")
     private @Nullable Output<BucketAclArgs> acl;
 
     /**
-     * @return 桶的访问控制权限。
+     * @return Bucket access control permissions
      * 
      */
     public Optional<Output<BucketAclArgs>> acl() {
@@ -44,14 +44,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      * 
      */
     @Import(name="azRedundancy")
     private @Nullable Output<String> azRedundancy;
 
     /**
-     * @return 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+     * @return Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
      * 
      */
     public Optional<Output<String>> azRedundancy() {
@@ -59,14 +59,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      * 
      */
     @Import(name="bucketType")
     private @Nullable Output<String> bucketType;
 
     /**
-     * @return 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+     * @return Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
      * 
      */
     public Optional<Output<String>> bucketType() {
@@ -74,14 +74,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      * 
      */
     @Import(name="enableVersionStatus")
     private @Nullable Output<String> enableVersionStatus;
 
     /**
-     * @return 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+     * @return Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
      * 
      */
     public Optional<Output<String>> enableVersionStatus() {
@@ -96,14 +96,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 桶名。
+     * Bucket name
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return 桶名。
+     * @return Bucket name
      * 
      */
     public Output<String> name() {
@@ -111,14 +111,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+     * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
     public Optional<Output<String>> policy() {
@@ -126,14 +126,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 存储桶所属项目。
+     * Project associated with the bucket
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 存储桶所属项目。
+     * @return Project associated with the bucket
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -141,14 +141,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      * 
      */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
     /**
-     * @return 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+     * @return Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
      * 
      */
     public Optional<Output<String>> storageClass() {
@@ -197,7 +197,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acl 桶的访问控制权限。
+         * @param acl Bucket access control permissions
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acl 桶的访问控制权限。
+         * @param acl Bucket access control permissions
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azRedundancy 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+         * @param azRedundancy Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azRedundancy 桶的可用区冗余类型。包括single-az：单可用区冗余，multi-az：多可用区冗余。
+         * @param azRedundancy Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketType 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+         * @param bucketType Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketType 桶的类型。包括hns：获取所有分层桶列表，fns：获取所有扁平桶列表。
+         * @param bucketType Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableVersionStatus 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+         * @param enableVersionStatus Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableVersionStatus 存储桶的版本控制状态。Enabled：开启版本控制功能。Suspended：暂停版本控制功能。
+         * @param enableVersionStatus Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name 桶名。
+         * @param name Bucket name
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name 桶名。
+         * @param name Bucket name
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+         * @param policy String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy JSON 格式的字符串，包含了桶策略的信息，但单个桶的所有桶策略 JSON 序列化后总大小不能超过 20KB。
+         * @param policy String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 存储桶所属项目。
+         * @param projectName Project associated with the bucket
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 存储桶所属项目。
+         * @param projectName Project associated with the bucket
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageClass 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+         * @param storageClass Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageClass 桶的默认存储类型。包括STANDARD：标准存储。IA：低频访问存储。INTELLIGENT*TIERING：智能分层存储。ARCHIVE*FR：归档闪回存储。ARCHIVE：归档存储。COLD*ARCHIVE：冷归档存储。DEEP*COLD_ARCHIVE：深度冷归档存储。
+         * @param storageClass Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
          * 
          * @return builder
          * 

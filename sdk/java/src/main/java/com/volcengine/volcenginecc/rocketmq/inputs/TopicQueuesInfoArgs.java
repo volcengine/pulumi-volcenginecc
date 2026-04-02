@@ -17,14 +17,14 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
     public static final TopicQueuesInfoArgs Empty = new TopicQueuesInfoArgs();
 
     /**
-     * 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+     * The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
      * 
      */
     @Import(name="endOffset")
     private @Nullable Output<Integer> endOffset;
 
     /**
-     * @return 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+     * @return The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
      * 
      */
     public Optional<Output<Integer>> endOffset() {
@@ -32,14 +32,14 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 该队列最近一次消息写入的时间。
+     * The time of the most recent message written to this queue.
      * 
      */
     @Import(name="lastUpdateTimestamp")
     private @Nullable Output<Integer> lastUpdateTimestamp;
 
     /**
-     * @return 该队列最近一次消息写入的时间。
+     * @return The time of the most recent message written to this queue.
      * 
      */
     public Optional<Output<Integer>> lastUpdateTimestamp() {
@@ -47,14 +47,14 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+     * The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
      * 
      */
     @Import(name="messageCount")
     private @Nullable Output<Integer> messageCount;
 
     /**
-     * @return 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+     * @return The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
      * 
      */
     public Optional<Output<Integer>> messageCount() {
@@ -62,14 +62,14 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 队列的编号 ID。
+     * Queue ID.
      * 
      */
     @Import(name="queueId")
     private @Nullable Output<String> queueId;
 
     /**
-     * @return 队列的编号 ID。
+     * @return Queue ID.
      * 
      */
     public Optional<Output<String>> queueId() {
@@ -77,14 +77,14 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * 当前队列最早消息的偏移量。
+     * The earliest message offset in the current queue.
      * 
      */
     @Import(name="startOffset")
     private @Nullable Output<Integer> startOffset;
 
     /**
-     * @return 当前队列最早消息的偏移量。
+     * @return The earliest message offset in the current queue.
      * 
      */
     public Optional<Output<Integer>> startOffset() {
@@ -120,7 +120,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param endOffset 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+         * @param endOffset The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param endOffset 当前队列的最大偏移量，即下一条消息的偏移量，当前最新消息的位置为 EndOffset   - 1。
+         * @param endOffset The maximum offset of the current queue, which is the offset of the next message. The position of the latest message is EndOffset   - 1.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lastUpdateTimestamp 该队列最近一次消息写入的时间。
+         * @param lastUpdateTimestamp The time of the most recent message written to this queue.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lastUpdateTimestamp 该队列最近一次消息写入的时间。
+         * @param lastUpdateTimestamp The time of the most recent message written to this queue.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param messageCount 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+         * @param messageCount The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param messageCount 当前队列队列内的消息个数。EndOffset 为下一条消息的偏移量，所以 MessageCount=EndOffset-StartOffset。
+         * @param messageCount The number of messages in the current queue. EndOffset is the offset of the next message, so MessageCount = EndOffset   - StartOffset.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param queueId 队列的编号 ID。
+         * @param queueId Queue ID.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param queueId 队列的编号 ID。
+         * @param queueId Queue ID.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param startOffset 当前队列最早消息的偏移量。
+         * @param startOffset The earliest message offset in the current queue.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class TopicQueuesInfoArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param startOffset 当前队列最早消息的偏移量。
+         * @param startOffset The earliest message offset in the current queue.
          * 
          * @return builder
          * 

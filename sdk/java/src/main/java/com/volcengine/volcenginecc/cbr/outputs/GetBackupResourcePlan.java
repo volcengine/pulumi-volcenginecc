@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupResourcePlan {
     /**
-     * @return 备份计划 ID
+     * @return Backup Plan ID
      * 
      */
     private String planId;
     /**
-     * @return 备份计划名称
+     * @return Backup Plan Name
      * 
      */
     private String planName;
 
     private GetBackupResourcePlan() {}
     /**
-     * @return 备份计划 ID
+     * @return Backup Plan ID
      * 
      */
     public String planId() {
         return this.planId;
     }
     /**
-     * @return 备份计划名称
+     * @return Backup Plan Name
      * 
      */
     public String planName() {

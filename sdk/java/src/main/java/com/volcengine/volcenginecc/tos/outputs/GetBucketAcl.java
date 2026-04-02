@@ -14,38 +14,38 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketAcl {
     /**
-     * @return 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+     * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
      * 
      */
     private Boolean bucketAclDelivered;
     /**
-     * @return 对象的访问控制权限根节点。
+     * @return Root node for object access control permissions
      * 
      */
     private List<GetBucketAclGrant> grants;
     /**
-     * @return 对象所有者。
+     * @return Object owner
      * 
      */
     private GetBucketAclOwner owner;
 
     private GetBucketAcl() {}
     /**
-     * @return 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+     * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
      * 
      */
     public Boolean bucketAclDelivered() {
         return this.bucketAclDelivered;
     }
     /**
-     * @return 对象的访问控制权限根节点。
+     * @return Root node for object access control permissions
      * 
      */
     public List<GetBucketAclGrant> grants() {
         return this.grants;
     }
     /**
-     * @return 对象所有者。
+     * @return Object owner
      * 
      */
     public GetBucketAclOwner owner() {

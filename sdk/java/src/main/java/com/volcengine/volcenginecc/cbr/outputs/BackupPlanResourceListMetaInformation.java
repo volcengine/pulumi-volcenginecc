@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BackupPlanResourceListMetaInformation {
     /**
-     * @return ECS 的元数据，是一个 JSON string。
+     * @return ECS metadata, which is a JSON string
      * 
      */
     private @Nullable String ecsMeta;
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。
+     * @return vePFS backup source metadata, which is a JSON string
      * 
      */
     private @Nullable String vepfsMeta;
 
     private BackupPlanResourceListMetaInformation() {}
     /**
-     * @return ECS 的元数据，是一个 JSON string。
+     * @return ECS metadata, which is a JSON string
      * 
      */
     public Optional<String> ecsMeta() {
         return Optional.ofNullable(this.ecsMeta);
     }
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。
+     * @return vePFS backup source metadata, which is a JSON string
      * 
      */
     public Optional<String> vepfsMeta() {

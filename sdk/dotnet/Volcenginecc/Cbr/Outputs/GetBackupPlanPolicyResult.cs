@@ -15,43 +15,43 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr.Outputs
     public sealed class GetBackupPlanPolicyResult
     {
         /// <summary>
-        /// 创建此策略的账户 ID。
+        /// Account ID that created this policy
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        /// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
         /// </summary>
         public readonly string BackupType;
         /// <summary>
-        /// 创建时间。
+        /// Creation Time
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// 用于指定备份周期，支持标准 crontab 表达式配置。
+        /// Specifies the backup schedule. Supports standard crontab expressions
         /// </summary>
         public readonly string Crontab;
         /// <summary>
-        /// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+        /// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
         /// </summary>
         public readonly bool EnablePolicy;
         /// <summary>
-        /// 策略名称。
+        /// Policy Name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// 该策略已关联的备份计划数量。
+        /// Number of backup plans associated with this policy
         /// </summary>
         public readonly int PlanNumber;
         /// <summary>
-        /// 备份策略 ID。
+        /// Backup Policy ID
         /// </summary>
         public readonly string PolicyId;
         /// <summary>
-        /// 恢复点保留时间，-1 表示持续保留。
+        /// Retention time for recovery points. -1 means retain indefinitely
         /// </summary>
         public readonly int RetentionDay;
         /// <summary>
-        /// 更新时间。
+        /// Update Time
         /// </summary>
         public readonly string UpdatedTime;
 

@@ -15,29 +15,29 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Outputs
     public sealed class BucketLifecycleConfig
     {
         /// <summary>
-        /// 指定未合并的分片任务（碎片）的过期属性。
+        /// Specify expiration attributes for unmerged multipart tasks (fragments)
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigAbortInCompleteMultipartUpload? AbortInCompleteMultipartUpload;
         /// <summary>
-        /// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+        /// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigExpiration? Expiration;
         /// <summary>
-        /// 指定规则生效的过滤条件。
+        /// Filter conditions for applying the rule
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigFilter? Filter;
         /// <summary>
-        /// 规则 ID。
+        /// Rule ID
         /// </summary>
         public readonly string? LifecycleRuleId;
         public readonly Outputs.BucketLifecycleConfigNoCurrentVersionExpiration? NoCurrentVersionExpiration;
         public readonly ImmutableArray<Outputs.BucketLifecycleConfigNonCurrentVersionTransition> NonCurrentVersionTransitions;
         /// <summary>
-        /// 规则所适用的前缀。
+        /// Prefix to which the rule applies
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// 是否启用规则。包括Enabled、Disabled。
+        /// Enable rule. Includes Enabled, Disabled.
         /// </summary>
         public readonly string? Status;
         public readonly ImmutableArray<Outputs.BucketLifecycleConfigTag> Tags;

@@ -15,15 +15,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq.Outputs
     public sealed class InstanceResourceTagTagKv
     {
         /// <summary>
-        /// 标签键。
+        /// Tag key
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// 实例标签的类型，取值如下：CUSTOM：自定义设置标签。SYSTEM：系统标签。
+        /// Type of instance tag. Options: CUSTOM—custom tag; SYSTEM—system tag
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// 标签值。
+        /// Tag value
         /// </summary>
         public readonly string? Value;
 

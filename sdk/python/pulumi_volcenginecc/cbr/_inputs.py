@@ -36,43 +36,43 @@ if not MYPY:
     class BackupPlanPolicyArgsDict(TypedDict):
         account_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        创建此策略的账户 ID。
+        Account ID that created this policy
         """
         backup_type: NotRequired[pulumi.Input[builtins.str]]
         """
-        备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
         """
         created_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        创建时间。
+        Creation Time
         """
         crontab: NotRequired[pulumi.Input[builtins.str]]
         """
-        用于指定备份周期，支持标准 crontab 表达式配置。
+        Specifies the backup schedule. Supports standard crontab expressions
         """
         enable_policy: NotRequired[pulumi.Input[builtins.bool]]
         """
-        是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+        Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
         """
         name: NotRequired[pulumi.Input[builtins.str]]
         """
-        策略名称。
+        Policy Name
         """
         plan_number: NotRequired[pulumi.Input[builtins.int]]
         """
-        该策略已关联的备份计划数量。
+        Number of backup plans associated with this policy
         """
         policy_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         retention_day: NotRequired[pulumi.Input[builtins.int]]
         """
-        恢复点保留时间，-1 表示持续保留。
+        Retention time for recovery points. -1 means retain indefinitely
         """
         updated_time: NotRequired[pulumi.Input[builtins.str]]
         """
-        更新时间。
+        Update Time
         """
 elif False:
     BackupPlanPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -91,16 +91,16 @@ class BackupPlanPolicyArgs:
                  retention_day: Optional[pulumi.Input[builtins.int]] = None,
                  updated_time: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] account_id: 创建此策略的账户 ID。
-        :param pulumi.Input[builtins.str] backup_type: 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
-        :param pulumi.Input[builtins.str] created_time: 创建时间。
-        :param pulumi.Input[builtins.str] crontab: 用于指定备份周期，支持标准 crontab 表达式配置。
-        :param pulumi.Input[builtins.bool] enable_policy: 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
-        :param pulumi.Input[builtins.str] name: 策略名称。
-        :param pulumi.Input[builtins.int] plan_number: 该策略已关联的备份计划数量。
-        :param pulumi.Input[builtins.str] policy_id: 备份策略 ID。
-        :param pulumi.Input[builtins.int] retention_day: 恢复点保留时间，-1 表示持续保留。
-        :param pulumi.Input[builtins.str] updated_time: 更新时间。
+        :param pulumi.Input[builtins.str] account_id: Account ID that created this policy
+        :param pulumi.Input[builtins.str] backup_type: Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
+        :param pulumi.Input[builtins.str] created_time: Creation Time
+        :param pulumi.Input[builtins.str] crontab: Specifies the backup schedule. Supports standard crontab expressions
+        :param pulumi.Input[builtins.bool] enable_policy: Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
+        :param pulumi.Input[builtins.str] name: Policy Name
+        :param pulumi.Input[builtins.int] plan_number: Number of backup plans associated with this policy
+        :param pulumi.Input[builtins.str] policy_id: Backup Policy ID
+        :param pulumi.Input[builtins.int] retention_day: Retention time for recovery points. -1 means retain indefinitely
+        :param pulumi.Input[builtins.str] updated_time: Update Time
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -127,7 +127,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建此策略的账户 ID。
+        Account ID that created this policy
         """
         return pulumi.get(self, "account_id")
 
@@ -139,7 +139,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="backupType")
     def backup_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+        Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
         """
         return pulumi.get(self, "backup_type")
 
@@ -151,7 +151,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        创建时间。
+        Creation Time
         """
         return pulumi.get(self, "created_time")
 
@@ -163,7 +163,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter
     def crontab(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        用于指定备份周期，支持标准 crontab 表达式配置。
+        Specifies the backup schedule. Supports standard crontab expressions
         """
         return pulumi.get(self, "crontab")
 
@@ -175,7 +175,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="enablePolicy")
     def enable_policy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+        Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
         """
         return pulumi.get(self, "enable_policy")
 
@@ -187,7 +187,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        策略名称。
+        Policy Name
         """
         return pulumi.get(self, "name")
 
@@ -199,7 +199,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="planNumber")
     def plan_number(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        该策略已关联的备份计划数量。
+        Number of backup plans associated with this policy
         """
         return pulumi.get(self, "plan_number")
 
@@ -211,7 +211,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份策略 ID。
+        Backup Policy ID
         """
         return pulumi.get(self, "policy_id")
 
@@ -223,7 +223,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="retentionDay")
     def retention_day(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        恢复点保留时间，-1 表示持续保留。
+        Retention time for recovery points. -1 means retain indefinitely
         """
         return pulumi.get(self, "retention_day")
 
@@ -235,7 +235,7 @@ class BackupPlanPolicyArgs:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        更新时间。
+        Update Time
         """
         return pulumi.get(self, "updated_time")
 
@@ -248,15 +248,15 @@ if not MYPY:
     class BackupPlanResourceListArgsDict(TypedDict):
         meta_information: pulumi.Input['BackupPlanResourceListMetaInformationArgsDict']
         """
-        资源的meta信息，创建备份计划时，用于存储额外的配置。
+        Resource meta information, used to store additional configuration when creating a backup plan
         """
         resource_id: pulumi.Input[builtins.str]
         """
-        备份源 ID。
+        Backup Source ID
         """
         resource_type: pulumi.Input[builtins.str]
         """
-        备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+        Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
         """
 elif False:
     BackupPlanResourceListArgsDict: TypeAlias = Mapping[str, Any]
@@ -268,9 +268,9 @@ class BackupPlanResourceListArgs:
                  resource_id: pulumi.Input[builtins.str],
                  resource_type: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input['BackupPlanResourceListMetaInformationArgs'] meta_information: 资源的meta信息，创建备份计划时，用于存储额外的配置。
-        :param pulumi.Input[builtins.str] resource_id: 备份源 ID。
-        :param pulumi.Input[builtins.str] resource_type: 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+        :param pulumi.Input['BackupPlanResourceListMetaInformationArgs'] meta_information: Resource meta information, used to store additional configuration when creating a backup plan
+        :param pulumi.Input[builtins.str] resource_id: Backup Source ID
+        :param pulumi.Input[builtins.str] resource_type: Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
         """
         pulumi.set(__self__, "meta_information", meta_information)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -280,7 +280,7 @@ class BackupPlanResourceListArgs:
     @pulumi.getter(name="metaInformation")
     def meta_information(self) -> pulumi.Input['BackupPlanResourceListMetaInformationArgs']:
         """
-        资源的meta信息，创建备份计划时，用于存储额外的配置。
+        Resource meta information, used to store additional configuration when creating a backup plan
         """
         return pulumi.get(self, "meta_information")
 
@@ -292,7 +292,7 @@ class BackupPlanResourceListArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[builtins.str]:
         """
-        备份源 ID。
+        Backup Source ID
         """
         return pulumi.get(self, "resource_id")
 
@@ -304,7 +304,7 @@ class BackupPlanResourceListArgs:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[builtins.str]:
         """
-        备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+        Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
         """
         return pulumi.get(self, "resource_type")
 
@@ -317,11 +317,11 @@ if not MYPY:
     class BackupPlanResourceListMetaInformationArgsDict(TypedDict):
         ecs_meta: NotRequired[pulumi.Input[builtins.str]]
         """
-        ECS 的元数据，是一个 JSON string。
+        ECS metadata, which is a JSON string
         """
         vepfs_meta: NotRequired[pulumi.Input[builtins.str]]
         """
-        vePFS 备份源元数据，是一个 JSON string。
+        vePFS backup source metadata, which is a JSON string
         """
 elif False:
     BackupPlanResourceListMetaInformationArgsDict: TypeAlias = Mapping[str, Any]
@@ -332,8 +332,8 @@ class BackupPlanResourceListMetaInformationArgs:
                  ecs_meta: Optional[pulumi.Input[builtins.str]] = None,
                  vepfs_meta: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] ecs_meta: ECS 的元数据，是一个 JSON string。
-        :param pulumi.Input[builtins.str] vepfs_meta: vePFS 备份源元数据，是一个 JSON string。
+        :param pulumi.Input[builtins.str] ecs_meta: ECS metadata, which is a JSON string
+        :param pulumi.Input[builtins.str] vepfs_meta: vePFS backup source metadata, which is a JSON string
         """
         if ecs_meta is not None:
             pulumi.set(__self__, "ecs_meta", ecs_meta)
@@ -344,7 +344,7 @@ class BackupPlanResourceListMetaInformationArgs:
     @pulumi.getter(name="ecsMeta")
     def ecs_meta(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ECS 的元数据，是一个 JSON string。
+        ECS metadata, which is a JSON string
         """
         return pulumi.get(self, "ecs_meta")
 
@@ -356,7 +356,7 @@ class BackupPlanResourceListMetaInformationArgs:
     @pulumi.getter(name="vepfsMeta")
     def vepfs_meta(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        vePFS 备份源元数据，是一个 JSON string。
+        vePFS backup source metadata, which is a JSON string
         """
         return pulumi.get(self, "vepfs_meta")
 
@@ -369,11 +369,11 @@ if not MYPY:
     class BackupResourceMetaInformationArgsDict(TypedDict):
         ecs_meta: NotRequired[pulumi.Input[builtins.str]]
         """
-        ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+        ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
         """
         vepfs_meta: NotRequired[pulumi.Input[builtins.str]]
         """
-        vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+        vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
         """
 elif False:
     BackupResourceMetaInformationArgsDict: TypeAlias = Mapping[str, Any]
@@ -384,8 +384,8 @@ class BackupResourceMetaInformationArgs:
                  ecs_meta: Optional[pulumi.Input[builtins.str]] = None,
                  vepfs_meta: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] ecs_meta: ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
-        :param pulumi.Input[builtins.str] vepfs_meta: vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+        :param pulumi.Input[builtins.str] ecs_meta: ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
+        :param pulumi.Input[builtins.str] vepfs_meta: vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
         """
         if ecs_meta is not None:
             pulumi.set(__self__, "ecs_meta", ecs_meta)
@@ -396,7 +396,7 @@ class BackupResourceMetaInformationArgs:
     @pulumi.getter(name="ecsMeta")
     def ecs_meta(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+        ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
         """
         return pulumi.get(self, "ecs_meta")
 
@@ -408,7 +408,7 @@ class BackupResourceMetaInformationArgs:
     @pulumi.getter(name="vepfsMeta")
     def vepfs_meta(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+        vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
         """
         return pulumi.get(self, "vepfs_meta")
 
@@ -421,11 +421,11 @@ if not MYPY:
     class BackupResourcePlanArgsDict(TypedDict):
         plan_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        备份计划 ID
+        Backup Plan ID
         """
         plan_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        备份计划名称
+        Backup Plan Name
         """
 elif False:
     BackupResourcePlanArgsDict: TypeAlias = Mapping[str, Any]
@@ -436,8 +436,8 @@ class BackupResourcePlanArgs:
                  plan_id: Optional[pulumi.Input[builtins.str]] = None,
                  plan_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] plan_id: 备份计划 ID
-        :param pulumi.Input[builtins.str] plan_name: 备份计划名称
+        :param pulumi.Input[builtins.str] plan_id: Backup Plan ID
+        :param pulumi.Input[builtins.str] plan_name: Backup Plan Name
         """
         if plan_id is not None:
             pulumi.set(__self__, "plan_id", plan_id)
@@ -448,7 +448,7 @@ class BackupResourcePlanArgs:
     @pulumi.getter(name="planId")
     def plan_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份计划 ID
+        Backup Plan ID
         """
         return pulumi.get(self, "plan_id")
 
@@ -460,7 +460,7 @@ class BackupResourcePlanArgs:
     @pulumi.getter(name="planName")
     def plan_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        备份计划名称
+        Backup Plan Name
         """
         return pulumi.get(self, "plan_name")
 
@@ -473,11 +473,11 @@ if not MYPY:
     class VaultTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签键。
+        Tag Key
         """
         value: NotRequired[pulumi.Input[builtins.str]]
         """
-        标签值。
+        Tag Value
         """
 elif False:
     VaultTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -488,8 +488,8 @@ class VaultTagArgs:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] key: 标签键。
-        :param pulumi.Input[builtins.str] value: 标签值。
+        :param pulumi.Input[builtins.str] key: Tag Key
+        :param pulumi.Input[builtins.str] value: Tag Value
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -500,7 +500,7 @@ class VaultTagArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签键。
+        Tag Key
         """
         return pulumi.get(self, "key")
 
@@ -512,7 +512,7 @@ class VaultTagArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        标签值。
+        Tag Value
         """
         return pulumi.get(self, "value")
 

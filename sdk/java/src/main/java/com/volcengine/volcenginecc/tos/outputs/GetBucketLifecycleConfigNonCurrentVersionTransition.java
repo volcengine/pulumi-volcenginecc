@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketLifecycleConfigNonCurrentVersionTransition {
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+     * @return Specific date for historical version object transition in lifecycle rules based on last modified time
      * 
      */
     private String nonCurrentDate;
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+     * @return Number of days to transition historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private Integer nonCurrentDays;
     /**
-     * @return 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     private String storageClass;
 
     private GetBucketLifecycleConfigNonCurrentVersionTransition() {}
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+     * @return Specific date for historical version object transition in lifecycle rules based on last modified time
      * 
      */
     public String nonCurrentDate() {
         return this.nonCurrentDate;
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+     * @return Number of days to transition historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Integer nonCurrentDays() {
         return this.nonCurrentDays;
     }
     /**
-     * @return 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+     * @return Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
      * 
      */
     public String storageClass() {

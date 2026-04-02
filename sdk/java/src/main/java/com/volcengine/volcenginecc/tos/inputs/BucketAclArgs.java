@@ -19,14 +19,14 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
     public static final BucketAclArgs Empty = new BucketAclArgs();
 
     /**
-     * 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+     * Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
      * 
      */
     @Import(name="bucketAclDelivered")
     private @Nullable Output<Boolean> bucketAclDelivered;
 
     /**
-     * @return 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+     * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
      * 
      */
     public Optional<Output<Boolean>> bucketAclDelivered() {
@@ -41,14 +41,14 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 对象所有者。
+     * Object owner
      * 
      */
     @Import(name="owner")
     private @Nullable Output<BucketAclOwnerArgs> owner;
 
     /**
-     * @return 对象所有者。
+     * @return Object owner
      * 
      */
     public Optional<Output<BucketAclOwnerArgs>> owner() {
@@ -82,7 +82,7 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketAclDelivered 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+         * @param bucketAclDelivered Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketAclDelivered 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+         * @param bucketAclDelivered Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param owner 对象所有者。
+         * @param owner Object owner
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param owner 对象所有者。
+         * @param owner Object owner
          * 
          * @return builder
          * 

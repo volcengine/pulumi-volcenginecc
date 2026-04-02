@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigNoCurrentVersionExpirationArgs extends c
     public static final BucketLifecycleConfigNoCurrentVersionExpirationArgs Empty = new BucketLifecycleConfigNoCurrentVersionExpirationArgs();
 
     /**
-     * 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+     * Specific date for deleting historical version objects in the lifecycle rule based on last modified time
      * 
      */
     @Import(name="nonCurrentDate")
     private @Nullable Output<String> nonCurrentDate;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+     * @return Specific date for deleting historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Output<String>> nonCurrentDate() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigNoCurrentVersionExpirationArgs extends c
     }
 
     /**
-     * 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+     * Number of days to delete historical version objects in the lifecycle rule based on last modified time
      * 
      */
     @Import(name="nonCurrentDays")
     private @Nullable Output<Integer> nonCurrentDays;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+     * @return Number of days to delete historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Output<Integer>> nonCurrentDays() {
@@ -72,7 +72,7 @@ public final class BucketLifecycleConfigNoCurrentVersionExpirationArgs extends c
         }
 
         /**
-         * @param nonCurrentDate 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+         * @param nonCurrentDate Specific date for deleting historical version objects in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketLifecycleConfigNoCurrentVersionExpirationArgs extends c
         }
 
         /**
-         * @param nonCurrentDate 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+         * @param nonCurrentDate Specific date for deleting historical version objects in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BucketLifecycleConfigNoCurrentVersionExpirationArgs extends c
         }
 
         /**
-         * @param nonCurrentDays 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+         * @param nonCurrentDays Number of days to delete historical version objects in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketLifecycleConfigNoCurrentVersionExpirationArgs extends c
         }
 
         /**
-         * @param nonCurrentDays 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+         * @param nonCurrentDays Number of days to delete historical version objects in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 

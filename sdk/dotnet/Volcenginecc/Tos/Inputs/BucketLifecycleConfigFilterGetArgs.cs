@@ -14,25 +14,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketLifecycleConfigFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 是否启用相等条件。包括Enabled、Disabled。
+        /// Equality condition status. Includes Enabled, Disabled
         /// </summary>
         [Input("greaterThanIncludeEqual")]
         public Input<string>? GreaterThanIncludeEqual { get; set; }
 
         /// <summary>
-        /// 是否启用相等条件。包括Enabled、Disabled。
+        /// Equality condition status. Includes Enabled, Disabled
         /// </summary>
         [Input("lessThanIncludeEqual")]
         public Input<string>? LessThanIncludeEqual { get; set; }
 
         /// <summary>
-        /// 设置规则生效于大于指定大小的对象。
+        /// Apply rule to objects larger than the specified size
         /// </summary>
         [Input("objectSizeGreaterThan")]
         public Input<int>? ObjectSizeGreaterThan { get; set; }
 
         /// <summary>
-        /// 设置规则生效于小于指定大小的对象。
+        /// Apply rule to objects smaller than the specified size
         /// </summary>
         [Input("objectSizeLessThan")]
         public Input<int>? ObjectSizeLessThan { get; set; }

@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetBackupPlanResult {
     /**
-     * @return 创建此计划的账户 ID。
+     * @return Account ID that created this plan
      * 
      */
     private String accountId;
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     private String createdTime;
@@ -29,46 +29,46 @@ public final class GetBackupPlanResult {
      */
     private String id;
     /**
-     * @return 备份计划名称。
+     * @return Backup Plan Name
      * 
      */
     private String name;
     /**
-     * @return 备份计划 ID。
+     * @return Backup Plan ID
      * 
      */
     private String planId;
     /**
-     * @return 备份策略。
+     * @return Backup Policy
      * 
      */
     private GetBackupPlanPolicy policy;
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     private String policyId;
     /**
-     * @return 备份源列表。
+     * @return Backup Source List
      * 
      */
     private List<GetBackupPlanResourceList> resourceLists;
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     private String updatedTime;
 
     private GetBackupPlanResult() {}
     /**
-     * @return 创建此计划的账户 ID。
+     * @return Account ID that created this plan
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 创建时间。
+     * @return Creation Time
      * 
      */
     public String createdTime() {
@@ -82,42 +82,42 @@ public final class GetBackupPlanResult {
         return this.id;
     }
     /**
-     * @return 备份计划名称。
+     * @return Backup Plan Name
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return 备份计划 ID。
+     * @return Backup Plan ID
      * 
      */
     public String planId() {
         return this.planId;
     }
     /**
-     * @return 备份策略。
+     * @return Backup Policy
      * 
      */
     public GetBackupPlanPolicy policy() {
         return this.policy;
     }
     /**
-     * @return 备份策略 ID。
+     * @return Backup Policy ID
      * 
      */
     public String policyId() {
         return this.policyId;
     }
     /**
-     * @return 备份源列表。
+     * @return Backup Source List
      * 
      */
     public List<GetBackupPlanResourceList> resourceLists() {
         return this.resourceLists;
     }
     /**
-     * @return 更新时间。
+     * @return Update Time
      * 
      */
     public String updatedTime() {

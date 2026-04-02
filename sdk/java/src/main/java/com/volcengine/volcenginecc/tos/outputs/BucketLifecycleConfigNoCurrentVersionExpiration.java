@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigNoCurrentVersionExpiration {
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+     * @return Specific date for deleting historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private @Nullable String nonCurrentDate;
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+     * @return Number of days to delete historical version objects in the lifecycle rule based on last modified time
      * 
      */
     private @Nullable Integer nonCurrentDays;
 
     private BucketLifecycleConfigNoCurrentVersionExpiration() {}
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+     * @return Specific date for deleting historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Optional<String> nonCurrentDate() {
         return Optional.ofNullable(this.nonCurrentDate);
     }
     /**
-     * @return 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+     * @return Number of days to delete historical version objects in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Integer> nonCurrentDays() {

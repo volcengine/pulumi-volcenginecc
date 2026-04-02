@@ -20,7 +20,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Escloud.Inputs
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// VPC 名称。
+        /// VPC name
         /// </summary>
         [Input("vpcName")]
         public Input<string>? VpcName { get; set; }

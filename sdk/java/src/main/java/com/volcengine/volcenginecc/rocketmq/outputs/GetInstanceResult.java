@@ -18,62 +18,62 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceResult {
     /**
-     * @return 实例所属的账号 ID。
+     * @return Account ID to which the instance belongs.
      * 
      */
     private String accountId;
     /**
-     * @return 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+     * @return List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
      * 
      */
     private List<String> allowListIds;
     /**
-     * @return 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+     * @return Whether private network domain name supports public resolution. true: enabled false: disabled
      * 
      */
     private Boolean applyPrivateDnsToPublic;
     /**
-     * @return 实例规格更改时，是否自动创建队列。
+     * @return Whether to automatically create queues when the instance specification changes.
      * 
      */
     private Boolean autoScaleQueue;
     /**
-     * @return 剩余可创建的分区数量。
+     * @return Remaining number of partitions that can be created.
      * 
      */
     private Integer availableQueueNumber;
     /**
-     * @return 实例的计费方式等计费信息。
+     * @return Billing method and related billing information for the instance.
      * 
      */
     private GetInstanceChargeDetail chargeDetail;
     /**
-     * @return 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+     * @return Instance compute specification. You can view the currently available compute specifications in the product specifications list.
      * 
      */
     private String computeSpec;
     /**
-     * @return 实例的连接信息。
+     * @return Instance connection information.
      * 
      */
     private List<GetInstanceConnectionInfo> connectionInfos;
     /**
-     * @return 实例的创建时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * @return Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     private String createTime;
     /**
-     * @return EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+     * @return EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
      * 
      */
     private String eipId;
     /**
-     * @return 是否使用 SSL 加密。
+     * @return Whether to use SSL encryption.
      * 
      */
     private Boolean enableSsl;
     /**
-     * @return 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+     * @return Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
      * 
      */
     private Integer fileReservedTime;
@@ -83,186 +83,186 @@ public final class GetInstanceResult {
      */
     private String id;
     /**
-     * @return 实例的简单描述。长度范围为 1~128 个字符。
+     * @return Brief description of the instance. Length range: 1–128 characters.
      * 
      */
     private String instanceDescription;
     /**
-     * @return 实例 ID。
+     * @return Instance ID.
      * 
      */
     private String instanceId;
     /**
-     * @return 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+     * @return Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
      * 
      */
     private String instanceName;
     /**
-     * @return 实例状态。
+     * @return Instance status.
      * 
      */
     private String instanceStatus;
     /**
-     * @return IP 版本， 可选直为 IPv4 或者 DualStack。
+     * @return IP version. Options are IPv4 or DualStack.
      * 
      */
     private String ipVersionType;
     /**
-     * @return 实例网络类型，固定为 PrivateNetwork。
+     * @return Instance network type, fixed as PrivateNetwork.
      * 
      */
     private String networkTypes;
     /**
-     * @return 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+     * @return Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
      * 
      */
     private GetInstanceProductInfo productInfo;
     /**
-     * @return 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+     * @return The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
      * 
      */
     private String projectName;
     /**
-     * @return 实例所在的地域 ID。
+     * @return Region ID where the instance is located.
      * 
      */
     private String regionId;
     /**
-     * @return 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+     * @return The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
      * 
      */
     private String sslMode;
     /**
-     * @return 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+     * @return Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
      * 
      */
     private Integer storageSpace;
     /**
-     * @return 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * @return VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     private String subnetId;
     /**
-     * @return 云资源标签。可以将实例通过标签进行归类，便于实例的搜索和资源聚合。详细说明请参考标签概述。
+     * @return Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
      * 
      */
     private List<GetInstanceTag> tags;
     /**
-     * @return 当前实例已经创建的消费组（Group）个数。
+     * @return Number of consumer groups (Group) currently created for the instance.
      * 
      */
     private Integer usedGroupNumber;
     /**
-     * @return 实例已经使用的队列数。
+     * @return Number of queues already used by the instance.
      * 
      */
     private Integer usedQueueNumber;
     /**
-     * @return 实例已用储空间。单位为 GiB。
+     * @return Used storage space for the instance, in GiB.
      * 
      */
     private Integer usedStorageSpace;
     /**
-     * @return 当前实例已创建的 Topic 个数。
+     * @return Number of topics created in the current instance.
      * 
      */
     private Integer usedTopicNumber;
     /**
-     * @return 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+     * @return Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
      * 
      */
     private String version;
     /**
-     * @return 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * @return VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     private String vpcId;
     /**
-     * @return 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+     * @return Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
      * 
      */
     private String zoneId;
 
     private GetInstanceResult() {}
     /**
-     * @return 实例所属的账号 ID。
+     * @return Account ID to which the instance belongs.
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+     * @return List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
      * 
      */
     public List<String> allowListIds() {
         return this.allowListIds;
     }
     /**
-     * @return 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+     * @return Whether private network domain name supports public resolution. true: enabled false: disabled
      * 
      */
     public Boolean applyPrivateDnsToPublic() {
         return this.applyPrivateDnsToPublic;
     }
     /**
-     * @return 实例规格更改时，是否自动创建队列。
+     * @return Whether to automatically create queues when the instance specification changes.
      * 
      */
     public Boolean autoScaleQueue() {
         return this.autoScaleQueue;
     }
     /**
-     * @return 剩余可创建的分区数量。
+     * @return Remaining number of partitions that can be created.
      * 
      */
     public Integer availableQueueNumber() {
         return this.availableQueueNumber;
     }
     /**
-     * @return 实例的计费方式等计费信息。
+     * @return Billing method and related billing information for the instance.
      * 
      */
     public GetInstanceChargeDetail chargeDetail() {
         return this.chargeDetail;
     }
     /**
-     * @return 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+     * @return Instance compute specification. You can view the currently available compute specifications in the product specifications list.
      * 
      */
     public String computeSpec() {
         return this.computeSpec;
     }
     /**
-     * @return 实例的连接信息。
+     * @return Instance connection information.
      * 
      */
     public List<GetInstanceConnectionInfo> connectionInfos() {
         return this.connectionInfos;
     }
     /**
-     * @return 实例的创建时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * @return Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
-     * @return EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+     * @return EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
      * 
      */
     public String eipId() {
         return this.eipId;
     }
     /**
-     * @return 是否使用 SSL 加密。
+     * @return Whether to use SSL encryption.
      * 
      */
     public Boolean enableSsl() {
         return this.enableSsl;
     }
     /**
-     * @return 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+     * @return Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
      * 
      */
     public Integer fileReservedTime() {
@@ -276,140 +276,140 @@ public final class GetInstanceResult {
         return this.id;
     }
     /**
-     * @return 实例的简单描述。长度范围为 1~128 个字符。
+     * @return Brief description of the instance. Length range: 1–128 characters.
      * 
      */
     public String instanceDescription() {
         return this.instanceDescription;
     }
     /**
-     * @return 实例 ID。
+     * @return Instance ID.
      * 
      */
     public String instanceId() {
         return this.instanceId;
     }
     /**
-     * @return 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+     * @return Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
      * 
      */
     public String instanceName() {
         return this.instanceName;
     }
     /**
-     * @return 实例状态。
+     * @return Instance status.
      * 
      */
     public String instanceStatus() {
         return this.instanceStatus;
     }
     /**
-     * @return IP 版本， 可选直为 IPv4 或者 DualStack。
+     * @return IP version. Options are IPv4 or DualStack.
      * 
      */
     public String ipVersionType() {
         return this.ipVersionType;
     }
     /**
-     * @return 实例网络类型，固定为 PrivateNetwork。
+     * @return Instance network type, fixed as PrivateNetwork.
      * 
      */
     public String networkTypes() {
         return this.networkTypes;
     }
     /**
-     * @return 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+     * @return Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
      * 
      */
     public GetInstanceProductInfo productInfo() {
         return this.productInfo;
     }
     /**
-     * @return 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+     * @return The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
      * 
      */
     public String projectName() {
         return this.projectName;
     }
     /**
-     * @return 实例所在的地域 ID。
+     * @return Region ID where the instance is located.
      * 
      */
     public String regionId() {
         return this.regionId;
     }
     /**
-     * @return 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+     * @return The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
      * 
      */
     public String sslMode() {
         return this.sslMode;
     }
     /**
-     * @return 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+     * @return Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
      * 
      */
     public Integer storageSpace() {
         return this.storageSpace;
     }
     /**
-     * @return 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * @return VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     public String subnetId() {
         return this.subnetId;
     }
     /**
-     * @return 云资源标签。可以将实例通过标签进行归类，便于实例的搜索和资源聚合。详细说明请参考标签概述。
+     * @return Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
      * 
      */
     public List<GetInstanceTag> tags() {
         return this.tags;
     }
     /**
-     * @return 当前实例已经创建的消费组（Group）个数。
+     * @return Number of consumer groups (Group) currently created for the instance.
      * 
      */
     public Integer usedGroupNumber() {
         return this.usedGroupNumber;
     }
     /**
-     * @return 实例已经使用的队列数。
+     * @return Number of queues already used by the instance.
      * 
      */
     public Integer usedQueueNumber() {
         return this.usedQueueNumber;
     }
     /**
-     * @return 实例已用储空间。单位为 GiB。
+     * @return Used storage space for the instance, in GiB.
      * 
      */
     public Integer usedStorageSpace() {
         return this.usedStorageSpace;
     }
     /**
-     * @return 当前实例已创建的 Topic 个数。
+     * @return Number of topics created in the current instance.
      * 
      */
     public Integer usedTopicNumber() {
         return this.usedTopicNumber;
     }
     /**
-     * @return 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+     * @return Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
      * 
      */
     public String version() {
         return this.version;
     }
     /**
-     * @return 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * @return VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     public String vpcId() {
         return this.vpcId;
     }
     /**
-     * @return 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+     * @return Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
      * 
      */
     public String zoneId() {

@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.cen.inputs.GetCenArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetCenPlainArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetGrantInstanceArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetGrantInstancePlainArgs;
 import com.volcengine.volcenginecc.cen.outputs.GetCenResult;
 import com.volcengine.volcenginecc.cen.outputs.GetCensResult;
+import com.volcengine.volcenginecc.cen.outputs.GetGrantInstanceResult;
+import com.volcengine.volcenginecc.cen.outputs.GetGrantInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CenFunctions {
@@ -100,5 +104,89 @@ public final class CenFunctions {
      */
     public static CompletableFuture<GetCensResult> getCensPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:cen/getCens:getCens", TypeShape.of(GetCensResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstanceResult> getGrantInstance(GetGrantInstanceArgs args) {
+        return getGrantInstance(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static CompletableFuture<GetGrantInstanceResult> getGrantInstancePlain(GetGrantInstancePlainArgs args) {
+        return getGrantInstancePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstanceResult> getGrantInstance(GetGrantInstanceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getGrantInstance:getGrantInstance", TypeShape.of(GetGrantInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstanceResult> getGrantInstance(GetGrantInstanceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getGrantInstance:getGrantInstance", TypeShape.of(GetGrantInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static CompletableFuture<GetGrantInstanceResult> getGrantInstancePlain(GetGrantInstancePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getGrantInstance:getGrantInstance", TypeShape.of(GetGrantInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstancesResult> getGrantInstances() {
+        return getGrantInstances(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static CompletableFuture<GetGrantInstancesResult> getGrantInstancesPlain() {
+        return getGrantInstancesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstancesResult> getGrantInstances(InvokeArgs args) {
+        return getGrantInstances(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static CompletableFuture<GetGrantInstancesResult> getGrantInstancesPlain(InvokeArgs args) {
+        return getGrantInstancesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstancesResult> getGrantInstances(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getGrantInstances:getGrantInstances", TypeShape.of(GetGrantInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static Output<GetGrantInstancesResult> getGrantInstances(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getGrantInstances:getGrantInstances", TypeShape.of(GetGrantInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::GrantInstance
+     * 
+     */
+    public static CompletableFuture<GetGrantInstancesResult> getGrantInstancesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getGrantInstances:getGrantInstances", TypeShape.of(GetGrantInstancesResult.class), args, Utilities.withVersion(options));
     }
 }

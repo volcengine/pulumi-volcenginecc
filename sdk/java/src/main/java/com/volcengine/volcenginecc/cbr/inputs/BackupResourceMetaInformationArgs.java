@@ -16,14 +16,14 @@ public final class BackupResourceMetaInformationArgs extends com.pulumi.resource
     public static final BackupResourceMetaInformationArgs Empty = new BackupResourceMetaInformationArgs();
 
     /**
-     * ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+     * ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
      * 
      */
     @Import(name="ecsMeta")
     private @Nullable Output<String> ecsMeta;
 
     /**
-     * @return ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+     * @return ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
      * 
      */
     public Optional<Output<String>> ecsMeta() {
@@ -31,14 +31,14 @@ public final class BackupResourceMetaInformationArgs extends com.pulumi.resource
     }
 
     /**
-     * vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+     * vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
      * 
      */
     @Import(name="vepfsMeta")
     private @Nullable Output<String> vepfsMeta;
 
     /**
-     * @return vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+     * @return vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
      * 
      */
     public Optional<Output<String>> vepfsMeta() {
@@ -71,7 +71,7 @@ public final class BackupResourceMetaInformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ecsMeta ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+         * @param ecsMeta ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BackupResourceMetaInformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param ecsMeta ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+         * @param ecsMeta ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BackupResourceMetaInformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vepfsMeta vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+         * @param vepfsMeta vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BackupResourceMetaInformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vepfsMeta vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+         * @param vepfsMeta vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
          * 
          * @return builder
          * 

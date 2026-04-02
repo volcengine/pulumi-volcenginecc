@@ -30,47 +30,47 @@ type LookupFileSystemArgs struct {
 
 // A collection of values returned by getFileSystem.
 type LookupFileSystemResult struct {
-	// 接入点上限。
+	// Access point limit.
 	AccessPointLimit int `pulumi:"accessPointLimit"`
-	// 文件系统计费配置。
+	// File system billing configuration.
 	ChargeConfig GetFileSystemChargeConfig `pulumi:"chargeConfig"`
-	// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+	// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 	ChargeType string `pulumi:"chargeType"`
-	// 文件系统创建时间。
+	// File system creation time.
 	CreateTime string `pulumi:"createTime"`
-	// 描述信息。
+	// Description.
 	Description string `pulumi:"description"`
-	// 文件系统带宽可以降配的时间。
+	// Time when file system bandwidth can be downgraded.
 	DowngradeUnlockTime string `pulumi:"downgradeUnlockTime"`
-	// 文件系统 ID。
+	// File system ID.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// 文件系统名称。
+	// File system name.
 	FileSystemName string `pulumi:"fileSystemName"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
-	// Basic：基础型,Premium：高级型
+	// Basic: Basic type, Premium: Premium type.
 	InstanceType string `pulumi:"instanceType"`
-	// 挂载点上限。
+	// Mount point limit.
 	MountPointLimit int `pulumi:"mountPointLimit"`
-	// 文件系统性能信息。
+	// File system performance information.
 	Performance GetFileSystemPerformance `pulumi:"performance"`
-	// 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+	// File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
 	PerformanceDensity string `pulumi:"performanceDensity"`
-	// 项目名称。
+	// Project name.
 	ProjectName string `pulumi:"projectName"`
-	// 协议类型
+	// Protocol type.
 	ProtocolTypes []string `pulumi:"protocolTypes"`
-	// 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+	// File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
 	Status string `pulumi:"status"`
-	// 文件系统容量信息。
+	// File system capacity information.
 	Storage GetFileSystemStorage `pulumi:"storage"`
-	// 标签列表。
+	// Tag list.
 	Tags []GetFileSystemTag `pulumi:"tags"`
-	// 文件系统更新时间。
+	// File system update time.
 	UpdateTime string `pulumi:"updateTime"`
-	// 可用区 ID。
+	// Availability zone ID.
 	ZoneId string `pulumi:"zoneId"`
-	// 可用区名称。
+	// Availability zone name.
 	ZoneName string `pulumi:"zoneName"`
 }
 
@@ -108,42 +108,42 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(
 	return o
 }
 
-// 接入点上限。
+// Access point limit.
 func (o LookupFileSystemResultOutput) AccessPointLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) int { return v.AccessPointLimit }).(pulumi.IntOutput)
 }
 
-// 文件系统计费配置。
+// File system billing configuration.
 func (o LookupFileSystemResultOutput) ChargeConfig() GetFileSystemChargeConfigOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemChargeConfig { return v.ChargeConfig }).(GetFileSystemChargeConfigOutput)
 }
 
-// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
 func (o LookupFileSystemResultOutput) ChargeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.ChargeType }).(pulumi.StringOutput)
 }
 
-// 文件系统创建时间。
+// File system creation time.
 func (o LookupFileSystemResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// 描述信息。
+// Description.
 func (o LookupFileSystemResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// 文件系统带宽可以降配的时间。
+// Time when file system bandwidth can be downgraded.
 func (o LookupFileSystemResultOutput) DowngradeUnlockTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.DowngradeUnlockTime }).(pulumi.StringOutput)
 }
 
-// 文件系统 ID。
+// File system ID.
 func (o LookupFileSystemResultOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// 文件系统名称。
+// File system name.
 func (o LookupFileSystemResultOutput) FileSystemName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.FileSystemName }).(pulumi.StringOutput)
 }
@@ -153,62 +153,62 @@ func (o LookupFileSystemResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Basic：基础型,Premium：高级型
+// Basic: Basic type, Premium: Premium type.
 func (o LookupFileSystemResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// 挂载点上限。
+// Mount point limit.
 func (o LookupFileSystemResultOutput) MountPointLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) int { return v.MountPointLimit }).(pulumi.IntOutput)
 }
 
-// 文件系统性能信息。
+// File system performance information.
 func (o LookupFileSystemResultOutput) Performance() GetFileSystemPerformanceOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemPerformance { return v.Performance }).(GetFileSystemPerformanceOutput)
 }
 
-// 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+// File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
 func (o LookupFileSystemResultOutput) PerformanceDensity() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.PerformanceDensity }).(pulumi.StringOutput)
 }
 
-// 项目名称。
+// Project name.
 func (o LookupFileSystemResultOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// 协议类型
+// Protocol type.
 func (o LookupFileSystemResultOutput) ProtocolTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) []string { return v.ProtocolTypes }).(pulumi.StringArrayOutput)
 }
 
-// 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+// File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
 func (o LookupFileSystemResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// 文件系统容量信息。
+// File system capacity information.
 func (o LookupFileSystemResultOutput) Storage() GetFileSystemStorageOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemStorage { return v.Storage }).(GetFileSystemStorageOutput)
 }
 
-// 标签列表。
+// Tag list.
 func (o LookupFileSystemResultOutput) Tags() GetFileSystemTagArrayOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemTag { return v.Tags }).(GetFileSystemTagArrayOutput)
 }
 
-// 文件系统更新时间。
+// File system update time.
 func (o LookupFileSystemResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }
 
-// 可用区 ID。
+// Availability zone ID.
 func (o LookupFileSystemResultOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.ZoneId }).(pulumi.StringOutput)
 }
 
-// 可用区名称。
+// Availability zone name.
 func (o LookupFileSystemResultOutput) ZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.ZoneName }).(pulumi.StringOutput)
 }

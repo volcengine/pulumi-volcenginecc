@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor.Inputs
     public sealed class RuleRecoveryNotifyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 是否开启告警恢复通知。取值：true：（默认）开启告警恢复通知。false：关闭告警恢复通知。
+        /// Enable alert recovery notification. Options: true: (default) enable alert recovery notification, false: disable alert recovery notification.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }

@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TopicReadAccessPolicy {
     /**
-     * @return RocketMQ 密钥的 AccessKey。
+     * @return AccessKey of the RocketMQ key.
      * 
      */
     private @Nullable String accessKey;
     /**
-     * @return 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+     * @return User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
      * 
      */
     private @Nullable String authority;
 
     private TopicReadAccessPolicy() {}
     /**
-     * @return RocketMQ 密钥的 AccessKey。
+     * @return AccessKey of the RocketMQ key.
      * 
      */
     public Optional<String> accessKey() {
         return Optional.ofNullable(this.accessKey);
     }
     /**
-     * @return 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+     * @return User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
      * 
      */
     public Optional<String> authority() {

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * RocketMQ访问白名单。
+ * RocketMQ Access Allowlist
  *
  * ## Import
  *
@@ -44,40 +44,40 @@ export class AllowList extends pulumi.CustomResource {
     }
 
     /**
-     * IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      */
     public readonly allowList!: pulumi.Output<string>;
     /**
-     * 白名单分类。
+     * Allowlist Category
      */
     public readonly allowListCategory!: pulumi.Output<string>;
     /**
-     * 白名单描述。
+     * Allowlist Description
      */
     public readonly allowListDesc!: pulumi.Output<string>;
     /**
-     * 白名单的id。
+     * Allowlist ID
      */
     public /*out*/ readonly allowListId!: pulumi.Output<string>;
     /**
-     * 白名单内的 IP 地址（或地址段）总数。
+     * Total number of IP addresses (or address ranges) in the allowlist
      */
     public /*out*/ readonly allowListIpNum!: pulumi.Output<number>;
     /**
-     * 白名单名称。
+     * Allowlist Name
      */
     public readonly allowListName!: pulumi.Output<string>;
     /**
-     * 白名单内的IP地址类型，当前仅支持IPv4。
+     * IP address type in the allowlist. Only IPv4 is supported
      */
     public readonly allowListType!: pulumi.Output<string>;
     /**
-     * 白名单下绑定的实例总数
+     * Total number of instances bound to the allowlist
      */
     public /*out*/ readonly associatedInstanceNum!: pulumi.Output<number>;
     public readonly associatedInstances!: pulumi.Output<outputs.rocketmq.AllowListAssociatedInstance[]>;
     /**
-     * 实例ID。
+     * Instance ID
      */
     public readonly instanceId!: pulumi.Output<string>;
 
@@ -130,40 +130,40 @@ export class AllowList extends pulumi.CustomResource {
  */
 export interface AllowListState {
     /**
-     * IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      */
     allowList?: pulumi.Input<string>;
     /**
-     * 白名单分类。
+     * Allowlist Category
      */
     allowListCategory?: pulumi.Input<string>;
     /**
-     * 白名单描述。
+     * Allowlist Description
      */
     allowListDesc?: pulumi.Input<string>;
     /**
-     * 白名单的id。
+     * Allowlist ID
      */
     allowListId?: pulumi.Input<string>;
     /**
-     * 白名单内的 IP 地址（或地址段）总数。
+     * Total number of IP addresses (or address ranges) in the allowlist
      */
     allowListIpNum?: pulumi.Input<number>;
     /**
-     * 白名单名称。
+     * Allowlist Name
      */
     allowListName?: pulumi.Input<string>;
     /**
-     * 白名单内的IP地址类型，当前仅支持IPv4。
+     * IP address type in the allowlist. Only IPv4 is supported
      */
     allowListType?: pulumi.Input<string>;
     /**
-     * 白名单下绑定的实例总数
+     * Total number of instances bound to the allowlist
      */
     associatedInstanceNum?: pulumi.Input<number>;
     associatedInstances?: pulumi.Input<pulumi.Input<inputs.rocketmq.AllowListAssociatedInstance>[]>;
     /**
-     * 实例ID。
+     * Instance ID
      */
     instanceId?: pulumi.Input<string>;
 }
@@ -173,28 +173,28 @@ export interface AllowListState {
  */
 export interface AllowListArgs {
     /**
-     * IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+     * IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
      */
     allowList?: pulumi.Input<string>;
     /**
-     * 白名单分类。
+     * Allowlist Category
      */
     allowListCategory?: pulumi.Input<string>;
     /**
-     * 白名单描述。
+     * Allowlist Description
      */
     allowListDesc?: pulumi.Input<string>;
     /**
-     * 白名单名称。
+     * Allowlist Name
      */
     allowListName: pulumi.Input<string>;
     /**
-     * 白名单内的IP地址类型，当前仅支持IPv4。
+     * IP address type in the allowlist. Only IPv4 is supported
      */
     allowListType?: pulumi.Input<string>;
     associatedInstances?: pulumi.Input<pulumi.Input<inputs.rocketmq.AllowListAssociatedInstance>[]>;
     /**
-     * 实例ID。
+     * Instance ID
      */
     instanceId?: pulumi.Input<string>;
 }

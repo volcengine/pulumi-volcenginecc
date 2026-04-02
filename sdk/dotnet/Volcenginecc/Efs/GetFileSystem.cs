@@ -65,35 +65,35 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
     public sealed class GetFileSystemResult
     {
         /// <summary>
-        /// 接入点上限。
+        /// Access point limit.
         /// </summary>
         public readonly int AccessPointLimit;
         /// <summary>
-        /// 文件系统计费配置。
+        /// File system billing configuration.
         /// </summary>
         public readonly Outputs.GetFileSystemChargeConfigResult ChargeConfig;
         /// <summary>
-        /// 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+        /// Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
         /// </summary>
         public readonly string ChargeType;
         /// <summary>
-        /// 文件系统创建时间。
+        /// File system creation time.
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// 描述信息。
+        /// Description.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// 文件系统带宽可以降配的时间。
+        /// Time when file system bandwidth can be downgraded.
         /// </summary>
         public readonly string DowngradeUnlockTime;
         /// <summary>
-        /// 文件系统 ID。
+        /// File system ID.
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
-        /// 文件系统名称。
+        /// File system name.
         /// </summary>
         public readonly string FileSystemName;
         /// <summary>
@@ -101,51 +101,51 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Basic：基础型,Premium：高级型
+        /// Basic: Basic type, Premium: Premium type.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// 挂载点上限。
+        /// Mount point limit.
         /// </summary>
         public readonly int MountPointLimit;
         /// <summary>
-        /// 文件系统性能信息。
+        /// File system performance information.
         /// </summary>
         public readonly Outputs.GetFileSystemPerformanceResult Performance;
         /// <summary>
-        /// 文件系统性能密度，取值说明如下：Basic*50：基础型 50MB/s/TiB,Premium*125：高级型 125MB/s/TiB。
+        /// File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
         /// </summary>
         public readonly string PerformanceDensity;
         /// <summary>
-        /// 项目名称。
+        /// Project name.
         /// </summary>
         public readonly string ProjectName;
         /// <summary>
-        /// 协议类型
+        /// Protocol type.
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
         /// <summary>
-        /// 文件系统状态。取值说明如下：Creating：创建中。CreateError：创建失败。Running：运行中。Updating：更新中。Deleting：删除中。DeleteError：删除失败。Deleted：已删除。Stopped：已关停。
+        /// File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// 文件系统容量信息。
+        /// File system capacity information.
         /// </summary>
         public readonly Outputs.GetFileSystemStorageResult Storage;
         /// <summary>
-        /// 标签列表。
+        /// Tag list.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFileSystemTagResult> Tags;
         /// <summary>
-        /// 文件系统更新时间。
+        /// File system update time.
         /// </summary>
         public readonly string UpdateTime;
         /// <summary>
-        /// 可用区 ID。
+        /// Availability zone ID.
         /// </summary>
         public readonly string ZoneId;
         /// <summary>
-        /// 可用区名称。
+        /// Availability zone name.
         /// </summary>
         public readonly string ZoneName;
 

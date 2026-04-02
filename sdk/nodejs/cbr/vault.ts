@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 用于存放您的备份数据。
+ * Used to store your backup data
  *
  * ## Example Usage
  *
@@ -56,24 +56,24 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /**
-     * 创建时间。
+     * Creation Time
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * 访问域名。
+     * Access Domain Name
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * 项目名称。
+     * Project Name
      */
     public readonly projectName!: pulumi.Output<string>;
     public /*out*/ readonly tags!: pulumi.Output<outputs.cbr.VaultTag[]>;
     /**
-     * 备份库 ID。
+     * Backup Repository ID
      */
     public /*out*/ readonly vaultId!: pulumi.Output<string>;
     /**
-     * 备份库名称。
+     * Backup Repository Name
      */
     public readonly vaultName!: pulumi.Output<string>;
 
@@ -118,24 +118,24 @@ export class Vault extends pulumi.CustomResource {
  */
 export interface VaultState {
     /**
-     * 创建时间。
+     * Creation Time
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * 访问域名。
+     * Access Domain Name
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * 项目名称。
+     * Project Name
      */
     projectName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.cbr.VaultTag>[]>;
     /**
-     * 备份库 ID。
+     * Backup Repository ID
      */
     vaultId?: pulumi.Input<string>;
     /**
-     * 备份库名称。
+     * Backup Repository Name
      */
     vaultName?: pulumi.Input<string>;
 }
@@ -145,11 +145,11 @@ export interface VaultState {
  */
 export interface VaultArgs {
     /**
-     * 项目名称。
+     * Project Name
      */
     projectName?: pulumi.Input<string>;
     /**
-     * 备份库名称。
+     * Backup Repository Name
      */
     vaultName: pulumi.Input<string>;
 }

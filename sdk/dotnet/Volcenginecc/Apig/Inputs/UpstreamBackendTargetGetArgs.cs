@@ -14,19 +14,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Inputs
     public sealed class UpstreamBackendTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 健康检查状态。
+        /// Health Check Status
         /// </summary>
         [Input("healthStatus")]
         public Input<string>? HealthStatus { get; set; }
 
         /// <summary>
-        /// 后端节点IP。
+        /// Backend node IP
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
         /// <summary>
-        /// 后端节点端口。
+        /// Backend node port
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

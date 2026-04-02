@@ -14,25 +14,25 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BackupPlanPolicy struct {
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId *string `pulumi:"accountId"`
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 	BackupType *string `pulumi:"backupType"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime *string `pulumi:"createdTime"`
-	// 用于指定备份周期，支持标准 crontab 表达式配置。
+	// Specifies the backup schedule. Supports standard crontab expressions
 	Crontab *string `pulumi:"crontab"`
-	// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 	EnablePolicy *bool `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name *string `pulumi:"name"`
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber *int `pulumi:"planNumber"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId *string `pulumi:"policyId"`
-	// 恢复点保留时间，-1 表示持续保留。
+	// Retention time for recovery points. -1 means retain indefinitely
 	RetentionDay *int `pulumi:"retentionDay"`
-	// 更新时间。
+	// Update Time
 	UpdatedTime *string `pulumi:"updatedTime"`
 }
 
@@ -48,25 +48,25 @@ type BackupPlanPolicyInput interface {
 }
 
 type BackupPlanPolicyArgs struct {
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 	BackupType pulumi.StringPtrInput `pulumi:"backupType"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// 用于指定备份周期，支持标准 crontab 表达式配置。
+	// Specifies the backup schedule. Supports standard crontab expressions
 	Crontab pulumi.StringPtrInput `pulumi:"crontab"`
-	// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 	EnablePolicy pulumi.BoolPtrInput `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber pulumi.IntPtrInput `pulumi:"planNumber"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// 恢复点保留时间，-1 表示持续保留。
+	// Retention time for recovery points. -1 means retain indefinitely
 	RetentionDay pulumi.IntPtrInput `pulumi:"retentionDay"`
-	// 更新时间。
+	// Update Time
 	UpdatedTime pulumi.StringPtrInput `pulumi:"updatedTime"`
 }
 
@@ -147,52 +147,52 @@ func (o BackupPlanPolicyOutput) ToBackupPlanPolicyPtrOutputWithContext(ctx conte
 	}).(BackupPlanPolicyPtrOutput)
 }
 
-// 创建此策略的账户 ID。
+// Account ID that created this policy
 func (o BackupPlanPolicyOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 func (o BackupPlanPolicyOutput) BackupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.BackupType }).(pulumi.StringPtrOutput)
 }
 
-// 创建时间。
+// Creation Time
 func (o BackupPlanPolicyOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// 用于指定备份周期，支持标准 crontab 表达式配置。
+// Specifies the backup schedule. Supports standard crontab expressions
 func (o BackupPlanPolicyOutput) Crontab() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.Crontab }).(pulumi.StringPtrOutput)
 }
 
-// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 func (o BackupPlanPolicyOutput) EnablePolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *bool { return v.EnablePolicy }).(pulumi.BoolPtrOutput)
 }
 
-// 策略名称。
+// Policy Name
 func (o BackupPlanPolicyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// 该策略已关联的备份计划数量。
+// Number of backup plans associated with this policy
 func (o BackupPlanPolicyOutput) PlanNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *int { return v.PlanNumber }).(pulumi.IntPtrOutput)
 }
 
-// 备份策略 ID。
+// Backup Policy ID
 func (o BackupPlanPolicyOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// 恢复点保留时间，-1 表示持续保留。
+// Retention time for recovery points. -1 means retain indefinitely
 func (o BackupPlanPolicyOutput) RetentionDay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *int { return v.RetentionDay }).(pulumi.IntPtrOutput)
 }
 
-// 更新时间。
+// Update Time
 func (o BackupPlanPolicyOutput) UpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanPolicy) *string { return v.UpdatedTime }).(pulumi.StringPtrOutput)
 }
@@ -221,7 +221,7 @@ func (o BackupPlanPolicyPtrOutput) Elem() BackupPlanPolicyOutput {
 	}).(BackupPlanPolicyOutput)
 }
 
-// 创建此策略的账户 ID。
+// Account ID that created this policy
 func (o BackupPlanPolicyPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -231,7 +231,7 @@ func (o BackupPlanPolicyPtrOutput) AccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 func (o BackupPlanPolicyPtrOutput) BackupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -241,7 +241,7 @@ func (o BackupPlanPolicyPtrOutput) BackupType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 创建时间。
+// Creation Time
 func (o BackupPlanPolicyPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -251,7 +251,7 @@ func (o BackupPlanPolicyPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 用于指定备份周期，支持标准 crontab 表达式配置。
+// Specifies the backup schedule. Supports standard crontab expressions
 func (o BackupPlanPolicyPtrOutput) Crontab() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -261,7 +261,7 @@ func (o BackupPlanPolicyPtrOutput) Crontab() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 func (o BackupPlanPolicyPtrOutput) EnablePolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *bool {
 		if v == nil {
@@ -271,7 +271,7 @@ func (o BackupPlanPolicyPtrOutput) EnablePolicy() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// 策略名称。
+// Policy Name
 func (o BackupPlanPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -281,7 +281,7 @@ func (o BackupPlanPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 该策略已关联的备份计划数量。
+// Number of backup plans associated with this policy
 func (o BackupPlanPolicyPtrOutput) PlanNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *int {
 		if v == nil {
@@ -291,7 +291,7 @@ func (o BackupPlanPolicyPtrOutput) PlanNumber() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 备份策略 ID。
+// Backup Policy ID
 func (o BackupPlanPolicyPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -301,7 +301,7 @@ func (o BackupPlanPolicyPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 恢复点保留时间，-1 表示持续保留。
+// Retention time for recovery points. -1 means retain indefinitely
 func (o BackupPlanPolicyPtrOutput) RetentionDay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *int {
 		if v == nil {
@@ -311,7 +311,7 @@ func (o BackupPlanPolicyPtrOutput) RetentionDay() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// 更新时间。
+// Update Time
 func (o BackupPlanPolicyPtrOutput) UpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanPolicy) *string {
 		if v == nil {
@@ -322,11 +322,11 @@ func (o BackupPlanPolicyPtrOutput) UpdatedTime() pulumi.StringPtrOutput {
 }
 
 type BackupPlanResourceList struct {
-	// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+	// Resource meta information, used to store additional configuration when creating a backup plan
 	MetaInformation BackupPlanResourceListMetaInformation `pulumi:"metaInformation"`
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId string `pulumi:"resourceId"`
-	// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+	// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
 	ResourceType string `pulumi:"resourceType"`
 }
 
@@ -342,11 +342,11 @@ type BackupPlanResourceListInput interface {
 }
 
 type BackupPlanResourceListArgs struct {
-	// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+	// Resource meta information, used to store additional configuration when creating a backup plan
 	MetaInformation BackupPlanResourceListMetaInformationInput `pulumi:"metaInformation"`
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+	// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 
@@ -401,17 +401,17 @@ func (o BackupPlanResourceListOutput) ToBackupPlanResourceListOutputWithContext(
 	return o
 }
 
-// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+// Resource meta information, used to store additional configuration when creating a backup plan
 func (o BackupPlanResourceListOutput) MetaInformation() BackupPlanResourceListMetaInformationOutput {
 	return o.ApplyT(func(v BackupPlanResourceList) BackupPlanResourceListMetaInformation { return v.MetaInformation }).(BackupPlanResourceListMetaInformationOutput)
 }
 
-// 备份源 ID。
+// Backup Source ID
 func (o BackupPlanResourceListOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanResourceList) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
 func (o BackupPlanResourceListOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanResourceList) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -437,9 +437,9 @@ func (o BackupPlanResourceListArrayOutput) Index(i pulumi.IntInput) BackupPlanRe
 }
 
 type BackupPlanResourceListMetaInformation struct {
-	// ECS 的元数据，是一个 JSON string。
+	// ECS metadata, which is a JSON string
 	EcsMeta *string `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。
+	// vePFS backup source metadata, which is a JSON string
 	VepfsMeta *string `pulumi:"vepfsMeta"`
 }
 
@@ -455,9 +455,9 @@ type BackupPlanResourceListMetaInformationInput interface {
 }
 
 type BackupPlanResourceListMetaInformationArgs struct {
-	// ECS 的元数据，是一个 JSON string。
+	// ECS metadata, which is a JSON string
 	EcsMeta pulumi.StringPtrInput `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。
+	// vePFS backup source metadata, which is a JSON string
 	VepfsMeta pulumi.StringPtrInput `pulumi:"vepfsMeta"`
 }
 
@@ -487,20 +487,20 @@ func (o BackupPlanResourceListMetaInformationOutput) ToBackupPlanResourceListMet
 	return o
 }
 
-// ECS 的元数据，是一个 JSON string。
+// ECS metadata, which is a JSON string
 func (o BackupPlanResourceListMetaInformationOutput) EcsMeta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanResourceListMetaInformation) *string { return v.EcsMeta }).(pulumi.StringPtrOutput)
 }
 
-// vePFS 备份源元数据，是一个 JSON string。
+// vePFS backup source metadata, which is a JSON string
 func (o BackupPlanResourceListMetaInformationOutput) VepfsMeta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanResourceListMetaInformation) *string { return v.VepfsMeta }).(pulumi.StringPtrOutput)
 }
 
 type BackupResourceMetaInformation struct {
-	// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+	// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 	EcsMeta *string `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+	// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 	VepfsMeta *string `pulumi:"vepfsMeta"`
 }
 
@@ -516,9 +516,9 @@ type BackupResourceMetaInformationInput interface {
 }
 
 type BackupResourceMetaInformationArgs struct {
-	// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+	// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 	EcsMeta pulumi.StringPtrInput `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+	// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 	VepfsMeta pulumi.StringPtrInput `pulumi:"vepfsMeta"`
 }
 
@@ -599,12 +599,12 @@ func (o BackupResourceMetaInformationOutput) ToBackupResourceMetaInformationPtrO
 	}).(BackupResourceMetaInformationPtrOutput)
 }
 
-// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 func (o BackupResourceMetaInformationOutput) EcsMeta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupResourceMetaInformation) *string { return v.EcsMeta }).(pulumi.StringPtrOutput)
 }
 
-// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 func (o BackupResourceMetaInformationOutput) VepfsMeta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupResourceMetaInformation) *string { return v.VepfsMeta }).(pulumi.StringPtrOutput)
 }
@@ -633,7 +633,7 @@ func (o BackupResourceMetaInformationPtrOutput) Elem() BackupResourceMetaInforma
 	}).(BackupResourceMetaInformationOutput)
 }
 
-// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 func (o BackupResourceMetaInformationPtrOutput) EcsMeta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupResourceMetaInformation) *string {
 		if v == nil {
@@ -643,7 +643,7 @@ func (o BackupResourceMetaInformationPtrOutput) EcsMeta() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 func (o BackupResourceMetaInformationPtrOutput) VepfsMeta() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupResourceMetaInformation) *string {
 		if v == nil {
@@ -654,9 +654,9 @@ func (o BackupResourceMetaInformationPtrOutput) VepfsMeta() pulumi.StringPtrOutp
 }
 
 type BackupResourcePlan struct {
-	// 备份计划 ID
+	// Backup Plan ID
 	PlanId *string `pulumi:"planId"`
-	// 备份计划名称
+	// Backup Plan Name
 	PlanName *string `pulumi:"planName"`
 }
 
@@ -672,9 +672,9 @@ type BackupResourcePlanInput interface {
 }
 
 type BackupResourcePlanArgs struct {
-	// 备份计划 ID
+	// Backup Plan ID
 	PlanId pulumi.StringPtrInput `pulumi:"planId"`
-	// 备份计划名称
+	// Backup Plan Name
 	PlanName pulumi.StringPtrInput `pulumi:"planName"`
 }
 
@@ -729,12 +729,12 @@ func (o BackupResourcePlanOutput) ToBackupResourcePlanOutputWithContext(ctx cont
 	return o
 }
 
-// 备份计划 ID
+// Backup Plan ID
 func (o BackupResourcePlanOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupResourcePlan) *string { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
-// 备份计划名称
+// Backup Plan Name
 func (o BackupResourcePlanOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupResourcePlan) *string { return v.PlanName }).(pulumi.StringPtrOutput)
 }
@@ -760,9 +760,9 @@ func (o BackupResourcePlanArrayOutput) Index(i pulumi.IntInput) BackupResourcePl
 }
 
 type VaultTag struct {
-	// 标签键。
+	// Tag Key
 	Key *string `pulumi:"key"`
-	// 标签值。
+	// Tag Value
 	Value *string `pulumi:"value"`
 }
 
@@ -778,9 +778,9 @@ type VaultTagInput interface {
 }
 
 type VaultTagArgs struct {
-	// 标签键。
+	// Tag Key
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签值。
+	// Tag Value
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -835,12 +835,12 @@ func (o VaultTagOutput) ToVaultTagOutputWithContext(ctx context.Context) VaultTa
 	return o
 }
 
-// 标签键。
+// Tag Key
 func (o VaultTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签值。
+// Tag Value
 func (o VaultTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -866,25 +866,25 @@ func (o VaultTagArrayOutput) Index(i pulumi.IntInput) VaultTagOutput {
 }
 
 type GetBackupPlanPolicy struct {
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId string `pulumi:"accountId"`
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 	BackupType string `pulumi:"backupType"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime string `pulumi:"createdTime"`
-	// 用于指定备份周期，支持标准 crontab 表达式配置。
+	// Specifies the backup schedule. Supports standard crontab expressions
 	Crontab string `pulumi:"crontab"`
-	// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 	EnablePolicy bool `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name string `pulumi:"name"`
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber int `pulumi:"planNumber"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId string `pulumi:"policyId"`
-	// 恢复点保留时间，-1 表示持续保留。
+	// Retention time for recovery points. -1 means retain indefinitely
 	RetentionDay int `pulumi:"retentionDay"`
-	// 更新时间。
+	// Update Time
 	UpdatedTime string `pulumi:"updatedTime"`
 }
 
@@ -900,25 +900,25 @@ type GetBackupPlanPolicyInput interface {
 }
 
 type GetBackupPlanPolicyArgs struct {
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 	BackupType pulumi.StringInput `pulumi:"backupType"`
-	// 创建时间。
+	// Creation Time
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// 用于指定备份周期，支持标准 crontab 表达式配置。
+	// Specifies the backup schedule. Supports standard crontab expressions
 	Crontab pulumi.StringInput `pulumi:"crontab"`
-	// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 	EnablePolicy pulumi.BoolInput `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name pulumi.StringInput `pulumi:"name"`
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber pulumi.IntInput `pulumi:"planNumber"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId pulumi.StringInput `pulumi:"policyId"`
-	// 恢复点保留时间，-1 表示持续保留。
+	// Retention time for recovery points. -1 means retain indefinitely
 	RetentionDay pulumi.IntInput `pulumi:"retentionDay"`
-	// 更新时间。
+	// Update Time
 	UpdatedTime pulumi.StringInput `pulumi:"updatedTime"`
 }
 
@@ -948,62 +948,62 @@ func (o GetBackupPlanPolicyOutput) ToGetBackupPlanPolicyOutputWithContext(ctx co
 	return o
 }
 
-// 创建此策略的账户 ID。
+// Account ID that created this policy
 func (o GetBackupPlanPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+// Backup type. Options: FULL: Full backup. INCREMENTAL: Incremental backup
 func (o GetBackupPlanPolicyOutput) BackupType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.BackupType }).(pulumi.StringOutput)
 }
 
-// 创建时间。
+// Creation Time
 func (o GetBackupPlanPolicyOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 用于指定备份周期，支持标准 crontab 表达式配置。
+// Specifies the backup schedule. Supports standard crontab expressions
 func (o GetBackupPlanPolicyOutput) Crontab() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.Crontab }).(pulumi.StringOutput)
 }
 
-// 是否启用策略，取值说明如下：true：启用策略。false：禁用策略。
+// Whether the policy is enabled. Options: true: Enable policy. false: Disable policy
 func (o GetBackupPlanPolicyOutput) EnablePolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) bool { return v.EnablePolicy }).(pulumi.BoolOutput)
 }
 
-// 策略名称。
+// Policy Name
 func (o GetBackupPlanPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// 该策略已关联的备份计划数量。
+// Number of backup plans associated with this policy
 func (o GetBackupPlanPolicyOutput) PlanNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) int { return v.PlanNumber }).(pulumi.IntOutput)
 }
 
-// 备份策略 ID。
+// Backup Policy ID
 func (o GetBackupPlanPolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// 恢复点保留时间，-1 表示持续保留。
+// Retention time for recovery points. -1 means retain indefinitely
 func (o GetBackupPlanPolicyOutput) RetentionDay() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) int { return v.RetentionDay }).(pulumi.IntOutput)
 }
 
-// 更新时间。
+// Update Time
 func (o GetBackupPlanPolicyOutput) UpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanPolicy) string { return v.UpdatedTime }).(pulumi.StringOutput)
 }
 
 type GetBackupPlanResourceList struct {
-	// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+	// Resource meta information, used to store additional configuration when creating a backup plan
 	MetaInformation GetBackupPlanResourceListMetaInformation `pulumi:"metaInformation"`
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId string `pulumi:"resourceId"`
-	// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+	// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
 	ResourceType string `pulumi:"resourceType"`
 }
 
@@ -1019,11 +1019,11 @@ type GetBackupPlanResourceListInput interface {
 }
 
 type GetBackupPlanResourceListArgs struct {
-	// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+	// Resource meta information, used to store additional configuration when creating a backup plan
 	MetaInformation GetBackupPlanResourceListMetaInformationInput `pulumi:"metaInformation"`
-	// 备份源 ID。
+	// Backup Source ID
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+	// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 
@@ -1078,17 +1078,17 @@ func (o GetBackupPlanResourceListOutput) ToGetBackupPlanResourceListOutputWithCo
 	return o
 }
 
-// 资源的meta信息，创建备份计划时，用于存储额外的配置。
+// Resource meta information, used to store additional configuration when creating a backup plan
 func (o GetBackupPlanResourceListOutput) MetaInformation() GetBackupPlanResourceListMetaInformationOutput {
 	return o.ApplyT(func(v GetBackupPlanResourceList) GetBackupPlanResourceListMetaInformation { return v.MetaInformation }).(GetBackupPlanResourceListMetaInformationOutput)
 }
 
-// 备份源 ID。
+// Backup Source ID
 func (o GetBackupPlanResourceListOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanResourceList) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// 备份源类型，取值如下：ECS：ECS 整机备份。vePFS：vePFS 文件系统备份。
+// Backup source type. Options: ECS: ECS full machine backup. vePFS: vePFS file system backup
 func (o GetBackupPlanResourceListOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanResourceList) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -1114,9 +1114,9 @@ func (o GetBackupPlanResourceListArrayOutput) Index(i pulumi.IntInput) GetBackup
 }
 
 type GetBackupPlanResourceListMetaInformation struct {
-	// ECS 的元数据，是一个 JSON string。
+	// ECS metadata, which is a JSON string
 	EcsMeta string `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。
+	// vePFS backup source metadata, which is a JSON string
 	VepfsMeta string `pulumi:"vepfsMeta"`
 }
 
@@ -1132,9 +1132,9 @@ type GetBackupPlanResourceListMetaInformationInput interface {
 }
 
 type GetBackupPlanResourceListMetaInformationArgs struct {
-	// ECS 的元数据，是一个 JSON string。
+	// ECS metadata, which is a JSON string
 	EcsMeta pulumi.StringInput `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。
+	// vePFS backup source metadata, which is a JSON string
 	VepfsMeta pulumi.StringInput `pulumi:"vepfsMeta"`
 }
 
@@ -1164,20 +1164,20 @@ func (o GetBackupPlanResourceListMetaInformationOutput) ToGetBackupPlanResourceL
 	return o
 }
 
-// ECS 的元数据，是一个 JSON string。
+// ECS metadata, which is a JSON string
 func (o GetBackupPlanResourceListMetaInformationOutput) EcsMeta() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanResourceListMetaInformation) string { return v.EcsMeta }).(pulumi.StringOutput)
 }
 
-// vePFS 备份源元数据，是一个 JSON string。
+// vePFS backup source metadata, which is a JSON string
 func (o GetBackupPlanResourceListMetaInformationOutput) VepfsMeta() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupPlanResourceListMetaInformation) string { return v.VepfsMeta }).(pulumi.StringOutput)
 }
 
 type GetBackupResourceMetaInformation struct {
-	// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+	// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 	EcsMeta string `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+	// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 	VepfsMeta string `pulumi:"vepfsMeta"`
 }
 
@@ -1193,9 +1193,9 @@ type GetBackupResourceMetaInformationInput interface {
 }
 
 type GetBackupResourceMetaInformationArgs struct {
-	// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+	// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 	EcsMeta pulumi.StringInput `pulumi:"ecsMeta"`
-	// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+	// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 	VepfsMeta pulumi.StringInput `pulumi:"vepfsMeta"`
 }
 
@@ -1225,20 +1225,20 @@ func (o GetBackupResourceMetaInformationOutput) ToGetBackupResourceMetaInformati
 	return o
 }
 
-// ECS 的元数据，是一个 JSON string。格式见数据结构的 EcsBackupConfiguration 结构体。
+// ECS metadata, as a JSON string. For format, see the EcsBackupConfiguration structure in the data structure.
 func (o GetBackupResourceMetaInformationOutput) EcsMeta() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupResourceMetaInformation) string { return v.EcsMeta }).(pulumi.StringOutput)
 }
 
-// vePFS 备份源元数据，是一个 JSON string。格式见数据结构的VePFSBackupConfiguration 结构体。
+// vePFS backup source metadata, as a JSON string. For format, see the VePFSBackupConfiguration structure in the data structure.
 func (o GetBackupResourceMetaInformationOutput) VepfsMeta() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupResourceMetaInformation) string { return v.VepfsMeta }).(pulumi.StringOutput)
 }
 
 type GetBackupResourcePlan struct {
-	// 备份计划 ID
+	// Backup Plan ID
 	PlanId string `pulumi:"planId"`
-	// 备份计划名称
+	// Backup Plan Name
 	PlanName string `pulumi:"planName"`
 }
 
@@ -1254,9 +1254,9 @@ type GetBackupResourcePlanInput interface {
 }
 
 type GetBackupResourcePlanArgs struct {
-	// 备份计划 ID
+	// Backup Plan ID
 	PlanId pulumi.StringInput `pulumi:"planId"`
-	// 备份计划名称
+	// Backup Plan Name
 	PlanName pulumi.StringInput `pulumi:"planName"`
 }
 
@@ -1311,12 +1311,12 @@ func (o GetBackupResourcePlanOutput) ToGetBackupResourcePlanOutputWithContext(ct
 	return o
 }
 
-// 备份计划 ID
+// Backup Plan ID
 func (o GetBackupResourcePlanOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupResourcePlan) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// 备份计划名称
+// Backup Plan Name
 func (o GetBackupResourcePlanOutput) PlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBackupResourcePlan) string { return v.PlanName }).(pulumi.StringOutput)
 }
@@ -1342,9 +1342,9 @@ func (o GetBackupResourcePlanArrayOutput) Index(i pulumi.IntInput) GetBackupReso
 }
 
 type GetVaultTag struct {
-	// 标签键。
+	// Tag Key
 	Key string `pulumi:"key"`
-	// 标签值。
+	// Tag Value
 	Value string `pulumi:"value"`
 }
 
@@ -1360,9 +1360,9 @@ type GetVaultTagInput interface {
 }
 
 type GetVaultTagArgs struct {
-	// 标签键。
+	// Tag Key
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签值。
+	// Tag Value
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1417,12 +1417,12 @@ func (o GetVaultTagOutput) ToGetVaultTagOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// 标签键。
+// Tag Key
 func (o GetVaultTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVaultTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签值。
+// Tag Value
 func (o GetVaultTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVaultTag) string { return v.Value }).(pulumi.StringOutput)
 }

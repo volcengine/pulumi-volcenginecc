@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
     public sealed class BucketAclGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+        /// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
         /// </summary>
         [Input("bucketAclDelivered")]
         public Input<bool>? BucketAclDelivered { get; set; }
@@ -28,7 +28,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos.Inputs
         }
 
         /// <summary>
-        /// 对象所有者。
+        /// Object owner
         /// </summary>
         [Input("owner")]
         public Input<Inputs.BucketAclOwnerGetArgs>? Owner { get; set; }

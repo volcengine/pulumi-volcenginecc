@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc.Inputs
     public sealed class EniPrivateIpSetAssociatedElasticIpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 公网IP的ID。
+        /// Public IP ID
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }

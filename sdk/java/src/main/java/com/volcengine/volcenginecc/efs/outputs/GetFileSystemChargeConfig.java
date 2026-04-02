@@ -11,62 +11,62 @@ import java.util.Objects;
 @CustomType
 public final class GetFileSystemChargeConfig {
     /**
-     * @return 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+     * @return Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
      * 
      */
     private String chargeStatus;
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     private String chargeType;
     /**
-     * @return 到期时间。
+     * @return Expiration time.
      * 
      */
     private String expireTime;
     /**
-     * @return 回收时间。
+     * @return Recycle time.
      * 
      */
     private String reclaimTime;
     /**
-     * @return 关停时间。
+     * @return Shutdown time.
      * 
      */
     private String stopTime;
 
     private GetFileSystemChargeConfig() {}
     /**
-     * @return 计费状态，取值说明如下：WaitingPaid：等待支付,Pending：创建中,Modifying：更配中,Failed：失败,Normal：正常,Expired：过期,Overdue：欠费,Reclaimed：回收,Terminated：退订。
+     * @return Billing status. Value description: WaitingPaid: Waiting for payment, Pending: Creating, Modifying: Reconfiguring, Failed: Failed, Normal: Normal, Expired: Expired, Overdue: Overdue, Reclaimed: Reclaimed, Terminated: Unsubscribed.
      * 
      */
     public String chargeStatus() {
         return this.chargeStatus;
     }
     /**
-     * @return 计费类型。仅支持取值为PayAsYouGo，表示按量计费。
+     * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
      * 
      */
     public String chargeType() {
         return this.chargeType;
     }
     /**
-     * @return 到期时间。
+     * @return Expiration time.
      * 
      */
     public String expireTime() {
         return this.expireTime;
     }
     /**
-     * @return 回收时间。
+     * @return Recycle time.
      * 
      */
     public String reclaimTime() {
         return this.reclaimTime;
     }
     /**
-     * @return 关停时间。
+     * @return Shutdown time.
      * 
      */
     public String stopTime() {

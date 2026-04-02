@@ -26,7 +26,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Inputs
         public Input<string>? IamUserSk { get; set; }
 
         /// <summary>
-        /// 日志项目ID。
+        /// Log project ID
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

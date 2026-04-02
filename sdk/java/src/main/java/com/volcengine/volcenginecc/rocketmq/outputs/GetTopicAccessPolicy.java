@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetTopicAccessPolicy {
     /**
-     * @return RocketMQ 密钥的 AccessKey。
+     * @return AccessKey of the RocketMQ key.
      * 
      */
     private String accessKey;
     /**
-     * @return 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+     * @return User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
      * 
      */
     private String authority;
 
     private GetTopicAccessPolicy() {}
     /**
-     * @return RocketMQ 密钥的 AccessKey。
+     * @return AccessKey of the RocketMQ key.
      * 
      */
     public String accessKey() {
         return this.accessKey;
     }
     /**
-     * @return 用户对于当前Topic的访问权限。ALL：拥有发布、订阅权限。PUB：拥有发布权限。SUB：拥有订阅权限。DENY：不具备发布或订阅权限。
+     * @return User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
      * 
      */
     public String authority() {

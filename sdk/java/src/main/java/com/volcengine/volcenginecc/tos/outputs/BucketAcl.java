@@ -15,20 +15,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketAcl {
     /**
-     * @return 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+     * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
      * 
      */
     private @Nullable Boolean bucketAclDelivered;
     private @Nullable List<BucketAclGrant> grants;
     /**
-     * @return 对象所有者。
+     * @return Object owner
      * 
      */
     private @Nullable BucketAclOwner owner;
 
     private BucketAcl() {}
     /**
-     * @return 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+     * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
      * 
      */
     public Optional<Boolean> bucketAclDelivered() {
@@ -38,7 +38,7 @@ public final class BucketAcl {
         return this.grants == null ? List.of() : this.grants;
     }
     /**
-     * @return 对象所有者。
+     * @return Object owner
      * 
      */
     public Optional<BucketAclOwner> owner() {

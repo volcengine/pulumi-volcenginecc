@@ -12,62 +12,62 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupConsumedClient {
     /**
-     * @return 该消费者实例的地址和端口。
+     * @return Address and port of this consumer instance.
      * 
      */
     private String clientAddress;
     /**
-     * @return 该消费者实例的 ID。
+     * @return ID of this consumer instance.
      * 
      */
     private String clientId;
     /**
-     * @return 消息堆积量。
+     * @return Message backlog.
      * 
      */
     private Integer diff;
     /**
-     * @return 消费者应用的开发语言。
+     * @return Development language of the consumer application.
      * 
      */
     private String language;
     /**
-     * @return 消费端版本。
+     * @return Consumer version.
      * 
      */
     private String version;
 
     private GetGroupConsumedClient() {}
     /**
-     * @return 该消费者实例的地址和端口。
+     * @return Address and port of this consumer instance.
      * 
      */
     public String clientAddress() {
         return this.clientAddress;
     }
     /**
-     * @return 该消费者实例的 ID。
+     * @return ID of this consumer instance.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return 消息堆积量。
+     * @return Message backlog.
      * 
      */
     public Integer diff() {
         return this.diff;
     }
     /**
-     * @return 消费者应用的开发语言。
+     * @return Development language of the consumer application.
      * 
      */
     public String language() {
         return this.language;
     }
     /**
-     * @return 消费端版本。
+     * @return Consumer version.
      * 
      */
     public String version() {

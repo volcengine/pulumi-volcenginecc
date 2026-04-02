@@ -12,7 +12,7 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// 备份策略中定义了备份周期、备份类型等信息。后续通过备份计划关联备份策略与备份存储空间，实现自动备份。
+// The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
 //
 // ## Example Usage
 //
@@ -54,29 +54,29 @@ import (
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
 	BackupType pulumi.StringOutput `pulumi:"backupType"`
-	// 创建时间。
+	// Creation time
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// 备份周期，采用 crontab 表达式。
+	// Backup cycle, using a crontab expression
 	Crontab pulumi.StringOutput `pulumi:"crontab"`
-	// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
 	EnablePolicy pulumi.BoolOutput `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber pulumi.IntOutput `pulumi:"planNumber"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+	// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
 	RetentionDay pulumi.IntOutput `pulumi:"retentionDay"`
-	// 最大恢复点保留数量。
+	// Maximum number of restore points retained
 	RetentionNumMax pulumi.IntOutput `pulumi:"retentionNumMax"`
-	// 最小恢复点保留数量下限。
+	// Minimum restore point retention limit
 	RetentionNumMin pulumi.IntOutput `pulumi:"retentionNumMin"`
-	// 更新时间。
+	// Update time
 	UpdatedTime pulumi.StringOutput `pulumi:"updatedTime"`
 }
 
@@ -131,56 +131,56 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId *string `pulumi:"accountId"`
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
 	BackupType *string `pulumi:"backupType"`
-	// 创建时间。
+	// Creation time
 	CreatedTime *string `pulumi:"createdTime"`
-	// 备份周期，采用 crontab 表达式。
+	// Backup cycle, using a crontab expression
 	Crontab *string `pulumi:"crontab"`
-	// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
 	EnablePolicy *bool `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name *string `pulumi:"name"`
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber *int `pulumi:"planNumber"`
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId *string `pulumi:"policyId"`
-	// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+	// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
 	RetentionDay *int `pulumi:"retentionDay"`
-	// 最大恢复点保留数量。
+	// Maximum number of restore points retained
 	RetentionNumMax *int `pulumi:"retentionNumMax"`
-	// 最小恢复点保留数量下限。
+	// Minimum restore point retention limit
 	RetentionNumMin *int `pulumi:"retentionNumMin"`
-	// 更新时间。
+	// Update time
 	UpdatedTime *string `pulumi:"updatedTime"`
 }
 
 type BackupPolicyState struct {
-	// 创建此策略的账户 ID。
+	// Account ID that created this policy
 	AccountId pulumi.StringPtrInput
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
 	BackupType pulumi.StringPtrInput
-	// 创建时间。
+	// Creation time
 	CreatedTime pulumi.StringPtrInput
-	// 备份周期，采用 crontab 表达式。
+	// Backup cycle, using a crontab expression
 	Crontab pulumi.StringPtrInput
-	// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
 	EnablePolicy pulumi.BoolPtrInput
-	// 策略名称。
+	// Policy Name
 	Name pulumi.StringPtrInput
-	// 该策略已关联的备份计划数量。
+	// Number of backup plans associated with this policy
 	PlanNumber pulumi.IntPtrInput
-	// 备份策略 ID。
+	// Backup Policy ID
 	PolicyId pulumi.StringPtrInput
-	// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+	// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
 	RetentionDay pulumi.IntPtrInput
-	// 最大恢复点保留数量。
+	// Maximum number of restore points retained
 	RetentionNumMax pulumi.IntPtrInput
-	// 最小恢复点保留数量下限。
+	// Minimum restore point retention limit
 	RetentionNumMin pulumi.IntPtrInput
-	// 更新时间。
+	// Update time
 	UpdatedTime pulumi.StringPtrInput
 }
 
@@ -189,37 +189,37 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
 	BackupType string `pulumi:"backupType"`
-	// 备份周期，采用 crontab 表达式。
+	// Backup cycle, using a crontab expression
 	Crontab string `pulumi:"crontab"`
-	// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
 	EnablePolicy bool `pulumi:"enablePolicy"`
-	// 策略名称。
+	// Policy Name
 	Name string `pulumi:"name"`
-	// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+	// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
 	RetentionDay int `pulumi:"retentionDay"`
-	// 最大恢复点保留数量。
+	// Maximum number of restore points retained
 	RetentionNumMax int `pulumi:"retentionNumMax"`
-	// 最小恢复点保留数量下限。
+	// Minimum restore point retention limit
 	RetentionNumMin int `pulumi:"retentionNumMin"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
-	// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+	// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
 	BackupType pulumi.StringInput
-	// 备份周期，采用 crontab 表达式。
+	// Backup cycle, using a crontab expression
 	Crontab pulumi.StringInput
-	// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+	// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
 	EnablePolicy pulumi.BoolInput
-	// 策略名称。
+	// Policy Name
 	Name pulumi.StringInput
-	// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+	// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
 	RetentionDay pulumi.IntInput
-	// 最大恢复点保留数量。
+	// Maximum number of restore points retained
 	RetentionNumMax pulumi.IntInput
-	// 最小恢复点保留数量下限。
+	// Minimum restore point retention limit
 	RetentionNumMin pulumi.IntInput
 }
 
@@ -310,62 +310,62 @@ func (o BackupPolicyOutput) ToBackupPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// 创建此策略的账户 ID。
+// Account ID that created this policy
 func (o BackupPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// 备份类型，取值说明如下：FULL：全量备份。INCREMENTAL：增量备份。
+// Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
 func (o BackupPolicyOutput) BackupType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.BackupType }).(pulumi.StringOutput)
 }
 
-// 创建时间。
+// Creation time
 func (o BackupPolicyOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// 备份周期，采用 crontab 表达式。
+// Backup cycle, using a crontab expression
 func (o BackupPolicyOutput) Crontab() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Crontab }).(pulumi.StringOutput)
 }
 
-// 策略是否启用，取值说明如下：true：启用策略。false：禁用策略。
+// Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
 func (o BackupPolicyOutput) EnablePolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.BoolOutput { return v.EnablePolicy }).(pulumi.BoolOutput)
 }
 
-// 策略名称。
+// Policy Name
 func (o BackupPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// 该策略已关联的备份计划数量。
+// Number of backup plans associated with this policy
 func (o BackupPolicyOutput) PlanNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.IntOutput { return v.PlanNumber }).(pulumi.IntOutput)
 }
 
-// 备份策略 ID。
+// Backup Policy ID
 func (o BackupPolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// 恢复点保留时间，-1 表示持续保留。其它合法取值的范围是[1, 999999]
+// Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
 func (o BackupPolicyOutput) RetentionDay() pulumi.IntOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.IntOutput { return v.RetentionDay }).(pulumi.IntOutput)
 }
 
-// 最大恢复点保留数量。
+// Maximum number of restore points retained
 func (o BackupPolicyOutput) RetentionNumMax() pulumi.IntOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.IntOutput { return v.RetentionNumMax }).(pulumi.IntOutput)
 }
 
-// 最小恢复点保留数量下限。
+// Minimum restore point retention limit
 func (o BackupPolicyOutput) RetentionNumMin() pulumi.IntOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.IntOutput { return v.RetentionNumMin }).(pulumi.IntOutput)
 }
 
-// 更新时间。
+// Update time
 func (o BackupPolicyOutput) UpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.UpdatedTime }).(pulumi.StringOutput)
 }

@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam.Outputs
     public sealed class PolicyPolicyUserPolicyScope
     {
         /// <summary>
-        /// 项目名。
+        /// Project name.
         /// </summary>
         public readonly string? ProjectName;
 

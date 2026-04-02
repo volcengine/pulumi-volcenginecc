@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TopicGroupsInfo {
     /**
-     * @return 消费组的 Group ID。
+     * @return Group ID of the consumer group.
      * 
      */
     private @Nullable String groupId;
     /**
-     * @return 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+     * @return Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
      * 
      */
     private @Nullable String messageModel;
     /**
-     * @return 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+     * @return Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
      * 
      */
     private @Nullable String subString;
 
     private TopicGroupsInfo() {}
     /**
-     * @return 消费组的 Group ID。
+     * @return Group ID of the consumer group.
      * 
      */
     public Optional<String> groupId() {
         return Optional.ofNullable(this.groupId);
     }
     /**
-     * @return 消费模式。取值说明如下：Clustering：集群消费模式。Broadcasting：广播消费模式。
+     * @return Consumption mode. The values are as follows: Clustering: cluster consumption mode. Broadcasting: broadcast consumption mode.
      * 
      */
     public Optional<String> messageModel() {
         return Optional.ofNullable(this.messageModel);
     }
     /**
-     * @return 订阅的规则，此字段直接透传消费组订阅此 Topic 时指定的字符串，一般为 * 或 TAG1 || TAG2。
+     * @return Subscription rule. This field contains the exact string specified by the consumer group when subscribing to this Topic, usually * or TAG1 || TAG2.
      * 
      */
     public Optional<String> subString() {

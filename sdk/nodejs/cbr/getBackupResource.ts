@@ -31,11 +31,11 @@ export interface GetBackupResourceArgs {
  */
 export interface GetBackupResourceResult {
     /**
-     * 创建此备份源的账户 ID。
+     * Account ID that created this backup source
      */
     readonly accountId: string;
     /**
-     * 创建时间。
+     * Creation Time
      */
     readonly createdTime: string;
     /**
@@ -43,43 +43,43 @@ export interface GetBackupResourceResult {
      */
     readonly id: string;
     /**
-     * 实例 ID。
+     * Instance ID
      */
     readonly instanceId: string;
     /**
-     * 实例名称。
+     * Instance Name
      */
     readonly instanceName: string;
     /**
-     * 资源的meta信息(创建备份计划时，用于存储额外的配置)ECS 整机备份参数：见 EcsBackupConfiguration 结构体。vePFS 备份参数：见 VePFSBackupConfiguration 结构体。
+     * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
      */
     readonly metaInformation: outputs.cbr.GetBackupResourceMetaInformation;
     /**
-     * 关联的备份计划列表。
+     * List of Associated Backup Plans
      */
     readonly plans: outputs.cbr.GetBackupResourcePlan[];
     /**
-     * 恢复点的数量
+     * Number of Restore Points
      */
     readonly recoveryPointNumber: number;
     /**
-     * 备份源 ID。
+     * Backup Source ID
      */
     readonly resourceId: string;
     /**
-     * 备份源类型，取值说明如下：ECS：ECS 整机。vePFS：vePFS 文件系统。
+     * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
      */
     readonly resourceType: string;
     /**
-     * 备份源状态。可能的值为：AVAILABLE、REMOVING、BEING*BACKED*UP、RECOVERING、CREATING、ERROR、UNAVAILABLE。
+     * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
      */
     readonly status: string;
     /**
-     * 更新时间
+     * Update Time
      */
     readonly updatedTime: string;
     /**
-     * 已经备份的字节数。
+     * Bytes Already Backed Up
      */
     readonly usedCapacityInBytes: number;
 }

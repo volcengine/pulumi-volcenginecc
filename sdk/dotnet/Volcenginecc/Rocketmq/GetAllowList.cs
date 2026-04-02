@@ -65,39 +65,39 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     public sealed class GetAllowListResult
     {
         /// <summary>
-        /// IP 白名单，多个 IP 地址请以英文逗号（,）隔开，不可重复。
+        /// IP allowlist. Separate multiple IP addresses with commas (,) and do not repeat addresses
         /// </summary>
         public readonly string AllowList;
         /// <summary>
-        /// 白名单分类。
+        /// Allowlist Category
         /// </summary>
         public readonly string AllowListCategory;
         /// <summary>
-        /// 白名单描述。
+        /// Allowlist Description
         /// </summary>
         public readonly string AllowListDesc;
         /// <summary>
-        /// 白名单的id。
+        /// Allowlist ID
         /// </summary>
         public readonly string AllowListId;
         /// <summary>
-        /// 白名单内的 IP 地址（或地址段）总数。
+        /// Total number of IP addresses (or address ranges) in the allowlist
         /// </summary>
         public readonly int AllowListIpNum;
         /// <summary>
-        /// 白名单名称。
+        /// Allowlist Name
         /// </summary>
         public readonly string AllowListName;
         /// <summary>
-        /// 白名单内的IP地址类型，当前仅支持IPv4。
+        /// IP address type in the allowlist. Only IPv4 is supported
         /// </summary>
         public readonly string AllowListType;
         /// <summary>
-        /// 白名单下绑定的实例总数
+        /// Total number of instances bound to the allowlist
         /// </summary>
         public readonly int AssociatedInstanceNum;
         /// <summary>
-        /// 绑定的实例列表。
+        /// Bound Instance List
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAllowListAssociatedInstanceResult> AssociatedInstances;
         /// <summary>
@@ -105,7 +105,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// 实例ID。
+        /// Instance ID
         /// </summary>
         public readonly string InstanceId;
 

@@ -23,14 +23,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     public static final InstanceState Empty = new InstanceState();
 
     /**
-     * 实例所属的账号 ID。
+     * Account ID to which the instance belongs.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return 实例所属的账号 ID。
+     * @return Account ID to which the instance belongs.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -38,14 +38,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+     * List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
      * 
      */
     @Import(name="allowListIds")
     private @Nullable Output<List<String>> allowListIds;
 
     /**
-     * @return 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+     * @return List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
      * 
      */
     public Optional<Output<List<String>>> allowListIds() {
@@ -53,14 +53,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+     * Whether private network domain name supports public resolution. true: enabled false: disabled
      * 
      */
     @Import(name="applyPrivateDnsToPublic")
     private @Nullable Output<Boolean> applyPrivateDnsToPublic;
 
     /**
-     * @return 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+     * @return Whether private network domain name supports public resolution. true: enabled false: disabled
      * 
      */
     public Optional<Output<Boolean>> applyPrivateDnsToPublic() {
@@ -68,14 +68,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例规格更改时，是否自动创建队列。
+     * Whether to automatically create queues when the instance specification changes.
      * 
      */
     @Import(name="autoScaleQueue")
     private @Nullable Output<Boolean> autoScaleQueue;
 
     /**
-     * @return 实例规格更改时，是否自动创建队列。
+     * @return Whether to automatically create queues when the instance specification changes.
      * 
      */
     public Optional<Output<Boolean>> autoScaleQueue() {
@@ -83,14 +83,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 剩余可创建的分区数量。
+     * Remaining number of partitions that can be created.
      * 
      */
     @Import(name="availableQueueNumber")
     private @Nullable Output<Integer> availableQueueNumber;
 
     /**
-     * @return 剩余可创建的分区数量。
+     * @return Remaining number of partitions that can be created.
      * 
      */
     public Optional<Output<Integer>> availableQueueNumber() {
@@ -98,14 +98,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的计费方式等计费信息。
+     * Billing method and related billing information for the instance.
      * 
      */
     @Import(name="chargeDetail")
     private @Nullable Output<InstanceChargeDetailArgs> chargeDetail;
 
     /**
-     * @return 实例的计费方式等计费信息。
+     * @return Billing method and related billing information for the instance.
      * 
      */
     public Optional<Output<InstanceChargeDetailArgs>> chargeDetail() {
@@ -113,14 +113,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+     * Instance compute specification. You can view the currently available compute specifications in the product specifications list.
      * 
      */
     @Import(name="computeSpec")
     private @Nullable Output<String> computeSpec;
 
     /**
-     * @return 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+     * @return Instance compute specification. You can view the currently available compute specifications in the product specifications list.
      * 
      */
     public Optional<Output<String>> computeSpec() {
@@ -135,14 +135,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的创建时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
-     * @return 实例的创建时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+     * @return Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
      * 
      */
     public Optional<Output<String>> createTime() {
@@ -150,14 +150,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+     * EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
      * 
      */
     @Import(name="eipId")
     private @Nullable Output<String> eipId;
 
     /**
-     * @return EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+     * @return EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
      * 
      */
     public Optional<Output<String>> eipId() {
@@ -165,14 +165,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 是否使用 SSL 加密。
+     * Whether to use SSL encryption.
      * 
      */
     @Import(name="enableSsl")
     private @Nullable Output<Boolean> enableSsl;
 
     /**
-     * @return 是否使用 SSL 加密。
+     * @return Whether to use SSL encryption.
      * 
      */
     public Optional<Output<Boolean>> enableSsl() {
@@ -180,14 +180,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+     * Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
      * 
      */
     @Import(name="fileReservedTime")
     private @Nullable Output<Integer> fileReservedTime;
 
     /**
-     * @return 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+     * @return Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
      * 
      */
     public Optional<Output<Integer>> fileReservedTime() {
@@ -195,14 +195,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的简单描述。长度范围为 1~128 个字符。
+     * Brief description of the instance. Length range: 1–128 characters.
      * 
      */
     @Import(name="instanceDescription")
     private @Nullable Output<String> instanceDescription;
 
     /**
-     * @return 实例的简单描述。长度范围为 1~128 个字符。
+     * @return Brief description of the instance. Length range: 1–128 characters.
      * 
      */
     public Optional<Output<String>> instanceDescription() {
@@ -210,14 +210,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例 ID。
+     * Instance ID.
      * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return 实例 ID。
+     * @return Instance ID.
      * 
      */
     public Optional<Output<String>> instanceId() {
@@ -225,14 +225,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+     * Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+     * @return Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -240,14 +240,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例状态。
+     * Instance status.
      * 
      */
     @Import(name="instanceStatus")
     private @Nullable Output<String> instanceStatus;
 
     /**
-     * @return 实例状态。
+     * @return Instance status.
      * 
      */
     public Optional<Output<String>> instanceStatus() {
@@ -255,14 +255,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * IP 版本， 可选直为 IPv4 或者 DualStack。
+     * IP version. Options are IPv4 or DualStack.
      * 
      */
     @Import(name="ipVersionType")
     private @Nullable Output<String> ipVersionType;
 
     /**
-     * @return IP 版本， 可选直为 IPv4 或者 DualStack。
+     * @return IP version. Options are IPv4 or DualStack.
      * 
      */
     public Optional<Output<String>> ipVersionType() {
@@ -270,14 +270,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例网络类型，固定为 PrivateNetwork。
+     * Instance network type, fixed as PrivateNetwork.
      * 
      */
     @Import(name="networkTypes")
     private @Nullable Output<String> networkTypes;
 
     /**
-     * @return 实例网络类型，固定为 PrivateNetwork。
+     * @return Instance network type, fixed as PrivateNetwork.
      * 
      */
     public Optional<Output<String>> networkTypes() {
@@ -285,14 +285,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+     * Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
      * 
      */
     @Import(name="productInfo")
     private @Nullable Output<InstanceProductInfoArgs> productInfo;
 
     /**
-     * @return 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+     * @return Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
      * 
      */
     public Optional<Output<InstanceProductInfoArgs>> productInfo() {
@@ -300,14 +300,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+     * The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
      * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
-     * @return 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+     * @return The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
      * 
      */
     public Optional<Output<String>> projectName() {
@@ -315,14 +315,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例所在的地域 ID。
+     * Region ID where the instance is located.
      * 
      */
     @Import(name="regionId")
     private @Nullable Output<String> regionId;
 
     /**
-     * @return 实例所在的地域 ID。
+     * @return Region ID where the instance is located.
      * 
      */
     public Optional<Output<String>> regionId() {
@@ -330,14 +330,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+     * The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
      * 
      */
     @Import(name="sslMode")
     private @Nullable Output<String> sslMode;
 
     /**
-     * @return 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+     * @return The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
      * 
      */
     public Optional<Output<String>> sslMode() {
@@ -345,14 +345,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+     * Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
      * 
      */
     @Import(name="storageSpace")
     private @Nullable Output<Integer> storageSpace;
 
     /**
-     * @return 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+     * @return Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
      * 
      */
     public Optional<Output<Integer>> storageSpace() {
@@ -360,14 +360,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * @return VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -382,14 +382,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 当前实例已经创建的消费组（Group）个数。
+     * Number of consumer groups (Group) currently created for the instance.
      * 
      */
     @Import(name="usedGroupNumber")
     private @Nullable Output<Integer> usedGroupNumber;
 
     /**
-     * @return 当前实例已经创建的消费组（Group）个数。
+     * @return Number of consumer groups (Group) currently created for the instance.
      * 
      */
     public Optional<Output<Integer>> usedGroupNumber() {
@@ -397,14 +397,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例已经使用的队列数。
+     * Number of queues already used by the instance.
      * 
      */
     @Import(name="usedQueueNumber")
     private @Nullable Output<Integer> usedQueueNumber;
 
     /**
-     * @return 实例已经使用的队列数。
+     * @return Number of queues already used by the instance.
      * 
      */
     public Optional<Output<Integer>> usedQueueNumber() {
@@ -412,14 +412,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例已用储空间。单位为 GiB。
+     * Used storage space for the instance, in GiB.
      * 
      */
     @Import(name="usedStorageSpace")
     private @Nullable Output<Integer> usedStorageSpace;
 
     /**
-     * @return 实例已用储空间。单位为 GiB。
+     * @return Used storage space for the instance, in GiB.
      * 
      */
     public Optional<Output<Integer>> usedStorageSpace() {
@@ -427,14 +427,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 当前实例已创建的 Topic 个数。
+     * Number of topics created in the current instance.
      * 
      */
     @Import(name="usedTopicNumber")
     private @Nullable Output<Integer> usedTopicNumber;
 
     /**
-     * @return 当前实例已创建的 Topic 个数。
+     * @return Number of topics created in the current instance.
      * 
      */
     public Optional<Output<Integer>> usedTopicNumber() {
@@ -442,14 +442,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+     * Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+     * @return Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
      * 
      */
     public Optional<Output<String>> version() {
@@ -457,14 +457,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+     * @return VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -472,14 +472,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+     * Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
      * 
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
-     * @return 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+     * @return Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
      * 
      */
     public Optional<Output<String>> zoneId() {
@@ -542,7 +542,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId 实例所属的账号 ID。
+         * @param accountId Account ID to which the instance belongs.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId 实例所属的账号 ID。
+         * @param accountId Account ID to which the instance belongs.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListIds 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+         * @param allowListIds List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListIds 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+         * @param allowListIds List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowListIds 实例绑定的白名单 ID 列表。绑定白名单后，仅配置在白名单中的 IP 地址与地址段才能访问此实例。如果实例未绑定任何白名单，表示禁止所有 IP 地址访问该实例。
+         * @param allowListIds List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applyPrivateDnsToPublic 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+         * @param applyPrivateDnsToPublic Whether private network domain name supports public resolution. true: enabled false: disabled
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applyPrivateDnsToPublic 是否已开启私网域名支持公网解析功能。true：已开启false：已关闭
+         * @param applyPrivateDnsToPublic Whether private network domain name supports public resolution. true: enabled false: disabled
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScaleQueue 实例规格更改时，是否自动创建队列。
+         * @param autoScaleQueue Whether to automatically create queues when the instance specification changes.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScaleQueue 实例规格更改时，是否自动创建队列。
+         * @param autoScaleQueue Whether to automatically create queues when the instance specification changes.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availableQueueNumber 剩余可创建的分区数量。
+         * @param availableQueueNumber Remaining number of partitions that can be created.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availableQueueNumber 剩余可创建的分区数量。
+         * @param availableQueueNumber Remaining number of partitions that can be created.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeDetail 实例的计费方式等计费信息。
+         * @param chargeDetail Billing method and related billing information for the instance.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param chargeDetail 实例的计费方式等计费信息。
+         * @param chargeDetail Billing method and related billing information for the instance.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeSpec 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+         * @param computeSpec Instance compute specification. You can view the currently available compute specifications in the product specifications list.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeSpec 实例的计算规格。您可以在产品规格中查看目前在售的计算规格列表。
+         * @param computeSpec Instance compute specification. You can view the currently available compute specifications in the product specifications list.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 实例的创建时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param createTime Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime 实例的创建时间。时间显示格式为YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;。
+         * @param createTime Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eipId EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+         * @param eipId EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eipId EIP 的 ID。指定 EipId 表示开启实例的公网访问。EIP 提供独立的公网 IP 资源，包括公网 IP 地址与公网出口带宽服务。指定此参数开启公网访问后，公网地址将绑定您的弹性公网IP（EIP），费用由EIP收取。
+         * @param eipId EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableSsl 是否使用 SSL 加密。
+         * @param enableSsl Whether to use SSL encryption.
          * 
          * @return builder
          * 
@@ -765,7 +765,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableSsl 是否使用 SSL 加密。
+         * @param enableSsl Whether to use SSL encryption.
          * 
          * @return builder
          * 
@@ -775,7 +775,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileReservedTime 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+         * @param fileReservedTime Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileReservedTime 消息在消息队列 RocketMQ版服务端的保留时长，超过保留时长的消息将被过期清理。单位为小时，取值范围为 1~72 小时。
+         * @param fileReservedTime Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceDescription 实例的简单描述。长度范围为 1~128 个字符。
+         * @param instanceDescription Brief description of the instance. Length range: 1–128 characters.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceDescription 实例的简单描述。长度范围为 1~128 个字符。
+         * @param instanceDescription Brief description of the instance. Length range: 1–128 characters.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId 实例 ID。
+         * @param instanceId Instance ID.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceName 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+         * @param instanceName Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
          * 
          * @return builder
          * 
@@ -849,7 +849,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceName 实例的名称。 需满足以下要求：只能包含中文、字母、数字、下划线（_）和连字符（-）。不能以数字和连字符（-）开头。长度范围为 1~128 个字符。如果创建实例时未指定名称，则默认将实例 ID 作为实例名称。
+         * @param instanceName Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
          * 
          * @return builder
          * 
@@ -859,7 +859,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceStatus 实例状态。
+         * @param instanceStatus Instance status.
          * 
          * @return builder
          * 
@@ -870,7 +870,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceStatus 实例状态。
+         * @param instanceStatus Instance status.
          * 
          * @return builder
          * 
@@ -880,7 +880,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipVersionType IP 版本， 可选直为 IPv4 或者 DualStack。
+         * @param ipVersionType IP version. Options are IPv4 or DualStack.
          * 
          * @return builder
          * 
@@ -891,7 +891,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipVersionType IP 版本， 可选直为 IPv4 或者 DualStack。
+         * @param ipVersionType IP version. Options are IPv4 or DualStack.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkTypes 实例网络类型，固定为 PrivateNetwork。
+         * @param networkTypes Instance network type, fixed as PrivateNetwork.
          * 
          * @return builder
          * 
@@ -912,7 +912,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkTypes 实例网络类型，固定为 PrivateNetwork。
+         * @param networkTypes Instance network type, fixed as PrivateNetwork.
          * 
          * @return builder
          * 
@@ -922,7 +922,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param productInfo 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         * @param productInfo Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param productInfo 产品配置信息。说明仅 RocketMQ 5.x 版本实例支持调整实例的 TPS 占比。
+         * @param productInfo Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
          * 
          * @return builder
          * 
@@ -943,7 +943,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+         * @param projectName The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectName 当前创建的实例所属的 IAM 项目。若未设置，则会将新实例绑定到名为 default 的 IAM 项目中。
+         * @param projectName The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
          * 
          * @return builder
          * 
@@ -964,7 +964,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regionId 实例所在的地域 ID。
+         * @param regionId Region ID where the instance is located.
          * 
          * @return builder
          * 
@@ -975,7 +975,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regionId 实例所在的地域 ID。
+         * @param regionId Region ID where the instance is located.
          * 
          * @return builder
          * 
@@ -985,7 +985,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sslMode 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+         * @param sslMode The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
          * 
          * @return builder
          * 
@@ -996,7 +996,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sslMode 实例的公网连接策略，仅在开启公网访问时需要设置。支持设置为：enforcing：通过公网访问实例时，必须经由 SSL 认证。SSL 认证可实现数据的加密传输，相较于普通公网访问方式具备更高的安全性，但性能会有所下降。permissive：通过公网访问实例时，可以选择是否经由 SSL 认证。创建实例后，公网访问为开启状态时，不能修改 SSL 连接策略。如需修改，需要为实例关闭并重新开启公网访问，在重新开启时再次设置 SSL 连接策略。详细说明请参考设置公网访问与 SSL 认证策略。
+         * @param sslMode The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
          * 
          * @return builder
          * 
@@ -1006,7 +1006,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageSpace 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+         * @param storageSpace Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
          * 
          * @return builder
          * 
@@ -1017,7 +1017,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageSpace 实例的存储空间。单位为 GiB，必须指定为 100 的倍数。取值范围取决于当前指定的计算规格。
+         * @param storageSpace Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
          * 
          * @return builder
          * 
@@ -1027,7 +1027,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+         * @param subnetId VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
          * 
          * @return builder
          * 
@@ -1038,7 +1038,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId 实例所在的 VPC 子网 ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+         * @param subnetId VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
          * 
          * @return builder
          * 
@@ -1061,7 +1061,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedGroupNumber 当前实例已经创建的消费组（Group）个数。
+         * @param usedGroupNumber Number of consumer groups (Group) currently created for the instance.
          * 
          * @return builder
          * 
@@ -1072,7 +1072,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedGroupNumber 当前实例已经创建的消费组（Group）个数。
+         * @param usedGroupNumber Number of consumer groups (Group) currently created for the instance.
          * 
          * @return builder
          * 
@@ -1082,7 +1082,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedQueueNumber 实例已经使用的队列数。
+         * @param usedQueueNumber Number of queues already used by the instance.
          * 
          * @return builder
          * 
@@ -1093,7 +1093,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedQueueNumber 实例已经使用的队列数。
+         * @param usedQueueNumber Number of queues already used by the instance.
          * 
          * @return builder
          * 
@@ -1103,7 +1103,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedStorageSpace 实例已用储空间。单位为 GiB。
+         * @param usedStorageSpace Used storage space for the instance, in GiB.
          * 
          * @return builder
          * 
@@ -1114,7 +1114,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedStorageSpace 实例已用储空间。单位为 GiB。
+         * @param usedStorageSpace Used storage space for the instance, in GiB.
          * 
          * @return builder
          * 
@@ -1124,7 +1124,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedTopicNumber 当前实例已创建的 Topic 个数。
+         * @param usedTopicNumber Number of topics created in the current instance.
          * 
          * @return builder
          * 
@@ -1135,7 +1135,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usedTopicNumber 当前实例已创建的 Topic 个数。
+         * @param usedTopicNumber Number of topics created in the current instance.
          * 
          * @return builder
          * 
@@ -1145,7 +1145,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+         * @param version Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
          * 
          * @return builder
          * 
@@ -1156,7 +1156,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version 支持的 RocketMQ 版本。当前支持的版本包括：4.8：兼容 RocketMQ 4.x 版本系列。5.x：兼容 RocketMQ 5.x 版本系列。目前 5.x 版本处于加白阶段，如需使用请联系技术支持申请开白。
+         * @param version Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
          * 
          * @return builder
          * 
@@ -1166,7 +1166,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+         * @param vpcId VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
          * 
          * @return builder
          * 
@@ -1177,7 +1177,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId 实例所在的私有网络（VPC） ID。实例创建完成后，不可修改对应的私有网络和子网。创建实例时请谨慎操作。您可以调用私有网络（VPC）的 DescribeVpcs 接口查询可用的VPC和子网列表。
+         * @param vpcId VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
          * 
          * @return builder
          * 
@@ -1187,7 +1187,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+         * @param zoneId Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
          * 
          * @return builder
          * 
@@ -1198,7 +1198,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId 实例所在的可用区 ID。消息队列 RocketMQ版实例支持跨 AZ 部署，查看指定可用区下提供哪些计算规格时，可以指定多个可用区。多个可用区 ID 之间以逗号（,）间隔。您可以调用 DescribeAvailabilityZones 查询当前提供服务的可用区列表。
+         * @param zoneId Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
          * 
          * @return builder
          * 

@@ -12,62 +12,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceConnectionInfo {
     /**
-     * @return 实例的接入点 IP 地址。
+     * @return Instance endpoint IP address.
      * 
      */
     private @Nullable String endpointAddressIp;
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     private @Nullable String endpointType;
     /**
-     * @return 实例的私网接入点地址。
+     * @return Private network endpoint address for the instance.
      * 
      */
     private @Nullable String internalEndpoint;
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     private @Nullable String networkType;
     /**
-     * @return 实例的公网接入点地址。
+     * @return Public access point address of the instance.
      * 
      */
     private @Nullable String publicEndpoint;
 
     private InstanceConnectionInfo() {}
     /**
-     * @return 实例的接入点 IP 地址。
+     * @return Instance endpoint IP address.
      * 
      */
     public Optional<String> endpointAddressIp() {
         return Optional.ofNullable(this.endpointAddressIp);
     }
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     public Optional<String> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
     /**
-     * @return 实例的私网接入点地址。
+     * @return Private network endpoint address for the instance.
      * 
      */
     public Optional<String> internalEndpoint() {
         return Optional.ofNullable(this.internalEndpoint);
     }
     /**
-     * @return 实例的接入点类型。
+     * @return Instance access point type.
      * 
      */
     public Optional<String> networkType() {
         return Optional.ofNullable(this.networkType);
     }
     /**
-     * @return 实例的公网接入点地址。
+     * @return Public access point address of the instance.
      * 
      */
     public Optional<String> publicEndpoint() {

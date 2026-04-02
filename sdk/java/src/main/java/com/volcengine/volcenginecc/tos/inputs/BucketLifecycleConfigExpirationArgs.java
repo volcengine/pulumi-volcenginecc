@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigExpirationArgs extends com.pulumi.resour
     public static final BucketLifecycleConfigExpirationArgs Empty = new BucketLifecycleConfigExpirationArgs();
 
     /**
-     * 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+     * Specific date for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     @Import(name="date")
     private @Nullable Output<String> date;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+     * @return Specific date for deleting the latest version object in the lifecycle rule based on last modified time
      * 
      */
     public Optional<Output<String>> date() {
@@ -32,14 +32,14 @@ public final class BucketLifecycleConfigExpirationArgs extends com.pulumi.resour
     }
 
     /**
-     * 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+     * Number of days for deleting the latest version object based on last modified time in lifecycle rules
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+     * @return Number of days for deleting the latest version object based on last modified time in lifecycle rules
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -72,7 +72,7 @@ public final class BucketLifecycleConfigExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param date 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+         * @param date Specific date for deleting the latest version object in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketLifecycleConfigExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param date 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+         * @param date Specific date for deleting the latest version object in the lifecycle rule based on last modified time
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BucketLifecycleConfigExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param days 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+         * @param days Number of days for deleting the latest version object based on last modified time in lifecycle rules
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketLifecycleConfigExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param days 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+         * @param days Number of days for deleting the latest version object based on last modified time in lifecycle rules
          * 
          * @return builder
          * 

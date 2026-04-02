@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cdn.Inputs
     public sealed class DomainIpAccessRuleSharedConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 表示一个全局配置的名称。
+        /// Indicates the name of a global configuration.
         /// </summary>
         [Input("configName")]
         public Input<string>? ConfigName { get; set; }

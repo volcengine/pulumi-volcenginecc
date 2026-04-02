@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * 一组具有相同 Group ID 的消费端。当一个 Topic 被同一个 Group 的多个 Consumer 消费时，每一条消息都只会被投递到一个 Consumer，实现消费的负载均衡。通过 Group，您可以确保一个 Topic 的消息被并行消费。
+ * A group of consumers with the same Group ID. When multiple consumers in the same Group consume a Topic, each message is delivered to only one consumer, enabling load balancing. Using Groups ensures that messages in a Topic are consumed in parallel.
  *
  * ## Import
  *
@@ -44,39 +44,39 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * Consumer Group 创建时间。
+     * Consumer Group creation time
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * Consumer Group 描述。
+     * Consumer Group description
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Consumer Group 的 ID。
+     * Consumer Group ID
      */
     public /*out*/ readonly groupId!: pulumi.Output<string>;
     /**
-     * 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+     * Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
      */
     public readonly groupName!: pulumi.Output<string>;
     /**
-     * 所属 BMQ 实例 ID。
+     * BMQ instance ID
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
-     * Consumer Group 所属用户的 ID。
+     * User ID of the Consumer Group owner
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * Consumer Group 所属用户的名称。
+     * Name of the Consumer Group owner
      */
     public /*out*/ readonly ownerName!: pulumi.Output<string>;
     /**
-     * 重置消费位点信息。
+     * Reset consumption offset information
      */
     public readonly resetInfo!: pulumi.Output<outputs.bmq.GroupResetInfo>;
     /**
-     * Consumer Group 的状态。
+     * Consumer Group status
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly topicInfos!: pulumi.Output<outputs.bmq.GroupTopicInfo[]>;
@@ -127,39 +127,39 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * Consumer Group 创建时间。
+     * Consumer Group creation time
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * Consumer Group 描述。
+     * Consumer Group description
      */
     description?: pulumi.Input<string>;
     /**
-     * Consumer Group 的 ID。
+     * Consumer Group ID
      */
     groupId?: pulumi.Input<string>;
     /**
-     * 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+     * Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
      */
     groupName?: pulumi.Input<string>;
     /**
-     * 所属 BMQ 实例 ID。
+     * BMQ instance ID
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * Consumer Group 所属用户的 ID。
+     * User ID of the Consumer Group owner
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * Consumer Group 所属用户的名称。
+     * Name of the Consumer Group owner
      */
     ownerName?: pulumi.Input<string>;
     /**
-     * 重置消费位点信息。
+     * Reset consumption offset information
      */
     resetInfo?: pulumi.Input<inputs.bmq.GroupResetInfo>;
     /**
-     * Consumer Group 的状态。
+     * Consumer Group status
      */
     status?: pulumi.Input<string>;
     topicInfos?: pulumi.Input<pulumi.Input<inputs.bmq.GroupTopicInfo>[]>;
@@ -170,19 +170,19 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * Consumer Group 描述。
+     * Consumer Group description
      */
     description?: pulumi.Input<string>;
     /**
-     * 自定义设置Consumer Group 的名称，约束限制如下：只能由小写英文字符、数字、下划线和中划线（-）组成。长度为 3~64 字符。
+     * Set a custom Consumer Group name. Constraints: Only lowercase English letters, numbers, underscores, and hyphens (-) are allowed. Length must be 3–64 characters.
      */
     groupName?: pulumi.Input<string>;
     /**
-     * 所属 BMQ 实例 ID。
+     * BMQ instance ID
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * 重置消费位点信息。
+     * Reset consumption offset information
      */
     resetInfo?: pulumi.Input<inputs.bmq.GroupResetInfo>;
 }

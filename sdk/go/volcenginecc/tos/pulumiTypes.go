@@ -14,10 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BucketAcl struct {
-	// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+	// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 	BucketAclDelivered *bool            `pulumi:"bucketAclDelivered"`
 	Grants             []BucketAclGrant `pulumi:"grants"`
-	// 对象所有者。
+	// Object owner
 	Owner *BucketAclOwner `pulumi:"owner"`
 }
 
@@ -33,10 +33,10 @@ type BucketAclInput interface {
 }
 
 type BucketAclArgs struct {
-	// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+	// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 	BucketAclDelivered pulumi.BoolPtrInput      `pulumi:"bucketAclDelivered"`
 	Grants             BucketAclGrantArrayInput `pulumi:"grants"`
-	// 对象所有者。
+	// Object owner
 	Owner BucketAclOwnerPtrInput `pulumi:"owner"`
 }
 
@@ -117,7 +117,7 @@ func (o BucketAclOutput) ToBucketAclPtrOutputWithContext(ctx context.Context) Bu
 	}).(BucketAclPtrOutput)
 }
 
-// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 func (o BucketAclOutput) BucketAclDelivered() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketAcl) *bool { return v.BucketAclDelivered }).(pulumi.BoolPtrOutput)
 }
@@ -126,7 +126,7 @@ func (o BucketAclOutput) Grants() BucketAclGrantArrayOutput {
 	return o.ApplyT(func(v BucketAcl) []BucketAclGrant { return v.Grants }).(BucketAclGrantArrayOutput)
 }
 
-// 对象所有者。
+// Object owner
 func (o BucketAclOutput) Owner() BucketAclOwnerPtrOutput {
 	return o.ApplyT(func(v BucketAcl) *BucketAclOwner { return v.Owner }).(BucketAclOwnerPtrOutput)
 }
@@ -155,7 +155,7 @@ func (o BucketAclPtrOutput) Elem() BucketAclOutput {
 	}).(BucketAclOutput)
 }
 
-// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 func (o BucketAclPtrOutput) BucketAclDelivered() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) *bool {
 		if v == nil {
@@ -174,7 +174,7 @@ func (o BucketAclPtrOutput) Grants() BucketAclGrantArrayOutput {
 	}).(BucketAclGrantArrayOutput)
 }
 
-// 对象所有者。
+// Object owner
 func (o BucketAclPtrOutput) Owner() BucketAclOwnerPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) *BucketAclOwner {
 		if v == nil {
@@ -185,17 +185,17 @@ func (o BucketAclPtrOutput) Owner() BucketAclOwnerPtrOutput {
 }
 
 type BucketAclGrant struct {
-	// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+	// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 	Acl *string `pulumi:"acl"`
-	// 授予指定用户所有权限。
+	// Grant all permissions to the specified user
 	GrantFullControl *string `pulumi:"grantFullControl"`
-	// 授予指定用户读权限。
+	// Grant read permission to the specified user
 	GrantRead *string `pulumi:"grantRead"`
-	// 授予指定用户查看桶 ACL 的权限。
+	// Grant permission to specified user to view bucket ACL
 	GrantReadAcp *string `pulumi:"grantReadAcp"`
-	// 授予指定用户写权限。
+	// Grant write permission to specified user
 	GrantWrite *string `pulumi:"grantWrite"`
-	// 授予指定用户修改和删除桶 ACL 的权限。
+	// Grant permission to the specified user to modify and delete bucket ACL
 	GrantWriteAcp *string `pulumi:"grantWriteAcp"`
 }
 
@@ -211,17 +211,17 @@ type BucketAclGrantInput interface {
 }
 
 type BucketAclGrantArgs struct {
-	// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+	// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 	Acl pulumi.StringPtrInput `pulumi:"acl"`
-	// 授予指定用户所有权限。
+	// Grant all permissions to the specified user
 	GrantFullControl pulumi.StringPtrInput `pulumi:"grantFullControl"`
-	// 授予指定用户读权限。
+	// Grant read permission to the specified user
 	GrantRead pulumi.StringPtrInput `pulumi:"grantRead"`
-	// 授予指定用户查看桶 ACL 的权限。
+	// Grant permission to specified user to view bucket ACL
 	GrantReadAcp pulumi.StringPtrInput `pulumi:"grantReadAcp"`
-	// 授予指定用户写权限。
+	// Grant write permission to specified user
 	GrantWrite pulumi.StringPtrInput `pulumi:"grantWrite"`
-	// 授予指定用户修改和删除桶 ACL 的权限。
+	// Grant permission to the specified user to modify and delete bucket ACL
 	GrantWriteAcp pulumi.StringPtrInput `pulumi:"grantWriteAcp"`
 }
 
@@ -327,32 +327,32 @@ func (o BucketAclGrantOutput) ToBucketAclGrantPtrOutputWithContext(ctx context.C
 	}).(BucketAclGrantPtrOutput)
 }
 
-// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 func (o BucketAclGrantOutput) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrant) *string { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户所有权限。
+// Grant all permissions to the specified user
 func (o BucketAclGrantOutput) GrantFullControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrant) *string { return v.GrantFullControl }).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户读权限。
+// Grant read permission to the specified user
 func (o BucketAclGrantOutput) GrantRead() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrant) *string { return v.GrantRead }).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户查看桶 ACL 的权限。
+// Grant permission to specified user to view bucket ACL
 func (o BucketAclGrantOutput) GrantReadAcp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrant) *string { return v.GrantReadAcp }).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户写权限。
+// Grant write permission to specified user
 func (o BucketAclGrantOutput) GrantWrite() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrant) *string { return v.GrantWrite }).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户修改和删除桶 ACL 的权限。
+// Grant permission to the specified user to modify and delete bucket ACL
 func (o BucketAclGrantOutput) GrantWriteAcp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrant) *string { return v.GrantWriteAcp }).(pulumi.StringPtrOutput)
 }
@@ -381,7 +381,7 @@ func (o BucketAclGrantPtrOutput) Elem() BucketAclGrantOutput {
 	}).(BucketAclGrantOutput)
 }
 
-// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 func (o BucketAclGrantPtrOutput) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclGrant) *string {
 		if v == nil {
@@ -391,7 +391,7 @@ func (o BucketAclGrantPtrOutput) Acl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户所有权限。
+// Grant all permissions to the specified user
 func (o BucketAclGrantPtrOutput) GrantFullControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclGrant) *string {
 		if v == nil {
@@ -401,7 +401,7 @@ func (o BucketAclGrantPtrOutput) GrantFullControl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户读权限。
+// Grant read permission to the specified user
 func (o BucketAclGrantPtrOutput) GrantRead() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclGrant) *string {
 		if v == nil {
@@ -411,7 +411,7 @@ func (o BucketAclGrantPtrOutput) GrantRead() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户查看桶 ACL 的权限。
+// Grant permission to specified user to view bucket ACL
 func (o BucketAclGrantPtrOutput) GrantReadAcp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclGrant) *string {
 		if v == nil {
@@ -421,7 +421,7 @@ func (o BucketAclGrantPtrOutput) GrantReadAcp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户写权限。
+// Grant write permission to specified user
 func (o BucketAclGrantPtrOutput) GrantWrite() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclGrant) *string {
 		if v == nil {
@@ -431,7 +431,7 @@ func (o BucketAclGrantPtrOutput) GrantWrite() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 授予指定用户修改和删除桶 ACL 的权限。
+// Grant permission to the specified user to modify and delete bucket ACL
 func (o BucketAclGrantPtrOutput) GrantWriteAcp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclGrant) *string {
 		if v == nil {
@@ -462,13 +462,13 @@ func (o BucketAclGrantArrayOutput) Index(i pulumi.IntInput) BucketAclGrantOutput
 }
 
 type BucketAclGrantGrantee struct {
-	// 预定义组。包括AllUsers、AuthenticatedUsers。
+	// Predefined groups. Includes AllUsers, AuthenticatedUsers
 	Canned *string `pulumi:"canned"`
-	// 展示名。
+	// Display name
 	DisplayName *string `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	GranteeId *string `pulumi:"granteeId"`
-	// 用户类型。包括Group、CanonicalUser。
+	// User type. Includes Group, CanonicalUser
 	Type *string `pulumi:"type"`
 }
 
@@ -484,13 +484,13 @@ type BucketAclGrantGranteeInput interface {
 }
 
 type BucketAclGrantGranteeArgs struct {
-	// 预定义组。包括AllUsers、AuthenticatedUsers。
+	// Predefined groups. Includes AllUsers, AuthenticatedUsers
 	Canned pulumi.StringPtrInput `pulumi:"canned"`
-	// 展示名。
+	// Display name
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	GranteeId pulumi.StringPtrInput `pulumi:"granteeId"`
-	// 用户类型。包括Group、CanonicalUser。
+	// User type. Includes Group, CanonicalUser
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -520,30 +520,30 @@ func (o BucketAclGrantGranteeOutput) ToBucketAclGrantGranteeOutputWithContext(ct
 	return o
 }
 
-// 预定义组。包括AllUsers、AuthenticatedUsers。
+// Predefined groups. Includes AllUsers, AuthenticatedUsers
 func (o BucketAclGrantGranteeOutput) Canned() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrantGrantee) *string { return v.Canned }).(pulumi.StringPtrOutput)
 }
 
-// 展示名。
+// Display name
 func (o BucketAclGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// 账号ID。
+// Account ID
 func (o BucketAclGrantGranteeOutput) GranteeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrantGrantee) *string { return v.GranteeId }).(pulumi.StringPtrOutput)
 }
 
-// 用户类型。包括Group、CanonicalUser。
+// User type. Includes Group, CanonicalUser
 func (o BucketAclGrantGranteeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclGrantGrantee) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type BucketAclOwner struct {
-	// 展示名。
+	// Display name
 	DisplayName *string `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	OwnerId *string `pulumi:"ownerId"`
 }
 
@@ -559,9 +559,9 @@ type BucketAclOwnerInput interface {
 }
 
 type BucketAclOwnerArgs struct {
-	// 展示名。
+	// Display name
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 }
 
@@ -642,12 +642,12 @@ func (o BucketAclOwnerOutput) ToBucketAclOwnerPtrOutputWithContext(ctx context.C
 	}).(BucketAclOwnerPtrOutput)
 }
 
-// 展示名。
+// Display name
 func (o BucketAclOwnerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// 账号ID。
+// Account ID
 func (o BucketAclOwnerOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclOwner) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
@@ -676,7 +676,7 @@ func (o BucketAclOwnerPtrOutput) Elem() BucketAclOwnerOutput {
 	}).(BucketAclOwnerOutput)
 }
 
-// 展示名。
+// Display name
 func (o BucketAclOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclOwner) *string {
 		if v == nil {
@@ -686,7 +686,7 @@ func (o BucketAclOwnerPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// 账号ID。
+// Account ID
 func (o BucketAclOwnerPtrOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclOwner) *string {
 		if v == nil {
@@ -697,19 +697,19 @@ func (o BucketAclOwnerPtrOutput) OwnerId() pulumi.StringPtrOutput {
 }
 
 type BucketLifecycleConfig struct {
-	// 指定未合并的分片任务（碎片）的过期属性。
+	// Specify expiration attributes for unmerged multipart tasks (fragments)
 	AbortInCompleteMultipartUpload *BucketLifecycleConfigAbortInCompleteMultipartUpload `pulumi:"abortInCompleteMultipartUpload"`
-	// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+	// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
 	Expiration *BucketLifecycleConfigExpiration `pulumi:"expiration"`
-	// 指定规则生效的过滤条件。
+	// Filter conditions for applying the rule
 	Filter *BucketLifecycleConfigFilter `pulumi:"filter"`
-	// 规则 ID。
+	// Rule ID
 	LifecycleRuleId              *string                                            `pulumi:"lifecycleRuleId"`
 	NoCurrentVersionExpiration   *BucketLifecycleConfigNoCurrentVersionExpiration   `pulumi:"noCurrentVersionExpiration"`
 	NonCurrentVersionTransitions []BucketLifecycleConfigNonCurrentVersionTransition `pulumi:"nonCurrentVersionTransitions"`
-	// 规则所适用的前缀。
+	// Prefix to which the rule applies
 	Prefix *string `pulumi:"prefix"`
-	// 是否启用规则。包括Enabled、Disabled。
+	// Enable rule. Includes Enabled, Disabled.
 	Status      *string                           `pulumi:"status"`
 	Tags        []BucketLifecycleConfigTag        `pulumi:"tags"`
 	Transitions []BucketLifecycleConfigTransition `pulumi:"transitions"`
@@ -727,19 +727,19 @@ type BucketLifecycleConfigInput interface {
 }
 
 type BucketLifecycleConfigArgs struct {
-	// 指定未合并的分片任务（碎片）的过期属性。
+	// Specify expiration attributes for unmerged multipart tasks (fragments)
 	AbortInCompleteMultipartUpload BucketLifecycleConfigAbortInCompleteMultipartUploadPtrInput `pulumi:"abortInCompleteMultipartUpload"`
-	// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+	// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
 	Expiration BucketLifecycleConfigExpirationPtrInput `pulumi:"expiration"`
-	// 指定规则生效的过滤条件。
+	// Filter conditions for applying the rule
 	Filter BucketLifecycleConfigFilterPtrInput `pulumi:"filter"`
-	// 规则 ID。
+	// Rule ID
 	LifecycleRuleId              pulumi.StringPtrInput                                      `pulumi:"lifecycleRuleId"`
 	NoCurrentVersionExpiration   BucketLifecycleConfigNoCurrentVersionExpirationPtrInput    `pulumi:"noCurrentVersionExpiration"`
 	NonCurrentVersionTransitions BucketLifecycleConfigNonCurrentVersionTransitionArrayInput `pulumi:"nonCurrentVersionTransitions"`
-	// 规则所适用的前缀。
+	// Prefix to which the rule applies
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// 是否启用规则。包括Enabled、Disabled。
+	// Enable rule. Includes Enabled, Disabled.
 	Status      pulumi.StringPtrInput                     `pulumi:"status"`
 	Tags        BucketLifecycleConfigTagArrayInput        `pulumi:"tags"`
 	Transitions BucketLifecycleConfigTransitionArrayInput `pulumi:"transitions"`
@@ -796,24 +796,24 @@ func (o BucketLifecycleConfigOutput) ToBucketLifecycleConfigOutputWithContext(ct
 	return o
 }
 
-// 指定未合并的分片任务（碎片）的过期属性。
+// Specify expiration attributes for unmerged multipart tasks (fragments)
 func (o BucketLifecycleConfigOutput) AbortInCompleteMultipartUpload() BucketLifecycleConfigAbortInCompleteMultipartUploadPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfig) *BucketLifecycleConfigAbortInCompleteMultipartUpload {
 		return v.AbortInCompleteMultipartUpload
 	}).(BucketLifecycleConfigAbortInCompleteMultipartUploadPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigOutput) Expiration() BucketLifecycleConfigExpirationPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfig) *BucketLifecycleConfigExpiration { return v.Expiration }).(BucketLifecycleConfigExpirationPtrOutput)
 }
 
-// 指定规则生效的过滤条件。
+// Filter conditions for applying the rule
 func (o BucketLifecycleConfigOutput) Filter() BucketLifecycleConfigFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfig) *BucketLifecycleConfigFilter { return v.Filter }).(BucketLifecycleConfigFilterPtrOutput)
 }
 
-// 规则 ID。
+// Rule ID
 func (o BucketLifecycleConfigOutput) LifecycleRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfig) *string { return v.LifecycleRuleId }).(pulumi.StringPtrOutput)
 }
@@ -830,12 +830,12 @@ func (o BucketLifecycleConfigOutput) NonCurrentVersionTransitions() BucketLifecy
 	}).(BucketLifecycleConfigNonCurrentVersionTransitionArrayOutput)
 }
 
-// 规则所适用的前缀。
+// Prefix to which the rule applies
 func (o BucketLifecycleConfigOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// 是否启用规则。包括Enabled、Disabled。
+// Enable rule. Includes Enabled, Disabled.
 func (o BucketLifecycleConfigOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfig) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -869,7 +869,7 @@ func (o BucketLifecycleConfigArrayOutput) Index(i pulumi.IntInput) BucketLifecyc
 }
 
 type BucketLifecycleConfigAbortInCompleteMultipartUpload struct {
-	// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+	// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 	DaysAfterInitiation *int `pulumi:"daysAfterInitiation"`
 }
 
@@ -885,7 +885,7 @@ type BucketLifecycleConfigAbortInCompleteMultipartUploadInput interface {
 }
 
 type BucketLifecycleConfigAbortInCompleteMultipartUploadArgs struct {
-	// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+	// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 	DaysAfterInitiation pulumi.IntPtrInput `pulumi:"daysAfterInitiation"`
 }
 
@@ -966,7 +966,7 @@ func (o BucketLifecycleConfigAbortInCompleteMultipartUploadOutput) ToBucketLifec
 	}).(BucketLifecycleConfigAbortInCompleteMultipartUploadPtrOutput)
 }
 
-// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 func (o BucketLifecycleConfigAbortInCompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigAbortInCompleteMultipartUpload) *int { return v.DaysAfterInitiation }).(pulumi.IntPtrOutput)
 }
@@ -995,7 +995,7 @@ func (o BucketLifecycleConfigAbortInCompleteMultipartUploadPtrOutput) Elem() Buc
 	}).(BucketLifecycleConfigAbortInCompleteMultipartUploadOutput)
 }
 
-// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 func (o BucketLifecycleConfigAbortInCompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigAbortInCompleteMultipartUpload) *int {
 		if v == nil {
@@ -1006,9 +1006,9 @@ func (o BucketLifecycleConfigAbortInCompleteMultipartUploadPtrOutput) DaysAfterI
 }
 
 type BucketLifecycleConfigExpiration struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+	// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 	Date *string `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+	// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 	Days *int `pulumi:"days"`
 }
 
@@ -1024,9 +1024,9 @@ type BucketLifecycleConfigExpirationInput interface {
 }
 
 type BucketLifecycleConfigExpirationArgs struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+	// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+	// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -1107,12 +1107,12 @@ func (o BucketLifecycleConfigExpirationOutput) ToBucketLifecycleConfigExpiration
 	}).(BucketLifecycleConfigExpirationPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 func (o BucketLifecycleConfigExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -1141,7 +1141,7 @@ func (o BucketLifecycleConfigExpirationPtrOutput) Elem() BucketLifecycleConfigEx
 	}).(BucketLifecycleConfigExpirationOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigExpiration) *string {
 		if v == nil {
@@ -1151,7 +1151,7 @@ func (o BucketLifecycleConfigExpirationPtrOutput) Date() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 func (o BucketLifecycleConfigExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigExpiration) *int {
 		if v == nil {
@@ -1162,13 +1162,13 @@ func (o BucketLifecycleConfigExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 }
 
 type BucketLifecycleConfigFilter struct {
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	GreaterThanIncludeEqual *string `pulumi:"greaterThanIncludeEqual"`
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	LessThanIncludeEqual *string `pulumi:"lessThanIncludeEqual"`
-	// 设置规则生效于大于指定大小的对象。
+	// Apply rule to objects larger than the specified size
 	ObjectSizeGreaterThan *int `pulumi:"objectSizeGreaterThan"`
-	// 设置规则生效于小于指定大小的对象。
+	// Apply rule to objects smaller than the specified size
 	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
 }
 
@@ -1184,13 +1184,13 @@ type BucketLifecycleConfigFilterInput interface {
 }
 
 type BucketLifecycleConfigFilterArgs struct {
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	GreaterThanIncludeEqual pulumi.StringPtrInput `pulumi:"greaterThanIncludeEqual"`
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	LessThanIncludeEqual pulumi.StringPtrInput `pulumi:"lessThanIncludeEqual"`
-	// 设置规则生效于大于指定大小的对象。
+	// Apply rule to objects larger than the specified size
 	ObjectSizeGreaterThan pulumi.IntPtrInput `pulumi:"objectSizeGreaterThan"`
-	// 设置规则生效于小于指定大小的对象。
+	// Apply rule to objects smaller than the specified size
 	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
 }
 
@@ -1271,22 +1271,22 @@ func (o BucketLifecycleConfigFilterOutput) ToBucketLifecycleConfigFilterPtrOutpu
 	}).(BucketLifecycleConfigFilterPtrOutput)
 }
 
-// 是否启用相等条件。包括Enabled、Disabled。
+// Equality condition status. Includes Enabled, Disabled
 func (o BucketLifecycleConfigFilterOutput) GreaterThanIncludeEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigFilter) *string { return v.GreaterThanIncludeEqual }).(pulumi.StringPtrOutput)
 }
 
-// 是否启用相等条件。包括Enabled、Disabled。
+// Equality condition status. Includes Enabled, Disabled
 func (o BucketLifecycleConfigFilterOutput) LessThanIncludeEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigFilter) *string { return v.LessThanIncludeEqual }).(pulumi.StringPtrOutput)
 }
 
-// 设置规则生效于大于指定大小的对象。
+// Apply rule to objects larger than the specified size
 func (o BucketLifecycleConfigFilterOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigFilter) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// 设置规则生效于小于指定大小的对象。
+// Apply rule to objects smaller than the specified size
 func (o BucketLifecycleConfigFilterOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigFilter) *int { return v.ObjectSizeLessThan }).(pulumi.IntPtrOutput)
 }
@@ -1315,7 +1315,7 @@ func (o BucketLifecycleConfigFilterPtrOutput) Elem() BucketLifecycleConfigFilter
 	}).(BucketLifecycleConfigFilterOutput)
 }
 
-// 是否启用相等条件。包括Enabled、Disabled。
+// Equality condition status. Includes Enabled, Disabled
 func (o BucketLifecycleConfigFilterPtrOutput) GreaterThanIncludeEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigFilter) *string {
 		if v == nil {
@@ -1325,7 +1325,7 @@ func (o BucketLifecycleConfigFilterPtrOutput) GreaterThanIncludeEqual() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// 是否启用相等条件。包括Enabled、Disabled。
+// Equality condition status. Includes Enabled, Disabled
 func (o BucketLifecycleConfigFilterPtrOutput) LessThanIncludeEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigFilter) *string {
 		if v == nil {
@@ -1335,7 +1335,7 @@ func (o BucketLifecycleConfigFilterPtrOutput) LessThanIncludeEqual() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// 设置规则生效于大于指定大小的对象。
+// Apply rule to objects larger than the specified size
 func (o BucketLifecycleConfigFilterPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigFilter) *int {
 		if v == nil {
@@ -1345,7 +1345,7 @@ func (o BucketLifecycleConfigFilterPtrOutput) ObjectSizeGreaterThan() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// 设置规则生效于小于指定大小的对象。
+// Apply rule to objects smaller than the specified size
 func (o BucketLifecycleConfigFilterPtrOutput) ObjectSizeLessThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigFilter) *int {
 		if v == nil {
@@ -1356,9 +1356,9 @@ func (o BucketLifecycleConfigFilterPtrOutput) ObjectSizeLessThan() pulumi.IntPtr
 }
 
 type BucketLifecycleConfigNoCurrentVersionExpiration struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+	// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDate *string `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+	// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays *int `pulumi:"nonCurrentDays"`
 }
 
@@ -1374,9 +1374,9 @@ type BucketLifecycleConfigNoCurrentVersionExpirationInput interface {
 }
 
 type BucketLifecycleConfigNoCurrentVersionExpirationArgs struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+	// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDate pulumi.StringPtrInput `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+	// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays pulumi.IntPtrInput `pulumi:"nonCurrentDays"`
 }
 
@@ -1457,12 +1457,12 @@ func (o BucketLifecycleConfigNoCurrentVersionExpirationOutput) ToBucketLifecycle
 	}).(BucketLifecycleConfigNoCurrentVersionExpirationPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigNoCurrentVersionExpirationOutput) NonCurrentDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigNoCurrentVersionExpiration) *string { return v.NonCurrentDate }).(pulumi.StringPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigNoCurrentVersionExpirationOutput) NonCurrentDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigNoCurrentVersionExpiration) *int { return v.NonCurrentDays }).(pulumi.IntPtrOutput)
 }
@@ -1491,7 +1491,7 @@ func (o BucketLifecycleConfigNoCurrentVersionExpirationPtrOutput) Elem() BucketL
 	}).(BucketLifecycleConfigNoCurrentVersionExpirationOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigNoCurrentVersionExpirationPtrOutput) NonCurrentDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigNoCurrentVersionExpiration) *string {
 		if v == nil {
@@ -1501,7 +1501,7 @@ func (o BucketLifecycleConfigNoCurrentVersionExpirationPtrOutput) NonCurrentDate
 	}).(pulumi.StringPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigNoCurrentVersionExpirationPtrOutput) NonCurrentDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigNoCurrentVersionExpiration) *int {
 		if v == nil {
@@ -1512,11 +1512,11 @@ func (o BucketLifecycleConfigNoCurrentVersionExpirationPtrOutput) NonCurrentDays
 }
 
 type BucketLifecycleConfigNonCurrentVersionTransition struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+	// Specific date for historical version object transition in lifecycle rules based on last modified time
 	NonCurrentDate *string `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+	// Number of days to transition historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays *int `pulumi:"nonCurrentDays"`
-	// 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -1532,11 +1532,11 @@ type BucketLifecycleConfigNonCurrentVersionTransitionInput interface {
 }
 
 type BucketLifecycleConfigNonCurrentVersionTransitionArgs struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+	// Specific date for historical version object transition in lifecycle rules based on last modified time
 	NonCurrentDate pulumi.StringPtrInput `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+	// Number of days to transition historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays pulumi.IntPtrInput `pulumi:"nonCurrentDays"`
-	// 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -1591,17 +1591,17 @@ func (o BucketLifecycleConfigNonCurrentVersionTransitionOutput) ToBucketLifecycl
 	return o
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+// Specific date for historical version object transition in lifecycle rules based on last modified time
 func (o BucketLifecycleConfigNonCurrentVersionTransitionOutput) NonCurrentDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigNonCurrentVersionTransition) *string { return v.NonCurrentDate }).(pulumi.StringPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+// Number of days to transition historical version objects in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigNonCurrentVersionTransitionOutput) NonCurrentDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigNonCurrentVersionTransition) *int { return v.NonCurrentDays }).(pulumi.IntPtrOutput)
 }
 
-// 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+// Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 func (o BucketLifecycleConfigNonCurrentVersionTransitionOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigNonCurrentVersionTransition) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
@@ -1627,9 +1627,9 @@ func (o BucketLifecycleConfigNonCurrentVersionTransitionArrayOutput) Index(i pul
 }
 
 type BucketLifecycleConfigTag struct {
-	// 标签键。
+	// Tag key
 	Key *string `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value *string `pulumi:"value"`
 }
 
@@ -1645,9 +1645,9 @@ type BucketLifecycleConfigTagInput interface {
 }
 
 type BucketLifecycleConfigTagArgs struct {
-	// 标签键。
+	// Tag key
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1702,12 +1702,12 @@ func (o BucketLifecycleConfigTagOutput) ToBucketLifecycleConfigTagOutputWithCont
 	return o
 }
 
-// 标签键。
+// Tag key
 func (o BucketLifecycleConfigTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签值。
+// Tag value
 func (o BucketLifecycleConfigTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1733,11 +1733,11 @@ func (o BucketLifecycleConfigTagArrayOutput) Index(i pulumi.IntInput) BucketLife
 }
 
 type BucketLifecycleConfigTransition struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+	// Specific date for latest version object transition in lifecycle rules based on last modified time
 	Date *string `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+	// Number of days to transition the latest version object in the lifecycle rule based on last modified time
 	Days *int `pulumi:"days"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -1753,11 +1753,11 @@ type BucketLifecycleConfigTransitionInput interface {
 }
 
 type BucketLifecycleConfigTransitionArgs struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+	// Specific date for latest version object transition in lifecycle rules based on last modified time
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+	// Number of days to transition the latest version object in the lifecycle rule based on last modified time
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -1812,17 +1812,17 @@ func (o BucketLifecycleConfigTransitionOutput) ToBucketLifecycleConfigTransition
 	return o
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+// Specific date for latest version object transition in lifecycle rules based on last modified time
 func (o BucketLifecycleConfigTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+// Number of days to transition the latest version object in the lifecycle rule based on last modified time
 func (o BucketLifecycleConfigTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 func (o BucketLifecycleConfigTransitionOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigTransition) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
@@ -1848,9 +1848,9 @@ func (o BucketLifecycleConfigTransitionArrayOutput) Index(i pulumi.IntInput) Buc
 }
 
 type BucketTag struct {
-	// 标签键。
+	// Tag key
 	Key *string `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value *string `pulumi:"value"`
 }
 
@@ -1866,9 +1866,9 @@ type BucketTagInput interface {
 }
 
 type BucketTagArgs struct {
-	// 标签键。
+	// Tag key
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1923,12 +1923,12 @@ func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) Bucke
 	return o
 }
 
-// 标签键。
+// Tag key
 func (o BucketTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// 标签值。
+// Tag value
 func (o BucketTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1954,11 +1954,11 @@ func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
 }
 
 type GetBucketAcl struct {
-	// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+	// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 	BucketAclDelivered bool `pulumi:"bucketAclDelivered"`
-	// 对象的访问控制权限根节点。
+	// Root node for object access control permissions
 	Grants []GetBucketAclGrant `pulumi:"grants"`
-	// 对象所有者。
+	// Object owner
 	Owner GetBucketAclOwner `pulumi:"owner"`
 }
 
@@ -1974,11 +1974,11 @@ type GetBucketAclInput interface {
 }
 
 type GetBucketAclArgs struct {
-	// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+	// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 	BucketAclDelivered pulumi.BoolInput `pulumi:"bucketAclDelivered"`
-	// 对象的访问控制权限根节点。
+	// Root node for object access control permissions
 	Grants GetBucketAclGrantArrayInput `pulumi:"grants"`
-	// 对象所有者。
+	// Object owner
 	Owner GetBucketAclOwnerInput `pulumi:"owner"`
 }
 
@@ -2008,33 +2008,33 @@ func (o GetBucketAclOutput) ToGetBucketAclOutputWithContext(ctx context.Context)
 	return o
 }
 
-// 是否开启对象默认继承桶 ACL 功能。true：开启对象默认继承桶 ACL 功能。false：关闭对象默认继承桶 ACL 功能。
+// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 func (o GetBucketAclOutput) BucketAclDelivered() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBucketAcl) bool { return v.BucketAclDelivered }).(pulumi.BoolOutput)
 }
 
-// 对象的访问控制权限根节点。
+// Root node for object access control permissions
 func (o GetBucketAclOutput) Grants() GetBucketAclGrantArrayOutput {
 	return o.ApplyT(func(v GetBucketAcl) []GetBucketAclGrant { return v.Grants }).(GetBucketAclGrantArrayOutput)
 }
 
-// 对象所有者。
+// Object owner
 func (o GetBucketAclOutput) Owner() GetBucketAclOwnerOutput {
 	return o.ApplyT(func(v GetBucketAcl) GetBucketAclOwner { return v.Owner }).(GetBucketAclOwnerOutput)
 }
 
 type GetBucketAclGrant struct {
-	// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+	// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 	Acl string `pulumi:"acl"`
-	// 授予指定用户所有权限。
+	// Grant all permissions to the specified user
 	GrantFullControl string `pulumi:"grantFullControl"`
-	// 授予指定用户读权限。
+	// Grant read permission to the specified user
 	GrantRead string `pulumi:"grantRead"`
-	// 授予指定用户查看桶 ACL 的权限。
+	// Grant permission to specified user to view bucket ACL
 	GrantReadAcp string `pulumi:"grantReadAcp"`
-	// 授予指定用户写权限。
+	// Grant write permission to specified user
 	GrantWrite string `pulumi:"grantWrite"`
-	// 授予指定用户修改和删除桶 ACL 的权限。
+	// Grant permission to the specified user to modify and delete bucket ACL
 	GrantWriteAcp string `pulumi:"grantWriteAcp"`
 }
 
@@ -2050,17 +2050,17 @@ type GetBucketAclGrantInput interface {
 }
 
 type GetBucketAclGrantArgs struct {
-	// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+	// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 	Acl pulumi.StringInput `pulumi:"acl"`
-	// 授予指定用户所有权限。
+	// Grant all permissions to the specified user
 	GrantFullControl pulumi.StringInput `pulumi:"grantFullControl"`
-	// 授予指定用户读权限。
+	// Grant read permission to the specified user
 	GrantRead pulumi.StringInput `pulumi:"grantRead"`
-	// 授予指定用户查看桶 ACL 的权限。
+	// Grant permission to specified user to view bucket ACL
 	GrantReadAcp pulumi.StringInput `pulumi:"grantReadAcp"`
-	// 授予指定用户写权限。
+	// Grant write permission to specified user
 	GrantWrite pulumi.StringInput `pulumi:"grantWrite"`
-	// 授予指定用户修改和删除桶 ACL 的权限。
+	// Grant permission to the specified user to modify and delete bucket ACL
 	GrantWriteAcp pulumi.StringInput `pulumi:"grantWriteAcp"`
 }
 
@@ -2115,32 +2115,32 @@ func (o GetBucketAclGrantOutput) ToGetBucketAclGrantOutputWithContext(ctx contex
 	return o
 }
 
-// 桶的访问权限。包括private、public-read、public-read-write、authenticated-read、bucket-owner-read、bucket-owner-full-control、log-delivery-write、bucket-owner-entrusted、default。
+// Bucket access permissions. Includes private, public-read, public-read-write, authenticated-read, bucket-owner-read, bucket-owner-full-control, log-delivery-write, bucket-owner-entrusted, default.
 func (o GetBucketAclGrantOutput) Acl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrant) string { return v.Acl }).(pulumi.StringOutput)
 }
 
-// 授予指定用户所有权限。
+// Grant all permissions to the specified user
 func (o GetBucketAclGrantOutput) GrantFullControl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrant) string { return v.GrantFullControl }).(pulumi.StringOutput)
 }
 
-// 授予指定用户读权限。
+// Grant read permission to the specified user
 func (o GetBucketAclGrantOutput) GrantRead() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrant) string { return v.GrantRead }).(pulumi.StringOutput)
 }
 
-// 授予指定用户查看桶 ACL 的权限。
+// Grant permission to specified user to view bucket ACL
 func (o GetBucketAclGrantOutput) GrantReadAcp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrant) string { return v.GrantReadAcp }).(pulumi.StringOutput)
 }
 
-// 授予指定用户写权限。
+// Grant write permission to specified user
 func (o GetBucketAclGrantOutput) GrantWrite() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrant) string { return v.GrantWrite }).(pulumi.StringOutput)
 }
 
-// 授予指定用户修改和删除桶 ACL 的权限。
+// Grant permission to the specified user to modify and delete bucket ACL
 func (o GetBucketAclGrantOutput) GrantWriteAcp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrant) string { return v.GrantWriteAcp }).(pulumi.StringOutput)
 }
@@ -2166,13 +2166,13 @@ func (o GetBucketAclGrantArrayOutput) Index(i pulumi.IntInput) GetBucketAclGrant
 }
 
 type GetBucketAclGrantGrantee struct {
-	// 预定义组。包括AllUsers、AuthenticatedUsers。
+	// Predefined groups. Includes AllUsers, AuthenticatedUsers
 	Canned string `pulumi:"canned"`
-	// 展示名。
+	// Display name
 	DisplayName string `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	GranteeId string `pulumi:"granteeId"`
-	// 用户类型。包括Group、CanonicalUser。
+	// User type. Includes Group, CanonicalUser
 	Type string `pulumi:"type"`
 }
 
@@ -2188,13 +2188,13 @@ type GetBucketAclGrantGranteeInput interface {
 }
 
 type GetBucketAclGrantGranteeArgs struct {
-	// 预定义组。包括AllUsers、AuthenticatedUsers。
+	// Predefined groups. Includes AllUsers, AuthenticatedUsers
 	Canned pulumi.StringInput `pulumi:"canned"`
-	// 展示名。
+	// Display name
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	GranteeId pulumi.StringInput `pulumi:"granteeId"`
-	// 用户类型。包括Group、CanonicalUser。
+	// User type. Includes Group, CanonicalUser
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2224,30 +2224,30 @@ func (o GetBucketAclGrantGranteeOutput) ToGetBucketAclGrantGranteeOutputWithCont
 	return o
 }
 
-// 预定义组。包括AllUsers、AuthenticatedUsers。
+// Predefined groups. Includes AllUsers, AuthenticatedUsers
 func (o GetBucketAclGrantGranteeOutput) Canned() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrantGrantee) string { return v.Canned }).(pulumi.StringOutput)
 }
 
-// 展示名。
+// Display name
 func (o GetBucketAclGrantGranteeOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrantGrantee) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// 账号ID。
+// Account ID
 func (o GetBucketAclGrantGranteeOutput) GranteeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrantGrantee) string { return v.GranteeId }).(pulumi.StringOutput)
 }
 
-// 用户类型。包括Group、CanonicalUser。
+// User type. Includes Group, CanonicalUser
 func (o GetBucketAclGrantGranteeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclGrantGrantee) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GetBucketAclOwner struct {
-	// 展示名。
+	// Display name
 	DisplayName string `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	OwnerId string `pulumi:"ownerId"`
 }
 
@@ -2263,9 +2263,9 @@ type GetBucketAclOwnerInput interface {
 }
 
 type GetBucketAclOwnerArgs struct {
-	// 展示名。
+	// Display name
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// 账号ID。
+	// Account ID
 	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 }
 
@@ -2295,35 +2295,35 @@ func (o GetBucketAclOwnerOutput) ToGetBucketAclOwnerOutputWithContext(ctx contex
 	return o
 }
 
-// 展示名。
+// Display name
 func (o GetBucketAclOwnerOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclOwner) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// 账号ID。
+// Account ID
 func (o GetBucketAclOwnerOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclOwner) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
 type GetBucketLifecycleConfig struct {
-	// 指定未合并的分片任务（碎片）的过期属性。
+	// Specify expiration attributes for unmerged multipart tasks (fragments)
 	AbortInCompleteMultipartUpload GetBucketLifecycleConfigAbortInCompleteMultipartUpload `pulumi:"abortInCompleteMultipartUpload"`
-	// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+	// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
 	Expiration GetBucketLifecycleConfigExpiration `pulumi:"expiration"`
-	// 指定规则生效的过滤条件。
+	// Filter conditions for applying the rule
 	Filter GetBucketLifecycleConfigFilter `pulumi:"filter"`
-	// 规则 ID。
+	// Rule ID
 	LifecycleRuleId            string                                             `pulumi:"lifecycleRuleId"`
 	NoCurrentVersionExpiration GetBucketLifecycleConfigNoCurrentVersionExpiration `pulumi:"noCurrentVersionExpiration"`
-	// 基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。
+	// Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
 	NonCurrentVersionTransitions []GetBucketLifecycleConfigNonCurrentVersionTransition `pulumi:"nonCurrentVersionTransitions"`
-	// 规则所适用的前缀。
+	// Prefix to which the rule applies
 	Prefix string `pulumi:"prefix"`
-	// 是否启用规则。包括Enabled、Disabled。
+	// Enable rule. Includes Enabled, Disabled.
 	Status string `pulumi:"status"`
-	// 标签。
+	// Tag
 	Tags []GetBucketLifecycleConfigTag `pulumi:"tags"`
-	// 基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。
+	// Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
 	Transitions []GetBucketLifecycleConfigTransition `pulumi:"transitions"`
 }
 
@@ -2339,24 +2339,24 @@ type GetBucketLifecycleConfigInput interface {
 }
 
 type GetBucketLifecycleConfigArgs struct {
-	// 指定未合并的分片任务（碎片）的过期属性。
+	// Specify expiration attributes for unmerged multipart tasks (fragments)
 	AbortInCompleteMultipartUpload GetBucketLifecycleConfigAbortInCompleteMultipartUploadInput `pulumi:"abortInCompleteMultipartUpload"`
-	// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+	// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
 	Expiration GetBucketLifecycleConfigExpirationInput `pulumi:"expiration"`
-	// 指定规则生效的过滤条件。
+	// Filter conditions for applying the rule
 	Filter GetBucketLifecycleConfigFilterInput `pulumi:"filter"`
-	// 规则 ID。
+	// Rule ID
 	LifecycleRuleId            pulumi.StringInput                                      `pulumi:"lifecycleRuleId"`
 	NoCurrentVersionExpiration GetBucketLifecycleConfigNoCurrentVersionExpirationInput `pulumi:"noCurrentVersionExpiration"`
-	// 基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。
+	// Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
 	NonCurrentVersionTransitions GetBucketLifecycleConfigNonCurrentVersionTransitionArrayInput `pulumi:"nonCurrentVersionTransitions"`
-	// 规则所适用的前缀。
+	// Prefix to which the rule applies
 	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// 是否启用规则。包括Enabled、Disabled。
+	// Enable rule. Includes Enabled, Disabled.
 	Status pulumi.StringInput `pulumi:"status"`
-	// 标签。
+	// Tag
 	Tags GetBucketLifecycleConfigTagArrayInput `pulumi:"tags"`
-	// 基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。
+	// Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
 	Transitions GetBucketLifecycleConfigTransitionArrayInput `pulumi:"transitions"`
 }
 
@@ -2411,24 +2411,24 @@ func (o GetBucketLifecycleConfigOutput) ToGetBucketLifecycleConfigOutputWithCont
 	return o
 }
 
-// 指定未合并的分片任务（碎片）的过期属性。
+// Specify expiration attributes for unmerged multipart tasks (fragments)
 func (o GetBucketLifecycleConfigOutput) AbortInCompleteMultipartUpload() GetBucketLifecycleConfigAbortInCompleteMultipartUploadOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) GetBucketLifecycleConfigAbortInCompleteMultipartUpload {
 		return v.AbortInCompleteMultipartUpload
 	}).(GetBucketLifecycleConfigAbortInCompleteMultipartUploadOutput)
 }
 
-// 基于最后修改时间的生命周期规则中删除最新版本对象的过期属性。
+// Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigOutput) Expiration() GetBucketLifecycleConfigExpirationOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) GetBucketLifecycleConfigExpiration { return v.Expiration }).(GetBucketLifecycleConfigExpirationOutput)
 }
 
-// 指定规则生效的过滤条件。
+// Filter conditions for applying the rule
 func (o GetBucketLifecycleConfigOutput) Filter() GetBucketLifecycleConfigFilterOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) GetBucketLifecycleConfigFilter { return v.Filter }).(GetBucketLifecycleConfigFilterOutput)
 }
 
-// 规则 ID。
+// Rule ID
 func (o GetBucketLifecycleConfigOutput) LifecycleRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) string { return v.LifecycleRuleId }).(pulumi.StringOutput)
 }
@@ -2439,29 +2439,29 @@ func (o GetBucketLifecycleConfigOutput) NoCurrentVersionExpiration() GetBucketLi
 	}).(GetBucketLifecycleConfigNoCurrentVersionExpirationOutput)
 }
 
-// 基于最后修改时间的生命周期规则中沉降历史版本对象的的过期属性。
+// Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigOutput) NonCurrentVersionTransitions() GetBucketLifecycleConfigNonCurrentVersionTransitionArrayOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) []GetBucketLifecycleConfigNonCurrentVersionTransition {
 		return v.NonCurrentVersionTransitions
 	}).(GetBucketLifecycleConfigNonCurrentVersionTransitionArrayOutput)
 }
 
-// 规则所适用的前缀。
+// Prefix to which the rule applies
 func (o GetBucketLifecycleConfigOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// 是否启用规则。包括Enabled、Disabled。
+// Enable rule. Includes Enabled, Disabled.
 func (o GetBucketLifecycleConfigOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// 标签。
+// Tag
 func (o GetBucketLifecycleConfigOutput) Tags() GetBucketLifecycleConfigTagArrayOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) []GetBucketLifecycleConfigTag { return v.Tags }).(GetBucketLifecycleConfigTagArrayOutput)
 }
 
-// 基于最后修改时间的生命周期规则中沉降最新版本对象的的过期属性。
+// Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigOutput) Transitions() GetBucketLifecycleConfigTransitionArrayOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfig) []GetBucketLifecycleConfigTransition { return v.Transitions }).(GetBucketLifecycleConfigTransitionArrayOutput)
 }
@@ -2487,7 +2487,7 @@ func (o GetBucketLifecycleConfigArrayOutput) Index(i pulumi.IntInput) GetBucketL
 }
 
 type GetBucketLifecycleConfigAbortInCompleteMultipartUpload struct {
-	// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+	// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 	DaysAfterInitiation int `pulumi:"daysAfterInitiation"`
 }
 
@@ -2503,7 +2503,7 @@ type GetBucketLifecycleConfigAbortInCompleteMultipartUploadInput interface {
 }
 
 type GetBucketLifecycleConfigAbortInCompleteMultipartUploadArgs struct {
-	// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+	// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 	DaysAfterInitiation pulumi.IntInput `pulumi:"daysAfterInitiation"`
 }
 
@@ -2533,15 +2533,15 @@ func (o GetBucketLifecycleConfigAbortInCompleteMultipartUploadOutput) ToGetBucke
 	return o
 }
 
-// 指定未合并的分片任务（碎片）的生命周期规则，在分片任务初始化过后过期删除的天数。
+// Specify lifecycle rule for unmerged multipart tasks (fragments), number of days to delete after task initialization
 func (o GetBucketLifecycleConfigAbortInCompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigAbortInCompleteMultipartUpload) int { return v.DaysAfterInitiation }).(pulumi.IntOutput)
 }
 
 type GetBucketLifecycleConfigExpiration struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+	// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 	Date string `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+	// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 	Days int `pulumi:"days"`
 }
 
@@ -2557,9 +2557,9 @@ type GetBucketLifecycleConfigExpirationInput interface {
 }
 
 type GetBucketLifecycleConfigExpirationArgs struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+	// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 	Date pulumi.StringInput `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+	// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 	Days pulumi.IntInput `pulumi:"days"`
 }
 
@@ -2589,24 +2589,24 @@ func (o GetBucketLifecycleConfigExpirationOutput) ToGetBucketLifecycleConfigExpi
 	return o
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期删除的具体日期。
+// Specific date for deleting the latest version object in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigExpirationOutput) Date() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigExpiration) string { return v.Date }).(pulumi.StringOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期删除的天数。
+// Number of days for deleting the latest version object based on last modified time in lifecycle rules
 func (o GetBucketLifecycleConfigExpirationOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigExpiration) int { return v.Days }).(pulumi.IntOutput)
 }
 
 type GetBucketLifecycleConfigFilter struct {
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	GreaterThanIncludeEqual string `pulumi:"greaterThanIncludeEqual"`
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	LessThanIncludeEqual string `pulumi:"lessThanIncludeEqual"`
-	// 设置规则生效于大于指定大小的对象。
+	// Apply rule to objects larger than the specified size
 	ObjectSizeGreaterThan int `pulumi:"objectSizeGreaterThan"`
-	// 设置规则生效于小于指定大小的对象。
+	// Apply rule to objects smaller than the specified size
 	ObjectSizeLessThan int `pulumi:"objectSizeLessThan"`
 }
 
@@ -2622,13 +2622,13 @@ type GetBucketLifecycleConfigFilterInput interface {
 }
 
 type GetBucketLifecycleConfigFilterArgs struct {
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	GreaterThanIncludeEqual pulumi.StringInput `pulumi:"greaterThanIncludeEqual"`
-	// 是否启用相等条件。包括Enabled、Disabled。
+	// Equality condition status. Includes Enabled, Disabled
 	LessThanIncludeEqual pulumi.StringInput `pulumi:"lessThanIncludeEqual"`
-	// 设置规则生效于大于指定大小的对象。
+	// Apply rule to objects larger than the specified size
 	ObjectSizeGreaterThan pulumi.IntInput `pulumi:"objectSizeGreaterThan"`
-	// 设置规则生效于小于指定大小的对象。
+	// Apply rule to objects smaller than the specified size
 	ObjectSizeLessThan pulumi.IntInput `pulumi:"objectSizeLessThan"`
 }
 
@@ -2658,30 +2658,30 @@ func (o GetBucketLifecycleConfigFilterOutput) ToGetBucketLifecycleConfigFilterOu
 	return o
 }
 
-// 是否启用相等条件。包括Enabled、Disabled。
+// Equality condition status. Includes Enabled, Disabled
 func (o GetBucketLifecycleConfigFilterOutput) GreaterThanIncludeEqual() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigFilter) string { return v.GreaterThanIncludeEqual }).(pulumi.StringOutput)
 }
 
-// 是否启用相等条件。包括Enabled、Disabled。
+// Equality condition status. Includes Enabled, Disabled
 func (o GetBucketLifecycleConfigFilterOutput) LessThanIncludeEqual() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigFilter) string { return v.LessThanIncludeEqual }).(pulumi.StringOutput)
 }
 
-// 设置规则生效于大于指定大小的对象。
+// Apply rule to objects larger than the specified size
 func (o GetBucketLifecycleConfigFilterOutput) ObjectSizeGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigFilter) int { return v.ObjectSizeGreaterThan }).(pulumi.IntOutput)
 }
 
-// 设置规则生效于小于指定大小的对象。
+// Apply rule to objects smaller than the specified size
 func (o GetBucketLifecycleConfigFilterOutput) ObjectSizeLessThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigFilter) int { return v.ObjectSizeLessThan }).(pulumi.IntOutput)
 }
 
 type GetBucketLifecycleConfigNoCurrentVersionExpiration struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+	// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDate string `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+	// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays int `pulumi:"nonCurrentDays"`
 }
 
@@ -2697,9 +2697,9 @@ type GetBucketLifecycleConfigNoCurrentVersionExpirationInput interface {
 }
 
 type GetBucketLifecycleConfigNoCurrentVersionExpirationArgs struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+	// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDate pulumi.StringInput `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+	// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays pulumi.IntInput `pulumi:"nonCurrentDays"`
 }
 
@@ -2729,22 +2729,22 @@ func (o GetBucketLifecycleConfigNoCurrentVersionExpirationOutput) ToGetBucketLif
 	return o
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象过期删除的具体日期。
+// Specific date for deleting historical version objects in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigNoCurrentVersionExpirationOutput) NonCurrentDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigNoCurrentVersionExpiration) string { return v.NonCurrentDate }).(pulumi.StringOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象过期删除的天数。
+// Number of days to delete historical version objects in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigNoCurrentVersionExpirationOutput) NonCurrentDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigNoCurrentVersionExpiration) int { return v.NonCurrentDays }).(pulumi.IntOutput)
 }
 
 type GetBucketLifecycleConfigNonCurrentVersionTransition struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+	// Specific date for historical version object transition in lifecycle rules based on last modified time
 	NonCurrentDate string `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+	// Number of days to transition historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays int `pulumi:"nonCurrentDays"`
-	// 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -2760,11 +2760,11 @@ type GetBucketLifecycleConfigNonCurrentVersionTransitionInput interface {
 }
 
 type GetBucketLifecycleConfigNonCurrentVersionTransitionArgs struct {
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+	// Specific date for historical version object transition in lifecycle rules based on last modified time
 	NonCurrentDate pulumi.StringInput `pulumi:"nonCurrentDate"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+	// Number of days to transition historical version objects in the lifecycle rule based on last modified time
 	NonCurrentDays pulumi.IntInput `pulumi:"nonCurrentDays"`
-	// 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -2819,17 +2819,17 @@ func (o GetBucketLifecycleConfigNonCurrentVersionTransitionOutput) ToGetBucketLi
 	return o
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象沉降的具体日期。
+// Specific date for historical version object transition in lifecycle rules based on last modified time
 func (o GetBucketLifecycleConfigNonCurrentVersionTransitionOutput) NonCurrentDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigNonCurrentVersionTransition) string { return v.NonCurrentDate }).(pulumi.StringOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象沉降的天数。
+// Number of days to transition historical version objects in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigNonCurrentVersionTransitionOutput) NonCurrentDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigNonCurrentVersionTransition) int { return v.NonCurrentDays }).(pulumi.IntOutput)
 }
 
-// 存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+// Storage class. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 func (o GetBucketLifecycleConfigNonCurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigNonCurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -2855,9 +2855,9 @@ func (o GetBucketLifecycleConfigNonCurrentVersionTransitionArrayOutput) Index(i 
 }
 
 type GetBucketLifecycleConfigTag struct {
-	// 标签键。
+	// Tag key
 	Key string `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value string `pulumi:"value"`
 }
 
@@ -2873,9 +2873,9 @@ type GetBucketLifecycleConfigTagInput interface {
 }
 
 type GetBucketLifecycleConfigTagArgs struct {
-	// 标签键。
+	// Tag key
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2930,12 +2930,12 @@ func (o GetBucketLifecycleConfigTagOutput) ToGetBucketLifecycleConfigTagOutputWi
 	return o
 }
 
-// 标签键。
+// Tag key
 func (o GetBucketLifecycleConfigTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签值。
+// Tag value
 func (o GetBucketLifecycleConfigTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2961,11 +2961,11 @@ func (o GetBucketLifecycleConfigTagArrayOutput) Index(i pulumi.IntInput) GetBuck
 }
 
 type GetBucketLifecycleConfigTransition struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+	// Specific date for latest version object transition in lifecycle rules based on last modified time
 	Date string `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+	// Number of days to transition the latest version object in the lifecycle rule based on last modified time
 	Days int `pulumi:"days"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -2981,11 +2981,11 @@ type GetBucketLifecycleConfigTransitionInput interface {
 }
 
 type GetBucketLifecycleConfigTransitionArgs struct {
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+	// Specific date for latest version object transition in lifecycle rules based on last modified time
 	Date pulumi.StringInput `pulumi:"date"`
-	// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+	// Number of days to transition the latest version object in the lifecycle rule based on last modified time
 	Days pulumi.IntInput `pulumi:"days"`
-	// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+	// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -3040,17 +3040,17 @@ func (o GetBucketLifecycleConfigTransitionOutput) ToGetBucketLifecycleConfigTran
 	return o
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的具体日期。
+// Specific date for latest version object transition in lifecycle rules based on last modified time
 func (o GetBucketLifecycleConfigTransitionOutput) Date() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigTransition) string { return v.Date }).(pulumi.StringOutput)
 }
 
-// 基于最后修改时间的生命周期规则中最新版本对象过期沉降的天数。
+// Number of days to transition the latest version object in the lifecycle rule based on last modified time
 func (o GetBucketLifecycleConfigTransitionOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigTransition) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// 基于最后修改时间的生命周期规则中历史版本对象沉降的存储类型。包括STANDARD、IA、ARCHIVE*FR、INTELLIGENT*TIERING、COLD*ARCHIVE、ARCHIVE、DEEP*COLD_ARCHIVE。
+// Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
 func (o GetBucketLifecycleConfigTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketLifecycleConfigTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -3076,9 +3076,9 @@ func (o GetBucketLifecycleConfigTransitionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetBucketTag struct {
-	// 标签键。
+	// Tag key
 	Key string `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value string `pulumi:"value"`
 }
 
@@ -3094,9 +3094,9 @@ type GetBucketTagInput interface {
 }
 
 type GetBucketTagArgs struct {
-	// 标签键。
+	// Tag key
 	Key pulumi.StringInput `pulumi:"key"`
-	// 标签值。
+	// Tag value
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3151,12 +3151,12 @@ func (o GetBucketTagOutput) ToGetBucketTagOutputWithContext(ctx context.Context)
 	return o
 }
 
-// 标签键。
+// Tag key
 func (o GetBucketTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// 标签值。
+// Tag value
 func (o GetBucketTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketTag) string { return v.Value }).(pulumi.StringOutput)
 }
