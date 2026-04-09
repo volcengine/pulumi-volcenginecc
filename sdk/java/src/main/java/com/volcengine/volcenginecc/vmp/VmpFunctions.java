@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vmp.inputs.GetAlertingRuleArgs;
+import com.volcengine.volcenginecc.vmp.inputs.GetAlertingRulePlainArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetWorkspaceArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetWorkspacePlainArgs;
+import com.volcengine.volcenginecc.vmp.outputs.GetAlertingRuleResult;
+import com.volcengine.volcenginecc.vmp.outputs.GetAlertingRulesResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetWorkspaceResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetWorkspacesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VmpFunctions {
+    /**
+     * Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRuleResult> getAlertingRule(GetAlertingRuleArgs args) {
+        return getAlertingRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static CompletableFuture<GetAlertingRuleResult> getAlertingRulePlain(GetAlertingRulePlainArgs args) {
+        return getAlertingRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRuleResult> getAlertingRule(GetAlertingRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getAlertingRule:getAlertingRule", TypeShape.of(GetAlertingRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRuleResult> getAlertingRule(GetAlertingRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getAlertingRule:getAlertingRule", TypeShape.of(GetAlertingRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static CompletableFuture<GetAlertingRuleResult> getAlertingRulePlain(GetAlertingRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getAlertingRule:getAlertingRule", TypeShape.of(GetAlertingRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRulesResult> getAlertingRules() {
+        return getAlertingRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static CompletableFuture<GetAlertingRulesResult> getAlertingRulesPlain() {
+        return getAlertingRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRulesResult> getAlertingRules(InvokeArgs args) {
+        return getAlertingRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static CompletableFuture<GetAlertingRulesResult> getAlertingRulesPlain(InvokeArgs args) {
+        return getAlertingRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRulesResult> getAlertingRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getAlertingRules:getAlertingRules", TypeShape.of(GetAlertingRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static Output<GetAlertingRulesResult> getAlertingRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getAlertingRules:getAlertingRules", TypeShape.of(GetAlertingRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::AlertingRule
+     * 
+     */
+    public static CompletableFuture<GetAlertingRulesResult> getAlertingRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getAlertingRules:getAlertingRules", TypeShape.of(GetAlertingRulesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VMP::Workspace
      * 

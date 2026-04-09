@@ -16,12 +16,16 @@ import com.volcengine.volcenginecc.vefaas.inputs.GetKafkaTriggerArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetKafkaTriggerPlainArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetSandboxArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetSandboxPlainArgs;
+import com.volcengine.volcenginecc.vefaas.inputs.GetTimerArgs;
+import com.volcengine.volcenginecc.vefaas.inputs.GetTimerPlainArgs;
 import com.volcengine.volcenginecc.vefaas.outputs.GetFunctionResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetFunctionsResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetKafkaTriggerResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetKafkaTriggersResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetSandboxResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetSandboxesResult;
+import com.volcengine.volcenginecc.vefaas.outputs.GetTimerResult;
+import com.volcengine.volcenginecc.vefaas.outputs.GetTimersResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VefaasFunctions {
@@ -276,5 +280,89 @@ public final class VefaasFunctions {
      */
     public static CompletableFuture<GetSandboxesResult> getSandboxesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getSandboxes:getSandboxes", TypeShape.of(GetSandboxesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimerResult> getTimer(GetTimerArgs args) {
+        return getTimer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static CompletableFuture<GetTimerResult> getTimerPlain(GetTimerPlainArgs args) {
+        return getTimerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimerResult> getTimer(GetTimerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getTimer:getTimer", TypeShape.of(GetTimerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimerResult> getTimer(GetTimerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getTimer:getTimer", TypeShape.of(GetTimerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static CompletableFuture<GetTimerResult> getTimerPlain(GetTimerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getTimer:getTimer", TypeShape.of(GetTimerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimersResult> getTimers() {
+        return getTimers(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static CompletableFuture<GetTimersResult> getTimersPlain() {
+        return getTimersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimersResult> getTimers(InvokeArgs args) {
+        return getTimers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static CompletableFuture<GetTimersResult> getTimersPlain(InvokeArgs args) {
+        return getTimersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimersResult> getTimers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getTimers:getTimers", TypeShape.of(GetTimersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static Output<GetTimersResult> getTimers(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getTimers:getTimers", TypeShape.of(GetTimersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Timer
+     * 
+     */
+    public static CompletableFuture<GetTimersResult> getTimersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getTimers:getTimers", TypeShape.of(GetTimersResult.class), args, Utilities.withVersion(options));
     }
 }

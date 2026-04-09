@@ -25,12 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Accesskey{}
 	case "volcenginecc:iam/group:Group":
 		r = &Group{}
+	case "volcenginecc:iam/oidcProvider:OidcProvider":
+		r = &OidcProvider{}
 	case "volcenginecc:iam/policy:Policy":
 		r = &Policy{}
 	case "volcenginecc:iam/project:Project":
 		r = &Project{}
 	case "volcenginecc:iam/role:Role":
 		r = &Role{}
+	case "volcenginecc:iam/samlProvider:SamlProvider":
+		r = &SamlProvider{}
 	case "volcenginecc:iam/user:User":
 		r = &User{}
 	default:
@@ -58,6 +62,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"iam/oidcProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"iam/policy",
 		&module{version},
 	)
@@ -69,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"iam/role",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"iam/samlProvider",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
