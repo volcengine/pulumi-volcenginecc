@@ -14,24 +14,32 @@ import com.volcengine.volcenginecc.iam.inputs.GetAccesskeyArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetAccesskeyPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetGroupArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetGroupPlainArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetOidcProviderArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetOidcProviderPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetPolicyArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetPolicyPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetProjectArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetProjectPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetRoleArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetRolePlainArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetSamlProviderArgs;
+import com.volcengine.volcenginecc.iam.inputs.GetSamlProviderPlainArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetUserArgs;
 import com.volcengine.volcenginecc.iam.inputs.GetUserPlainArgs;
 import com.volcengine.volcenginecc.iam.outputs.GetAccesskeyResult;
 import com.volcengine.volcenginecc.iam.outputs.GetAccesskeysResult;
 import com.volcengine.volcenginecc.iam.outputs.GetGroupResult;
 import com.volcengine.volcenginecc.iam.outputs.GetGroupsResult;
+import com.volcengine.volcenginecc.iam.outputs.GetOidcProviderResult;
+import com.volcengine.volcenginecc.iam.outputs.GetOidcProvidersResult;
 import com.volcengine.volcenginecc.iam.outputs.GetPoliciesResult;
 import com.volcengine.volcenginecc.iam.outputs.GetPolicyResult;
 import com.volcengine.volcenginecc.iam.outputs.GetProjectResult;
 import com.volcengine.volcenginecc.iam.outputs.GetProjectsResult;
 import com.volcengine.volcenginecc.iam.outputs.GetRoleResult;
 import com.volcengine.volcenginecc.iam.outputs.GetRolesResult;
+import com.volcengine.volcenginecc.iam.outputs.GetSamlProviderResult;
+import com.volcengine.volcenginecc.iam.outputs.GetSamlProvidersResult;
 import com.volcengine.volcenginecc.iam.outputs.GetUserResult;
 import com.volcengine.volcenginecc.iam.outputs.GetUsersResult;
 import java.util.concurrent.CompletableFuture;
@@ -204,6 +212,90 @@ public final class IamFunctions {
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:iam/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProviderResult> getOidcProvider(GetOidcProviderArgs args) {
+        return getOidcProvider(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static CompletableFuture<GetOidcProviderResult> getOidcProviderPlain(GetOidcProviderPlainArgs args) {
+        return getOidcProviderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProviderResult> getOidcProvider(GetOidcProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getOidcProvider:getOidcProvider", TypeShape.of(GetOidcProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProviderResult> getOidcProvider(GetOidcProviderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getOidcProvider:getOidcProvider", TypeShape.of(GetOidcProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static CompletableFuture<GetOidcProviderResult> getOidcProviderPlain(GetOidcProviderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getOidcProvider:getOidcProvider", TypeShape.of(GetOidcProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProvidersResult> getOidcProviders() {
+        return getOidcProviders(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static CompletableFuture<GetOidcProvidersResult> getOidcProvidersPlain() {
+        return getOidcProvidersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProvidersResult> getOidcProviders(InvokeArgs args) {
+        return getOidcProviders(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static CompletableFuture<GetOidcProvidersResult> getOidcProvidersPlain(InvokeArgs args) {
+        return getOidcProvidersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProvidersResult> getOidcProviders(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getOidcProviders:getOidcProviders", TypeShape.of(GetOidcProvidersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static Output<GetOidcProvidersResult> getOidcProviders(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getOidcProviders:getOidcProviders", TypeShape.of(GetOidcProvidersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::OidcProvider
+     * 
+     */
+    public static CompletableFuture<GetOidcProvidersResult> getOidcProvidersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getOidcProviders:getOidcProviders", TypeShape.of(GetOidcProvidersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::IAM::Policy
@@ -456,6 +548,90 @@ public final class IamFunctions {
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:iam/getRoles:getRoles", TypeShape.of(GetRolesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProviderResult> getSamlProvider(GetSamlProviderArgs args) {
+        return getSamlProvider(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static CompletableFuture<GetSamlProviderResult> getSamlProviderPlain(GetSamlProviderPlainArgs args) {
+        return getSamlProviderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProviderResult> getSamlProvider(GetSamlProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getSamlProvider:getSamlProvider", TypeShape.of(GetSamlProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProviderResult> getSamlProvider(GetSamlProviderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getSamlProvider:getSamlProvider", TypeShape.of(GetSamlProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static CompletableFuture<GetSamlProviderResult> getSamlProviderPlain(GetSamlProviderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getSamlProvider:getSamlProvider", TypeShape.of(GetSamlProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProvidersResult> getSamlProviders() {
+        return getSamlProviders(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static CompletableFuture<GetSamlProvidersResult> getSamlProvidersPlain() {
+        return getSamlProvidersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProvidersResult> getSamlProviders(InvokeArgs args) {
+        return getSamlProviders(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static CompletableFuture<GetSamlProvidersResult> getSamlProvidersPlain(InvokeArgs args) {
+        return getSamlProvidersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProvidersResult> getSamlProviders(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getSamlProviders:getSamlProviders", TypeShape.of(GetSamlProvidersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static Output<GetSamlProvidersResult> getSamlProviders(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:iam/getSamlProviders:getSamlProviders", TypeShape.of(GetSamlProvidersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::IAM::SamlProvider
+     * 
+     */
+    public static CompletableFuture<GetSamlProvidersResult> getSamlProvidersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:iam/getSamlProviders:getSamlProviders", TypeShape.of(GetSamlProvidersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::IAM::User

@@ -738,6 +738,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "iam/oidcProvider",
+  "fqn": "pulumi_volcenginecc.iam",
+  "classes": {
+   "volcenginecc:iam/oidcProvider:OidcProvider": "OidcProvider"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "iam/policy",
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
@@ -758,6 +766,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
    "volcenginecc:iam/role:Role": "Role"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "iam/samlProvider",
+  "fqn": "pulumi_volcenginecc.iam",
+  "classes": {
+   "volcenginecc:iam/samlProvider:SamlProvider": "SamlProvider"
   }
  },
  {
@@ -1266,6 +1282,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vefaas/timer",
+  "fqn": "pulumi_volcenginecc.vefaas",
+  "classes": {
+   "volcenginecc:vefaas/timer:Timer": "Timer"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vepfs/instance",
   "fqn": "pulumi_volcenginecc.vepfs",
   "classes": {
@@ -1318,6 +1342,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
    "volcenginecc:vke/permission:Permission": "Permission"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vmp/alertingRule",
+  "fqn": "pulumi_volcenginecc.vmp",
+  "classes": {
+   "volcenginecc:vmp/alertingRule:AlertingRule": "AlertingRule"
   }
  },
  {

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KafkaTrigger{}
 	case "volcenginecc:vefaas/sandbox:Sandbox":
 		r = &Sandbox{}
+	case "volcenginecc:vefaas/timer:Timer":
+		r = &Timer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vefaas/sandbox",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vefaas/timer",
 		&module{version},
 	)
 }
