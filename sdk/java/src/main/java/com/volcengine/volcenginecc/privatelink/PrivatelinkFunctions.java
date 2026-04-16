@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.privatelink.inputs.GetEndpointServiceArgs;
 import com.volcengine.volcenginecc.privatelink.inputs.GetEndpointServicePlainArgs;
+import com.volcengine.volcenginecc.privatelink.inputs.GetVpcEndpointArgs;
+import com.volcengine.volcenginecc.privatelink.inputs.GetVpcEndpointPlainArgs;
 import com.volcengine.volcenginecc.privatelink.outputs.GetEndpointServiceResult;
 import com.volcengine.volcenginecc.privatelink.outputs.GetEndpointServicesResult;
+import com.volcengine.volcenginecc.privatelink.outputs.GetVpcEndpointResult;
+import com.volcengine.volcenginecc.privatelink.outputs.GetVpcEndpointsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class PrivatelinkFunctions {
@@ -100,5 +104,89 @@ public final class PrivatelinkFunctions {
      */
     public static CompletableFuture<GetEndpointServicesResult> getEndpointServicesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:privatelink/getEndpointServices:getEndpointServices", TypeShape.of(GetEndpointServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args) {
+        return getVpcEndpoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain(GetVpcEndpointPlainArgs args) {
+        return getVpcEndpointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatelink/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatelink/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain(GetVpcEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:privatelink/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints() {
+        return getVpcEndpoints(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointsResult> getVpcEndpointsPlain() {
+        return getVpcEndpointsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints(InvokeArgs args) {
+        return getVpcEndpoints(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointsResult> getVpcEndpointsPlain(InvokeArgs args) {
+        return getVpcEndpointsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatelink/getVpcEndpoints:getVpcEndpoints", TypeShape.of(GetVpcEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:privatelink/getVpcEndpoints:getVpcEndpoints", TypeShape.of(GetVpcEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::PrivateLink::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointsResult> getVpcEndpointsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:privatelink/getVpcEndpoints:getVpcEndpoints", TypeShape.of(GetVpcEndpointsResult.class), args, Utilities.withVersion(options));
     }
 }

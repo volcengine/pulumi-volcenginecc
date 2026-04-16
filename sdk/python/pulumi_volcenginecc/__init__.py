@@ -370,6 +370,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cen/bandwidthPackage",
+  "fqn": "pulumi_volcenginecc.cen",
+  "classes": {
+   "volcenginecc:cen/bandwidthPackage:BandwidthPackage": "BandwidthPackage"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cen/cen",
   "fqn": "pulumi_volcenginecc.cen",
   "classes": {
@@ -906,6 +914,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "privatelink/vpcEndpoint",
+  "fqn": "pulumi_volcenginecc.privatelink",
+  "classes": {
+   "volcenginecc:privatelink/vpcEndpoint:VpcEndpoint": "VpcEndpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "privatezone/record",
   "fqn": "pulumi_volcenginecc.privatezone",
   "classes": {
@@ -1058,6 +1074,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdspostgresql/instance",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdspostgresql/schema",
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
@@ -1134,6 +1158,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/consumerGroup",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/consumerGroup:ConsumerGroup": "ConsumerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/importTask",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/importTask:ImportTask": "ImportTask"
   }
  },
  {
@@ -1246,6 +1286,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vedbm",
   "classes": {
    "volcenginecc:vedbm/database:Database": "Database"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vedbm/endpoint",
+  "fqn": "pulumi_volcenginecc.vedbm",
+  "classes": {
+   "volcenginecc:vedbm/endpoint:Endpoint": "Endpoint"
   }
  },
  {

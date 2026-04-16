@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:cen/bandwidthPackage:BandwidthPackage":
+		r = &BandwidthPackage{}
 	case "volcenginecc:cen/cen:Cen":
 		r = &Cen{}
 	case "volcenginecc:cen/grantInstance:GrantInstance":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cen/bandwidthPackage",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"cen/cen",

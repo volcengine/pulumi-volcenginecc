@@ -18,11 +18,26 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Outputs
         /// Instance ID
         /// </summary>
         public readonly string? InstanceId;
+        /// <summary>
+        /// Instance Name
+        /// </summary>
+        public readonly string? InstanceName;
+        /// <summary>
+        /// VPC ID of the instance
+        /// </summary>
+        public readonly string? Vpc;
 
         [OutputConstructor]
-        private AllowListAssociatedInstance(string? instanceId)
+        private AllowListAssociatedInstance(
+            string? instanceId,
+
+            string? instanceName,
+
+            string? vpc)
         {
             InstanceId = instanceId;
+            InstanceName = instanceName;
+            Vpc = vpc;
         }
     }
 }

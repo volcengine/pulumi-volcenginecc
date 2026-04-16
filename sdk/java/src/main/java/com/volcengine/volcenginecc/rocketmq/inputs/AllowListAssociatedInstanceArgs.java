@@ -30,10 +30,42 @@ public final class AllowListAssociatedInstanceArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.instanceId);
     }
 
+    /**
+     * Instance Name
+     * 
+     */
+    @Import(name="instanceName")
+    private @Nullable Output<String> instanceName;
+
+    /**
+     * @return Instance Name
+     * 
+     */
+    public Optional<Output<String>> instanceName() {
+        return Optional.ofNullable(this.instanceName);
+    }
+
+    /**
+     * VPC ID of the instance
+     * 
+     */
+    @Import(name="vpc")
+    private @Nullable Output<String> vpc;
+
+    /**
+     * @return VPC ID of the instance
+     * 
+     */
+    public Optional<Output<String>> vpc() {
+        return Optional.ofNullable(this.vpc);
+    }
+
     private AllowListAssociatedInstanceArgs() {}
 
     private AllowListAssociatedInstanceArgs(AllowListAssociatedInstanceArgs $) {
         this.instanceId = $.instanceId;
+        this.instanceName = $.instanceName;
+        this.vpc = $.vpc;
     }
 
     public static Builder builder() {
@@ -73,6 +105,48 @@ public final class AllowListAssociatedInstanceArgs extends com.pulumi.resources.
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
+        }
+
+        /**
+         * @param instanceName Instance Name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceName(@Nullable Output<String> instanceName) {
+            $.instanceName = instanceName;
+            return this;
+        }
+
+        /**
+         * @param instanceName Instance Name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceName(String instanceName) {
+            return instanceName(Output.of(instanceName));
+        }
+
+        /**
+         * @param vpc VPC ID of the instance
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpc(@Nullable Output<String> vpc) {
+            $.vpc = vpc;
+            return this;
+        }
+
+        /**
+         * @param vpc VPC ID of the instance
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpc(String vpc) {
+            return vpc(Output.of(vpc));
         }
 
         public AllowListAssociatedInstanceArgs build() {

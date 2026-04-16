@@ -14,6 +14,7 @@ import com.volcengine.volcenginecc.clb.outputs.ClbAccessLog;
 import com.volcengine.volcenginecc.clb.outputs.ClbEip;
 import com.volcengine.volcenginecc.clb.outputs.ClbEni;
 import com.volcengine.volcenginecc.clb.outputs.ClbEnis;
+import com.volcengine.volcenginecc.clb.outputs.ClbIpv6AddressBandwidth;
 import com.volcengine.volcenginecc.clb.outputs.ClbListener;
 import com.volcengine.volcenginecc.clb.outputs.ClbServerGroup;
 import com.volcengine.volcenginecc.clb.outputs.ClbTag;
@@ -319,6 +320,20 @@ public class Clb extends com.pulumi.resources.CustomResource {
      */
     public Output<String> expiredTime() {
         return this.expiredTime;
+    }
+    /**
+     * IPv6 public bandwidth information for the load balancing instance
+     * 
+     */
+    @Export(name="ipv6AddressBandwidth", refs={ClbIpv6AddressBandwidth.class}, tree="[0]")
+    private Output<ClbIpv6AddressBandwidth> ipv6AddressBandwidth;
+
+    /**
+     * @return IPv6 public bandwidth information for the load balancing instance
+     * 
+     */
+    public Output<ClbIpv6AddressBandwidth> ipv6AddressBandwidth() {
+        return this.ipv6AddressBandwidth;
     }
     @Export(name="listeners", refs={List.class,ClbListener.class}, tree="[0,1]")
     private Output<List<ClbListener>> listeners;

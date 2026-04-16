@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbAccount{}
 	case "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint":
 		r = &DbEndpoint{}
+	case "volcenginecc:rdspostgresql/instance:Instance":
+		r = &Instance{}
 	case "volcenginecc:rdspostgresql/schema:Schema":
 		r = &Schema{}
 	default:
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdspostgresql/dbEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdspostgresql/instance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

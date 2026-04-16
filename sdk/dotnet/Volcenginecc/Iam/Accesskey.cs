@@ -148,10 +148,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     public sealed class AccesskeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Secret Access Key.
+        /// Last login time.
         /// </summary>
-        [Input("secretAccessKey")]
-        public Input<string>? SecretAccessKey { get; set; }
+        [Input("lastLoginDate")]
+        public Input<string>? LastLoginDate { get; set; }
 
         /// <summary>
         /// Key status. active means enabled, inactive means disabled.

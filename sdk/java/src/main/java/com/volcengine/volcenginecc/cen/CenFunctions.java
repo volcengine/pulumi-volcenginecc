@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cen.inputs.GetBandwidthPackageArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetBandwidthPackagePlainArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetCenArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetCenPlainArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetGrantInstanceArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetGrantInstancePlainArgs;
+import com.volcengine.volcenginecc.cen.outputs.GetBandwidthPackageResult;
+import com.volcengine.volcenginecc.cen.outputs.GetBandwidthPackagesResult;
 import com.volcengine.volcenginecc.cen.outputs.GetCenResult;
 import com.volcengine.volcenginecc.cen.outputs.GetCensResult;
 import com.volcengine.volcenginecc.cen.outputs.GetGrantInstanceResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.cen.outputs.GetGrantInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CenFunctions {
+    /**
+     * Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackageResult> getBandwidthPackage(GetBandwidthPackageArgs args) {
+        return getBandwidthPackage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackageResult> getBandwidthPackagePlain(GetBandwidthPackagePlainArgs args) {
+        return getBandwidthPackagePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackageResult> getBandwidthPackage(GetBandwidthPackageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getBandwidthPackage:getBandwidthPackage", TypeShape.of(GetBandwidthPackageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackageResult> getBandwidthPackage(GetBandwidthPackageArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getBandwidthPackage:getBandwidthPackage", TypeShape.of(GetBandwidthPackageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackageResult> getBandwidthPackagePlain(GetBandwidthPackagePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getBandwidthPackage:getBandwidthPackage", TypeShape.of(GetBandwidthPackageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages() {
+        return getBandwidthPackages(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackagesResult> getBandwidthPackagesPlain() {
+        return getBandwidthPackagesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages(InvokeArgs args) {
+        return getBandwidthPackages(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackagesResult> getBandwidthPackagesPlain(InvokeArgs args) {
+        return getBandwidthPackagesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getBandwidthPackages:getBandwidthPackages", TypeShape.of(GetBandwidthPackagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static Output<GetBandwidthPackagesResult> getBandwidthPackages(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getBandwidthPackages:getBandwidthPackages", TypeShape.of(GetBandwidthPackagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::BandwidthPackage
+     * 
+     */
+    public static CompletableFuture<GetBandwidthPackagesResult> getBandwidthPackagesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getBandwidthPackages:getBandwidthPackages", TypeShape.of(GetBandwidthPackagesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CEN::CEN
      * 
