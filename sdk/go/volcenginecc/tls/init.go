@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:tls/consumerGroup:ConsumerGroup":
+		r = &ConsumerGroup{}
+	case "volcenginecc:tls/importTask:ImportTask":
+		r = &ImportTask{}
 	case "volcenginecc:tls/index:Index":
 		r = &Index{}
 	case "volcenginecc:tls/project:Project":
@@ -42,6 +46,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/consumerGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/importTask",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tls/index",

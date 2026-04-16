@@ -48,18 +48,34 @@ if not MYPY:
         """
         Instance ID
         """
+        instance_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Instance Name
+        """
+        vpc: NotRequired[pulumi.Input[builtins.str]]
+        """
+        VPC ID of the instance
+        """
 elif False:
     AllowListAssociatedInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AllowListAssociatedInstanceArgs:
     def __init__(__self__, *,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None):
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] instance_id: Instance ID
+        :param pulumi.Input[builtins.str] instance_name: Instance Name
+        :param pulumi.Input[builtins.str] vpc: VPC ID of the instance
         """
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -72,6 +88,30 @@ class AllowListAssociatedInstanceArgs:
     @instance_id.setter
     def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Instance Name
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_name", value)
+
+    @property
+    @pulumi.getter
+    def vpc(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        VPC ID of the instance
+        """
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc", value)
 
 
 if not MYPY:

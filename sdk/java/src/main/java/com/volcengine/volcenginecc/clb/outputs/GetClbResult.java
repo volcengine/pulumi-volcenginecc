@@ -9,6 +9,7 @@ import com.volcengine.volcenginecc.clb.outputs.GetClbAccessLog;
 import com.volcengine.volcenginecc.clb.outputs.GetClbEip;
 import com.volcengine.volcenginecc.clb.outputs.GetClbEni;
 import com.volcengine.volcenginecc.clb.outputs.GetClbEnis;
+import com.volcengine.volcenginecc.clb.outputs.GetClbIpv6AddressBandwidth;
 import com.volcengine.volcenginecc.clb.outputs.GetClbListener;
 import com.volcengine.volcenginecc.clb.outputs.GetClbServerGroup;
 import com.volcengine.volcenginecc.clb.outputs.GetClbTag;
@@ -125,6 +126,11 @@ public final class GetClbResult {
      * 
      */
     private String id;
+    /**
+     * @return IPv6 public bandwidth information for the load balancing instance
+     * 
+     */
+    private GetClbIpv6AddressBandwidth ipv6AddressBandwidth;
     /**
      * @return Listener information in the load balancer instance
      * 
@@ -405,6 +411,13 @@ public final class GetClbResult {
         return this.id;
     }
     /**
+     * @return IPv6 public bandwidth information for the load balancing instance
+     * 
+     */
+    public GetClbIpv6AddressBandwidth ipv6AddressBandwidth() {
+        return this.ipv6AddressBandwidth;
+    }
+    /**
      * @return Listener information in the load balancer instance
      * 
      */
@@ -617,6 +630,7 @@ public final class GetClbResult {
         private String exclusiveClusterId;
         private String expiredTime;
         private String id;
+        private GetClbIpv6AddressBandwidth ipv6AddressBandwidth;
         private List<GetClbListener> listeners;
         private Double loadBalancerBillingType;
         private String loadBalancerId;
@@ -667,6 +681,7 @@ public final class GetClbResult {
     	      this.exclusiveClusterId = defaults.exclusiveClusterId;
     	      this.expiredTime = defaults.expiredTime;
     	      this.id = defaults.id;
+    	      this.ipv6AddressBandwidth = defaults.ipv6AddressBandwidth;
     	      this.listeners = defaults.listeners;
     	      this.loadBalancerBillingType = defaults.loadBalancerBillingType;
     	      this.loadBalancerId = defaults.loadBalancerId;
@@ -864,6 +879,14 @@ public final class GetClbResult {
               throw new MissingRequiredPropertyException("GetClbResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipv6AddressBandwidth(GetClbIpv6AddressBandwidth ipv6AddressBandwidth) {
+            if (ipv6AddressBandwidth == null) {
+              throw new MissingRequiredPropertyException("GetClbResult", "ipv6AddressBandwidth");
+            }
+            this.ipv6AddressBandwidth = ipv6AddressBandwidth;
             return this;
         }
         @CustomType.Setter
@@ -1106,6 +1129,7 @@ public final class GetClbResult {
             _resultValue.exclusiveClusterId = exclusiveClusterId;
             _resultValue.expiredTime = expiredTime;
             _resultValue.id = id;
+            _resultValue.ipv6AddressBandwidth = ipv6AddressBandwidth;
             _resultValue.listeners = listeners;
             _resultValue.loadBalancerBillingType = loadBalancerBillingType;
             _resultValue.loadBalancerId = loadBalancerId;

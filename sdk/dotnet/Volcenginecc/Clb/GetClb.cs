@@ -149,6 +149,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// IPv6 public bandwidth information for the load balancing instance
+        /// </summary>
+        public readonly Outputs.GetClbIpv6AddressBandwidthResult Ipv6AddressBandwidth;
+        /// <summary>
         /// Listener information in the load balancer instance
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClbListenerResult> Listeners;
@@ -297,6 +301,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 
             string id,
 
+            Outputs.GetClbIpv6AddressBandwidthResult ipv6AddressBandwidth,
+
             ImmutableArray<Outputs.GetClbListenerResult> listeners,
 
             double loadBalancerBillingType,
@@ -370,6 +376,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
             ExclusiveClusterId = exclusiveClusterId;
             ExpiredTime = expiredTime;
             Id = id;
+            Ipv6AddressBandwidth = ipv6AddressBandwidth;
             Listeners = listeners;
             LoadBalancerBillingType = loadBalancerBillingType;
             LoadBalancerId = loadBalancerId;

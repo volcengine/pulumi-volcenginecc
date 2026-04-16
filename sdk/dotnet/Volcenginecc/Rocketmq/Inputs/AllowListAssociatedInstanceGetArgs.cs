@@ -19,6 +19,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq.Inputs
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        /// <summary>
+        /// Instance Name
+        /// </summary>
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
+
+        /// <summary>
+        /// VPC ID of the instance
+        /// </summary>
+        [Input("vpc")]
+        public Input<string>? Vpc { get; set; }
+
         public AllowListAssociatedInstanceGetArgs()
         {
         }

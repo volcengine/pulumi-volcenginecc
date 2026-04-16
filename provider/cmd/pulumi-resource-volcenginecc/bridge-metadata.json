@@ -994,6 +994,17 @@
                     }
                 }
             },
+            "volcenginecc_cen_bandwidth_package": {
+                "current": "volcenginecc:cen/bandwidthPackage:BandwidthPackage",
+                "fields": {
+                    "cen_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cen_cen": {
                 "current": "volcenginecc:cen/cen:Cen",
                 "fields": {
@@ -1421,6 +1432,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "ipv_6_addresses": {
+                                    "maxItemsOne": false
+                                },
                                 "private_ip_addresses": {
                                     "maxItemsOne": false
                                 },
@@ -2062,6 +2076,23 @@
                     }
                 }
             },
+            "volcenginecc_privatelink_vpc_endpoint": {
+                "current": "volcenginecc:privatelink/vpcEndpoint:VpcEndpoint",
+                "fields": {
+                    "ip_address_versions": {
+                        "maxItemsOne": false
+                    },
+                    "security_group_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_privatezone_record": {
                 "current": "volcenginecc:privatezone/record:Record"
             },
@@ -2368,6 +2399,40 @@
                     }
                 }
             },
+            "volcenginecc_rdspostgresql_instance": {
+                "current": "volcenginecc:rdspostgresql/instance:Instance",
+                "fields": {
+                    "allow_list_ids": {
+                        "maxItemsOne": false
+                    },
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "address": {
+                                    "maxItemsOne": false
+                                },
+                                "read_only_node_weight": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "maintenance_window": {
+                        "fields": {
+                            "day_of_week_maintenance_time": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "node_info": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdspostgresql_schema": {
                 "current": "volcenginecc:rdspostgresql/schema:Schema"
             },
@@ -2473,6 +2538,37 @@
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_consumer_group": {
+                "current": "volcenginecc:tls/consumerGroup:ConsumerGroup",
+                "fields": {
+                    "topic_id_list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_import_task": {
+                "current": "volcenginecc:tls/importTask:ImportTask",
+                "fields": {
+                    "target_info": {
+                        "fields": {
+                            "extract_rule": {
+                                "fields": {
+                                    "extract_rule": {
+                                        "fields": {
+                                            "filter_key_regex": {
+                                                "maxItemsOne": false
+                                            },
+                                            "keys": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -2638,6 +2734,14 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "volcenginecc_vedbm_endpoint": {
+                "current": "volcenginecc:vedbm/endpoint:Endpoint",
+                "fields": {
+                    "node_ids": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -4590,6 +4694,25 @@
                     }
                 }
             },
+            "volcenginecc_cen_bandwidth_package": {
+                "current": "volcenginecc:cen/getBandwidthPackage:getBandwidthPackage",
+                "fields": {
+                    "cen_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cen_bandwidth_packages": {
+                "current": "volcenginecc:cen/getBandwidthPackages:getBandwidthPackages",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cen_cen": {
                 "current": "volcenginecc:cen/getCen:getCen",
                 "fields": {
@@ -6200,6 +6323,31 @@
                     }
                 }
             },
+            "volcenginecc_privatelink_vpc_endpoint": {
+                "current": "volcenginecc:privatelink/getVpcEndpoint:getVpcEndpoint",
+                "fields": {
+                    "ip_address_versions": {
+                        "maxItemsOne": false
+                    },
+                    "security_group_ids": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_privatelink_vpc_endpoints": {
+                "current": "volcenginecc:privatelink/getVpcEndpoints:getVpcEndpoints",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_privatezone_record": {
                 "current": "volcenginecc:privatezone/getRecord:getRecord"
             },
@@ -6658,6 +6806,48 @@
                     }
                 }
             },
+            "volcenginecc_rdspostgresql_instance": {
+                "current": "volcenginecc:rdspostgresql/getInstance:getInstance",
+                "fields": {
+                    "allow_list_ids": {
+                        "maxItemsOne": false
+                    },
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "address": {
+                                    "maxItemsOne": false
+                                },
+                                "read_only_node_weight": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "maintenance_window": {
+                        "fields": {
+                            "day_of_week_maintenance_time": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "node_info": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdspostgresql_instances": {
+                "current": "volcenginecc:rdspostgresql/getInstances:getInstances",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdspostgresql_schema": {
                 "current": "volcenginecc:rdspostgresql/getSchema:getSchema"
             },
@@ -6840,6 +7030,53 @@
             },
             "volcenginecc_storageebs_volumes": {
                 "current": "volcenginecc:storageebs/getVolumes:getVolumes",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_consumer_group": {
+                "current": "volcenginecc:tls/getConsumerGroup:getConsumerGroup",
+                "fields": {
+                    "topic_id_list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_consumer_groups": {
+                "current": "volcenginecc:tls/getConsumerGroups:getConsumerGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tls_import_task": {
+                "current": "volcenginecc:tls/getImportTask:getImportTask",
+                "fields": {
+                    "target_info": {
+                        "fields": {
+                            "extract_rule": {
+                                "fields": {
+                                    "extract_rule": {
+                                        "fields": {
+                                            "filter_key_regex": {
+                                                "maxItemsOne": false
+                                            },
+                                            "keys": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_tls_import_tasks": {
+                "current": "volcenginecc:tls/getImportTasks:getImportTasks",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -7117,6 +7354,22 @@
             },
             "volcenginecc_vedbm_databases": {
                 "current": "volcenginecc:vedbm/getDatabases:getDatabases",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_endpoint": {
+                "current": "volcenginecc:vedbm/getEndpoint:getEndpoint",
+                "fields": {
+                    "node_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vedbm_endpoints": {
+                "current": "volcenginecc:vedbm/getEndpoints:getEndpoints",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
