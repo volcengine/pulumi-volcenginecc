@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:storageebs/snapshot:Snapshot":
 		r = &Snapshot{}
+	case "volcenginecc:storageebs/snapshotGroup:SnapshotGroup":
+		r = &SnapshotGroup{}
 	case "volcenginecc:storageebs/volume:Volume":
 		r = &Volume{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"storageebs/snapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"storageebs/snapshotGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

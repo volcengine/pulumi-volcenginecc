@@ -394,6 +394,30 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cen/interRegionBandwidth",
+  "fqn": "pulumi_volcenginecc.cen",
+  "classes": {
+   "volcenginecc:cen/interRegionBandwidth:InterRegionBandwidth": "InterRegionBandwidth"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cen/routeEntry",
+  "fqn": "pulumi_volcenginecc.cen",
+  "classes": {
+   "volcenginecc:cen/routeEntry:RouteEntry": "RouteEntry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "cen/serviceRouteEntry",
+  "fqn": "pulumi_volcenginecc.cen",
+  "classes": {
+   "volcenginecc:cen/serviceRouteEntry:ServiceRouteEntry": "ServiceRouteEntry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/acl",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
@@ -850,6 +874,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "mongodb/sslState",
+  "fqn": "pulumi_volcenginecc.mongodb",
+  "classes": {
+   "volcenginecc:mongodb/sslState:SslState": "SslState"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "natgateway/dnatentry",
   "fqn": "pulumi_volcenginecc.natgateway",
   "classes": {
@@ -922,6 +954,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "privatelink/vpcEndpointConnection",
+  "fqn": "pulumi_volcenginecc.privatelink",
+  "classes": {
+   "volcenginecc:privatelink/vpcEndpointConnection:VpcEndpointConnection": "VpcEndpointConnection"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "privatezone/record",
   "fqn": "pulumi_volcenginecc.privatezone",
   "classes": {
@@ -950,6 +990,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.privatezone",
   "classes": {
    "volcenginecc:privatezone/userVpcAuthorization:UserVpcAuthorization": "UserVpcAuthorization"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rabbitmq/allowList",
+  "fqn": "pulumi_volcenginecc.rabbitmq",
+  "classes": {
+   "volcenginecc:rabbitmq/allowList:AllowList": "AllowList"
   }
  },
  {
@@ -1098,6 +1146,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "redis/allowList",
+  "fqn": "pulumi_volcenginecc.redis",
+  "classes": {
+   "volcenginecc:redis/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "redis/endpointPublicAddress",
   "fqn": "pulumi_volcenginecc.redis",
   "classes": {
@@ -1154,10 +1210,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "storageebs/snapshotGroup",
+  "fqn": "pulumi_volcenginecc.storageebs",
+  "classes": {
+   "volcenginecc:storageebs/snapshotGroup:SnapshotGroup": "SnapshotGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "storageebs/volume",
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/alarmNotifyGroup",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/alarmNotifyGroup:AlarmNotifyGroup": "AlarmNotifyGroup"
   }
  },
  {
@@ -1194,10 +1266,26 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tls/rule",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tls/scheduleSqlTask",
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
    "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask": "ScheduleSqlTask"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/shipper",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/shipper:Shipper": "Shipper"
   }
  },
  {
@@ -1214,6 +1302,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
    "volcenginecc:tos/bucket:Bucket": "Bucket"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tos/bucketEncryption",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketEncryption:BucketEncryption": "BucketEncryption"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tos/bucketInventory",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketInventory:BucketInventory": "BucketInventory"
   }
  },
  {
@@ -1322,6 +1426,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vefaas/release",
+  "fqn": "pulumi_volcenginecc.vefaas",
+  "classes": {
+   "volcenginecc:vefaas/release:Release": "Release"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vefaas/sandbox",
   "fqn": "pulumi_volcenginecc.vefaas",
   "classes": {
@@ -1346,6 +1458,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vepfs/mountService",
+  "fqn": "pulumi_volcenginecc.vepfs",
+  "classes": {
+   "volcenginecc:vepfs/mountService:MountService": "MountService"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vke/addon",
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
@@ -1366,6 +1486,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vke",
   "classes": {
    "volcenginecc:vke/defaultNodePool:DefaultNodePool": "DefaultNodePool"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vke/kubeconfig",
+  "fqn": "pulumi_volcenginecc.vke",
+  "classes": {
+   "volcenginecc:vke/kubeconfig:Kubeconfig": "Kubeconfig"
   }
  },
  {

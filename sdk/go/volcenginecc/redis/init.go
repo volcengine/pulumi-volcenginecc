@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:redis/account:Account":
 		r = &Account{}
+	case "volcenginecc:redis/allowList:AllowList":
+		r = &AllowList{}
 	case "volcenginecc:redis/endpointPublicAddress:EndpointPublicAddress":
 		r = &EndpointPublicAddress{}
 	case "volcenginecc:redis/instance:Instance":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"redis/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"redis/allowList",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

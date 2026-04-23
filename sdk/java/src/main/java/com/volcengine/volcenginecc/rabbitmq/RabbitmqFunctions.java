@@ -10,12 +10,16 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.rabbitmq.inputs.GetAllowListArgs;
+import com.volcengine.volcenginecc.rabbitmq.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstancePluginArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetInstancePluginPlainArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetPublicAddressArgs;
 import com.volcengine.volcenginecc.rabbitmq.inputs.GetPublicAddressPlainArgs;
+import com.volcengine.volcenginecc.rabbitmq.outputs.GetAllowListResult;
+import com.volcengine.volcenginecc.rabbitmq.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstancePluginResult;
 import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstancePluginsResult;
 import com.volcengine.volcenginecc.rabbitmq.outputs.GetInstanceResult;
@@ -25,6 +29,90 @@ import com.volcengine.volcenginecc.rabbitmq.outputs.GetPublicAddressesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RabbitmqFunctions {
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args) {
+        return getAllowList(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListResult> getAllowListPlain(GetAllowListPlainArgs args) {
+        return getAllowListPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListResult> getAllowList(GetAllowListArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListResult> getAllowListPlain(GetAllowListPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getAllowList:getAllowList", TypeShape.of(GetAllowListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists() {
+        return getAllowLists(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain() {
+        return getAllowListsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args) {
+        return getAllowLists(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args) {
+        return getAllowListsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static Output<GetAllowListsResult> getAllowLists(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rabbitmq/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RabbitMQ::AllowList
+     * 
+     */
+    public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rabbitmq/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::RabbitMQ::Instance
      * 

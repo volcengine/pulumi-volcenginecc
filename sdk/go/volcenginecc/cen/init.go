@@ -27,6 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cen{}
 	case "volcenginecc:cen/grantInstance:GrantInstance":
 		r = &GrantInstance{}
+	case "volcenginecc:cen/interRegionBandwidth:InterRegionBandwidth":
+		r = &InterRegionBandwidth{}
+	case "volcenginecc:cen/routeEntry:RouteEntry":
+		r = &RouteEntry{}
+	case "volcenginecc:cen/serviceRouteEntry:ServiceRouteEntry":
+		r = &ServiceRouteEntry{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +59,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"cen/grantInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cen/interRegionBandwidth",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cen/routeEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cen/serviceRouteEntry",
 		&module{version},
 	)
 }

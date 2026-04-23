@@ -11,7 +11,15 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketEncryptionArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketEncryptionPlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketInventoryArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketInventoryPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketPlainArgs;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionsResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketInventoriesResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketInventoryResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketsResult;
 import java.util.concurrent.CompletableFuture;
@@ -51,6 +59,174 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketResult> getBucketPlain(GetBucketPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucket:getBucket", TypeShape.of(GetBucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionResult> getBucketEncryption(GetBucketEncryptionArgs args) {
+        return getBucketEncryption(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static CompletableFuture<GetBucketEncryptionResult> getBucketEncryptionPlain(GetBucketEncryptionPlainArgs args) {
+        return getBucketEncryptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionResult> getBucketEncryption(GetBucketEncryptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketEncryption:getBucketEncryption", TypeShape.of(GetBucketEncryptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionResult> getBucketEncryption(GetBucketEncryptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketEncryption:getBucketEncryption", TypeShape.of(GetBucketEncryptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static CompletableFuture<GetBucketEncryptionResult> getBucketEncryptionPlain(GetBucketEncryptionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketEncryption:getBucketEncryption", TypeShape.of(GetBucketEncryptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionsResult> getBucketEncryptions() {
+        return getBucketEncryptions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static CompletableFuture<GetBucketEncryptionsResult> getBucketEncryptionsPlain() {
+        return getBucketEncryptionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionsResult> getBucketEncryptions(InvokeArgs args) {
+        return getBucketEncryptions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static CompletableFuture<GetBucketEncryptionsResult> getBucketEncryptionsPlain(InvokeArgs args) {
+        return getBucketEncryptionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionsResult> getBucketEncryptions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketEncryptions:getBucketEncryptions", TypeShape.of(GetBucketEncryptionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static Output<GetBucketEncryptionsResult> getBucketEncryptions(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketEncryptions:getBucketEncryptions", TypeShape.of(GetBucketEncryptionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketEncryption
+     * 
+     */
+    public static CompletableFuture<GetBucketEncryptionsResult> getBucketEncryptionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketEncryptions:getBucketEncryptions", TypeShape.of(GetBucketEncryptionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoriesResult> getBucketInventories() {
+        return getBucketInventories(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static CompletableFuture<GetBucketInventoriesResult> getBucketInventoriesPlain() {
+        return getBucketInventoriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoriesResult> getBucketInventories(InvokeArgs args) {
+        return getBucketInventories(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static CompletableFuture<GetBucketInventoriesResult> getBucketInventoriesPlain(InvokeArgs args) {
+        return getBucketInventoriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoriesResult> getBucketInventories(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketInventories:getBucketInventories", TypeShape.of(GetBucketInventoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoriesResult> getBucketInventories(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketInventories:getBucketInventories", TypeShape.of(GetBucketInventoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static CompletableFuture<GetBucketInventoriesResult> getBucketInventoriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketInventories:getBucketInventories", TypeShape.of(GetBucketInventoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoryResult> getBucketInventory(GetBucketInventoryArgs args) {
+        return getBucketInventory(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static CompletableFuture<GetBucketInventoryResult> getBucketInventoryPlain(GetBucketInventoryPlainArgs args) {
+        return getBucketInventoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoryResult> getBucketInventory(GetBucketInventoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketInventory:getBucketInventory", TypeShape.of(GetBucketInventoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static Output<GetBucketInventoryResult> getBucketInventory(GetBucketInventoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketInventory:getBucketInventory", TypeShape.of(GetBucketInventoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketInventory
+     * 
+     */
+    public static CompletableFuture<GetBucketInventoryResult> getBucketInventoryPlain(GetBucketInventoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketInventory:getBucketInventory", TypeShape.of(GetBucketInventoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::TOS::Bucket

@@ -14,10 +14,14 @@ import com.volcengine.volcenginecc.mongodb.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.mongodb.inputs.GetSslStateArgs;
+import com.volcengine.volcenginecc.mongodb.inputs.GetSslStatePlainArgs;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.mongodb.outputs.GetSslStateResult;
+import com.volcengine.volcenginecc.mongodb.outputs.GetSslStatesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class MongodbFunctions {
@@ -188,5 +192,89 @@ public final class MongodbFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStateResult> getSslState(GetSslStateArgs args) {
+        return getSslState(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static CompletableFuture<GetSslStateResult> getSslStatePlain(GetSslStatePlainArgs args) {
+        return getSslStatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStateResult> getSslState(GetSslStateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getSslState:getSslState", TypeShape.of(GetSslStateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStateResult> getSslState(GetSslStateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getSslState:getSslState", TypeShape.of(GetSslStateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static CompletableFuture<GetSslStateResult> getSslStatePlain(GetSslStatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getSslState:getSslState", TypeShape.of(GetSslStateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStatesResult> getSslStates() {
+        return getSslStates(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static CompletableFuture<GetSslStatesResult> getSslStatesPlain() {
+        return getSslStatesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStatesResult> getSslStates(InvokeArgs args) {
+        return getSslStates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static CompletableFuture<GetSslStatesResult> getSslStatesPlain(InvokeArgs args) {
+        return getSslStatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStatesResult> getSslStates(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getSslStates:getSslStates", TypeShape.of(GetSslStatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static Output<GetSslStatesResult> getSslStates(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getSslStates:getSslStates", TypeShape.of(GetSslStatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::SSLState
+     * 
+     */
+    public static CompletableFuture<GetSslStatesResult> getSslStatesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getSslStates:getSslStates", TypeShape.of(GetSslStatesResult.class), args, Utilities.withVersion(options));
     }
 }

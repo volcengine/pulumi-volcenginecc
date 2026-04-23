@@ -10,10 +10,40 @@ export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
+export { BucketEncryptionArgs, BucketEncryptionState } from "./bucketEncryption";
+export type BucketEncryption = import("./bucketEncryption").BucketEncryption;
+export const BucketEncryption: typeof import("./bucketEncryption").BucketEncryption = null as any;
+utilities.lazyLoad(exports, ["BucketEncryption"], () => require("./bucketEncryption"));
+
+export { BucketInventoryArgs, BucketInventoryState } from "./bucketInventory";
+export type BucketInventory = import("./bucketInventory").BucketInventory;
+export const BucketInventory: typeof import("./bucketInventory").BucketInventory = null as any;
+utilities.lazyLoad(exports, ["BucketInventory"], () => require("./bucketInventory"));
+
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
 utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
+
+export { GetBucketEncryptionArgs, GetBucketEncryptionResult, GetBucketEncryptionOutputArgs } from "./getBucketEncryption";
+export const getBucketEncryption: typeof import("./getBucketEncryption").getBucketEncryption = null as any;
+export const getBucketEncryptionOutput: typeof import("./getBucketEncryption").getBucketEncryptionOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketEncryption","getBucketEncryptionOutput"], () => require("./getBucketEncryption"));
+
+export { GetBucketEncryptionsResult } from "./getBucketEncryptions";
+export const getBucketEncryptions: typeof import("./getBucketEncryptions").getBucketEncryptions = null as any;
+export const getBucketEncryptionsOutput: typeof import("./getBucketEncryptions").getBucketEncryptionsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketEncryptions","getBucketEncryptionsOutput"], () => require("./getBucketEncryptions"));
+
+export { GetBucketInventoriesResult } from "./getBucketInventories";
+export const getBucketInventories: typeof import("./getBucketInventories").getBucketInventories = null as any;
+export const getBucketInventoriesOutput: typeof import("./getBucketInventories").getBucketInventoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketInventories","getBucketInventoriesOutput"], () => require("./getBucketInventories"));
+
+export { GetBucketInventoryArgs, GetBucketInventoryResult, GetBucketInventoryOutputArgs } from "./getBucketInventory";
+export const getBucketInventory: typeof import("./getBucketInventory").getBucketInventory = null as any;
+export const getBucketInventoryOutput: typeof import("./getBucketInventory").getBucketInventoryOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketInventory","getBucketInventoryOutput"], () => require("./getBucketInventory"));
 
 export { GetBucketsResult } from "./getBuckets";
 export const getBuckets: typeof import("./getBuckets").getBuckets = null as any;
@@ -27,9 +57,15 @@ const _module = {
         switch (type) {
             case "volcenginecc:tos/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketEncryption:BucketEncryption":
+                return new BucketEncryption(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketInventory:BucketInventory":
+                return new BucketInventory(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucket", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketEncryption", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketInventory", _module)

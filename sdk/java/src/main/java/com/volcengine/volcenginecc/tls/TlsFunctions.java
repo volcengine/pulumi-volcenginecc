@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetImportTaskArgs;
@@ -18,10 +20,16 @@ import com.volcengine.volcenginecc.tls.inputs.GetIndexArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetIndexPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetProjectArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetProjectPlainArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetRuleArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetRulePlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetScheduleSqlTaskArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetScheduleSqlTaskPlainArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetShipperArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetShipperPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupResult;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetImportTaskResult;
@@ -30,13 +38,101 @@ import com.volcengine.volcenginecc.tls.outputs.GetIndexResult;
 import com.volcengine.volcenginecc.tls.outputs.GetIndicesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetProjectResult;
 import com.volcengine.volcenginecc.tls.outputs.GetProjectsResult;
+import com.volcengine.volcenginecc.tls.outputs.GetRuleResult;
+import com.volcengine.volcenginecc.tls.outputs.GetRulesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetScheduleSqlTaskResult;
 import com.volcengine.volcenginecc.tls.outputs.GetScheduleSqlTasksResult;
+import com.volcengine.volcenginecc.tls.outputs.GetShipperResult;
+import com.volcengine.volcenginecc.tls.outputs.GetShippersResult;
 import com.volcengine.volcenginecc.tls.outputs.GetTopicResult;
 import com.volcengine.volcenginecc.tls.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class TlsFunctions {
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupResult> getAlarmNotifyGroup(GetAlarmNotifyGroupArgs args) {
+        return getAlarmNotifyGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static CompletableFuture<GetAlarmNotifyGroupResult> getAlarmNotifyGroupPlain(GetAlarmNotifyGroupPlainArgs args) {
+        return getAlarmNotifyGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupResult> getAlarmNotifyGroup(GetAlarmNotifyGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmNotifyGroup:getAlarmNotifyGroup", TypeShape.of(GetAlarmNotifyGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupResult> getAlarmNotifyGroup(GetAlarmNotifyGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmNotifyGroup:getAlarmNotifyGroup", TypeShape.of(GetAlarmNotifyGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static CompletableFuture<GetAlarmNotifyGroupResult> getAlarmNotifyGroupPlain(GetAlarmNotifyGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmNotifyGroup:getAlarmNotifyGroup", TypeShape.of(GetAlarmNotifyGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupsResult> getAlarmNotifyGroups() {
+        return getAlarmNotifyGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static CompletableFuture<GetAlarmNotifyGroupsResult> getAlarmNotifyGroupsPlain() {
+        return getAlarmNotifyGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupsResult> getAlarmNotifyGroups(InvokeArgs args) {
+        return getAlarmNotifyGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static CompletableFuture<GetAlarmNotifyGroupsResult> getAlarmNotifyGroupsPlain(InvokeArgs args) {
+        return getAlarmNotifyGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupsResult> getAlarmNotifyGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmNotifyGroups:getAlarmNotifyGroups", TypeShape.of(GetAlarmNotifyGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static Output<GetAlarmNotifyGroupsResult> getAlarmNotifyGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmNotifyGroups:getAlarmNotifyGroups", TypeShape.of(GetAlarmNotifyGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmNotifyGroup
+     * 
+     */
+    public static CompletableFuture<GetAlarmNotifyGroupsResult> getAlarmNotifyGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmNotifyGroups:getAlarmNotifyGroups", TypeShape.of(GetAlarmNotifyGroupsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::TLS::ConsumerGroup
      * 
@@ -374,6 +470,90 @@ public final class TlsFunctions {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getProjects:getProjects", TypeShape.of(GetProjectsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args) {
+        return getRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
+        return getRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules() {
+        return getRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain() {
+        return getRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args) {
+        return getRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args) {
+        return getRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Data Source schema for Volcengine::TLS::ScheduleSqlTask
      * 
      */
@@ -456,6 +636,90 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetScheduleSqlTasksResult> getScheduleSqlTasksPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getScheduleSqlTasks:getScheduleSqlTasks", TypeShape.of(GetScheduleSqlTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShipperResult> getShipper(GetShipperArgs args) {
+        return getShipper(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static CompletableFuture<GetShipperResult> getShipperPlain(GetShipperPlainArgs args) {
+        return getShipperPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShipperResult> getShipper(GetShipperArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getShipper:getShipper", TypeShape.of(GetShipperResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShipperResult> getShipper(GetShipperArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getShipper:getShipper", TypeShape.of(GetShipperResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static CompletableFuture<GetShipperResult> getShipperPlain(GetShipperPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getShipper:getShipper", TypeShape.of(GetShipperResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShippersResult> getShippers() {
+        return getShippers(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static CompletableFuture<GetShippersResult> getShippersPlain() {
+        return getShippersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShippersResult> getShippers(InvokeArgs args) {
+        return getShippers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static CompletableFuture<GetShippersResult> getShippersPlain(InvokeArgs args) {
+        return getShippersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShippersResult> getShippers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getShippers:getShippers", TypeShape.of(GetShippersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static Output<GetShippersResult> getShippers(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getShippers:getShippers", TypeShape.of(GetShippersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Shipper
+     * 
+     */
+    public static CompletableFuture<GetShippersResult> getShippersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getShippers:getShippers", TypeShape.of(GetShippersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TLS::Topic
