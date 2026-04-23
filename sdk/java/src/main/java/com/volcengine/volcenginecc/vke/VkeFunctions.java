@@ -16,6 +16,8 @@ import com.volcengine.volcenginecc.vke.inputs.GetClusterArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetClusterPlainArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetDefaultNodePoolArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetDefaultNodePoolPlainArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetKubeconfigArgs;
+import com.volcengine.volcenginecc.vke.inputs.GetKubeconfigPlainArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetNodeArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetNodePlainArgs;
 import com.volcengine.volcenginecc.vke.inputs.GetNodePoolArgs;
@@ -28,6 +30,8 @@ import com.volcengine.volcenginecc.vke.outputs.GetClusterResult;
 import com.volcengine.volcenginecc.vke.outputs.GetClustersResult;
 import com.volcengine.volcenginecc.vke.outputs.GetDefaultNodePoolResult;
 import com.volcengine.volcenginecc.vke.outputs.GetDefaultNodePoolsResult;
+import com.volcengine.volcenginecc.vke.outputs.GetKubeconfigResult;
+import com.volcengine.volcenginecc.vke.outputs.GetKubeconfigsResult;
 import com.volcengine.volcenginecc.vke.outputs.GetNodePoolResult;
 import com.volcengine.volcenginecc.vke.outputs.GetNodePoolsResult;
 import com.volcengine.volcenginecc.vke.outputs.GetNodeResult;
@@ -288,6 +292,90 @@ public final class VkeFunctions {
      */
     public static CompletableFuture<GetDefaultNodePoolsResult> getDefaultNodePoolsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vke/getDefaultNodePools:getDefaultNodePools", TypeShape.of(GetDefaultNodePoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigResult> getKubeconfig(GetKubeconfigArgs args) {
+        return getKubeconfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static CompletableFuture<GetKubeconfigResult> getKubeconfigPlain(GetKubeconfigPlainArgs args) {
+        return getKubeconfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigResult> getKubeconfig(GetKubeconfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getKubeconfig:getKubeconfig", TypeShape.of(GetKubeconfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigResult> getKubeconfig(GetKubeconfigArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getKubeconfig:getKubeconfig", TypeShape.of(GetKubeconfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static CompletableFuture<GetKubeconfigResult> getKubeconfigPlain(GetKubeconfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getKubeconfig:getKubeconfig", TypeShape.of(GetKubeconfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigsResult> getKubeconfigs() {
+        return getKubeconfigs(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static CompletableFuture<GetKubeconfigsResult> getKubeconfigsPlain() {
+        return getKubeconfigsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigsResult> getKubeconfigs(InvokeArgs args) {
+        return getKubeconfigs(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static CompletableFuture<GetKubeconfigsResult> getKubeconfigsPlain(InvokeArgs args) {
+        return getKubeconfigsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigsResult> getKubeconfigs(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getKubeconfigs:getKubeconfigs", TypeShape.of(GetKubeconfigsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static Output<GetKubeconfigsResult> getKubeconfigs(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vke/getKubeconfigs:getKubeconfigs", TypeShape.of(GetKubeconfigsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VKE::Kubeconfig
+     * 
+     */
+    public static CompletableFuture<GetKubeconfigsResult> getKubeconfigsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vke/getKubeconfigs:getKubeconfigs", TypeShape.of(GetKubeconfigsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VKE::Node

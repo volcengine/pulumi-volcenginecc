@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.vepfs.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.vepfs.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.vepfs.inputs.GetMountServiceArgs;
+import com.volcengine.volcenginecc.vepfs.inputs.GetMountServicePlainArgs;
 import com.volcengine.volcenginecc.vepfs.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.vepfs.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.vepfs.outputs.GetMountServiceResult;
+import com.volcengine.volcenginecc.vepfs.outputs.GetMountServicesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VepfsFunctions {
@@ -100,5 +104,89 @@ public final class VepfsFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vepfs/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServiceResult> getMountService(GetMountServiceArgs args) {
+        return getMountService(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static CompletableFuture<GetMountServiceResult> getMountServicePlain(GetMountServicePlainArgs args) {
+        return getMountServicePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServiceResult> getMountService(GetMountServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getMountService:getMountService", TypeShape.of(GetMountServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServiceResult> getMountService(GetMountServiceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getMountService:getMountService", TypeShape.of(GetMountServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static CompletableFuture<GetMountServiceResult> getMountServicePlain(GetMountServicePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vepfs/getMountService:getMountService", TypeShape.of(GetMountServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServicesResult> getMountServices() {
+        return getMountServices(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static CompletableFuture<GetMountServicesResult> getMountServicesPlain() {
+        return getMountServicesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServicesResult> getMountServices(InvokeArgs args) {
+        return getMountServices(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static CompletableFuture<GetMountServicesResult> getMountServicesPlain(InvokeArgs args) {
+        return getMountServicesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServicesResult> getMountServices(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getMountServices:getMountServices", TypeShape.of(GetMountServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static Output<GetMountServicesResult> getMountServices(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getMountServices:getMountServices", TypeShape.of(GetMountServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::MountService
+     * 
+     */
+    public static CompletableFuture<GetMountServicesResult> getMountServicesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vepfs/getMountServices:getMountServices", TypeShape.of(GetMountServicesResult.class), args, Utilities.withVersion(options));
     }
 }

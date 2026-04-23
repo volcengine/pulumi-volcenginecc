@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:tls/alarmNotifyGroup:AlarmNotifyGroup":
+		r = &AlarmNotifyGroup{}
 	case "volcenginecc:tls/consumerGroup:ConsumerGroup":
 		r = &ConsumerGroup{}
 	case "volcenginecc:tls/importTask:ImportTask":
@@ -29,8 +31,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Index{}
 	case "volcenginecc:tls/project:Project":
 		r = &Project{}
+	case "volcenginecc:tls/rule:Rule":
+		r = &Rule{}
 	case "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask":
 		r = &ScheduleSqlTask{}
+	case "volcenginecc:tls/shipper:Shipper":
+		r = &Shipper{}
 	case "volcenginecc:tls/topic:Topic":
 		r = &Topic{}
 	default:
@@ -46,6 +52,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/alarmNotifyGroup",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tls/consumerGroup",
@@ -68,7 +79,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"tls/rule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"tls/scheduleSqlTask",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/shipper",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

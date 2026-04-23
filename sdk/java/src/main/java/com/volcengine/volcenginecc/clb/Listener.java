@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.clb.ListenerArgs;
 import com.volcengine.volcenginecc.clb.inputs.ListenerState;
+import com.volcengine.volcenginecc.clb.outputs.ListenerDomainExtension;
 import com.volcengine.volcenginecc.clb.outputs.ListenerHealthCheck;
 import com.volcengine.volcenginecc.clb.outputs.ListenerTag;
 import java.lang.Integer;
@@ -271,6 +272,12 @@ public class Listener extends com.pulumi.resources.CustomResource {
      */
     public Output<String> description() {
         return this.description;
+    }
+    @Export(name="domainExtensions", refs={List.class,ListenerDomainExtension.class}, tree="[0,1]")
+    private Output<List<ListenerDomainExtension>> domainExtensions;
+
+    public Output<List<ListenerDomainExtension>> domainExtensions() {
+        return this.domainExtensions;
     }
     /**
      * Enable listener. on (default): enabled. off: disabled.

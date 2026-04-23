@@ -14,12 +14,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink.Inputs
     public sealed class EndpointServiceResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Endpoint service ID.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
         /// Service resource ID to be added to the endpoint service.
         /// </summary>
         [Input("resourceId")]

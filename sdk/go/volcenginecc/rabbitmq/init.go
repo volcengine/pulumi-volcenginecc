@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:rabbitmq/allowList:AllowList":
+		r = &AllowList{}
 	case "volcenginecc:rabbitmq/instance:Instance":
 		r = &Instance{}
 	case "volcenginecc:rabbitmq/instancePlugin:InstancePlugin":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rabbitmq/allowList",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rabbitmq/instance",

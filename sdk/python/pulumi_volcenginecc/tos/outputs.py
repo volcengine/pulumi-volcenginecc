@@ -20,6 +20,11 @@ __all__ = [
     'BucketAcl',
     'BucketAclGrant',
     'BucketAclOwner',
+    'BucketInventoryDestination',
+    'BucketInventoryDestinationTosBucketDestination',
+    'BucketInventoryFilter',
+    'BucketInventoryOptionalFields',
+    'BucketInventorySchedule',
     'BucketLifecycleConfig',
     'BucketLifecycleConfigAbortInCompleteMultipartUpload',
     'BucketLifecycleConfigExpiration',
@@ -32,6 +37,11 @@ __all__ = [
     'GetBucketAclResult',
     'GetBucketAclGrantResult',
     'GetBucketAclOwnerResult',
+    'GetBucketInventoryDestinationResult',
+    'GetBucketInventoryDestinationTosBucketDestinationResult',
+    'GetBucketInventoryFilterResult',
+    'GetBucketInventoryOptionalFieldsResult',
+    'GetBucketInventoryScheduleResult',
     'GetBucketLifecycleConfigResult',
     'GetBucketLifecycleConfigAbortInCompleteMultipartUploadResult',
     'GetBucketLifecycleConfigExpirationResult',
@@ -251,6 +261,183 @@ class BucketAclOwner(dict):
         Account ID
         """
         return pulumi.get(self, "owner_id")
+
+
+@pulumi.output_type
+class BucketInventoryDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tosBucketDestination":
+            suggest = "tos_bucket_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketInventoryDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketInventoryDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketInventoryDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tos_bucket_destination: Optional['outputs.BucketInventoryDestinationTosBucketDestination'] = None):
+        """
+        :param 'BucketInventoryDestinationTosBucketDestinationArgs' tos_bucket_destination: Bucket information related to the inventory files.
+        """
+        if tos_bucket_destination is not None:
+            pulumi.set(__self__, "tos_bucket_destination", tos_bucket_destination)
+
+    @property
+    @pulumi.getter(name="tosBucketDestination")
+    def tos_bucket_destination(self) -> Optional['outputs.BucketInventoryDestinationTosBucketDestination']:
+        """
+        Bucket information related to the inventory files.
+        """
+        return pulumi.get(self, "tos_bucket_destination")
+
+
+@pulumi.output_type
+class BucketInventoryDestinationTosBucketDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketInventoryDestinationTosBucketDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketInventoryDestinationTosBucketDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketInventoryDestinationTosBucketDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[builtins.str] = None,
+                 bucket: Optional[builtins.str] = None,
+                 format: Optional[builtins.str] = None,
+                 prefix: Optional[builtins.str] = None,
+                 role: Optional[builtins.str] = None):
+        """
+        :param builtins.str account_id: Account ID of the bucket owner.
+        :param builtins.str bucket: Specify the bucket to store the inventory files.
+        :param builtins.str format: Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+        :param builtins.str prefix: Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+        :param builtins.str role: Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[builtins.str]:
+        """
+        Account ID of the bucket owner.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[builtins.str]:
+        """
+        Specify the bucket to store the inventory files.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[builtins.str]:
+        """
+        Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[builtins.str]:
+        """
+        Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class BucketInventoryFilter(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[builtins.str] = None):
+        """
+        :param builtins.str prefix: Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class BucketInventoryOptionalFields(dict):
+    def __init__(__self__, *,
+                 fields: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] fields: Information about exported inventory files.
+        """
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Information about exported inventory files.
+        """
+        return pulumi.get(self, "fields")
+
+
+@pulumi.output_type
+class BucketInventorySchedule(dict):
+    def __init__(__self__, *,
+                 frequency: Optional[builtins.str] = None):
+        """
+        :param builtins.str frequency: Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[builtins.str]:
+        """
+        Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+        """
+        return pulumi.get(self, "frequency")
 
 
 @pulumi.output_type
@@ -908,6 +1095,140 @@ class GetBucketAclOwnerResult(dict):
         Account ID
         """
         return pulumi.get(self, "owner_id")
+
+
+@pulumi.output_type
+class GetBucketInventoryDestinationResult(dict):
+    def __init__(__self__, *,
+                 tos_bucket_destination: 'outputs.GetBucketInventoryDestinationTosBucketDestinationResult'):
+        """
+        :param 'GetBucketInventoryDestinationTosBucketDestinationArgs' tos_bucket_destination: Bucket information related to the inventory files.
+        """
+        pulumi.set(__self__, "tos_bucket_destination", tos_bucket_destination)
+
+    @property
+    @pulumi.getter(name="tosBucketDestination")
+    def tos_bucket_destination(self) -> 'outputs.GetBucketInventoryDestinationTosBucketDestinationResult':
+        """
+        Bucket information related to the inventory files.
+        """
+        return pulumi.get(self, "tos_bucket_destination")
+
+
+@pulumi.output_type
+class GetBucketInventoryDestinationTosBucketDestinationResult(dict):
+    def __init__(__self__, *,
+                 account_id: builtins.str,
+                 bucket: builtins.str,
+                 format: builtins.str,
+                 prefix: builtins.str,
+                 role: builtins.str):
+        """
+        :param builtins.str account_id: Account ID of the bucket owner.
+        :param builtins.str bucket: Specify the bucket to store the inventory files.
+        :param builtins.str format: Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+        :param builtins.str prefix: Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+        :param builtins.str role: Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> builtins.str:
+        """
+        Account ID of the bucket owner.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> builtins.str:
+        """
+        Specify the bucket to store the inventory files.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def format(self) -> builtins.str:
+        """
+        Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> builtins.str:
+        """
+        Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class GetBucketInventoryFilterResult(dict):
+    def __init__(__self__, *,
+                 prefix: builtins.str):
+        """
+        :param builtins.str prefix: Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> builtins.str:
+        """
+        Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetBucketInventoryOptionalFieldsResult(dict):
+    def __init__(__self__, *,
+                 fields: Sequence[builtins.str]):
+        """
+        :param Sequence[builtins.str] fields: Information about exported inventory files.
+        """
+        pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Sequence[builtins.str]:
+        """
+        Information about exported inventory files.
+        """
+        return pulumi.get(self, "fields")
+
+
+@pulumi.output_type
+class GetBucketInventoryScheduleResult(dict):
+    def __init__(__self__, *,
+                 frequency: builtins.str):
+        """
+        :param builtins.str frequency: Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+        """
+        pulumi.set(__self__, "frequency", frequency)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> builtins.str:
+        """
+        Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+        """
+        return pulumi.get(self, "frequency")
 
 
 @pulumi.output_type

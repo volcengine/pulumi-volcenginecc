@@ -14,6 +14,8 @@ import com.volcengine.volcenginecc.vefaas.inputs.GetFunctionArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetFunctionPlainArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetKafkaTriggerArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetKafkaTriggerPlainArgs;
+import com.volcengine.volcenginecc.vefaas.inputs.GetReleaseArgs;
+import com.volcengine.volcenginecc.vefaas.inputs.GetReleasePlainArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetSandboxArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetSandboxPlainArgs;
 import com.volcengine.volcenginecc.vefaas.inputs.GetTimerArgs;
@@ -22,6 +24,8 @@ import com.volcengine.volcenginecc.vefaas.outputs.GetFunctionResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetFunctionsResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetKafkaTriggerResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetKafkaTriggersResult;
+import com.volcengine.volcenginecc.vefaas.outputs.GetReleaseResult;
+import com.volcengine.volcenginecc.vefaas.outputs.GetReleasesResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetSandboxResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetSandboxesResult;
 import com.volcengine.volcenginecc.vefaas.outputs.GetTimerResult;
@@ -196,6 +200,90 @@ public final class VefaasFunctions {
      */
     public static CompletableFuture<GetKafkaTriggersResult> getKafkaTriggersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getKafkaTriggers:getKafkaTriggers", TypeShape.of(GetKafkaTriggersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleaseResult> getRelease(GetReleaseArgs args) {
+        return getRelease(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args) {
+        return getReleasePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleaseResult> getRelease(GetReleaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleaseResult> getRelease(GetReleaseArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static CompletableFuture<GetReleaseResult> getReleasePlain(GetReleasePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getRelease:getRelease", TypeShape.of(GetReleaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleasesResult> getReleases() {
+        return getReleases(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static CompletableFuture<GetReleasesResult> getReleasesPlain() {
+        return getReleasesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleasesResult> getReleases(InvokeArgs args) {
+        return getReleases(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static CompletableFuture<GetReleasesResult> getReleasesPlain(InvokeArgs args) {
+        return getReleasesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleasesResult> getReleases(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getReleases:getReleases", TypeShape.of(GetReleasesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static Output<GetReleasesResult> getReleases(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vefaas/getReleases:getReleases", TypeShape.of(GetReleasesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEFAAS::Release
+     * 
+     */
+    public static CompletableFuture<GetReleasesResult> getReleasesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vefaas/getReleases:getReleases", TypeShape.of(GetReleasesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VEFAAS::Sandbox

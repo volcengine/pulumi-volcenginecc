@@ -696,6 +696,769 @@ func (o BucketAclOwnerPtrOutput) OwnerId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type BucketInventoryDestination struct {
+	// Bucket information related to the inventory files.
+	TosBucketDestination *BucketInventoryDestinationTosBucketDestination `pulumi:"tosBucketDestination"`
+}
+
+// BucketInventoryDestinationInput is an input type that accepts BucketInventoryDestinationArgs and BucketInventoryDestinationOutput values.
+// You can construct a concrete instance of `BucketInventoryDestinationInput` via:
+//
+//	BucketInventoryDestinationArgs{...}
+type BucketInventoryDestinationInput interface {
+	pulumi.Input
+
+	ToBucketInventoryDestinationOutput() BucketInventoryDestinationOutput
+	ToBucketInventoryDestinationOutputWithContext(context.Context) BucketInventoryDestinationOutput
+}
+
+type BucketInventoryDestinationArgs struct {
+	// Bucket information related to the inventory files.
+	TosBucketDestination BucketInventoryDestinationTosBucketDestinationPtrInput `pulumi:"tosBucketDestination"`
+}
+
+func (BucketInventoryDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryDestination)(nil)).Elem()
+}
+
+func (i BucketInventoryDestinationArgs) ToBucketInventoryDestinationOutput() BucketInventoryDestinationOutput {
+	return i.ToBucketInventoryDestinationOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryDestinationArgs) ToBucketInventoryDestinationOutputWithContext(ctx context.Context) BucketInventoryDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryDestinationOutput)
+}
+
+func (i BucketInventoryDestinationArgs) ToBucketInventoryDestinationPtrOutput() BucketInventoryDestinationPtrOutput {
+	return i.ToBucketInventoryDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryDestinationArgs) ToBucketInventoryDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryDestinationOutput).ToBucketInventoryDestinationPtrOutputWithContext(ctx)
+}
+
+// BucketInventoryDestinationPtrInput is an input type that accepts BucketInventoryDestinationArgs, BucketInventoryDestinationPtr and BucketInventoryDestinationPtrOutput values.
+// You can construct a concrete instance of `BucketInventoryDestinationPtrInput` via:
+//
+//	        BucketInventoryDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketInventoryDestinationPtrInput interface {
+	pulumi.Input
+
+	ToBucketInventoryDestinationPtrOutput() BucketInventoryDestinationPtrOutput
+	ToBucketInventoryDestinationPtrOutputWithContext(context.Context) BucketInventoryDestinationPtrOutput
+}
+
+type bucketInventoryDestinationPtrType BucketInventoryDestinationArgs
+
+func BucketInventoryDestinationPtr(v *BucketInventoryDestinationArgs) BucketInventoryDestinationPtrInput {
+	return (*bucketInventoryDestinationPtrType)(v)
+}
+
+func (*bucketInventoryDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryDestination)(nil)).Elem()
+}
+
+func (i *bucketInventoryDestinationPtrType) ToBucketInventoryDestinationPtrOutput() BucketInventoryDestinationPtrOutput {
+	return i.ToBucketInventoryDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketInventoryDestinationPtrType) ToBucketInventoryDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryDestinationPtrOutput)
+}
+
+type BucketInventoryDestinationOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryDestination)(nil)).Elem()
+}
+
+func (o BucketInventoryDestinationOutput) ToBucketInventoryDestinationOutput() BucketInventoryDestinationOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationOutput) ToBucketInventoryDestinationOutputWithContext(ctx context.Context) BucketInventoryDestinationOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationOutput) ToBucketInventoryDestinationPtrOutput() BucketInventoryDestinationPtrOutput {
+	return o.ToBucketInventoryDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryDestinationOutput) ToBucketInventoryDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketInventoryDestination) *BucketInventoryDestination {
+		return &v
+	}).(BucketInventoryDestinationPtrOutput)
+}
+
+// Bucket information related to the inventory files.
+func (o BucketInventoryDestinationOutput) TosBucketDestination() BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return o.ApplyT(func(v BucketInventoryDestination) *BucketInventoryDestinationTosBucketDestination {
+		return v.TosBucketDestination
+	}).(BucketInventoryDestinationTosBucketDestinationPtrOutput)
+}
+
+type BucketInventoryDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryDestination)(nil)).Elem()
+}
+
+func (o BucketInventoryDestinationPtrOutput) ToBucketInventoryDestinationPtrOutput() BucketInventoryDestinationPtrOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationPtrOutput) ToBucketInventoryDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationPtrOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationPtrOutput) Elem() BucketInventoryDestinationOutput {
+	return o.ApplyT(func(v *BucketInventoryDestination) BucketInventoryDestination {
+		if v != nil {
+			return *v
+		}
+		var ret BucketInventoryDestination
+		return ret
+	}).(BucketInventoryDestinationOutput)
+}
+
+// Bucket information related to the inventory files.
+func (o BucketInventoryDestinationPtrOutput) TosBucketDestination() BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryDestination) *BucketInventoryDestinationTosBucketDestination {
+		if v == nil {
+			return nil
+		}
+		return v.TosBucketDestination
+	}).(BucketInventoryDestinationTosBucketDestinationPtrOutput)
+}
+
+type BucketInventoryDestinationTosBucketDestination struct {
+	// Account ID of the bucket owner.
+	AccountId *string `pulumi:"accountId"`
+	// Specify the bucket to store the inventory files.
+	Bucket *string `pulumi:"bucket"`
+	// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+	Format *string `pulumi:"format"`
+	// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+	Prefix *string `pulumi:"prefix"`
+	// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+	Role *string `pulumi:"role"`
+}
+
+// BucketInventoryDestinationTosBucketDestinationInput is an input type that accepts BucketInventoryDestinationTosBucketDestinationArgs and BucketInventoryDestinationTosBucketDestinationOutput values.
+// You can construct a concrete instance of `BucketInventoryDestinationTosBucketDestinationInput` via:
+//
+//	BucketInventoryDestinationTosBucketDestinationArgs{...}
+type BucketInventoryDestinationTosBucketDestinationInput interface {
+	pulumi.Input
+
+	ToBucketInventoryDestinationTosBucketDestinationOutput() BucketInventoryDestinationTosBucketDestinationOutput
+	ToBucketInventoryDestinationTosBucketDestinationOutputWithContext(context.Context) BucketInventoryDestinationTosBucketDestinationOutput
+}
+
+type BucketInventoryDestinationTosBucketDestinationArgs struct {
+	// Account ID of the bucket owner.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Specify the bucket to store the inventory files.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (BucketInventoryDestinationTosBucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryDestinationTosBucketDestination)(nil)).Elem()
+}
+
+func (i BucketInventoryDestinationTosBucketDestinationArgs) ToBucketInventoryDestinationTosBucketDestinationOutput() BucketInventoryDestinationTosBucketDestinationOutput {
+	return i.ToBucketInventoryDestinationTosBucketDestinationOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryDestinationTosBucketDestinationArgs) ToBucketInventoryDestinationTosBucketDestinationOutputWithContext(ctx context.Context) BucketInventoryDestinationTosBucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryDestinationTosBucketDestinationOutput)
+}
+
+func (i BucketInventoryDestinationTosBucketDestinationArgs) ToBucketInventoryDestinationTosBucketDestinationPtrOutput() BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return i.ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryDestinationTosBucketDestinationArgs) ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryDestinationTosBucketDestinationOutput).ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(ctx)
+}
+
+// BucketInventoryDestinationTosBucketDestinationPtrInput is an input type that accepts BucketInventoryDestinationTosBucketDestinationArgs, BucketInventoryDestinationTosBucketDestinationPtr and BucketInventoryDestinationTosBucketDestinationPtrOutput values.
+// You can construct a concrete instance of `BucketInventoryDestinationTosBucketDestinationPtrInput` via:
+//
+//	        BucketInventoryDestinationTosBucketDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketInventoryDestinationTosBucketDestinationPtrInput interface {
+	pulumi.Input
+
+	ToBucketInventoryDestinationTosBucketDestinationPtrOutput() BucketInventoryDestinationTosBucketDestinationPtrOutput
+	ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(context.Context) BucketInventoryDestinationTosBucketDestinationPtrOutput
+}
+
+type bucketInventoryDestinationTosBucketDestinationPtrType BucketInventoryDestinationTosBucketDestinationArgs
+
+func BucketInventoryDestinationTosBucketDestinationPtr(v *BucketInventoryDestinationTosBucketDestinationArgs) BucketInventoryDestinationTosBucketDestinationPtrInput {
+	return (*bucketInventoryDestinationTosBucketDestinationPtrType)(v)
+}
+
+func (*bucketInventoryDestinationTosBucketDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryDestinationTosBucketDestination)(nil)).Elem()
+}
+
+func (i *bucketInventoryDestinationTosBucketDestinationPtrType) ToBucketInventoryDestinationTosBucketDestinationPtrOutput() BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return i.ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketInventoryDestinationTosBucketDestinationPtrType) ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryDestinationTosBucketDestinationPtrOutput)
+}
+
+type BucketInventoryDestinationTosBucketDestinationOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryDestinationTosBucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryDestinationTosBucketDestination)(nil)).Elem()
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationOutput) ToBucketInventoryDestinationTosBucketDestinationOutput() BucketInventoryDestinationTosBucketDestinationOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationOutput) ToBucketInventoryDestinationTosBucketDestinationOutputWithContext(ctx context.Context) BucketInventoryDestinationTosBucketDestinationOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationOutput) ToBucketInventoryDestinationTosBucketDestinationPtrOutput() BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return o.ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationOutput) ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketInventoryDestinationTosBucketDestination) *BucketInventoryDestinationTosBucketDestination {
+		return &v
+	}).(BucketInventoryDestinationTosBucketDestinationPtrOutput)
+}
+
+// Account ID of the bucket owner.
+func (o BucketInventoryDestinationTosBucketDestinationOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryDestinationTosBucketDestination) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specify the bucket to store the inventory files.
+func (o BucketInventoryDestinationTosBucketDestinationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryDestinationTosBucketDestination) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+func (o BucketInventoryDestinationTosBucketDestinationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryDestinationTosBucketDestination) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+func (o BucketInventoryDestinationTosBucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryDestinationTosBucketDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+func (o BucketInventoryDestinationTosBucketDestinationOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryDestinationTosBucketDestination) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type BucketInventoryDestinationTosBucketDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryDestinationTosBucketDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryDestinationTosBucketDestination)(nil)).Elem()
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) ToBucketInventoryDestinationTosBucketDestinationPtrOutput() BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) ToBucketInventoryDestinationTosBucketDestinationPtrOutputWithContext(ctx context.Context) BucketInventoryDestinationTosBucketDestinationPtrOutput {
+	return o
+}
+
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) Elem() BucketInventoryDestinationTosBucketDestinationOutput {
+	return o.ApplyT(func(v *BucketInventoryDestinationTosBucketDestination) BucketInventoryDestinationTosBucketDestination {
+		if v != nil {
+			return *v
+		}
+		var ret BucketInventoryDestinationTosBucketDestination
+		return ret
+	}).(BucketInventoryDestinationTosBucketDestinationOutput)
+}
+
+// Account ID of the bucket owner.
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryDestinationTosBucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify the bucket to store the inventory files.
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryDestinationTosBucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryDestinationTosBucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryDestinationTosBucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+func (o BucketInventoryDestinationTosBucketDestinationPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryDestinationTosBucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketInventoryFilter struct {
+	// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// BucketInventoryFilterInput is an input type that accepts BucketInventoryFilterArgs and BucketInventoryFilterOutput values.
+// You can construct a concrete instance of `BucketInventoryFilterInput` via:
+//
+//	BucketInventoryFilterArgs{...}
+type BucketInventoryFilterInput interface {
+	pulumi.Input
+
+	ToBucketInventoryFilterOutput() BucketInventoryFilterOutput
+	ToBucketInventoryFilterOutputWithContext(context.Context) BucketInventoryFilterOutput
+}
+
+type BucketInventoryFilterArgs struct {
+	// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (BucketInventoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryFilter)(nil)).Elem()
+}
+
+func (i BucketInventoryFilterArgs) ToBucketInventoryFilterOutput() BucketInventoryFilterOutput {
+	return i.ToBucketInventoryFilterOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryFilterArgs) ToBucketInventoryFilterOutputWithContext(ctx context.Context) BucketInventoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryFilterOutput)
+}
+
+func (i BucketInventoryFilterArgs) ToBucketInventoryFilterPtrOutput() BucketInventoryFilterPtrOutput {
+	return i.ToBucketInventoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryFilterArgs) ToBucketInventoryFilterPtrOutputWithContext(ctx context.Context) BucketInventoryFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryFilterOutput).ToBucketInventoryFilterPtrOutputWithContext(ctx)
+}
+
+// BucketInventoryFilterPtrInput is an input type that accepts BucketInventoryFilterArgs, BucketInventoryFilterPtr and BucketInventoryFilterPtrOutput values.
+// You can construct a concrete instance of `BucketInventoryFilterPtrInput` via:
+//
+//	        BucketInventoryFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketInventoryFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketInventoryFilterPtrOutput() BucketInventoryFilterPtrOutput
+	ToBucketInventoryFilterPtrOutputWithContext(context.Context) BucketInventoryFilterPtrOutput
+}
+
+type bucketInventoryFilterPtrType BucketInventoryFilterArgs
+
+func BucketInventoryFilterPtr(v *BucketInventoryFilterArgs) BucketInventoryFilterPtrInput {
+	return (*bucketInventoryFilterPtrType)(v)
+}
+
+func (*bucketInventoryFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryFilter)(nil)).Elem()
+}
+
+func (i *bucketInventoryFilterPtrType) ToBucketInventoryFilterPtrOutput() BucketInventoryFilterPtrOutput {
+	return i.ToBucketInventoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketInventoryFilterPtrType) ToBucketInventoryFilterPtrOutputWithContext(ctx context.Context) BucketInventoryFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryFilterPtrOutput)
+}
+
+type BucketInventoryFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryFilter)(nil)).Elem()
+}
+
+func (o BucketInventoryFilterOutput) ToBucketInventoryFilterOutput() BucketInventoryFilterOutput {
+	return o
+}
+
+func (o BucketInventoryFilterOutput) ToBucketInventoryFilterOutputWithContext(ctx context.Context) BucketInventoryFilterOutput {
+	return o
+}
+
+func (o BucketInventoryFilterOutput) ToBucketInventoryFilterPtrOutput() BucketInventoryFilterPtrOutput {
+	return o.ToBucketInventoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryFilterOutput) ToBucketInventoryFilterPtrOutputWithContext(ctx context.Context) BucketInventoryFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketInventoryFilter) *BucketInventoryFilter {
+		return &v
+	}).(BucketInventoryFilterPtrOutput)
+}
+
+// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+func (o BucketInventoryFilterOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type BucketInventoryFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryFilter)(nil)).Elem()
+}
+
+func (o BucketInventoryFilterPtrOutput) ToBucketInventoryFilterPtrOutput() BucketInventoryFilterPtrOutput {
+	return o
+}
+
+func (o BucketInventoryFilterPtrOutput) ToBucketInventoryFilterPtrOutputWithContext(ctx context.Context) BucketInventoryFilterPtrOutput {
+	return o
+}
+
+func (o BucketInventoryFilterPtrOutput) Elem() BucketInventoryFilterOutput {
+	return o.ApplyT(func(v *BucketInventoryFilter) BucketInventoryFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketInventoryFilter
+		return ret
+	}).(BucketInventoryFilterOutput)
+}
+
+// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+func (o BucketInventoryFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventoryFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketInventoryOptionalFields struct {
+	// Information about exported inventory files.
+	Fields []string `pulumi:"fields"`
+}
+
+// BucketInventoryOptionalFieldsInput is an input type that accepts BucketInventoryOptionalFieldsArgs and BucketInventoryOptionalFieldsOutput values.
+// You can construct a concrete instance of `BucketInventoryOptionalFieldsInput` via:
+//
+//	BucketInventoryOptionalFieldsArgs{...}
+type BucketInventoryOptionalFieldsInput interface {
+	pulumi.Input
+
+	ToBucketInventoryOptionalFieldsOutput() BucketInventoryOptionalFieldsOutput
+	ToBucketInventoryOptionalFieldsOutputWithContext(context.Context) BucketInventoryOptionalFieldsOutput
+}
+
+type BucketInventoryOptionalFieldsArgs struct {
+	// Information about exported inventory files.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+}
+
+func (BucketInventoryOptionalFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryOptionalFields)(nil)).Elem()
+}
+
+func (i BucketInventoryOptionalFieldsArgs) ToBucketInventoryOptionalFieldsOutput() BucketInventoryOptionalFieldsOutput {
+	return i.ToBucketInventoryOptionalFieldsOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryOptionalFieldsArgs) ToBucketInventoryOptionalFieldsOutputWithContext(ctx context.Context) BucketInventoryOptionalFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryOptionalFieldsOutput)
+}
+
+func (i BucketInventoryOptionalFieldsArgs) ToBucketInventoryOptionalFieldsPtrOutput() BucketInventoryOptionalFieldsPtrOutput {
+	return i.ToBucketInventoryOptionalFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryOptionalFieldsArgs) ToBucketInventoryOptionalFieldsPtrOutputWithContext(ctx context.Context) BucketInventoryOptionalFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryOptionalFieldsOutput).ToBucketInventoryOptionalFieldsPtrOutputWithContext(ctx)
+}
+
+// BucketInventoryOptionalFieldsPtrInput is an input type that accepts BucketInventoryOptionalFieldsArgs, BucketInventoryOptionalFieldsPtr and BucketInventoryOptionalFieldsPtrOutput values.
+// You can construct a concrete instance of `BucketInventoryOptionalFieldsPtrInput` via:
+//
+//	        BucketInventoryOptionalFieldsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketInventoryOptionalFieldsPtrInput interface {
+	pulumi.Input
+
+	ToBucketInventoryOptionalFieldsPtrOutput() BucketInventoryOptionalFieldsPtrOutput
+	ToBucketInventoryOptionalFieldsPtrOutputWithContext(context.Context) BucketInventoryOptionalFieldsPtrOutput
+}
+
+type bucketInventoryOptionalFieldsPtrType BucketInventoryOptionalFieldsArgs
+
+func BucketInventoryOptionalFieldsPtr(v *BucketInventoryOptionalFieldsArgs) BucketInventoryOptionalFieldsPtrInput {
+	return (*bucketInventoryOptionalFieldsPtrType)(v)
+}
+
+func (*bucketInventoryOptionalFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryOptionalFields)(nil)).Elem()
+}
+
+func (i *bucketInventoryOptionalFieldsPtrType) ToBucketInventoryOptionalFieldsPtrOutput() BucketInventoryOptionalFieldsPtrOutput {
+	return i.ToBucketInventoryOptionalFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketInventoryOptionalFieldsPtrType) ToBucketInventoryOptionalFieldsPtrOutputWithContext(ctx context.Context) BucketInventoryOptionalFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryOptionalFieldsPtrOutput)
+}
+
+type BucketInventoryOptionalFieldsOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryOptionalFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryOptionalFields)(nil)).Elem()
+}
+
+func (o BucketInventoryOptionalFieldsOutput) ToBucketInventoryOptionalFieldsOutput() BucketInventoryOptionalFieldsOutput {
+	return o
+}
+
+func (o BucketInventoryOptionalFieldsOutput) ToBucketInventoryOptionalFieldsOutputWithContext(ctx context.Context) BucketInventoryOptionalFieldsOutput {
+	return o
+}
+
+func (o BucketInventoryOptionalFieldsOutput) ToBucketInventoryOptionalFieldsPtrOutput() BucketInventoryOptionalFieldsPtrOutput {
+	return o.ToBucketInventoryOptionalFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryOptionalFieldsOutput) ToBucketInventoryOptionalFieldsPtrOutputWithContext(ctx context.Context) BucketInventoryOptionalFieldsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketInventoryOptionalFields) *BucketInventoryOptionalFields {
+		return &v
+	}).(BucketInventoryOptionalFieldsPtrOutput)
+}
+
+// Information about exported inventory files.
+func (o BucketInventoryOptionalFieldsOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketInventoryOptionalFields) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+type BucketInventoryOptionalFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryOptionalFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventoryOptionalFields)(nil)).Elem()
+}
+
+func (o BucketInventoryOptionalFieldsPtrOutput) ToBucketInventoryOptionalFieldsPtrOutput() BucketInventoryOptionalFieldsPtrOutput {
+	return o
+}
+
+func (o BucketInventoryOptionalFieldsPtrOutput) ToBucketInventoryOptionalFieldsPtrOutputWithContext(ctx context.Context) BucketInventoryOptionalFieldsPtrOutput {
+	return o
+}
+
+func (o BucketInventoryOptionalFieldsPtrOutput) Elem() BucketInventoryOptionalFieldsOutput {
+	return o.ApplyT(func(v *BucketInventoryOptionalFields) BucketInventoryOptionalFields {
+		if v != nil {
+			return *v
+		}
+		var ret BucketInventoryOptionalFields
+		return ret
+	}).(BucketInventoryOptionalFieldsOutput)
+}
+
+// Information about exported inventory files.
+func (o BucketInventoryOptionalFieldsPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BucketInventoryOptionalFields) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+type BucketInventorySchedule struct {
+	// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+	Frequency *string `pulumi:"frequency"`
+}
+
+// BucketInventoryScheduleInput is an input type that accepts BucketInventoryScheduleArgs and BucketInventoryScheduleOutput values.
+// You can construct a concrete instance of `BucketInventoryScheduleInput` via:
+//
+//	BucketInventoryScheduleArgs{...}
+type BucketInventoryScheduleInput interface {
+	pulumi.Input
+
+	ToBucketInventoryScheduleOutput() BucketInventoryScheduleOutput
+	ToBucketInventoryScheduleOutputWithContext(context.Context) BucketInventoryScheduleOutput
+}
+
+type BucketInventoryScheduleArgs struct {
+	// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+}
+
+func (BucketInventoryScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventorySchedule)(nil)).Elem()
+}
+
+func (i BucketInventoryScheduleArgs) ToBucketInventoryScheduleOutput() BucketInventoryScheduleOutput {
+	return i.ToBucketInventoryScheduleOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryScheduleArgs) ToBucketInventoryScheduleOutputWithContext(ctx context.Context) BucketInventoryScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryScheduleOutput)
+}
+
+func (i BucketInventoryScheduleArgs) ToBucketInventorySchedulePtrOutput() BucketInventorySchedulePtrOutput {
+	return i.ToBucketInventorySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryScheduleArgs) ToBucketInventorySchedulePtrOutputWithContext(ctx context.Context) BucketInventorySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryScheduleOutput).ToBucketInventorySchedulePtrOutputWithContext(ctx)
+}
+
+// BucketInventorySchedulePtrInput is an input type that accepts BucketInventoryScheduleArgs, BucketInventorySchedulePtr and BucketInventorySchedulePtrOutput values.
+// You can construct a concrete instance of `BucketInventorySchedulePtrInput` via:
+//
+//	        BucketInventoryScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketInventorySchedulePtrInput interface {
+	pulumi.Input
+
+	ToBucketInventorySchedulePtrOutput() BucketInventorySchedulePtrOutput
+	ToBucketInventorySchedulePtrOutputWithContext(context.Context) BucketInventorySchedulePtrOutput
+}
+
+type bucketInventorySchedulePtrType BucketInventoryScheduleArgs
+
+func BucketInventorySchedulePtr(v *BucketInventoryScheduleArgs) BucketInventorySchedulePtrInput {
+	return (*bucketInventorySchedulePtrType)(v)
+}
+
+func (*bucketInventorySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventorySchedule)(nil)).Elem()
+}
+
+func (i *bucketInventorySchedulePtrType) ToBucketInventorySchedulePtrOutput() BucketInventorySchedulePtrOutput {
+	return i.ToBucketInventorySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketInventorySchedulePtrType) ToBucketInventorySchedulePtrOutputWithContext(ctx context.Context) BucketInventorySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventorySchedulePtrOutput)
+}
+
+type BucketInventoryScheduleOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventorySchedule)(nil)).Elem()
+}
+
+func (o BucketInventoryScheduleOutput) ToBucketInventoryScheduleOutput() BucketInventoryScheduleOutput {
+	return o
+}
+
+func (o BucketInventoryScheduleOutput) ToBucketInventoryScheduleOutputWithContext(ctx context.Context) BucketInventoryScheduleOutput {
+	return o
+}
+
+func (o BucketInventoryScheduleOutput) ToBucketInventorySchedulePtrOutput() BucketInventorySchedulePtrOutput {
+	return o.ToBucketInventorySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o BucketInventoryScheduleOutput) ToBucketInventorySchedulePtrOutputWithContext(ctx context.Context) BucketInventorySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketInventorySchedule) *BucketInventorySchedule {
+		return &v
+	}).(BucketInventorySchedulePtrOutput)
+}
+
+// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+func (o BucketInventoryScheduleOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventorySchedule) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+type BucketInventorySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketInventorySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketInventorySchedule)(nil)).Elem()
+}
+
+func (o BucketInventorySchedulePtrOutput) ToBucketInventorySchedulePtrOutput() BucketInventorySchedulePtrOutput {
+	return o
+}
+
+func (o BucketInventorySchedulePtrOutput) ToBucketInventorySchedulePtrOutputWithContext(ctx context.Context) BucketInventorySchedulePtrOutput {
+	return o
+}
+
+func (o BucketInventorySchedulePtrOutput) Elem() BucketInventoryScheduleOutput {
+	return o.ApplyT(func(v *BucketInventorySchedule) BucketInventorySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret BucketInventorySchedule
+		return ret
+	}).(BucketInventoryScheduleOutput)
+}
+
+// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+func (o BucketInventorySchedulePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketInventorySchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
 type BucketLifecycleConfig struct {
 	// Specify expiration attributes for unmerged multipart tasks (fragments)
 	AbortInCompleteMultipartUpload *BucketLifecycleConfigAbortInCompleteMultipartUpload `pulumi:"abortInCompleteMultipartUpload"`
@@ -2305,6 +3068,304 @@ func (o GetBucketAclOwnerOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclOwner) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+type GetBucketInventoryDestination struct {
+	// Bucket information related to the inventory files.
+	TosBucketDestination GetBucketInventoryDestinationTosBucketDestination `pulumi:"tosBucketDestination"`
+}
+
+// GetBucketInventoryDestinationInput is an input type that accepts GetBucketInventoryDestinationArgs and GetBucketInventoryDestinationOutput values.
+// You can construct a concrete instance of `GetBucketInventoryDestinationInput` via:
+//
+//	GetBucketInventoryDestinationArgs{...}
+type GetBucketInventoryDestinationInput interface {
+	pulumi.Input
+
+	ToGetBucketInventoryDestinationOutput() GetBucketInventoryDestinationOutput
+	ToGetBucketInventoryDestinationOutputWithContext(context.Context) GetBucketInventoryDestinationOutput
+}
+
+type GetBucketInventoryDestinationArgs struct {
+	// Bucket information related to the inventory files.
+	TosBucketDestination GetBucketInventoryDestinationTosBucketDestinationInput `pulumi:"tosBucketDestination"`
+}
+
+func (GetBucketInventoryDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryDestination)(nil)).Elem()
+}
+
+func (i GetBucketInventoryDestinationArgs) ToGetBucketInventoryDestinationOutput() GetBucketInventoryDestinationOutput {
+	return i.ToGetBucketInventoryDestinationOutputWithContext(context.Background())
+}
+
+func (i GetBucketInventoryDestinationArgs) ToGetBucketInventoryDestinationOutputWithContext(ctx context.Context) GetBucketInventoryDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketInventoryDestinationOutput)
+}
+
+type GetBucketInventoryDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketInventoryDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryDestination)(nil)).Elem()
+}
+
+func (o GetBucketInventoryDestinationOutput) ToGetBucketInventoryDestinationOutput() GetBucketInventoryDestinationOutput {
+	return o
+}
+
+func (o GetBucketInventoryDestinationOutput) ToGetBucketInventoryDestinationOutputWithContext(ctx context.Context) GetBucketInventoryDestinationOutput {
+	return o
+}
+
+// Bucket information related to the inventory files.
+func (o GetBucketInventoryDestinationOutput) TosBucketDestination() GetBucketInventoryDestinationTosBucketDestinationOutput {
+	return o.ApplyT(func(v GetBucketInventoryDestination) GetBucketInventoryDestinationTosBucketDestination {
+		return v.TosBucketDestination
+	}).(GetBucketInventoryDestinationTosBucketDestinationOutput)
+}
+
+type GetBucketInventoryDestinationTosBucketDestination struct {
+	// Account ID of the bucket owner.
+	AccountId string `pulumi:"accountId"`
+	// Specify the bucket to store the inventory files.
+	Bucket string `pulumi:"bucket"`
+	// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+	Format string `pulumi:"format"`
+	// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+	Prefix string `pulumi:"prefix"`
+	// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+	Role string `pulumi:"role"`
+}
+
+// GetBucketInventoryDestinationTosBucketDestinationInput is an input type that accepts GetBucketInventoryDestinationTosBucketDestinationArgs and GetBucketInventoryDestinationTosBucketDestinationOutput values.
+// You can construct a concrete instance of `GetBucketInventoryDestinationTosBucketDestinationInput` via:
+//
+//	GetBucketInventoryDestinationTosBucketDestinationArgs{...}
+type GetBucketInventoryDestinationTosBucketDestinationInput interface {
+	pulumi.Input
+
+	ToGetBucketInventoryDestinationTosBucketDestinationOutput() GetBucketInventoryDestinationTosBucketDestinationOutput
+	ToGetBucketInventoryDestinationTosBucketDestinationOutputWithContext(context.Context) GetBucketInventoryDestinationTosBucketDestinationOutput
+}
+
+type GetBucketInventoryDestinationTosBucketDestinationArgs struct {
+	// Account ID of the bucket owner.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Specify the bucket to store the inventory files.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+	Format pulumi.StringInput `pulumi:"format"`
+	// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (GetBucketInventoryDestinationTosBucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryDestinationTosBucketDestination)(nil)).Elem()
+}
+
+func (i GetBucketInventoryDestinationTosBucketDestinationArgs) ToGetBucketInventoryDestinationTosBucketDestinationOutput() GetBucketInventoryDestinationTosBucketDestinationOutput {
+	return i.ToGetBucketInventoryDestinationTosBucketDestinationOutputWithContext(context.Background())
+}
+
+func (i GetBucketInventoryDestinationTosBucketDestinationArgs) ToGetBucketInventoryDestinationTosBucketDestinationOutputWithContext(ctx context.Context) GetBucketInventoryDestinationTosBucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketInventoryDestinationTosBucketDestinationOutput)
+}
+
+type GetBucketInventoryDestinationTosBucketDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketInventoryDestinationTosBucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryDestinationTosBucketDestination)(nil)).Elem()
+}
+
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) ToGetBucketInventoryDestinationTosBucketDestinationOutput() GetBucketInventoryDestinationTosBucketDestinationOutput {
+	return o
+}
+
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) ToGetBucketInventoryDestinationTosBucketDestinationOutputWithContext(ctx context.Context) GetBucketInventoryDestinationTosBucketDestinationOutput {
+	return o
+}
+
+// Account ID of the bucket owner.
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventoryDestinationTosBucketDestination) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Specify the bucket to store the inventory files.
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventoryDestinationTosBucketDestination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Inventory file format. Value is CSV, meaning the inventory file is in CSV format compressed with GZIP.
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventoryDestinationTosBucketDestination) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// Prefix for the storage path of inventory files. By default, files are saved under tos*bucket*inventory/sourceBucketName/inventoryId/YYYY-MM-DDTHH-MMZ/files in the target bucket.
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventoryDestinationTosBucketDestination) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// Role name used to grant permission to read all files from the source bucket and write files to the target bucket. The role must have TOS read/write and service access permissions. You can also use the default TOS role TosArchiveTOSInventory.
+func (o GetBucketInventoryDestinationTosBucketDestinationOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventoryDestinationTosBucketDestination) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type GetBucketInventoryFilter struct {
+	// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+	Prefix string `pulumi:"prefix"`
+}
+
+// GetBucketInventoryFilterInput is an input type that accepts GetBucketInventoryFilterArgs and GetBucketInventoryFilterOutput values.
+// You can construct a concrete instance of `GetBucketInventoryFilterInput` via:
+//
+//	GetBucketInventoryFilterArgs{...}
+type GetBucketInventoryFilterInput interface {
+	pulumi.Input
+
+	ToGetBucketInventoryFilterOutput() GetBucketInventoryFilterOutput
+	ToGetBucketInventoryFilterOutputWithContext(context.Context) GetBucketInventoryFilterOutput
+}
+
+type GetBucketInventoryFilterArgs struct {
+	// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (GetBucketInventoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryFilter)(nil)).Elem()
+}
+
+func (i GetBucketInventoryFilterArgs) ToGetBucketInventoryFilterOutput() GetBucketInventoryFilterOutput {
+	return i.ToGetBucketInventoryFilterOutputWithContext(context.Background())
+}
+
+func (i GetBucketInventoryFilterArgs) ToGetBucketInventoryFilterOutputWithContext(ctx context.Context) GetBucketInventoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketInventoryFilterOutput)
+}
+
+type GetBucketInventoryFilterOutput struct{ *pulumi.OutputState }
+
+func (GetBucketInventoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryFilter)(nil)).Elem()
+}
+
+func (o GetBucketInventoryFilterOutput) ToGetBucketInventoryFilterOutput() GetBucketInventoryFilterOutput {
+	return o
+}
+
+func (o GetBucketInventoryFilterOutput) ToGetBucketInventoryFilterOutputWithContext(ctx context.Context) GetBucketInventoryFilterOutput {
+	return o
+}
+
+// Prefix matching information for exported files. If not set, an inventory of all objects in the bucket is generated by default.
+func (o GetBucketInventoryFilterOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventoryFilter) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetBucketInventoryOptionalFields struct {
+	// Information about exported inventory files.
+	Fields []string `pulumi:"fields"`
+}
+
+// GetBucketInventoryOptionalFieldsInput is an input type that accepts GetBucketInventoryOptionalFieldsArgs and GetBucketInventoryOptionalFieldsOutput values.
+// You can construct a concrete instance of `GetBucketInventoryOptionalFieldsInput` via:
+//
+//	GetBucketInventoryOptionalFieldsArgs{...}
+type GetBucketInventoryOptionalFieldsInput interface {
+	pulumi.Input
+
+	ToGetBucketInventoryOptionalFieldsOutput() GetBucketInventoryOptionalFieldsOutput
+	ToGetBucketInventoryOptionalFieldsOutputWithContext(context.Context) GetBucketInventoryOptionalFieldsOutput
+}
+
+type GetBucketInventoryOptionalFieldsArgs struct {
+	// Information about exported inventory files.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+}
+
+func (GetBucketInventoryOptionalFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryOptionalFields)(nil)).Elem()
+}
+
+func (i GetBucketInventoryOptionalFieldsArgs) ToGetBucketInventoryOptionalFieldsOutput() GetBucketInventoryOptionalFieldsOutput {
+	return i.ToGetBucketInventoryOptionalFieldsOutputWithContext(context.Background())
+}
+
+func (i GetBucketInventoryOptionalFieldsArgs) ToGetBucketInventoryOptionalFieldsOutputWithContext(ctx context.Context) GetBucketInventoryOptionalFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketInventoryOptionalFieldsOutput)
+}
+
+type GetBucketInventoryOptionalFieldsOutput struct{ *pulumi.OutputState }
+
+func (GetBucketInventoryOptionalFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventoryOptionalFields)(nil)).Elem()
+}
+
+func (o GetBucketInventoryOptionalFieldsOutput) ToGetBucketInventoryOptionalFieldsOutput() GetBucketInventoryOptionalFieldsOutput {
+	return o
+}
+
+func (o GetBucketInventoryOptionalFieldsOutput) ToGetBucketInventoryOptionalFieldsOutputWithContext(ctx context.Context) GetBucketInventoryOptionalFieldsOutput {
+	return o
+}
+
+// Information about exported inventory files.
+func (o GetBucketInventoryOptionalFieldsOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketInventoryOptionalFields) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+type GetBucketInventorySchedule struct {
+	// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+	Frequency string `pulumi:"frequency"`
+}
+
+// GetBucketInventoryScheduleInput is an input type that accepts GetBucketInventoryScheduleArgs and GetBucketInventoryScheduleOutput values.
+// You can construct a concrete instance of `GetBucketInventoryScheduleInput` via:
+//
+//	GetBucketInventoryScheduleArgs{...}
+type GetBucketInventoryScheduleInput interface {
+	pulumi.Input
+
+	ToGetBucketInventoryScheduleOutput() GetBucketInventoryScheduleOutput
+	ToGetBucketInventoryScheduleOutputWithContext(context.Context) GetBucketInventoryScheduleOutput
+}
+
+type GetBucketInventoryScheduleArgs struct {
+	// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+}
+
+func (GetBucketInventoryScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventorySchedule)(nil)).Elem()
+}
+
+func (i GetBucketInventoryScheduleArgs) ToGetBucketInventoryScheduleOutput() GetBucketInventoryScheduleOutput {
+	return i.ToGetBucketInventoryScheduleOutputWithContext(context.Background())
+}
+
+func (i GetBucketInventoryScheduleArgs) ToGetBucketInventoryScheduleOutputWithContext(ctx context.Context) GetBucketInventoryScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketInventoryScheduleOutput)
+}
+
+type GetBucketInventoryScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketInventoryScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketInventorySchedule)(nil)).Elem()
+}
+
+func (o GetBucketInventoryScheduleOutput) ToGetBucketInventoryScheduleOutput() GetBucketInventoryScheduleOutput {
+	return o
+}
+
+func (o GetBucketInventoryScheduleOutput) ToGetBucketInventoryScheduleOutputWithContext(ctx context.Context) GetBucketInventoryScheduleOutput {
+	return o
+}
+
+// Export frequency for inventory files. Options: Daily: export inventory files daily. Weekly: export inventory files weekly. Once: export inventory files once.
+func (o GetBucketInventoryScheduleOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketInventorySchedule) string { return v.Frequency }).(pulumi.StringOutput)
+}
+
 type GetBucketLifecycleConfig struct {
 	// Specify expiration attributes for unmerged multipart tasks (fragments)
 	AbortInCompleteMultipartUpload GetBucketLifecycleConfigAbortInCompleteMultipartUpload `pulumi:"abortInCompleteMultipartUpload"`
@@ -3190,6 +4251,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclGrantGranteeInput)(nil)).Elem(), BucketAclGrantGranteeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclOwnerInput)(nil)).Elem(), BucketAclOwnerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclOwnerPtrInput)(nil)).Elem(), BucketAclOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationInput)(nil)).Elem(), BucketInventoryDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationPtrInput)(nil)).Elem(), BucketInventoryDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationTosBucketDestinationInput)(nil)).Elem(), BucketInventoryDestinationTosBucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationTosBucketDestinationPtrInput)(nil)).Elem(), BucketInventoryDestinationTosBucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryFilterInput)(nil)).Elem(), BucketInventoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryFilterPtrInput)(nil)).Elem(), BucketInventoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryOptionalFieldsInput)(nil)).Elem(), BucketInventoryOptionalFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryOptionalFieldsPtrInput)(nil)).Elem(), BucketInventoryOptionalFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryScheduleInput)(nil)).Elem(), BucketInventoryScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventorySchedulePtrInput)(nil)).Elem(), BucketInventoryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigInput)(nil)).Elem(), BucketLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigArrayInput)(nil)).Elem(), BucketLifecycleConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigAbortInCompleteMultipartUploadInput)(nil)).Elem(), BucketLifecycleConfigAbortInCompleteMultipartUploadArgs{})
@@ -3213,6 +4284,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantArrayInput)(nil)).Elem(), GetBucketAclGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantGranteeInput)(nil)).Elem(), GetBucketAclGrantGranteeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclOwnerInput)(nil)).Elem(), GetBucketAclOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryDestinationInput)(nil)).Elem(), GetBucketInventoryDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryDestinationTosBucketDestinationInput)(nil)).Elem(), GetBucketInventoryDestinationTosBucketDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryFilterInput)(nil)).Elem(), GetBucketInventoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryOptionalFieldsInput)(nil)).Elem(), GetBucketInventoryOptionalFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryScheduleInput)(nil)).Elem(), GetBucketInventoryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketLifecycleConfigInput)(nil)).Elem(), GetBucketLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketLifecycleConfigArrayInput)(nil)).Elem(), GetBucketLifecycleConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketLifecycleConfigAbortInCompleteMultipartUploadInput)(nil)).Elem(), GetBucketLifecycleConfigAbortInCompleteMultipartUploadArgs{})
@@ -3235,6 +4311,16 @@ func init() {
 	pulumi.RegisterOutputType(BucketAclGrantGranteeOutput{})
 	pulumi.RegisterOutputType(BucketAclOwnerOutput{})
 	pulumi.RegisterOutputType(BucketAclOwnerPtrOutput{})
+	pulumi.RegisterOutputType(BucketInventoryDestinationOutput{})
+	pulumi.RegisterOutputType(BucketInventoryDestinationPtrOutput{})
+	pulumi.RegisterOutputType(BucketInventoryDestinationTosBucketDestinationOutput{})
+	pulumi.RegisterOutputType(BucketInventoryDestinationTosBucketDestinationPtrOutput{})
+	pulumi.RegisterOutputType(BucketInventoryFilterOutput{})
+	pulumi.RegisterOutputType(BucketInventoryFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketInventoryOptionalFieldsOutput{})
+	pulumi.RegisterOutputType(BucketInventoryOptionalFieldsPtrOutput{})
+	pulumi.RegisterOutputType(BucketInventoryScheduleOutput{})
+	pulumi.RegisterOutputType(BucketInventorySchedulePtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigAbortInCompleteMultipartUploadOutput{})
@@ -3258,6 +4344,11 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketAclGrantArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketAclGrantGranteeOutput{})
 	pulumi.RegisterOutputType(GetBucketAclOwnerOutput{})
+	pulumi.RegisterOutputType(GetBucketInventoryDestinationOutput{})
+	pulumi.RegisterOutputType(GetBucketInventoryDestinationTosBucketDestinationOutput{})
+	pulumi.RegisterOutputType(GetBucketInventoryFilterOutput{})
+	pulumi.RegisterOutputType(GetBucketInventoryOptionalFieldsOutput{})
+	pulumi.RegisterOutputType(GetBucketInventoryScheduleOutput{})
 	pulumi.RegisterOutputType(GetBucketLifecycleConfigOutput{})
 	pulumi.RegisterOutputType(GetBucketLifecycleConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketLifecycleConfigAbortInCompleteMultipartUploadOutput{})

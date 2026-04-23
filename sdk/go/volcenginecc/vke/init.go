@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "volcenginecc:vke/defaultNodePool:DefaultNodePool":
 		r = &DefaultNodePool{}
+	case "volcenginecc:vke/kubeconfig:Kubeconfig":
+		r = &Kubeconfig{}
 	case "volcenginecc:vke/node:Node":
 		r = &Node{}
 	case "volcenginecc:vke/nodePool:NodePool":
@@ -59,6 +61,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vke/defaultNodePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vke/kubeconfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

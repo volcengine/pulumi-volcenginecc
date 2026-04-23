@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AllowList{}
 	case "volcenginecc:mongodb/instance:Instance":
 		r = &Instance{}
+	case "volcenginecc:mongodb/sslState:SslState":
+		r = &SslState{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"mongodb/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"mongodb/sslState",
 		&module{version},
 	)
 }

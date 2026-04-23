@@ -16,12 +16,24 @@ import com.volcengine.volcenginecc.cen.inputs.GetCenArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetCenPlainArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetGrantInstanceArgs;
 import com.volcengine.volcenginecc.cen.inputs.GetGrantInstancePlainArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetInterRegionBandwidthArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetInterRegionBandwidthPlainArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetRouteEntryArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetRouteEntryPlainArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetServiceRouteEntryArgs;
+import com.volcengine.volcenginecc.cen.inputs.GetServiceRouteEntryPlainArgs;
 import com.volcengine.volcenginecc.cen.outputs.GetBandwidthPackageResult;
 import com.volcengine.volcenginecc.cen.outputs.GetBandwidthPackagesResult;
 import com.volcengine.volcenginecc.cen.outputs.GetCenResult;
 import com.volcengine.volcenginecc.cen.outputs.GetCensResult;
 import com.volcengine.volcenginecc.cen.outputs.GetGrantInstanceResult;
 import com.volcengine.volcenginecc.cen.outputs.GetGrantInstancesResult;
+import com.volcengine.volcenginecc.cen.outputs.GetInterRegionBandwidthResult;
+import com.volcengine.volcenginecc.cen.outputs.GetInterRegionBandwidthsResult;
+import com.volcengine.volcenginecc.cen.outputs.GetRouteEntriesResult;
+import com.volcengine.volcenginecc.cen.outputs.GetRouteEntryResult;
+import com.volcengine.volcenginecc.cen.outputs.GetServiceRouteEntriesResult;
+import com.volcengine.volcenginecc.cen.outputs.GetServiceRouteEntryResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CenFunctions {
@@ -276,5 +288,257 @@ public final class CenFunctions {
      */
     public static CompletableFuture<GetGrantInstancesResult> getGrantInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:cen/getGrantInstances:getGrantInstances", TypeShape.of(GetGrantInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthResult> getInterRegionBandwidth(GetInterRegionBandwidthArgs args) {
+        return getInterRegionBandwidth(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static CompletableFuture<GetInterRegionBandwidthResult> getInterRegionBandwidthPlain(GetInterRegionBandwidthPlainArgs args) {
+        return getInterRegionBandwidthPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthResult> getInterRegionBandwidth(GetInterRegionBandwidthArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getInterRegionBandwidth:getInterRegionBandwidth", TypeShape.of(GetInterRegionBandwidthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthResult> getInterRegionBandwidth(GetInterRegionBandwidthArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getInterRegionBandwidth:getInterRegionBandwidth", TypeShape.of(GetInterRegionBandwidthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static CompletableFuture<GetInterRegionBandwidthResult> getInterRegionBandwidthPlain(GetInterRegionBandwidthPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getInterRegionBandwidth:getInterRegionBandwidth", TypeShape.of(GetInterRegionBandwidthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthsResult> getInterRegionBandwidths() {
+        return getInterRegionBandwidths(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static CompletableFuture<GetInterRegionBandwidthsResult> getInterRegionBandwidthsPlain() {
+        return getInterRegionBandwidthsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthsResult> getInterRegionBandwidths(InvokeArgs args) {
+        return getInterRegionBandwidths(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static CompletableFuture<GetInterRegionBandwidthsResult> getInterRegionBandwidthsPlain(InvokeArgs args) {
+        return getInterRegionBandwidthsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthsResult> getInterRegionBandwidths(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getInterRegionBandwidths:getInterRegionBandwidths", TypeShape.of(GetInterRegionBandwidthsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static Output<GetInterRegionBandwidthsResult> getInterRegionBandwidths(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getInterRegionBandwidths:getInterRegionBandwidths", TypeShape.of(GetInterRegionBandwidthsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::InterRegionBandwidth
+     * 
+     */
+    public static CompletableFuture<GetInterRegionBandwidthsResult> getInterRegionBandwidthsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getInterRegionBandwidths:getInterRegionBandwidths", TypeShape.of(GetInterRegionBandwidthsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntriesResult> getRouteEntries() {
+        return getRouteEntries(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static CompletableFuture<GetRouteEntriesResult> getRouteEntriesPlain() {
+        return getRouteEntriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntriesResult> getRouteEntries(InvokeArgs args) {
+        return getRouteEntries(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static CompletableFuture<GetRouteEntriesResult> getRouteEntriesPlain(InvokeArgs args) {
+        return getRouteEntriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntriesResult> getRouteEntries(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getRouteEntries:getRouteEntries", TypeShape.of(GetRouteEntriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntriesResult> getRouteEntries(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getRouteEntries:getRouteEntries", TypeShape.of(GetRouteEntriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static CompletableFuture<GetRouteEntriesResult> getRouteEntriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getRouteEntries:getRouteEntries", TypeShape.of(GetRouteEntriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntryResult> getRouteEntry(GetRouteEntryArgs args) {
+        return getRouteEntry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static CompletableFuture<GetRouteEntryResult> getRouteEntryPlain(GetRouteEntryPlainArgs args) {
+        return getRouteEntryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntryResult> getRouteEntry(GetRouteEntryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getRouteEntry:getRouteEntry", TypeShape.of(GetRouteEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static Output<GetRouteEntryResult> getRouteEntry(GetRouteEntryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getRouteEntry:getRouteEntry", TypeShape.of(GetRouteEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::RouteEntry
+     * 
+     */
+    public static CompletableFuture<GetRouteEntryResult> getRouteEntryPlain(GetRouteEntryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getRouteEntry:getRouteEntry", TypeShape.of(GetRouteEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntriesResult> getServiceRouteEntries() {
+        return getServiceRouteEntries(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static CompletableFuture<GetServiceRouteEntriesResult> getServiceRouteEntriesPlain() {
+        return getServiceRouteEntriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntriesResult> getServiceRouteEntries(InvokeArgs args) {
+        return getServiceRouteEntries(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static CompletableFuture<GetServiceRouteEntriesResult> getServiceRouteEntriesPlain(InvokeArgs args) {
+        return getServiceRouteEntriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntriesResult> getServiceRouteEntries(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getServiceRouteEntries:getServiceRouteEntries", TypeShape.of(GetServiceRouteEntriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntriesResult> getServiceRouteEntries(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getServiceRouteEntries:getServiceRouteEntries", TypeShape.of(GetServiceRouteEntriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static CompletableFuture<GetServiceRouteEntriesResult> getServiceRouteEntriesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getServiceRouteEntries:getServiceRouteEntries", TypeShape.of(GetServiceRouteEntriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntryResult> getServiceRouteEntry(GetServiceRouteEntryArgs args) {
+        return getServiceRouteEntry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static CompletableFuture<GetServiceRouteEntryResult> getServiceRouteEntryPlain(GetServiceRouteEntryPlainArgs args) {
+        return getServiceRouteEntryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntryResult> getServiceRouteEntry(GetServiceRouteEntryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getServiceRouteEntry:getServiceRouteEntry", TypeShape.of(GetServiceRouteEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static Output<GetServiceRouteEntryResult> getServiceRouteEntry(GetServiceRouteEntryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cen/getServiceRouteEntry:getServiceRouteEntry", TypeShape.of(GetServiceRouteEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CEN::ServiceRouteEntry
+     * 
+     */
+    public static CompletableFuture<GetServiceRouteEntryResult> getServiceRouteEntryPlain(GetServiceRouteEntryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cen/getServiceRouteEntry:getServiceRouteEntry", TypeShape.of(GetServiceRouteEntryResult.class), args, Utilities.withVersion(options));
     }
 }
