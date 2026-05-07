@@ -554,6 +554,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cr/endpointAclPolicy",
+  "fqn": "pulumi_volcenginecc.cr",
+  "classes": {
+   "volcenginecc:cr/endpointAclPolicy:EndpointAclPolicy": "EndpointAclPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cr/nameSpace",
   "fqn": "pulumi_volcenginecc.cr",
   "classes": {
@@ -926,6 +934,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.organization",
   "classes": {
    "volcenginecc:organization/organization:Organization": "Organization"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "organization/serviceControlPolicy",
+  "fqn": "pulumi_volcenginecc.organization",
+  "classes": {
+   "volcenginecc:organization/serviceControlPolicy:ServiceControlPolicy": "ServiceControlPolicy"
   }
  },
  {
@@ -1322,6 +1338,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "transitrouter/peerAttachment",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/peerAttachment:PeerAttachment": "PeerAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "transitrouter/transitRouter",
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
@@ -1678,6 +1702,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpn",
   "classes": {
    "volcenginecc:vpn/customerGateway:CustomerGateway": "CustomerGateway"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpn/sslVpnClientCert",
+  "fqn": "pulumi_volcenginecc.vpn",
+  "classes": {
+   "volcenginecc:vpn/sslVpnClientCert:SslVpnClientCert": "SslVpnClientCert"
   }
  },
  {
