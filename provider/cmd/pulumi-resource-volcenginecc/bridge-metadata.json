@@ -1311,12 +1311,22 @@
                     }
                 }
             },
+            "volcenginecc_cr_endpoint_acl_policy": {
+                "current": "volcenginecc:cr/endpointAclPolicy:EndpointAclPolicy"
+            },
             "volcenginecc_cr_name_space": {
                 "current": "volcenginecc:cr/nameSpace:NameSpace"
             },
             "volcenginecc_cr_registry": {
                 "current": "volcenginecc:cr/registry:Registry",
                 "fields": {
+                    "endpoint": {
+                        "fields": {
+                            "acl_policies": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
                     "status": {
                         "fields": {
                             "conditions": {
@@ -2073,6 +2083,14 @@
             },
             "volcenginecc_organization_organization": {
                 "current": "volcenginecc:organization/organization:Organization"
+            },
+            "volcenginecc_organization_service_control_policy": {
+                "current": "volcenginecc:organization/serviceControlPolicy:ServiceControlPolicy",
+                "fields": {
+                    "targets": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "volcenginecc_organization_unit": {
                 "current": "volcenginecc:organization/unit:Unit"
@@ -2913,6 +2931,14 @@
                     }
                 }
             },
+            "volcenginecc_transitrouter_peer_attachment": {
+                "current": "volcenginecc:transitrouter/peerAttachment:PeerAttachment",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_transitrouter_transit_router": {
                 "current": "volcenginecc:transitrouter/transitRouter:TransitRouter",
                 "fields": {
@@ -3654,6 +3680,14 @@
             },
             "volcenginecc_vpn_customer_gateway": {
                 "current": "volcenginecc:vpn/customerGateway:CustomerGateway",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpn_ssl_vpn_client_cert": {
+                "current": "volcenginecc:vpn/sslVpnClientCert:SslVpnClientCert",
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
@@ -5470,6 +5504,17 @@
                     }
                 }
             },
+            "volcenginecc_cr_endpoint_acl_policies": {
+                "current": "volcenginecc:cr/getEndpointAclPolicies:getEndpointAclPolicies",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cr_endpoint_acl_policy": {
+                "current": "volcenginecc:cr/getEndpointAclPolicy:getEndpointAclPolicy"
+            },
             "volcenginecc_cr_name_space": {
                 "current": "volcenginecc:cr/getNameSpace:getNameSpace"
             },
@@ -5492,6 +5537,13 @@
             "volcenginecc_cr_registry": {
                 "current": "volcenginecc:cr/getRegistry:getRegistry",
                 "fields": {
+                    "endpoint": {
+                        "fields": {
+                            "acl_policies": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
                     "status": {
                         "fields": {
                             "conditions": {
@@ -6608,6 +6660,22 @@
                 "current": "volcenginecc:organization/getOrganizations:getOrganizations",
                 "fields": {
                     "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_organization_service_control_policies": {
+                "current": "volcenginecc:organization/getServiceControlPolicies:getServiceControlPolicies",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_organization_service_control_policy": {
+                "current": "volcenginecc:organization/getServiceControlPolicy:getServiceControlPolicy",
+                "fields": {
+                    "targets": {
                         "maxItemsOne": false
                     }
                 }
@@ -7850,6 +7918,22 @@
                     }
                 }
             },
+            "volcenginecc_transitrouter_peer_attachment": {
+                "current": "volcenginecc:transitrouter/getPeerAttachment:getPeerAttachment",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_transitrouter_peer_attachments": {
+                "current": "volcenginecc:transitrouter/getPeerAttachments:getPeerAttachments",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_transitrouter_transit_router": {
                 "current": "volcenginecc:transitrouter/getTransitRouter:getTransitRouter",
                 "fields": {
@@ -8972,6 +9056,22 @@
             },
             "volcenginecc_vpn_customer_gateways": {
                 "current": "volcenginecc:vpn/getCustomerGateways:getCustomerGateways",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpn_ssl_vpn_client_cert": {
+                "current": "volcenginecc:vpn/getSslVpnClientCert:getSslVpnClientCert",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vpn_ssl_vpn_client_certs": {
+                "current": "volcenginecc:vpn/getSslVpnClientCerts:getSslVpnClientCerts",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
