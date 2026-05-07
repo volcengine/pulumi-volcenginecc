@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.transitrouter.inputs.GetPeerAttachmentArgs;
+import com.volcengine.volcenginecc.transitrouter.inputs.GetPeerAttachmentPlainArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetTransitRouterArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetTransitRouterPlainArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetTransitRouterRouteEntryArgs;
@@ -20,6 +22,8 @@ import com.volcengine.volcenginecc.transitrouter.inputs.GetVpcAttachmentArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetVpcAttachmentPlainArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetVpnAttachmentArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetVpnAttachmentPlainArgs;
+import com.volcengine.volcenginecc.transitrouter.outputs.GetPeerAttachmentResult;
+import com.volcengine.volcenginecc.transitrouter.outputs.GetPeerAttachmentsResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetTransitRouterResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetTransitRouterRouteEntriesResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetTransitRouterRouteEntryResult;
@@ -33,6 +37,90 @@ import com.volcengine.volcenginecc.transitrouter.outputs.GetVpnAttachmentsResult
 import java.util.concurrent.CompletableFuture;
 
 public final class TransitrouterFunctions {
+    /**
+     * Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentResult> getPeerAttachment(GetPeerAttachmentArgs args) {
+        return getPeerAttachment(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static CompletableFuture<GetPeerAttachmentResult> getPeerAttachmentPlain(GetPeerAttachmentPlainArgs args) {
+        return getPeerAttachmentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentResult> getPeerAttachment(GetPeerAttachmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getPeerAttachment:getPeerAttachment", TypeShape.of(GetPeerAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentResult> getPeerAttachment(GetPeerAttachmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getPeerAttachment:getPeerAttachment", TypeShape.of(GetPeerAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static CompletableFuture<GetPeerAttachmentResult> getPeerAttachmentPlain(GetPeerAttachmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:transitrouter/getPeerAttachment:getPeerAttachment", TypeShape.of(GetPeerAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentsResult> getPeerAttachments() {
+        return getPeerAttachments(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static CompletableFuture<GetPeerAttachmentsResult> getPeerAttachmentsPlain() {
+        return getPeerAttachmentsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentsResult> getPeerAttachments(InvokeArgs args) {
+        return getPeerAttachments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static CompletableFuture<GetPeerAttachmentsResult> getPeerAttachmentsPlain(InvokeArgs args) {
+        return getPeerAttachmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentsResult> getPeerAttachments(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getPeerAttachments:getPeerAttachments", TypeShape.of(GetPeerAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static Output<GetPeerAttachmentsResult> getPeerAttachments(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getPeerAttachments:getPeerAttachments", TypeShape.of(GetPeerAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::PeerAttachment
+     * 
+     */
+    public static CompletableFuture<GetPeerAttachmentsResult> getPeerAttachmentsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:transitrouter/getPeerAttachments:getPeerAttachments", TypeShape.of(GetPeerAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::TransitRouter::TransitRouter
      * 

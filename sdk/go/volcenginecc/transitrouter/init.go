@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:transitrouter/peerAttachment:PeerAttachment":
+		r = &PeerAttachment{}
 	case "volcenginecc:transitrouter/transitRouter:TransitRouter":
 		r = &TransitRouter{}
 	case "volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry":
@@ -44,6 +46,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/peerAttachment",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"transitrouter/transitRouter",
