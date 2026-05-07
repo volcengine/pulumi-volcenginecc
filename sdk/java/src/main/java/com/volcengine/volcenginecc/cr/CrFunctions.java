@@ -10,12 +10,16 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cr.inputs.GetEndpointAclPolicyArgs;
+import com.volcengine.volcenginecc.cr.inputs.GetEndpointAclPolicyPlainArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetNameSpaceArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetNameSpacePlainArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRegistryArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRegistryPlainArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRepositoryArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRepositoryPlainArgs;
+import com.volcengine.volcenginecc.cr.outputs.GetEndpointAclPoliciesResult;
+import com.volcengine.volcenginecc.cr.outputs.GetEndpointAclPolicyResult;
 import com.volcengine.volcenginecc.cr.outputs.GetNameSpaceResult;
 import com.volcengine.volcenginecc.cr.outputs.GetNameSpacesResult;
 import com.volcengine.volcenginecc.cr.outputs.GetRegistriesResult;
@@ -25,6 +29,90 @@ import com.volcengine.volcenginecc.cr.outputs.GetRepositoryResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CrFunctions {
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPoliciesResult> getEndpointAclPolicies() {
+        return getEndpointAclPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static CompletableFuture<GetEndpointAclPoliciesResult> getEndpointAclPoliciesPlain() {
+        return getEndpointAclPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPoliciesResult> getEndpointAclPolicies(InvokeArgs args) {
+        return getEndpointAclPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static CompletableFuture<GetEndpointAclPoliciesResult> getEndpointAclPoliciesPlain(InvokeArgs args) {
+        return getEndpointAclPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPoliciesResult> getEndpointAclPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getEndpointAclPolicies:getEndpointAclPolicies", TypeShape.of(GetEndpointAclPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPoliciesResult> getEndpointAclPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getEndpointAclPolicies:getEndpointAclPolicies", TypeShape.of(GetEndpointAclPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static CompletableFuture<GetEndpointAclPoliciesResult> getEndpointAclPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getEndpointAclPolicies:getEndpointAclPolicies", TypeShape.of(GetEndpointAclPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPolicyResult> getEndpointAclPolicy(GetEndpointAclPolicyArgs args) {
+        return getEndpointAclPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static CompletableFuture<GetEndpointAclPolicyResult> getEndpointAclPolicyPlain(GetEndpointAclPolicyPlainArgs args) {
+        return getEndpointAclPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPolicyResult> getEndpointAclPolicy(GetEndpointAclPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getEndpointAclPolicy:getEndpointAclPolicy", TypeShape.of(GetEndpointAclPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static Output<GetEndpointAclPolicyResult> getEndpointAclPolicy(GetEndpointAclPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getEndpointAclPolicy:getEndpointAclPolicy", TypeShape.of(GetEndpointAclPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::EndpointAclPolicy
+     * 
+     */
+    public static CompletableFuture<GetEndpointAclPolicyResult> getEndpointAclPolicyPlain(GetEndpointAclPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getEndpointAclPolicy:getEndpointAclPolicy", TypeShape.of(GetEndpointAclPolicyResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CR::NameSpace
      * 
