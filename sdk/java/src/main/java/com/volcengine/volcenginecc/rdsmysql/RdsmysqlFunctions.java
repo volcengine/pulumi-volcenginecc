@@ -22,6 +22,8 @@ import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointPlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetParameterTemplateArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetParameterTemplatePlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetBackupResult;
@@ -34,6 +36,8 @@ import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointsResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetParameterTemplateResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetParameterTemplatesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RdsmysqlFunctions {
@@ -540,5 +544,89 @@ public final class RdsmysqlFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplateResult> getParameterTemplate(GetParameterTemplateArgs args) {
+        return getParameterTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplateResult> getParameterTemplatePlain(GetParameterTemplatePlainArgs args) {
+        return getParameterTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplateResult> getParameterTemplate(GetParameterTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getParameterTemplate:getParameterTemplate", TypeShape.of(GetParameterTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplateResult> getParameterTemplate(GetParameterTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getParameterTemplate:getParameterTemplate", TypeShape.of(GetParameterTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplateResult> getParameterTemplatePlain(GetParameterTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getParameterTemplate:getParameterTemplate", TypeShape.of(GetParameterTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates() {
+        return getParameterTemplates(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplatesResult> getParameterTemplatesPlain() {
+        return getParameterTemplatesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates(InvokeArgs args) {
+        return getParameterTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplatesResult> getParameterTemplatesPlain(InvokeArgs args) {
+        return getParameterTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getParameterTemplates:getParameterTemplates", TypeShape.of(GetParameterTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getParameterTemplates:getParameterTemplates", TypeShape.of(GetParameterTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplatesResult> getParameterTemplatesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getParameterTemplates:getParameterTemplates", TypeShape.of(GetParameterTemplatesResult.class), args, Utilities.withVersion(options));
     }
 }

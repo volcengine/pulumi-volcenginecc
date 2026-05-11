@@ -22,6 +22,8 @@ __all__ = [
     'BucketAclGrantArgsDict',
     'BucketAclOwnerArgs',
     'BucketAclOwnerArgsDict',
+    'BucketCorsCorsRuleArgs',
+    'BucketCorsCorsRuleArgsDict',
     'BucketInventoryDestinationArgs',
     'BucketInventoryDestinationArgsDict',
     'BucketInventoryDestinationTosBucketDestinationArgs',
@@ -48,6 +50,24 @@ __all__ = [
     'BucketLifecycleConfigTagArgsDict',
     'BucketLifecycleConfigTransitionArgs',
     'BucketLifecycleConfigTransitionArgsDict',
+    'BucketNotificationNotificationRuleArgs',
+    'BucketNotificationNotificationRuleArgsDict',
+    'BucketNotificationNotificationRuleDestinationArgs',
+    'BucketNotificationNotificationRuleDestinationArgsDict',
+    'BucketNotificationNotificationRuleDestinationKafkaArgs',
+    'BucketNotificationNotificationRuleDestinationKafkaArgsDict',
+    'BucketNotificationNotificationRuleDestinationRocketMqArgs',
+    'BucketNotificationNotificationRuleDestinationRocketMqArgsDict',
+    'BucketNotificationNotificationRuleDestinationVeFaaArgs',
+    'BucketNotificationNotificationRuleDestinationVeFaaArgsDict',
+    'BucketNotificationNotificationRuleFilterArgs',
+    'BucketNotificationNotificationRuleFilterArgsDict',
+    'BucketNotificationNotificationRuleFilterTosKeyArgs',
+    'BucketNotificationNotificationRuleFilterTosKeyArgsDict',
+    'BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs',
+    'BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgsDict',
+    'BucketRealtimeLogRealTimeLogArgs',
+    'BucketRealtimeLogRealTimeLogArgsDict',
     'BucketTagArgs',
     'BucketTagArgsDict',
 ]
@@ -301,6 +321,138 @@ class BucketAclOwnerArgs:
     @owner_id.setter
     def owner_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "owner_id", value)
+
+
+if not MYPY:
+    class BucketCorsCorsRuleArgsDict(TypedDict):
+        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specify the response headers allowed for cross-origin requests.
+        """
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specify the allowed methods for cross-origin requests.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specify the allowed origins for cross-origin requests.
+        """
+        expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Specify additional headers to include in the CORS response to provide extra information to the client.
+        """
+        max_age_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        """
+        response_vary: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether to return the Vary: Origin header
+        """
+elif False:
+    BucketCorsCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketCorsCorsRuleArgs:
+    def __init__(__self__, *,
+                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 max_age_seconds: Optional[pulumi.Input[builtins.int]] = None,
+                 response_vary: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_headers: Specify the response headers allowed for cross-origin requests.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_methods: Specify the allowed methods for cross-origin requests.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_origins: Specify the allowed origins for cross-origin requests.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] expose_headers: Specify additional headers to include in the CORS response to provide extra information to the client.
+        :param pulumi.Input[builtins.int] max_age_seconds: Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        :param pulumi.Input[builtins.bool] response_vary: Whether to return the Vary: Origin header
+        """
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age_seconds is not None:
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+        if response_vary is not None:
+            pulumi.set(__self__, "response_vary", response_vary)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specify the response headers allowed for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specify the allowed methods for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specify the allowed origins for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Specify additional headers to include in the CORS response to provide extra information to the client.
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @expose_headers.setter
+    def expose_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "expose_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAgeSeconds")
+    def max_age_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        """
+        return pulumi.get(self, "max_age_seconds")
+
+    @max_age_seconds.setter
+    def max_age_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_age_seconds", value)
+
+    @property
+    @pulumi.getter(name="responseVary")
+    def response_vary(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to return the Vary: Origin header
+        """
+        return pulumi.get(self, "response_vary")
+
+    @response_vary.setter
+    def response_vary(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "response_vary", value)
 
 
 if not MYPY:
@@ -1149,6 +1301,580 @@ class BucketLifecycleConfigTransitionArgs:
     @storage_class.setter
     def storage_class(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "storage_class", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleArgsDict(TypedDict):
+        destination: NotRequired[pulumi.Input['BucketNotificationNotificationRuleDestinationArgsDict']]
+        """
+        Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        """
+        events: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Event type. List of events supported by TOS.
+        """
+        filter: NotRequired[pulumi.Input['BucketNotificationNotificationRuleFilterArgsDict']]
+        """
+        Filter rules.
+        """
+        rule_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+elif False:
+    BucketNotificationNotificationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input['BucketNotificationNotificationRuleDestinationArgs']] = None,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 filter: Optional[pulumi.Input['BucketNotificationNotificationRuleFilterArgs']] = None,
+                 rule_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input['BucketNotificationNotificationRuleDestinationArgs'] destination: Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] events: Event type. List of events supported by TOS.
+        :param pulumi.Input['BucketNotificationNotificationRuleFilterArgs'] filter: Filter rules.
+        :param pulumi.Input[builtins.str] rule_id: Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['BucketNotificationNotificationRuleDestinationArgs']]:
+        """
+        Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['BucketNotificationNotificationRuleDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Event type. List of events supported by TOS.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['BucketNotificationNotificationRuleFilterArgs']]:
+        """
+        Filter rules.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['BucketNotificationNotificationRuleFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "rule_id", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleDestinationArgsDict(TypedDict):
+        kafkas: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationKafkaArgsDict']]]]
+        rocket_mqs: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationRocketMqArgsDict']]]]
+        ve_faa_s: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationVeFaaArgsDict']]]]
+elif False:
+    BucketNotificationNotificationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleDestinationArgs:
+    def __init__(__self__, *,
+                 kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationKafkaArgs']]]] = None,
+                 rocket_mqs: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationRocketMqArgs']]]] = None,
+                 ve_faa_s: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationVeFaaArgs']]]] = None):
+        if kafkas is not None:
+            pulumi.set(__self__, "kafkas", kafkas)
+        if rocket_mqs is not None:
+            pulumi.set(__self__, "rocket_mqs", rocket_mqs)
+        if ve_faa_s is not None:
+            pulumi.set(__self__, "ve_faa_s", ve_faa_s)
+
+    @property
+    @pulumi.getter
+    def kafkas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationKafkaArgs']]]]:
+        return pulumi.get(self, "kafkas")
+
+    @kafkas.setter
+    def kafkas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationKafkaArgs']]]]):
+        pulumi.set(self, "kafkas", value)
+
+    @property
+    @pulumi.getter(name="rocketMqs")
+    def rocket_mqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationRocketMqArgs']]]]:
+        return pulumi.get(self, "rocket_mqs")
+
+    @rocket_mqs.setter
+    def rocket_mqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationRocketMqArgs']]]]):
+        pulumi.set(self, "rocket_mqs", value)
+
+    @property
+    @pulumi.getter(name="veFaaS")
+    def ve_faa_s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationVeFaaArgs']]]]:
+        return pulumi.get(self, "ve_faa_s")
+
+    @ve_faa_s.setter
+    def ve_faa_s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleDestinationVeFaaArgs']]]]):
+        pulumi.set(self, "ve_faa_s", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleDestinationKafkaArgsDict(TypedDict):
+        instance_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Kafka instance ID.
+        """
+        region: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Region where the Kafka instance is located.
+        """
+        role: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Role TRN, used to authorize TOS to access Kafka service.
+        """
+        topic: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the Kafka topic.
+        """
+        user: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Kafka username.
+        """
+elif False:
+    BucketNotificationNotificationRuleDestinationKafkaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleDestinationKafkaArgs:
+    def __init__(__self__, *,
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 topic: Optional[pulumi.Input[builtins.str]] = None,
+                 user: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] instance_id: Kafka instance ID.
+        :param pulumi.Input[builtins.str] region: Region where the Kafka instance is located.
+        :param pulumi.Input[builtins.str] role: Role TRN, used to authorize TOS to access Kafka service.
+        :param pulumi.Input[builtins.str] topic: Name of the Kafka topic.
+        :param pulumi.Input[builtins.str] user: Kafka username.
+        """
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Kafka instance ID.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where the Kafka instance is located.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Role TRN, used to authorize TOS to access Kafka service.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the Kafka topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "topic", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Kafka username.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleDestinationRocketMqArgsDict(TypedDict):
+        access_key_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        RocketMQ AccessKey。
+        """
+        instance_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        RocketMQ instance ID.
+        """
+        role: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Role TRN, used to authorize TOS to access RocketMQ service.
+        """
+        topic: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the RocketMQ topic.
+        """
+elif False:
+    BucketNotificationNotificationRuleDestinationRocketMqArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleDestinationRocketMqArgs:
+    def __init__(__self__, *,
+                 access_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 role: Optional[pulumi.Input[builtins.str]] = None,
+                 topic: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] access_key_id: RocketMQ AccessKey。
+        :param pulumi.Input[builtins.str] instance_id: RocketMQ instance ID.
+        :param pulumi.Input[builtins.str] role: Role TRN, used to authorize TOS to access RocketMQ service.
+        :param pulumi.Input[builtins.str] topic: Name of the RocketMQ topic.
+        """
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        RocketMQ AccessKey。
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "access_key_id", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        RocketMQ instance ID.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Role TRN, used to authorize TOS to access RocketMQ service.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the RocketMQ topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "topic", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleDestinationVeFaaArgsDict(TypedDict):
+        function_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Function ID for event delivery.
+        """
+elif False:
+    BucketNotificationNotificationRuleDestinationVeFaaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleDestinationVeFaaArgs:
+    def __init__(__self__, *,
+                 function_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] function_id: Function ID for event delivery.
+        """
+        if function_id is not None:
+            pulumi.set(__self__, "function_id", function_id)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Function ID for event delivery.
+        """
+        return pulumi.get(self, "function_id")
+
+    @function_id.setter
+    def function_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "function_id", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleFilterArgsDict(TypedDict):
+        tos_key: NotRequired[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyArgsDict']]
+        """
+        Object filter information.
+        """
+elif False:
+    BucketNotificationNotificationRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleFilterArgs:
+    def __init__(__self__, *,
+                 tos_key: Optional[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyArgs']] = None):
+        """
+        :param pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyArgs'] tos_key: Object filter information.
+        """
+        if tos_key is not None:
+            pulumi.set(__self__, "tos_key", tos_key)
+
+    @property
+    @pulumi.getter(name="tosKey")
+    def tos_key(self) -> Optional[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyArgs']]:
+        """
+        Object filter information.
+        """
+        return pulumi.get(self, "tos_key")
+
+    @tos_key.setter
+    def tos_key(self, value: Optional[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyArgs']]):
+        pulumi.set(self, "tos_key", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleFilterTosKeyArgsDict(TypedDict):
+        filter_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgsDict']]]]
+elif False:
+    BucketNotificationNotificationRuleFilterTosKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleFilterTosKeyArgs:
+    def __init__(__self__, *,
+                 filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs']]]] = None):
+        if filter_rules is not None:
+            pulumi.set(__self__, "filter_rules", filter_rules)
+
+    @property
+    @pulumi.getter(name="filterRules")
+    def filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs']]]]:
+        return pulumi.get(self, "filter_rules")
+
+    @filter_rules.setter
+    def filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs']]]]):
+        pulumi.set(self, "filter_rules", value)
+
+
+if not MYPY:
+    class BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Matched prefix and suffix information.
+        """
+elif False:
+    BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] name: Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        :param pulumi.Input[builtins.str] value: Matched prefix and suffix information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Matched prefix and suffix information.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class BucketRealtimeLogRealTimeLogArgsDict(TypedDict):
+        role: pulumi.Input[builtins.str]
+        """
+        Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        """
+        use_service_topic: pulumi.Input[builtins.bool]
+        """
+        For topics created using the TOS service, only "true" is allowed as a value
+        """
+        tls_project_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Log project ID
+        """
+        tls_topic_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Log topic ID
+        """
+elif False:
+    BucketRealtimeLogRealTimeLogArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketRealtimeLogRealTimeLogArgs:
+    def __init__(__self__, *,
+                 role: pulumi.Input[builtins.str],
+                 use_service_topic: pulumi.Input[builtins.bool],
+                 tls_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tls_topic_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] role: Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        :param pulumi.Input[builtins.bool] use_service_topic: For topics created using the TOS service, only "true" is allowed as a value
+        :param pulumi.Input[builtins.str] tls_project_id: Log project ID
+        :param pulumi.Input[builtins.str] tls_topic_id: Log topic ID
+        """
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "use_service_topic", use_service_topic)
+        if tls_project_id is not None:
+            pulumi.set(__self__, "tls_project_id", tls_project_id)
+        if tls_topic_id is not None:
+            pulumi.set(__self__, "tls_topic_id", tls_topic_id)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[builtins.str]:
+        """
+        Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="useServiceTopic")
+    def use_service_topic(self) -> pulumi.Input[builtins.bool]:
+        """
+        For topics created using the TOS service, only "true" is allowed as a value
+        """
+        return pulumi.get(self, "use_service_topic")
+
+    @use_service_topic.setter
+    def use_service_topic(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "use_service_topic", value)
+
+    @property
+    @pulumi.getter(name="tlsProjectId")
+    def tls_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Log project ID
+        """
+        return pulumi.get(self, "tls_project_id")
+
+    @tls_project_id.setter
+    def tls_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tls_project_id", value)
+
+    @property
+    @pulumi.getter(name="tlsTopicId")
+    def tls_topic_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Log topic ID
+        """
+        return pulumi.get(self, "tls_topic_id")
+
+    @tls_topic_id.setter
+    def tls_topic_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tls_topic_id", value)
 
 
 if not MYPY:

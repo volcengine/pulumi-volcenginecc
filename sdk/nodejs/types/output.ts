@@ -16949,6 +16949,33 @@ export namespace privatelink {
 }
 
 export namespace privatezone {
+    export interface GetRecordRecordSet {
+        /**
+         * Full domain name
+         */
+        fqdn: string;
+        /**
+         * Subdomain prefix
+         */
+        host: string;
+        /**
+         * Record set ID
+         */
+        id: string;
+        /**
+         * Resolution line
+         */
+        line: string;
+        /**
+         * Record type
+         */
+        type: string;
+        /**
+         * Load balancing enabled
+         */
+        weightEnabled: boolean;
+    }
+
     export interface GetResolverEndpointIpConfig {
         /**
          * Availability zone for the endpoint IP address. To ensure high availability, it is recommended to add at least 2 availability zones
@@ -17018,6 +17045,33 @@ export namespace privatezone {
          * VPC ID
          */
         vpcId: string;
+    }
+
+    export interface RecordRecordSet {
+        /**
+         * Full domain name
+         */
+        fqdn: string;
+        /**
+         * Subdomain prefix
+         */
+        host: string;
+        /**
+         * Record set ID
+         */
+        id: string;
+        /**
+         * Resolution line
+         */
+        line: string;
+        /**
+         * Record type
+         */
+        type: string;
+        /**
+         * Load balancing enabled
+         */
+        weightEnabled: boolean;
     }
 
     export interface ResolverEndpointIpConfig {
@@ -18493,6 +18547,37 @@ export namespace rdsmysql {
         value: string;
     }
 
+    export interface GetParameterTemplateTemplateParam {
+        /**
+         * Default value of the parameter
+         */
+        defaultValue: string;
+        /**
+         * Parameter description
+         */
+        description: string;
+        /**
+         * Expected value of the parameter
+         */
+        expectValue: string;
+        /**
+         * Instance parameter name
+         */
+        name: string;
+        /**
+         * Whether a restart is required for the instance to take effect
+         */
+        restart: boolean;
+        /**
+         * Parameter runtime value
+         */
+        runningValue: string;
+        /**
+         * Parameter value range
+         */
+        valueRange: string;
+    }
+
     export interface InstanceAddressObject {
         /**
          * false: private network resolution (default). true: private and public network resolution.
@@ -18785,6 +18870,17 @@ export namespace rdsmysql {
          * Tag value.
          */
         value: string;
+    }
+
+    export interface ParameterTemplateTemplateParam {
+        /**
+         * Instance parameter name
+         */
+        name: string;
+        /**
+         * Parameter runtime value
+         */
+        runningValue: string;
     }
 
 }
@@ -19498,6 +19594,21 @@ export namespace redis {
         securityGroupName: string;
     }
 
+    export interface GetInstanceBackupRestore {
+        /**
+         * Backup ID, used to specify which backup to use when restoring from a backup set
+         */
+        backupPointId: string;
+        /**
+         * Recovery method
+         */
+        backupType: string;
+        /**
+         * Used to specify the point in time for point-in-time recovery
+         */
+        timePoint: string;
+    }
+
     export interface GetInstanceCapacity {
         /**
          * Total memory capacity of the current instance. Unit: MiB.
@@ -19586,6 +19697,21 @@ export namespace redis {
          * The IPv4 address corresponding to the connection address.
          */
         vip: string;
+    }
+
+    export interface InstanceBackupRestore {
+        /**
+         * Backup ID, used to specify which backup to use when restoring from a backup set
+         */
+        backupPointId: string;
+        /**
+         * Recovery method
+         */
+        backupType: string;
+        /**
+         * Used to specify the point in time for point-in-time recovery
+         */
+        timePoint: string;
     }
 
     export interface InstanceCapacity {
@@ -22829,6 +22955,33 @@ export namespace tos {
         ownerId: string;
     }
 
+    export interface BucketCorsCorsRule {
+        /**
+         * Specify the response headers allowed for cross-origin requests.
+         */
+        allowedHeaders: string[];
+        /**
+         * Specify the allowed methods for cross-origin requests.
+         */
+        allowedMethods: string[];
+        /**
+         * Specify the allowed origins for cross-origin requests.
+         */
+        allowedOrigins: string[];
+        /**
+         * Specify additional headers to include in the CORS response to provide extra information to the client.
+         */
+        exposeHeaders: string[];
+        /**
+         * Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+         */
+        maxAgeSeconds: number;
+        /**
+         * Whether to return the Vary: Origin header
+         */
+        responseVary: boolean;
+    }
+
     export interface BucketInventoryDestination {
         /**
          * Bucket information related to the inventory files.
@@ -23000,6 +23153,121 @@ export namespace tos {
         storageClass: string;
     }
 
+    export interface BucketNotificationNotificationRule {
+        /**
+         * Event notification delivery targets. Must include at least one target and supports up to five different targets.
+         */
+        destination: outputs.tos.BucketNotificationNotificationRuleDestination;
+        /**
+         * Event type. List of events supported by TOS.
+         */
+        events: string[];
+        /**
+         * Filter rules.
+         */
+        filter: outputs.tos.BucketNotificationNotificationRuleFilter;
+        /**
+         * Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+         */
+        ruleId: string;
+    }
+
+    export interface BucketNotificationNotificationRuleDestination {
+        kafkas: outputs.tos.BucketNotificationNotificationRuleDestinationKafka[];
+        rocketMqs: outputs.tos.BucketNotificationNotificationRuleDestinationRocketMq[];
+        veFaaS: outputs.tos.BucketNotificationNotificationRuleDestinationVeFaa[];
+    }
+
+    export interface BucketNotificationNotificationRuleDestinationKafka {
+        /**
+         * Kafka instance ID.
+         */
+        instanceId: string;
+        /**
+         * Region where the Kafka instance is located.
+         */
+        region: string;
+        /**
+         * Role TRN, used to authorize TOS to access Kafka service.
+         */
+        role: string;
+        /**
+         * Name of the Kafka topic.
+         */
+        topic: string;
+        /**
+         * Kafka username.
+         */
+        user: string;
+    }
+
+    export interface BucketNotificationNotificationRuleDestinationRocketMq {
+        /**
+         * RocketMQ AccessKey。
+         */
+        accessKeyId: string;
+        /**
+         * RocketMQ instance ID.
+         */
+        instanceId: string;
+        /**
+         * Role TRN, used to authorize TOS to access RocketMQ service.
+         */
+        role: string;
+        /**
+         * Name of the RocketMQ topic.
+         */
+        topic: string;
+    }
+
+    export interface BucketNotificationNotificationRuleDestinationVeFaa {
+        /**
+         * Function ID for event delivery.
+         */
+        functionId: string;
+    }
+
+    export interface BucketNotificationNotificationRuleFilter {
+        /**
+         * Object filter information.
+         */
+        tosKey: outputs.tos.BucketNotificationNotificationRuleFilterTosKey;
+    }
+
+    export interface BucketNotificationNotificationRuleFilterTosKey {
+        filterRules: outputs.tos.BucketNotificationNotificationRuleFilterTosKeyFilterRule[];
+    }
+
+    export interface BucketNotificationNotificationRuleFilterTosKeyFilterRule {
+        /**
+         * Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+         */
+        name: string;
+        /**
+         * Matched prefix and suffix information.
+         */
+        value: string;
+    }
+
+    export interface BucketRealtimeLogRealTimeLog {
+        /**
+         * Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+         */
+        role: string;
+        /**
+         * Log project ID
+         */
+        tlsProjectId: string;
+        /**
+         * Log topic ID
+         */
+        tlsTopicId: string;
+        /**
+         * For topics created using the TOS service, only "true" is allowed as a value
+         */
+        useServiceTopic: boolean;
+    }
+
     export interface BucketTag {
         /**
          * Tag key
@@ -23062,6 +23330,33 @@ export namespace tos {
          * Account ID
          */
         ownerId: string;
+    }
+
+    export interface GetBucketCorsCorsRule {
+        /**
+         * Specify the response headers allowed for cross-origin requests.
+         */
+        allowedHeaders: string[];
+        /**
+         * Specify the allowed methods for cross-origin requests.
+         */
+        allowedMethods: string[];
+        /**
+         * Specify the allowed origins for cross-origin requests.
+         */
+        allowedOrigins: string[];
+        /**
+         * Specify additional headers to include in the CORS response to provide extra information to the client.
+         */
+        exposeHeaders: string[];
+        /**
+         * Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+         */
+        maxAgeSeconds: number;
+        /**
+         * Whether to return the Vary: Origin header
+         */
+        responseVary: boolean;
     }
 
     export interface GetBucketInventoryDestination {
@@ -23242,6 +23537,133 @@ export namespace tos {
          * Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
          */
         storageClass: string;
+    }
+
+    export interface GetBucketNotificationNotificationRule {
+        /**
+         * Event notification delivery targets. Must include at least one target and supports up to five different targets.
+         */
+        destination: outputs.tos.GetBucketNotificationNotificationRuleDestination;
+        /**
+         * Event type. List of events supported by TOS.
+         */
+        events: string[];
+        /**
+         * Filter rules.
+         */
+        filter: outputs.tos.GetBucketNotificationNotificationRuleFilter;
+        /**
+         * Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+         */
+        ruleId: string;
+    }
+
+    export interface GetBucketNotificationNotificationRuleDestination {
+        /**
+         * Event delivery target is Kafka message queue.
+         */
+        kafkas: outputs.tos.GetBucketNotificationNotificationRuleDestinationKafka[];
+        /**
+         * Event delivery target is RocketMQ message queue.
+         */
+        rocketMqs: outputs.tos.GetBucketNotificationNotificationRuleDestinationRocketMq[];
+        /**
+         * Event delivery target is Function Service.
+         */
+        veFaaS: outputs.tos.GetBucketNotificationNotificationRuleDestinationVeFaa[];
+    }
+
+    export interface GetBucketNotificationNotificationRuleDestinationKafka {
+        /**
+         * Kafka instance ID.
+         */
+        instanceId: string;
+        /**
+         * Region where the Kafka instance is located.
+         */
+        region: string;
+        /**
+         * Role TRN, used to authorize TOS to access Kafka service.
+         */
+        role: string;
+        /**
+         * Name of the Kafka topic.
+         */
+        topic: string;
+        /**
+         * Kafka username.
+         */
+        user: string;
+    }
+
+    export interface GetBucketNotificationNotificationRuleDestinationRocketMq {
+        /**
+         * RocketMQ AccessKey。
+         */
+        accessKeyId: string;
+        /**
+         * RocketMQ instance ID.
+         */
+        instanceId: string;
+        /**
+         * Role TRN, used to authorize TOS to access RocketMQ service.
+         */
+        role: string;
+        /**
+         * Name of the RocketMQ topic.
+         */
+        topic: string;
+    }
+
+    export interface GetBucketNotificationNotificationRuleDestinationVeFaa {
+        /**
+         * Function ID for event delivery.
+         */
+        functionId: string;
+    }
+
+    export interface GetBucketNotificationNotificationRuleFilter {
+        /**
+         * Object filter information.
+         */
+        tosKey: outputs.tos.GetBucketNotificationNotificationRuleFilterTosKey;
+    }
+
+    export interface GetBucketNotificationNotificationRuleFilterTosKey {
+        /**
+         * Object filter information.
+         */
+        filterRules: outputs.tos.GetBucketNotificationNotificationRuleFilterTosKeyFilterRule[];
+    }
+
+    export interface GetBucketNotificationNotificationRuleFilterTosKeyFilterRule {
+        /**
+         * Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+         */
+        name: string;
+        /**
+         * Matched prefix and suffix information.
+         */
+        value: string;
+    }
+
+    export interface GetBucketRealtimeLogRealTimeLog {
+        /**
+         * Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+         */
+        role: string;
+        /**
+         * Log project ID
+         */
+        tlsProjectId: string;
+        /**
+         * Log topic ID
+         */
+        tlsTopicId: string;
+        /**
+         * For topics created using the TOS service, only "true" is allowed as a value
+         */
+        useServiceTopic: boolean;
     }
 
     export interface GetBucketTag {

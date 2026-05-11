@@ -11,15 +11,26 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketCorsArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketCorsPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketEncryptionArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketEncryptionPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketInventoryArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketInventoryPlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketNotificationArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketNotificationPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketPlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogPlainArgs;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketCorsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketInventoriesResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketInventoryResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketNotificationResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketNotificationsResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketRealtimeLogResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketRealtimeLogsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketsResult;
 import java.util.concurrent.CompletableFuture;
@@ -59,6 +70,41 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketResult> getBucketPlain(GetBucketPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucket:getBucket", TypeShape.of(GetBucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketCors
+     * 
+     */
+    public static Output<GetBucketCorsResult> getBucketCors(GetBucketCorsArgs args) {
+        return getBucketCors(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketCors
+     * 
+     */
+    public static CompletableFuture<GetBucketCorsResult> getBucketCorsPlain(GetBucketCorsPlainArgs args) {
+        return getBucketCorsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketCors
+     * 
+     */
+    public static Output<GetBucketCorsResult> getBucketCors(GetBucketCorsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketCors:getBucketCors", TypeShape.of(GetBucketCorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketCors
+     * 
+     */
+    public static Output<GetBucketCorsResult> getBucketCors(GetBucketCorsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketCors:getBucketCors", TypeShape.of(GetBucketCorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketCors
+     * 
+     */
+    public static CompletableFuture<GetBucketCorsResult> getBucketCorsPlain(GetBucketCorsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketCors:getBucketCors", TypeShape.of(GetBucketCorsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TOS::BucketEncryption
@@ -227,6 +273,174 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketInventoryResult> getBucketInventoryPlain(GetBucketInventoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketInventory:getBucketInventory", TypeShape.of(GetBucketInventoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationResult> getBucketNotification(GetBucketNotificationArgs args) {
+        return getBucketNotification(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationResult> getBucketNotificationPlain(GetBucketNotificationPlainArgs args) {
+        return getBucketNotificationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationResult> getBucketNotification(GetBucketNotificationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketNotification:getBucketNotification", TypeShape.of(GetBucketNotificationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationResult> getBucketNotification(GetBucketNotificationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketNotification:getBucketNotification", TypeShape.of(GetBucketNotificationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationResult> getBucketNotificationPlain(GetBucketNotificationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketNotification:getBucketNotification", TypeShape.of(GetBucketNotificationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationsResult> getBucketNotifications() {
+        return getBucketNotifications(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationsResult> getBucketNotificationsPlain() {
+        return getBucketNotificationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationsResult> getBucketNotifications(InvokeArgs args) {
+        return getBucketNotifications(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationsResult> getBucketNotificationsPlain(InvokeArgs args) {
+        return getBucketNotificationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationsResult> getBucketNotifications(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketNotifications:getBucketNotifications", TypeShape.of(GetBucketNotificationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static Output<GetBucketNotificationsResult> getBucketNotifications(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketNotifications:getBucketNotifications", TypeShape.of(GetBucketNotificationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketNotification
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationsResult> getBucketNotificationsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketNotifications:getBucketNotifications", TypeShape.of(GetBucketNotificationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogResult> getBucketRealtimeLog(GetBucketRealtimeLogArgs args) {
+        return getBucketRealtimeLog(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static CompletableFuture<GetBucketRealtimeLogResult> getBucketRealtimeLogPlain(GetBucketRealtimeLogPlainArgs args) {
+        return getBucketRealtimeLogPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogResult> getBucketRealtimeLog(GetBucketRealtimeLogArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRealtimeLog:getBucketRealtimeLog", TypeShape.of(GetBucketRealtimeLogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogResult> getBucketRealtimeLog(GetBucketRealtimeLogArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRealtimeLog:getBucketRealtimeLog", TypeShape.of(GetBucketRealtimeLogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static CompletableFuture<GetBucketRealtimeLogResult> getBucketRealtimeLogPlain(GetBucketRealtimeLogPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketRealtimeLog:getBucketRealtimeLog", TypeShape.of(GetBucketRealtimeLogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogsResult> getBucketRealtimeLogs() {
+        return getBucketRealtimeLogs(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static CompletableFuture<GetBucketRealtimeLogsResult> getBucketRealtimeLogsPlain() {
+        return getBucketRealtimeLogsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogsResult> getBucketRealtimeLogs(InvokeArgs args) {
+        return getBucketRealtimeLogs(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static CompletableFuture<GetBucketRealtimeLogsResult> getBucketRealtimeLogsPlain(InvokeArgs args) {
+        return getBucketRealtimeLogsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogsResult> getBucketRealtimeLogs(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRealtimeLogs:getBucketRealtimeLogs", TypeShape.of(GetBucketRealtimeLogsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static Output<GetBucketRealtimeLogsResult> getBucketRealtimeLogs(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRealtimeLogs:getBucketRealtimeLogs", TypeShape.of(GetBucketRealtimeLogsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRealtimeLog
+     * 
+     */
+    public static CompletableFuture<GetBucketRealtimeLogsResult> getBucketRealtimeLogsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketRealtimeLogs:getBucketRealtimeLogs", TypeShape.of(GetBucketRealtimeLogsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::TOS::Bucket

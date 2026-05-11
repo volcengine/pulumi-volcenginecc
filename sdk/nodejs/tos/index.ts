@@ -10,6 +10,11 @@ export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
+export { BucketCorsArgs, BucketCorsState } from "./bucketCors";
+export type BucketCors = import("./bucketCors").BucketCors;
+export const BucketCors: typeof import("./bucketCors").BucketCors = null as any;
+utilities.lazyLoad(exports, ["BucketCors"], () => require("./bucketCors"));
+
 export { BucketEncryptionArgs, BucketEncryptionState } from "./bucketEncryption";
 export type BucketEncryption = import("./bucketEncryption").BucketEncryption;
 export const BucketEncryption: typeof import("./bucketEncryption").BucketEncryption = null as any;
@@ -20,10 +25,25 @@ export type BucketInventory = import("./bucketInventory").BucketInventory;
 export const BucketInventory: typeof import("./bucketInventory").BucketInventory = null as any;
 utilities.lazyLoad(exports, ["BucketInventory"], () => require("./bucketInventory"));
 
+export { BucketNotificationArgs, BucketNotificationState } from "./bucketNotification";
+export type BucketNotification = import("./bucketNotification").BucketNotification;
+export const BucketNotification: typeof import("./bucketNotification").BucketNotification = null as any;
+utilities.lazyLoad(exports, ["BucketNotification"], () => require("./bucketNotification"));
+
+export { BucketRealtimeLogArgs, BucketRealtimeLogState } from "./bucketRealtimeLog";
+export type BucketRealtimeLog = import("./bucketRealtimeLog").BucketRealtimeLog;
+export const BucketRealtimeLog: typeof import("./bucketRealtimeLog").BucketRealtimeLog = null as any;
+utilities.lazyLoad(exports, ["BucketRealtimeLog"], () => require("./bucketRealtimeLog"));
+
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
 utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
+
+export { GetBucketCorsArgs, GetBucketCorsResult, GetBucketCorsOutputArgs } from "./getBucketCors";
+export const getBucketCors: typeof import("./getBucketCors").getBucketCors = null as any;
+export const getBucketCorsOutput: typeof import("./getBucketCors").getBucketCorsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketCors","getBucketCorsOutput"], () => require("./getBucketCors"));
 
 export { GetBucketEncryptionArgs, GetBucketEncryptionResult, GetBucketEncryptionOutputArgs } from "./getBucketEncryption";
 export const getBucketEncryption: typeof import("./getBucketEncryption").getBucketEncryption = null as any;
@@ -45,6 +65,26 @@ export const getBucketInventory: typeof import("./getBucketInventory").getBucket
 export const getBucketInventoryOutput: typeof import("./getBucketInventory").getBucketInventoryOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketInventory","getBucketInventoryOutput"], () => require("./getBucketInventory"));
 
+export { GetBucketNotificationArgs, GetBucketNotificationResult, GetBucketNotificationOutputArgs } from "./getBucketNotification";
+export const getBucketNotification: typeof import("./getBucketNotification").getBucketNotification = null as any;
+export const getBucketNotificationOutput: typeof import("./getBucketNotification").getBucketNotificationOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketNotification","getBucketNotificationOutput"], () => require("./getBucketNotification"));
+
+export { GetBucketNotificationsResult } from "./getBucketNotifications";
+export const getBucketNotifications: typeof import("./getBucketNotifications").getBucketNotifications = null as any;
+export const getBucketNotificationsOutput: typeof import("./getBucketNotifications").getBucketNotificationsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketNotifications","getBucketNotificationsOutput"], () => require("./getBucketNotifications"));
+
+export { GetBucketRealtimeLogArgs, GetBucketRealtimeLogResult, GetBucketRealtimeLogOutputArgs } from "./getBucketRealtimeLog";
+export const getBucketRealtimeLog: typeof import("./getBucketRealtimeLog").getBucketRealtimeLog = null as any;
+export const getBucketRealtimeLogOutput: typeof import("./getBucketRealtimeLog").getBucketRealtimeLogOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketRealtimeLog","getBucketRealtimeLogOutput"], () => require("./getBucketRealtimeLog"));
+
+export { GetBucketRealtimeLogsResult } from "./getBucketRealtimeLogs";
+export const getBucketRealtimeLogs: typeof import("./getBucketRealtimeLogs").getBucketRealtimeLogs = null as any;
+export const getBucketRealtimeLogsOutput: typeof import("./getBucketRealtimeLogs").getBucketRealtimeLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketRealtimeLogs","getBucketRealtimeLogsOutput"], () => require("./getBucketRealtimeLogs"));
+
 export { GetBucketsResult } from "./getBuckets";
 export const getBuckets: typeof import("./getBuckets").getBuckets = null as any;
 export const getBucketsOutput: typeof import("./getBuckets").getBucketsOutput = null as any;
@@ -57,15 +97,24 @@ const _module = {
         switch (type) {
             case "volcenginecc:tos/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketCors:BucketCors":
+                return new BucketCors(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketEncryption:BucketEncryption":
                 return new BucketEncryption(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketInventory:BucketInventory":
                 return new BucketInventory(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketNotification:BucketNotification":
+                return new BucketNotification(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog":
+                return new BucketRealtimeLog(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucket", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketCors", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketEncryption", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketInventory", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketNotification", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRealtimeLog", _module)

@@ -1106,6 +1106,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdsmysql/parameterTemplate",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/parameterTemplate:ParameterTemplate": "ParameterTemplate"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdspostgresql/allowList",
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
@@ -1322,6 +1330,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tos/bucketCors",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketCors:BucketCors": "BucketCors"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tos/bucketEncryption",
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
@@ -1334,6 +1350,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
    "volcenginecc:tos/bucketInventory:BucketInventory": "BucketInventory"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tos/bucketNotification",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketNotification:BucketNotification": "BucketNotification"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tos/bucketRealtimeLog",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog": "BucketRealtimeLog"
   }
  },
  {
