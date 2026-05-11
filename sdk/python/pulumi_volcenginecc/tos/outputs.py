@@ -20,6 +20,7 @@ __all__ = [
     'BucketAcl',
     'BucketAclGrant',
     'BucketAclOwner',
+    'BucketCorsCorsRule',
     'BucketInventoryDestination',
     'BucketInventoryDestinationTosBucketDestination',
     'BucketInventoryFilter',
@@ -33,10 +34,20 @@ __all__ = [
     'BucketLifecycleConfigNonCurrentVersionTransition',
     'BucketLifecycleConfigTag',
     'BucketLifecycleConfigTransition',
+    'BucketNotificationNotificationRule',
+    'BucketNotificationNotificationRuleDestination',
+    'BucketNotificationNotificationRuleDestinationKafka',
+    'BucketNotificationNotificationRuleDestinationRocketMq',
+    'BucketNotificationNotificationRuleDestinationVeFaa',
+    'BucketNotificationNotificationRuleFilter',
+    'BucketNotificationNotificationRuleFilterTosKey',
+    'BucketNotificationNotificationRuleFilterTosKeyFilterRule',
+    'BucketRealtimeLogRealTimeLog',
     'BucketTag',
     'GetBucketAclResult',
     'GetBucketAclGrantResult',
     'GetBucketAclOwnerResult',
+    'GetBucketCorsCorsRuleResult',
     'GetBucketInventoryDestinationResult',
     'GetBucketInventoryDestinationTosBucketDestinationResult',
     'GetBucketInventoryFilterResult',
@@ -50,6 +61,15 @@ __all__ = [
     'GetBucketLifecycleConfigNonCurrentVersionTransitionResult',
     'GetBucketLifecycleConfigTagResult',
     'GetBucketLifecycleConfigTransitionResult',
+    'GetBucketNotificationNotificationRuleResult',
+    'GetBucketNotificationNotificationRuleDestinationResult',
+    'GetBucketNotificationNotificationRuleDestinationKafkaResult',
+    'GetBucketNotificationNotificationRuleDestinationRocketMqResult',
+    'GetBucketNotificationNotificationRuleDestinationVeFaaResult',
+    'GetBucketNotificationNotificationRuleFilterResult',
+    'GetBucketNotificationNotificationRuleFilterTosKeyResult',
+    'GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleResult',
+    'GetBucketRealtimeLogRealTimeLogResult',
     'GetBucketTagResult',
 ]
 
@@ -261,6 +281,112 @@ class BucketAclOwner(dict):
         Account ID
         """
         return pulumi.get(self, "owner_id")
+
+
+@pulumi.output_type
+class BucketCorsCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposeHeaders":
+            suggest = "expose_headers"
+        elif key == "maxAgeSeconds":
+            suggest = "max_age_seconds"
+        elif key == "responseVary":
+            suggest = "response_vary"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketCorsCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketCorsCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketCorsCorsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_headers: Optional[Sequence[builtins.str]] = None,
+                 allowed_methods: Optional[Sequence[builtins.str]] = None,
+                 allowed_origins: Optional[Sequence[builtins.str]] = None,
+                 expose_headers: Optional[Sequence[builtins.str]] = None,
+                 max_age_seconds: Optional[builtins.int] = None,
+                 response_vary: Optional[builtins.bool] = None):
+        """
+        :param Sequence[builtins.str] allowed_headers: Specify the response headers allowed for cross-origin requests.
+        :param Sequence[builtins.str] allowed_methods: Specify the allowed methods for cross-origin requests.
+        :param Sequence[builtins.str] allowed_origins: Specify the allowed origins for cross-origin requests.
+        :param Sequence[builtins.str] expose_headers: Specify additional headers to include in the CORS response to provide extra information to the client.
+        :param builtins.int max_age_seconds: Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        :param builtins.bool response_vary: Whether to return the Vary: Origin header
+        """
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if expose_headers is not None:
+            pulumi.set(__self__, "expose_headers", expose_headers)
+        if max_age_seconds is not None:
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+        if response_vary is not None:
+            pulumi.set(__self__, "response_vary", response_vary)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Specify the response headers allowed for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Specify the allowed methods for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Specify the allowed origins for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Specify additional headers to include in the CORS response to provide extra information to the client.
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeSeconds")
+    def max_age_seconds(self) -> Optional[builtins.int]:
+        """
+        Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        """
+        return pulumi.get(self, "max_age_seconds")
+
+    @property
+    @pulumi.getter(name="responseVary")
+    def response_vary(self) -> Optional[builtins.bool]:
+        """
+        Whether to return the Vary: Origin header
+        """
+        return pulumi.get(self, "response_vary")
 
 
 @pulumi.output_type
@@ -925,6 +1051,491 @@ class BucketLifecycleConfigTransition(dict):
 
 
 @pulumi.output_type
+class BucketNotificationNotificationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.BucketNotificationNotificationRuleDestination'] = None,
+                 events: Optional[Sequence[builtins.str]] = None,
+                 filter: Optional['outputs.BucketNotificationNotificationRuleFilter'] = None,
+                 rule_id: Optional[builtins.str] = None):
+        """
+        :param 'BucketNotificationNotificationRuleDestinationArgs' destination: Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        :param Sequence[builtins.str] events: Event type. List of events supported by TOS.
+        :param 'BucketNotificationNotificationRuleFilterArgs' filter: Filter rules.
+        :param builtins.str rule_id: Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.BucketNotificationNotificationRuleDestination']:
+        """
+        Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Event type. List of events supported by TOS.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.BucketNotificationNotificationRuleFilter']:
+        """
+        Filter rules.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[builtins.str]:
+        """
+        Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+        return pulumi.get(self, "rule_id")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rocketMqs":
+            suggest = "rocket_mqs"
+        elif key == "veFaaS":
+            suggest = "ve_faa_s"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kafkas: Optional[Sequence['outputs.BucketNotificationNotificationRuleDestinationKafka']] = None,
+                 rocket_mqs: Optional[Sequence['outputs.BucketNotificationNotificationRuleDestinationRocketMq']] = None,
+                 ve_faa_s: Optional[Sequence['outputs.BucketNotificationNotificationRuleDestinationVeFaa']] = None):
+        if kafkas is not None:
+            pulumi.set(__self__, "kafkas", kafkas)
+        if rocket_mqs is not None:
+            pulumi.set(__self__, "rocket_mqs", rocket_mqs)
+        if ve_faa_s is not None:
+            pulumi.set(__self__, "ve_faa_s", ve_faa_s)
+
+    @property
+    @pulumi.getter
+    def kafkas(self) -> Optional[Sequence['outputs.BucketNotificationNotificationRuleDestinationKafka']]:
+        return pulumi.get(self, "kafkas")
+
+    @property
+    @pulumi.getter(name="rocketMqs")
+    def rocket_mqs(self) -> Optional[Sequence['outputs.BucketNotificationNotificationRuleDestinationRocketMq']]:
+        return pulumi.get(self, "rocket_mqs")
+
+    @property
+    @pulumi.getter(name="veFaaS")
+    def ve_faa_s(self) -> Optional[Sequence['outputs.BucketNotificationNotificationRuleDestinationVeFaa']]:
+        return pulumi.get(self, "ve_faa_s")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleDestinationKafka(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceId":
+            suggest = "instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRuleDestinationKafka. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRuleDestinationKafka.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRuleDestinationKafka.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
+                 role: Optional[builtins.str] = None,
+                 topic: Optional[builtins.str] = None,
+                 user: Optional[builtins.str] = None):
+        """
+        :param builtins.str instance_id: Kafka instance ID.
+        :param builtins.str region: Region where the Kafka instance is located.
+        :param builtins.str role: Role TRN, used to authorize TOS to access Kafka service.
+        :param builtins.str topic: Name of the Kafka topic.
+        :param builtins.str user: Kafka username.
+        """
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[builtins.str]:
+        """
+        Kafka instance ID.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[builtins.str]:
+        """
+        Region where the Kafka instance is located.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[builtins.str]:
+        """
+        Role TRN, used to authorize TOS to access Kafka service.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[builtins.str]:
+        """
+        Name of the Kafka topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[builtins.str]:
+        """
+        Kafka username.
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleDestinationRocketMq(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "instanceId":
+            suggest = "instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRuleDestinationRocketMq. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRuleDestinationRocketMq.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRuleDestinationRocketMq.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key_id: Optional[builtins.str] = None,
+                 instance_id: Optional[builtins.str] = None,
+                 role: Optional[builtins.str] = None,
+                 topic: Optional[builtins.str] = None):
+        """
+        :param builtins.str access_key_id: RocketMQ AccessKey。
+        :param builtins.str instance_id: RocketMQ instance ID.
+        :param builtins.str role: Role TRN, used to authorize TOS to access RocketMQ service.
+        :param builtins.str topic: Name of the RocketMQ topic.
+        """
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[builtins.str]:
+        """
+        RocketMQ AccessKey。
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[builtins.str]:
+        """
+        RocketMQ instance ID.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[builtins.str]:
+        """
+        Role TRN, used to authorize TOS to access RocketMQ service.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[builtins.str]:
+        """
+        Name of the RocketMQ topic.
+        """
+        return pulumi.get(self, "topic")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleDestinationVeFaa(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionId":
+            suggest = "function_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRuleDestinationVeFaa. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRuleDestinationVeFaa.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRuleDestinationVeFaa.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str function_id: Function ID for event delivery.
+        """
+        if function_id is not None:
+            pulumi.set(__self__, "function_id", function_id)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> Optional[builtins.str]:
+        """
+        Function ID for event delivery.
+        """
+        return pulumi.get(self, "function_id")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tosKey":
+            suggest = "tos_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRuleFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRuleFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRuleFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tos_key: Optional['outputs.BucketNotificationNotificationRuleFilterTosKey'] = None):
+        """
+        :param 'BucketNotificationNotificationRuleFilterTosKeyArgs' tos_key: Object filter information.
+        """
+        if tos_key is not None:
+            pulumi.set(__self__, "tos_key", tos_key)
+
+    @property
+    @pulumi.getter(name="tosKey")
+    def tos_key(self) -> Optional['outputs.BucketNotificationNotificationRuleFilterTosKey']:
+        """
+        Object filter information.
+        """
+        return pulumi.get(self, "tos_key")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleFilterTosKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterRules":
+            suggest = "filter_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationNotificationRuleFilterTosKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationNotificationRuleFilterTosKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationNotificationRuleFilterTosKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_rules: Optional[Sequence['outputs.BucketNotificationNotificationRuleFilterTosKeyFilterRule']] = None):
+        if filter_rules is not None:
+            pulumi.set(__self__, "filter_rules", filter_rules)
+
+    @property
+    @pulumi.getter(name="filterRules")
+    def filter_rules(self) -> Optional[Sequence['outputs.BucketNotificationNotificationRuleFilterTosKeyFilterRule']]:
+        return pulumi.get(self, "filter_rules")
+
+
+@pulumi.output_type
+class BucketNotificationNotificationRuleFilterTosKeyFilterRule(dict):
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str name: Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        :param builtins.str value: Matched prefix and suffix information.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Matched prefix and suffix information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketRealtimeLogRealTimeLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useServiceTopic":
+            suggest = "use_service_topic"
+        elif key == "tlsProjectId":
+            suggest = "tls_project_id"
+        elif key == "tlsTopicId":
+            suggest = "tls_topic_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRealtimeLogRealTimeLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRealtimeLogRealTimeLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRealtimeLogRealTimeLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role: builtins.str,
+                 use_service_topic: builtins.bool,
+                 tls_project_id: Optional[builtins.str] = None,
+                 tls_topic_id: Optional[builtins.str] = None):
+        """
+        :param builtins.str role: Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        :param builtins.bool use_service_topic: For topics created using the TOS service, only "true" is allowed as a value
+        :param builtins.str tls_project_id: Log project ID
+        :param builtins.str tls_topic_id: Log topic ID
+        """
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "use_service_topic", use_service_topic)
+        if tls_project_id is not None:
+            pulumi.set(__self__, "tls_project_id", tls_project_id)
+        if tls_topic_id is not None:
+            pulumi.set(__self__, "tls_topic_id", tls_topic_id)
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="useServiceTopic")
+    def use_service_topic(self) -> builtins.bool:
+        """
+        For topics created using the TOS service, only "true" is allowed as a value
+        """
+        return pulumi.get(self, "use_service_topic")
+
+    @property
+    @pulumi.getter(name="tlsProjectId")
+    def tls_project_id(self) -> Optional[builtins.str]:
+        """
+        Log project ID
+        """
+        return pulumi.get(self, "tls_project_id")
+
+    @property
+    @pulumi.getter(name="tlsTopicId")
+    def tls_topic_id(self) -> Optional[builtins.str]:
+        """
+        Log topic ID
+        """
+        return pulumi.get(self, "tls_topic_id")
+
+
+@pulumi.output_type
 class BucketTag(dict):
     def __init__(__self__, *,
                  key: Optional[builtins.str] = None,
@@ -1095,6 +1706,79 @@ class GetBucketAclOwnerResult(dict):
         Account ID
         """
         return pulumi.get(self, "owner_id")
+
+
+@pulumi.output_type
+class GetBucketCorsCorsRuleResult(dict):
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[builtins.str],
+                 allowed_methods: Sequence[builtins.str],
+                 allowed_origins: Sequence[builtins.str],
+                 expose_headers: Sequence[builtins.str],
+                 max_age_seconds: builtins.int,
+                 response_vary: builtins.bool):
+        """
+        :param Sequence[builtins.str] allowed_headers: Specify the response headers allowed for cross-origin requests.
+        :param Sequence[builtins.str] allowed_methods: Specify the allowed methods for cross-origin requests.
+        :param Sequence[builtins.str] allowed_origins: Specify the allowed origins for cross-origin requests.
+        :param Sequence[builtins.str] expose_headers: Specify additional headers to include in the CORS response to provide extra information to the client.
+        :param builtins.int max_age_seconds: Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        :param builtins.bool response_vary: Whether to return the Vary: Origin header
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "expose_headers", expose_headers)
+        pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+        pulumi.set(__self__, "response_vary", response_vary)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[builtins.str]:
+        """
+        Specify the response headers allowed for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[builtins.str]:
+        """
+        Specify the allowed methods for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[builtins.str]:
+        """
+        Specify the allowed origins for cross-origin requests.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="exposeHeaders")
+    def expose_headers(self) -> Sequence[builtins.str]:
+        """
+        Specify additional headers to include in the CORS response to provide extra information to the client.
+        """
+        return pulumi.get(self, "expose_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeSeconds")
+    def max_age_seconds(self) -> builtins.int:
+        """
+        Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+        """
+        return pulumi.get(self, "max_age_seconds")
+
+    @property
+    @pulumi.getter(name="responseVary")
+    def response_vary(self) -> builtins.bool:
+        """
+        Whether to return the Vary: Origin header
+        """
+        return pulumi.get(self, "response_vary")
 
 
 @pulumi.output_type
@@ -1578,6 +2262,344 @@ class GetBucketLifecycleConfigTransitionResult(dict):
         Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
         """
         return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleResult(dict):
+    def __init__(__self__, *,
+                 destination: 'outputs.GetBucketNotificationNotificationRuleDestinationResult',
+                 events: Sequence[builtins.str],
+                 filter: 'outputs.GetBucketNotificationNotificationRuleFilterResult',
+                 rule_id: builtins.str):
+        """
+        :param 'GetBucketNotificationNotificationRuleDestinationArgs' destination: Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        :param Sequence[builtins.str] events: Event type. List of events supported by TOS.
+        :param 'GetBucketNotificationNotificationRuleFilterArgs' filter: Filter rules.
+        :param builtins.str rule_id: Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "rule_id", rule_id)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.GetBucketNotificationNotificationRuleDestinationResult':
+        """
+        Event notification delivery targets. Must include at least one target and supports up to five different targets.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence[builtins.str]:
+        """
+        Event type. List of events supported by TOS.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.GetBucketNotificationNotificationRuleFilterResult':
+        """
+        Filter rules.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> builtins.str:
+        """
+        Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+        """
+        return pulumi.get(self, "rule_id")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleDestinationResult(dict):
+    def __init__(__self__, *,
+                 kafkas: Sequence['outputs.GetBucketNotificationNotificationRuleDestinationKafkaResult'],
+                 rocket_mqs: Sequence['outputs.GetBucketNotificationNotificationRuleDestinationRocketMqResult'],
+                 ve_faa_s: Sequence['outputs.GetBucketNotificationNotificationRuleDestinationVeFaaResult']):
+        """
+        :param Sequence['GetBucketNotificationNotificationRuleDestinationKafkaArgs'] kafkas: Event delivery target is Kafka message queue.
+        :param Sequence['GetBucketNotificationNotificationRuleDestinationRocketMqArgs'] rocket_mqs: Event delivery target is RocketMQ message queue.
+        :param Sequence['GetBucketNotificationNotificationRuleDestinationVeFaaArgs'] ve_faa_s: Event delivery target is Function Service.
+        """
+        pulumi.set(__self__, "kafkas", kafkas)
+        pulumi.set(__self__, "rocket_mqs", rocket_mqs)
+        pulumi.set(__self__, "ve_faa_s", ve_faa_s)
+
+    @property
+    @pulumi.getter
+    def kafkas(self) -> Sequence['outputs.GetBucketNotificationNotificationRuleDestinationKafkaResult']:
+        """
+        Event delivery target is Kafka message queue.
+        """
+        return pulumi.get(self, "kafkas")
+
+    @property
+    @pulumi.getter(name="rocketMqs")
+    def rocket_mqs(self) -> Sequence['outputs.GetBucketNotificationNotificationRuleDestinationRocketMqResult']:
+        """
+        Event delivery target is RocketMQ message queue.
+        """
+        return pulumi.get(self, "rocket_mqs")
+
+    @property
+    @pulumi.getter(name="veFaaS")
+    def ve_faa_s(self) -> Sequence['outputs.GetBucketNotificationNotificationRuleDestinationVeFaaResult']:
+        """
+        Event delivery target is Function Service.
+        """
+        return pulumi.get(self, "ve_faa_s")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleDestinationKafkaResult(dict):
+    def __init__(__self__, *,
+                 instance_id: builtins.str,
+                 region: builtins.str,
+                 role: builtins.str,
+                 topic: builtins.str,
+                 user: builtins.str):
+        """
+        :param builtins.str instance_id: Kafka instance ID.
+        :param builtins.str region: Region where the Kafka instance is located.
+        :param builtins.str role: Role TRN, used to authorize TOS to access Kafka service.
+        :param builtins.str topic: Name of the Kafka topic.
+        :param builtins.str user: Kafka username.
+        """
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "topic", topic)
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> builtins.str:
+        """
+        Kafka instance ID.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Region where the Kafka instance is located.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Role TRN, used to authorize TOS to access Kafka service.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> builtins.str:
+        """
+        Name of the Kafka topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def user(self) -> builtins.str:
+        """
+        Kafka username.
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleDestinationRocketMqResult(dict):
+    def __init__(__self__, *,
+                 access_key_id: builtins.str,
+                 instance_id: builtins.str,
+                 role: builtins.str,
+                 topic: builtins.str):
+        """
+        :param builtins.str access_key_id: RocketMQ AccessKey。
+        :param builtins.str instance_id: RocketMQ instance ID.
+        :param builtins.str role: Role TRN, used to authorize TOS to access RocketMQ service.
+        :param builtins.str topic: Name of the RocketMQ topic.
+        """
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> builtins.str:
+        """
+        RocketMQ AccessKey。
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> builtins.str:
+        """
+        RocketMQ instance ID.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Role TRN, used to authorize TOS to access RocketMQ service.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> builtins.str:
+        """
+        Name of the RocketMQ topic.
+        """
+        return pulumi.get(self, "topic")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleDestinationVeFaaResult(dict):
+    def __init__(__self__, *,
+                 function_id: builtins.str):
+        """
+        :param builtins.str function_id: Function ID for event delivery.
+        """
+        pulumi.set(__self__, "function_id", function_id)
+
+    @property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> builtins.str:
+        """
+        Function ID for event delivery.
+        """
+        return pulumi.get(self, "function_id")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleFilterResult(dict):
+    def __init__(__self__, *,
+                 tos_key: 'outputs.GetBucketNotificationNotificationRuleFilterTosKeyResult'):
+        """
+        :param 'GetBucketNotificationNotificationRuleFilterTosKeyArgs' tos_key: Object filter information.
+        """
+        pulumi.set(__self__, "tos_key", tos_key)
+
+    @property
+    @pulumi.getter(name="tosKey")
+    def tos_key(self) -> 'outputs.GetBucketNotificationNotificationRuleFilterTosKeyResult':
+        """
+        Object filter information.
+        """
+        return pulumi.get(self, "tos_key")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleFilterTosKeyResult(dict):
+    def __init__(__self__, *,
+                 filter_rules: Sequence['outputs.GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleResult']):
+        """
+        :param Sequence['GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs'] filter_rules: Object filter information.
+        """
+        pulumi.set(__self__, "filter_rules", filter_rules)
+
+    @property
+    @pulumi.getter(name="filterRules")
+    def filter_rules(self) -> Sequence['outputs.GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleResult']:
+        """
+        Object filter information.
+        """
+        return pulumi.get(self, "filter_rules")
+
+
+@pulumi.output_type
+class GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleResult(dict):
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str name: Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        :param builtins.str value: Matched prefix and suffix information.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Matched prefix and suffix information.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetBucketRealtimeLogRealTimeLogResult(dict):
+    def __init__(__self__, *,
+                 role: builtins.str,
+                 tls_project_id: builtins.str,
+                 tls_topic_id: builtins.str,
+                 use_service_topic: builtins.bool):
+        """
+        :param builtins.str role: Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        :param builtins.str tls_project_id: Log project ID
+        :param builtins.str tls_topic_id: Log topic ID
+        :param builtins.bool use_service_topic: For topics created using the TOS service, only "true" is allowed as a value
+        """
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "tls_project_id", tls_project_id)
+        pulumi.set(__self__, "tls_topic_id", tls_topic_id)
+        pulumi.set(__self__, "use_service_topic", use_service_topic)
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="tlsProjectId")
+    def tls_project_id(self) -> builtins.str:
+        """
+        Log project ID
+        """
+        return pulumi.get(self, "tls_project_id")
+
+    @property
+    @pulumi.getter(name="tlsTopicId")
+    def tls_topic_id(self) -> builtins.str:
+        """
+        Log topic ID
+        """
+        return pulumi.get(self, "tls_topic_id")
+
+    @property
+    @pulumi.getter(name="useServiceTopic")
+    def use_service_topic(self) -> builtins.bool:
+        """
+        For topics created using the TOS service, only "true" is allowed as a value
+        """
+        return pulumi.get(self, "use_service_topic")
 
 
 @pulumi.output_type

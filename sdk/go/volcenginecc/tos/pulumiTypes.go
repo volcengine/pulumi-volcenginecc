@@ -696,6 +696,148 @@ func (o BucketAclOwnerPtrOutput) OwnerId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type BucketCorsCorsRule struct {
+	// Specify the response headers allowed for cross-origin requests.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Specify the allowed methods for cross-origin requests.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Specify the allowed origins for cross-origin requests.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Specify additional headers to include in the CORS response to provide extra information to the client.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+	MaxAgeSeconds *int `pulumi:"maxAgeSeconds"`
+	// Whether to return the Vary: Origin header
+	ResponseVary *bool `pulumi:"responseVary"`
+}
+
+// BucketCorsCorsRuleInput is an input type that accepts BucketCorsCorsRuleArgs and BucketCorsCorsRuleOutput values.
+// You can construct a concrete instance of `BucketCorsCorsRuleInput` via:
+//
+//	BucketCorsCorsRuleArgs{...}
+type BucketCorsCorsRuleInput interface {
+	pulumi.Input
+
+	ToBucketCorsCorsRuleOutput() BucketCorsCorsRuleOutput
+	ToBucketCorsCorsRuleOutputWithContext(context.Context) BucketCorsCorsRuleOutput
+}
+
+type BucketCorsCorsRuleArgs struct {
+	// Specify the response headers allowed for cross-origin requests.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Specify the allowed methods for cross-origin requests.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Specify the allowed origins for cross-origin requests.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Specify additional headers to include in the CORS response to provide extra information to the client.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+	MaxAgeSeconds pulumi.IntPtrInput `pulumi:"maxAgeSeconds"`
+	// Whether to return the Vary: Origin header
+	ResponseVary pulumi.BoolPtrInput `pulumi:"responseVary"`
+}
+
+func (BucketCorsCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsCorsRule)(nil)).Elem()
+}
+
+func (i BucketCorsCorsRuleArgs) ToBucketCorsCorsRuleOutput() BucketCorsCorsRuleOutput {
+	return i.ToBucketCorsCorsRuleOutputWithContext(context.Background())
+}
+
+func (i BucketCorsCorsRuleArgs) ToBucketCorsCorsRuleOutputWithContext(ctx context.Context) BucketCorsCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsCorsRuleOutput)
+}
+
+// BucketCorsCorsRuleArrayInput is an input type that accepts BucketCorsCorsRuleArray and BucketCorsCorsRuleArrayOutput values.
+// You can construct a concrete instance of `BucketCorsCorsRuleArrayInput` via:
+//
+//	BucketCorsCorsRuleArray{ BucketCorsCorsRuleArgs{...} }
+type BucketCorsCorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketCorsCorsRuleArrayOutput() BucketCorsCorsRuleArrayOutput
+	ToBucketCorsCorsRuleArrayOutputWithContext(context.Context) BucketCorsCorsRuleArrayOutput
+}
+
+type BucketCorsCorsRuleArray []BucketCorsCorsRuleInput
+
+func (BucketCorsCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketCorsCorsRule)(nil)).Elem()
+}
+
+func (i BucketCorsCorsRuleArray) ToBucketCorsCorsRuleArrayOutput() BucketCorsCorsRuleArrayOutput {
+	return i.ToBucketCorsCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketCorsCorsRuleArray) ToBucketCorsCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsCorsRuleArrayOutput)
+}
+
+type BucketCorsCorsRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketCorsCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsCorsRule)(nil)).Elem()
+}
+
+func (o BucketCorsCorsRuleOutput) ToBucketCorsCorsRuleOutput() BucketCorsCorsRuleOutput {
+	return o
+}
+
+func (o BucketCorsCorsRuleOutput) ToBucketCorsCorsRuleOutputWithContext(ctx context.Context) BucketCorsCorsRuleOutput {
+	return o
+}
+
+// Specify the response headers allowed for cross-origin requests.
+func (o BucketCorsCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Specify the allowed methods for cross-origin requests.
+func (o BucketCorsCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Specify the allowed origins for cross-origin requests.
+func (o BucketCorsCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Specify additional headers to include in the CORS response to provide extra information to the client.
+func (o BucketCorsCorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsCorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+func (o BucketCorsCorsRuleOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketCorsCorsRule) *int { return v.MaxAgeSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Whether to return the Vary: Origin header
+func (o BucketCorsCorsRuleOutput) ResponseVary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketCorsCorsRule) *bool { return v.ResponseVary }).(pulumi.BoolPtrOutput)
+}
+
+type BucketCorsCorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketCorsCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketCorsCorsRule)(nil)).Elem()
+}
+
+func (o BucketCorsCorsRuleArrayOutput) ToBucketCorsCorsRuleArrayOutput() BucketCorsCorsRuleArrayOutput {
+	return o
+}
+
+func (o BucketCorsCorsRuleArrayOutput) ToBucketCorsCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsCorsRuleArrayOutput {
+	return o
+}
+
+func (o BucketCorsCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketCorsCorsRule {
+		return vs[0].([]BucketCorsCorsRule)[vs[1].(int)]
+	}).(BucketCorsCorsRuleOutput)
+}
+
 type BucketInventoryDestination struct {
 	// Bucket information related to the inventory files.
 	TosBucketDestination *BucketInventoryDestinationTosBucketDestination `pulumi:"tosBucketDestination"`
@@ -2610,6 +2752,1229 @@ func (o BucketLifecycleConfigTransitionArrayOutput) Index(i pulumi.IntInput) Buc
 	}).(BucketLifecycleConfigTransitionOutput)
 }
 
+type BucketNotificationNotificationRule struct {
+	// Event notification delivery targets. Must include at least one target and supports up to five different targets.
+	Destination *BucketNotificationNotificationRuleDestination `pulumi:"destination"`
+	// Event type. List of events supported by TOS.
+	Events []string `pulumi:"events"`
+	// Filter rules.
+	Filter *BucketNotificationNotificationRuleFilter `pulumi:"filter"`
+	// Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+	RuleId *string `pulumi:"ruleId"`
+}
+
+// BucketNotificationNotificationRuleInput is an input type that accepts BucketNotificationNotificationRuleArgs and BucketNotificationNotificationRuleOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleInput` via:
+//
+//	BucketNotificationNotificationRuleArgs{...}
+type BucketNotificationNotificationRuleInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleOutput() BucketNotificationNotificationRuleOutput
+	ToBucketNotificationNotificationRuleOutputWithContext(context.Context) BucketNotificationNotificationRuleOutput
+}
+
+type BucketNotificationNotificationRuleArgs struct {
+	// Event notification delivery targets. Must include at least one target and supports up to five different targets.
+	Destination BucketNotificationNotificationRuleDestinationPtrInput `pulumi:"destination"`
+	// Event type. List of events supported by TOS.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Filter rules.
+	Filter BucketNotificationNotificationRuleFilterPtrInput `pulumi:"filter"`
+	// Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
+}
+
+func (BucketNotificationNotificationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleArgs) ToBucketNotificationNotificationRuleOutput() BucketNotificationNotificationRuleOutput {
+	return i.ToBucketNotificationNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleArgs) ToBucketNotificationNotificationRuleOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleOutput)
+}
+
+// BucketNotificationNotificationRuleArrayInput is an input type that accepts BucketNotificationNotificationRuleArray and BucketNotificationNotificationRuleArrayOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleArrayInput` via:
+//
+//	BucketNotificationNotificationRuleArray{ BucketNotificationNotificationRuleArgs{...} }
+type BucketNotificationNotificationRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleArrayOutput() BucketNotificationNotificationRuleArrayOutput
+	ToBucketNotificationNotificationRuleArrayOutputWithContext(context.Context) BucketNotificationNotificationRuleArrayOutput
+}
+
+type BucketNotificationNotificationRuleArray []BucketNotificationNotificationRuleInput
+
+func (BucketNotificationNotificationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleArray) ToBucketNotificationNotificationRuleArrayOutput() BucketNotificationNotificationRuleArrayOutput {
+	return i.ToBucketNotificationNotificationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleArray) ToBucketNotificationNotificationRuleArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleArrayOutput)
+}
+
+type BucketNotificationNotificationRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleOutput) ToBucketNotificationNotificationRuleOutput() BucketNotificationNotificationRuleOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleOutput) ToBucketNotificationNotificationRuleOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleOutput {
+	return o
+}
+
+// Event notification delivery targets. Must include at least one target and supports up to five different targets.
+func (o BucketNotificationNotificationRuleOutput) Destination() BucketNotificationNotificationRuleDestinationPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRule) *BucketNotificationNotificationRuleDestination {
+		return v.Destination
+	}).(BucketNotificationNotificationRuleDestinationPtrOutput)
+}
+
+// Event type. List of events supported by TOS.
+func (o BucketNotificationNotificationRuleOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRule) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Filter rules.
+func (o BucketNotificationNotificationRuleOutput) Filter() BucketNotificationNotificationRuleFilterPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRule) *BucketNotificationNotificationRuleFilter { return v.Filter }).(BucketNotificationNotificationRuleFilterPtrOutput)
+}
+
+// Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+func (o BucketNotificationNotificationRuleOutput) RuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRule) *string { return v.RuleId }).(pulumi.StringPtrOutput)
+}
+
+type BucketNotificationNotificationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleArrayOutput) ToBucketNotificationNotificationRuleArrayOutput() BucketNotificationNotificationRuleArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleArrayOutput) ToBucketNotificationNotificationRuleArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleArrayOutput) Index(i pulumi.IntInput) BucketNotificationNotificationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotificationNotificationRule {
+		return vs[0].([]BucketNotificationNotificationRule)[vs[1].(int)]
+	}).(BucketNotificationNotificationRuleOutput)
+}
+
+type BucketNotificationNotificationRuleDestination struct {
+	Kafkas    []BucketNotificationNotificationRuleDestinationKafka    `pulumi:"kafkas"`
+	RocketMqs []BucketNotificationNotificationRuleDestinationRocketMq `pulumi:"rocketMqs"`
+	VeFaaS    []BucketNotificationNotificationRuleDestinationVeFaa    `pulumi:"veFaaS"`
+}
+
+// BucketNotificationNotificationRuleDestinationInput is an input type that accepts BucketNotificationNotificationRuleDestinationArgs and BucketNotificationNotificationRuleDestinationOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationArgs{...}
+type BucketNotificationNotificationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationOutput() BucketNotificationNotificationRuleDestinationOutput
+	ToBucketNotificationNotificationRuleDestinationOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationOutput
+}
+
+type BucketNotificationNotificationRuleDestinationArgs struct {
+	Kafkas    BucketNotificationNotificationRuleDestinationKafkaArrayInput    `pulumi:"kafkas"`
+	RocketMqs BucketNotificationNotificationRuleDestinationRocketMqArrayInput `pulumi:"rocketMqs"`
+	VeFaaS    BucketNotificationNotificationRuleDestinationVeFaaArrayInput    `pulumi:"veFaaS"`
+}
+
+func (BucketNotificationNotificationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestination)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationArgs) ToBucketNotificationNotificationRuleDestinationOutput() BucketNotificationNotificationRuleDestinationOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationArgs) ToBucketNotificationNotificationRuleDestinationOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationOutput)
+}
+
+func (i BucketNotificationNotificationRuleDestinationArgs) ToBucketNotificationNotificationRuleDestinationPtrOutput() BucketNotificationNotificationRuleDestinationPtrOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationArgs) ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationOutput).ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(ctx)
+}
+
+// BucketNotificationNotificationRuleDestinationPtrInput is an input type that accepts BucketNotificationNotificationRuleDestinationArgs, BucketNotificationNotificationRuleDestinationPtr and BucketNotificationNotificationRuleDestinationPtrOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationPtrInput` via:
+//
+//	        BucketNotificationNotificationRuleDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketNotificationNotificationRuleDestinationPtrInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationPtrOutput() BucketNotificationNotificationRuleDestinationPtrOutput
+	ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationPtrOutput
+}
+
+type bucketNotificationNotificationRuleDestinationPtrType BucketNotificationNotificationRuleDestinationArgs
+
+func BucketNotificationNotificationRuleDestinationPtr(v *BucketNotificationNotificationRuleDestinationArgs) BucketNotificationNotificationRuleDestinationPtrInput {
+	return (*bucketNotificationNotificationRuleDestinationPtrType)(v)
+}
+
+func (*bucketNotificationNotificationRuleDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationNotificationRuleDestination)(nil)).Elem()
+}
+
+func (i *bucketNotificationNotificationRuleDestinationPtrType) ToBucketNotificationNotificationRuleDestinationPtrOutput() BucketNotificationNotificationRuleDestinationPtrOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNotificationNotificationRuleDestinationPtrType) ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationPtrOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestination)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) ToBucketNotificationNotificationRuleDestinationOutput() BucketNotificationNotificationRuleDestinationOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) ToBucketNotificationNotificationRuleDestinationOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) ToBucketNotificationNotificationRuleDestinationPtrOutput() BucketNotificationNotificationRuleDestinationPtrOutput {
+	return o.ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotificationNotificationRuleDestination) *BucketNotificationNotificationRuleDestination {
+		return &v
+	}).(BucketNotificationNotificationRuleDestinationPtrOutput)
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) Kafkas() BucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestination) []BucketNotificationNotificationRuleDestinationKafka {
+		return v.Kafkas
+	}).(BucketNotificationNotificationRuleDestinationKafkaArrayOutput)
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) RocketMqs() BucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestination) []BucketNotificationNotificationRuleDestinationRocketMq {
+		return v.RocketMqs
+	}).(BucketNotificationNotificationRuleDestinationRocketMqArrayOutput)
+}
+
+func (o BucketNotificationNotificationRuleDestinationOutput) VeFaaS() BucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestination) []BucketNotificationNotificationRuleDestinationVeFaa {
+		return v.VeFaaS
+	}).(BucketNotificationNotificationRuleDestinationVeFaaArrayOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationNotificationRuleDestination)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationPtrOutput) ToBucketNotificationNotificationRuleDestinationPtrOutput() BucketNotificationNotificationRuleDestinationPtrOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationPtrOutput) ToBucketNotificationNotificationRuleDestinationPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationPtrOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationPtrOutput) Elem() BucketNotificationNotificationRuleDestinationOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleDestination) BucketNotificationNotificationRuleDestination {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNotificationNotificationRuleDestination
+		return ret
+	}).(BucketNotificationNotificationRuleDestinationOutput)
+}
+
+func (o BucketNotificationNotificationRuleDestinationPtrOutput) Kafkas() BucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleDestination) []BucketNotificationNotificationRuleDestinationKafka {
+		if v == nil {
+			return nil
+		}
+		return v.Kafkas
+	}).(BucketNotificationNotificationRuleDestinationKafkaArrayOutput)
+}
+
+func (o BucketNotificationNotificationRuleDestinationPtrOutput) RocketMqs() BucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleDestination) []BucketNotificationNotificationRuleDestinationRocketMq {
+		if v == nil {
+			return nil
+		}
+		return v.RocketMqs
+	}).(BucketNotificationNotificationRuleDestinationRocketMqArrayOutput)
+}
+
+func (o BucketNotificationNotificationRuleDestinationPtrOutput) VeFaaS() BucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleDestination) []BucketNotificationNotificationRuleDestinationVeFaa {
+		if v == nil {
+			return nil
+		}
+		return v.VeFaaS
+	}).(BucketNotificationNotificationRuleDestinationVeFaaArrayOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationKafka struct {
+	// Kafka instance ID.
+	InstanceId *string `pulumi:"instanceId"`
+	// Region where the Kafka instance is located.
+	Region *string `pulumi:"region"`
+	// Role TRN, used to authorize TOS to access Kafka service.
+	Role *string `pulumi:"role"`
+	// Name of the Kafka topic.
+	Topic *string `pulumi:"topic"`
+	// Kafka username.
+	User *string `pulumi:"user"`
+}
+
+// BucketNotificationNotificationRuleDestinationKafkaInput is an input type that accepts BucketNotificationNotificationRuleDestinationKafkaArgs and BucketNotificationNotificationRuleDestinationKafkaOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationKafkaInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationKafkaArgs{...}
+type BucketNotificationNotificationRuleDestinationKafkaInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationKafkaOutput() BucketNotificationNotificationRuleDestinationKafkaOutput
+	ToBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationKafkaOutput
+}
+
+type BucketNotificationNotificationRuleDestinationKafkaArgs struct {
+	// Kafka instance ID.
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	// Region where the Kafka instance is located.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Role TRN, used to authorize TOS to access Kafka service.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Name of the Kafka topic.
+	Topic pulumi.StringPtrInput `pulumi:"topic"`
+	// Kafka username.
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (BucketNotificationNotificationRuleDestinationKafkaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationKafkaArgs) ToBucketNotificationNotificationRuleDestinationKafkaOutput() BucketNotificationNotificationRuleDestinationKafkaOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationKafkaArgs) ToBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationKafkaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationKafkaOutput)
+}
+
+// BucketNotificationNotificationRuleDestinationKafkaArrayInput is an input type that accepts BucketNotificationNotificationRuleDestinationKafkaArray and BucketNotificationNotificationRuleDestinationKafkaArrayOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationKafkaArrayInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationKafkaArray{ BucketNotificationNotificationRuleDestinationKafkaArgs{...} }
+type BucketNotificationNotificationRuleDestinationKafkaArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationKafkaArrayOutput() BucketNotificationNotificationRuleDestinationKafkaArrayOutput
+	ToBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationKafkaArrayOutput
+}
+
+type BucketNotificationNotificationRuleDestinationKafkaArray []BucketNotificationNotificationRuleDestinationKafkaInput
+
+func (BucketNotificationNotificationRuleDestinationKafkaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationKafkaArray) ToBucketNotificationNotificationRuleDestinationKafkaArrayOutput() BucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationKafkaArray) ToBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationKafkaArrayOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationKafkaOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationKafkaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) ToBucketNotificationNotificationRuleDestinationKafkaOutput() BucketNotificationNotificationRuleDestinationKafkaOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) ToBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationKafkaOutput {
+	return o
+}
+
+// Kafka instance ID.
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationKafka) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+// Region where the Kafka instance is located.
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationKafka) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Role TRN, used to authorize TOS to access Kafka service.
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationKafka) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Kafka topic.
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationKafka) *string { return v.Topic }).(pulumi.StringPtrOutput)
+}
+
+// Kafka username.
+func (o BucketNotificationNotificationRuleDestinationKafkaOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationKafka) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationKafkaArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationKafkaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationKafkaArrayOutput) ToBucketNotificationNotificationRuleDestinationKafkaArrayOutput() BucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationKafkaArrayOutput) ToBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationKafkaArrayOutput) Index(i pulumi.IntInput) BucketNotificationNotificationRuleDestinationKafkaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotificationNotificationRuleDestinationKafka {
+		return vs[0].([]BucketNotificationNotificationRuleDestinationKafka)[vs[1].(int)]
+	}).(BucketNotificationNotificationRuleDestinationKafkaOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationRocketMq struct {
+	// RocketMQ AccessKey。
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	// RocketMQ instance ID.
+	InstanceId *string `pulumi:"instanceId"`
+	// Role TRN, used to authorize TOS to access RocketMQ service.
+	Role *string `pulumi:"role"`
+	// Name of the RocketMQ topic.
+	Topic *string `pulumi:"topic"`
+}
+
+// BucketNotificationNotificationRuleDestinationRocketMqInput is an input type that accepts BucketNotificationNotificationRuleDestinationRocketMqArgs and BucketNotificationNotificationRuleDestinationRocketMqOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationRocketMqInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationRocketMqArgs{...}
+type BucketNotificationNotificationRuleDestinationRocketMqInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationRocketMqOutput() BucketNotificationNotificationRuleDestinationRocketMqOutput
+	ToBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationRocketMqOutput
+}
+
+type BucketNotificationNotificationRuleDestinationRocketMqArgs struct {
+	// RocketMQ AccessKey。
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	// RocketMQ instance ID.
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	// Role TRN, used to authorize TOS to access RocketMQ service.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Name of the RocketMQ topic.
+	Topic pulumi.StringPtrInput `pulumi:"topic"`
+}
+
+func (BucketNotificationNotificationRuleDestinationRocketMqArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationRocketMqArgs) ToBucketNotificationNotificationRuleDestinationRocketMqOutput() BucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationRocketMqArgs) ToBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationRocketMqOutput)
+}
+
+// BucketNotificationNotificationRuleDestinationRocketMqArrayInput is an input type that accepts BucketNotificationNotificationRuleDestinationRocketMqArray and BucketNotificationNotificationRuleDestinationRocketMqArrayOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationRocketMqArrayInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationRocketMqArray{ BucketNotificationNotificationRuleDestinationRocketMqArgs{...} }
+type BucketNotificationNotificationRuleDestinationRocketMqArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutput() BucketNotificationNotificationRuleDestinationRocketMqArrayOutput
+	ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationRocketMqArrayOutput
+}
+
+type BucketNotificationNotificationRuleDestinationRocketMqArray []BucketNotificationNotificationRuleDestinationRocketMqInput
+
+func (BucketNotificationNotificationRuleDestinationRocketMqArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationRocketMqArray) ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutput() BucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationRocketMqArray) ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationRocketMqArrayOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationRocketMqOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationRocketMqOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationRocketMqOutput) ToBucketNotificationNotificationRuleDestinationRocketMqOutput() BucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationRocketMqOutput) ToBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return o
+}
+
+// RocketMQ AccessKey。
+func (o BucketNotificationNotificationRuleDestinationRocketMqOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationRocketMq) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
+}
+
+// RocketMQ instance ID.
+func (o BucketNotificationNotificationRuleDestinationRocketMqOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationRocketMq) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+// Role TRN, used to authorize TOS to access RocketMQ service.
+func (o BucketNotificationNotificationRuleDestinationRocketMqOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationRocketMq) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// Name of the RocketMQ topic.
+func (o BucketNotificationNotificationRuleDestinationRocketMqOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationRocketMq) *string { return v.Topic }).(pulumi.StringPtrOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationRocketMqArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationRocketMqArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationRocketMqArrayOutput) ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutput() BucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationRocketMqArrayOutput) ToBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationRocketMqArrayOutput) Index(i pulumi.IntInput) BucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotificationNotificationRuleDestinationRocketMq {
+		return vs[0].([]BucketNotificationNotificationRuleDestinationRocketMq)[vs[1].(int)]
+	}).(BucketNotificationNotificationRuleDestinationRocketMqOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationVeFaa struct {
+	// Function ID for event delivery.
+	FunctionId *string `pulumi:"functionId"`
+}
+
+// BucketNotificationNotificationRuleDestinationVeFaaInput is an input type that accepts BucketNotificationNotificationRuleDestinationVeFaaArgs and BucketNotificationNotificationRuleDestinationVeFaaOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationVeFaaInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationVeFaaArgs{...}
+type BucketNotificationNotificationRuleDestinationVeFaaInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationVeFaaOutput() BucketNotificationNotificationRuleDestinationVeFaaOutput
+	ToBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationVeFaaOutput
+}
+
+type BucketNotificationNotificationRuleDestinationVeFaaArgs struct {
+	// Function ID for event delivery.
+	FunctionId pulumi.StringPtrInput `pulumi:"functionId"`
+}
+
+func (BucketNotificationNotificationRuleDestinationVeFaaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationVeFaaArgs) ToBucketNotificationNotificationRuleDestinationVeFaaOutput() BucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationVeFaaArgs) ToBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationVeFaaOutput)
+}
+
+// BucketNotificationNotificationRuleDestinationVeFaaArrayInput is an input type that accepts BucketNotificationNotificationRuleDestinationVeFaaArray and BucketNotificationNotificationRuleDestinationVeFaaArrayOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleDestinationVeFaaArrayInput` via:
+//
+//	BucketNotificationNotificationRuleDestinationVeFaaArray{ BucketNotificationNotificationRuleDestinationVeFaaArgs{...} }
+type BucketNotificationNotificationRuleDestinationVeFaaArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutput() BucketNotificationNotificationRuleDestinationVeFaaArrayOutput
+	ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(context.Context) BucketNotificationNotificationRuleDestinationVeFaaArrayOutput
+}
+
+type BucketNotificationNotificationRuleDestinationVeFaaArray []BucketNotificationNotificationRuleDestinationVeFaaInput
+
+func (BucketNotificationNotificationRuleDestinationVeFaaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleDestinationVeFaaArray) ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutput() BucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return i.ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleDestinationVeFaaArray) ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleDestinationVeFaaArrayOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationVeFaaOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationVeFaaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationVeFaaOutput) ToBucketNotificationNotificationRuleDestinationVeFaaOutput() BucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationVeFaaOutput) ToBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return o
+}
+
+// Function ID for event delivery.
+func (o BucketNotificationNotificationRuleDestinationVeFaaOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleDestinationVeFaa) *string { return v.FunctionId }).(pulumi.StringPtrOutput)
+}
+
+type BucketNotificationNotificationRuleDestinationVeFaaArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleDestinationVeFaaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleDestinationVeFaaArrayOutput) ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutput() BucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationVeFaaArrayOutput) ToBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleDestinationVeFaaArrayOutput) Index(i pulumi.IntInput) BucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotificationNotificationRuleDestinationVeFaa {
+		return vs[0].([]BucketNotificationNotificationRuleDestinationVeFaa)[vs[1].(int)]
+	}).(BucketNotificationNotificationRuleDestinationVeFaaOutput)
+}
+
+type BucketNotificationNotificationRuleFilter struct {
+	// Object filter information.
+	TosKey *BucketNotificationNotificationRuleFilterTosKey `pulumi:"tosKey"`
+}
+
+// BucketNotificationNotificationRuleFilterInput is an input type that accepts BucketNotificationNotificationRuleFilterArgs and BucketNotificationNotificationRuleFilterOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleFilterInput` via:
+//
+//	BucketNotificationNotificationRuleFilterArgs{...}
+type BucketNotificationNotificationRuleFilterInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleFilterOutput() BucketNotificationNotificationRuleFilterOutput
+	ToBucketNotificationNotificationRuleFilterOutputWithContext(context.Context) BucketNotificationNotificationRuleFilterOutput
+}
+
+type BucketNotificationNotificationRuleFilterArgs struct {
+	// Object filter information.
+	TosKey BucketNotificationNotificationRuleFilterTosKeyPtrInput `pulumi:"tosKey"`
+}
+
+func (BucketNotificationNotificationRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleFilter)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleFilterArgs) ToBucketNotificationNotificationRuleFilterOutput() BucketNotificationNotificationRuleFilterOutput {
+	return i.ToBucketNotificationNotificationRuleFilterOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleFilterArgs) ToBucketNotificationNotificationRuleFilterOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterOutput)
+}
+
+func (i BucketNotificationNotificationRuleFilterArgs) ToBucketNotificationNotificationRuleFilterPtrOutput() BucketNotificationNotificationRuleFilterPtrOutput {
+	return i.ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleFilterArgs) ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterOutput).ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(ctx)
+}
+
+// BucketNotificationNotificationRuleFilterPtrInput is an input type that accepts BucketNotificationNotificationRuleFilterArgs, BucketNotificationNotificationRuleFilterPtr and BucketNotificationNotificationRuleFilterPtrOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleFilterPtrInput` via:
+//
+//	        BucketNotificationNotificationRuleFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketNotificationNotificationRuleFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleFilterPtrOutput() BucketNotificationNotificationRuleFilterPtrOutput
+	ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(context.Context) BucketNotificationNotificationRuleFilterPtrOutput
+}
+
+type bucketNotificationNotificationRuleFilterPtrType BucketNotificationNotificationRuleFilterArgs
+
+func BucketNotificationNotificationRuleFilterPtr(v *BucketNotificationNotificationRuleFilterArgs) BucketNotificationNotificationRuleFilterPtrInput {
+	return (*bucketNotificationNotificationRuleFilterPtrType)(v)
+}
+
+func (*bucketNotificationNotificationRuleFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationNotificationRuleFilter)(nil)).Elem()
+}
+
+func (i *bucketNotificationNotificationRuleFilterPtrType) ToBucketNotificationNotificationRuleFilterPtrOutput() BucketNotificationNotificationRuleFilterPtrOutput {
+	return i.ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNotificationNotificationRuleFilterPtrType) ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterPtrOutput)
+}
+
+type BucketNotificationNotificationRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleFilter)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleFilterOutput) ToBucketNotificationNotificationRuleFilterOutput() BucketNotificationNotificationRuleFilterOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterOutput) ToBucketNotificationNotificationRuleFilterOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterOutput) ToBucketNotificationNotificationRuleFilterPtrOutput() BucketNotificationNotificationRuleFilterPtrOutput {
+	return o.ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNotificationNotificationRuleFilterOutput) ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotificationNotificationRuleFilter) *BucketNotificationNotificationRuleFilter {
+		return &v
+	}).(BucketNotificationNotificationRuleFilterPtrOutput)
+}
+
+// Object filter information.
+func (o BucketNotificationNotificationRuleFilterOutput) TosKey() BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleFilter) *BucketNotificationNotificationRuleFilterTosKey {
+		return v.TosKey
+	}).(BucketNotificationNotificationRuleFilterTosKeyPtrOutput)
+}
+
+type BucketNotificationNotificationRuleFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationNotificationRuleFilter)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleFilterPtrOutput) ToBucketNotificationNotificationRuleFilterPtrOutput() BucketNotificationNotificationRuleFilterPtrOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterPtrOutput) ToBucketNotificationNotificationRuleFilterPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterPtrOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterPtrOutput) Elem() BucketNotificationNotificationRuleFilterOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleFilter) BucketNotificationNotificationRuleFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNotificationNotificationRuleFilter
+		return ret
+	}).(BucketNotificationNotificationRuleFilterOutput)
+}
+
+// Object filter information.
+func (o BucketNotificationNotificationRuleFilterPtrOutput) TosKey() BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleFilter) *BucketNotificationNotificationRuleFilterTosKey {
+		if v == nil {
+			return nil
+		}
+		return v.TosKey
+	}).(BucketNotificationNotificationRuleFilterTosKeyPtrOutput)
+}
+
+type BucketNotificationNotificationRuleFilterTosKey struct {
+	FilterRules []BucketNotificationNotificationRuleFilterTosKeyFilterRule `pulumi:"filterRules"`
+}
+
+// BucketNotificationNotificationRuleFilterTosKeyInput is an input type that accepts BucketNotificationNotificationRuleFilterTosKeyArgs and BucketNotificationNotificationRuleFilterTosKeyOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleFilterTosKeyInput` via:
+//
+//	BucketNotificationNotificationRuleFilterTosKeyArgs{...}
+type BucketNotificationNotificationRuleFilterTosKeyInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleFilterTosKeyOutput() BucketNotificationNotificationRuleFilterTosKeyOutput
+	ToBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(context.Context) BucketNotificationNotificationRuleFilterTosKeyOutput
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyArgs struct {
+	FilterRules BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput `pulumi:"filterRules"`
+}
+
+func (BucketNotificationNotificationRuleFilterTosKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKey)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyArgs) ToBucketNotificationNotificationRuleFilterTosKeyOutput() BucketNotificationNotificationRuleFilterTosKeyOutput {
+	return i.ToBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyArgs) ToBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterTosKeyOutput)
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyArgs) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutput() BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return i.ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyArgs) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterTosKeyOutput).ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(ctx)
+}
+
+// BucketNotificationNotificationRuleFilterTosKeyPtrInput is an input type that accepts BucketNotificationNotificationRuleFilterTosKeyArgs, BucketNotificationNotificationRuleFilterTosKeyPtr and BucketNotificationNotificationRuleFilterTosKeyPtrOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleFilterTosKeyPtrInput` via:
+//
+//	        BucketNotificationNotificationRuleFilterTosKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketNotificationNotificationRuleFilterTosKeyPtrInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleFilterTosKeyPtrOutput() BucketNotificationNotificationRuleFilterTosKeyPtrOutput
+	ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(context.Context) BucketNotificationNotificationRuleFilterTosKeyPtrOutput
+}
+
+type bucketNotificationNotificationRuleFilterTosKeyPtrType BucketNotificationNotificationRuleFilterTosKeyArgs
+
+func BucketNotificationNotificationRuleFilterTosKeyPtr(v *BucketNotificationNotificationRuleFilterTosKeyArgs) BucketNotificationNotificationRuleFilterTosKeyPtrInput {
+	return (*bucketNotificationNotificationRuleFilterTosKeyPtrType)(v)
+}
+
+func (*bucketNotificationNotificationRuleFilterTosKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationNotificationRuleFilterTosKey)(nil)).Elem()
+}
+
+func (i *bucketNotificationNotificationRuleFilterTosKeyPtrType) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutput() BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return i.ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNotificationNotificationRuleFilterTosKeyPtrType) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterTosKeyPtrOutput)
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleFilterTosKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKey)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyOutput) ToBucketNotificationNotificationRuleFilterTosKeyOutput() BucketNotificationNotificationRuleFilterTosKeyOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyOutput) ToBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyOutput) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutput() BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return o.ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyOutput) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotificationNotificationRuleFilterTosKey) *BucketNotificationNotificationRuleFilterTosKey {
+		return &v
+	}).(BucketNotificationNotificationRuleFilterTosKeyPtrOutput)
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyOutput) FilterRules() BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleFilterTosKey) []BucketNotificationNotificationRuleFilterTosKeyFilterRule {
+		return v.FilterRules
+	}).(BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput)
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleFilterTosKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationNotificationRuleFilterTosKey)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyPtrOutput) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutput() BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyPtrOutput) ToBucketNotificationNotificationRuleFilterTosKeyPtrOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyPtrOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyPtrOutput) Elem() BucketNotificationNotificationRuleFilterTosKeyOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleFilterTosKey) BucketNotificationNotificationRuleFilterTosKey {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNotificationNotificationRuleFilterTosKey
+		return ret
+	}).(BucketNotificationNotificationRuleFilterTosKeyOutput)
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyPtrOutput) FilterRules() BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationNotificationRuleFilterTosKey) []BucketNotificationNotificationRuleFilterTosKeyFilterRule {
+		if v == nil {
+			return nil
+		}
+		return v.FilterRules
+	}).(BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput)
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyFilterRule struct {
+	// Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+	Name *string `pulumi:"name"`
+	// Matched prefix and suffix information.
+	Value *string `pulumi:"value"`
+}
+
+// BucketNotificationNotificationRuleFilterTosKeyFilterRuleInput is an input type that accepts BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs and BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleFilterTosKeyFilterRuleInput` via:
+//
+//	BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs{...}
+type BucketNotificationNotificationRuleFilterTosKeyFilterRuleInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput() BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput
+	ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(context.Context) BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs struct {
+	// Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Matched prefix and suffix information.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput() BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return i.ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput)
+}
+
+// BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput is an input type that accepts BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray and BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput values.
+// You can construct a concrete instance of `BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput` via:
+//
+//	BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray{ BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs{...} }
+type BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput() BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput
+	ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(context.Context) BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray []BucketNotificationNotificationRuleFilterTosKeyFilterRuleInput
+
+func (BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput() BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return i.ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput)
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput() BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return o
+}
+
+// Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleFilterTosKeyFilterRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Matched prefix and suffix information.
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketNotificationNotificationRuleFilterTosKeyFilterRule) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput() BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) ToBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(ctx context.Context) BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o
+}
+
+func (o BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) Index(i pulumi.IntInput) BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotificationNotificationRuleFilterTosKeyFilterRule {
+		return vs[0].([]BucketNotificationNotificationRuleFilterTosKeyFilterRule)[vs[1].(int)]
+	}).(BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput)
+}
+
+type BucketRealtimeLogRealTimeLog struct {
+	// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+	Role string `pulumi:"role"`
+	// Log project ID
+	TlsProjectId *string `pulumi:"tlsProjectId"`
+	// Log topic ID
+	TlsTopicId *string `pulumi:"tlsTopicId"`
+	// For topics created using the TOS service, only "true" is allowed as a value
+	UseServiceTopic bool `pulumi:"useServiceTopic"`
+}
+
+// BucketRealtimeLogRealTimeLogInput is an input type that accepts BucketRealtimeLogRealTimeLogArgs and BucketRealtimeLogRealTimeLogOutput values.
+// You can construct a concrete instance of `BucketRealtimeLogRealTimeLogInput` via:
+//
+//	BucketRealtimeLogRealTimeLogArgs{...}
+type BucketRealtimeLogRealTimeLogInput interface {
+	pulumi.Input
+
+	ToBucketRealtimeLogRealTimeLogOutput() BucketRealtimeLogRealTimeLogOutput
+	ToBucketRealtimeLogRealTimeLogOutputWithContext(context.Context) BucketRealtimeLogRealTimeLogOutput
+}
+
+type BucketRealtimeLogRealTimeLogArgs struct {
+	// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+	Role pulumi.StringInput `pulumi:"role"`
+	// Log project ID
+	TlsProjectId pulumi.StringPtrInput `pulumi:"tlsProjectId"`
+	// Log topic ID
+	TlsTopicId pulumi.StringPtrInput `pulumi:"tlsTopicId"`
+	// For topics created using the TOS service, only "true" is allowed as a value
+	UseServiceTopic pulumi.BoolInput `pulumi:"useServiceTopic"`
+}
+
+func (BucketRealtimeLogRealTimeLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRealtimeLogRealTimeLog)(nil)).Elem()
+}
+
+func (i BucketRealtimeLogRealTimeLogArgs) ToBucketRealtimeLogRealTimeLogOutput() BucketRealtimeLogRealTimeLogOutput {
+	return i.ToBucketRealtimeLogRealTimeLogOutputWithContext(context.Background())
+}
+
+func (i BucketRealtimeLogRealTimeLogArgs) ToBucketRealtimeLogRealTimeLogOutputWithContext(ctx context.Context) BucketRealtimeLogRealTimeLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRealtimeLogRealTimeLogOutput)
+}
+
+func (i BucketRealtimeLogRealTimeLogArgs) ToBucketRealtimeLogRealTimeLogPtrOutput() BucketRealtimeLogRealTimeLogPtrOutput {
+	return i.ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(context.Background())
+}
+
+func (i BucketRealtimeLogRealTimeLogArgs) ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(ctx context.Context) BucketRealtimeLogRealTimeLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRealtimeLogRealTimeLogOutput).ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(ctx)
+}
+
+// BucketRealtimeLogRealTimeLogPtrInput is an input type that accepts BucketRealtimeLogRealTimeLogArgs, BucketRealtimeLogRealTimeLogPtr and BucketRealtimeLogRealTimeLogPtrOutput values.
+// You can construct a concrete instance of `BucketRealtimeLogRealTimeLogPtrInput` via:
+//
+//	        BucketRealtimeLogRealTimeLogArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketRealtimeLogRealTimeLogPtrInput interface {
+	pulumi.Input
+
+	ToBucketRealtimeLogRealTimeLogPtrOutput() BucketRealtimeLogRealTimeLogPtrOutput
+	ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(context.Context) BucketRealtimeLogRealTimeLogPtrOutput
+}
+
+type bucketRealtimeLogRealTimeLogPtrType BucketRealtimeLogRealTimeLogArgs
+
+func BucketRealtimeLogRealTimeLogPtr(v *BucketRealtimeLogRealTimeLogArgs) BucketRealtimeLogRealTimeLogPtrInput {
+	return (*bucketRealtimeLogRealTimeLogPtrType)(v)
+}
+
+func (*bucketRealtimeLogRealTimeLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRealtimeLogRealTimeLog)(nil)).Elem()
+}
+
+func (i *bucketRealtimeLogRealTimeLogPtrType) ToBucketRealtimeLogRealTimeLogPtrOutput() BucketRealtimeLogRealTimeLogPtrOutput {
+	return i.ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketRealtimeLogRealTimeLogPtrType) ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(ctx context.Context) BucketRealtimeLogRealTimeLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRealtimeLogRealTimeLogPtrOutput)
+}
+
+type BucketRealtimeLogRealTimeLogOutput struct{ *pulumi.OutputState }
+
+func (BucketRealtimeLogRealTimeLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRealtimeLogRealTimeLog)(nil)).Elem()
+}
+
+func (o BucketRealtimeLogRealTimeLogOutput) ToBucketRealtimeLogRealTimeLogOutput() BucketRealtimeLogRealTimeLogOutput {
+	return o
+}
+
+func (o BucketRealtimeLogRealTimeLogOutput) ToBucketRealtimeLogRealTimeLogOutputWithContext(ctx context.Context) BucketRealtimeLogRealTimeLogOutput {
+	return o
+}
+
+func (o BucketRealtimeLogRealTimeLogOutput) ToBucketRealtimeLogRealTimeLogPtrOutput() BucketRealtimeLogRealTimeLogPtrOutput {
+	return o.ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRealtimeLogRealTimeLogOutput) ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(ctx context.Context) BucketRealtimeLogRealTimeLogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketRealtimeLogRealTimeLog) *BucketRealtimeLogRealTimeLog {
+		return &v
+	}).(BucketRealtimeLogRealTimeLogPtrOutput)
+}
+
+// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+func (o BucketRealtimeLogRealTimeLogOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketRealtimeLogRealTimeLog) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// Log project ID
+func (o BucketRealtimeLogRealTimeLogOutput) TlsProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRealtimeLogRealTimeLog) *string { return v.TlsProjectId }).(pulumi.StringPtrOutput)
+}
+
+// Log topic ID
+func (o BucketRealtimeLogRealTimeLogOutput) TlsTopicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRealtimeLogRealTimeLog) *string { return v.TlsTopicId }).(pulumi.StringPtrOutput)
+}
+
+// For topics created using the TOS service, only "true" is allowed as a value
+func (o BucketRealtimeLogRealTimeLogOutput) UseServiceTopic() pulumi.BoolOutput {
+	return o.ApplyT(func(v BucketRealtimeLogRealTimeLog) bool { return v.UseServiceTopic }).(pulumi.BoolOutput)
+}
+
+type BucketRealtimeLogRealTimeLogPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketRealtimeLogRealTimeLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRealtimeLogRealTimeLog)(nil)).Elem()
+}
+
+func (o BucketRealtimeLogRealTimeLogPtrOutput) ToBucketRealtimeLogRealTimeLogPtrOutput() BucketRealtimeLogRealTimeLogPtrOutput {
+	return o
+}
+
+func (o BucketRealtimeLogRealTimeLogPtrOutput) ToBucketRealtimeLogRealTimeLogPtrOutputWithContext(ctx context.Context) BucketRealtimeLogRealTimeLogPtrOutput {
+	return o
+}
+
+func (o BucketRealtimeLogRealTimeLogPtrOutput) Elem() BucketRealtimeLogRealTimeLogOutput {
+	return o.ApplyT(func(v *BucketRealtimeLogRealTimeLog) BucketRealtimeLogRealTimeLog {
+		if v != nil {
+			return *v
+		}
+		var ret BucketRealtimeLogRealTimeLog
+		return ret
+	}).(BucketRealtimeLogRealTimeLogOutput)
+}
+
+// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+func (o BucketRealtimeLogRealTimeLogPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRealtimeLogRealTimeLog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// Log project ID
+func (o BucketRealtimeLogRealTimeLogPtrOutput) TlsProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRealtimeLogRealTimeLog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Log topic ID
+func (o BucketRealtimeLogRealTimeLogPtrOutput) TlsTopicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRealtimeLogRealTimeLog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsTopicId
+	}).(pulumi.StringPtrOutput)
+}
+
+// For topics created using the TOS service, only "true" is allowed as a value
+func (o BucketRealtimeLogRealTimeLogPtrOutput) UseServiceTopic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketRealtimeLogRealTimeLog) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseServiceTopic
+	}).(pulumi.BoolPtrOutput)
+}
+
 type BucketTag struct {
 	// Tag key
 	Key *string `pulumi:"key"`
@@ -3066,6 +4431,148 @@ func (o GetBucketAclOwnerOutput) DisplayName() pulumi.StringOutput {
 // Account ID
 func (o GetBucketAclOwnerOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketAclOwner) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+type GetBucketCorsCorsRule struct {
+	// Specify the response headers allowed for cross-origin requests.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// Specify the allowed methods for cross-origin requests.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Specify the allowed origins for cross-origin requests.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Specify additional headers to include in the CORS response to provide extra information to the client.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+	MaxAgeSeconds int `pulumi:"maxAgeSeconds"`
+	// Whether to return the Vary: Origin header
+	ResponseVary bool `pulumi:"responseVary"`
+}
+
+// GetBucketCorsCorsRuleInput is an input type that accepts GetBucketCorsCorsRuleArgs and GetBucketCorsCorsRuleOutput values.
+// You can construct a concrete instance of `GetBucketCorsCorsRuleInput` via:
+//
+//	GetBucketCorsCorsRuleArgs{...}
+type GetBucketCorsCorsRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketCorsCorsRuleOutput() GetBucketCorsCorsRuleOutput
+	ToGetBucketCorsCorsRuleOutputWithContext(context.Context) GetBucketCorsCorsRuleOutput
+}
+
+type GetBucketCorsCorsRuleArgs struct {
+	// Specify the response headers allowed for cross-origin requests.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// Specify the allowed methods for cross-origin requests.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Specify the allowed origins for cross-origin requests.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Specify additional headers to include in the CORS response to provide extra information to the client.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+	MaxAgeSeconds pulumi.IntInput `pulumi:"maxAgeSeconds"`
+	// Whether to return the Vary: Origin header
+	ResponseVary pulumi.BoolInput `pulumi:"responseVary"`
+}
+
+func (GetBucketCorsCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketCorsCorsRule)(nil)).Elem()
+}
+
+func (i GetBucketCorsCorsRuleArgs) ToGetBucketCorsCorsRuleOutput() GetBucketCorsCorsRuleOutput {
+	return i.ToGetBucketCorsCorsRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketCorsCorsRuleArgs) ToGetBucketCorsCorsRuleOutputWithContext(ctx context.Context) GetBucketCorsCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketCorsCorsRuleOutput)
+}
+
+// GetBucketCorsCorsRuleArrayInput is an input type that accepts GetBucketCorsCorsRuleArray and GetBucketCorsCorsRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketCorsCorsRuleArrayInput` via:
+//
+//	GetBucketCorsCorsRuleArray{ GetBucketCorsCorsRuleArgs{...} }
+type GetBucketCorsCorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketCorsCorsRuleArrayOutput() GetBucketCorsCorsRuleArrayOutput
+	ToGetBucketCorsCorsRuleArrayOutputWithContext(context.Context) GetBucketCorsCorsRuleArrayOutput
+}
+
+type GetBucketCorsCorsRuleArray []GetBucketCorsCorsRuleInput
+
+func (GetBucketCorsCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketCorsCorsRule)(nil)).Elem()
+}
+
+func (i GetBucketCorsCorsRuleArray) ToGetBucketCorsCorsRuleArrayOutput() GetBucketCorsCorsRuleArrayOutput {
+	return i.ToGetBucketCorsCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketCorsCorsRuleArray) ToGetBucketCorsCorsRuleArrayOutputWithContext(ctx context.Context) GetBucketCorsCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketCorsCorsRuleArrayOutput)
+}
+
+type GetBucketCorsCorsRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketCorsCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketCorsCorsRule)(nil)).Elem()
+}
+
+func (o GetBucketCorsCorsRuleOutput) ToGetBucketCorsCorsRuleOutput() GetBucketCorsCorsRuleOutput {
+	return o
+}
+
+func (o GetBucketCorsCorsRuleOutput) ToGetBucketCorsCorsRuleOutputWithContext(ctx context.Context) GetBucketCorsCorsRuleOutput {
+	return o
+}
+
+// Specify the response headers allowed for cross-origin requests.
+func (o GetBucketCorsCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketCorsCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Specify the allowed methods for cross-origin requests.
+func (o GetBucketCorsCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketCorsCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Specify the allowed origins for cross-origin requests.
+func (o GetBucketCorsCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketCorsCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Specify additional headers to include in the CORS response to provide extra information to the client.
+func (o GetBucketCorsCorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketCorsCorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
+}
+
+// Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+func (o GetBucketCorsCorsRuleOutput) MaxAgeSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketCorsCorsRule) int { return v.MaxAgeSeconds }).(pulumi.IntOutput)
+}
+
+// Whether to return the Vary: Origin header
+func (o GetBucketCorsCorsRuleOutput) ResponseVary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBucketCorsCorsRule) bool { return v.ResponseVary }).(pulumi.BoolOutput)
+}
+
+type GetBucketCorsCorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketCorsCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketCorsCorsRule)(nil)).Elem()
+}
+
+func (o GetBucketCorsCorsRuleArrayOutput) ToGetBucketCorsCorsRuleArrayOutput() GetBucketCorsCorsRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketCorsCorsRuleArrayOutput) ToGetBucketCorsCorsRuleArrayOutputWithContext(ctx context.Context) GetBucketCorsCorsRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketCorsCorsRuleArrayOutput) Index(i pulumi.IntInput) GetBucketCorsCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketCorsCorsRule {
+		return vs[0].([]GetBucketCorsCorsRule)[vs[1].(int)]
+	}).(GetBucketCorsCorsRuleOutput)
 }
 
 type GetBucketInventoryDestination struct {
@@ -4136,6 +5643,857 @@ func (o GetBucketLifecycleConfigTransitionArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetBucketLifecycleConfigTransitionOutput)
 }
 
+type GetBucketNotificationNotificationRule struct {
+	// Event notification delivery targets. Must include at least one target and supports up to five different targets.
+	Destination GetBucketNotificationNotificationRuleDestination `pulumi:"destination"`
+	// Event type. List of events supported by TOS.
+	Events []string `pulumi:"events"`
+	// Filter rules.
+	Filter GetBucketNotificationNotificationRuleFilter `pulumi:"filter"`
+	// Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+	RuleId string `pulumi:"ruleId"`
+}
+
+// GetBucketNotificationNotificationRuleInput is an input type that accepts GetBucketNotificationNotificationRuleArgs and GetBucketNotificationNotificationRuleOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleInput` via:
+//
+//	GetBucketNotificationNotificationRuleArgs{...}
+type GetBucketNotificationNotificationRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleOutput() GetBucketNotificationNotificationRuleOutput
+	ToGetBucketNotificationNotificationRuleOutputWithContext(context.Context) GetBucketNotificationNotificationRuleOutput
+}
+
+type GetBucketNotificationNotificationRuleArgs struct {
+	// Event notification delivery targets. Must include at least one target and supports up to five different targets.
+	Destination GetBucketNotificationNotificationRuleDestinationInput `pulumi:"destination"`
+	// Event type. List of events supported by TOS.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Filter rules.
+	Filter GetBucketNotificationNotificationRuleFilterInput `pulumi:"filter"`
+	// Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+}
+
+func (GetBucketNotificationNotificationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleArgs) ToGetBucketNotificationNotificationRuleOutput() GetBucketNotificationNotificationRuleOutput {
+	return i.ToGetBucketNotificationNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleArgs) ToGetBucketNotificationNotificationRuleOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleOutput)
+}
+
+// GetBucketNotificationNotificationRuleArrayInput is an input type that accepts GetBucketNotificationNotificationRuleArray and GetBucketNotificationNotificationRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleArrayInput` via:
+//
+//	GetBucketNotificationNotificationRuleArray{ GetBucketNotificationNotificationRuleArgs{...} }
+type GetBucketNotificationNotificationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleArrayOutput() GetBucketNotificationNotificationRuleArrayOutput
+	ToGetBucketNotificationNotificationRuleArrayOutputWithContext(context.Context) GetBucketNotificationNotificationRuleArrayOutput
+}
+
+type GetBucketNotificationNotificationRuleArray []GetBucketNotificationNotificationRuleInput
+
+func (GetBucketNotificationNotificationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleArray) ToGetBucketNotificationNotificationRuleArrayOutput() GetBucketNotificationNotificationRuleArrayOutput {
+	return i.ToGetBucketNotificationNotificationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleArray) ToGetBucketNotificationNotificationRuleArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleOutput) ToGetBucketNotificationNotificationRuleOutput() GetBucketNotificationNotificationRuleOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleOutput) ToGetBucketNotificationNotificationRuleOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleOutput {
+	return o
+}
+
+// Event notification delivery targets. Must include at least one target and supports up to five different targets.
+func (o GetBucketNotificationNotificationRuleOutput) Destination() GetBucketNotificationNotificationRuleDestinationOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRule) GetBucketNotificationNotificationRuleDestination {
+		return v.Destination
+	}).(GetBucketNotificationNotificationRuleDestinationOutput)
+}
+
+// Event type. List of events supported by TOS.
+func (o GetBucketNotificationNotificationRuleOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRule) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Filter rules.
+func (o GetBucketNotificationNotificationRuleOutput) Filter() GetBucketNotificationNotificationRuleFilterOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRule) GetBucketNotificationNotificationRuleFilter {
+		return v.Filter
+	}).(GetBucketNotificationNotificationRuleFilterOutput)
+}
+
+// Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+func (o GetBucketNotificationNotificationRuleOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRule) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationNotificationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRule)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleArrayOutput) ToGetBucketNotificationNotificationRuleArrayOutput() GetBucketNotificationNotificationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleArrayOutput) ToGetBucketNotificationNotificationRuleArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationNotificationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationNotificationRule {
+		return vs[0].([]GetBucketNotificationNotificationRule)[vs[1].(int)]
+	}).(GetBucketNotificationNotificationRuleOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestination struct {
+	// Event delivery target is Kafka message queue.
+	Kafkas []GetBucketNotificationNotificationRuleDestinationKafka `pulumi:"kafkas"`
+	// Event delivery target is RocketMQ message queue.
+	RocketMqs []GetBucketNotificationNotificationRuleDestinationRocketMq `pulumi:"rocketMqs"`
+	// Event delivery target is Function Service.
+	VeFaaS []GetBucketNotificationNotificationRuleDestinationVeFaa `pulumi:"veFaaS"`
+}
+
+// GetBucketNotificationNotificationRuleDestinationInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationArgs and GetBucketNotificationNotificationRuleDestinationOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationArgs{...}
+type GetBucketNotificationNotificationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationOutput() GetBucketNotificationNotificationRuleDestinationOutput
+	ToGetBucketNotificationNotificationRuleDestinationOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationArgs struct {
+	// Event delivery target is Kafka message queue.
+	Kafkas GetBucketNotificationNotificationRuleDestinationKafkaArrayInput `pulumi:"kafkas"`
+	// Event delivery target is RocketMQ message queue.
+	RocketMqs GetBucketNotificationNotificationRuleDestinationRocketMqArrayInput `pulumi:"rocketMqs"`
+	// Event delivery target is Function Service.
+	VeFaaS GetBucketNotificationNotificationRuleDestinationVeFaaArrayInput `pulumi:"veFaaS"`
+}
+
+func (GetBucketNotificationNotificationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestination)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationArgs) ToGetBucketNotificationNotificationRuleDestinationOutput() GetBucketNotificationNotificationRuleDestinationOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationArgs) ToGetBucketNotificationNotificationRuleDestinationOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestination)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationOutput) ToGetBucketNotificationNotificationRuleDestinationOutput() GetBucketNotificationNotificationRuleDestinationOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationOutput) ToGetBucketNotificationNotificationRuleDestinationOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationOutput {
+	return o
+}
+
+// Event delivery target is Kafka message queue.
+func (o GetBucketNotificationNotificationRuleDestinationOutput) Kafkas() GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestination) []GetBucketNotificationNotificationRuleDestinationKafka {
+		return v.Kafkas
+	}).(GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput)
+}
+
+// Event delivery target is RocketMQ message queue.
+func (o GetBucketNotificationNotificationRuleDestinationOutput) RocketMqs() GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestination) []GetBucketNotificationNotificationRuleDestinationRocketMq {
+		return v.RocketMqs
+	}).(GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput)
+}
+
+// Event delivery target is Function Service.
+func (o GetBucketNotificationNotificationRuleDestinationOutput) VeFaaS() GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestination) []GetBucketNotificationNotificationRuleDestinationVeFaa {
+		return v.VeFaaS
+	}).(GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationKafka struct {
+	// Kafka instance ID.
+	InstanceId string `pulumi:"instanceId"`
+	// Region where the Kafka instance is located.
+	Region string `pulumi:"region"`
+	// Role TRN, used to authorize TOS to access Kafka service.
+	Role string `pulumi:"role"`
+	// Name of the Kafka topic.
+	Topic string `pulumi:"topic"`
+	// Kafka username.
+	User string `pulumi:"user"`
+}
+
+// GetBucketNotificationNotificationRuleDestinationKafkaInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationKafkaArgs and GetBucketNotificationNotificationRuleDestinationKafkaOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationKafkaInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationKafkaArgs{...}
+type GetBucketNotificationNotificationRuleDestinationKafkaInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationKafkaOutput() GetBucketNotificationNotificationRuleDestinationKafkaOutput
+	ToGetBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationKafkaOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationKafkaArgs struct {
+	// Kafka instance ID.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Region where the Kafka instance is located.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Role TRN, used to authorize TOS to access Kafka service.
+	Role pulumi.StringInput `pulumi:"role"`
+	// Name of the Kafka topic.
+	Topic pulumi.StringInput `pulumi:"topic"`
+	// Kafka username.
+	User pulumi.StringInput `pulumi:"user"`
+}
+
+func (GetBucketNotificationNotificationRuleDestinationKafkaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationKafkaArgs) ToGetBucketNotificationNotificationRuleDestinationKafkaOutput() GetBucketNotificationNotificationRuleDestinationKafkaOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationKafkaArgs) ToGetBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationKafkaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationKafkaOutput)
+}
+
+// GetBucketNotificationNotificationRuleDestinationKafkaArrayInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationKafkaArray and GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationKafkaArrayInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationKafkaArray{ GetBucketNotificationNotificationRuleDestinationKafkaArgs{...} }
+type GetBucketNotificationNotificationRuleDestinationKafkaArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutput() GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput
+	ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationKafkaArray []GetBucketNotificationNotificationRuleDestinationKafkaInput
+
+func (GetBucketNotificationNotificationRuleDestinationKafkaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationKafkaArray) ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutput() GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationKafkaArray) ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationKafkaOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationKafkaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) ToGetBucketNotificationNotificationRuleDestinationKafkaOutput() GetBucketNotificationNotificationRuleDestinationKafkaOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) ToGetBucketNotificationNotificationRuleDestinationKafkaOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationKafkaOutput {
+	return o
+}
+
+// Kafka instance ID.
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationKafka) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Region where the Kafka instance is located.
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationKafka) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Role TRN, used to authorize TOS to access Kafka service.
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationKafka) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// Name of the Kafka topic.
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationKafka) string { return v.Topic }).(pulumi.StringOutput)
+}
+
+// Kafka username.
+func (o GetBucketNotificationNotificationRuleDestinationKafkaOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationKafka) string { return v.User }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleDestinationKafka)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput) ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutput() GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput) ToGetBucketNotificationNotificationRuleDestinationKafkaArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationNotificationRuleDestinationKafkaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationNotificationRuleDestinationKafka {
+		return vs[0].([]GetBucketNotificationNotificationRuleDestinationKafka)[vs[1].(int)]
+	}).(GetBucketNotificationNotificationRuleDestinationKafkaOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationRocketMq struct {
+	// RocketMQ AccessKey。
+	AccessKeyId string `pulumi:"accessKeyId"`
+	// RocketMQ instance ID.
+	InstanceId string `pulumi:"instanceId"`
+	// Role TRN, used to authorize TOS to access RocketMQ service.
+	Role string `pulumi:"role"`
+	// Name of the RocketMQ topic.
+	Topic string `pulumi:"topic"`
+}
+
+// GetBucketNotificationNotificationRuleDestinationRocketMqInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationRocketMqArgs and GetBucketNotificationNotificationRuleDestinationRocketMqOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationRocketMqInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationRocketMqArgs{...}
+type GetBucketNotificationNotificationRuleDestinationRocketMqInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationRocketMqOutput() GetBucketNotificationNotificationRuleDestinationRocketMqOutput
+	ToGetBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationRocketMqOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationRocketMqArgs struct {
+	// RocketMQ AccessKey。
+	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
+	// RocketMQ instance ID.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Role TRN, used to authorize TOS to access RocketMQ service.
+	Role pulumi.StringInput `pulumi:"role"`
+	// Name of the RocketMQ topic.
+	Topic pulumi.StringInput `pulumi:"topic"`
+}
+
+func (GetBucketNotificationNotificationRuleDestinationRocketMqArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationRocketMqArgs) ToGetBucketNotificationNotificationRuleDestinationRocketMqOutput() GetBucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationRocketMqArgs) ToGetBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationRocketMqOutput)
+}
+
+// GetBucketNotificationNotificationRuleDestinationRocketMqArrayInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationRocketMqArray and GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationRocketMqArrayInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationRocketMqArray{ GetBucketNotificationNotificationRuleDestinationRocketMqArgs{...} }
+type GetBucketNotificationNotificationRuleDestinationRocketMqArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput() GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput
+	ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationRocketMqArray []GetBucketNotificationNotificationRuleDestinationRocketMqInput
+
+func (GetBucketNotificationNotificationRuleDestinationRocketMqArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationRocketMqArray) ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput() GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationRocketMqArray) ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationRocketMqOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationRocketMqOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqOutput) ToGetBucketNotificationNotificationRuleDestinationRocketMqOutput() GetBucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqOutput) ToGetBucketNotificationNotificationRuleDestinationRocketMqOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return o
+}
+
+// RocketMQ AccessKey。
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqOutput) AccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationRocketMq) string { return v.AccessKeyId }).(pulumi.StringOutput)
+}
+
+// RocketMQ instance ID.
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationRocketMq) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Role TRN, used to authorize TOS to access RocketMQ service.
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationRocketMq) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// Name of the RocketMQ topic.
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationRocketMq) string { return v.Topic }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleDestinationRocketMq)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput) ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput() GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput) ToGetBucketNotificationNotificationRuleDestinationRocketMqArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationNotificationRuleDestinationRocketMqOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationNotificationRuleDestinationRocketMq {
+		return vs[0].([]GetBucketNotificationNotificationRuleDestinationRocketMq)[vs[1].(int)]
+	}).(GetBucketNotificationNotificationRuleDestinationRocketMqOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationVeFaa struct {
+	// Function ID for event delivery.
+	FunctionId string `pulumi:"functionId"`
+}
+
+// GetBucketNotificationNotificationRuleDestinationVeFaaInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationVeFaaArgs and GetBucketNotificationNotificationRuleDestinationVeFaaOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationVeFaaInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationVeFaaArgs{...}
+type GetBucketNotificationNotificationRuleDestinationVeFaaInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationVeFaaOutput() GetBucketNotificationNotificationRuleDestinationVeFaaOutput
+	ToGetBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationVeFaaOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationVeFaaArgs struct {
+	// Function ID for event delivery.
+	FunctionId pulumi.StringInput `pulumi:"functionId"`
+}
+
+func (GetBucketNotificationNotificationRuleDestinationVeFaaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationVeFaaArgs) ToGetBucketNotificationNotificationRuleDestinationVeFaaOutput() GetBucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationVeFaaArgs) ToGetBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationVeFaaOutput)
+}
+
+// GetBucketNotificationNotificationRuleDestinationVeFaaArrayInput is an input type that accepts GetBucketNotificationNotificationRuleDestinationVeFaaArray and GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleDestinationVeFaaArrayInput` via:
+//
+//	GetBucketNotificationNotificationRuleDestinationVeFaaArray{ GetBucketNotificationNotificationRuleDestinationVeFaaArgs{...} }
+type GetBucketNotificationNotificationRuleDestinationVeFaaArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput() GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput
+	ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(context.Context) GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput
+}
+
+type GetBucketNotificationNotificationRuleDestinationVeFaaArray []GetBucketNotificationNotificationRuleDestinationVeFaaInput
+
+func (GetBucketNotificationNotificationRuleDestinationVeFaaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationVeFaaArray) ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput() GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return i.ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleDestinationVeFaaArray) ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationVeFaaOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationVeFaaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationVeFaaOutput) ToGetBucketNotificationNotificationRuleDestinationVeFaaOutput() GetBucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationVeFaaOutput) ToGetBucketNotificationNotificationRuleDestinationVeFaaOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return o
+}
+
+// Function ID for event delivery.
+func (o GetBucketNotificationNotificationRuleDestinationVeFaaOutput) FunctionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleDestinationVeFaa) string { return v.FunctionId }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleDestinationVeFaa)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput) ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput() GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput) ToGetBucketNotificationNotificationRuleDestinationVeFaaArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationNotificationRuleDestinationVeFaaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationNotificationRuleDestinationVeFaa {
+		return vs[0].([]GetBucketNotificationNotificationRuleDestinationVeFaa)[vs[1].(int)]
+	}).(GetBucketNotificationNotificationRuleDestinationVeFaaOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilter struct {
+	// Object filter information.
+	TosKey GetBucketNotificationNotificationRuleFilterTosKey `pulumi:"tosKey"`
+}
+
+// GetBucketNotificationNotificationRuleFilterInput is an input type that accepts GetBucketNotificationNotificationRuleFilterArgs and GetBucketNotificationNotificationRuleFilterOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleFilterInput` via:
+//
+//	GetBucketNotificationNotificationRuleFilterArgs{...}
+type GetBucketNotificationNotificationRuleFilterInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleFilterOutput() GetBucketNotificationNotificationRuleFilterOutput
+	ToGetBucketNotificationNotificationRuleFilterOutputWithContext(context.Context) GetBucketNotificationNotificationRuleFilterOutput
+}
+
+type GetBucketNotificationNotificationRuleFilterArgs struct {
+	// Object filter information.
+	TosKey GetBucketNotificationNotificationRuleFilterTosKeyInput `pulumi:"tosKey"`
+}
+
+func (GetBucketNotificationNotificationRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleFilter)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleFilterArgs) ToGetBucketNotificationNotificationRuleFilterOutput() GetBucketNotificationNotificationRuleFilterOutput {
+	return i.ToGetBucketNotificationNotificationRuleFilterOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleFilterArgs) ToGetBucketNotificationNotificationRuleFilterOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleFilterOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleFilter)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleFilterOutput) ToGetBucketNotificationNotificationRuleFilterOutput() GetBucketNotificationNotificationRuleFilterOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleFilterOutput) ToGetBucketNotificationNotificationRuleFilterOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterOutput {
+	return o
+}
+
+// Object filter information.
+func (o GetBucketNotificationNotificationRuleFilterOutput) TosKey() GetBucketNotificationNotificationRuleFilterTosKeyOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleFilter) GetBucketNotificationNotificationRuleFilterTosKey {
+		return v.TosKey
+	}).(GetBucketNotificationNotificationRuleFilterTosKeyOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKey struct {
+	// Object filter information.
+	FilterRules []GetBucketNotificationNotificationRuleFilterTosKeyFilterRule `pulumi:"filterRules"`
+}
+
+// GetBucketNotificationNotificationRuleFilterTosKeyInput is an input type that accepts GetBucketNotificationNotificationRuleFilterTosKeyArgs and GetBucketNotificationNotificationRuleFilterTosKeyOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleFilterTosKeyInput` via:
+//
+//	GetBucketNotificationNotificationRuleFilterTosKeyArgs{...}
+type GetBucketNotificationNotificationRuleFilterTosKeyInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleFilterTosKeyOutput() GetBucketNotificationNotificationRuleFilterTosKeyOutput
+	ToGetBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(context.Context) GetBucketNotificationNotificationRuleFilterTosKeyOutput
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyArgs struct {
+	// Object filter information.
+	FilterRules GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput `pulumi:"filterRules"`
+}
+
+func (GetBucketNotificationNotificationRuleFilterTosKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKey)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleFilterTosKeyArgs) ToGetBucketNotificationNotificationRuleFilterTosKeyOutput() GetBucketNotificationNotificationRuleFilterTosKeyOutput {
+	return i.ToGetBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleFilterTosKeyArgs) ToGetBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterTosKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleFilterTosKeyOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleFilterTosKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKey)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyOutput) ToGetBucketNotificationNotificationRuleFilterTosKeyOutput() GetBucketNotificationNotificationRuleFilterTosKeyOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyOutput) ToGetBucketNotificationNotificationRuleFilterTosKeyOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterTosKeyOutput {
+	return o
+}
+
+// Object filter information.
+func (o GetBucketNotificationNotificationRuleFilterTosKeyOutput) FilterRules() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleFilterTosKey) []GetBucketNotificationNotificationRuleFilterTosKeyFilterRule {
+		return v.FilterRules
+	}).(GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRule struct {
+	// Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+	Name string `pulumi:"name"`
+	// Matched prefix and suffix information.
+	Value string `pulumi:"value"`
+}
+
+// GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleInput is an input type that accepts GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs and GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleInput` via:
+//
+//	GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs{...}
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput
+	ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(context.Context) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs struct {
+	// Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Matched prefix and suffix information.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return i.ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput)
+}
+
+// GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput is an input type that accepts GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray and GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput` via:
+//
+//	GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray{ GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs{...} }
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput
+	ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(context.Context) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray []GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleInput
+
+func (GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (i GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return i.ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return o
+}
+
+// Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleFilterTosKeyFilterRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Matched prefix and suffix information.
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationNotificationRuleFilterTosKeyFilterRule) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationNotificationRuleFilterTosKeyFilterRule)(nil)).Elem()
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput() GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) ToGetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutputWithContext(ctx context.Context) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationNotificationRuleFilterTosKeyFilterRule {
+		return vs[0].([]GetBucketNotificationNotificationRuleFilterTosKeyFilterRule)[vs[1].(int)]
+	}).(GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput)
+}
+
+type GetBucketRealtimeLogRealTimeLog struct {
+	// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+	Role string `pulumi:"role"`
+	// Log project ID
+	TlsProjectId string `pulumi:"tlsProjectId"`
+	// Log topic ID
+	TlsTopicId string `pulumi:"tlsTopicId"`
+	// For topics created using the TOS service, only "true" is allowed as a value
+	UseServiceTopic bool `pulumi:"useServiceTopic"`
+}
+
+// GetBucketRealtimeLogRealTimeLogInput is an input type that accepts GetBucketRealtimeLogRealTimeLogArgs and GetBucketRealtimeLogRealTimeLogOutput values.
+// You can construct a concrete instance of `GetBucketRealtimeLogRealTimeLogInput` via:
+//
+//	GetBucketRealtimeLogRealTimeLogArgs{...}
+type GetBucketRealtimeLogRealTimeLogInput interface {
+	pulumi.Input
+
+	ToGetBucketRealtimeLogRealTimeLogOutput() GetBucketRealtimeLogRealTimeLogOutput
+	ToGetBucketRealtimeLogRealTimeLogOutputWithContext(context.Context) GetBucketRealtimeLogRealTimeLogOutput
+}
+
+type GetBucketRealtimeLogRealTimeLogArgs struct {
+	// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+	Role pulumi.StringInput `pulumi:"role"`
+	// Log project ID
+	TlsProjectId pulumi.StringInput `pulumi:"tlsProjectId"`
+	// Log topic ID
+	TlsTopicId pulumi.StringInput `pulumi:"tlsTopicId"`
+	// For topics created using the TOS service, only "true" is allowed as a value
+	UseServiceTopic pulumi.BoolInput `pulumi:"useServiceTopic"`
+}
+
+func (GetBucketRealtimeLogRealTimeLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketRealtimeLogRealTimeLog)(nil)).Elem()
+}
+
+func (i GetBucketRealtimeLogRealTimeLogArgs) ToGetBucketRealtimeLogRealTimeLogOutput() GetBucketRealtimeLogRealTimeLogOutput {
+	return i.ToGetBucketRealtimeLogRealTimeLogOutputWithContext(context.Background())
+}
+
+func (i GetBucketRealtimeLogRealTimeLogArgs) ToGetBucketRealtimeLogRealTimeLogOutputWithContext(ctx context.Context) GetBucketRealtimeLogRealTimeLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketRealtimeLogRealTimeLogOutput)
+}
+
+type GetBucketRealtimeLogRealTimeLogOutput struct{ *pulumi.OutputState }
+
+func (GetBucketRealtimeLogRealTimeLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketRealtimeLogRealTimeLog)(nil)).Elem()
+}
+
+func (o GetBucketRealtimeLogRealTimeLogOutput) ToGetBucketRealtimeLogRealTimeLogOutput() GetBucketRealtimeLogRealTimeLogOutput {
+	return o
+}
+
+func (o GetBucketRealtimeLogRealTimeLogOutput) ToGetBucketRealtimeLogRealTimeLogOutputWithContext(ctx context.Context) GetBucketRealtimeLogRealTimeLogOutput {
+	return o
+}
+
+// Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+func (o GetBucketRealtimeLogRealTimeLogOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketRealtimeLogRealTimeLog) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// Log project ID
+func (o GetBucketRealtimeLogRealTimeLogOutput) TlsProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketRealtimeLogRealTimeLog) string { return v.TlsProjectId }).(pulumi.StringOutput)
+}
+
+// Log topic ID
+func (o GetBucketRealtimeLogRealTimeLogOutput) TlsTopicId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketRealtimeLogRealTimeLog) string { return v.TlsTopicId }).(pulumi.StringOutput)
+}
+
+// For topics created using the TOS service, only "true" is allowed as a value
+func (o GetBucketRealtimeLogRealTimeLogOutput) UseServiceTopic() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBucketRealtimeLogRealTimeLog) bool { return v.UseServiceTopic }).(pulumi.BoolOutput)
+}
+
 type GetBucketTag struct {
 	// Tag key
 	Key string `pulumi:"key"`
@@ -4251,6 +6609,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclGrantGranteeInput)(nil)).Elem(), BucketAclGrantGranteeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclOwnerInput)(nil)).Elem(), BucketAclOwnerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclOwnerPtrInput)(nil)).Elem(), BucketAclOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsCorsRuleInput)(nil)).Elem(), BucketCorsCorsRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsCorsRuleArrayInput)(nil)).Elem(), BucketCorsCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationInput)(nil)).Elem(), BucketInventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationPtrInput)(nil)).Elem(), BucketInventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryDestinationTosBucketDestinationInput)(nil)).Elem(), BucketInventoryDestinationTosBucketDestinationArgs{})
@@ -4277,6 +6637,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigTagArrayInput)(nil)).Elem(), BucketLifecycleConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigTransitionInput)(nil)).Elem(), BucketLifecycleConfigTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigTransitionArrayInput)(nil)).Elem(), BucketLifecycleConfigTransitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleInput)(nil)).Elem(), BucketNotificationNotificationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleArrayInput)(nil)).Elem(), BucketNotificationNotificationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationPtrInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationKafkaInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationKafkaArrayInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationKafkaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationRocketMqInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationRocketMqArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationRocketMqArrayInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationRocketMqArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationVeFaaInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationVeFaaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleDestinationVeFaaArrayInput)(nil)).Elem(), BucketNotificationNotificationRuleDestinationVeFaaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleFilterInput)(nil)).Elem(), BucketNotificationNotificationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleFilterPtrInput)(nil)).Elem(), BucketNotificationNotificationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKeyInput)(nil)).Elem(), BucketNotificationNotificationRuleFilterTosKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKeyPtrInput)(nil)).Elem(), BucketNotificationNotificationRuleFilterTosKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKeyFilterRuleInput)(nil)).Elem(), BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput)(nil)).Elem(), BucketNotificationNotificationRuleFilterTosKeyFilterRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketRealtimeLogRealTimeLogInput)(nil)).Elem(), BucketRealtimeLogRealTimeLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketRealtimeLogRealTimeLogPtrInput)(nil)).Elem(), BucketRealtimeLogRealTimeLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclInput)(nil)).Elem(), GetBucketAclArgs{})
@@ -4284,6 +6662,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantArrayInput)(nil)).Elem(), GetBucketAclGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantGranteeInput)(nil)).Elem(), GetBucketAclGrantGranteeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclOwnerInput)(nil)).Elem(), GetBucketAclOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketCorsCorsRuleInput)(nil)).Elem(), GetBucketCorsCorsRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketCorsCorsRuleArrayInput)(nil)).Elem(), GetBucketCorsCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryDestinationInput)(nil)).Elem(), GetBucketInventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryDestinationTosBucketDestinationInput)(nil)).Elem(), GetBucketInventoryDestinationTosBucketDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketInventoryFilterInput)(nil)).Elem(), GetBucketInventoryFilterArgs{})
@@ -4301,6 +6681,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketLifecycleConfigTagArrayInput)(nil)).Elem(), GetBucketLifecycleConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketLifecycleConfigTransitionInput)(nil)).Elem(), GetBucketLifecycleConfigTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketLifecycleConfigTransitionArrayInput)(nil)).Elem(), GetBucketLifecycleConfigTransitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleInput)(nil)).Elem(), GetBucketNotificationNotificationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleArrayInput)(nil)).Elem(), GetBucketNotificationNotificationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationKafkaInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationKafkaArrayInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationKafkaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationRocketMqInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationRocketMqArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationRocketMqArrayInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationRocketMqArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationVeFaaInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationVeFaaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleDestinationVeFaaArrayInput)(nil)).Elem(), GetBucketNotificationNotificationRuleDestinationVeFaaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterInput)(nil)).Elem(), GetBucketNotificationNotificationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKeyInput)(nil)).Elem(), GetBucketNotificationNotificationRuleFilterTosKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleInput)(nil)).Elem(), GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayInput)(nil)).Elem(), GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketRealtimeLogRealTimeLogInput)(nil)).Elem(), GetBucketRealtimeLogRealTimeLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketTagInput)(nil)).Elem(), GetBucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketTagArrayInput)(nil)).Elem(), GetBucketTagArray{})
 	pulumi.RegisterOutputType(BucketAclOutput{})
@@ -4311,6 +6705,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketAclGrantGranteeOutput{})
 	pulumi.RegisterOutputType(BucketAclOwnerOutput{})
 	pulumi.RegisterOutputType(BucketAclOwnerPtrOutput{})
+	pulumi.RegisterOutputType(BucketCorsCorsRuleOutput{})
+	pulumi.RegisterOutputType(BucketCorsCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketInventoryDestinationOutput{})
 	pulumi.RegisterOutputType(BucketInventoryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(BucketInventoryDestinationTosBucketDestinationOutput{})
@@ -4337,6 +6733,24 @@ func init() {
 	pulumi.RegisterOutputType(BucketLifecycleConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigTransitionOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigTransitionArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationPtrOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationKafkaOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationKafkaArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationRocketMqOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationRocketMqArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationVeFaaOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleDestinationVeFaaArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleFilterOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleFilterTosKeyOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleFilterTosKeyPtrOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput{})
+	pulumi.RegisterOutputType(BucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketRealtimeLogRealTimeLogOutput{})
+	pulumi.RegisterOutputType(BucketRealtimeLogRealTimeLogPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagOutput{})
 	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketAclOutput{})
@@ -4344,6 +6758,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketAclGrantArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketAclGrantGranteeOutput{})
 	pulumi.RegisterOutputType(GetBucketAclOwnerOutput{})
+	pulumi.RegisterOutputType(GetBucketCorsCorsRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketCorsCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketInventoryDestinationOutput{})
 	pulumi.RegisterOutputType(GetBucketInventoryDestinationTosBucketDestinationOutput{})
 	pulumi.RegisterOutputType(GetBucketInventoryFilterOutput{})
@@ -4361,6 +6777,20 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketLifecycleConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketLifecycleConfigTransitionOutput{})
 	pulumi.RegisterOutputType(GetBucketLifecycleConfigTransitionArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationKafkaOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationKafkaArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationRocketMqOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationRocketMqArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationVeFaaOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleDestinationVeFaaArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleFilterOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleFilterTosKeyOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketRealtimeLogRealTimeLogOutput{})
 	pulumi.RegisterOutputType(GetBucketTagOutput{})
 	pulumi.RegisterOutputType(GetBucketTagArrayOutput{})
 }

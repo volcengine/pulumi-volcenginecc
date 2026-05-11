@@ -8224,6 +8224,33 @@ export namespace privatelink {
 }
 
 export namespace privatezone {
+    export interface RecordRecordSet {
+        /**
+         * Full domain name
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * Subdomain prefix
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * Record set ID
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Resolution line
+         */
+        line?: pulumi.Input<string>;
+        /**
+         * Record type
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Load balancing enabled
+         */
+        weightEnabled?: pulumi.Input<boolean>;
+    }
+
     export interface ResolverEndpointIpConfig {
         /**
          * Availability zone for the endpoint IP address. To ensure high availability, it is recommended to add at least 2 availability zones
@@ -9096,6 +9123,17 @@ export namespace rdsmysql {
          */
         value?: pulumi.Input<string>;
     }
+
+    export interface ParameterTemplateTemplateParam {
+        /**
+         * Instance parameter name
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Parameter runtime value
+         */
+        runningValue: pulumi.Input<string>;
+    }
 }
 
 export namespace rdspostgresql {
@@ -9429,6 +9467,21 @@ export namespace redis {
          * Associated security group ID
          */
         securityGroupId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceBackupRestore {
+        /**
+         * Backup ID, used to specify which backup to use when restoring from a backup set
+         */
+        backupPointId?: pulumi.Input<string>;
+        /**
+         * Recovery method
+         */
+        backupType?: pulumi.Input<string>;
+        /**
+         * Used to specify the point in time for point-in-time recovery
+         */
+        timePoint?: pulumi.Input<string>;
     }
 
     export interface InstanceCapacity {
@@ -11062,6 +11115,33 @@ export namespace tos {
         ownerId?: pulumi.Input<string>;
     }
 
+    export interface BucketCorsCorsRule {
+        /**
+         * Specify the response headers allowed for cross-origin requests.
+         */
+        allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify the allowed methods for cross-origin requests.
+         */
+        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify the allowed origins for cross-origin requests.
+         */
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify additional headers to include in the CORS response to provide extra information to the client.
+         */
+        exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify the cache duration for OPTIONS request responses on the client side, in seconds. Default is 3600.
+         */
+        maxAgeSeconds?: pulumi.Input<number>;
+        /**
+         * Whether to return the Vary: Origin header
+         */
+        responseVary?: pulumi.Input<boolean>;
+    }
+
     export interface BucketInventoryDestination {
         /**
          * Bucket information related to the inventory files.
@@ -11231,6 +11311,121 @@ export namespace tos {
          * Storage class for historical version object transition in lifecycle rules based on last modified time. Includes STANDARD, IA, ARCHIVE*FR, INTELLIGENT*TIERING, COLD*ARCHIVE, ARCHIVE, DEEP*COLD_ARCHIVE
          */
         storageClass?: pulumi.Input<string>;
+    }
+
+    export interface BucketNotificationNotificationRule {
+        /**
+         * Event notification delivery targets. Must include at least one target and supports up to five different targets.
+         */
+        destination?: pulumi.Input<inputs.tos.BucketNotificationNotificationRuleDestination>;
+        /**
+         * Event type. List of events supported by TOS.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Filter rules.
+         */
+        filter?: pulumi.Input<inputs.tos.BucketNotificationNotificationRuleFilter>;
+        /**
+         * Event notification rule name. Naming rules: Event names created under the same bucket must be unique. Maximum length is 255 characters. If not set, TOS will automatically generate a rule name.
+         */
+        ruleId?: pulumi.Input<string>;
+    }
+
+    export interface BucketNotificationNotificationRuleDestination {
+        kafkas?: pulumi.Input<pulumi.Input<inputs.tos.BucketNotificationNotificationRuleDestinationKafka>[]>;
+        rocketMqs?: pulumi.Input<pulumi.Input<inputs.tos.BucketNotificationNotificationRuleDestinationRocketMq>[]>;
+        veFaaS?: pulumi.Input<pulumi.Input<inputs.tos.BucketNotificationNotificationRuleDestinationVeFaa>[]>;
+    }
+
+    export interface BucketNotificationNotificationRuleDestinationKafka {
+        /**
+         * Kafka instance ID.
+         */
+        instanceId?: pulumi.Input<string>;
+        /**
+         * Region where the Kafka instance is located.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * Role TRN, used to authorize TOS to access Kafka service.
+         */
+        role?: pulumi.Input<string>;
+        /**
+         * Name of the Kafka topic.
+         */
+        topic?: pulumi.Input<string>;
+        /**
+         * Kafka username.
+         */
+        user?: pulumi.Input<string>;
+    }
+
+    export interface BucketNotificationNotificationRuleDestinationRocketMq {
+        /**
+         * RocketMQ AccessKey。
+         */
+        accessKeyId?: pulumi.Input<string>;
+        /**
+         * RocketMQ instance ID.
+         */
+        instanceId?: pulumi.Input<string>;
+        /**
+         * Role TRN, used to authorize TOS to access RocketMQ service.
+         */
+        role?: pulumi.Input<string>;
+        /**
+         * Name of the RocketMQ topic.
+         */
+        topic?: pulumi.Input<string>;
+    }
+
+    export interface BucketNotificationNotificationRuleDestinationVeFaa {
+        /**
+         * Function ID for event delivery.
+         */
+        functionId?: pulumi.Input<string>;
+    }
+
+    export interface BucketNotificationNotificationRuleFilter {
+        /**
+         * Object filter information.
+         */
+        tosKey?: pulumi.Input<inputs.tos.BucketNotificationNotificationRuleFilterTosKey>;
+    }
+
+    export interface BucketNotificationNotificationRuleFilterTosKey {
+        filterRules?: pulumi.Input<pulumi.Input<inputs.tos.BucketNotificationNotificationRuleFilterTosKeyFilterRule>[]>;
+    }
+
+    export interface BucketNotificationNotificationRuleFilterTosKeyFilterRule {
+        /**
+         * Matching conditions. The values are as follows: prefix: prefix; suffix: suffix.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Matched prefix and suffix information.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface BucketRealtimeLogRealTimeLog {
+        /**
+         * Role name. Used to grant TOS Object Storage permission to create resources such as projects and topics in Log Service TLS and to write logs
+         */
+        role: pulumi.Input<string>;
+        /**
+         * Log project ID
+         */
+        tlsProjectId?: pulumi.Input<string>;
+        /**
+         * Log topic ID
+         */
+        tlsTopicId?: pulumi.Input<string>;
+        /**
+         * For topics created using the TOS service, only "true" is allowed as a value
+         */
+        useServiceTopic: pulumi.Input<boolean>;
     }
 
     export interface BucketTag {

@@ -7,13 +7,21 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .bucket import *
+from .bucket_cors import *
 from .bucket_encryption import *
 from .bucket_inventory import *
+from .bucket_notification import *
+from .bucket_realtime_log import *
 from .get_bucket import *
+from .get_bucket_cors import *
 from .get_bucket_encryption import *
 from .get_bucket_encryptions import *
 from .get_bucket_inventories import *
 from .get_bucket_inventory import *
+from .get_bucket_notification import *
+from .get_bucket_notifications import *
+from .get_bucket_realtime_log import *
+from .get_bucket_realtime_logs import *
 from .get_buckets import *
 from ._inputs import *
 from . import outputs
