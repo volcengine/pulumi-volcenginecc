@@ -24,8 +24,8 @@ class AccesskeyArgs:
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Accesskey resource.
-        :param pulumi.Input[builtins.str] status: Key status. "active" means enabled, "inactive" means disabled
-        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        :param pulumi.Input[builtins.str] status: Key status. active means enabled, inactive means disabled.
+        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -36,7 +36,7 @@ class AccesskeyArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Key status. "active" means enabled, "inactive" means disabled
+        Key status. active means enabled, inactive means disabled.
         """
         return pulumi.get(self, "status")
 
@@ -48,7 +48,7 @@ class AccesskeyArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         return pulumi.get(self, "user_name")
 
@@ -72,16 +72,16 @@ class _AccesskeyState:
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Accesskey resources.
-        :param pulumi.Input[builtins.str] access_key_id: Key ID (Access Key Id)
-        :param pulumi.Input[builtins.str] created_time: Key creation time (ISO8601 format)
-        :param pulumi.Input[builtins.str] last_login_date: Last login time
-        :param pulumi.Input[builtins.str] region: Last accessed region by the API key
-        :param pulumi.Input[builtins.str] request_time: Last usage time of the API key
-        :param pulumi.Input[builtins.str] secret_access_key: Secret Access Key
-        :param pulumi.Input[builtins.str] service: English abbreviation of the last accessed service by the API key
-        :param pulumi.Input[builtins.str] status: Key status. "active" means enabled, "inactive" means disabled
-        :param pulumi.Input[builtins.str] updated_time: Key update time (ISO8601 format)
-        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        :param pulumi.Input[builtins.str] access_key_id: Access Key Id.
+        :param pulumi.Input[builtins.str] created_time: Key creation time. The time format is ISO8601.
+        :param pulumi.Input[builtins.str] last_login_date: Last login time.
+        :param pulumi.Input[builtins.str] region: The last region accessed by the API key.
+        :param pulumi.Input[builtins.str] request_time: The last time the API key was used.
+        :param pulumi.Input[builtins.str] secret_access_key: Secret Access Key.
+        :param pulumi.Input[builtins.str] service: The English abbreviation of the last service accessed by the API key.
+        :param pulumi.Input[builtins.str] status: Key status. active means enabled, inactive means disabled.
+        :param pulumi.Input[builtins.str] updated_time: Key update time. The time format is ISO8601.
+        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
@@ -108,7 +108,7 @@ class _AccesskeyState:
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Key ID (Access Key Id)
+        Access Key Id.
         """
         return pulumi.get(self, "access_key_id")
 
@@ -120,7 +120,7 @@ class _AccesskeyState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Key creation time (ISO8601 format)
+        Key creation time. The time format is ISO8601.
         """
         return pulumi.get(self, "created_time")
 
@@ -132,7 +132,7 @@ class _AccesskeyState:
     @pulumi.getter(name="lastLoginDate")
     def last_login_date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Last login time
+        Last login time.
         """
         return pulumi.get(self, "last_login_date")
 
@@ -144,7 +144,7 @@ class _AccesskeyState:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Last accessed region by the API key
+        The last region accessed by the API key.
         """
         return pulumi.get(self, "region")
 
@@ -156,7 +156,7 @@ class _AccesskeyState:
     @pulumi.getter(name="requestTime")
     def request_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Last usage time of the API key
+        The last time the API key was used.
         """
         return pulumi.get(self, "request_time")
 
@@ -168,7 +168,7 @@ class _AccesskeyState:
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Secret Access Key
+        Secret Access Key.
         """
         return pulumi.get(self, "secret_access_key")
 
@@ -180,7 +180,7 @@ class _AccesskeyState:
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        English abbreviation of the last accessed service by the API key
+        The English abbreviation of the last service accessed by the API key.
         """
         return pulumi.get(self, "service")
 
@@ -192,7 +192,7 @@ class _AccesskeyState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Key status. "active" means enabled, "inactive" means disabled
+        Key status. active means enabled, inactive means disabled.
         """
         return pulumi.get(self, "status")
 
@@ -204,7 +204,7 @@ class _AccesskeyState:
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Key update time (ISO8601 format)
+        Key update time. The time format is ISO8601.
         """
         return pulumi.get(self, "updated_time")
 
@@ -216,7 +216,7 @@ class _AccesskeyState:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         return pulumi.get(self, "user_name")
 
@@ -235,7 +235,7 @@ class Accesskey(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Access control (Identity and Access Management, IAM) is a permission management system provided by Volcano Engine to help customers control access to cloud resources for different identities
+        Access control (Identity and Access Management, abbreviated as IAM) is a permission management system provided by Volcano Engine for customers to control access to cloud resources by different identities.
 
         ## Example Usage
 
@@ -254,8 +254,8 @@ class Accesskey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] status: Key status. "active" means enabled, "inactive" means disabled
-        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        :param pulumi.Input[builtins.str] status: Key status. active means enabled, inactive means disabled.
+        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         ...
     @overload
@@ -264,7 +264,7 @@ class Accesskey(pulumi.CustomResource):
                  args: Optional[AccesskeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Access control (Identity and Access Management, IAM) is a permission management system provided by Volcano Engine to help customers control access to cloud resources for different identities
+        Access control (Identity and Access Management, abbreviated as IAM) is a permission management system provided by Volcano Engine for customers to control access to cloud resources by different identities.
 
         ## Example Usage
 
@@ -344,16 +344,16 @@ class Accesskey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_key_id: Key ID (Access Key Id)
-        :param pulumi.Input[builtins.str] created_time: Key creation time (ISO8601 format)
-        :param pulumi.Input[builtins.str] last_login_date: Last login time
-        :param pulumi.Input[builtins.str] region: Last accessed region by the API key
-        :param pulumi.Input[builtins.str] request_time: Last usage time of the API key
-        :param pulumi.Input[builtins.str] secret_access_key: Secret Access Key
-        :param pulumi.Input[builtins.str] service: English abbreviation of the last accessed service by the API key
-        :param pulumi.Input[builtins.str] status: Key status. "active" means enabled, "inactive" means disabled
-        :param pulumi.Input[builtins.str] updated_time: Key update time (ISO8601 format)
-        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        :param pulumi.Input[builtins.str] access_key_id: Access Key Id.
+        :param pulumi.Input[builtins.str] created_time: Key creation time. The time format is ISO8601.
+        :param pulumi.Input[builtins.str] last_login_date: Last login time.
+        :param pulumi.Input[builtins.str] region: The last region accessed by the API key.
+        :param pulumi.Input[builtins.str] request_time: The last time the API key was used.
+        :param pulumi.Input[builtins.str] secret_access_key: Secret Access Key.
+        :param pulumi.Input[builtins.str] service: The English abbreviation of the last service accessed by the API key.
+        :param pulumi.Input[builtins.str] status: Key status. active means enabled, inactive means disabled.
+        :param pulumi.Input[builtins.str] updated_time: Key update time. The time format is ISO8601.
+        :param pulumi.Input[builtins.str] user_name: User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -375,7 +375,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> pulumi.Output[builtins.str]:
         """
-        Key ID (Access Key Id)
+        Access Key Id.
         """
         return pulumi.get(self, "access_key_id")
 
@@ -383,7 +383,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[builtins.str]:
         """
-        Key creation time (ISO8601 format)
+        Key creation time. The time format is ISO8601.
         """
         return pulumi.get(self, "created_time")
 
@@ -391,7 +391,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="lastLoginDate")
     def last_login_date(self) -> pulumi.Output[builtins.str]:
         """
-        Last login time
+        Last login time.
         """
         return pulumi.get(self, "last_login_date")
 
@@ -399,7 +399,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        Last accessed region by the API key
+        The last region accessed by the API key.
         """
         return pulumi.get(self, "region")
 
@@ -407,7 +407,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="requestTime")
     def request_time(self) -> pulumi.Output[builtins.str]:
         """
-        Last usage time of the API key
+        The last time the API key was used.
         """
         return pulumi.get(self, "request_time")
 
@@ -415,7 +415,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> pulumi.Output[builtins.str]:
         """
-        Secret Access Key
+        Secret Access Key.
         """
         return pulumi.get(self, "secret_access_key")
 
@@ -423,7 +423,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter
     def service(self) -> pulumi.Output[builtins.str]:
         """
-        English abbreviation of the last accessed service by the API key
+        The English abbreviation of the last service accessed by the API key.
         """
         return pulumi.get(self, "service")
 
@@ -431,7 +431,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        Key status. "active" means enabled, "inactive" means disabled
+        Key status. active means enabled, inactive means disabled.
         """
         return pulumi.get(self, "status")
 
@@ -439,7 +439,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> pulumi.Output[builtins.str]:
         """
-        Key update time (ISO8601 format)
+        Key update time. The time format is ISO8601.
         """
         return pulumi.get(self, "updated_time")
 
@@ -447,7 +447,7 @@ class Accesskey(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[builtins.str]:
         """
-        User name. Used to create a key for a specified IAM user. If no user name is specified, the key is created for the current request identity (that is, if the main account requests, the key is created for the main account; if an IAM user requests, the key is created for that IAM user. Note: Roles cannot create keys for themselves). When an IAM user has the AccessKeySelfManageAccess permission, to create a key for themselves, they must include their own UserName in the request
+        User name. Used to create a key for the specified IAM user. If no user name is specified, a key is created for the current request identity (that is, if the primary account makes the request, the key is created for the primary account itself; if an IAM user makes the request, the key is created for the IAM user. Note: Roles do not support creating keys for themselves). If the IAM user has the AccessKeySelfManageAccess permission and needs to create a key for themselves, they must include their own UserName in the request.
         """
         return pulumi.get(self, "user_name")
 

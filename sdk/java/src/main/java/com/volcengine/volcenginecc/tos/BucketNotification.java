@@ -16,20 +16,18 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * { .Description | trimspace }
+ * Set event notification rules. Use event notification to receive alerts when resources in the bucket change.
  * 
  * ## Example Usage
  * 
- * { tffile (printf &#34;examples/resources/%s/tos_bucket_notification.tf&#34; .Name)}
- * 
- * { .SchemaMarkdown | trimspace }
- * {- if .HasImport }
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * { codefile &#34;shell&#34; .ImportFile }
- * 
- * {- end }
+ * ```sh
+ * $ pulumi import volcenginecc:tos/bucketNotification:BucketNotification example &#34;bucket_name&#34;
+ * ```
  * 
  */
 @ResourceType(type="volcenginecc:tos/bucketNotification:BucketNotification")

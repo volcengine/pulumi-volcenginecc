@@ -107,20 +107,13 @@ class BucketRealtimeLog(pulumi.CustomResource):
                  real_time_log: Optional[pulumi.Input[Union['BucketRealtimeLogRealTimeLogArgs', 'BucketRealtimeLogRealTimeLogArgsDict']]] = None,
                  __props__=None):
         """
-        { .Description | trimspace }
-
-        ## Example Usage
-
-        { tffile (printf "examples/resources/%s/tos_bucket_realtime_log.tf" .Name)}
-
-        { .SchemaMarkdown | trimspace }
-        {- if .HasImport }
+        Log analysis feature
 
         ## Import
 
-        { codefile "shell" .ImportFile }
-
-        {- end }
+        ```sh
+        $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example "bucket_name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,20 +127,13 @@ class BucketRealtimeLog(pulumi.CustomResource):
                  args: BucketRealtimeLogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        { .Description | trimspace }
-
-        ## Example Usage
-
-        { tffile (printf "examples/resources/%s/tos_bucket_realtime_log.tf" .Name)}
-
-        { .SchemaMarkdown | trimspace }
-        {- if .HasImport }
+        Log analysis feature
 
         ## Import
 
-        { codefile "shell" .ImportFile }
-
-        {- end }
+        ```sh
+        $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example "bucket_name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketRealtimeLogArgs args: The arguments to use to populate this resource's properties.

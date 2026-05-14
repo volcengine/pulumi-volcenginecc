@@ -7,20 +7,13 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * { .Description | trimspace }
- *
- * ## Example Usage
- *
- * { tffile (printf "examples/resources/%s/tos_bucket_realtime_log.tf" .Name)}
- *
- * { .SchemaMarkdown | trimspace }
- * {- if .HasImport }
+ * Log analysis feature
  *
  * ## Import
  *
- * { codefile "shell" .ImportFile }
- *
- * {- end }
+ * ```sh
+ * $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example "bucket_name"
+ * ```
  */
 export class BucketRealtimeLog extends pulumi.CustomResource {
     /**

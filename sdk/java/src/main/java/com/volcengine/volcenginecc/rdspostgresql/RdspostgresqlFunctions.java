@@ -12,6 +12,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetAllowListPlainArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetBackupArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetBackupPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDatabaseArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDatabasePlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbAccountArgs;
@@ -24,6 +26,8 @@ import com.volcengine.volcenginecc.rdspostgresql.inputs.GetSchemaArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetSchemaPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetAllowListsResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetBackupResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetBackupsResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDatabaseResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDatabasesResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbAccountResult;
@@ -120,6 +124,90 @@ public final class RdspostgresqlFunctions {
      */
     public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args) {
+        return getBackup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupResult> getBackupPlain(GetBackupPlainArgs args) {
+        return getBackupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupResult> getBackupPlain(GetBackupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups() {
+        return getBackups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain() {
+        return getBackupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args) {
+        return getBackups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain(InvokeArgs args) {
+        return getBackupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::RDSPostgreSQL::Database

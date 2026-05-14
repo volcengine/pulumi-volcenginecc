@@ -11,20 +11,13 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
-    /// { .Description | trimspace }
-    /// 
-    /// ## Example Usage
-    /// 
-    /// { tffile (printf "examples/resources/%s/tos_bucket_cors.tf" .Name)}
-    /// 
-    /// { .SchemaMarkdown | trimspace }
-    /// {- if .HasImport }
+    /// Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
     /// 
     /// ## Import
     /// 
-    /// { codefile "shell" .ImportFile }
-    /// 
-    /// {- end }
+    /// ```sh
+    /// $ pulumi import volcenginecc:tos/bucketCors:BucketCors example "bucket_name"
+    /// ```
     /// </summary>
     [VolcengineccResourceType("volcenginecc:tos/bucketCors:BucketCors")]
     public partial class BucketCors : global::Pulumi.CustomResource

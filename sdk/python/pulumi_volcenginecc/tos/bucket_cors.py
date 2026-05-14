@@ -99,20 +99,13 @@ class BucketCors(pulumi.CustomResource):
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsCorsRuleArgs', 'BucketCorsCorsRuleArgsDict']]]]] = None,
                  __props__=None):
         """
-        { .Description | trimspace }
-
-        ## Example Usage
-
-        { tffile (printf "examples/resources/%s/tos_bucket_cors.tf" .Name)}
-
-        { .SchemaMarkdown | trimspace }
-        {- if .HasImport }
+        Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
 
         ## Import
 
-        { codefile "shell" .ImportFile }
-
-        {- end }
+        ```sh
+        $ pulumi import volcenginecc:tos/bucketCors:BucketCors example "bucket_name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,20 +118,13 @@ class BucketCors(pulumi.CustomResource):
                  args: BucketCorsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        { .Description | trimspace }
-
-        ## Example Usage
-
-        { tffile (printf "examples/resources/%s/tos_bucket_cors.tf" .Name)}
-
-        { .SchemaMarkdown | trimspace }
-        {- if .HasImport }
+        Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
 
         ## Import
 
-        { codefile "shell" .ImportFile }
-
-        {- end }
+        ```sh
+        $ pulumi import volcenginecc:tos/bucketCors:BucketCors example "bucket_name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketCorsArgs args: The arguments to use to populate this resource's properties.

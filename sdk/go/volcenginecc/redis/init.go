@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointPublicAddress{}
 	case "volcenginecc:redis/instance:Instance":
 		r = &Instance{}
+	case "volcenginecc:redis/parameterGroup:ParameterGroup":
+		r = &ParameterGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"redis/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"redis/parameterGroup",
 		&module{version},
 	)
 }

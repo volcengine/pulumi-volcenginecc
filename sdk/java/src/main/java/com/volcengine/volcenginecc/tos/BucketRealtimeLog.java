@@ -15,20 +15,18 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * { .Description | trimspace }
+ * Log analysis feature
  * 
  * ## Example Usage
  * 
- * { tffile (printf &#34;examples/resources/%s/tos_bucket_realtime_log.tf&#34; .Name)}
- * 
- * { .SchemaMarkdown | trimspace }
- * {- if .HasImport }
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * { codefile &#34;shell&#34; .ImportFile }
- * 
- * {- end }
+ * ```sh
+ * $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example &#34;bucket_name&#34;
+ * ```
  * 
  */
 @ResourceType(type="volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog")

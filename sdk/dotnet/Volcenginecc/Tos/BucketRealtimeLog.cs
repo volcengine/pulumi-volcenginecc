@@ -11,20 +11,13 @@ using Pulumi;
 namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
-    /// { .Description | trimspace }
-    /// 
-    /// ## Example Usage
-    /// 
-    /// { tffile (printf "examples/resources/%s/tos_bucket_realtime_log.tf" .Name)}
-    /// 
-    /// { .SchemaMarkdown | trimspace }
-    /// {- if .HasImport }
+    /// Log analysis feature
     /// 
     /// ## Import
     /// 
-    /// { codefile "shell" .ImportFile }
-    /// 
-    /// {- end }
+    /// ```sh
+    /// $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example "bucket_name"
+    /// ```
     /// </summary>
     [VolcengineccResourceType("volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog")]
     public partial class BucketRealtimeLog : global::Pulumi.CustomResource

@@ -16,20 +16,18 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * { .Description | trimspace }
+ * Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
  * 
  * ## Example Usage
  * 
- * { tffile (printf &#34;examples/resources/%s/tos_bucket_cors.tf&#34; .Name)}
- * 
- * { .SchemaMarkdown | trimspace }
- * {- if .HasImport }
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * { codefile &#34;shell&#34; .ImportFile }
- * 
- * {- end }
+ * ```sh
+ * $ pulumi import volcenginecc:tos/bucketCors:BucketCors example &#34;bucket_name&#34;
+ * ```
  * 
  */
 @ResourceType(type="volcenginecc:tos/bucketCors:BucketCors")
