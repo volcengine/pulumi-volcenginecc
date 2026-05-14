@@ -7,20 +7,13 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * { .Description | trimspace }
- *
- * ## Example Usage
- *
- * { tffile (printf "examples/resources/%s/tos_bucket_cors.tf" .Name)}
- *
- * { .SchemaMarkdown | trimspace }
- * {- if .HasImport }
+ * Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
  *
  * ## Import
  *
- * { codefile "shell" .ImportFile }
- *
- * {- end }
+ * ```sh
+ * $ pulumi import volcenginecc:tos/bucketCors:BucketCors example "bucket_name"
+ * ```
  */
 export class BucketCors extends pulumi.CustomResource {
     /**

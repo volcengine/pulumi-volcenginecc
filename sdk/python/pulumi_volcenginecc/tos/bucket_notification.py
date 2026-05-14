@@ -100,20 +100,13 @@ class BucketNotification(pulumi.CustomResource):
                  notification_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationNotificationRuleArgs', 'BucketNotificationNotificationRuleArgsDict']]]]] = None,
                  __props__=None):
         """
-        { .Description | trimspace }
-
-        ## Example Usage
-
-        { tffile (printf "examples/resources/%s/tos_bucket_notification.tf" .Name)}
-
-        { .SchemaMarkdown | trimspace }
-        {- if .HasImport }
+        Set event notification rules. Use event notification to receive alerts when resources in the bucket change.
 
         ## Import
 
-        { codefile "shell" .ImportFile }
-
-        {- end }
+        ```sh
+        $ pulumi import volcenginecc:tos/bucketNotification:BucketNotification example "bucket_name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,20 +119,13 @@ class BucketNotification(pulumi.CustomResource):
                  args: BucketNotificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        { .Description | trimspace }
-
-        ## Example Usage
-
-        { tffile (printf "examples/resources/%s/tos_bucket_notification.tf" .Name)}
-
-        { .SchemaMarkdown | trimspace }
-        {- if .HasImport }
+        Set event notification rules. Use event notification to receive alerts when resources in the bucket change.
 
         ## Import
 
-        { codefile "shell" .ImportFile }
-
-        {- end }
+        ```sh
+        $ pulumi import volcenginecc:tos/bucketNotification:BucketNotification example "bucket_name"
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketNotificationArgs args: The arguments to use to populate this resource's properties.

@@ -18,6 +18,8 @@ import com.volcengine.volcenginecc.redis.inputs.GetEndpointPublicAddressArgs;
 import com.volcengine.volcenginecc.redis.inputs.GetEndpointPublicAddressPlainArgs;
 import com.volcengine.volcenginecc.redis.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.redis.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.redis.inputs.GetParameterGroupArgs;
+import com.volcengine.volcenginecc.redis.inputs.GetParameterGroupPlainArgs;
 import com.volcengine.volcenginecc.redis.outputs.GetAccountResult;
 import com.volcengine.volcenginecc.redis.outputs.GetAccountsResult;
 import com.volcengine.volcenginecc.redis.outputs.GetAllowListResult;
@@ -26,6 +28,8 @@ import com.volcengine.volcenginecc.redis.outputs.GetEndpointPublicAddressResult;
 import com.volcengine.volcenginecc.redis.outputs.GetEndpointPublicAddressesResult;
 import com.volcengine.volcenginecc.redis.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.redis.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.redis.outputs.GetParameterGroupResult;
+import com.volcengine.volcenginecc.redis.outputs.GetParameterGroupsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RedisFunctions {
@@ -364,5 +368,89 @@ public final class RedisFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:redis/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args) {
+        return getParameterGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupResult> getParameterGroupPlain(GetParameterGroupPlainArgs args) {
+        return getParameterGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupResult> getParameterGroup(GetParameterGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupResult> getParameterGroupPlain(GetParameterGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:redis/getParameterGroup:getParameterGroup", TypeShape.of(GetParameterGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupsResult> getParameterGroups() {
+        return getParameterGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupsResult> getParameterGroupsPlain() {
+        return getParameterGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupsResult> getParameterGroups(InvokeArgs args) {
+        return getParameterGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupsResult> getParameterGroupsPlain(InvokeArgs args) {
+        return getParameterGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupsResult> getParameterGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getParameterGroups:getParameterGroups", TypeShape.of(GetParameterGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static Output<GetParameterGroupsResult> getParameterGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:redis/getParameterGroups:getParameterGroups", TypeShape.of(GetParameterGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Redis::ParameterGroup
+     * 
+     */
+    public static CompletableFuture<GetParameterGroupsResult> getParameterGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:redis/getParameterGroups:getParameterGroups", TypeShape.of(GetParameterGroupsResult.class), args, Utilities.withVersion(options));
     }
 }

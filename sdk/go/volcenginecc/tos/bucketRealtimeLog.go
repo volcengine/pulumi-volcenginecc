@@ -12,20 +12,13 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// { .Description | trimspace }
-//
-// ## Example Usage
-//
-// { tffile (printf "examples/resources/%s/tos_bucket_realtime_log.tf" .Name)}
-//
-// { .SchemaMarkdown | trimspace }
-// {- if .HasImport }
+// Log analysis feature
 //
 // ## Import
 //
-// { codefile "shell" .ImportFile }
-//
-// {- end }
+// ```sh
+// $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example "bucket_name"
+// ```
 type BucketRealtimeLog struct {
 	pulumi.CustomResourceState
 

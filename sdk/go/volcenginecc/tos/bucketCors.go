@@ -12,20 +12,13 @@ import (
 	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/internal"
 )
 
-// { .Description | trimspace }
-//
-// ## Example Usage
-//
-// { tffile (printf "examples/resources/%s/tos_bucket_cors.tf" .Name)}
-//
-// { .SchemaMarkdown | trimspace }
-// {- if .HasImport }
+// Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
 //
 // ## Import
 //
-// { codefile "shell" .ImportFile }
-//
-// {- end }
+// ```sh
+// $ pulumi import volcenginecc:tos/bucketCors:BucketCors example "bucket_name"
+// ```
 type BucketCors struct {
 	pulumi.CustomResourceState
 

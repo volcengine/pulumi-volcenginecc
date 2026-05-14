@@ -11,6 +11,7 @@ import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.mongodb.InstanceArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.InstanceState;
 import com.volcengine.volcenginecc.mongodb.outputs.InstanceConfigServer;
+import com.volcengine.volcenginecc.mongodb.outputs.InstanceInstanceParameter;
 import com.volcengine.volcenginecc.mongodb.outputs.InstanceMongo;
 import com.volcengine.volcenginecc.mongodb.outputs.InstanceNode;
 import com.volcengine.volcenginecc.mongodb.outputs.InstanceNodeAvailabilityZone;
@@ -325,6 +326,12 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> instanceName() {
         return this.instanceName;
+    }
+    @Export(name="instanceParameters", refs={List.class,InstanceInstanceParameter.class}, tree="[0,1]")
+    private Output<List<InstanceInstanceParameter>> instanceParameters;
+
+    public Output<List<InstanceInstanceParameter>> instanceParameters() {
+        return this.instanceParameters;
     }
     /**
      * Instance status. Creating: Creating. Running: Running. Allowlist maintenance: AllowListMaintaining. Scaling: Scaling. Restarting: Restarting. Network maintaining: NetworkMaintaining. Restoring: Restoring. Upgrading: Upgrading. Unavailable: Unavailable. Closing: Closing. Deleting: Deleting. Closed: Closed. SSL updating: SSLUpdating. Switch mastering: SwitchMastering. Role changing: RoleChanging. Migrating: Migrating.

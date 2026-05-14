@@ -2017,6 +2017,9 @@
                     "config_servers": {
                         "maxItemsOne": false
                     },
+                    "instance_parameters": {
+                        "maxItemsOne": false
+                    },
                     "mongos": {
                         "maxItemsOne": false
                     },
@@ -2455,6 +2458,14 @@
                     }
                 }
             },
+            "volcenginecc_rdspostgresql_backup": {
+                "current": "volcenginecc:rdspostgresql/backup:Backup",
+                "fields": {
+                    "backup_meta": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdspostgresql_database": {
                 "current": "volcenginecc:rdspostgresql/database:Database"
             },
@@ -2563,6 +2574,17 @@
                         "maxItemsOne": false
                     },
                     "zone_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_redis_parameter_group": {
+                "current": "volcenginecc:redis/parameterGroup:ParameterGroup",
+                "fields": {
+                    "param_values": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
                         "maxItemsOne": false
                     }
                 }
@@ -6612,6 +6634,9 @@
                     "config_servers": {
                         "maxItemsOne": false
                     },
+                    "instance_parameters": {
+                        "maxItemsOne": false
+                    },
                     "mongos": {
                         "maxItemsOne": false
                     },
@@ -7298,6 +7323,22 @@
                     }
                 }
             },
+            "volcenginecc_rdspostgresql_backup": {
+                "current": "volcenginecc:rdspostgresql/getBackup:getBackup",
+                "fields": {
+                    "backup_meta": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdspostgresql_backups": {
+                "current": "volcenginecc:rdspostgresql/getBackups:getBackups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rdspostgresql_database": {
                 "current": "volcenginecc:rdspostgresql/getDatabase:getDatabase"
             },
@@ -7483,6 +7524,25 @@
             },
             "volcenginecc_redis_instances": {
                 "current": "volcenginecc:redis/getInstances:getInstances",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_redis_parameter_group": {
+                "current": "volcenginecc:redis/getParameterGroup:getParameterGroup",
+                "fields": {
+                    "param_values": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_redis_parameter_groups": {
+                "current": "volcenginecc:redis/getParameterGroups:getParameterGroups",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

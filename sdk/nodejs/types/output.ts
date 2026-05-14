@@ -16027,6 +16027,45 @@ export namespace mongodb {
         zoneId: string;
     }
 
+    export interface GetInstanceInstanceParameter {
+        /**
+         * Parameter validation rule
+         */
+        checkingCode: string;
+        /**
+         * Whether to force modification
+         */
+        forceModify: boolean;
+        /**
+         * Requires instance restart to take effect after modification
+         */
+        forceRestart: boolean;
+        /**
+         * Parameter default value
+         */
+        parameterDefaultValue: string;
+        /**
+         * Parameter description
+         */
+        parameterDescription: string;
+        /**
+         * Parameter name
+         */
+        parameterName: string;
+        /**
+         * Parameter role. Optional values: Node, Shard, ConfigServer, Mongos
+         */
+        parameterRole: string;
+        /**
+         * Parameter type. Optional values: String, Integer, Boolean, List, Float
+         */
+        parameterType: string;
+        /**
+         * Parameter value
+         */
+        parameterValue: string;
+    }
+
     export interface GetInstanceMongo {
         /**
          * Mongos node ID
@@ -16230,6 +16269,21 @@ export namespace mongodb {
          * Availability zone ID of the current node.
          */
         zoneId: string;
+    }
+
+    export interface InstanceInstanceParameter {
+        /**
+         * Parameter name
+         */
+        parameterName: string;
+        /**
+         * Parameter role. Optional values: Node, Shard, ConfigServer, Mongos
+         */
+        parameterRole: string;
+        /**
+         * Parameter value
+         */
+        parameterValue: string;
     }
 
     export interface InstanceMongo {
@@ -18891,14 +18945,6 @@ export namespace rdspostgresql {
          * Instance ID.
          */
         instanceId: string;
-        /**
-         * Instance name.
-         */
-        instanceName: string;
-        /**
-         * VPC ID to which the instance belongs.
-         */
-        vpc: string;
     }
 
     export interface AllowListSecurityGroupBindInfo {
@@ -18918,6 +18964,44 @@ export namespace rdspostgresql {
          * Security group name.
          */
         securityGroupName: string;
+    }
+
+    export interface BackupBackupMeta {
+        /**
+         * Database name.
+         */
+        dbName: string;
+    }
+
+    export interface BackupBackupPolicy {
+        /**
+         * Backup retention days.
+         */
+        backupRetentionPeriod: number;
+        /**
+         * Data incremental backup schedule.
+         */
+        dataIncrBackupPeriods: string;
+        /**
+         * Full backup schedule, such as Monday,Tuesday.
+         */
+        fullBackupPeriod: string;
+        /**
+         * Full backup time window, such as 00:00Z-01:00Z.
+         */
+        fullBackupTime: string;
+        /**
+         * Enable hourly incremental backup.
+         */
+        hourlyIncrBackupEnable: boolean;
+        /**
+         * Incremental backup frequency (hours).
+         */
+        incrementBackupFrequency: number;
+        /**
+         * Enable WAL log space limit.
+         */
+        walLogSpaceLimitEnable: boolean;
     }
 
     export interface DbEndpointAddress {
@@ -18982,6 +19066,44 @@ export namespace rdspostgresql {
          * Security group name.
          */
         securityGroupName: string;
+    }
+
+    export interface GetBackupBackupMeta {
+        /**
+         * Database name.
+         */
+        dbName: string;
+    }
+
+    export interface GetBackupBackupPolicy {
+        /**
+         * Backup retention days.
+         */
+        backupRetentionPeriod: number;
+        /**
+         * Data incremental backup schedule.
+         */
+        dataIncrBackupPeriods: string;
+        /**
+         * Full backup schedule, such as Monday,Tuesday.
+         */
+        fullBackupPeriod: string;
+        /**
+         * Full backup time window, such as 00:00Z-01:00Z.
+         */
+        fullBackupTime: string;
+        /**
+         * Enable hourly incremental backup.
+         */
+        hourlyIncrBackupEnable: boolean;
+        /**
+         * Incremental backup frequency (hours).
+         */
+        incrementBackupFrequency: number;
+        /**
+         * Enable WAL log space limit.
+         */
+        walLogSpaceLimitEnable: boolean;
     }
 
     export interface GetDbEndpointAddress {
@@ -19699,6 +19821,48 @@ export namespace redis {
         vip: string;
     }
 
+    export interface GetParameterGroupParamValue {
+        /**
+         * Parameter name
+         */
+        name: string;
+        /**
+         * Parameter value
+         */
+        value: string;
+    }
+
+    export interface GetParameterGroupParameter {
+        /**
+         * Current parameter value
+         */
+        currentValue: string;
+        /**
+         * Parameter description
+         */
+        description: string;
+        /**
+         * Whether modifying this parameter requires a restart
+         */
+        needReboot: boolean;
+        /**
+         * Parameter name
+         */
+        paramName: string;
+        /**
+         * Parameter value range
+         */
+        range: string;
+        /**
+         * Parameter type
+         */
+        type: string;
+        /**
+         * Parameter unit
+         */
+        unit: string;
+    }
+
     export interface InstanceBackupRestore {
         /**
          * Backup ID, used to specify which backup to use when restoring from a backup set
@@ -19799,6 +19963,48 @@ export namespace redis {
          * The IPv4 address corresponding to the connection address.
          */
         vip: string;
+    }
+
+    export interface ParameterGroupParamValue {
+        /**
+         * Parameter name
+         */
+        name: string;
+        /**
+         * Parameter value
+         */
+        value: string;
+    }
+
+    export interface ParameterGroupParameter {
+        /**
+         * Current parameter value
+         */
+        currentValue: string;
+        /**
+         * Parameter description
+         */
+        description: string;
+        /**
+         * Whether modifying this parameter requires a restart
+         */
+        needReboot: boolean;
+        /**
+         * Parameter name
+         */
+        paramName: string;
+        /**
+         * Parameter value range
+         */
+        range: string;
+        /**
+         * Parameter type
+         */
+        type: string;
+        /**
+         * Parameter unit
+         */
+        unit: string;
     }
 
 }
@@ -24568,6 +24774,21 @@ export namespace vefaas {
         destination: string;
     }
 
+    export interface FunctionDependencyInstallStatus {
+        /**
+         * Task creation time.
+         */
+        createTime: string;
+        /**
+         * Task completion time. The task is considered complete when it is in one of the following statuses: Canceled: Canceled. Timeout: Timed out. Failed: Failed. Succeeded: Succeeded.
+         */
+        finishTime: string;
+        /**
+         * Task status. Possible values are as follows: Enqueued: Queued. Dequeued: Dequeued. InProgress: In progress. Canceling/Canceled: Canceling/Canceled. Timeout: Timed out. Failed: Failed. Succeeded: Succeeded.
+         */
+        status: string;
+    }
+
     export interface FunctionEnv {
         /**
          * Environment variable key. 1–63 characters; can include letters, numbers, and underscores (_), but cannot start with a number. Key must be unique within the same function
@@ -24758,6 +24979,21 @@ export namespace vefaas {
          * Specific callback target. Set the value to empty ("") to disable this callback
          */
         destination: string;
+    }
+
+    export interface GetFunctionDependencyInstallStatus {
+        /**
+         * Task creation time.
+         */
+        createTime: string;
+        /**
+         * Task completion time. The task is considered complete when it is in one of the following statuses: Canceled: Canceled. Timeout: Timed out. Failed: Failed. Succeeded: Succeeded.
+         */
+        finishTime: string;
+        /**
+         * Task status. Possible values are as follows: Enqueued: Queued. Dequeued: Dequeued. InProgress: In progress. Canceling/Canceled: Canceling/Canceled. Timeout: Timed out. Failed: Failed. Succeeded: Succeeded.
+         */
+        status: string;
     }
 
     export interface GetFunctionEnv {

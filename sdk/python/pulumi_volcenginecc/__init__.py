@@ -1122,6 +1122,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdspostgresql/backup",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/backup:Backup": "Backup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdspostgresql/database",
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
@@ -1190,6 +1198,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.redis",
   "classes": {
    "volcenginecc:redis/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "redis/parameterGroup",
+  "fqn": "pulumi_volcenginecc.redis",
+  "classes": {
+   "volcenginecc:redis/parameterGroup:ParameterGroup": "ParameterGroup"
   }
  },
  {
