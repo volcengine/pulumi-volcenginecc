@@ -12,7 +12,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql.Outputs
 {
 
     [OutputType]
-    public sealed class GetDbEndpointAddressResult
+    public sealed class GetDbEndpointPublicAddressesResult
     {
         /// <summary>
         /// Private network address accessible across regions. Note: If this address is unavailable, this field will not be returned.
@@ -56,7 +56,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql.Outputs
         public readonly string SubnetId;
 
         [OutputConstructor]
-        private GetDbEndpointAddressResult(
+        private GetDbEndpointPublicAddressesResult(
             string crossRegionDomain,
 
             bool dnsVisibility,

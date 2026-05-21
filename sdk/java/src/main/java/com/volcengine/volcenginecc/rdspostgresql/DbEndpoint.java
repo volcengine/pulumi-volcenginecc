@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.rdspostgresql.DbEndpointArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.DbEndpointState;
-import com.volcengine.volcenginecc.rdspostgresql.outputs.DbEndpointAddress;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.DbEndpointInnerAddresses;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.DbEndpointPrivateAddresses;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.DbEndpointPublicAddresses;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.DbEndpointReadOnlyNodeWeight;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -24,40 +26,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.volcengine.volcenginecc.rdspostgresql.DbEndpoint;
- * import com.volcengine.volcenginecc.rdspostgresql.DbEndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var rdsPostgresqlDbEndpointDemo = new DbEndpoint("rdsPostgresqlDbEndpointDemo", DbEndpointArgs.builder()
- *             .endpointName("ccapi-test-1")
- *             .endpointType("Custom")
- *             .instanceId("postgres-9dxxxxxd")
- *             .nodes("Primary")
- *             .readWriteMode("ReadWrite")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -69,12 +37,6 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint")
 public class DbEndpoint extends com.pulumi.resources.CustomResource {
-    @Export(name="addresses", refs={List.class,DbEndpointAddress.class}, tree="[0,1]")
-    private Output<List<DbEndpointAddress>> addresses;
-
-    public Output<List<DbEndpointAddress>> addresses() {
-        return this.addresses;
-    }
     /**
      * When the endpoint type is read/write or read-only, you can configure whether new nodes are automatically added. Values: Enable: Automatically add. Disable: Do not automatically add (default).
      * 
@@ -174,6 +136,20 @@ public class DbEndpoint extends com.pulumi.resources.CustomResource {
         return this.endpointType;
     }
     /**
+     * Public service zone connection address
+     * 
+     */
+    @Export(name="innerAddresses", refs={DbEndpointInnerAddresses.class}, tree="[0]")
+    private Output<DbEndpointInnerAddresses> innerAddresses;
+
+    /**
+     * @return Public service zone connection address
+     * 
+     */
+    public Output<DbEndpointInnerAddresses> innerAddresses() {
+        return this.innerAddresses;
+    }
+    /**
      * Instance ID.
      * 
      */
@@ -200,6 +176,34 @@ public class DbEndpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<String> nodes() {
         return this.nodes;
+    }
+    /**
+     * Private network connection address
+     * 
+     */
+    @Export(name="privateAddresses", refs={DbEndpointPrivateAddresses.class}, tree="[0]")
+    private Output<DbEndpointPrivateAddresses> privateAddresses;
+
+    /**
+     * @return Private network connection address
+     * 
+     */
+    public Output<DbEndpointPrivateAddresses> privateAddresses() {
+        return this.privateAddresses;
+    }
+    /**
+     * Public network connection address
+     * 
+     */
+    @Export(name="publicAddresses", refs={DbEndpointPublicAddresses.class}, tree="[0]")
+    private Output<DbEndpointPublicAddresses> publicAddresses;
+
+    /**
+     * @return Public network connection address
+     * 
+     */
+    public Output<DbEndpointPublicAddresses> publicAddresses() {
+        return this.publicAddresses;
     }
     /**
      * Read-only weight allocation mode. Values: Default: standard weight allocation (default). Custom: custom weight allocation.

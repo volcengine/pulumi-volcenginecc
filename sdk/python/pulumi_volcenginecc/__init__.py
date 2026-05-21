@@ -978,6 +978,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "privatezone/privateZone",
+  "fqn": "pulumi_volcenginecc.privatezone",
+  "classes": {
+   "volcenginecc:privatezone/privateZone:PrivateZone": "PrivateZone"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "privatezone/record",
   "fqn": "pulumi_volcenginecc.privatezone",
   "classes": {

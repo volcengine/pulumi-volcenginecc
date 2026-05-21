@@ -2153,6 +2153,17 @@
                     }
                 }
             },
+            "volcenginecc_privatezone_private_zone": {
+                "current": "volcenginecc:privatezone/privateZone:PrivateZone",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "vpcs": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_privatezone_record": {
                 "current": "volcenginecc:privatezone/record:Record",
                 "fields": {
@@ -2480,9 +2491,6 @@
             "volcenginecc_rdspostgresql_db_endpoint": {
                 "current": "volcenginecc:rdspostgresql/dbEndpoint:DbEndpoint",
                 "fields": {
-                    "addresses": {
-                        "maxItemsOne": false
-                    },
                     "read_only_node_weights": {
                         "maxItemsOne": false
                     }
@@ -6874,6 +6882,25 @@
                     }
                 }
             },
+            "volcenginecc_privatezone_private_zone": {
+                "current": "volcenginecc:privatezone/getPrivateZone:getPrivateZone",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "vpcs": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_privatezone_private_zones": {
+                "current": "volcenginecc:privatezone/getPrivateZones:getPrivateZones",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_privatezone_record": {
                 "current": "volcenginecc:privatezone/getRecord:getRecord",
                 "fields": {
@@ -7369,9 +7396,6 @@
             "volcenginecc_rdspostgresql_db_endpoint": {
                 "current": "volcenginecc:rdspostgresql/getDbEndpoint:getDbEndpoint",
                 "fields": {
-                    "addresses": {
-                        "maxItemsOne": false
-                    },
                     "read_only_node_weights": {
                         "maxItemsOne": false
                     }
