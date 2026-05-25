@@ -20,7 +20,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Domain verification status. PendingVerification: Pending verification. Verifying: In progress. Verified: Verified. Failed: Verification failed.
+        /// Domain verification status. PendingVerification: Pending verification, Verifying: In progress, Verified: Verified, Failed: Verification failed
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

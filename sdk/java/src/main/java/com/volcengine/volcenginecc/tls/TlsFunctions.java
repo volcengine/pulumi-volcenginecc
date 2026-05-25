@@ -10,8 +10,10 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupPlainArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetImportTaskArgs;
@@ -30,6 +32,8 @@ import com.volcengine.volcenginecc.tls.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicPlainArgs;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupsResult;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmResult;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetImportTaskResult;
@@ -49,6 +53,41 @@ import com.volcengine.volcenginecc.tls.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class TlsFunctions {
+    /**
+     * Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmResult> getAlarm(GetAlarmArgs args) {
+        return getAlarm(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static CompletableFuture<GetAlarmResult> getAlarmPlain(GetAlarmPlainArgs args) {
+        return getAlarmPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmResult> getAlarm(GetAlarmArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarm:getAlarm", TypeShape.of(GetAlarmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmResult> getAlarm(GetAlarmArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarm:getAlarm", TypeShape.of(GetAlarmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static CompletableFuture<GetAlarmResult> getAlarmPlain(GetAlarmPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarm:getAlarm", TypeShape.of(GetAlarmResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
      * 
@@ -132,6 +171,55 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetAlarmNotifyGroupsResult> getAlarmNotifyGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmNotifyGroups:getAlarmNotifyGroups", TypeShape.of(GetAlarmNotifyGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmsResult> getAlarms() {
+        return getAlarms(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static CompletableFuture<GetAlarmsResult> getAlarmsPlain() {
+        return getAlarmsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmsResult> getAlarms(InvokeArgs args) {
+        return getAlarms(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static CompletableFuture<GetAlarmsResult> getAlarmsPlain(InvokeArgs args) {
+        return getAlarmsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmsResult> getAlarms(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarms:getAlarms", TypeShape.of(GetAlarmsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static Output<GetAlarmsResult> getAlarms(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarms:getAlarms", TypeShape.of(GetAlarmsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::Alarm
+     * 
+     */
+    public static CompletableFuture<GetAlarmsResult> getAlarmsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarms:getAlarms", TypeShape.of(GetAlarmsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TLS::ConsumerGroup

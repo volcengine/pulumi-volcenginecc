@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:tls/alarm:Alarm":
+		r = &Alarm{}
 	case "volcenginecc:tls/alarmNotifyGroup:AlarmNotifyGroup":
 		r = &AlarmNotifyGroup{}
 	case "volcenginecc:tls/consumerGroup:ConsumerGroup":
@@ -52,6 +54,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/alarm",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tls/alarmNotifyGroup",

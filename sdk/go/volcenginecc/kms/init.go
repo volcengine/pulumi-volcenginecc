@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Key{}
 	case "volcenginecc:kms/keyRing:KeyRing":
 		r = &KeyRing{}
+	case "volcenginecc:kms/secret:Secret":
+		r = &Secret{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"kms/keyRing",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"kms/secret",
 		&module{version},
 	)
 }

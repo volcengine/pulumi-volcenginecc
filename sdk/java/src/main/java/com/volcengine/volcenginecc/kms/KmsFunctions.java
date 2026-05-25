@@ -14,10 +14,14 @@ import com.volcengine.volcenginecc.kms.inputs.GetKeyArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyPlainArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyRingArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyRingPlainArgs;
+import com.volcengine.volcenginecc.kms.inputs.GetSecretArgs;
+import com.volcengine.volcenginecc.kms.inputs.GetSecretPlainArgs;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyRingResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyRingsResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeysResult;
+import com.volcengine.volcenginecc.kms.outputs.GetSecretResult;
+import com.volcengine.volcenginecc.kms.outputs.GetSecretsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class KmsFunctions {
@@ -188,5 +192,89 @@ public final class KmsFunctions {
      */
     public static CompletableFuture<GetKeysResult> getKeysPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKeys:getKeys", TypeShape.of(GetKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretResult> getSecret(GetSecretArgs args) {
+        return getSecret(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args) {
+        return getSecretPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets() {
+        return getSecrets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static CompletableFuture<GetSecretsResult> getSecretsPlain() {
+        return getSecretsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets(InvokeArgs args) {
+        return getSecrets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static CompletableFuture<GetSecretsResult> getSecretsPlain(InvokeArgs args) {
+        return getSecretsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::Secret
+     * 
+     */
+    public static CompletableFuture<GetSecretsResult> getSecretsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kms/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
 }
