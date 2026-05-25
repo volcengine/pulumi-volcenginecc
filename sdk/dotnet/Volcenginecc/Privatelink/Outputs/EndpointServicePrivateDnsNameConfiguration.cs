@@ -19,7 +19,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Domain verification status. PendingVerification: Pending verification. Verifying: In progress. Verified: Verified. Failed: Verification failed.
+        /// Domain verification status. PendingVerification: Pending verification, Verifying: In progress, Verified: Verified, Failed: Verification failed
         /// </summary>
         public readonly string? Status;
         /// <summary>

@@ -53,6 +53,8 @@ if typing.TYPE_CHECKING:
     filenas = __filenas
     import pulumi_volcenginecc.fwcenter as __fwcenter
     fwcenter = __fwcenter
+    import pulumi_volcenginecc.gtm as __gtm
+    gtm = __gtm
     import pulumi_volcenginecc.hbase as __hbase
     hbase = __hbase
     import pulumi_volcenginecc.iam as __iam
@@ -129,6 +131,7 @@ else:
     escloud = _utilities.lazy_import('pulumi_volcenginecc.escloud')
     filenas = _utilities.lazy_import('pulumi_volcenginecc.filenas')
     fwcenter = _utilities.lazy_import('pulumi_volcenginecc.fwcenter')
+    gtm = _utilities.lazy_import('pulumi_volcenginecc.gtm')
     hbase = _utilities.lazy_import('pulumi_volcenginecc.hbase')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
@@ -594,6 +597,22 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "directconnect/gatewayRoute",
+  "fqn": "pulumi_volcenginecc.directconnect",
+  "classes": {
+   "volcenginecc:directconnect/gatewayRoute:GatewayRoute": "GatewayRoute"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "directconnect/virtualInterface",
+  "fqn": "pulumi_volcenginecc.directconnect",
+  "classes": {
+   "volcenginecc:directconnect/virtualInterface:VirtualInterface": "VirtualInterface"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "dns/zone",
   "fqn": "pulumi_volcenginecc.dns",
   "classes": {
@@ -754,6 +773,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "gtm/pool",
+  "fqn": "pulumi_volcenginecc.gtm",
+  "classes": {
+   "volcenginecc:gtm/pool:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "hbase/instance",
   "fqn": "pulumi_volcenginecc.hbase",
   "classes": {
@@ -862,6 +889,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.kms",
   "classes": {
    "volcenginecc:kms/keyRing:KeyRing": "KeyRing"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "kms/secret",
+  "fqn": "pulumi_volcenginecc.kms",
+  "classes": {
+   "volcenginecc:kms/secret:Secret": "Secret"
   }
  },
  {
@@ -1270,6 +1305,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/alarm",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/alarm:Alarm": "Alarm"
   }
  },
  {
@@ -1770,6 +1813,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vpn/sslVpnServer",
+  "fqn": "pulumi_volcenginecc.vpn",
+  "classes": {
+   "volcenginecc:vpn/sslVpnServer:SslVpnServer": "SslVpnServer"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vpn/vpnConnection",
   "fqn": "pulumi_volcenginecc.vpn",
   "classes": {
@@ -1782,6 +1833,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpn",
   "classes": {
    "volcenginecc:vpn/vpnGateway:VpnGateway": "VpnGateway"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpn/vpnGatewayRoute",
+  "fqn": "pulumi_volcenginecc.vpn",
+  "classes": {
+   "volcenginecc:vpn/vpnGatewayRoute:VpnGatewayRoute": "VpnGatewayRoute"
   }
  },
  {

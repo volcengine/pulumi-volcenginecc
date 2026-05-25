@@ -12,8 +12,16 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.directconnect.inputs.GetDirectConnectGatewayArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetDirectConnectGatewayPlainArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetGatewayRouteArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetGatewayRoutePlainArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetVirtualInterfaceArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetVirtualInterfacePlainArgs;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewayResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewaysResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetGatewayRouteResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetGatewayRoutesResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetVirtualInterfaceResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetVirtualInterfacesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class DirectconnectFunctions {
@@ -100,5 +108,173 @@ public final class DirectconnectFunctions {
      */
     public static CompletableFuture<GetDirectConnectGatewaysResult> getDirectConnectGatewaysPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getDirectConnectGateways:getDirectConnectGateways", TypeShape.of(GetDirectConnectGatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRouteResult> getGatewayRoute(GetGatewayRouteArgs args) {
+        return getGatewayRoute(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static CompletableFuture<GetGatewayRouteResult> getGatewayRoutePlain(GetGatewayRoutePlainArgs args) {
+        return getGatewayRoutePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRouteResult> getGatewayRoute(GetGatewayRouteArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getGatewayRoute:getGatewayRoute", TypeShape.of(GetGatewayRouteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRouteResult> getGatewayRoute(GetGatewayRouteArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getGatewayRoute:getGatewayRoute", TypeShape.of(GetGatewayRouteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static CompletableFuture<GetGatewayRouteResult> getGatewayRoutePlain(GetGatewayRoutePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getGatewayRoute:getGatewayRoute", TypeShape.of(GetGatewayRouteResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRoutesResult> getGatewayRoutes() {
+        return getGatewayRoutes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static CompletableFuture<GetGatewayRoutesResult> getGatewayRoutesPlain() {
+        return getGatewayRoutesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRoutesResult> getGatewayRoutes(InvokeArgs args) {
+        return getGatewayRoutes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static CompletableFuture<GetGatewayRoutesResult> getGatewayRoutesPlain(InvokeArgs args) {
+        return getGatewayRoutesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRoutesResult> getGatewayRoutes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getGatewayRoutes:getGatewayRoutes", TypeShape.of(GetGatewayRoutesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static Output<GetGatewayRoutesResult> getGatewayRoutes(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getGatewayRoutes:getGatewayRoutes", TypeShape.of(GetGatewayRoutesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::DirectConnectGatewayRoute
+     * 
+     */
+    public static CompletableFuture<GetGatewayRoutesResult> getGatewayRoutesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getGatewayRoutes:getGatewayRoutes", TypeShape.of(GetGatewayRoutesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfaceResult> getVirtualInterface(GetVirtualInterfaceArgs args) {
+        return getVirtualInterface(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static CompletableFuture<GetVirtualInterfaceResult> getVirtualInterfacePlain(GetVirtualInterfacePlainArgs args) {
+        return getVirtualInterfacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfaceResult> getVirtualInterface(GetVirtualInterfaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getVirtualInterface:getVirtualInterface", TypeShape.of(GetVirtualInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfaceResult> getVirtualInterface(GetVirtualInterfaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getVirtualInterface:getVirtualInterface", TypeShape.of(GetVirtualInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static CompletableFuture<GetVirtualInterfaceResult> getVirtualInterfacePlain(GetVirtualInterfacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getVirtualInterface:getVirtualInterface", TypeShape.of(GetVirtualInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfacesResult> getVirtualInterfaces() {
+        return getVirtualInterfaces(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static CompletableFuture<GetVirtualInterfacesResult> getVirtualInterfacesPlain() {
+        return getVirtualInterfacesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfacesResult> getVirtualInterfaces(InvokeArgs args) {
+        return getVirtualInterfaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static CompletableFuture<GetVirtualInterfacesResult> getVirtualInterfacesPlain(InvokeArgs args) {
+        return getVirtualInterfacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfacesResult> getVirtualInterfaces(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getVirtualInterfaces:getVirtualInterfaces", TypeShape.of(GetVirtualInterfacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static Output<GetVirtualInterfacesResult> getVirtualInterfaces(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getVirtualInterfaces:getVirtualInterfaces", TypeShape.of(GetVirtualInterfacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::VirtualInterface
+     * 
+     */
+    public static CompletableFuture<GetVirtualInterfacesResult> getVirtualInterfacesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getVirtualInterfaces:getVirtualInterfaces", TypeShape.of(GetVirtualInterfacesResult.class), args, Utilities.withVersion(options));
     }
 }

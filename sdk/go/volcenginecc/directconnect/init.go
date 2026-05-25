@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:directconnect/directConnectGateway:DirectConnectGateway":
 		r = &DirectConnectGateway{}
+	case "volcenginecc:directconnect/gatewayRoute:GatewayRoute":
+		r = &GatewayRoute{}
+	case "volcenginecc:directconnect/virtualInterface:VirtualInterface":
+		r = &VirtualInterface{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +43,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"directconnect/directConnectGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"directconnect/gatewayRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"directconnect/virtualInterface",
 		&module{version},
 	)
 }
