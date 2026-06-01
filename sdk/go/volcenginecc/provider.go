@@ -37,6 +37,9 @@ type Provider struct {
 	// he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`
 	// environment variable
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
+	// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+	// variable
+	SessionToken pulumi.StringPtrOutput `pulumi:"sessionToken"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -86,6 +89,11 @@ func NewProvider(ctx *pulumi.Context,
 			args.SecretKey = pulumi.StringPtr(d.(string))
 		}
 	}
+	if args.SessionToken == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "VOLCENGINE_SESSION_TOKEN"); d != nil {
+			args.SessionToken = pulumi.StringPtr(d.(string))
+		}
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:volcenginecc", name, args, &resource, opts...)
@@ -121,6 +129,9 @@ type providerArgs struct {
 	// he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`
 	// environment variable
 	SecretKey *string `pulumi:"secretKey"`
+	// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+	// variable
+	SessionToken *string `pulumi:"sessionToken"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -150,6 +161,9 @@ type ProviderArgs struct {
 	// he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`
 	// environment variable
 	SecretKey pulumi.StringPtrInput
+	// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+	// variable
+	SessionToken pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -250,6 +264,12 @@ func (o ProviderOutput) Region() pulumi.StringPtrOutput {
 // environment variable
 func (o ProviderOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+// variable
+func (o ProviderOutput) SessionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SessionToken }).(pulumi.StringPtrOutput)
 }
 
 func init() {

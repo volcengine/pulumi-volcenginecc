@@ -10,7 +10,12 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.kms.KeyArgs;
 import com.volcengine.volcenginecc.kms.inputs.KeyState;
+import com.volcengine.volcenginecc.kms.outputs.KeyAsymmetricCiphertext;
+import com.volcengine.volcenginecc.kms.outputs.KeyAsymmetricSignature;
+import com.volcengine.volcenginecc.kms.outputs.KeyCiphertext;
 import com.volcengine.volcenginecc.kms.outputs.KeyMultiRegionConfiguration;
+import com.volcengine.volcenginecc.kms.outputs.KeyReEncrypt;
+import com.volcengine.volcenginecc.kms.outputs.KeyReplicateKey;
 import com.volcengine.volcenginecc.kms.outputs.KeyTag;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -35,6 +40,48 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="volcenginecc:kms/key:Key")
 public class Key extends com.pulumi.resources.CustomResource {
+    /**
+     * Asymmetric encryption action parameters and results. AsymmetricEncrypt can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    @Export(name="asymmetricCiphertext", refs={KeyAsymmetricCiphertext.class}, tree="[0]")
+    private Output<KeyAsymmetricCiphertext> asymmetricCiphertext;
+
+    /**
+     * @return Asymmetric encryption action parameters and results. AsymmetricEncrypt can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    public Output<KeyAsymmetricCiphertext> asymmetricCiphertext() {
+        return this.asymmetricCiphertext;
+    }
+    /**
+     * Asymmetric signature action parameters and results. AsymmetricSign can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    @Export(name="asymmetricSignature", refs={KeyAsymmetricSignature.class}, tree="[0]")
+    private Output<KeyAsymmetricSignature> asymmetricSignature;
+
+    /**
+     * @return Asymmetric signature action parameters and results. AsymmetricSign can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    public Output<KeyAsymmetricSignature> asymmetricSignature() {
+        return this.asymmetricSignature;
+    }
+    /**
+     * Symmetric encryption action parameters and results. Encrypt can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    @Export(name="ciphertext", refs={KeyCiphertext.class}, tree="[0]")
+    private Output<KeyCiphertext> ciphertext;
+
+    /**
+     * @return Symmetric encryption action parameters and results. Encrypt can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    public Output<KeyCiphertext> ciphertext() {
+        return this.ciphertext;
+    }
     /**
      * Key creation time.
      * 
@@ -132,6 +179,20 @@ public class Key extends com.pulumi.resources.CustomResource {
      */
     public Output<String> keyName() {
         return this.keyName;
+    }
+    /**
+     * Primary region of the multi-region key. Set the target primary region during the Create/Update phase; the current primary region is returned during the Read phase.
+     * 
+     */
+    @Export(name="keyPrimaryRegion", refs={String.class}, tree="[0]")
+    private Output<String> keyPrimaryRegion;
+
+    /**
+     * @return Primary region of the multi-region key. Set the target primary region during the Create/Update phase; the current primary region is returned during the Read phase.
+     * 
+     */
+    public Output<String> keyPrimaryRegion() {
+        return this.keyPrimaryRegion;
     }
     /**
      * User master key rotation operation (enter 1 to enable, 2 to disable).
@@ -272,6 +333,34 @@ public class Key extends com.pulumi.resources.CustomResource {
      */
     public Output<String> protectionLevel() {
         return this.protectionLevel;
+    }
+    /**
+     * Re-encryption action parameters and results. ReEncrypt can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    @Export(name="reEncrypt", refs={KeyReEncrypt.class}, tree="[0]")
+    private Output<KeyReEncrypt> reEncrypt;
+
+    /**
+     * @return Re-encryption action parameters and results. ReEncrypt can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    public Output<KeyReEncrypt> reEncrypt() {
+        return this.reEncrypt;
+    }
+    /**
+     * Replicate key action parameters and results. ReplicateKey can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    @Export(name="replicateKey", refs={KeyReplicateKey.class}, tree="[0]")
+    private Output<KeyReplicateKey> replicateKey;
+
+    /**
+     * @return Replicate key action parameters and results. ReplicateKey can be triggered during the Create/Update phase; the result is only guaranteed to be returned in the current response.
+     * 
+     */
+    public Output<KeyReplicateKey> replicateKey() {
+        return this.replicateKey;
     }
     /**
      * Key rotation period (days). Range: [90, 2560].

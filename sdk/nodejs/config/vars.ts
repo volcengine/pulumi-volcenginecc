@@ -124,3 +124,15 @@ Object.defineProperty(exports, "secretKey", {
     enumerable: true,
 });
 
+/**
+ * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+ * variable
+ */
+export declare const sessionToken: string | undefined;
+Object.defineProperty(exports, "sessionToken", {
+    get() {
+        return __config.get("sessionToken") ?? utilities.getEnv("VOLCENGINE_SESSION_TOKEN");
+    },
+    enumerable: true,
+});
+

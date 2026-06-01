@@ -130,6 +130,22 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> secretKey() {
         return Codegen.optional(this.secretKey);
     }
+    /**
+     * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+     * variable
+     * 
+     */
+    @Export(name="sessionToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sessionToken;
+
+    /**
+     * @return The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+     * variable
+     * 
+     */
+    public Output<Optional<String>> sessionToken() {
+        return Codegen.optional(this.sessionToken);
+    }
 
     /**
      *
