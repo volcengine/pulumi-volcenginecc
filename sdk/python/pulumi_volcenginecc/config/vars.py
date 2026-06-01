@@ -97,3 +97,11 @@ class _ExportableConfig(types.ModuleType):
         """
         return __config__.get('secretKey') or _utilities.get_env('VOLCENGINE_SECRET_KEY')
 
+    @property
+    def session_token(self) -> Optional[str]:
+        """
+        The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+        variable
+        """
+        return __config__.get('sessionToken') or _utilities.get_env('VOLCENGINE_SESSION_TOKEN')
+

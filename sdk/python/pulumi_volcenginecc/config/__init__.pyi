@@ -71,3 +71,9 @@ he Secret Key for Volcengine Provider. It must be provided, but it can also be s
 environment variable
 """
 
+sessionToken: Optional[str]
+"""
+The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+variable
+"""
+

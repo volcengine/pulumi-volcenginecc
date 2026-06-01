@@ -1205,6 +1205,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdspostgresql/parameterTemplate",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/parameterTemplate:ParameterTemplate": "ParameterTemplate"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdspostgresql/schema",
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {

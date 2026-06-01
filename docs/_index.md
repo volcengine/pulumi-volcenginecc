@@ -392,6 +392,8 @@ config:
         value: 'TODO: var.region'
     volcengine:secretKey:
         value: 'TODO: var.secret_key'
+    volcengine:sessionToken:
+        value: 'TODO: var.session_token'
     volcengine:profile:
         value: 'TODO: var.profile'
     volcengine:filePath:
@@ -401,7 +403,7 @@ config:
 
 ### Environment variables
 
-You can provide your credentials via VOLCENGINE_ACCESS_KEY and VOLCENGINE_SECRET_KEY environment variables, representing your volcengine public key and private key respectively. VOLCENGINE_REGION, VOLCENGINE_PROFILE, and VOLCENGINE_FILE_PATH are also used, if applicable:
+You can provide your credentials via VOLCENGINE_ACCESS_KEY and VOLCENGINE_SECRET_KEY environment variables, representing your volcengine public key and private key respectively. VOLCENGINE_SESSION_TOKEN can be used to provide a temporary STS session token alongside the AK/SK. VOLCENGINE_REGION, VOLCENGINE_PROFILE, and VOLCENGINE_FILE_PATH are also used, if applicable:
 
 Usage:
 ```yaml
@@ -414,6 +416,7 @@ runtime:
 ```shell
 $ export VOLCENGINE_ACCESS_KEY="<Your-Access-Key-ID>"
 $ export VOLCENGINE_SECRET_KEY="<Your-Access-Key-Secret>"
+$ export VOLCENGINE_SESSION_TOKEN="<Your-STS-Session-Token>" # optional, only required when using temporary STS credentials
 $ export VOLCENGINE_REGION="cn-beijing"
 $ export VOLCENGINE_PROFILE="your_profile"
 $ export VOLCENGINE_FILE_PATH="your_file_path" # if empty, default path is ~/.volcengine
@@ -430,6 +433,7 @@ provider configuration:
 
 - `accessKey` (String) The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
 - `secretKey` (String) he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
+- `sessionToken` (String) The Session Token for Volcengine Provider, used together with AccessKey and SecretKey when authenticating with temporary STS credentials. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment variable
 - `profile` (String) The Profile for Volcengine Provider. It can be used as an alternative authentication method to AK/SK, and can also be sourced from the `VOLCENGINE_PROFILE` environment variable
 - `file_path` (String) The File Path for Volcengine Provider. It specifies the path to the profile configuration file. If not specified, the default path `~/.volcengine` will be used, and can also be sourced from the `VOLCENGINE_FILE_PATH` environment variable
 - `assumeRole` (Attributes) An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role))

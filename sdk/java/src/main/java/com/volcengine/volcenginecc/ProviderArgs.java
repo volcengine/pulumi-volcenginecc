@@ -179,6 +179,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.secretKey);
     }
 
+    /**
+     * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+     * variable
+     * 
+     */
+    @Import(name="sessionToken")
+    private @Nullable Output<String> sessionToken;
+
+    /**
+     * @return The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+     * variable
+     * 
+     */
+    public Optional<Output<String>> sessionToken() {
+        return Optional.ofNullable(this.sessionToken);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -192,6 +209,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.proxyUrl = $.proxyUrl;
         this.region = $.region;
         this.secretKey = $.secretKey;
+        this.sessionToken = $.sessionToken;
     }
 
     public static Builder builder() {
@@ -432,6 +450,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return secretKey(Output.of(secretKey));
         }
 
+        /**
+         * @param sessionToken The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+         * variable
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionToken(@Nullable Output<String> sessionToken) {
+            $.sessionToken = sessionToken;
+            return this;
+        }
+
+        /**
+         * @param sessionToken The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+         * variable
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionToken(String sessionToken) {
+            return sessionToken(Output.of(sessionToken));
+        }
+
         public ProviderArgs build() {
             $.accessKey = Codegen.stringProp("accessKey").output().arg($.accessKey).env("VOLCENGINE_ACCESS_KEY").getNullable();
             $.customerHeaders = Codegen.stringProp("customerHeaders").output().arg($.customerHeaders).env("VOLCENGINE_CUSTOMER_HEADERS").getNullable();
@@ -441,6 +482,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             $.proxyUrl = Codegen.stringProp("proxyUrl").output().arg($.proxyUrl).env("VOLCENGINE_PROXY_URL").getNullable();
             $.region = Codegen.stringProp("region").output().arg($.region).env("VOLCENGINE_REGION").getNullable();
             $.secretKey = Codegen.stringProp("secretKey").output().arg($.secretKey).env("VOLCENGINE_SECRET_KEY").getNullable();
+            $.sessionToken = Codegen.stringProp("sessionToken").output().arg($.sessionToken).env("VOLCENGINE_SESSION_TOKEN").getNullable();
             return $;
         }
     }

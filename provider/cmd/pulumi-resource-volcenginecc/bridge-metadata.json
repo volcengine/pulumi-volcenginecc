@@ -2015,6 +2015,13 @@
                             }
                         }
                     },
+                    "replicate_key": {
+                        "fields": {
+                            "tags": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -2555,6 +2562,14 @@
                         "maxItemsOne": false
                     },
                     "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdspostgresql_parameter_template": {
+                "current": "volcenginecc:rdspostgresql/parameterTemplate:ParameterTemplate",
+                "fields": {
+                    "template_params": {
                         "maxItemsOne": false
                     }
                 }
@@ -6583,7 +6598,14 @@
                 "current": "volcenginecc:iam/getRole:getRole",
                 "fields": {
                     "policies": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "policy_scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "tags": {
                         "maxItemsOne": false
@@ -6708,6 +6730,13 @@
                     "multi_region_configuration": {
                         "fields": {
                             "replica_keys": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "replicate_key": {
+                        "fields": {
+                            "tags": {
                                 "maxItemsOne": false
                             }
                         }
@@ -7578,6 +7607,22 @@
             },
             "volcenginecc_rdspostgresql_instances": {
                 "current": "volcenginecc:rdspostgresql/getInstances:getInstances",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdspostgresql_parameter_template": {
+                "current": "volcenginecc:rdspostgresql/getParameterTemplate:getParameterTemplate",
+                "fields": {
+                    "template_params": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_rdspostgresql_parameter_templates": {
+                "current": "volcenginecc:rdspostgresql/getParameterTemplates:getParameterTemplates",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

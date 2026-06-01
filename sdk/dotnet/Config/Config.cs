@@ -137,6 +137,17 @@ namespace Volcengine.Pulumi.Volcenginecc
             set => _secretKey.Set(value);
         }
 
+        private static readonly __Value<string?> _sessionToken = new __Value<string?>(() => __config.Get("sessionToken") ?? Utilities.GetEnv("VOLCENGINE_SESSION_TOKEN"));
+        /// <summary>
+        /// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+        /// variable
+        /// </summary>
+        public static string? SessionToken
+        {
+            get => _sessionToken.Get();
+            set => _sessionToken.Set(value);
+        }
+
         public static class Types
         {
 

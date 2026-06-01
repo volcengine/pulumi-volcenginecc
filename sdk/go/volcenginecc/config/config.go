@@ -129,3 +129,17 @@ func GetSecretKey(ctx *pulumi.Context) string {
 	}
 	return value
 }
+
+// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+// variable
+func GetSessionToken(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "volcenginecc:sessionToken")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "VOLCENGINE_SESSION_TOKEN"); d != nil {
+		value = d.(string)
+	}
+	return value
+}

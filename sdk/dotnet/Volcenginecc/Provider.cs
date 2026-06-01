@@ -66,6 +66,13 @@ namespace Volcengine.Pulumi.Volcenginecc
         [Output("secretKey")]
         public Output<string?> SecretKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+        /// variable
+        /// </summary>
+        [Output("sessionToken")]
+        public Output<string?> SessionToken { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -166,6 +173,13 @@ namespace Volcengine.Pulumi.Volcenginecc
         [Input("secretKey")]
         public Input<string>? SecretKey { get; set; }
 
+        /// <summary>
+        /// The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+        /// variable
+        /// </summary>
+        [Input("sessionToken")]
+        public Input<string>? SessionToken { get; set; }
+
         public ProviderArgs()
         {
             AccessKey = Utilities.GetEnv("VOLCENGINE_ACCESS_KEY");
@@ -176,6 +190,7 @@ namespace Volcengine.Pulumi.Volcenginecc
             ProxyUrl = Utilities.GetEnv("VOLCENGINE_PROXY_URL");
             Region = Utilities.GetEnv("VOLCENGINE_REGION");
             SecretKey = Utilities.GetEnv("VOLCENGINE_SECRET_KEY");
+            SessionToken = Utilities.GetEnv("VOLCENGINE_SESSION_TOKEN");
         }
         public static new ProviderArgs Empty => new ProviderArgs();
     }

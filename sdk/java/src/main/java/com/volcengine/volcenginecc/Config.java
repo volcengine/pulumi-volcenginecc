@@ -88,4 +88,12 @@ public final class Config {
     public Optional<String> secretKey() {
         return Codegen.stringProp("secretKey").config(config).env("VOLCENGINE_SECRET_KEY").get();
     }
+/**
+ * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
+ * variable
+ * 
+ */
+    public Optional<String> sessionToken() {
+        return Codegen.stringProp("sessionToken").config(config).env("VOLCENGINE_SESSION_TOKEN").get();
+    }
 }

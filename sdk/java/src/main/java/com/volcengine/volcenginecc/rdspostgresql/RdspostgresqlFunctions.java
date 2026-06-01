@@ -22,6 +22,8 @@ import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbEndpointArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbEndpointPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetParameterTemplateArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetParameterTemplatePlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetSchemaArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetSchemaPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetAllowListResult;
@@ -36,6 +38,8 @@ import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbEndpointResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbEndpointsResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetInstancesResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetParameterTemplateResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetParameterTemplatesResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetSchemaResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetSchemasResult;
 import java.util.concurrent.CompletableFuture;
@@ -544,6 +548,90 @@ public final class RdspostgresqlFunctions {
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplateResult> getParameterTemplate(GetParameterTemplateArgs args) {
+        return getParameterTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplateResult> getParameterTemplatePlain(GetParameterTemplatePlainArgs args) {
+        return getParameterTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplateResult> getParameterTemplate(GetParameterTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getParameterTemplate:getParameterTemplate", TypeShape.of(GetParameterTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplateResult> getParameterTemplate(GetParameterTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getParameterTemplate:getParameterTemplate", TypeShape.of(GetParameterTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplateResult> getParameterTemplatePlain(GetParameterTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getParameterTemplate:getParameterTemplate", TypeShape.of(GetParameterTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates() {
+        return getParameterTemplates(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplatesResult> getParameterTemplatesPlain() {
+        return getParameterTemplatesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates(InvokeArgs args) {
+        return getParameterTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplatesResult> getParameterTemplatesPlain(InvokeArgs args) {
+        return getParameterTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getParameterTemplates:getParameterTemplates", TypeShape.of(GetParameterTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static Output<GetParameterTemplatesResult> getParameterTemplates(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getParameterTemplates:getParameterTemplates", TypeShape.of(GetParameterTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::ParameterTemplate
+     * 
+     */
+    public static CompletableFuture<GetParameterTemplatesResult> getParameterTemplatesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getParameterTemplates:getParameterTemplates", TypeShape.of(GetParameterTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::RDSPostgreSQL::Schema
