@@ -59,6 +59,8 @@ if typing.TYPE_CHECKING:
     hbase = __hbase
     import pulumi_volcenginecc.iam as __iam
     iam = __iam
+    import pulumi_volcenginecc.id as __id
+    id = __id
     import pulumi_volcenginecc.kafka as __kafka
     kafka = __kafka
     import pulumi_volcenginecc.kms as __kms
@@ -134,6 +136,7 @@ else:
     gtm = _utilities.lazy_import('pulumi_volcenginecc.gtm')
     hbase = _utilities.lazy_import('pulumi_volcenginecc.hbase')
     iam = _utilities.lazy_import('pulumi_volcenginecc.iam')
+    id = _utilities.lazy_import('pulumi_volcenginecc.id')
     kafka = _utilities.lazy_import('pulumi_volcenginecc.kafka')
     kms = _utilities.lazy_import('pulumi_volcenginecc.kms')
     mongodb = _utilities.lazy_import('pulumi_volcenginecc.mongodb')
@@ -549,6 +552,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudmonitor/contactGroup",
+  "fqn": "pulumi_volcenginecc.cloudmonitor",
+  "classes": {
+   "volcenginecc:cloudmonitor/contactGroup:ContactGroup": "ContactGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cloudmonitor/rule",
   "fqn": "pulumi_volcenginecc.cloudmonitor",
   "classes": {
@@ -849,6 +860,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
    "volcenginecc:iam/user:User": "User"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "id/service",
+  "fqn": "pulumi_volcenginecc.id",
+  "classes": {
+   "volcenginecc:id/service:Service": "Service"
   }
  },
  {

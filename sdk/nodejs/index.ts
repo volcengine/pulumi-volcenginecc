@@ -34,6 +34,7 @@ import * as fwcenter from "./fwcenter";
 import * as gtm from "./gtm";
 import * as hbase from "./hbase";
 import * as iam from "./iam";
+import * as id from "./id";
 import * as kafka from "./kafka";
 import * as kms from "./kms";
 import * as mongodb from "./mongodb";
@@ -86,6 +87,7 @@ export {
     gtm,
     hbase,
     iam,
+    id,
     kafka,
     kms,
     mongodb,

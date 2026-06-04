@@ -1229,6 +1229,14 @@
             "volcenginecc_cloudidentity_user_provisioning": {
                 "current": "volcenginecc:cloudidentity/userProvisioning:UserProvisioning"
             },
+            "volcenginecc_cloudmonitor_contact_group": {
+                "current": "volcenginecc:cloudmonitor/contactGroup:ContactGroup",
+                "fields": {
+                    "contacts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cloudmonitor_rule": {
                 "current": "volcenginecc:cloudmonitor/rule:Rule",
                 "fields": {
@@ -1960,6 +1968,38 @@
                     },
                     "policies": {
                         "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_id_service": {
+                "current": "volcenginecc:id/service:Service",
+                "fields": {
+                    "routes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "api_spec": {
+                                    "fields": {
+                                        "extractors": {
+                                            "maxItemsOne": false
+                                        },
+                                        "response_filters": {
+                                            "maxItemsOne": false,
+                                            "elem": {
+                                                "fields": {
+                                                    "attributes": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "tags": {
                         "maxItemsOne": false
@@ -5610,6 +5650,22 @@
                     }
                 }
             },
+            "volcenginecc_cloudmonitor_contact_group": {
+                "current": "volcenginecc:cloudmonitor/getContactGroup:getContactGroup",
+                "fields": {
+                    "contacts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cloudmonitor_contact_groups": {
+                "current": "volcenginecc:cloudmonitor/getContactGroups:getContactGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cloudmonitor_rule": {
                 "current": "volcenginecc:cloudmonitor/getRule:getRule",
                 "fields": {
@@ -6655,6 +6711,46 @@
             },
             "volcenginecc_iam_users": {
                 "current": "volcenginecc:iam/getUsers:getUsers",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_id_service": {
+                "current": "volcenginecc:id/getService:getService",
+                "fields": {
+                    "routes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "api_spec": {
+                                    "fields": {
+                                        "extractors": {
+                                            "maxItemsOne": false
+                                        },
+                                        "response_filters": {
+                                            "maxItemsOne": false,
+                                            "elem": {
+                                                "fields": {
+                                                    "attributes": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_id_services": {
+                "current": "volcenginecc:id/getServices:getServices",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

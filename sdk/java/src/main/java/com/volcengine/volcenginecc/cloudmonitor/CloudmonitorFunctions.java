@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.GetContactGroupArgs;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.GetContactGroupPlainArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetRuleArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetRulePlainArgs;
+import com.volcengine.volcenginecc.cloudmonitor.outputs.GetContactGroupResult;
+import com.volcengine.volcenginecc.cloudmonitor.outputs.GetContactGroupsResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetRuleResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetRulesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CloudmonitorFunctions {
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupResult> getContactGroup(GetContactGroupArgs args) {
+        return getContactGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static CompletableFuture<GetContactGroupResult> getContactGroupPlain(GetContactGroupPlainArgs args) {
+        return getContactGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupResult> getContactGroup(GetContactGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getContactGroup:getContactGroup", TypeShape.of(GetContactGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupResult> getContactGroup(GetContactGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getContactGroup:getContactGroup", TypeShape.of(GetContactGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static CompletableFuture<GetContactGroupResult> getContactGroupPlain(GetContactGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getContactGroup:getContactGroup", TypeShape.of(GetContactGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupsResult> getContactGroups() {
+        return getContactGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static CompletableFuture<GetContactGroupsResult> getContactGroupsPlain() {
+        return getContactGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupsResult> getContactGroups(InvokeArgs args) {
+        return getContactGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static CompletableFuture<GetContactGroupsResult> getContactGroupsPlain(InvokeArgs args) {
+        return getContactGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupsResult> getContactGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getContactGroups:getContactGroups", TypeShape.of(GetContactGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static Output<GetContactGroupsResult> getContactGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getContactGroups:getContactGroups", TypeShape.of(GetContactGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::ContactGroup
+     * 
+     */
+    public static CompletableFuture<GetContactGroupsResult> getContactGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getContactGroups:getContactGroups", TypeShape.of(GetContactGroupsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CloudMonitor::Rule
      * 
