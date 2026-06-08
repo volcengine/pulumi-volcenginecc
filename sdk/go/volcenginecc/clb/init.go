@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Acl{}
 	case "volcenginecc:clb/certificate:Certificate":
 		r = &Certificate{}
+	case "volcenginecc:clb/checkLogProject:CheckLogProject":
+		r = &CheckLogProject{}
+	case "volcenginecc:clb/checkLogTopic:CheckLogTopic":
+		r = &CheckLogTopic{}
 	case "volcenginecc:clb/clb:Clb":
 		r = &Clb{}
 	case "volcenginecc:clb/listener:Listener":
@@ -62,6 +66,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"clb/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"clb/checkLogProject",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"clb/checkLogTopic",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

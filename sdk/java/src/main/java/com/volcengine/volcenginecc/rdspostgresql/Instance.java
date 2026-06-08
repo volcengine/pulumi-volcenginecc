@@ -14,6 +14,8 @@ import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceChargeDetail;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceEndpoint;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceMaintenanceWindow;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceNodeInfo;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceReplicationSlot;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceRestoreToExistedInstance;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.InstanceTag;
 import java.lang.Double;
 import java.lang.String;
@@ -244,6 +246,26 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> projectName() {
         return this.projectName;
+    }
+    @Export(name="replicationSlots", refs={List.class,InstanceReplicationSlot.class}, tree="[0,1]")
+    private Output<List<InstanceReplicationSlot>> replicationSlots;
+
+    public Output<List<InstanceReplicationSlot>> replicationSlots() {
+        return this.replicationSlots;
+    }
+    /**
+     * Restore backup data to the current instance
+     * 
+     */
+    @Export(name="restoreToExistedInstance", refs={InstanceRestoreToExistedInstance.class}, tree="[0]")
+    private Output<InstanceRestoreToExistedInstance> restoreToExistedInstance;
+
+    /**
+     * @return Restore backup data to the current instance
+     * 
+     */
+    public Output<InstanceRestoreToExistedInstance> restoreToExistedInstance() {
+        return this.restoreToExistedInstance;
     }
     /**
      * Data file space used by the primary node. Unit: Byte

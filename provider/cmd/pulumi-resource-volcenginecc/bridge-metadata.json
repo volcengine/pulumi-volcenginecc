@@ -1069,6 +1069,12 @@
                     }
                 }
             },
+            "volcenginecc_clb_check_log_project": {
+                "current": "volcenginecc:clb/checkLogProject:CheckLogProject"
+            },
+            "volcenginecc_clb_check_log_topic": {
+                "current": "volcenginecc:clb/checkLogTopic:CheckLogTopic"
+            },
             "volcenginecc_clb_clb": {
                 "current": "volcenginecc:clb/clb:Clb",
                 "fields": {
@@ -2601,6 +2607,16 @@
                     "node_info": {
                         "maxItemsOne": false
                     },
+                    "replication_slots": {
+                        "maxItemsOne": false
+                    },
+                    "restore_to_existed_instance": {
+                        "fields": {
+                            "databases": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -3148,6 +3164,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_transitrouter_route_table_propagation": {
+                "current": "volcenginecc:transitrouter/routeTablePropagation:RouteTablePropagation"
             },
             "volcenginecc_transitrouter_transit_router": {
                 "current": "volcenginecc:transitrouter/transitRouter:TransitRouter",
@@ -5372,6 +5391,28 @@
             },
             "volcenginecc_clb_certificates": {
                 "current": "volcenginecc:clb/getCertificates:getCertificates",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_clb_check_log_project": {
+                "current": "volcenginecc:clb/getCheckLogProject:getCheckLogProject"
+            },
+            "volcenginecc_clb_check_log_projects": {
+                "current": "volcenginecc:clb/getCheckLogProjects:getCheckLogProjects",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_clb_check_log_topic": {
+                "current": "volcenginecc:clb/getCheckLogTopic:getCheckLogTopic"
+            },
+            "volcenginecc_clb_check_log_topics": {
+                "current": "volcenginecc:clb/getCheckLogTopics:getCheckLogTopics",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -7696,6 +7737,16 @@
                     "node_info": {
                         "maxItemsOne": false
                     },
+                    "replication_slots": {
+                        "maxItemsOne": false
+                    },
+                    "restore_to_existed_instance": {
+                        "fields": {
+                            "databases": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -8551,6 +8602,17 @@
             },
             "volcenginecc_transitrouter_peer_attachments": {
                 "current": "volcenginecc:transitrouter/getPeerAttachments:getPeerAttachments",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_transitrouter_route_table_propagation": {
+                "current": "volcenginecc:transitrouter/getRouteTablePropagation:getRouteTablePropagation"
+            },
+            "volcenginecc_transitrouter_route_table_propagations": {
+                "current": "volcenginecc:transitrouter/getRouteTablePropagations:getRouteTablePropagations",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false

@@ -9,6 +9,8 @@ import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceChargeDetailArgs
 import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceEndpointArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceMaintenanceWindowArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceNodeInfoArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceReplicationSlotArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceRestoreToExistedInstanceArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.InstanceTagArgs;
 import java.lang.Double;
 import java.lang.String;
@@ -246,6 +248,28 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.projectName);
     }
 
+    @Import(name="replicationSlots")
+    private @Nullable Output<List<InstanceReplicationSlotArgs>> replicationSlots;
+
+    public Optional<Output<List<InstanceReplicationSlotArgs>>> replicationSlots() {
+        return Optional.ofNullable(this.replicationSlots);
+    }
+
+    /**
+     * Restore backup data to the current instance
+     * 
+     */
+    @Import(name="restoreToExistedInstance")
+    private @Nullable Output<InstanceRestoreToExistedInstanceArgs> restoreToExistedInstance;
+
+    /**
+     * @return Restore backup data to the current instance
+     * 
+     */
+    public Optional<Output<InstanceRestoreToExistedInstanceArgs>> restoreToExistedInstance() {
+        return Optional.ofNullable(this.restoreToExistedInstance);
+    }
+
     /**
      * Data file space used by the primary node. Unit: Byte
      * 
@@ -452,6 +476,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.nodeNumber = $.nodeNumber;
         this.nodeSpec = $.nodeSpec;
         this.projectName = $.projectName;
+        this.replicationSlots = $.replicationSlots;
+        this.restoreToExistedInstance = $.restoreToExistedInstance;
         this.storageDataUse = $.storageDataUse;
         this.storageLogUse = $.storageLogUse;
         this.storageSpace = $.storageSpace;
@@ -813,6 +839,40 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
+        }
+
+        public Builder replicationSlots(@Nullable Output<List<InstanceReplicationSlotArgs>> replicationSlots) {
+            $.replicationSlots = replicationSlots;
+            return this;
+        }
+
+        public Builder replicationSlots(List<InstanceReplicationSlotArgs> replicationSlots) {
+            return replicationSlots(Output.of(replicationSlots));
+        }
+
+        public Builder replicationSlots(InstanceReplicationSlotArgs... replicationSlots) {
+            return replicationSlots(List.of(replicationSlots));
+        }
+
+        /**
+         * @param restoreToExistedInstance Restore backup data to the current instance
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreToExistedInstance(@Nullable Output<InstanceRestoreToExistedInstanceArgs> restoreToExistedInstance) {
+            $.restoreToExistedInstance = restoreToExistedInstance;
+            return this;
+        }
+
+        /**
+         * @param restoreToExistedInstance Restore backup data to the current instance
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreToExistedInstance(InstanceRestoreToExistedInstanceArgs restoreToExistedInstance) {
+            return restoreToExistedInstance(Output.of(restoreToExistedInstance));
         }
 
         /**
