@@ -440,6 +440,22 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "clb/checkLogProject",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/checkLogProject:CheckLogProject": "CheckLogProject"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "clb/checkLogTopic",
+  "fqn": "pulumi_volcenginecc.clb",
+  "classes": {
+   "volcenginecc:clb/checkLogTopic:CheckLogTopic": "CheckLogTopic"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/clb",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
@@ -1468,6 +1484,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/peerAttachment:PeerAttachment": "PeerAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/routeTablePropagation",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/routeTablePropagation:RouteTablePropagation": "RouteTablePropagation"
   }
  },
  {

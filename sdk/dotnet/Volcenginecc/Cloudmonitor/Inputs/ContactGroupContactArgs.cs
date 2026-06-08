@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor.Inputs
     public sealed class ContactGroupContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 联系人ID。
+        /// Contact ID
         /// </summary>
         [Input("contactId")]
         public Input<string>? ContactId { get; set; }

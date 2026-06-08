@@ -12,6 +12,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetPeerAttachmentArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetPeerAttachmentPlainArgs;
+import com.volcengine.volcenginecc.transitrouter.inputs.GetRouteTablePropagationArgs;
+import com.volcengine.volcenginecc.transitrouter.inputs.GetRouteTablePropagationPlainArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetTransitRouterArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetTransitRouterPlainArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetTransitRouterRouteEntryArgs;
@@ -24,6 +26,8 @@ import com.volcengine.volcenginecc.transitrouter.inputs.GetVpnAttachmentArgs;
 import com.volcengine.volcenginecc.transitrouter.inputs.GetVpnAttachmentPlainArgs;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetPeerAttachmentResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetPeerAttachmentsResult;
+import com.volcengine.volcenginecc.transitrouter.outputs.GetRouteTablePropagationResult;
+import com.volcengine.volcenginecc.transitrouter.outputs.GetRouteTablePropagationsResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetTransitRouterResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetTransitRouterRouteEntriesResult;
 import com.volcengine.volcenginecc.transitrouter.outputs.GetTransitRouterRouteEntryResult;
@@ -120,6 +124,90 @@ public final class TransitrouterFunctions {
      */
     public static CompletableFuture<GetPeerAttachmentsResult> getPeerAttachmentsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:transitrouter/getPeerAttachments:getPeerAttachments", TypeShape.of(GetPeerAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationResult> getRouteTablePropagation(GetRouteTablePropagationArgs args) {
+        return getRouteTablePropagation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static CompletableFuture<GetRouteTablePropagationResult> getRouteTablePropagationPlain(GetRouteTablePropagationPlainArgs args) {
+        return getRouteTablePropagationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationResult> getRouteTablePropagation(GetRouteTablePropagationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getRouteTablePropagation:getRouteTablePropagation", TypeShape.of(GetRouteTablePropagationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationResult> getRouteTablePropagation(GetRouteTablePropagationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getRouteTablePropagation:getRouteTablePropagation", TypeShape.of(GetRouteTablePropagationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static CompletableFuture<GetRouteTablePropagationResult> getRouteTablePropagationPlain(GetRouteTablePropagationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:transitrouter/getRouteTablePropagation:getRouteTablePropagation", TypeShape.of(GetRouteTablePropagationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationsResult> getRouteTablePropagations() {
+        return getRouteTablePropagations(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static CompletableFuture<GetRouteTablePropagationsResult> getRouteTablePropagationsPlain() {
+        return getRouteTablePropagationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationsResult> getRouteTablePropagations(InvokeArgs args) {
+        return getRouteTablePropagations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static CompletableFuture<GetRouteTablePropagationsResult> getRouteTablePropagationsPlain(InvokeArgs args) {
+        return getRouteTablePropagationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationsResult> getRouteTablePropagations(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getRouteTablePropagations:getRouteTablePropagations", TypeShape.of(GetRouteTablePropagationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static Output<GetRouteTablePropagationsResult> getRouteTablePropagations(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:transitrouter/getRouteTablePropagations:getRouteTablePropagations", TypeShape.of(GetRouteTablePropagationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TransitRouter::RouteTablePropagation
+     * 
+     */
+    public static CompletableFuture<GetRouteTablePropagationsResult> getRouteTablePropagationsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:transitrouter/getRouteTablePropagations:getRouteTablePropagations", TypeShape.of(GetRouteTablePropagationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TransitRouter::TransitRouter

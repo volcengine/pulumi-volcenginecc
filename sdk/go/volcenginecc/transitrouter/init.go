@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:transitrouter/peerAttachment:PeerAttachment":
 		r = &PeerAttachment{}
+	case "volcenginecc:transitrouter/routeTablePropagation:RouteTablePropagation":
+		r = &RouteTablePropagation{}
 	case "volcenginecc:transitrouter/transitRouter:TransitRouter":
 		r = &TransitRouter{}
 	case "volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry":
@@ -49,6 +51,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"transitrouter/peerAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/routeTablePropagation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
