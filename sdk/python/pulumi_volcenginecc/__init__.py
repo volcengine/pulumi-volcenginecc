@@ -616,6 +616,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "directconnect/bgpPeer",
+  "fqn": "pulumi_volcenginecc.directconnect",
+  "classes": {
+   "volcenginecc:directconnect/bgpPeer:BgpPeer": "BgpPeer"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "directconnect/directConnectGateway",
   "fqn": "pulumi_volcenginecc.directconnect",
   "classes": {
@@ -636,6 +644,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.directconnect",
   "classes": {
    "volcenginecc:directconnect/virtualInterface:VirtualInterface": "VirtualInterface"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "dns/record",
+  "fqn": "pulumi_volcenginecc.dns",
+  "classes": {
+   "volcenginecc:dns/record:Record": "Record"
   }
  },
  {
@@ -800,10 +816,34 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "gtm/gtm",
+  "fqn": "pulumi_volcenginecc.gtm",
+  "classes": {
+   "volcenginecc:gtm/gtm:Gtm": "Gtm"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "gtm/pool",
   "fqn": "pulumi_volcenginecc.gtm",
   "classes": {
    "volcenginecc:gtm/pool:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "gtm/routing",
+  "fqn": "pulumi_volcenginecc.gtm",
+  "classes": {
+   "volcenginecc:gtm/routing:Routing": "Routing"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "gtm/rule",
+  "fqn": "pulumi_volcenginecc.gtm",
+  "classes": {
+   "volcenginecc:gtm/rule:Rule": "Rule"
   }
  },
  {
@@ -828,6 +868,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
    "volcenginecc:iam/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "iam/oauthProvider",
+  "fqn": "pulumi_volcenginecc.iam",
+  "classes": {
+   "volcenginecc:iam/oauthProvider:OauthProvider": "OauthProvider"
   }
  },
  {
@@ -912,6 +960,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "kafka/user",
+  "fqn": "pulumi_volcenginecc.kafka",
+  "classes": {
+   "volcenginecc:kafka/user:User": "User"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "kms/key",
   "fqn": "pulumi_volcenginecc.kms",
   "classes": {
@@ -932,6 +988,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.kms",
   "classes": {
    "volcenginecc:kms/secret:Secret": "Secret"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "mongodb/account",
+  "fqn": "pulumi_volcenginecc.mongodb",
+  "classes": {
+   "volcenginecc:mongodb/account:Account": "Account"
   }
  },
  {
@@ -1172,6 +1236,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rdsmysql",
   "classes": {
    "volcenginecc:rdsmysql/endpoint:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmysql/endpointPublicAddress",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/endpointPublicAddress:EndpointPublicAddress": "EndpointPublicAddress"
   }
  },
  {
@@ -1440,6 +1512,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tos/bucketAccessMonitor",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketAccessMonitor:BucketAccessMonitor": "BucketAccessMonitor"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tos/bucketCors",
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
@@ -1624,6 +1704,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "vepfs/fileset",
+  "fqn": "pulumi_volcenginecc.vepfs",
+  "classes": {
+   "volcenginecc:vepfs/fileset:Fileset": "Fileset"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "vepfs/instance",
   "fqn": "pulumi_volcenginecc.vepfs",
   "classes": {
@@ -1700,6 +1788,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vmp",
   "classes": {
    "volcenginecc:vmp/alertingRule:AlertingRule": "AlertingRule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vmp/ruleFile",
+  "fqn": "pulumi_volcenginecc.vmp",
+  "classes": {
+   "volcenginecc:vmp/ruleFile:RuleFile": "RuleFile"
   }
  },
  {

@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.dns.inputs.GetRecordArgs;
+import com.volcengine.volcenginecc.dns.inputs.GetRecordPlainArgs;
 import com.volcengine.volcenginecc.dns.inputs.GetZoneArgs;
 import com.volcengine.volcenginecc.dns.inputs.GetZonePlainArgs;
+import com.volcengine.volcenginecc.dns.outputs.GetRecordResult;
+import com.volcengine.volcenginecc.dns.outputs.GetRecordsResult;
 import com.volcengine.volcenginecc.dns.outputs.GetZoneResult;
 import com.volcengine.volcenginecc.dns.outputs.GetZonesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class DnsFunctions {
+    /**
+     * Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args) {
+        return getRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args) {
+        return getRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordResult> getRecord(GetRecordArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordResult> getRecordPlain(GetRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:dns/getRecord:getRecord", TypeShape.of(GetRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords() {
+        return getRecords(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain() {
+        return getRecordsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(InvokeArgs args) {
+        return getRecords(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain(InvokeArgs args) {
+        return getRecordsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Record
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:dns/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::DNS::Zone
      * 

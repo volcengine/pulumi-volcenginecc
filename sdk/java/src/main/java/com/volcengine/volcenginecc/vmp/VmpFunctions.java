@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.vmp.inputs.GetAlertingRuleArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetAlertingRulePlainArgs;
+import com.volcengine.volcenginecc.vmp.inputs.GetRuleFileArgs;
+import com.volcengine.volcenginecc.vmp.inputs.GetRuleFilePlainArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetWorkspaceArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetWorkspacePlainArgs;
 import com.volcengine.volcenginecc.vmp.outputs.GetAlertingRuleResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetAlertingRulesResult;
+import com.volcengine.volcenginecc.vmp.outputs.GetRuleFileResult;
+import com.volcengine.volcenginecc.vmp.outputs.GetRuleFilesResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetWorkspaceResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetWorkspacesResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class VmpFunctions {
      */
     public static CompletableFuture<GetAlertingRulesResult> getAlertingRulesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getAlertingRules:getAlertingRules", TypeShape.of(GetAlertingRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFileResult> getRuleFile(GetRuleFileArgs args) {
+        return getRuleFile(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static CompletableFuture<GetRuleFileResult> getRuleFilePlain(GetRuleFilePlainArgs args) {
+        return getRuleFilePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFileResult> getRuleFile(GetRuleFileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getRuleFile:getRuleFile", TypeShape.of(GetRuleFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFileResult> getRuleFile(GetRuleFileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getRuleFile:getRuleFile", TypeShape.of(GetRuleFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static CompletableFuture<GetRuleFileResult> getRuleFilePlain(GetRuleFilePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getRuleFile:getRuleFile", TypeShape.of(GetRuleFileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFilesResult> getRuleFiles() {
+        return getRuleFiles(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static CompletableFuture<GetRuleFilesResult> getRuleFilesPlain() {
+        return getRuleFilesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFilesResult> getRuleFiles(InvokeArgs args) {
+        return getRuleFiles(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static CompletableFuture<GetRuleFilesResult> getRuleFilesPlain(InvokeArgs args) {
+        return getRuleFilesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFilesResult> getRuleFiles(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getRuleFiles:getRuleFiles", TypeShape.of(GetRuleFilesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static Output<GetRuleFilesResult> getRuleFiles(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getRuleFiles:getRuleFiles", TypeShape.of(GetRuleFilesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::RuleFile
+     * 
+     */
+    public static CompletableFuture<GetRuleFilesResult> getRuleFilesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getRuleFiles:getRuleFiles", TypeShape.of(GetRuleFilesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VMP::Workspace

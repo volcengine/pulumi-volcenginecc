@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:directconnect/bgpPeer:BgpPeer":
+		r = &BgpPeer{}
 	case "volcenginecc:directconnect/directConnectGateway:DirectConnectGateway":
 		r = &DirectConnectGateway{}
 	case "volcenginecc:directconnect/gatewayRoute:GatewayRoute":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"directconnect/bgpPeer",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"directconnect/directConnectGateway",

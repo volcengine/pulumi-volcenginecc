@@ -11,6 +11,8 @@ from .get_accesskey import *
 from .get_accesskeys import *
 from .get_group import *
 from .get_groups import *
+from .get_oauth_provider import *
+from .get_oauth_providers import *
 from .get_oidc_provider import *
 from .get_oidc_providers import *
 from .get_policies import *
@@ -24,6 +26,7 @@ from .get_saml_providers import *
 from .get_user import *
 from .get_users import *
 from .group import *
+from .oauth_provider import *
 from .oidc_provider import *
 from .policy import *
 from .project import *

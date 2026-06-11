@@ -30,6 +30,16 @@ export const getGroups: typeof import("./getGroups").getGroups = null as any;
 export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
 
+export { GetOauthProviderArgs, GetOauthProviderResult, GetOauthProviderOutputArgs } from "./getOauthProvider";
+export const getOauthProvider: typeof import("./getOauthProvider").getOauthProvider = null as any;
+export const getOauthProviderOutput: typeof import("./getOauthProvider").getOauthProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOauthProvider","getOauthProviderOutput"], () => require("./getOauthProvider"));
+
+export { GetOauthProvidersResult } from "./getOauthProviders";
+export const getOauthProviders: typeof import("./getOauthProviders").getOauthProviders = null as any;
+export const getOauthProvidersOutput: typeof import("./getOauthProviders").getOauthProvidersOutput = null as any;
+utilities.lazyLoad(exports, ["getOauthProviders","getOauthProvidersOutput"], () => require("./getOauthProviders"));
+
 export { GetOidcProviderArgs, GetOidcProviderResult, GetOidcProviderOutputArgs } from "./getOidcProvider";
 export const getOidcProvider: typeof import("./getOidcProvider").getOidcProvider = null as any;
 export const getOidcProviderOutput: typeof import("./getOidcProvider").getOidcProviderOutput = null as any;
@@ -95,6 +105,11 @@ export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
+export { OauthProviderArgs, OauthProviderState } from "./oauthProvider";
+export type OauthProvider = import("./oauthProvider").OauthProvider;
+export const OauthProvider: typeof import("./oauthProvider").OauthProvider = null as any;
+utilities.lazyLoad(exports, ["OauthProvider"], () => require("./oauthProvider"));
+
 export { OidcProviderArgs, OidcProviderState } from "./oidcProvider";
 export type OidcProvider = import("./oidcProvider").OidcProvider;
 export const OidcProvider: typeof import("./oidcProvider").OidcProvider = null as any;
@@ -134,6 +149,8 @@ const _module = {
                 return new Accesskey(name, <any>undefined, { urn })
             case "volcenginecc:iam/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "volcenginecc:iam/oauthProvider:OauthProvider":
+                return new OauthProvider(name, <any>undefined, { urn })
             case "volcenginecc:iam/oidcProvider:OidcProvider":
                 return new OidcProvider(name, <any>undefined, { urn })
             case "volcenginecc:iam/policy:Policy":
@@ -153,6 +170,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/accesskey", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/group", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "iam/oauthProvider", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/oidcProvider", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/policy", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/project", _module)

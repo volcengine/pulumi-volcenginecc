@@ -10,6 +10,11 @@ export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
 utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
+export { BucketAccessMonitorArgs, BucketAccessMonitorState } from "./bucketAccessMonitor";
+export type BucketAccessMonitor = import("./bucketAccessMonitor").BucketAccessMonitor;
+export const BucketAccessMonitor: typeof import("./bucketAccessMonitor").BucketAccessMonitor = null as any;
+utilities.lazyLoad(exports, ["BucketAccessMonitor"], () => require("./bucketAccessMonitor"));
+
 export { BucketCorsArgs, BucketCorsState } from "./bucketCors";
 export type BucketCors = import("./bucketCors").BucketCors;
 export const BucketCors: typeof import("./bucketCors").BucketCors = null as any;
@@ -39,6 +44,16 @@ export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
 utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
+
+export { GetBucketAccessMonitorArgs, GetBucketAccessMonitorResult, GetBucketAccessMonitorOutputArgs } from "./getBucketAccessMonitor";
+export const getBucketAccessMonitor: typeof import("./getBucketAccessMonitor").getBucketAccessMonitor = null as any;
+export const getBucketAccessMonitorOutput: typeof import("./getBucketAccessMonitor").getBucketAccessMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketAccessMonitor","getBucketAccessMonitorOutput"], () => require("./getBucketAccessMonitor"));
+
+export { GetBucketAccessMonitorsResult } from "./getBucketAccessMonitors";
+export const getBucketAccessMonitors: typeof import("./getBucketAccessMonitors").getBucketAccessMonitors = null as any;
+export const getBucketAccessMonitorsOutput: typeof import("./getBucketAccessMonitors").getBucketAccessMonitorsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketAccessMonitors","getBucketAccessMonitorsOutput"], () => require("./getBucketAccessMonitors"));
 
 export { GetBucketCorsArgs, GetBucketCorsResult, GetBucketCorsOutputArgs } from "./getBucketCors";
 export const getBucketCors: typeof import("./getBucketCors").getBucketCors = null as any;
@@ -97,6 +112,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:tos/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketAccessMonitor:BucketAccessMonitor":
+                return new BucketAccessMonitor(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketCors:BucketCors":
                 return new BucketCors(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketEncryption:BucketEncryption":
@@ -113,6 +130,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucket", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketAccessMonitor", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketCors", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketEncryption", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketInventory", _module)
