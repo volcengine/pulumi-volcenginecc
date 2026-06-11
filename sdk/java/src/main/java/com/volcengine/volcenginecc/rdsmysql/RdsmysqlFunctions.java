@@ -20,6 +20,8 @@ import com.volcengine.volcenginecc.rdsmysql.inputs.GetDbAccountArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetDbAccountPlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointPlainArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointPublicAddressArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointPublicAddressPlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetParameterTemplateArgs;
@@ -32,6 +34,8 @@ import com.volcengine.volcenginecc.rdsmysql.outputs.GetDatabaseResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetDatabasesResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetDbAccountResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetDbAccountsResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointPublicAddressResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointPublicAddressesResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointsResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceResult;
@@ -411,6 +415,90 @@ public final class RdsmysqlFunctions {
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressResult> getEndpointPublicAddress(GetEndpointPublicAddressArgs args) {
+        return getEndpointPublicAddress(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressResult> getEndpointPublicAddressPlain(GetEndpointPublicAddressPlainArgs args) {
+        return getEndpointPublicAddressPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressResult> getEndpointPublicAddress(GetEndpointPublicAddressArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getEndpointPublicAddress:getEndpointPublicAddress", TypeShape.of(GetEndpointPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressResult> getEndpointPublicAddress(GetEndpointPublicAddressArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getEndpointPublicAddress:getEndpointPublicAddress", TypeShape.of(GetEndpointPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressResult> getEndpointPublicAddressPlain(GetEndpointPublicAddressPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getEndpointPublicAddress:getEndpointPublicAddress", TypeShape.of(GetEndpointPublicAddressResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses() {
+        return getEndpointPublicAddresses(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressesResult> getEndpointPublicAddressesPlain() {
+        return getEndpointPublicAddressesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses(InvokeArgs args) {
+        return getEndpointPublicAddresses(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressesResult> getEndpointPublicAddressesPlain(InvokeArgs args) {
+        return getEndpointPublicAddressesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getEndpointPublicAddresses:getEndpointPublicAddresses", TypeShape.of(GetEndpointPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static Output<GetEndpointPublicAddressesResult> getEndpointPublicAddresses(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getEndpointPublicAddresses:getEndpointPublicAddresses", TypeShape.of(GetEndpointPublicAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::EndpointPublicAddress
+     * 
+     */
+    public static CompletableFuture<GetEndpointPublicAddressesResult> getEndpointPublicAddressesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getEndpointPublicAddresses:getEndpointPublicAddresses", TypeShape.of(GetEndpointPublicAddressesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::RDSMySQL::Endpoint

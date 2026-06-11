@@ -10,12 +10,16 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.directconnect.inputs.GetBgpPeerArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetBgpPeerPlainArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetDirectConnectGatewayArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetDirectConnectGatewayPlainArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetGatewayRouteArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetGatewayRoutePlainArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetVirtualInterfaceArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetVirtualInterfacePlainArgs;
+import com.volcengine.volcenginecc.directconnect.outputs.GetBgpPeerResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetBgpPeersResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewayResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewaysResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetGatewayRouteResult;
@@ -25,6 +29,90 @@ import com.volcengine.volcenginecc.directconnect.outputs.GetVirtualInterfacesRes
 import java.util.concurrent.CompletableFuture;
 
 public final class DirectconnectFunctions {
+    /**
+     * Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeerResult> getBgpPeer(GetBgpPeerArgs args) {
+        return getBgpPeer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static CompletableFuture<GetBgpPeerResult> getBgpPeerPlain(GetBgpPeerPlainArgs args) {
+        return getBgpPeerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeerResult> getBgpPeer(GetBgpPeerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getBgpPeer:getBgpPeer", TypeShape.of(GetBgpPeerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeerResult> getBgpPeer(GetBgpPeerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getBgpPeer:getBgpPeer", TypeShape.of(GetBgpPeerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static CompletableFuture<GetBgpPeerResult> getBgpPeerPlain(GetBgpPeerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getBgpPeer:getBgpPeer", TypeShape.of(GetBgpPeerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeersResult> getBgpPeers() {
+        return getBgpPeers(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static CompletableFuture<GetBgpPeersResult> getBgpPeersPlain() {
+        return getBgpPeersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeersResult> getBgpPeers(InvokeArgs args) {
+        return getBgpPeers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static CompletableFuture<GetBgpPeersResult> getBgpPeersPlain(InvokeArgs args) {
+        return getBgpPeersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeersResult> getBgpPeers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getBgpPeers:getBgpPeers", TypeShape.of(GetBgpPeersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static Output<GetBgpPeersResult> getBgpPeers(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getBgpPeers:getBgpPeers", TypeShape.of(GetBgpPeersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::BgpPeer
+     * 
+     */
+    public static CompletableFuture<GetBgpPeersResult> getBgpPeersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getBgpPeers:getBgpPeers", TypeShape.of(GetBgpPeersResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::DirectConnect::DirectConnectGateway
      * 

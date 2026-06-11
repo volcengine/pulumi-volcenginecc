@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:gtm/gtm:Gtm":
+		r = &Gtm{}
 	case "volcenginecc:gtm/pool:Pool":
 		r = &Pool{}
+	case "volcenginecc:gtm/routing:Routing":
+		r = &Routing{}
+	case "volcenginecc:gtm/rule:Rule":
+		r = &Rule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,7 +44,22 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"gtm/gtm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"gtm/pool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"gtm/routing",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"gtm/rule",
 		&module{version},
 	)
 }

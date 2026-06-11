@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketAccessMonitorArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketAccessMonitorPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketCorsArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketCorsPlainArgs;
@@ -22,6 +24,8 @@ import com.volcengine.volcenginecc.tos.inputs.GetBucketNotificationPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogPlainArgs;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketAccessMonitorResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketAccessMonitorsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketCorsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionsResult;
@@ -70,6 +74,90 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketResult> getBucketPlain(GetBucketPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucket:getBucket", TypeShape.of(GetBucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorResult> getBucketAccessMonitor(GetBucketAccessMonitorArgs args) {
+        return getBucketAccessMonitor(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static CompletableFuture<GetBucketAccessMonitorResult> getBucketAccessMonitorPlain(GetBucketAccessMonitorPlainArgs args) {
+        return getBucketAccessMonitorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorResult> getBucketAccessMonitor(GetBucketAccessMonitorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketAccessMonitor:getBucketAccessMonitor", TypeShape.of(GetBucketAccessMonitorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorResult> getBucketAccessMonitor(GetBucketAccessMonitorArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketAccessMonitor:getBucketAccessMonitor", TypeShape.of(GetBucketAccessMonitorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static CompletableFuture<GetBucketAccessMonitorResult> getBucketAccessMonitorPlain(GetBucketAccessMonitorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketAccessMonitor:getBucketAccessMonitor", TypeShape.of(GetBucketAccessMonitorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorsResult> getBucketAccessMonitors() {
+        return getBucketAccessMonitors(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static CompletableFuture<GetBucketAccessMonitorsResult> getBucketAccessMonitorsPlain() {
+        return getBucketAccessMonitorsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorsResult> getBucketAccessMonitors(InvokeArgs args) {
+        return getBucketAccessMonitors(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static CompletableFuture<GetBucketAccessMonitorsResult> getBucketAccessMonitorsPlain(InvokeArgs args) {
+        return getBucketAccessMonitorsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorsResult> getBucketAccessMonitors(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketAccessMonitors:getBucketAccessMonitors", TypeShape.of(GetBucketAccessMonitorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static Output<GetBucketAccessMonitorsResult> getBucketAccessMonitors(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketAccessMonitors:getBucketAccessMonitors", TypeShape.of(GetBucketAccessMonitorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketAccessMonitor
+     * 
+     */
+    public static CompletableFuture<GetBucketAccessMonitorsResult> getBucketAccessMonitorsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketAccessMonitors:getBucketAccessMonitors", TypeShape.of(GetBucketAccessMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TOS::BucketCors

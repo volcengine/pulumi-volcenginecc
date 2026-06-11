@@ -10,12 +10,16 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.mongodb.inputs.GetAccountArgs;
+import com.volcengine.volcenginecc.mongodb.inputs.GetAccountPlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetSslStateArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetSslStatePlainArgs;
+import com.volcengine.volcenginecc.mongodb.outputs.GetAccountResult;
+import com.volcengine.volcenginecc.mongodb.outputs.GetAccountsResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetInstanceResult;
@@ -25,6 +29,90 @@ import com.volcengine.volcenginecc.mongodb.outputs.GetSslStatesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class MongodbFunctions {
+    /**
+     * Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
+        return getAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
+        return getAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts() {
+        return getAccounts(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain() {
+        return getAccountsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args) {
+        return getAccounts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args) {
+        return getAccountsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static Output<GetAccountsResult> getAccounts(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Account
+     * 
+     */
+    public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::MongoDB::AllowList
      * 

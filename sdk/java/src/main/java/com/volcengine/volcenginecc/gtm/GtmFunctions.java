@@ -10,13 +10,109 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.gtm.inputs.GetGtmArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetGtmPlainArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetPoolArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetPoolPlainArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetRoutingArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetRoutingPlainArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetRuleArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetRulePlainArgs;
+import com.volcengine.volcenginecc.gtm.outputs.GetGtmResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetGtmsResult;
 import com.volcengine.volcenginecc.gtm.outputs.GetPoolResult;
 import com.volcengine.volcenginecc.gtm.outputs.GetPoolsResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetRoutingResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetRoutingsResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetRuleResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetRulesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class GtmFunctions {
+    /**
+     * Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmResult> getGtm(GetGtmArgs args) {
+        return getGtm(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static CompletableFuture<GetGtmResult> getGtmPlain(GetGtmPlainArgs args) {
+        return getGtmPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmResult> getGtm(GetGtmArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getGtm:getGtm", TypeShape.of(GetGtmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmResult> getGtm(GetGtmArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getGtm:getGtm", TypeShape.of(GetGtmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static CompletableFuture<GetGtmResult> getGtmPlain(GetGtmPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getGtm:getGtm", TypeShape.of(GetGtmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmsResult> getGtms() {
+        return getGtms(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static CompletableFuture<GetGtmsResult> getGtmsPlain() {
+        return getGtmsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmsResult> getGtms(InvokeArgs args) {
+        return getGtms(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static CompletableFuture<GetGtmsResult> getGtmsPlain(InvokeArgs args) {
+        return getGtmsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmsResult> getGtms(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getGtms:getGtms", TypeShape.of(GetGtmsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static Output<GetGtmsResult> getGtms(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getGtms:getGtms", TypeShape.of(GetGtmsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::GTM
+     * 
+     */
+    public static CompletableFuture<GetGtmsResult> getGtmsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getGtms:getGtms", TypeShape.of(GetGtmsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::GTM::Pool
      * 
@@ -100,5 +196,173 @@ public final class GtmFunctions {
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getPools:getPools", TypeShape.of(GetPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingResult> getRouting(GetRoutingArgs args) {
+        return getRouting(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static CompletableFuture<GetRoutingResult> getRoutingPlain(GetRoutingPlainArgs args) {
+        return getRoutingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingResult> getRouting(GetRoutingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRouting:getRouting", TypeShape.of(GetRoutingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingResult> getRouting(GetRoutingArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRouting:getRouting", TypeShape.of(GetRoutingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static CompletableFuture<GetRoutingResult> getRoutingPlain(GetRoutingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getRouting:getRouting", TypeShape.of(GetRoutingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingsResult> getRoutings() {
+        return getRoutings(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static CompletableFuture<GetRoutingsResult> getRoutingsPlain() {
+        return getRoutingsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingsResult> getRoutings(InvokeArgs args) {
+        return getRoutings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static CompletableFuture<GetRoutingsResult> getRoutingsPlain(InvokeArgs args) {
+        return getRoutingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingsResult> getRoutings(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRoutings:getRoutings", TypeShape.of(GetRoutingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static Output<GetRoutingsResult> getRoutings(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRoutings:getRoutings", TypeShape.of(GetRoutingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Routing
+     * 
+     */
+    public static CompletableFuture<GetRoutingsResult> getRoutingsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getRoutings:getRoutings", TypeShape.of(GetRoutingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args) {
+        return getRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
+        return getRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules() {
+        return getRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain() {
+        return getRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args) {
+        return getRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args) {
+        return getRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static Output<GetRulesResult> getRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Rule
+     * 
+     */
+    public static CompletableFuture<GetRulesResult> getRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getRules:getRules", TypeShape.of(GetRulesResult.class), args, Utilities.withVersion(options));
     }
 }

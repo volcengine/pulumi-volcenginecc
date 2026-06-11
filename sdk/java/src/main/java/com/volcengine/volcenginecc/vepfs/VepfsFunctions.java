@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.vepfs.inputs.GetFilesetArgs;
+import com.volcengine.volcenginecc.vepfs.inputs.GetFilesetPlainArgs;
 import com.volcengine.volcenginecc.vepfs.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.vepfs.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.vepfs.inputs.GetMountServiceArgs;
 import com.volcengine.volcenginecc.vepfs.inputs.GetMountServicePlainArgs;
+import com.volcengine.volcenginecc.vepfs.outputs.GetFilesetResult;
+import com.volcengine.volcenginecc.vepfs.outputs.GetFilesetsResult;
 import com.volcengine.volcenginecc.vepfs.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.vepfs.outputs.GetInstancesResult;
 import com.volcengine.volcenginecc.vepfs.outputs.GetMountServiceResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.vepfs.outputs.GetMountServicesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VepfsFunctions {
+    /**
+     * Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetResult> getFileset(GetFilesetArgs args) {
+        return getFileset(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static CompletableFuture<GetFilesetResult> getFilesetPlain(GetFilesetPlainArgs args) {
+        return getFilesetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetResult> getFileset(GetFilesetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getFileset:getFileset", TypeShape.of(GetFilesetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetResult> getFileset(GetFilesetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getFileset:getFileset", TypeShape.of(GetFilesetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static CompletableFuture<GetFilesetResult> getFilesetPlain(GetFilesetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vepfs/getFileset:getFileset", TypeShape.of(GetFilesetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetsResult> getFilesets() {
+        return getFilesets(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static CompletableFuture<GetFilesetsResult> getFilesetsPlain() {
+        return getFilesetsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetsResult> getFilesets(InvokeArgs args) {
+        return getFilesets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static CompletableFuture<GetFilesetsResult> getFilesetsPlain(InvokeArgs args) {
+        return getFilesetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetsResult> getFilesets(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getFilesets:getFilesets", TypeShape.of(GetFilesetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static Output<GetFilesetsResult> getFilesets(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vepfs/getFilesets:getFilesets", TypeShape.of(GetFilesetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VEPFS::Fileset
+     * 
+     */
+    public static CompletableFuture<GetFilesetsResult> getFilesetsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vepfs/getFilesets:getFilesets", TypeShape.of(GetFilesetsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VEPFS::Instance
      * 
