@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.dns.inputs.GetBackupArgs;
+import com.volcengine.volcenginecc.dns.inputs.GetBackupPlainArgs;
 import com.volcengine.volcenginecc.dns.inputs.GetRecordArgs;
 import com.volcengine.volcenginecc.dns.inputs.GetRecordPlainArgs;
 import com.volcengine.volcenginecc.dns.inputs.GetZoneArgs;
 import com.volcengine.volcenginecc.dns.inputs.GetZonePlainArgs;
+import com.volcengine.volcenginecc.dns.outputs.GetBackupResult;
+import com.volcengine.volcenginecc.dns.outputs.GetBackupsResult;
 import com.volcengine.volcenginecc.dns.outputs.GetRecordResult;
 import com.volcengine.volcenginecc.dns.outputs.GetRecordsResult;
 import com.volcengine.volcenginecc.dns.outputs.GetZoneResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.dns.outputs.GetZonesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class DnsFunctions {
+    /**
+     * Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args) {
+        return getBackup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupResult> getBackupPlain(GetBackupPlainArgs args) {
+        return getBackupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupResult> getBackup(GetBackupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupResult> getBackupPlain(GetBackupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:dns/getBackup:getBackup", TypeShape.of(GetBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups() {
+        return getBackups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain() {
+        return getBackupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args) {
+        return getBackups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain(InvokeArgs args) {
+        return getBackupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static Output<GetBackupsResult> getBackups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:dns/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DNS::Backup
+     * 
+     */
+    public static CompletableFuture<GetBackupsResult> getBackupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:dns/getBackups:getBackups", TypeShape.of(GetBackupsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::DNS::Record
      * 

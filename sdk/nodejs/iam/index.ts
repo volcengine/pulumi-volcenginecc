@@ -10,6 +10,11 @@ export type Accesskey = import("./accesskey").Accesskey;
 export const Accesskey: typeof import("./accesskey").Accesskey = null as any;
 utilities.lazyLoad(exports, ["Accesskey"], () => require("./accesskey"));
 
+export { AllowedIpAddressArgs, AllowedIpAddressState } from "./allowedIpAddress";
+export type AllowedIpAddress = import("./allowedIpAddress").AllowedIpAddress;
+export const AllowedIpAddress: typeof import("./allowedIpAddress").AllowedIpAddress = null as any;
+utilities.lazyLoad(exports, ["AllowedIpAddress"], () => require("./allowedIpAddress"));
+
 export { GetAccesskeyArgs, GetAccesskeyResult, GetAccesskeyOutputArgs } from "./getAccesskey";
 export const getAccesskey: typeof import("./getAccesskey").getAccesskey = null as any;
 export const getAccesskeyOutput: typeof import("./getAccesskey").getAccesskeyOutput = null as any;
@@ -19,6 +24,16 @@ export { GetAccesskeysResult } from "./getAccesskeys";
 export const getAccesskeys: typeof import("./getAccesskeys").getAccesskeys = null as any;
 export const getAccesskeysOutput: typeof import("./getAccesskeys").getAccesskeysOutput = null as any;
 utilities.lazyLoad(exports, ["getAccesskeys","getAccesskeysOutput"], () => require("./getAccesskeys"));
+
+export { GetAllowedIpAddressArgs, GetAllowedIpAddressResult, GetAllowedIpAddressOutputArgs } from "./getAllowedIpAddress";
+export const getAllowedIpAddress: typeof import("./getAllowedIpAddress").getAllowedIpAddress = null as any;
+export const getAllowedIpAddressOutput: typeof import("./getAllowedIpAddress").getAllowedIpAddressOutput = null as any;
+utilities.lazyLoad(exports, ["getAllowedIpAddress","getAllowedIpAddressOutput"], () => require("./getAllowedIpAddress"));
+
+export { GetAllowedIpAddressesResult } from "./getAllowedIpAddresses";
+export const getAllowedIpAddresses: typeof import("./getAllowedIpAddresses").getAllowedIpAddresses = null as any;
+export const getAllowedIpAddressesOutput: typeof import("./getAllowedIpAddresses").getAllowedIpAddressesOutput = null as any;
+utilities.lazyLoad(exports, ["getAllowedIpAddresses","getAllowedIpAddressesOutput"], () => require("./getAllowedIpAddresses"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -147,6 +162,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:iam/accesskey:Accesskey":
                 return new Accesskey(name, <any>undefined, { urn })
+            case "volcenginecc:iam/allowedIpAddress:AllowedIpAddress":
+                return new AllowedIpAddress(name, <any>undefined, { urn })
             case "volcenginecc:iam/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "volcenginecc:iam/oauthProvider:OauthProvider":
@@ -169,6 +186,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/accesskey", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "iam/allowedIpAddress", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/group", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/oauthProvider", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "iam/oidcProvider", _module)

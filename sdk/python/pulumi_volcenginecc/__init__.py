@@ -648,6 +648,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "dns/backup",
+  "fqn": "pulumi_volcenginecc.dns",
+  "classes": {
+   "volcenginecc:dns/backup:Backup": "Backup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "dns/record",
   "fqn": "pulumi_volcenginecc.dns",
   "classes": {
@@ -864,6 +872,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "iam/allowedIpAddress",
+  "fqn": "pulumi_volcenginecc.iam",
+  "classes": {
+   "volcenginecc:iam/allowedIpAddress:AllowedIpAddress": "AllowedIpAddress"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "iam/group",
   "fqn": "pulumi_volcenginecc.iam",
   "classes": {
@@ -1008,6 +1024,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "mongodb/endpoint",
+  "fqn": "pulumi_volcenginecc.mongodb",
+  "classes": {
+   "volcenginecc:mongodb/endpoint:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "mongodb/instance",
   "fqn": "pulumi_volcenginecc.mongodb",
   "classes": {
@@ -1092,6 +1116,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.privatelink",
   "classes": {
    "volcenginecc:privatelink/endpointService:EndpointService": "EndpointService"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "privatelink/gatewayEndpoint",
+  "fqn": "pulumi_volcenginecc.privatelink",
+  "classes": {
+   "volcenginecc:privatelink/gatewayEndpoint:GatewayEndpoint": "GatewayEndpoint"
   }
  },
  {
@@ -1188,6 +1220,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rdsmssql",
   "classes": {
    "volcenginecc:rdsmssql/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmssql/backup",
+  "fqn": "pulumi_volcenginecc.rdsmssql",
+  "classes": {
+   "volcenginecc:rdsmssql/backup:Backup": "Backup"
   }
  },
  {
@@ -1312,6 +1352,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rdspostgresql/instanceSsl",
+  "fqn": "pulumi_volcenginecc.rdspostgresql",
+  "classes": {
+   "volcenginecc:rdspostgresql/instanceSsl:InstanceSsl": "InstanceSsl"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rdspostgresql/parameterTemplate",
   "fqn": "pulumi_volcenginecc.rdspostgresql",
   "classes": {
@@ -1412,6 +1460,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/snapshotGroup:SnapshotGroup": "SnapshotGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "storageebs/snapshotPolicy",
+  "fqn": "pulumi_volcenginecc.storageebs",
+  "classes": {
+   "volcenginecc:storageebs/snapshotPolicy:SnapshotPolicy": "SnapshotPolicy"
   }
  },
  {
@@ -1560,6 +1616,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "transitrouter/directConnectGatewayAttachment",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/directConnectGatewayAttachment:DirectConnectGatewayAttachment": "DirectConnectGatewayAttachment"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "transitrouter/peerAttachment",
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
@@ -1584,6 +1648,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterBandwidthPackage",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterBandwidthPackage:TransitRouterBandwidthPackage": "TransitRouterBandwidthPackage"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "transitrouter/transitRouterRouteEntry",
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
@@ -1596,6 +1668,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable": "TransitRouterRouteTable"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterRouteTableAssociation",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterRouteTableAssociation:TransitRouterRouteTableAssociation": "TransitRouterRouteTableAssociation"
   }
  },
  {
