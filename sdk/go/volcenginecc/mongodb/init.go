@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Account{}
 	case "volcenginecc:mongodb/allowList:AllowList":
 		r = &AllowList{}
+	case "volcenginecc:mongodb/endpoint:Endpoint":
+		r = &Endpoint{}
 	case "volcenginecc:mongodb/instance:Instance":
 		r = &Instance{}
 	case "volcenginecc:mongodb/sslState:SslState":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"mongodb/allowList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"mongodb/endpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

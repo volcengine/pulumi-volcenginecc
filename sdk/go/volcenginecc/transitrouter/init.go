@@ -21,16 +21,22 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:transitrouter/directConnectGatewayAttachment:DirectConnectGatewayAttachment":
+		r = &DirectConnectGatewayAttachment{}
 	case "volcenginecc:transitrouter/peerAttachment:PeerAttachment":
 		r = &PeerAttachment{}
 	case "volcenginecc:transitrouter/routeTablePropagation:RouteTablePropagation":
 		r = &RouteTablePropagation{}
 	case "volcenginecc:transitrouter/transitRouter:TransitRouter":
 		r = &TransitRouter{}
+	case "volcenginecc:transitrouter/transitRouterBandwidthPackage:TransitRouterBandwidthPackage":
+		r = &TransitRouterBandwidthPackage{}
 	case "volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry":
 		r = &TransitRouterRouteEntry{}
 	case "volcenginecc:transitrouter/transitRouterRouteTable:TransitRouterRouteTable":
 		r = &TransitRouterRouteTable{}
+	case "volcenginecc:transitrouter/transitRouterRouteTableAssociation:TransitRouterRouteTableAssociation":
+		r = &TransitRouterRouteTableAssociation{}
 	case "volcenginecc:transitrouter/vpcAttachment:VpcAttachment":
 		r = &VpcAttachment{}
 	case "volcenginecc:transitrouter/vpnAttachment:VpnAttachment":
@@ -50,6 +56,11 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"transitrouter/directConnectGatewayAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"transitrouter/peerAttachment",
 		&module{version},
 	)
@@ -65,12 +76,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"transitrouter/transitRouterBandwidthPackage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"transitrouter/transitRouterRouteEntry",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"transitrouter/transitRouterRouteTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/transitRouterRouteTableAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

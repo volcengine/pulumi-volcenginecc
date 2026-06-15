@@ -22,6 +22,8 @@ import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbEndpointArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetDbEndpointPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetInstanceSslArgs;
+import com.volcengine.volcenginecc.rdspostgresql.inputs.GetInstanceSslPlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetParameterTemplateArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetParameterTemplatePlainArgs;
 import com.volcengine.volcenginecc.rdspostgresql.inputs.GetSchemaArgs;
@@ -37,6 +39,8 @@ import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbAccountsResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbEndpointResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetDbEndpointsResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetInstanceResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetInstanceSslResult;
+import com.volcengine.volcenginecc.rdspostgresql.outputs.GetInstanceSslsResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetInstancesResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetParameterTemplateResult;
 import com.volcengine.volcenginecc.rdspostgresql.outputs.GetParameterTemplatesResult;
@@ -499,6 +503,90 @@ public final class RdspostgresqlFunctions {
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslResult> getInstanceSsl(GetInstanceSslArgs args) {
+        return getInstanceSsl(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static CompletableFuture<GetInstanceSslResult> getInstanceSslPlain(GetInstanceSslPlainArgs args) {
+        return getInstanceSslPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslResult> getInstanceSsl(GetInstanceSslArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getInstanceSsl:getInstanceSsl", TypeShape.of(GetInstanceSslResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslResult> getInstanceSsl(GetInstanceSslArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getInstanceSsl:getInstanceSsl", TypeShape.of(GetInstanceSslResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static CompletableFuture<GetInstanceSslResult> getInstanceSslPlain(GetInstanceSslPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getInstanceSsl:getInstanceSsl", TypeShape.of(GetInstanceSslResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslsResult> getInstanceSsls() {
+        return getInstanceSsls(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static CompletableFuture<GetInstanceSslsResult> getInstanceSslsPlain() {
+        return getInstanceSslsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslsResult> getInstanceSsls(InvokeArgs args) {
+        return getInstanceSsls(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static CompletableFuture<GetInstanceSslsResult> getInstanceSslsPlain(InvokeArgs args) {
+        return getInstanceSslsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslsResult> getInstanceSsls(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getInstanceSsls:getInstanceSsls", TypeShape.of(GetInstanceSslsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static Output<GetInstanceSslsResult> getInstanceSsls(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdspostgresql/getInstanceSsls:getInstanceSsls", TypeShape.of(GetInstanceSslsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSPostgreSQL::InstanceSSL
+     * 
+     */
+    public static CompletableFuture<GetInstanceSslsResult> getInstanceSslsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdspostgresql/getInstanceSsls:getInstanceSsls", TypeShape.of(GetInstanceSslsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::RDSPostgreSQL::Instance

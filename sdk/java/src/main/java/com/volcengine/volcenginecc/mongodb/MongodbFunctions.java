@@ -14,6 +14,8 @@ import com.volcengine.volcenginecc.mongodb.inputs.GetAccountArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetAccountPlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetAllowListPlainArgs;
+import com.volcengine.volcenginecc.mongodb.inputs.GetEndpointArgs;
+import com.volcengine.volcenginecc.mongodb.inputs.GetEndpointPlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.mongodb.inputs.GetSslStateArgs;
@@ -22,6 +24,8 @@ import com.volcengine.volcenginecc.mongodb.outputs.GetAccountResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAccountsResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetAllowListsResult;
+import com.volcengine.volcenginecc.mongodb.outputs.GetEndpointResult;
+import com.volcengine.volcenginecc.mongodb.outputs.GetEndpointsResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetInstancesResult;
 import com.volcengine.volcenginecc.mongodb.outputs.GetSslStateResult;
@@ -196,6 +200,90 @@ public final class MongodbFunctions {
      */
     public static CompletableFuture<GetAllowListsResult> getAllowListsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getAllowLists:getAllowLists", TypeShape.of(GetAllowListsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
+        return getEndpoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
+        return getEndpointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointsResult> getEndpoints() {
+        return getEndpoints(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static CompletableFuture<GetEndpointsResult> getEndpointsPlain() {
+        return getEndpointsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointsResult> getEndpoints(InvokeArgs args) {
+        return getEndpoints(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static CompletableFuture<GetEndpointsResult> getEndpointsPlain(InvokeArgs args) {
+        return getEndpointsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointsResult> getEndpoints(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getEndpoints:getEndpoints", TypeShape.of(GetEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static Output<GetEndpointsResult> getEndpoints(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:mongodb/getEndpoints:getEndpoints", TypeShape.of(GetEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::MongoDB::Endpoint
+     * 
+     */
+    public static CompletableFuture<GetEndpointsResult> getEndpointsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:mongodb/getEndpoints:getEndpoints", TypeShape.of(GetEndpointsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::MongoDB::Instance

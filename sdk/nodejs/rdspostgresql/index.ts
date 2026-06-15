@@ -85,6 +85,16 @@ export const getInstance: typeof import("./getInstance").getInstance = null as a
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
+export { GetInstanceSslArgs, GetInstanceSslResult, GetInstanceSslOutputArgs } from "./getInstanceSsl";
+export const getInstanceSsl: typeof import("./getInstanceSsl").getInstanceSsl = null as any;
+export const getInstanceSslOutput: typeof import("./getInstanceSsl").getInstanceSslOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceSsl","getInstanceSslOutput"], () => require("./getInstanceSsl"));
+
+export { GetInstanceSslsResult } from "./getInstanceSsls";
+export const getInstanceSsls: typeof import("./getInstanceSsls").getInstanceSsls = null as any;
+export const getInstanceSslsOutput: typeof import("./getInstanceSsls").getInstanceSslsOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceSsls","getInstanceSslsOutput"], () => require("./getInstanceSsls"));
+
 export { GetInstancesResult } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
 export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
@@ -115,6 +125,11 @@ export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
+export { InstanceSslArgs, InstanceSslState } from "./instanceSsl";
+export type InstanceSsl = import("./instanceSsl").InstanceSsl;
+export const InstanceSsl: typeof import("./instanceSsl").InstanceSsl = null as any;
+utilities.lazyLoad(exports, ["InstanceSsl"], () => require("./instanceSsl"));
+
 export { ParameterTemplateArgs, ParameterTemplateState } from "./parameterTemplate";
 export type ParameterTemplate = import("./parameterTemplate").ParameterTemplate;
 export const ParameterTemplate: typeof import("./parameterTemplate").ParameterTemplate = null as any;
@@ -142,6 +157,8 @@ const _module = {
                 return new DbEndpoint(name, <any>undefined, { urn })
             case "volcenginecc:rdspostgresql/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "volcenginecc:rdspostgresql/instanceSsl:InstanceSsl":
+                return new InstanceSsl(name, <any>undefined, { urn })
             case "volcenginecc:rdspostgresql/parameterTemplate:ParameterTemplate":
                 return new ParameterTemplate(name, <any>undefined, { urn })
             case "volcenginecc:rdspostgresql/schema:Schema":
@@ -157,5 +174,6 @@ pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/database", 
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/dbAccount", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/dbEndpoint", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/instance", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/instanceSsl", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/parameterTemplate", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rdspostgresql/schema", _module)

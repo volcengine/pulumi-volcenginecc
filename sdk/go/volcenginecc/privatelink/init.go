@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:privatelink/endpointService:EndpointService":
 		r = &EndpointService{}
+	case "volcenginecc:privatelink/gatewayEndpoint:GatewayEndpoint":
+		r = &GatewayEndpoint{}
 	case "volcenginecc:privatelink/vpcEndpoint:VpcEndpoint":
 		r = &VpcEndpoint{}
 	case "volcenginecc:privatelink/vpcEndpointConnection:VpcEndpointConnection":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"privatelink/endpointService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"privatelink/gatewayEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbEndpoint{}
 	case "volcenginecc:rdspostgresql/instance:Instance":
 		r = &Instance{}
+	case "volcenginecc:rdspostgresql/instanceSsl:InstanceSsl":
+		r = &InstanceSsl{}
 	case "volcenginecc:rdspostgresql/parameterTemplate:ParameterTemplate":
 		r = &ParameterTemplate{}
 	case "volcenginecc:rdspostgresql/schema:Schema":
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdspostgresql/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdspostgresql/instanceSsl",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:rdsmssql/allowList:AllowList":
 		r = &AllowList{}
+	case "volcenginecc:rdsmssql/backup:Backup":
+		r = &Backup{}
 	case "volcenginecc:rdsmssql/instance:Instance":
 		r = &Instance{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdsmssql/allowList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdsmssql/backup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
