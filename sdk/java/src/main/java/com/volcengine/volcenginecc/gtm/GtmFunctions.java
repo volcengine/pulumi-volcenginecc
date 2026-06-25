@@ -12,6 +12,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.gtm.inputs.GetGtmArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetGtmPlainArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetPolicyArgs;
+import com.volcengine.volcenginecc.gtm.inputs.GetPolicyPlainArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetPoolArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetPoolPlainArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetRoutingArgs;
@@ -20,6 +22,8 @@ import com.volcengine.volcenginecc.gtm.inputs.GetRuleArgs;
 import com.volcengine.volcenginecc.gtm.inputs.GetRulePlainArgs;
 import com.volcengine.volcenginecc.gtm.outputs.GetGtmResult;
 import com.volcengine.volcenginecc.gtm.outputs.GetGtmsResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetPoliciesResult;
+import com.volcengine.volcenginecc.gtm.outputs.GetPolicyResult;
 import com.volcengine.volcenginecc.gtm.outputs.GetPoolResult;
 import com.volcengine.volcenginecc.gtm.outputs.GetPoolsResult;
 import com.volcengine.volcenginecc.gtm.outputs.GetRoutingResult;
@@ -112,6 +116,90 @@ public final class GtmFunctions {
      */
     public static CompletableFuture<GetGtmsResult> getGtmsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getGtms:getGtms", TypeShape.of(GetGtmsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies() {
+        return getPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPoliciesResult> getPoliciesPlain() {
+        return getPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(InvokeArgs args) {
+        return getPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPoliciesResult> getPoliciesPlain(InvokeArgs args) {
+        return getPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPoliciesResult> getPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
+        return getPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
+        return getPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:gtm/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::GTM::Policy
+     * 
+     */
+    public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:gtm/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::GTM::Pool

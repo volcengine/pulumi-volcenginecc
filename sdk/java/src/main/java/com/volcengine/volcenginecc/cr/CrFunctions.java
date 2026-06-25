@@ -18,6 +18,8 @@ import com.volcengine.volcenginecc.cr.inputs.GetRegistryArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRegistryPlainArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRepositoryArgs;
 import com.volcengine.volcenginecc.cr.inputs.GetRepositoryPlainArgs;
+import com.volcengine.volcenginecc.cr.inputs.GetVpcEndpointArgs;
+import com.volcengine.volcenginecc.cr.inputs.GetVpcEndpointPlainArgs;
 import com.volcengine.volcenginecc.cr.outputs.GetEndpointAclPoliciesResult;
 import com.volcengine.volcenginecc.cr.outputs.GetEndpointAclPolicyResult;
 import com.volcengine.volcenginecc.cr.outputs.GetNameSpaceResult;
@@ -26,6 +28,8 @@ import com.volcengine.volcenginecc.cr.outputs.GetRegistriesResult;
 import com.volcengine.volcenginecc.cr.outputs.GetRegistryResult;
 import com.volcengine.volcenginecc.cr.outputs.GetRepositoriesResult;
 import com.volcengine.volcenginecc.cr.outputs.GetRepositoryResult;
+import com.volcengine.volcenginecc.cr.outputs.GetVpcEndpointResult;
+import com.volcengine.volcenginecc.cr.outputs.GetVpcEndpointsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CrFunctions {
@@ -364,5 +368,89 @@ public final class CrFunctions {
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:cr/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args) {
+        return getVpcEndpoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain(GetVpcEndpointPlainArgs args) {
+        return getVpcEndpointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain(GetVpcEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints() {
+        return getVpcEndpoints(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointsResult> getVpcEndpointsPlain() {
+        return getVpcEndpointsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints(InvokeArgs args) {
+        return getVpcEndpoints(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointsResult> getVpcEndpointsPlain(InvokeArgs args) {
+        return getVpcEndpointsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getVpcEndpoints:getVpcEndpoints", TypeShape.of(GetVpcEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static Output<GetVpcEndpointsResult> getVpcEndpoints(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cr/getVpcEndpoints:getVpcEndpoints", TypeShape.of(GetVpcEndpointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CR::VpcEndpoint
+     * 
+     */
+    public static CompletableFuture<GetVpcEndpointsResult> getVpcEndpointsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cr/getVpcEndpoints:getVpcEndpoints", TypeShape.of(GetVpcEndpointsResult.class), args, Utilities.withVersion(options));
     }
 }

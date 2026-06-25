@@ -76,6 +76,10 @@ export interface GetBucketResult {
      */
     readonly name: string;
     /**
+     * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     */
+    readonly objectLockConfiguration: outputs.tos.GetBucketObjectLockConfiguration;
+    /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     readonly policy: string;

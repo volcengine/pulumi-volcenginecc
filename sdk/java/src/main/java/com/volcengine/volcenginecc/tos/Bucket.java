@@ -13,6 +13,7 @@ import com.volcengine.volcenginecc.tos.inputs.BucketState;
 import com.volcengine.volcenginecc.tos.outputs.BucketAcl;
 import com.volcengine.volcenginecc.tos.outputs.BucketAclGrant;
 import com.volcengine.volcenginecc.tos.outputs.BucketLifecycleConfig;
+import com.volcengine.volcenginecc.tos.outputs.BucketObjectLockConfiguration;
 import com.volcengine.volcenginecc.tos.outputs.BucketTag;
 import java.lang.String;
 import java.util.List;
@@ -172,6 +173,20 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     * 
+     */
+    @Export(name="objectLockConfiguration", refs={BucketObjectLockConfiguration.class}, tree="[0]")
+    private Output<BucketObjectLockConfiguration> objectLockConfiguration;
+
+    /**
+     * @return Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     * 
+     */
+    public Output<BucketObjectLockConfiguration> objectLockConfiguration() {
+        return this.objectLockConfiguration;
     }
     /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB

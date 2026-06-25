@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetContactGroupArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetContactGroupPlainArgs;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.GetEventRuleArgs;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.GetEventRulePlainArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetRuleArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetRulePlainArgs;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetContactGroupResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetContactGroupsResult;
+import com.volcengine.volcenginecc.cloudmonitor.outputs.GetEventRuleResult;
+import com.volcengine.volcenginecc.cloudmonitor.outputs.GetEventRulesResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetRuleResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetRulesResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class CloudmonitorFunctions {
      */
     public static CompletableFuture<GetContactGroupsResult> getContactGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getContactGroups:getContactGroups", TypeShape.of(GetContactGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRuleResult> getEventRule(GetEventRuleArgs args) {
+        return getEventRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static CompletableFuture<GetEventRuleResult> getEventRulePlain(GetEventRulePlainArgs args) {
+        return getEventRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRuleResult> getEventRule(GetEventRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getEventRule:getEventRule", TypeShape.of(GetEventRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRuleResult> getEventRule(GetEventRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getEventRule:getEventRule", TypeShape.of(GetEventRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static CompletableFuture<GetEventRuleResult> getEventRulePlain(GetEventRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getEventRule:getEventRule", TypeShape.of(GetEventRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRulesResult> getEventRules() {
+        return getEventRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static CompletableFuture<GetEventRulesResult> getEventRulesPlain() {
+        return getEventRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRulesResult> getEventRules(InvokeArgs args) {
+        return getEventRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static CompletableFuture<GetEventRulesResult> getEventRulesPlain(InvokeArgs args) {
+        return getEventRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRulesResult> getEventRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getEventRules:getEventRules", TypeShape.of(GetEventRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static Output<GetEventRulesResult> getEventRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getEventRules:getEventRules", TypeShape.of(GetEventRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::EventRule
+     * 
+     */
+    public static CompletableFuture<GetEventRulesResult> getEventRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getEventRules:getEventRules", TypeShape.of(GetEventRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::CloudMonitor::Rule

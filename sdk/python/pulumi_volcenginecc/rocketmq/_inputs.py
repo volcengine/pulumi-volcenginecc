@@ -16,6 +16,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AccessKeyTopicPermissionArgs',
+    'AccessKeyTopicPermissionArgsDict',
     'AllowListAssociatedInstanceArgs',
     'AllowListAssociatedInstanceArgsDict',
     'GroupConsumedClientArgs',
@@ -41,6 +43,58 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AccessKeyTopicPermissionArgsDict(TypedDict):
+        permission: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        """
+        topic_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Topic name
+        """
+elif False:
+    AccessKeyTopicPermissionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessKeyTopicPermissionArgs:
+    def __init__(__self__, *,
+                 permission: Optional[pulumi.Input[builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] permission: Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        :param pulumi.Input[builtins.str] topic_name: Topic name
+        """
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+        if topic_name is not None:
+            pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "permission", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Topic name
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "topic_name", value)
+
 
 if not MYPY:
     class AllowListAssociatedInstanceArgsDict(TypedDict):

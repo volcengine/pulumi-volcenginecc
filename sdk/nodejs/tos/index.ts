@@ -30,6 +30,11 @@ export type BucketInventory = import("./bucketInventory").BucketInventory;
 export const BucketInventory: typeof import("./bucketInventory").BucketInventory = null as any;
 utilities.lazyLoad(exports, ["BucketInventory"], () => require("./bucketInventory"));
 
+export { BucketMirrorBackArgs, BucketMirrorBackState } from "./bucketMirrorBack";
+export type BucketMirrorBack = import("./bucketMirrorBack").BucketMirrorBack;
+export const BucketMirrorBack: typeof import("./bucketMirrorBack").BucketMirrorBack = null as any;
+utilities.lazyLoad(exports, ["BucketMirrorBack"], () => require("./bucketMirrorBack"));
+
 export { BucketNotificationArgs, BucketNotificationState } from "./bucketNotification";
 export type BucketNotification = import("./bucketNotification").BucketNotification;
 export const BucketNotification: typeof import("./bucketNotification").BucketNotification = null as any;
@@ -39,6 +44,11 @@ export { BucketRealtimeLogArgs, BucketRealtimeLogState } from "./bucketRealtimeL
 export type BucketRealtimeLog = import("./bucketRealtimeLog").BucketRealtimeLog;
 export const BucketRealtimeLog: typeof import("./bucketRealtimeLog").BucketRealtimeLog = null as any;
 utilities.lazyLoad(exports, ["BucketRealtimeLog"], () => require("./bucketRealtimeLog"));
+
+export { BucketRenameArgs, BucketRenameState } from "./bucketRename";
+export type BucketRename = import("./bucketRename").BucketRename;
+export const BucketRename: typeof import("./bucketRename").BucketRename = null as any;
+utilities.lazyLoad(exports, ["BucketRename"], () => require("./bucketRename"));
 
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
@@ -80,6 +90,16 @@ export const getBucketInventory: typeof import("./getBucketInventory").getBucket
 export const getBucketInventoryOutput: typeof import("./getBucketInventory").getBucketInventoryOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketInventory","getBucketInventoryOutput"], () => require("./getBucketInventory"));
 
+export { GetBucketMirrorBackArgs, GetBucketMirrorBackResult, GetBucketMirrorBackOutputArgs } from "./getBucketMirrorBack";
+export const getBucketMirrorBack: typeof import("./getBucketMirrorBack").getBucketMirrorBack = null as any;
+export const getBucketMirrorBackOutput: typeof import("./getBucketMirrorBack").getBucketMirrorBackOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketMirrorBack","getBucketMirrorBackOutput"], () => require("./getBucketMirrorBack"));
+
+export { GetBucketMirrorBacksResult } from "./getBucketMirrorBacks";
+export const getBucketMirrorBacks: typeof import("./getBucketMirrorBacks").getBucketMirrorBacks = null as any;
+export const getBucketMirrorBacksOutput: typeof import("./getBucketMirrorBacks").getBucketMirrorBacksOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketMirrorBacks","getBucketMirrorBacksOutput"], () => require("./getBucketMirrorBacks"));
+
 export { GetBucketNotificationArgs, GetBucketNotificationResult, GetBucketNotificationOutputArgs } from "./getBucketNotification";
 export const getBucketNotification: typeof import("./getBucketNotification").getBucketNotification = null as any;
 export const getBucketNotificationOutput: typeof import("./getBucketNotification").getBucketNotificationOutput = null as any;
@@ -99,6 +119,16 @@ export { GetBucketRealtimeLogsResult } from "./getBucketRealtimeLogs";
 export const getBucketRealtimeLogs: typeof import("./getBucketRealtimeLogs").getBucketRealtimeLogs = null as any;
 export const getBucketRealtimeLogsOutput: typeof import("./getBucketRealtimeLogs").getBucketRealtimeLogsOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketRealtimeLogs","getBucketRealtimeLogsOutput"], () => require("./getBucketRealtimeLogs"));
+
+export { GetBucketRenameArgs, GetBucketRenameResult, GetBucketRenameOutputArgs } from "./getBucketRename";
+export const getBucketRename: typeof import("./getBucketRename").getBucketRename = null as any;
+export const getBucketRenameOutput: typeof import("./getBucketRename").getBucketRenameOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketRename","getBucketRenameOutput"], () => require("./getBucketRename"));
+
+export { GetBucketRenamesResult } from "./getBucketRenames";
+export const getBucketRenames: typeof import("./getBucketRenames").getBucketRenames = null as any;
+export const getBucketRenamesOutput: typeof import("./getBucketRenames").getBucketRenamesOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketRenames","getBucketRenamesOutput"], () => require("./getBucketRenames"));
 
 export { GetBucketsResult } from "./getBuckets";
 export const getBuckets: typeof import("./getBuckets").getBuckets = null as any;
@@ -120,10 +150,14 @@ const _module = {
                 return new BucketEncryption(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketInventory:BucketInventory":
                 return new BucketInventory(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketMirrorBack:BucketMirrorBack":
+                return new BucketMirrorBack(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketNotification:BucketNotification":
                 return new BucketNotification(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog":
                 return new BucketRealtimeLog(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketRename:BucketRename":
+                return new BucketRename(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -134,5 +168,7 @@ pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketAccessMonitor",
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketCors", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketEncryption", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketInventory", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketMirrorBack", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRealtimeLog", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRename", _module)

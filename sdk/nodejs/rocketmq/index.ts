@@ -5,10 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessKeyArgs, AccessKeyState } from "./accessKey";
+export type AccessKey = import("./accessKey").AccessKey;
+export const AccessKey: typeof import("./accessKey").AccessKey = null as any;
+utilities.lazyLoad(exports, ["AccessKey"], () => require("./accessKey"));
+
 export { AllowListArgs, AllowListState } from "./allowList";
 export type AllowList = import("./allowList").AllowList;
 export const AllowList: typeof import("./allowList").AllowList = null as any;
 utilities.lazyLoad(exports, ["AllowList"], () => require("./allowList"));
+
+export { GetAccessKeyArgs, GetAccessKeyResult, GetAccessKeyOutputArgs } from "./getAccessKey";
+export const getAccessKey: typeof import("./getAccessKey").getAccessKey = null as any;
+export const getAccessKeyOutput: typeof import("./getAccessKey").getAccessKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessKey","getAccessKeyOutput"], () => require("./getAccessKey"));
+
+export { GetAccessKeysResult } from "./getAccessKeys";
+export const getAccessKeys: typeof import("./getAccessKeys").getAccessKeys = null as any;
+export const getAccessKeysOutput: typeof import("./getAccessKeys").getAccessKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessKeys","getAccessKeysOutput"], () => require("./getAccessKeys"));
 
 export { GetAllowListArgs, GetAllowListResult, GetAllowListOutputArgs } from "./getAllowList";
 export const getAllowList: typeof import("./getAllowList").getAllowList = null as any;
@@ -70,6 +85,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:rocketmq/accessKey:AccessKey":
+                return new AccessKey(name, <any>undefined, { urn })
             case "volcenginecc:rocketmq/allowList:AllowList":
                 return new AllowList(name, <any>undefined, { urn })
             case "volcenginecc:rocketmq/group:Group":
@@ -83,6 +100,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/accessKey", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/allowList", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/group", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "rocketmq/instance", _module)

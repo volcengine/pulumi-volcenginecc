@@ -29,6 +29,7 @@ class BucketArgs:
                  bucket_type: Optional[pulumi.Input[builtins.str]] = None,
                  enable_version_status: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigArgs']]]] = None,
+                 object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -40,6 +41,7 @@ class BucketArgs:
         :param pulumi.Input[builtins.str] az_redundancy: Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
         :param pulumi.Input[builtins.str] bucket_type: Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         :param pulumi.Input[builtins.str] enable_version_status: Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
+        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
         :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
         :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
@@ -57,6 +59,8 @@ class BucketArgs:
             pulumi.set(__self__, "enable_version_status", enable_version_status)
         if lifecycle_configs is not None:
             pulumi.set(__self__, "lifecycle_configs", lifecycle_configs)
+        if object_lock_configuration is not None:
+            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if project_name is not None:
@@ -145,6 +149,18 @@ class BucketArgs:
         pulumi.set(self, "lifecycle_configs", value)
 
     @property
+    @pulumi.getter(name="objectLockConfiguration")
+    def object_lock_configuration(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]:
+        """
+        Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        """
+        return pulumi.get(self, "object_lock_configuration")
+
+    @object_lock_configuration.setter
+    def object_lock_configuration(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]):
+        pulumi.set(self, "object_lock_configuration", value)
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -204,6 +220,7 @@ class _BucketState:
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigArgs']]]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -219,6 +236,7 @@ class _BucketState:
         :param pulumi.Input[builtins.str] intranet_endpoint: Private network access domain name for the bucket's TOS protocol
         :param pulumi.Input[builtins.str] location: Bucket region
         :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
         :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
         :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
@@ -245,6 +263,8 @@ class _BucketState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if object_lock_configuration is not None:
+            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if project_name is not None:
@@ -381,6 +401,18 @@ class _BucketState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="objectLockConfiguration")
+    def object_lock_configuration(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]:
+        """
+        Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        """
+        return pulumi.get(self, "object_lock_configuration")
+
+    @object_lock_configuration.setter
+    def object_lock_configuration(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]):
+        pulumi.set(self, "object_lock_configuration", value)
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -439,6 +471,7 @@ class Bucket(pulumi.CustomResource):
                  enable_version_status: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigArgs', 'BucketLifecycleConfigArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -460,6 +493,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket_type: Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
         :param pulumi.Input[builtins.str] enable_version_status: Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
         :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']] object_lock_configuration: Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
         :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
         :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
@@ -501,6 +535,7 @@ class Bucket(pulumi.CustomResource):
                  enable_version_status: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigArgs', 'BucketLifecycleConfigArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -523,6 +558,7 @@ class Bucket(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["object_lock_configuration"] = object_lock_configuration
             __props__.__dict__["policy"] = policy
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["storage_class"] = storage_class
@@ -552,6 +588,7 @@ class Bucket(pulumi.CustomResource):
             lifecycle_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigArgs', 'BucketLifecycleConfigArgsDict']]]]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
             storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -572,6 +609,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] intranet_endpoint: Private network access domain name for the bucket's TOS protocol
         :param pulumi.Input[builtins.str] location: Bucket region
         :param pulumi.Input[builtins.str] name: Bucket name
+        :param pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']] object_lock_configuration: Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
         :param pulumi.Input[builtins.str] policy: String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         :param pulumi.Input[builtins.str] project_name: Project associated with the bucket
         :param pulumi.Input[builtins.str] storage_class: Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
@@ -591,6 +629,7 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["lifecycle_configs"] = lifecycle_configs
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["object_lock_configuration"] = object_lock_configuration
         __props__.__dict__["policy"] = policy
         __props__.__dict__["project_name"] = project_name
         __props__.__dict__["storage_class"] = storage_class
@@ -678,6 +717,14 @@ class Bucket(pulumi.CustomResource):
         Bucket name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectLockConfiguration")
+    def object_lock_configuration(self) -> pulumi.Output['outputs.BucketObjectLockConfiguration']:
+        """
+        Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        """
+        return pulumi.get(self, "object_lock_configuration")
 
     @property
     @pulumi.getter

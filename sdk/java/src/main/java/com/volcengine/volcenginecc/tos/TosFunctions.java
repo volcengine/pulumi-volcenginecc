@@ -19,11 +19,15 @@ import com.volcengine.volcenginecc.tos.inputs.GetBucketEncryptionArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketEncryptionPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketInventoryArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketInventoryPlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketMirrorBackArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketMirrorBackPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketNotificationArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketNotificationPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogPlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketRenameArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketRenamePlainArgs;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketAccessMonitorResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketAccessMonitorsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketCorsResult;
@@ -31,10 +35,14 @@ import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketEncryptionsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketInventoriesResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketInventoryResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketMirrorBackResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketMirrorBacksResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketNotificationResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketNotificationsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketRealtimeLogResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketRealtimeLogsResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketRenameResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketRenamesResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketsResult;
 import java.util.concurrent.CompletableFuture;
@@ -363,6 +371,90 @@ public final class TosFunctions {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketInventory:getBucketInventory", TypeShape.of(GetBucketInventoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBackResult> getBucketMirrorBack(GetBucketMirrorBackArgs args) {
+        return getBucketMirrorBack(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static CompletableFuture<GetBucketMirrorBackResult> getBucketMirrorBackPlain(GetBucketMirrorBackPlainArgs args) {
+        return getBucketMirrorBackPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBackResult> getBucketMirrorBack(GetBucketMirrorBackArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketMirrorBack:getBucketMirrorBack", TypeShape.of(GetBucketMirrorBackResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBackResult> getBucketMirrorBack(GetBucketMirrorBackArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketMirrorBack:getBucketMirrorBack", TypeShape.of(GetBucketMirrorBackResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static CompletableFuture<GetBucketMirrorBackResult> getBucketMirrorBackPlain(GetBucketMirrorBackPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketMirrorBack:getBucketMirrorBack", TypeShape.of(GetBucketMirrorBackResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBacksResult> getBucketMirrorBacks() {
+        return getBucketMirrorBacks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static CompletableFuture<GetBucketMirrorBacksResult> getBucketMirrorBacksPlain() {
+        return getBucketMirrorBacksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBacksResult> getBucketMirrorBacks(InvokeArgs args) {
+        return getBucketMirrorBacks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static CompletableFuture<GetBucketMirrorBacksResult> getBucketMirrorBacksPlain(InvokeArgs args) {
+        return getBucketMirrorBacksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBacksResult> getBucketMirrorBacks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketMirrorBacks:getBucketMirrorBacks", TypeShape.of(GetBucketMirrorBacksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static Output<GetBucketMirrorBacksResult> getBucketMirrorBacks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketMirrorBacks:getBucketMirrorBacks", TypeShape.of(GetBucketMirrorBacksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketMirrorBack
+     * 
+     */
+    public static CompletableFuture<GetBucketMirrorBacksResult> getBucketMirrorBacksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketMirrorBacks:getBucketMirrorBacks", TypeShape.of(GetBucketMirrorBacksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Data Source schema for Volcengine::TOS::BucketNotification
      * 
      */
@@ -529,6 +621,90 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketRealtimeLogsResult> getBucketRealtimeLogsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketRealtimeLogs:getBucketRealtimeLogs", TypeShape.of(GetBucketRealtimeLogsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenameResult> getBucketRename(GetBucketRenameArgs args) {
+        return getBucketRename(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static CompletableFuture<GetBucketRenameResult> getBucketRenamePlain(GetBucketRenamePlainArgs args) {
+        return getBucketRenamePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenameResult> getBucketRename(GetBucketRenameArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRename:getBucketRename", TypeShape.of(GetBucketRenameResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenameResult> getBucketRename(GetBucketRenameArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRename:getBucketRename", TypeShape.of(GetBucketRenameResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static CompletableFuture<GetBucketRenameResult> getBucketRenamePlain(GetBucketRenamePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketRename:getBucketRename", TypeShape.of(GetBucketRenameResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenamesResult> getBucketRenames() {
+        return getBucketRenames(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static CompletableFuture<GetBucketRenamesResult> getBucketRenamesPlain() {
+        return getBucketRenamesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenamesResult> getBucketRenames(InvokeArgs args) {
+        return getBucketRenames(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static CompletableFuture<GetBucketRenamesResult> getBucketRenamesPlain(InvokeArgs args) {
+        return getBucketRenamesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenamesResult> getBucketRenames(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRenames:getBucketRenames", TypeShape.of(GetBucketRenamesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static Output<GetBucketRenamesResult> getBucketRenames(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketRenames:getBucketRenames", TypeShape.of(GetBucketRenamesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketRename
+     * 
+     */
+    public static CompletableFuture<GetBucketRenamesResult> getBucketRenamesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketRenames:getBucketRenames", TypeShape.of(GetBucketRenamesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::TOS::Bucket

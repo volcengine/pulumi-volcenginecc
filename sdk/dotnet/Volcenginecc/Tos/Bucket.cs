@@ -83,6 +83,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        /// </summary>
+        [Output("objectLockConfiguration")]
+        public Output<Outputs.BucketObjectLockConfiguration> ObjectLockConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         /// </summary>
         [Output("policy")]
@@ -192,6 +198,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        /// </summary>
+        [Input("objectLockConfiguration")]
+        public Input<Inputs.BucketObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }
+
+        /// <summary>
         /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         /// </summary>
         [Input("policy")]
@@ -289,6 +301,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        /// </summary>
+        [Input("objectLockConfiguration")]
+        public Input<Inputs.BucketObjectLockConfigurationGetArgs>? ObjectLockConfiguration { get; set; }
 
         /// <summary>
         /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB

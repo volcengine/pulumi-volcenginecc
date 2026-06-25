@@ -34,6 +34,24 @@ __all__ = [
     'BucketLifecycleConfigNonCurrentVersionTransition',
     'BucketLifecycleConfigTag',
     'BucketLifecycleConfigTransition',
+    'BucketMirrorBackRule',
+    'BucketMirrorBackRuleCondition',
+    'BucketMirrorBackRuleRedirect',
+    'BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule',
+    'BucketMirrorBackRuleRedirectMirrorHeader',
+    'BucketMirrorBackRuleRedirectMirrorHeaderSet',
+    'BucketMirrorBackRuleRedirectPrivateSource',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider',
+    'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential',
+    'BucketMirrorBackRuleRedirectPublicSource',
+    'BucketMirrorBackRuleRedirectPublicSourceSourceEndpoint',
+    'BucketMirrorBackRuleRedirectTransform',
+    'BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix',
     'BucketNotificationNotificationRule',
     'BucketNotificationNotificationRuleDestination',
     'BucketNotificationNotificationRuleDestinationKafka',
@@ -42,6 +60,9 @@ __all__ = [
     'BucketNotificationNotificationRuleFilter',
     'BucketNotificationNotificationRuleFilterTosKey',
     'BucketNotificationNotificationRuleFilterTosKeyFilterRule',
+    'BucketObjectLockConfiguration',
+    'BucketObjectLockConfigurationRule',
+    'BucketObjectLockConfigurationRuleDefaultRetention',
     'BucketRealtimeLogRealTimeLog',
     'BucketTag',
     'GetBucketAclResult',
@@ -61,6 +82,24 @@ __all__ = [
     'GetBucketLifecycleConfigNonCurrentVersionTransitionResult',
     'GetBucketLifecycleConfigTagResult',
     'GetBucketLifecycleConfigTransitionResult',
+    'GetBucketMirrorBackRuleResult',
+    'GetBucketMirrorBackRuleConditionResult',
+    'GetBucketMirrorBackRuleRedirectResult',
+    'GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleResult',
+    'GetBucketMirrorBackRuleRedirectMirrorHeaderResult',
+    'GetBucketMirrorBackRuleRedirectMirrorHeaderSetResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredentialResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderResult',
+    'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredentialResult',
+    'GetBucketMirrorBackRuleRedirectPublicSourceResult',
+    'GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpointResult',
+    'GetBucketMirrorBackRuleRedirectTransformResult',
+    'GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefixResult',
     'GetBucketNotificationNotificationRuleResult',
     'GetBucketNotificationNotificationRuleDestinationResult',
     'GetBucketNotificationNotificationRuleDestinationKafkaResult',
@@ -69,6 +108,9 @@ __all__ = [
     'GetBucketNotificationNotificationRuleFilterResult',
     'GetBucketNotificationNotificationRuleFilterTosKeyResult',
     'GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleResult',
+    'GetBucketObjectLockConfigurationResult',
+    'GetBucketObjectLockConfigurationRuleResult',
+    'GetBucketObjectLockConfigurationRuleDefaultRetentionResult',
     'GetBucketRealtimeLogRealTimeLogResult',
     'GetBucketTagResult',
 ]
@@ -1051,6 +1093,1144 @@ class BucketLifecycleConfigTransition(dict):
 
 
 @pulumi.output_type
+class BucketMirrorBackRule(dict):
+    def __init__(__self__, *,
+                 condition: Optional['outputs.BucketMirrorBackRuleCondition'] = None,
+                 id: Optional[builtins.str] = None,
+                 redirect: Optional['outputs.BucketMirrorBackRuleRedirect'] = None):
+        """
+        :param 'BucketMirrorBackRuleConditionArgs' condition: Conditions that trigger the back-to-origin function.
+        :param builtins.str id: Rule ID. The unique identifier for the back-to-origin rule configured on the current bucket. You can set this yourself to distinguish between multiple rules. Restrictions:
+               Characters supported: letters, numbers,   - and _.
+               Maximum length: 32 characters.
+        :param 'BucketMirrorBackRuleRedirectArgs' redirect: Back-to-origin redirect configuration.
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if redirect is not None:
+            pulumi.set(__self__, "redirect", redirect)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.BucketMirrorBackRuleCondition']:
+        """
+        Conditions that trigger the back-to-origin function.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        Rule ID. The unique identifier for the back-to-origin rule configured on the current bucket. You can set this yourself to distinguish between multiple rules. Restrictions:
+        Characters supported: letters, numbers,   - and _.
+        Maximum length: 32 characters.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def redirect(self) -> Optional['outputs.BucketMirrorBackRuleRedirect']:
+        """
+        Back-to-origin redirect configuration.
+        """
+        return pulumi.get(self, "redirect")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowHosts":
+            suggest = "allow_hosts"
+        elif key == "httpCode":
+            suggest = "http_code"
+        elif key == "httpMethods":
+            suggest = "http_methods"
+        elif key == "keyPrefix":
+            suggest = "key_prefix"
+        elif key == "keySuffix":
+            suggest = "key_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_hosts: Optional[Sequence[builtins.str]] = None,
+                 http_code: Optional[builtins.int] = None,
+                 http_methods: Optional[Sequence[builtins.str]] = None,
+                 key_prefix: Optional[builtins.str] = None,
+                 key_suffix: Optional[builtins.str] = None):
+        """
+        :param Sequence[builtins.str] allow_hosts: Supports triggering origin fetch only for specified domains. The domain must be able to access the bucket; it is recommended to use a custom domain bound to the bucket. Limit: supports up to 30 domains.
+        :param builtins.int http_code: Error code that triggers origin fetch. When a download request returns this error code, origin fetch is triggered. Limit: currently only supports 404.
+        :param Sequence[builtins.str] http_methods: Request types that trigger back-to-origin. Value description:
+               ["GET","HEAD"]: Both GetObject and HeadObject requests can trigger back-to-origin.
+               ["GET"]: Only GetObject requests can trigger back-to-origin.
+               Default is ["GET"].
+        :param builtins.str key_prefix: Object name prefix for matching origin fetch objects. Limit: supports up to 512 characters.
+        :param builtins.str key_suffix: Object name suffix for matching origin fetch objects. Limit: supports up to 512 characters.
+        """
+        if allow_hosts is not None:
+            pulumi.set(__self__, "allow_hosts", allow_hosts)
+        if http_code is not None:
+            pulumi.set(__self__, "http_code", http_code)
+        if http_methods is not None:
+            pulumi.set(__self__, "http_methods", http_methods)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+        if key_suffix is not None:
+            pulumi.set(__self__, "key_suffix", key_suffix)
+
+    @property
+    @pulumi.getter(name="allowHosts")
+    def allow_hosts(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Supports triggering origin fetch only for specified domains. The domain must be able to access the bucket; it is recommended to use a custom domain bound to the bucket. Limit: supports up to 30 domains.
+        """
+        return pulumi.get(self, "allow_hosts")
+
+    @property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> Optional[builtins.int]:
+        """
+        Error code that triggers origin fetch. When a download request returns this error code, origin fetch is triggered. Limit: currently only supports 404.
+        """
+        return pulumi.get(self, "http_code")
+
+    @property
+    @pulumi.getter(name="httpMethods")
+    def http_methods(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Request types that trigger back-to-origin. Value description:
+        ["GET","HEAD"]: Both GetObject and HeadObject requests can trigger back-to-origin.
+        ["GET"]: Only GetObject requests can trigger back-to-origin.
+        Default is ["GET"].
+        """
+        return pulumi.get(self, "http_methods")
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[builtins.str]:
+        """
+        Object name prefix for matching origin fetch objects. Limit: supports up to 512 characters.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @property
+    @pulumi.getter(name="keySuffix")
+    def key_suffix(self) -> Optional[builtins.str]:
+        """
+        Object name suffix for matching origin fetch objects. Limit: supports up to 512 characters.
+        """
+        return pulumi.get(self, "key_suffix")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fetchHeaderToMetaDataRules":
+            suggest = "fetch_header_to_meta_data_rules"
+        elif key == "fetchSourceOnRedirect":
+            suggest = "fetch_source_on_redirect"
+        elif key == "fetchSourceOnRedirectWithQuery":
+            suggest = "fetch_source_on_redirect_with_query"
+        elif key == "followRedirect":
+            suggest = "follow_redirect"
+        elif key == "mirrorHeader":
+            suggest = "mirror_header"
+        elif key == "passHeaderFromSources":
+            suggest = "pass_header_from_sources"
+        elif key == "passQuery":
+            suggest = "pass_query"
+        elif key == "passStatusCodeFromSources":
+            suggest = "pass_status_code_from_sources"
+        elif key == "privateSource":
+            suggest = "private_source"
+        elif key == "publicSource":
+            suggest = "public_source"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fetch_header_to_meta_data_rules: Optional[Sequence['outputs.BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule']] = None,
+                 fetch_source_on_redirect: Optional[builtins.bool] = None,
+                 fetch_source_on_redirect_with_query: Optional[builtins.bool] = None,
+                 follow_redirect: Optional[builtins.bool] = None,
+                 mirror_header: Optional['outputs.BucketMirrorBackRuleRedirectMirrorHeader'] = None,
+                 pass_header_from_sources: Optional[Sequence[builtins.str]] = None,
+                 pass_query: Optional[builtins.bool] = None,
+                 pass_status_code_from_sources: Optional[Sequence[builtins.int]] = None,
+                 private_source: Optional['outputs.BucketMirrorBackRuleRedirectPrivateSource'] = None,
+                 public_source: Optional['outputs.BucketMirrorBackRuleRedirectPublicSource'] = None,
+                 redirect_type: Optional[builtins.str] = None,
+                 transform: Optional['outputs.BucketMirrorBackRuleRedirectTransform'] = None):
+        """
+        :param builtins.bool fetch_source_on_redirect: Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
+        :param builtins.bool fetch_source_on_redirect_with_query: Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
+        :param builtins.bool follow_redirect: If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
+        :param 'BucketMirrorBackRuleRedirectMirrorHeaderArgs' mirror_header: Specify the headers to include when mirroring back to origin.
+        :param Sequence[builtins.str] pass_header_from_sources: List of origin response headers allowed to be passed through directly.
+        :param builtins.bool pass_query: Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
+               true: Include request parameters.
+               false: Do not include request parameters.
+        :param Sequence[builtins.int] pass_status_code_from_sources: List of origin response status codes allowed to be passed through directly.
+        :param 'BucketMirrorBackRuleRedirectPrivateSourceArgs' private_source: Back-to-origin address configuration when the origin server is a private bucket.
+        :param 'BucketMirrorBackRuleRedirectPublicSourceArgs' public_source: Back-to-origin address configuration when the origin server is a public bucket.
+        :param builtins.str redirect_type: Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
+        :param 'BucketMirrorBackRuleRedirectTransformArgs' transform: Define transformations for the object name when requesting the origin server.
+        """
+        if fetch_header_to_meta_data_rules is not None:
+            pulumi.set(__self__, "fetch_header_to_meta_data_rules", fetch_header_to_meta_data_rules)
+        if fetch_source_on_redirect is not None:
+            pulumi.set(__self__, "fetch_source_on_redirect", fetch_source_on_redirect)
+        if fetch_source_on_redirect_with_query is not None:
+            pulumi.set(__self__, "fetch_source_on_redirect_with_query", fetch_source_on_redirect_with_query)
+        if follow_redirect is not None:
+            pulumi.set(__self__, "follow_redirect", follow_redirect)
+        if mirror_header is not None:
+            pulumi.set(__self__, "mirror_header", mirror_header)
+        if pass_header_from_sources is not None:
+            pulumi.set(__self__, "pass_header_from_sources", pass_header_from_sources)
+        if pass_query is not None:
+            pulumi.set(__self__, "pass_query", pass_query)
+        if pass_status_code_from_sources is not None:
+            pulumi.set(__self__, "pass_status_code_from_sources", pass_status_code_from_sources)
+        if private_source is not None:
+            pulumi.set(__self__, "private_source", private_source)
+        if public_source is not None:
+            pulumi.set(__self__, "public_source", public_source)
+        if redirect_type is not None:
+            pulumi.set(__self__, "redirect_type", redirect_type)
+        if transform is not None:
+            pulumi.set(__self__, "transform", transform)
+
+    @property
+    @pulumi.getter(name="fetchHeaderToMetaDataRules")
+    def fetch_header_to_meta_data_rules(self) -> Optional[Sequence['outputs.BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule']]:
+        return pulumi.get(self, "fetch_header_to_meta_data_rules")
+
+    @property
+    @pulumi.getter(name="fetchSourceOnRedirect")
+    def fetch_source_on_redirect(self) -> Optional[builtins.bool]:
+        """
+        Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
+        """
+        return pulumi.get(self, "fetch_source_on_redirect")
+
+    @property
+    @pulumi.getter(name="fetchSourceOnRedirectWithQuery")
+    def fetch_source_on_redirect_with_query(self) -> Optional[builtins.bool]:
+        """
+        Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
+        """
+        return pulumi.get(self, "fetch_source_on_redirect_with_query")
+
+    @property
+    @pulumi.getter(name="followRedirect")
+    def follow_redirect(self) -> Optional[builtins.bool]:
+        """
+        If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
+        """
+        return pulumi.get(self, "follow_redirect")
+
+    @property
+    @pulumi.getter(name="mirrorHeader")
+    def mirror_header(self) -> Optional['outputs.BucketMirrorBackRuleRedirectMirrorHeader']:
+        """
+        Specify the headers to include when mirroring back to origin.
+        """
+        return pulumi.get(self, "mirror_header")
+
+    @property
+    @pulumi.getter(name="passHeaderFromSources")
+    def pass_header_from_sources(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of origin response headers allowed to be passed through directly.
+        """
+        return pulumi.get(self, "pass_header_from_sources")
+
+    @property
+    @pulumi.getter(name="passQuery")
+    def pass_query(self) -> Optional[builtins.bool]:
+        """
+        Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
+        true: Include request parameters.
+        false: Do not include request parameters.
+        """
+        return pulumi.get(self, "pass_query")
+
+    @property
+    @pulumi.getter(name="passStatusCodeFromSources")
+    def pass_status_code_from_sources(self) -> Optional[Sequence[builtins.int]]:
+        """
+        List of origin response status codes allowed to be passed through directly.
+        """
+        return pulumi.get(self, "pass_status_code_from_sources")
+
+    @property
+    @pulumi.getter(name="privateSource")
+    def private_source(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPrivateSource']:
+        """
+        Back-to-origin address configuration when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "private_source")
+
+    @property
+    @pulumi.getter(name="publicSource")
+    def public_source(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPublicSource']:
+        """
+        Back-to-origin address configuration when the origin server is a public bucket.
+        """
+        return pulumi.get(self, "public_source")
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> Optional[builtins.str]:
+        """
+        Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @property
+    @pulumi.getter
+    def transform(self) -> Optional['outputs.BucketMirrorBackRuleRedirectTransform']:
+        """
+        Define transformations for the object name when requesting the origin server.
+        """
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metaDataSuffix":
+            suggest = "meta_data_suffix"
+        elif key == "sourceHeader":
+            suggest = "source_header"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 meta_data_suffix: Optional[builtins.str] = None,
+                 source_header: Optional[builtins.str] = None):
+        """
+        :param builtins.str meta_data_suffix: Suffix appended when writing object metadata.
+        :param builtins.str source_header: Origin response header name.
+        """
+        if meta_data_suffix is not None:
+            pulumi.set(__self__, "meta_data_suffix", meta_data_suffix)
+        if source_header is not None:
+            pulumi.set(__self__, "source_header", source_header)
+
+    @property
+    @pulumi.getter(name="metaDataSuffix")
+    def meta_data_suffix(self) -> Optional[builtins.str]:
+        """
+        Suffix appended when writing object metadata.
+        """
+        return pulumi.get(self, "meta_data_suffix")
+
+    @property
+    @pulumi.getter(name="sourceHeader")
+    def source_header(self) -> Optional[builtins.str]:
+        """
+        Origin response header name.
+        """
+        return pulumi.get(self, "source_header")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectMirrorHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passAll":
+            suggest = "pass_all"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectMirrorHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectMirrorHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectMirrorHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pass_all: Optional[builtins.bool] = None,
+                 passes: Optional[Sequence[builtins.str]] = None,
+                 removes: Optional[Sequence[builtins.str]] = None,
+                 sets: Optional[Sequence['outputs.BucketMirrorBackRuleRedirectMirrorHeaderSet']] = None):
+        """
+        :param builtins.bool pass_all: Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
+        :param Sequence[builtins.str] passes: Pass the specified headers to the origin server. Limit: up to 64.
+        :param Sequence[builtins.str] removes: Prohibit forwarding specified headers to the origin. Limit: maximum 64.
+        """
+        if pass_all is not None:
+            pulumi.set(__self__, "pass_all", pass_all)
+        if passes is not None:
+            pulumi.set(__self__, "passes", passes)
+        if removes is not None:
+            pulumi.set(__self__, "removes", removes)
+        if sets is not None:
+            pulumi.set(__self__, "sets", sets)
+
+    @property
+    @pulumi.getter(name="passAll")
+    def pass_all(self) -> Optional[builtins.bool]:
+        """
+        Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
+        """
+        return pulumi.get(self, "pass_all")
+
+    @property
+    @pulumi.getter
+    def passes(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Pass the specified headers to the origin server. Limit: up to 64.
+        """
+        return pulumi.get(self, "passes")
+
+    @property
+    @pulumi.getter
+    def removes(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Prohibit forwarding specified headers to the origin. Limit: maximum 64.
+        """
+        return pulumi.get(self, "removes")
+
+    @property
+    @pulumi.getter
+    def sets(self) -> Optional[Sequence['outputs.BucketMirrorBackRuleRedirectMirrorHeaderSet']]:
+        return pulumi.get(self, "sets")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectMirrorHeaderSet(dict):
+    def __init__(__self__, *,
+                 key: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        :param builtins.str key: Request header name.
+        :param builtins.str value: Request header value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[builtins.str]:
+        """
+        Request header name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        """
+        Request header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceEndpoint":
+            suggest = "source_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_endpoint: Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint'] = None):
+        """
+        :param 'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs' source_endpoint: Back-to-origin address configuration when the origin server is a private bucket.
+        """
+        if source_endpoint is not None:
+            pulumi.set(__self__, "source_endpoint", source_endpoint)
+
+    @property
+    @pulumi.getter(name="sourceEndpoint")
+    def source_endpoint(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint']:
+        """
+        Back-to-origin address configuration when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "source_endpoint")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint(dict):
+    def __init__(__self__, *,
+                 followers: Optional[Sequence['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower']] = None,
+                 primaries: Optional[Sequence['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary']] = None):
+        if followers is not None:
+            pulumi.set(__self__, "followers", followers)
+        if primaries is not None:
+            pulumi.set(__self__, "primaries", primaries)
+
+    @property
+    @pulumi.getter
+    def followers(self) -> Optional[Sequence['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower']]:
+        return pulumi.get(self, "followers")
+
+    @property
+    @pulumi.getter
+    def primaries(self) -> Optional[Sequence['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary']]:
+        return pulumi.get(self, "primaries")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "credentialProvider":
+            suggest = "credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: Optional[builtins.str] = None,
+                 credential_provider: Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider'] = None,
+                 endpoint: Optional[builtins.str] = None):
+        """
+        :param builtins.str bucket_name: Name of the origin fetch bucket. Required when the origin is a private bucket.
+        :param 'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderArgs' credential_provider: Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        :param builtins.str endpoint: Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if credential_provider is not None:
+            pulumi.set(__self__, "credential_provider", credential_provider)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[builtins.str]:
+        """
+        Name of the origin fetch bucket. Required when the origin is a private bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="credentialProvider")
+    def credential_provider(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider']:
+        """
+        Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "credential_provider")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[builtins.str]:
+        """
+        Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticCredential":
+            suggest = "static_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: Optional[builtins.str] = None,
+                 role: Optional[builtins.str] = None,
+                 static_credential: Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential'] = None):
+        """
+        :param builtins.str region: Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        :param builtins.str role: Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        :param 'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredentialArgs' static_credential: Authenticate using AK/SK.
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if static_credential is not None:
+            pulumi.set(__self__, "static_credential", static_credential)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[builtins.str]:
+        """
+        Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[builtins.str]:
+        """
+        Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="staticCredential")
+    def static_credential(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential']:
+        """
+        Authenticate using AK/SK.
+        """
+        return pulumi.get(self, "static_credential")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skEncryptType":
+            suggest = "sk_encrypt_type"
+        elif key == "storageVendor":
+            suggest = "storage_vendor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ak: Optional[builtins.str] = None,
+                 sk: Optional[builtins.str] = None,
+                 sk_encrypt_type: Optional[builtins.str] = None,
+                 storage_vendor: Optional[builtins.str] = None):
+        """
+        :param builtins.str ak: AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk: SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk_encrypt_type: Encryption method used for SecretKey. Values:
+               Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+               AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+               Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        :param builtins.str storage_vendor: Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        if ak is not None:
+            pulumi.set(__self__, "ak", ak)
+        if sk is not None:
+            pulumi.set(__self__, "sk", sk)
+        if sk_encrypt_type is not None:
+            pulumi.set(__self__, "sk_encrypt_type", sk_encrypt_type)
+        if storage_vendor is not None:
+            pulumi.set(__self__, "storage_vendor", storage_vendor)
+
+    @property
+    @pulumi.getter
+    def ak(self) -> Optional[builtins.str]:
+        """
+        AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "ak")
+
+    @property
+    @pulumi.getter
+    def sk(self) -> Optional[builtins.str]:
+        """
+        SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "sk")
+
+    @property
+    @pulumi.getter(name="skEncryptType")
+    def sk_encrypt_type(self) -> Optional[builtins.str]:
+        """
+        Encryption method used for SecretKey. Values:
+        Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+        AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+        Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        """
+        return pulumi.get(self, "sk_encrypt_type")
+
+    @property
+    @pulumi.getter(name="storageVendor")
+    def storage_vendor(self) -> Optional[builtins.str]:
+        """
+        Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        return pulumi.get(self, "storage_vendor")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "credentialProvider":
+            suggest = "credential_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: Optional[builtins.str] = None,
+                 credential_provider: Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider'] = None,
+                 endpoint: Optional[builtins.str] = None):
+        """
+        :param builtins.str bucket_name: Name of the origin fetch bucket. Required when the origin is a private bucket.
+        :param 'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderArgs' credential_provider: Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        :param builtins.str endpoint: Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if credential_provider is not None:
+            pulumi.set(__self__, "credential_provider", credential_provider)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[builtins.str]:
+        """
+        Name of the origin fetch bucket. Required when the origin is a private bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="credentialProvider")
+    def credential_provider(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider']:
+        """
+        Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "credential_provider")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[builtins.str]:
+        """
+        Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticCredential":
+            suggest = "static_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: Optional[builtins.str] = None,
+                 role: Optional[builtins.str] = None,
+                 static_credential: Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential'] = None):
+        """
+        :param builtins.str region: Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        :param builtins.str role: Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        :param 'BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredentialArgs' static_credential: Authenticate using AK/SK.
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if static_credential is not None:
+            pulumi.set(__self__, "static_credential", static_credential)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[builtins.str]:
+        """
+        Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[builtins.str]:
+        """
+        Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="staticCredential")
+    def static_credential(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential']:
+        """
+        Authenticate using AK/SK.
+        """
+        return pulumi.get(self, "static_credential")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skEncryptType":
+            suggest = "sk_encrypt_type"
+        elif key == "storageVendor":
+            suggest = "storage_vendor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ak: Optional[builtins.str] = None,
+                 sk: Optional[builtins.str] = None,
+                 sk_encrypt_type: Optional[builtins.str] = None,
+                 storage_vendor: Optional[builtins.str] = None):
+        """
+        :param builtins.str ak: AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk: SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk_encrypt_type: Encryption method used for SecretKey. Values:
+               Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+               AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+               Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        :param builtins.str storage_vendor: Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        if ak is not None:
+            pulumi.set(__self__, "ak", ak)
+        if sk is not None:
+            pulumi.set(__self__, "sk", sk)
+        if sk_encrypt_type is not None:
+            pulumi.set(__self__, "sk_encrypt_type", sk_encrypt_type)
+        if storage_vendor is not None:
+            pulumi.set(__self__, "storage_vendor", storage_vendor)
+
+    @property
+    @pulumi.getter
+    def ak(self) -> Optional[builtins.str]:
+        """
+        AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "ak")
+
+    @property
+    @pulumi.getter
+    def sk(self) -> Optional[builtins.str]:
+        """
+        SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "sk")
+
+    @property
+    @pulumi.getter(name="skEncryptType")
+    def sk_encrypt_type(self) -> Optional[builtins.str]:
+        """
+        Encryption method used for SecretKey. Values:
+        Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+        AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+        Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        """
+        return pulumi.get(self, "sk_encrypt_type")
+
+    @property
+    @pulumi.getter(name="storageVendor")
+    def storage_vendor(self) -> Optional[builtins.str]:
+        """
+        Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        return pulumi.get(self, "storage_vendor")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPublicSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedEndpoint":
+            suggest = "fixed_endpoint"
+        elif key == "sourceEndpoint":
+            suggest = "source_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectPublicSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectPublicSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectPublicSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_endpoint: Optional[builtins.bool] = None,
+                 source_endpoint: Optional['outputs.BucketMirrorBackRuleRedirectPublicSourceSourceEndpoint'] = None):
+        """
+        :param builtins.bool fixed_endpoint: Whether to always use the configured origin address.
+        :param 'BucketMirrorBackRuleRedirectPublicSourceSourceEndpointArgs' source_endpoint: Publicly accessible origin address.
+        """
+        if fixed_endpoint is not None:
+            pulumi.set(__self__, "fixed_endpoint", fixed_endpoint)
+        if source_endpoint is not None:
+            pulumi.set(__self__, "source_endpoint", source_endpoint)
+
+    @property
+    @pulumi.getter(name="fixedEndpoint")
+    def fixed_endpoint(self) -> Optional[builtins.bool]:
+        """
+        Whether to always use the configured origin address.
+        """
+        return pulumi.get(self, "fixed_endpoint")
+
+    @property
+    @pulumi.getter(name="sourceEndpoint")
+    def source_endpoint(self) -> Optional['outputs.BucketMirrorBackRuleRedirectPublicSourceSourceEndpoint']:
+        """
+        Publicly accessible origin address.
+        """
+        return pulumi.get(self, "source_endpoint")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectPublicSourceSourceEndpoint(dict):
+    def __init__(__self__, *,
+                 followers: Optional[Sequence[builtins.str]] = None,
+                 primaries: Optional[Sequence[builtins.str]] = None):
+        """
+        :param Sequence[builtins.str] followers: Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses. When all origin fetches fail in Primary, an origin is selected from this configuration.
+        :param Sequence[builtins.str] primaries: Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses.
+        """
+        if followers is not None:
+            pulumi.set(__self__, "followers", followers)
+        if primaries is not None:
+            pulumi.set(__self__, "primaries", primaries)
+
+    @property
+    @pulumi.getter
+    def followers(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses. When all origin fetches fail in Primary, an origin is selected from this configuration.
+        """
+        return pulumi.get(self, "followers")
+
+    @property
+    @pulumi.getter
+    def primaries(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses.
+        """
+        return pulumi.get(self, "primaries")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectTransform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replaceKeyPrefix":
+            suggest = "replace_key_prefix"
+        elif key == "withKeyPrefix":
+            suggest = "with_key_prefix"
+        elif key == "withKeySuffix":
+            suggest = "with_key_suffix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectTransform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectTransform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectTransform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replace_key_prefix: Optional['outputs.BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix'] = None,
+                 with_key_prefix: Optional[builtins.str] = None,
+                 with_key_suffix: Optional[builtins.str] = None):
+        """
+        :param 'BucketMirrorBackRuleRedirectTransformReplaceKeyPrefixArgs' replace_key_prefix: Object name prefix to be replaced when requesting the origin.
+        :param builtins.str with_key_prefix: Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        :param builtins.str with_key_suffix: Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        """
+        if replace_key_prefix is not None:
+            pulumi.set(__self__, "replace_key_prefix", replace_key_prefix)
+        if with_key_prefix is not None:
+            pulumi.set(__self__, "with_key_prefix", with_key_prefix)
+        if with_key_suffix is not None:
+            pulumi.set(__self__, "with_key_suffix", with_key_suffix)
+
+    @property
+    @pulumi.getter(name="replaceKeyPrefix")
+    def replace_key_prefix(self) -> Optional['outputs.BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix']:
+        """
+        Object name prefix to be replaced when requesting the origin.
+        """
+        return pulumi.get(self, "replace_key_prefix")
+
+    @property
+    @pulumi.getter(name="withKeyPrefix")
+    def with_key_prefix(self) -> Optional[builtins.str]:
+        """
+        Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        """
+        return pulumi.get(self, "with_key_prefix")
+
+    @property
+    @pulumi.getter(name="withKeySuffix")
+    def with_key_suffix(self) -> Optional[builtins.str]:
+        """
+        Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        """
+        return pulumi.get(self, "with_key_suffix")
+
+
+@pulumi.output_type
+class BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyPrefix":
+            suggest = "key_prefix"
+        elif key == "replaceWith":
+            suggest = "replace_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_prefix: Optional[builtins.str] = None,
+                 replace_with: Optional[builtins.str] = None):
+        """
+        :param builtins.str key_prefix: Object name prefix to be replaced when requesting the origin. Limit: Supports up to 512 characters.
+        :param builtins.str replace_with: Value of the object name prefix after replacement when requesting the origin. Limit: Supports up to 512 characters.
+        """
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+        if replace_with is not None:
+            pulumi.set(__self__, "replace_with", replace_with)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[builtins.str]:
+        """
+        Object name prefix to be replaced when requesting the origin. Limit: Supports up to 512 characters.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @property
+    @pulumi.getter(name="replaceWith")
+    def replace_with(self) -> Optional[builtins.str]:
+        """
+        Value of the object name prefix after replacement when requesting the origin. Limit: Supports up to 512 characters.
+        """
+        return pulumi.get(self, "replace_with")
+
+
+@pulumi.output_type
 class BucketNotificationNotificationRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1459,6 +2639,133 @@ class BucketNotificationNotificationRuleFilterTosKeyFilterRule(dict):
         Matched prefix and suffix information.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketObjectLockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectLockEnabled":
+            suggest = "object_lock_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_lock_enabled: Optional[builtins.str] = None,
+                 rule: Optional['outputs.BucketObjectLockConfigurationRule'] = None):
+        """
+        :param builtins.str object_lock_enabled: Enable retention policy Only Enabled is supported, which means the retention policy is enabled
+        :param 'BucketObjectLockConfigurationRuleArgs' rule: Bucket retention policy rules
+        """
+        if object_lock_enabled is not None:
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+        if rule is not None:
+            pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> Optional[builtins.str]:
+        """
+        Enable retention policy Only Enabled is supported, which means the retention policy is enabled
+        """
+        return pulumi.get(self, "object_lock_enabled")
+
+    @property
+    @pulumi.getter
+    def rule(self) -> Optional['outputs.BucketObjectLockConfigurationRule']:
+        """
+        Bucket retention policy rules
+        """
+        return pulumi.get(self, "rule")
+
+
+@pulumi.output_type
+class BucketObjectLockConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRetention":
+            suggest = "default_retention"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_retention: Optional['outputs.BucketObjectLockConfigurationRuleDefaultRetention'] = None):
+        """
+        :param 'BucketObjectLockConfigurationRuleDefaultRetentionArgs' default_retention: Default bucket retention policy
+        """
+        if default_retention is not None:
+            pulumi.set(__self__, "default_retention", default_retention)
+
+    @property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> Optional['outputs.BucketObjectLockConfigurationRuleDefaultRetention']:
+        """
+        Default bucket retention policy
+        """
+        return pulumi.get(self, "default_retention")
+
+
+@pulumi.output_type
+class BucketObjectLockConfigurationRuleDefaultRetention(dict):
+    def __init__(__self__, *,
+                 days: Optional[builtins.int] = None,
+                 mode: Optional[builtins.str] = None,
+                 years: Optional[builtins.int] = None):
+        """
+        :param builtins.int days: Object lock days Objects cannot be deleted or overwritten during the specified number of days. Measured in days
+        :param builtins.str mode: Retention policy mode Only COMPLIANCE is supported, which means compliance mode. In this mode, no user can delete or overwrite locked objects during the retention period
+        :param builtins.int years: Object lock years Objects cannot be deleted or overwritten during the specified number of years. Measured in years, with one year equal to 365 days
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if years is not None:
+            pulumi.set(__self__, "years", years)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[builtins.int]:
+        """
+        Object lock days Objects cannot be deleted or overwritten during the specified number of days. Measured in days
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[builtins.str]:
+        """
+        Retention policy mode Only COMPLIANCE is supported, which means compliance mode. In this mode, no user can delete or overwrite locked objects during the retention period
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def years(self) -> Optional[builtins.int]:
+        """
+        Object lock years Objects cannot be deleted or overwritten during the specified number of years. Measured in years, with one year equal to 365 days
+        """
+        return pulumi.get(self, "years")
 
 
 @pulumi.output_type
@@ -2265,6 +3572,818 @@ class GetBucketLifecycleConfigTransitionResult(dict):
 
 
 @pulumi.output_type
+class GetBucketMirrorBackRuleResult(dict):
+    def __init__(__self__, *,
+                 condition: 'outputs.GetBucketMirrorBackRuleConditionResult',
+                 id: builtins.str,
+                 redirect: 'outputs.GetBucketMirrorBackRuleRedirectResult'):
+        """
+        :param 'GetBucketMirrorBackRuleConditionArgs' condition: Conditions that trigger the back-to-origin function.
+        :param builtins.str id: Rule ID. The unique identifier for the back-to-origin rule configured on the current bucket. You can set this yourself to distinguish between multiple rules. Restrictions:
+               Characters supported: letters, numbers,   - and _.
+               Maximum length: 32 characters.
+        :param 'GetBucketMirrorBackRuleRedirectArgs' redirect: Back-to-origin redirect configuration.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "redirect", redirect)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> 'outputs.GetBucketMirrorBackRuleConditionResult':
+        """
+        Conditions that trigger the back-to-origin function.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        Rule ID. The unique identifier for the back-to-origin rule configured on the current bucket. You can set this yourself to distinguish between multiple rules. Restrictions:
+        Characters supported: letters, numbers,   - and _.
+        Maximum length: 32 characters.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def redirect(self) -> 'outputs.GetBucketMirrorBackRuleRedirectResult':
+        """
+        Back-to-origin redirect configuration.
+        """
+        return pulumi.get(self, "redirect")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleConditionResult(dict):
+    def __init__(__self__, *,
+                 allow_hosts: Sequence[builtins.str],
+                 http_code: builtins.int,
+                 http_methods: Sequence[builtins.str],
+                 key_prefix: builtins.str,
+                 key_suffix: builtins.str):
+        """
+        :param Sequence[builtins.str] allow_hosts: Supports triggering origin fetch only for specified domains. The domain must be able to access the bucket; it is recommended to use a custom domain bound to the bucket. Limit: supports up to 30 domains.
+        :param builtins.int http_code: Error code that triggers origin fetch. When a download request returns this error code, origin fetch is triggered. Limit: currently only supports 404.
+        :param Sequence[builtins.str] http_methods: Request types that trigger back-to-origin. Value description:
+               ["GET","HEAD"]: Both GetObject and HeadObject requests can trigger back-to-origin.
+               ["GET"]: Only GetObject requests can trigger back-to-origin.
+               Default is ["GET"].
+        :param builtins.str key_prefix: Object name prefix for matching origin fetch objects. Limit: supports up to 512 characters.
+        :param builtins.str key_suffix: Object name suffix for matching origin fetch objects. Limit: supports up to 512 characters.
+        """
+        pulumi.set(__self__, "allow_hosts", allow_hosts)
+        pulumi.set(__self__, "http_code", http_code)
+        pulumi.set(__self__, "http_methods", http_methods)
+        pulumi.set(__self__, "key_prefix", key_prefix)
+        pulumi.set(__self__, "key_suffix", key_suffix)
+
+    @property
+    @pulumi.getter(name="allowHosts")
+    def allow_hosts(self) -> Sequence[builtins.str]:
+        """
+        Supports triggering origin fetch only for specified domains. The domain must be able to access the bucket; it is recommended to use a custom domain bound to the bucket. Limit: supports up to 30 domains.
+        """
+        return pulumi.get(self, "allow_hosts")
+
+    @property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> builtins.int:
+        """
+        Error code that triggers origin fetch. When a download request returns this error code, origin fetch is triggered. Limit: currently only supports 404.
+        """
+        return pulumi.get(self, "http_code")
+
+    @property
+    @pulumi.getter(name="httpMethods")
+    def http_methods(self) -> Sequence[builtins.str]:
+        """
+        Request types that trigger back-to-origin. Value description:
+        ["GET","HEAD"]: Both GetObject and HeadObject requests can trigger back-to-origin.
+        ["GET"]: Only GetObject requests can trigger back-to-origin.
+        Default is ["GET"].
+        """
+        return pulumi.get(self, "http_methods")
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> builtins.str:
+        """
+        Object name prefix for matching origin fetch objects. Limit: supports up to 512 characters.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @property
+    @pulumi.getter(name="keySuffix")
+    def key_suffix(self) -> builtins.str:
+        """
+        Object name suffix for matching origin fetch objects. Limit: supports up to 512 characters.
+        """
+        return pulumi.get(self, "key_suffix")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectResult(dict):
+    def __init__(__self__, *,
+                 fetch_header_to_meta_data_rules: Sequence['outputs.GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleResult'],
+                 fetch_source_on_redirect: builtins.bool,
+                 fetch_source_on_redirect_with_query: builtins.bool,
+                 follow_redirect: builtins.bool,
+                 mirror_header: 'outputs.GetBucketMirrorBackRuleRedirectMirrorHeaderResult',
+                 pass_header_from_sources: Sequence[builtins.str],
+                 pass_query: builtins.bool,
+                 pass_status_code_from_sources: Sequence[builtins.int],
+                 private_source: 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceResult',
+                 public_source: 'outputs.GetBucketMirrorBackRuleRedirectPublicSourceResult',
+                 redirect_type: builtins.str,
+                 transform: 'outputs.GetBucketMirrorBackRuleRedirectTransformResult'):
+        """
+        :param Sequence['GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs'] fetch_header_to_meta_data_rules: List of rules for writing origin response headers to object metadata.
+        :param builtins.bool fetch_source_on_redirect: Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
+        :param builtins.bool fetch_source_on_redirect_with_query: Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
+        :param builtins.bool follow_redirect: If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
+        :param 'GetBucketMirrorBackRuleRedirectMirrorHeaderArgs' mirror_header: Specify the headers to include when mirroring back to origin.
+        :param Sequence[builtins.str] pass_header_from_sources: List of origin response headers allowed to be passed through directly.
+        :param builtins.bool pass_query: Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
+               true: Include request parameters.
+               false: Do not include request parameters.
+        :param Sequence[builtins.int] pass_status_code_from_sources: List of origin response status codes allowed to be passed through directly.
+        :param 'GetBucketMirrorBackRuleRedirectPrivateSourceArgs' private_source: Back-to-origin address configuration when the origin server is a private bucket.
+        :param 'GetBucketMirrorBackRuleRedirectPublicSourceArgs' public_source: Back-to-origin address configuration when the origin server is a public bucket.
+        :param builtins.str redirect_type: Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
+        :param 'GetBucketMirrorBackRuleRedirectTransformArgs' transform: Define transformations for the object name when requesting the origin server.
+        """
+        pulumi.set(__self__, "fetch_header_to_meta_data_rules", fetch_header_to_meta_data_rules)
+        pulumi.set(__self__, "fetch_source_on_redirect", fetch_source_on_redirect)
+        pulumi.set(__self__, "fetch_source_on_redirect_with_query", fetch_source_on_redirect_with_query)
+        pulumi.set(__self__, "follow_redirect", follow_redirect)
+        pulumi.set(__self__, "mirror_header", mirror_header)
+        pulumi.set(__self__, "pass_header_from_sources", pass_header_from_sources)
+        pulumi.set(__self__, "pass_query", pass_query)
+        pulumi.set(__self__, "pass_status_code_from_sources", pass_status_code_from_sources)
+        pulumi.set(__self__, "private_source", private_source)
+        pulumi.set(__self__, "public_source", public_source)
+        pulumi.set(__self__, "redirect_type", redirect_type)
+        pulumi.set(__self__, "transform", transform)
+
+    @property
+    @pulumi.getter(name="fetchHeaderToMetaDataRules")
+    def fetch_header_to_meta_data_rules(self) -> Sequence['outputs.GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleResult']:
+        """
+        List of rules for writing origin response headers to object metadata.
+        """
+        return pulumi.get(self, "fetch_header_to_meta_data_rules")
+
+    @property
+    @pulumi.getter(name="fetchSourceOnRedirect")
+    def fetch_source_on_redirect(self) -> builtins.bool:
+        """
+        Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
+        """
+        return pulumi.get(self, "fetch_source_on_redirect")
+
+    @property
+    @pulumi.getter(name="fetchSourceOnRedirectWithQuery")
+    def fetch_source_on_redirect_with_query(self) -> builtins.bool:
+        """
+        Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
+        """
+        return pulumi.get(self, "fetch_source_on_redirect_with_query")
+
+    @property
+    @pulumi.getter(name="followRedirect")
+    def follow_redirect(self) -> builtins.bool:
+        """
+        If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
+        """
+        return pulumi.get(self, "follow_redirect")
+
+    @property
+    @pulumi.getter(name="mirrorHeader")
+    def mirror_header(self) -> 'outputs.GetBucketMirrorBackRuleRedirectMirrorHeaderResult':
+        """
+        Specify the headers to include when mirroring back to origin.
+        """
+        return pulumi.get(self, "mirror_header")
+
+    @property
+    @pulumi.getter(name="passHeaderFromSources")
+    def pass_header_from_sources(self) -> Sequence[builtins.str]:
+        """
+        List of origin response headers allowed to be passed through directly.
+        """
+        return pulumi.get(self, "pass_header_from_sources")
+
+    @property
+    @pulumi.getter(name="passQuery")
+    def pass_query(self) -> builtins.bool:
+        """
+        Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
+        true: Include request parameters.
+        false: Do not include request parameters.
+        """
+        return pulumi.get(self, "pass_query")
+
+    @property
+    @pulumi.getter(name="passStatusCodeFromSources")
+    def pass_status_code_from_sources(self) -> Sequence[builtins.int]:
+        """
+        List of origin response status codes allowed to be passed through directly.
+        """
+        return pulumi.get(self, "pass_status_code_from_sources")
+
+    @property
+    @pulumi.getter(name="privateSource")
+    def private_source(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceResult':
+        """
+        Back-to-origin address configuration when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "private_source")
+
+    @property
+    @pulumi.getter(name="publicSource")
+    def public_source(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPublicSourceResult':
+        """
+        Back-to-origin address configuration when the origin server is a public bucket.
+        """
+        return pulumi.get(self, "public_source")
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> builtins.str:
+        """
+        Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @property
+    @pulumi.getter
+    def transform(self) -> 'outputs.GetBucketMirrorBackRuleRedirectTransformResult':
+        """
+        Define transformations for the object name when requesting the origin server.
+        """
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleResult(dict):
+    def __init__(__self__, *,
+                 meta_data_suffix: builtins.str,
+                 source_header: builtins.str):
+        """
+        :param builtins.str meta_data_suffix: Suffix appended when writing object metadata.
+        :param builtins.str source_header: Origin response header name.
+        """
+        pulumi.set(__self__, "meta_data_suffix", meta_data_suffix)
+        pulumi.set(__self__, "source_header", source_header)
+
+    @property
+    @pulumi.getter(name="metaDataSuffix")
+    def meta_data_suffix(self) -> builtins.str:
+        """
+        Suffix appended when writing object metadata.
+        """
+        return pulumi.get(self, "meta_data_suffix")
+
+    @property
+    @pulumi.getter(name="sourceHeader")
+    def source_header(self) -> builtins.str:
+        """
+        Origin response header name.
+        """
+        return pulumi.get(self, "source_header")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectMirrorHeaderResult(dict):
+    def __init__(__self__, *,
+                 pass_all: builtins.bool,
+                 passes: Sequence[builtins.str],
+                 removes: Sequence[builtins.str],
+                 sets: Sequence['outputs.GetBucketMirrorBackRuleRedirectMirrorHeaderSetResult']):
+        """
+        :param builtins.bool pass_all: Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
+        :param Sequence[builtins.str] passes: Pass the specified headers to the origin server. Limit: up to 64.
+        :param Sequence[builtins.str] removes: Prohibit forwarding specified headers to the origin. Limit: maximum 64.
+        :param Sequence['GetBucketMirrorBackRuleRedirectMirrorHeaderSetArgs'] sets: List of request headers to add or overwrite during origin fetch.
+        """
+        pulumi.set(__self__, "pass_all", pass_all)
+        pulumi.set(__self__, "passes", passes)
+        pulumi.set(__self__, "removes", removes)
+        pulumi.set(__self__, "sets", sets)
+
+    @property
+    @pulumi.getter(name="passAll")
+    def pass_all(self) -> builtins.bool:
+        """
+        Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
+        """
+        return pulumi.get(self, "pass_all")
+
+    @property
+    @pulumi.getter
+    def passes(self) -> Sequence[builtins.str]:
+        """
+        Pass the specified headers to the origin server. Limit: up to 64.
+        """
+        return pulumi.get(self, "passes")
+
+    @property
+    @pulumi.getter
+    def removes(self) -> Sequence[builtins.str]:
+        """
+        Prohibit forwarding specified headers to the origin. Limit: maximum 64.
+        """
+        return pulumi.get(self, "removes")
+
+    @property
+    @pulumi.getter
+    def sets(self) -> Sequence['outputs.GetBucketMirrorBackRuleRedirectMirrorHeaderSetResult']:
+        """
+        List of request headers to add or overwrite during origin fetch.
+        """
+        return pulumi.get(self, "sets")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectMirrorHeaderSetResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: Request header name.
+        :param builtins.str value: Request header value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        Request header name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Request header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceResult(dict):
+    def __init__(__self__, *,
+                 source_endpoint: 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointResult'):
+        """
+        :param 'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs' source_endpoint: Back-to-origin address configuration when the origin server is a private bucket.
+        """
+        pulumi.set(__self__, "source_endpoint", source_endpoint)
+
+    @property
+    @pulumi.getter(name="sourceEndpoint")
+    def source_endpoint(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointResult':
+        """
+        Back-to-origin address configuration when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "source_endpoint")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointResult(dict):
+    def __init__(__self__, *,
+                 followers: Sequence['outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerResult'],
+                 primaries: Sequence['outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryResult']):
+        """
+        :param Sequence['GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerArgs'] followers: Backup private origin node list.
+        :param Sequence['GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryArgs'] primaries: Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
+        """
+        pulumi.set(__self__, "followers", followers)
+        pulumi.set(__self__, "primaries", primaries)
+
+    @property
+    @pulumi.getter
+    def followers(self) -> Sequence['outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerResult']:
+        """
+        Backup private origin node list.
+        """
+        return pulumi.get(self, "followers")
+
+    @property
+    @pulumi.getter
+    def primaries(self) -> Sequence['outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryResult']:
+        """
+        Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
+        """
+        return pulumi.get(self, "primaries")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerResult(dict):
+    def __init__(__self__, *,
+                 bucket_name: builtins.str,
+                 credential_provider: 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderResult',
+                 endpoint: builtins.str):
+        """
+        :param builtins.str bucket_name: Name of the origin fetch bucket. Required when the origin is a private bucket.
+        :param 'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderArgs' credential_provider: Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        :param builtins.str endpoint: Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "credential_provider", credential_provider)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> builtins.str:
+        """
+        Name of the origin fetch bucket. Required when the origin is a private bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="credentialProvider")
+    def credential_provider(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderResult':
+        """
+        Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "credential_provider")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> builtins.str:
+        """
+        Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderResult(dict):
+    def __init__(__self__, *,
+                 region: builtins.str,
+                 role: builtins.str,
+                 static_credential: 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredentialResult'):
+        """
+        :param builtins.str region: Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        :param builtins.str role: Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        :param 'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredentialArgs' static_credential: Authenticate using AK/SK.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "static_credential", static_credential)
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="staticCredential")
+    def static_credential(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredentialResult':
+        """
+        Authenticate using AK/SK.
+        """
+        return pulumi.get(self, "static_credential")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredentialResult(dict):
+    def __init__(__self__, *,
+                 ak: builtins.str,
+                 sk: builtins.str,
+                 sk_encrypt_type: builtins.str,
+                 storage_vendor: builtins.str):
+        """
+        :param builtins.str ak: AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk: SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk_encrypt_type: Encryption method used for SecretKey. Values:
+               Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+               AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+               Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        :param builtins.str storage_vendor: Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        pulumi.set(__self__, "ak", ak)
+        pulumi.set(__self__, "sk", sk)
+        pulumi.set(__self__, "sk_encrypt_type", sk_encrypt_type)
+        pulumi.set(__self__, "storage_vendor", storage_vendor)
+
+    @property
+    @pulumi.getter
+    def ak(self) -> builtins.str:
+        """
+        AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "ak")
+
+    @property
+    @pulumi.getter
+    def sk(self) -> builtins.str:
+        """
+        SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "sk")
+
+    @property
+    @pulumi.getter(name="skEncryptType")
+    def sk_encrypt_type(self) -> builtins.str:
+        """
+        Encryption method used for SecretKey. Values:
+        Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+        AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+        Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        """
+        return pulumi.get(self, "sk_encrypt_type")
+
+    @property
+    @pulumi.getter(name="storageVendor")
+    def storage_vendor(self) -> builtins.str:
+        """
+        Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        return pulumi.get(self, "storage_vendor")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryResult(dict):
+    def __init__(__self__, *,
+                 bucket_name: builtins.str,
+                 credential_provider: 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderResult',
+                 endpoint: builtins.str):
+        """
+        :param builtins.str bucket_name: Name of the origin fetch bucket. Required when the origin is a private bucket.
+        :param 'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderArgs' credential_provider: Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        :param builtins.str endpoint: Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "credential_provider", credential_provider)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> builtins.str:
+        """
+        Name of the origin fetch bucket. Required when the origin is a private bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="credentialProvider")
+    def credential_provider(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderResult':
+        """
+        Private back-to-origin authentication method. Required when the origin server is a private bucket.
+        """
+        return pulumi.get(self, "credential_provider")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> builtins.str:
+        """
+        Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderResult(dict):
+    def __init__(__self__, *,
+                 region: builtins.str,
+                 role: builtins.str,
+                 static_credential: 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredentialResult'):
+        """
+        :param builtins.str region: Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        :param builtins.str role: Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        :param 'GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredentialArgs' static_credential: Authenticate using AK/SK.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "static_credential", static_credential)
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="staticCredential")
+    def static_credential(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredentialResult':
+        """
+        Authenticate using AK/SK.
+        """
+        return pulumi.get(self, "static_credential")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredentialResult(dict):
+    def __init__(__self__, *,
+                 ak: builtins.str,
+                 sk: builtins.str,
+                 sk_encrypt_type: builtins.str,
+                 storage_vendor: builtins.str):
+        """
+        :param builtins.str ak: AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk: SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        :param builtins.str sk_encrypt_type: Encryption method used for SecretKey. Values:
+               Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+               AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+               Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        :param builtins.str storage_vendor: Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        pulumi.set(__self__, "ak", ak)
+        pulumi.set(__self__, "sk", sk)
+        pulumi.set(__self__, "sk_encrypt_type", sk_encrypt_type)
+        pulumi.set(__self__, "storage_vendor", storage_vendor)
+
+    @property
+    @pulumi.getter
+    def ak(self) -> builtins.str:
+        """
+        AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "ak")
+
+    @property
+    @pulumi.getter
+    def sk(self) -> builtins.str:
+        """
+        SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+        """
+        return pulumi.get(self, "sk")
+
+    @property
+    @pulumi.getter(name="skEncryptType")
+    def sk_encrypt_type(self) -> builtins.str:
+        """
+        Encryption method used for SecretKey. Values:
+        Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+        AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+        Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+        """
+        return pulumi.get(self, "sk_encrypt_type")
+
+    @property
+    @pulumi.getter(name="storageVendor")
+    def storage_vendor(self) -> builtins.str:
+        """
+        Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+        """
+        return pulumi.get(self, "storage_vendor")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPublicSourceResult(dict):
+    def __init__(__self__, *,
+                 fixed_endpoint: builtins.bool,
+                 source_endpoint: 'outputs.GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpointResult'):
+        """
+        :param builtins.bool fixed_endpoint: Whether to always use the configured origin address.
+        :param 'GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpointArgs' source_endpoint: Publicly accessible origin address.
+        """
+        pulumi.set(__self__, "fixed_endpoint", fixed_endpoint)
+        pulumi.set(__self__, "source_endpoint", source_endpoint)
+
+    @property
+    @pulumi.getter(name="fixedEndpoint")
+    def fixed_endpoint(self) -> builtins.bool:
+        """
+        Whether to always use the configured origin address.
+        """
+        return pulumi.get(self, "fixed_endpoint")
+
+    @property
+    @pulumi.getter(name="sourceEndpoint")
+    def source_endpoint(self) -> 'outputs.GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpointResult':
+        """
+        Publicly accessible origin address.
+        """
+        return pulumi.get(self, "source_endpoint")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpointResult(dict):
+    def __init__(__self__, *,
+                 followers: Sequence[builtins.str],
+                 primaries: Sequence[builtins.str]):
+        """
+        :param Sequence[builtins.str] followers: Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses. When all origin fetches fail in Primary, an origin is selected from this configuration.
+        :param Sequence[builtins.str] primaries: Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses.
+        """
+        pulumi.set(__self__, "followers", followers)
+        pulumi.set(__self__, "primaries", primaries)
+
+    @property
+    @pulumi.getter
+    def followers(self) -> Sequence[builtins.str]:
+        """
+        Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses. When all origin fetches fail in Primary, an origin is selected from this configuration.
+        """
+        return pulumi.get(self, "followers")
+
+    @property
+    @pulumi.getter
+    def primaries(self) -> Sequence[builtins.str]:
+        """
+        Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses.
+        """
+        return pulumi.get(self, "primaries")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectTransformResult(dict):
+    def __init__(__self__, *,
+                 replace_key_prefix: 'outputs.GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefixResult',
+                 with_key_prefix: builtins.str,
+                 with_key_suffix: builtins.str):
+        """
+        :param 'GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefixArgs' replace_key_prefix: Object name prefix to be replaced when requesting the origin.
+        :param builtins.str with_key_prefix: Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        :param builtins.str with_key_suffix: Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        """
+        pulumi.set(__self__, "replace_key_prefix", replace_key_prefix)
+        pulumi.set(__self__, "with_key_prefix", with_key_prefix)
+        pulumi.set(__self__, "with_key_suffix", with_key_suffix)
+
+    @property
+    @pulumi.getter(name="replaceKeyPrefix")
+    def replace_key_prefix(self) -> 'outputs.GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefixResult':
+        """
+        Object name prefix to be replaced when requesting the origin.
+        """
+        return pulumi.get(self, "replace_key_prefix")
+
+    @property
+    @pulumi.getter(name="withKeyPrefix")
+    def with_key_prefix(self) -> builtins.str:
+        """
+        Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        """
+        return pulumi.get(self, "with_key_prefix")
+
+    @property
+    @pulumi.getter(name="withKeySuffix")
+    def with_key_suffix(self) -> builtins.str:
+        """
+        Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+        """
+        return pulumi.get(self, "with_key_suffix")
+
+
+@pulumi.output_type
+class GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefixResult(dict):
+    def __init__(__self__, *,
+                 key_prefix: builtins.str,
+                 replace_with: builtins.str):
+        """
+        :param builtins.str key_prefix: Object name prefix to be replaced when requesting the origin. Limit: Supports up to 512 characters.
+        :param builtins.str replace_with: Value of the object name prefix after replacement when requesting the origin. Limit: Supports up to 512 characters.
+        """
+        pulumi.set(__self__, "key_prefix", key_prefix)
+        pulumi.set(__self__, "replace_with", replace_with)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> builtins.str:
+        """
+        Object name prefix to be replaced when requesting the origin. Limit: Supports up to 512 characters.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @property
+    @pulumi.getter(name="replaceWith")
+    def replace_with(self) -> builtins.str:
+        """
+        Value of the object name prefix after replacement when requesting the origin. Limit: Supports up to 512 characters.
+        """
+        return pulumi.get(self, "replace_with")
+
+
+@pulumi.output_type
 class GetBucketNotificationNotificationRuleResult(dict):
     def __init__(__self__, *,
                  destination: 'outputs.GetBucketNotificationNotificationRuleDestinationResult',
@@ -2549,6 +4668,93 @@ class GetBucketNotificationNotificationRuleFilterTosKeyFilterRuleResult(dict):
         Matched prefix and suffix information.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetBucketObjectLockConfigurationResult(dict):
+    def __init__(__self__, *,
+                 object_lock_enabled: builtins.str,
+                 rule: 'outputs.GetBucketObjectLockConfigurationRuleResult'):
+        """
+        :param builtins.str object_lock_enabled: Enable retention policy Only Enabled is supported, which means the retention policy is enabled
+        :param 'GetBucketObjectLockConfigurationRuleArgs' rule: Bucket retention policy rules
+        """
+        pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+        pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> builtins.str:
+        """
+        Enable retention policy Only Enabled is supported, which means the retention policy is enabled
+        """
+        return pulumi.get(self, "object_lock_enabled")
+
+    @property
+    @pulumi.getter
+    def rule(self) -> 'outputs.GetBucketObjectLockConfigurationRuleResult':
+        """
+        Bucket retention policy rules
+        """
+        return pulumi.get(self, "rule")
+
+
+@pulumi.output_type
+class GetBucketObjectLockConfigurationRuleResult(dict):
+    def __init__(__self__, *,
+                 default_retention: 'outputs.GetBucketObjectLockConfigurationRuleDefaultRetentionResult'):
+        """
+        :param 'GetBucketObjectLockConfigurationRuleDefaultRetentionArgs' default_retention: Default bucket retention policy
+        """
+        pulumi.set(__self__, "default_retention", default_retention)
+
+    @property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> 'outputs.GetBucketObjectLockConfigurationRuleDefaultRetentionResult':
+        """
+        Default bucket retention policy
+        """
+        return pulumi.get(self, "default_retention")
+
+
+@pulumi.output_type
+class GetBucketObjectLockConfigurationRuleDefaultRetentionResult(dict):
+    def __init__(__self__, *,
+                 days: builtins.int,
+                 mode: builtins.str,
+                 years: builtins.int):
+        """
+        :param builtins.int days: Object lock days Objects cannot be deleted or overwritten during the specified number of days. Measured in days
+        :param builtins.str mode: Retention policy mode Only COMPLIANCE is supported, which means compliance mode. In this mode, no user can delete or overwrite locked objects during the retention period
+        :param builtins.int years: Object lock years Objects cannot be deleted or overwritten during the specified number of years. Measured in years, with one year equal to 365 days
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "years", years)
+
+    @property
+    @pulumi.getter
+    def days(self) -> builtins.int:
+        """
+        Object lock days Objects cannot be deleted or overwritten during the specified number of days. Measured in days
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> builtins.str:
+        """
+        Retention policy mode Only COMPLIANCE is supported, which means compliance mode. In this mode, no user can delete or overwrite locked objects during the retention period
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def years(self) -> builtins.int:
+        """
+        Object lock years Objects cannot be deleted or overwritten during the specified number of years. Measured in years, with one year equal to 365 days
+        """
+        return pulumi.get(self, "years")
 
 
 @pulumi.output_type

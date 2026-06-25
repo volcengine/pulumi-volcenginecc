@@ -576,6 +576,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudmonitor/eventRule",
+  "fqn": "pulumi_volcenginecc.cloudmonitor",
+  "classes": {
+   "volcenginecc:cloudmonitor/eventRule:EventRule": "EventRule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cloudmonitor/rule",
   "fqn": "pulumi_volcenginecc.cloudmonitor",
   "classes": {
@@ -616,6 +624,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cr/vpcEndpoint",
+  "fqn": "pulumi_volcenginecc.cr",
+  "classes": {
+   "volcenginecc:cr/vpcEndpoint:VpcEndpoint": "VpcEndpoint"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "directconnect/bgpPeer",
   "fqn": "pulumi_volcenginecc.directconnect",
   "classes": {
@@ -652,6 +668,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.dns",
   "classes": {
    "volcenginecc:dns/backup:Backup": "Backup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "dns/backupSchedule",
+  "fqn": "pulumi_volcenginecc.dns",
+  "classes": {
+   "volcenginecc:dns/backupSchedule:BackupSchedule": "BackupSchedule"
   }
  },
  {
@@ -832,6 +856,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "gtm/policy",
+  "fqn": "pulumi_volcenginecc.gtm",
+  "classes": {
+   "volcenginecc:gtm/policy:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "gtm/pool",
   "fqn": "pulumi_volcenginecc.gtm",
   "classes": {
@@ -956,6 +988,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.kafka",
   "classes": {
    "volcenginecc:kafka/allowList:AllowList": "AllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "kafka/group",
+  "fqn": "pulumi_volcenginecc.kafka",
+  "classes": {
+   "volcenginecc:kafka/group:Group": "Group"
   }
  },
  {
@@ -1416,6 +1456,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "rocketmq/accessKey",
+  "fqn": "pulumi_volcenginecc.rocketmq",
+  "classes": {
+   "volcenginecc:rocketmq/accessKey:AccessKey": "AccessKey"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "rocketmq/allowList",
   "fqn": "pulumi_volcenginecc.rocketmq",
   "classes": {
@@ -1500,6 +1548,30 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
    "volcenginecc:tls/consumerGroup:ConsumerGroup": "ConsumerGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/etl",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/etl:Etl": "Etl"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/host",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/host:Host": "Host"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/hostGroup",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/hostGroup:HostGroup": "HostGroup"
   }
  },
  {
@@ -1600,6 +1672,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tos/bucketMirrorBack",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketMirrorBack:BucketMirrorBack": "BucketMirrorBack"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tos/bucketNotification",
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
@@ -1612,6 +1692,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
    "volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog": "BucketRealtimeLog"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tos/bucketRename",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketRename:BucketRename": "BucketRename"
   }
  },
  {

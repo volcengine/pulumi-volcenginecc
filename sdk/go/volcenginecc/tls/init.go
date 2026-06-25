@@ -27,6 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlarmNotifyGroup{}
 	case "volcenginecc:tls/consumerGroup:ConsumerGroup":
 		r = &ConsumerGroup{}
+	case "volcenginecc:tls/etl:Etl":
+		r = &Etl{}
+	case "volcenginecc:tls/host:Host":
+		r = &Host{}
+	case "volcenginecc:tls/hostGroup:HostGroup":
+		r = &HostGroup{}
 	case "volcenginecc:tls/importTask:ImportTask":
 		r = &ImportTask{}
 	case "volcenginecc:tls/index:Index":
@@ -67,6 +73,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tls/consumerGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/etl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/host",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/hostGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

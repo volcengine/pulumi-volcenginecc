@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Registry{}
 	case "volcenginecc:cr/repository:Repository":
 		r = &Repository{}
+	case "volcenginecc:cr/vpcEndpoint:VpcEndpoint":
+		r = &VpcEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"cr/repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cr/vpcEndpoint",
 		&module{version},
 	)
 }

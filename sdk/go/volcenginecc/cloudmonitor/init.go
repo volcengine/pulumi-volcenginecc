@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:cloudmonitor/contactGroup:ContactGroup":
 		r = &ContactGroup{}
+	case "volcenginecc:cloudmonitor/eventRule:EventRule":
+		r = &EventRule{}
 	case "volcenginecc:cloudmonitor/rule:Rule":
 		r = &Rule{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"cloudmonitor/contactGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cloudmonitor/eventRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

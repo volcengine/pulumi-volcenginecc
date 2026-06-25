@@ -28,7 +28,7 @@ class GetBucketResult:
     """
     A collection of values returned by getBucket.
     """
-    def __init__(__self__, acl=None, acl_grant=None, az_redundancy=None, bucket_type=None, creation_date=None, enable_version_status=None, extranet_endpoint=None, id=None, intranet_endpoint=None, lifecycle_configs=None, location=None, name=None, policy=None, project_name=None, storage_class=None, tags=None):
+    def __init__(__self__, acl=None, acl_grant=None, az_redundancy=None, bucket_type=None, creation_date=None, enable_version_status=None, extranet_endpoint=None, id=None, intranet_endpoint=None, lifecycle_configs=None, location=None, name=None, object_lock_configuration=None, policy=None, project_name=None, storage_class=None, tags=None):
         if acl and not isinstance(acl, dict):
             raise TypeError("Expected argument 'acl' to be a dict")
         pulumi.set(__self__, "acl", acl)
@@ -65,6 +65,9 @@ class GetBucketResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if object_lock_configuration and not isinstance(object_lock_configuration, dict):
+            raise TypeError("Expected argument 'object_lock_configuration' to be a dict")
+        pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
@@ -172,6 +175,14 @@ class GetBucketResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="objectLockConfiguration")
+    def object_lock_configuration(self) -> 'outputs.GetBucketObjectLockConfigurationResult':
+        """
+        Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        """
+        return pulumi.get(self, "object_lock_configuration")
+
+    @property
     @pulumi.getter
     def policy(self) -> builtins.str:
         """
@@ -222,6 +233,7 @@ class AwaitableGetBucketResult(GetBucketResult):
             lifecycle_configs=self.lifecycle_configs,
             location=self.location,
             name=self.name,
+            object_lock_configuration=self.object_lock_configuration,
             policy=self.policy,
             project_name=self.project_name,
             storage_class=self.storage_class,
@@ -254,6 +266,7 @@ def get_bucket(id: Optional[builtins.str] = None,
         lifecycle_configs=pulumi.get(__ret__, 'lifecycle_configs'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        object_lock_configuration=pulumi.get(__ret__, 'object_lock_configuration'),
         policy=pulumi.get(__ret__, 'policy'),
         project_name=pulumi.get(__ret__, 'project_name'),
         storage_class=pulumi.get(__ret__, 'storage_class'),
@@ -283,6 +296,7 @@ def get_bucket_output(id: Optional[pulumi.Input[builtins.str]] = None,
         lifecycle_configs=pulumi.get(__response__, 'lifecycle_configs'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        object_lock_configuration=pulumi.get(__response__, 'object_lock_configuration'),
         policy=pulumi.get(__response__, 'policy'),
         project_name=pulumi.get(__response__, 'project_name'),
         storage_class=pulumi.get(__response__, 'storage_class'),
