@@ -110,6 +110,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+        /// </summary>
+        public readonly Outputs.GetBucketObjectLockConfigurationResult ObjectLockConfiguration;
+        /// <summary>
         /// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
         /// </summary>
         public readonly string Policy;
@@ -152,6 +156,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 
             string name,
 
+            Outputs.GetBucketObjectLockConfigurationResult objectLockConfiguration,
+
             string policy,
 
             string projectName,
@@ -172,6 +178,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
             LifecycleConfigs = lifecycleConfigs;
             Location = location;
             Name = name;
+            ObjectLockConfiguration = objectLockConfiguration;
             Policy = policy;
             ProjectName = projectName;
             StorageClass = storageClass;

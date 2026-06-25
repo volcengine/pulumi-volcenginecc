@@ -16,6 +16,7 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AccessKeyTopicPermission',
     'AllowListAssociatedInstance',
     'GroupConsumedClient',
     'GroupConsumedTopic',
@@ -27,6 +28,7 @@ __all__ = [
     'TopicGroupsInfo',
     'TopicQueuesInfo',
     'TopicReadAccessPolicy',
+    'GetAccessKeyTopicPermissionResult',
     'GetAllowListAssociatedInstanceResult',
     'GetGroupConsumedClientResult',
     'GetGroupConsumedTopicResult',
@@ -39,6 +41,54 @@ __all__ = [
     'GetTopicQueuesInfoResult',
     'GetTopicReadAccessPolicyResult',
 ]
+
+@pulumi.output_type
+class AccessKeyTopicPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicName":
+            suggest = "topic_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessKeyTopicPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessKeyTopicPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessKeyTopicPermission.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 permission: Optional[builtins.str] = None,
+                 topic_name: Optional[builtins.str] = None):
+        """
+        :param builtins.str permission: Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        :param builtins.str topic_name: Topic name
+        """
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+        if topic_name is not None:
+            pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> Optional[builtins.str]:
+        """
+        Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> Optional[builtins.str]:
+        """
+        Topic name
+        """
+        return pulumi.get(self, "topic_name")
+
 
 @pulumi.output_type
 class AllowListAssociatedInstance(dict):
@@ -807,6 +857,35 @@ class TopicReadAccessPolicy(dict):
         User access permissions for the current Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions.
         """
         return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class GetAccessKeyTopicPermissionResult(dict):
+    def __init__(__self__, *,
+                 permission: builtins.str,
+                 topic_name: builtins.str):
+        """
+        :param builtins.str permission: Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        :param builtins.str topic_name: Topic name
+        """
+        pulumi.set(__self__, "permission", permission)
+        pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter
+    def permission(self) -> builtins.str:
+        """
+        Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+        """
+        return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> builtins.str:
+        """
+        Topic name
+        """
+        return pulumi.get(self, "topic_name")
 
 
 @pulumi.output_type

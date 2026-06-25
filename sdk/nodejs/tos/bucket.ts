@@ -82,6 +82,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     */
+    public readonly objectLockConfiguration!: pulumi.Output<outputs.tos.BucketObjectLockConfiguration>;
+    /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     public readonly policy!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["lifecycleConfigs"] = state ? state.lifecycleConfigs : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["objectLockConfiguration"] = state ? state.objectLockConfiguration : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
             resourceInputs["storageClass"] = state ? state.storageClass : undefined;
@@ -135,6 +140,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["enableVersionStatus"] = args ? args.enableVersionStatus : undefined;
             resourceInputs["lifecycleConfigs"] = args ? args.lifecycleConfigs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
@@ -192,6 +198,10 @@ export interface BucketState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     */
+    objectLockConfiguration?: pulumi.Input<inputs.tos.BucketObjectLockConfiguration>;
+    /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */
     policy?: pulumi.Input<string>;
@@ -232,6 +242,10 @@ export interface BucketArgs {
      * Bucket name
      */
     name: pulumi.Input<string>;
+    /**
+     * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     */
+    objectLockConfiguration?: pulumi.Input<inputs.tos.BucketObjectLockConfiguration>;
     /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      */

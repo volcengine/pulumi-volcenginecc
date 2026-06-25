@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:rocketmq/accessKey:AccessKey":
+		r = &AccessKey{}
 	case "volcenginecc:rocketmq/allowList:AllowList":
 		r = &AllowList{}
 	case "volcenginecc:rocketmq/group:Group":
@@ -42,6 +44,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rocketmq/accessKey",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rocketmq/allowList",

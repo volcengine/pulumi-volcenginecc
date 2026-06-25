@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessKeyTopicPermission struct {
+	// Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+	Permission *string `pulumi:"permission"`
+	// Topic name
+	TopicName *string `pulumi:"topicName"`
+}
+
+// AccessKeyTopicPermissionInput is an input type that accepts AccessKeyTopicPermissionArgs and AccessKeyTopicPermissionOutput values.
+// You can construct a concrete instance of `AccessKeyTopicPermissionInput` via:
+//
+//	AccessKeyTopicPermissionArgs{...}
+type AccessKeyTopicPermissionInput interface {
+	pulumi.Input
+
+	ToAccessKeyTopicPermissionOutput() AccessKeyTopicPermissionOutput
+	ToAccessKeyTopicPermissionOutputWithContext(context.Context) AccessKeyTopicPermissionOutput
+}
+
+type AccessKeyTopicPermissionArgs struct {
+	// Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+	Permission pulumi.StringPtrInput `pulumi:"permission"`
+	// Topic name
+	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
+}
+
+func (AccessKeyTopicPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (i AccessKeyTopicPermissionArgs) ToAccessKeyTopicPermissionOutput() AccessKeyTopicPermissionOutput {
+	return i.ToAccessKeyTopicPermissionOutputWithContext(context.Background())
+}
+
+func (i AccessKeyTopicPermissionArgs) ToAccessKeyTopicPermissionOutputWithContext(ctx context.Context) AccessKeyTopicPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyTopicPermissionOutput)
+}
+
+// AccessKeyTopicPermissionArrayInput is an input type that accepts AccessKeyTopicPermissionArray and AccessKeyTopicPermissionArrayOutput values.
+// You can construct a concrete instance of `AccessKeyTopicPermissionArrayInput` via:
+//
+//	AccessKeyTopicPermissionArray{ AccessKeyTopicPermissionArgs{...} }
+type AccessKeyTopicPermissionArrayInput interface {
+	pulumi.Input
+
+	ToAccessKeyTopicPermissionArrayOutput() AccessKeyTopicPermissionArrayOutput
+	ToAccessKeyTopicPermissionArrayOutputWithContext(context.Context) AccessKeyTopicPermissionArrayOutput
+}
+
+type AccessKeyTopicPermissionArray []AccessKeyTopicPermissionInput
+
+func (AccessKeyTopicPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (i AccessKeyTopicPermissionArray) ToAccessKeyTopicPermissionArrayOutput() AccessKeyTopicPermissionArrayOutput {
+	return i.ToAccessKeyTopicPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i AccessKeyTopicPermissionArray) ToAccessKeyTopicPermissionArrayOutputWithContext(ctx context.Context) AccessKeyTopicPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyTopicPermissionArrayOutput)
+}
+
+type AccessKeyTopicPermissionOutput struct{ *pulumi.OutputState }
+
+func (AccessKeyTopicPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (o AccessKeyTopicPermissionOutput) ToAccessKeyTopicPermissionOutput() AccessKeyTopicPermissionOutput {
+	return o
+}
+
+func (o AccessKeyTopicPermissionOutput) ToAccessKeyTopicPermissionOutputWithContext(ctx context.Context) AccessKeyTopicPermissionOutput {
+	return o
+}
+
+// Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+func (o AccessKeyTopicPermissionOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessKeyTopicPermission) *string { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+// Topic name
+func (o AccessKeyTopicPermissionOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessKeyTopicPermission) *string { return v.TopicName }).(pulumi.StringPtrOutput)
+}
+
+type AccessKeyTopicPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessKeyTopicPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (o AccessKeyTopicPermissionArrayOutput) ToAccessKeyTopicPermissionArrayOutput() AccessKeyTopicPermissionArrayOutput {
+	return o
+}
+
+func (o AccessKeyTopicPermissionArrayOutput) ToAccessKeyTopicPermissionArrayOutputWithContext(ctx context.Context) AccessKeyTopicPermissionArrayOutput {
+	return o
+}
+
+func (o AccessKeyTopicPermissionArrayOutput) Index(i pulumi.IntInput) AccessKeyTopicPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessKeyTopicPermission {
+		return vs[0].([]AccessKeyTopicPermission)[vs[1].(int)]
+	}).(AccessKeyTopicPermissionOutput)
+}
+
 type AllowListAssociatedInstance struct {
 	// Instance ID
 	InstanceId *string `pulumi:"instanceId"`
@@ -1501,6 +1607,112 @@ func (o TopicReadAccessPolicyArrayOutput) Index(i pulumi.IntInput) TopicReadAcce
 	}).(TopicReadAccessPolicyOutput)
 }
 
+type GetAccessKeyTopicPermission struct {
+	// Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+	Permission string `pulumi:"permission"`
+	// Topic name
+	TopicName string `pulumi:"topicName"`
+}
+
+// GetAccessKeyTopicPermissionInput is an input type that accepts GetAccessKeyTopicPermissionArgs and GetAccessKeyTopicPermissionOutput values.
+// You can construct a concrete instance of `GetAccessKeyTopicPermissionInput` via:
+//
+//	GetAccessKeyTopicPermissionArgs{...}
+type GetAccessKeyTopicPermissionInput interface {
+	pulumi.Input
+
+	ToGetAccessKeyTopicPermissionOutput() GetAccessKeyTopicPermissionOutput
+	ToGetAccessKeyTopicPermissionOutputWithContext(context.Context) GetAccessKeyTopicPermissionOutput
+}
+
+type GetAccessKeyTopicPermissionArgs struct {
+	// Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+	Permission pulumi.StringInput `pulumi:"permission"`
+	// Topic name
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (GetAccessKeyTopicPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (i GetAccessKeyTopicPermissionArgs) ToGetAccessKeyTopicPermissionOutput() GetAccessKeyTopicPermissionOutput {
+	return i.ToGetAccessKeyTopicPermissionOutputWithContext(context.Background())
+}
+
+func (i GetAccessKeyTopicPermissionArgs) ToGetAccessKeyTopicPermissionOutputWithContext(ctx context.Context) GetAccessKeyTopicPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessKeyTopicPermissionOutput)
+}
+
+// GetAccessKeyTopicPermissionArrayInput is an input type that accepts GetAccessKeyTopicPermissionArray and GetAccessKeyTopicPermissionArrayOutput values.
+// You can construct a concrete instance of `GetAccessKeyTopicPermissionArrayInput` via:
+//
+//	GetAccessKeyTopicPermissionArray{ GetAccessKeyTopicPermissionArgs{...} }
+type GetAccessKeyTopicPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessKeyTopicPermissionArrayOutput() GetAccessKeyTopicPermissionArrayOutput
+	ToGetAccessKeyTopicPermissionArrayOutputWithContext(context.Context) GetAccessKeyTopicPermissionArrayOutput
+}
+
+type GetAccessKeyTopicPermissionArray []GetAccessKeyTopicPermissionInput
+
+func (GetAccessKeyTopicPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (i GetAccessKeyTopicPermissionArray) ToGetAccessKeyTopicPermissionArrayOutput() GetAccessKeyTopicPermissionArrayOutput {
+	return i.ToGetAccessKeyTopicPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessKeyTopicPermissionArray) ToGetAccessKeyTopicPermissionArrayOutputWithContext(ctx context.Context) GetAccessKeyTopicPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessKeyTopicPermissionArrayOutput)
+}
+
+type GetAccessKeyTopicPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetAccessKeyTopicPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (o GetAccessKeyTopicPermissionOutput) ToGetAccessKeyTopicPermissionOutput() GetAccessKeyTopicPermissionOutput {
+	return o
+}
+
+func (o GetAccessKeyTopicPermissionOutput) ToGetAccessKeyTopicPermissionOutputWithContext(ctx context.Context) GetAccessKeyTopicPermissionOutput {
+	return o
+}
+
+// Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+func (o GetAccessKeyTopicPermissionOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessKeyTopicPermission) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+// Topic name
+func (o GetAccessKeyTopicPermissionOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessKeyTopicPermission) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type GetAccessKeyTopicPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessKeyTopicPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessKeyTopicPermission)(nil)).Elem()
+}
+
+func (o GetAccessKeyTopicPermissionArrayOutput) ToGetAccessKeyTopicPermissionArrayOutput() GetAccessKeyTopicPermissionArrayOutput {
+	return o
+}
+
+func (o GetAccessKeyTopicPermissionArrayOutput) ToGetAccessKeyTopicPermissionArrayOutputWithContext(ctx context.Context) GetAccessKeyTopicPermissionArrayOutput {
+	return o
+}
+
+func (o GetAccessKeyTopicPermissionArrayOutput) Index(i pulumi.IntInput) GetAccessKeyTopicPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessKeyTopicPermission {
+		return vs[0].([]GetAccessKeyTopicPermission)[vs[1].(int)]
+	}).(GetAccessKeyTopicPermissionOutput)
+}
+
 type GetAllowListAssociatedInstance struct {
 	// Instance ID
 	InstanceId string `pulumi:"instanceId"`
@@ -2740,6 +2952,8 @@ func (o GetTopicReadAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetTopicRe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyTopicPermissionInput)(nil)).Elem(), AccessKeyTopicPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyTopicPermissionArrayInput)(nil)).Elem(), AccessKeyTopicPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListAssociatedInstanceInput)(nil)).Elem(), AllowListAssociatedInstanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListAssociatedInstanceArrayInput)(nil)).Elem(), AllowListAssociatedInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupConsumedClientInput)(nil)).Elem(), GroupConsumedClientArgs{})
@@ -2762,6 +2976,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicQueuesInfoArrayInput)(nil)).Elem(), TopicQueuesInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicReadAccessPolicyInput)(nil)).Elem(), TopicReadAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicReadAccessPolicyArrayInput)(nil)).Elem(), TopicReadAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessKeyTopicPermissionInput)(nil)).Elem(), GetAccessKeyTopicPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessKeyTopicPermissionArrayInput)(nil)).Elem(), GetAccessKeyTopicPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAllowListAssociatedInstanceInput)(nil)).Elem(), GetAllowListAssociatedInstanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAllowListAssociatedInstanceArrayInput)(nil)).Elem(), GetAllowListAssociatedInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupConsumedClientInput)(nil)).Elem(), GetGroupConsumedClientArgs{})
@@ -2782,6 +2998,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicQueuesInfoArrayInput)(nil)).Elem(), GetTopicQueuesInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicReadAccessPolicyInput)(nil)).Elem(), GetTopicReadAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTopicReadAccessPolicyArrayInput)(nil)).Elem(), GetTopicReadAccessPolicyArray{})
+	pulumi.RegisterOutputType(AccessKeyTopicPermissionOutput{})
+	pulumi.RegisterOutputType(AccessKeyTopicPermissionArrayOutput{})
 	pulumi.RegisterOutputType(AllowListAssociatedInstanceOutput{})
 	pulumi.RegisterOutputType(AllowListAssociatedInstanceArrayOutput{})
 	pulumi.RegisterOutputType(GroupConsumedClientOutput{})
@@ -2804,6 +3022,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicQueuesInfoArrayOutput{})
 	pulumi.RegisterOutputType(TopicReadAccessPolicyOutput{})
 	pulumi.RegisterOutputType(TopicReadAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessKeyTopicPermissionOutput{})
+	pulumi.RegisterOutputType(GetAccessKeyTopicPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetAllowListAssociatedInstanceOutput{})
 	pulumi.RegisterOutputType(GetAllowListAssociatedInstanceArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupConsumedClientOutput{})

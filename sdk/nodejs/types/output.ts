@@ -10491,6 +10491,37 @@ export namespace cr {
         value: string;
     }
 
+    export interface GetVpcEndpointVpc {
+        /**
+         * Primary account ID for the VPC
+         */
+        accountId: number;
+        /**
+         * Creation time
+         */
+        createTime: string;
+        /**
+         * IP address of the image repository within the VPC
+         */
+        ip: string;
+        /**
+         * VPC region
+         */
+        region: string;
+        /**
+         * Access endpoint status: Enabling: in progress. Enabled: enabled. Disabling: in progress. Failed: failed.
+         */
+        status: string;
+        /**
+         * Subnet ID
+         */
+        subnetId: string;
+        /**
+         * VPC ID。
+         */
+        vpcId: string;
+    }
+
     export interface RegistryEndpoint {
         aclPolicies: outputs.cr.RegistryEndpointAclPolicy[];
         /**
@@ -10541,6 +10572,21 @@ export namespace cr {
          * List of tag values
          */
         value: string;
+    }
+
+    export interface VpcEndpointVpc {
+        /**
+         * Primary account ID for the VPC
+         */
+        accountId: number;
+        /**
+         * Subnet ID
+         */
+        subnetId: string;
+        /**
+         * VPC ID。
+         */
+        vpcId: string;
     }
 
 }
@@ -14991,6 +15037,24 @@ export namespace fwcenter {
 }
 
 export namespace gtm {
+    export interface GetPolicyStatistics {
+        /**
+         * Number of available addresses
+         */
+        activeAddr: number;
+        /**
+         * Number of unavailable addresses
+         */
+        inactiveAddr: number;
+    }
+
+    export interface GetPolicyTarget {
+        /**
+         * Address pool ID.
+         */
+        poolId: string;
+    }
+
     export interface GetPoolAddress {
         /**
          * Address capacity
@@ -15171,6 +15235,24 @@ export namespace gtm {
          * Operator. interval: Matches values within the range. include: Matches specified values. exclude: Matches values other than the specified values.
          */
         operator: string;
+    }
+
+    export interface PolicyStatistics {
+        /**
+         * Number of available addresses
+         */
+        activeAddr: number;
+        /**
+         * Number of unavailable addresses
+         */
+        inactiveAddr: number;
+    }
+
+    export interface PolicyTarget {
+        /**
+         * Address pool ID.
+         */
+        poolId: string;
     }
 
     export interface PoolAddress {
@@ -16508,6 +16590,17 @@ export namespace kafka {
         instanceName: string;
     }
 
+    export interface GetGroupTag {
+        /**
+         * Tag key
+         */
+        key: string;
+        /**
+         * Tag value
+         */
+        value: string;
+    }
+
     export interface GetInstanceChargeInfo {
         /**
          * Whether to automatically renew the subscription instance after expiration. true   - auto renewal; false (default)   - no auto renewal, instance will be stopped upon expiration.
@@ -16595,6 +16688,17 @@ export namespace kafka {
         key: string;
         /**
          * Tag value.
+         */
+        value: string;
+    }
+
+    export interface GroupTag {
+        /**
+         * Tag key
+         */
+        key: string;
+        /**
+         * Tag value
          */
         value: string;
     }
@@ -19236,22 +19340,6 @@ export namespace rdsmysql {
          * Instance ID bound to the current allowlist.
          */
         instanceId: string;
-        /**
-         * Instance name bound to the current allowlist.
-         */
-        instanceName: string;
-        /**
-         * Instance status.
-         */
-        instanceStatus: string;
-        /**
-         * Has the latest allowlist been synchronized? Values: true: Yes. false: No. Note: When modifying the allowlist, if the instance is not running, changes to the allowlist will not be immediately synchronized to the instance.
-         */
-        isLatest: boolean;
-        /**
-         * Private network ID of the instance.
-         */
-        vpc: string;
     }
 
     export interface AllowListSecurityGroupBindInfo {
@@ -19259,10 +19347,6 @@ export namespace rdsmysql {
          * Mode for associating security groups. Values: IngressDirectionIp: Inbound IP. AssociateEcsIp: Associate ECS IP. Note: In the CreateAllowList API, the BindMode and SecurityGroupId fields of SecurityGroupBindInfoObject are required.
          */
         bindMode: string;
-        /**
-         * Security group IP address list.
-         */
-        ipLists: string[];
         /**
          * Security group ID.
          */
@@ -21731,6 +21815,17 @@ export namespace redis {
 }
 
 export namespace rocketmq {
+    export interface AccessKeyTopicPermission {
+        /**
+         * Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+         */
+        permission: string;
+        /**
+         * Topic name
+         */
+        topicName: string;
+    }
+
     export interface AllowListAssociatedInstance {
         /**
          * Instance ID
@@ -21744,6 +21839,17 @@ export namespace rocketmq {
          * VPC ID of the instance
          */
         vpc: string;
+    }
+
+    export interface GetAccessKeyTopicPermission {
+        /**
+         * Permission type. AccessKey has permissions for this Topic. ALL: Publish and subscribe permissions. PUB: Publish permission. SUB: Subscribe permission. DENY: No publish or subscribe permissions
+         */
+        permission: string;
+        /**
+         * Topic name
+         */
+        topicName: string;
     }
 
     export interface GetAllowListAssociatedInstance {
@@ -22750,6 +22856,25 @@ export namespace tls {
         severity: string;
     }
 
+    export interface EtlTargetResource {
+        /**
+         * Name of the custom output target. You must use this name to refer to the output target in the data processing rules
+         */
+        alias: string;
+        /**
+         * Region of the log topic for storing processed logs
+         */
+        region: string;
+        /**
+         * Cross-account authorization role name
+         */
+        roleTrn: string;
+        /**
+         * Log topic ID for storing processed logs
+         */
+        topicId: string;
+    }
+
     export interface GetAlarmAlarmNotifyGroup {
         /**
          * Alert notification group ID.
@@ -23228,6 +23353,529 @@ export namespace tls {
          * Alert notification level, indicating the severity of the alert. Supports notice, warning, or critical, with severity increasing in that order. The default is notice.
          */
         severity: string;
+    }
+
+    export interface GetEtlTargetResource {
+        /**
+         * Name of the custom output target. You must use this name to refer to the output target in the data processing rules
+         */
+        alias: string;
+        /**
+         * Log project ID for storing processed logs
+         */
+        projectId: string;
+        /**
+         * Log project name for storing processed logs
+         */
+        projectName: string;
+        /**
+         * Region of the log topic for storing processed logs
+         */
+        region: string;
+        /**
+         * Cross-account authorization role name
+         */
+        roleTrn: string;
+        /**
+         * Log topic ID for storing processed logs
+         */
+        topicId: string;
+        /**
+         * Log topic name for storing processed logs
+         */
+        topicName: string;
+    }
+
+    export interface GetHostGroupRule {
+        /**
+         * Container collection rules
+         */
+        containerRule: outputs.tls.GetHostGroupRuleContainerRule;
+        /**
+         * Time when the collection configuration was created.
+         */
+        createTime: string;
+        /**
+         * Extraction rule list.
+         */
+        excludePaths: outputs.tls.GetHostGroupRuleExcludePath[];
+        /**
+         * Extraction rules
+         */
+        extractRule: outputs.tls.GetHostGroupRuleExtractRule;
+        /**
+         * Collection type. 0: Host log file. 1: K8s container standard output. 2: Log file inside K8s container.
+         */
+        inputType: number;
+        /**
+         * Log sample.
+         */
+        logSample: string;
+        /**
+         * Collection modes. minimalist*log: single-line full mode. json*log: JSON mode. delimiter*log: delimiter mode. multiline*log: multi-line full mode. fullregex_log: full regex mode.
+         */
+        logType: string;
+        /**
+         * Time when the collection configuration was modified.
+         */
+        modifyTime: string;
+        /**
+         * Data collection path list
+         */
+        paths: string[];
+        /**
+         * Running status of the collection configuration. 0: Running. 1: Paused.
+         */
+        pause: number;
+        /**
+         * Collection configuration ID.
+         */
+        ruleId: string;
+        /**
+         * Name of the collection configuration.
+         */
+        ruleName: string;
+        /**
+         * ID of the log topic to which the collection configuration belongs.
+         */
+        topicId: string;
+        /**
+         * Name of the log topic associated with the collection configuration
+         */
+        topicName: string;
+        /**
+         * User-defined collection rules.
+         */
+        userDefineRule: outputs.tls.GetHostGroupRuleUserDefineRule;
+    }
+
+    export interface GetHostGroupRuleContainerRule {
+        /**
+         * Container name to collect. If no container name is specified, all containers in the machine group are collected. Supports regular expressions. For example, setting the container name to ^(container-test)$ collects all containers named container-test.
+         */
+        containerNameRegex: string;
+        /**
+         * Whether to add environment variables as log tags to the raw log data. When enabled, Log Service adds container environment variable fields to logs. Setting multiple key-value pairs adds multiple fields. For example, set Key to source and Value to data_source. If the container has the environment variable source=DC, Log Service adds the field **tag**data_source_*: DC to the log.
+         */
+        envTags: outputs.tls.GetHostGroupRuleContainerRuleEnvTag[];
+        /**
+         * Container environment variable denylist/blocklist specifies containers to exclude from collection. If the denylist/blocklist is not enabled, all containers are collected. If enabled, Key is required and Value is optional. If Value is empty, all containers with the specified Key in their environment variables are excluded. If Value is not empty, only containers matching the key-value pair are excluded—that is, containers with the specified Key and a Value matching the given pattern. Value supports regex matching. For example, set Key to module and Value to ^(tcp|udp)$ to exclude containers with module:tcp or module:udp in their environment variables. Multiple key-value pairs use logical OR: any container matching any pair is excluded from collection. When the denylist/blocklist is enabled, Keys cannot be duplicated.
+         */
+        excludeContainerEnvRegexes: outputs.tls.GetHostGroupRuleContainerRuleExcludeContainerEnvRegex[];
+        /**
+         * The container Label denylist specifies which containers to exclude from collection. If not enabled, all containers are collected. If the container Label denylist is enabled, Key is required and Value is optional. If Value is empty, all containers with the specified Key in the container Label are excluded. If Value is not empty, only containers matching the Key-Value pair are excluded, meaning only containers with the specified Key and a Value matching the pattern are excluded. Value supports regex matching. For example, set Key to app and Value to ^(test1|test2)$ to exclude containers with app:test1 or app:test2 in the container Label. The logical relationship between multiple Key-Value pairs is OR, meaning any container Label matching any pair will be excluded from collection. When enabling the container Label denylist, Keys must not be duplicated.
+         */
+        excludeContainerLabelRegexes: outputs.tls.GetHostGroupRuleContainerRuleExcludeContainerLabelRegex[];
+        /**
+         * The container environment variable allowlist specifies which containers to collect by using environment variables as criteria. If the allowlist is not enabled, all containers are collected. When the container environment variable allowlist is enabled, you must enter key-value pairs. Key is required; Value is optional. If Value is empty: collect all containers that contain the Key in their environment variables. If Value is not empty: only collect containers where the Key exists and its value matches Value. Value supports regex matching. For example, set Key to module and Value to ^(tcp|udp)$ to collect only containers with module:tcp or module:udp in their environment variables. Multiple key-value pairs use logical OR; any container environment variable matching any key-value pair will be included in the collection scope. When the container environment variable allowlist is enabled, Keys must not be duplicated.
+         */
+        includeContainerEnvRegexes: outputs.tls.GetHostGroupRuleContainerRuleIncludeContainerEnvRegex[];
+        /**
+         * The container Label allowlist specifies which containers to collect based on container Labels. If the allowlist is not enabled, all containers are collected. When the container Label allowlist is enabled, you must enter key-value pairs. Key is required; Value is optional. If Value is empty, all containers with the specified Key in their container Label are collected. If Value is not empty, only containers with the specified Key and a Value matching the Value field are collected. Value supports regular expressions. For example, set Key to app and Value to ^(test1|test2)$ to collect only containers with app:test1 or app:test2 in their container Label. The logical relationship between multiple key-value pairs is OR; any container Label matching any key-value pair will be included in the collection scope. When the container Label allowlist is enabled, Keys must not be duplicated.
+         */
+        includeContainerLabelRegexes: outputs.tls.GetHostGroupRuleContainerRuleIncludeContainerLabelRegex[];
+        /**
+         * Kubernetes container collection rules.
+         */
+        kubernetesRule: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRule;
+        /**
+         * Collection information. stdout: Container standard output (stdout). stderr: Container standard error (stderr). all: Both container standard output (stdout) and standard error (stderr).
+         */
+        stream: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleEnvTag {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleExcludeContainerEnvRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleExcludeContainerLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleIncludeContainerEnvRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleIncludeContainerLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRule {
+        /**
+         * Whether to add Kubernetes Annotations as log tags to the raw log data. When enabled, the log service adds Kubernetes Pod Annotation fields to the logs. Setting multiple key-value pairs adds multiple fields. For example, set Key to sink and Value to data_sink. If the Pod contains the Annotation sink=ck, the log will include the field **tag**data_sink_*: ck.
+         */
+        annotationTags: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRuleAnnotationTag[];
+        /**
+         * Whether to add all Kubernetes Labels as log tags to the raw log data. When enabled, the log service adds fields for all Labels in the Kubernetes Pod to the log. For example, if the Pod has Label source=DC and destination=CS, the log will include fields **tag**source__: DC and **tag**destination__: CS.
+         */
+        enableAllLabelTag: boolean;
+        /**
+         * Pod Annotation denylist is used to specify containers that are not collected. If you need to set a Pod Annotation denylist, Key is required and Value is optional. If Value is empty, all containers under Pods whose Pod Annotation contains the Key will be excluded. If Value is not empty, only containers under Pods whose Pod Annotation contains the Key and whose value matches the Value will be excluded. By default, Value uses string matching, meaning only when Value and the Pod Annotation value are exactly the same will it match. If the value starts with ^ and ends with $, it is treated as a regular expression match. For example, set Key to app and Value to ^(test1|test2)$ to match containers under Pods whose Pod Annotation contains app:test1 or app:test2. Note: The logical relationship between multiple Key-Value pairs is OR, meaning as long as the Pod Annotation matches any pair, it will be included in the collection scope. When enabling the Pod Annotation denylist, Keys must not be duplicated. For fuzzy regular expression matching, you must add .*. For example, ^(http.*)$ matches strings that start with http
+         */
+        excludePodAnnotationRegexes: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRuleExcludePodAnnotationRegex[];
+        /**
+         * Specify containers to exclude from collection using the Pod Label denylist. If not enabled, all containers are collected. To set a Pod Label denylist, Key is required and Value is optional. If Value is empty, all containers with the specified Key in the Pod Label are excluded from collection. If Value is not empty, only containers with the specified Key and a Value matching the pattern are excluded. Value supports regex matching. For example, set Key to module and Value to ^(tcp|udp)$ to exclude containers with module:tcp or module:udp in the Pod Label. Note: The logical relationship between multiple Key-Value pairs is OR, meaning any Pod Label matching any pair will be excluded from collection. When enabling the Pod Label denylist, Keys must not be duplicated. For fuzzy regex matching, you must add .*. For example, ^(http.*)$ matches any string starting with http.
+         */
+        excludePodLabelRegexes: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRuleExcludePodLabelRegex[];
+        /**
+         * Pod Annotation Allowlist specifies which containers to collect. If you need to set a Pod Annotation Allowlist, Key is required and Value is optional. If Value is empty, all containers in Pods with the specified Key in their Pod Annotation are matched. If Value is not empty, only containers in Pods where the Pod Annotation contains the Key and its value matches Value are matched. By default, Value uses string matching, meaning only exact matches between Value and the Pod Annotation value are considered. If Value starts with ^ and ends with $, it uses regex matching. For example, set Key to app and Value to ^(test1|test2)$ to match containers in Pods with Pod Annotation app:test1 or app:test2. Note: Multiple Key-Value pairs use logical OR, so any Pod Annotation matching any pair will be included in the collection scope. When enabling the Pod Annotation Allowlist, Keys must not be duplicated. For regex fuzzy matching, you must add .*. For example, ^(http.*)$ matches values starting with http
+         */
+        includePodAnnotationRegexes: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRuleIncludePodAnnotationRegex[];
+        /**
+         * Pod label allowlist specifies which containers to collect. If the Pod label allowlist is not enabled, all containers are collected. To set a Pod label allowlist, Key is required. If Value is empty, all containers with the Key in their Pod label are collected. If Value is not empty, only containers with the Key in their Pod label and a Value matching the specified pattern are collected. Value supports regex matching. For example, set Key to module and Value to ^(tcp|udp)$ to collect only containers with module:tcp or module:udp in their Pod label. Note: The logical relationship between multiple key-value pairs is OR, meaning any matching pair will include the Pod in the collection scope. When the Pod label allowlist is enabled, Keys must be unique. For fuzzy regex matching, you must add .*. For example, ^(http.*)$ matches strings starting with http.
+         */
+        includePodLabelRegexes: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRuleIncludePodLabelRegex[];
+        /**
+         * Choose whether to add Kubernetes labels as log tags to the original log data. When enabled, the log service adds Kubernetes Pod label fields to the logs. Setting multiple key-value pairs adds multiple fields. For example, set Key to source and Value to data_source. If the Pod contains the label source=DC, the log will include the field **tag**data_source_*: DC.
+         */
+        labelTags: outputs.tls.GetHostGroupRuleContainerRuleKubernetesRuleLabelTag[];
+        /**
+         * Name of the Kubernetes Namespace to be collected. If not specified, all containers are collected. Namespace names support regular expression matching. For example, setting the Namespace name to ^(tcp|udp)$ collects all containers under the tcp and udp namespaces.
+         */
+        namespaceNameRegex: string;
+        /**
+         * Pod name is used to specify the Pod(s) to be collected. If the Pod name is not specified, all containers are collected. Pod name supports regex matching. For example, setting the Pod name to ^(http.*)$ collects all containers under Pods whose names start with http.
+         */
+        podNameRegex: string;
+        /**
+         * Specify the container to collect by workload name. If no workload name is specified, all containers are collected. Workload names support regular expressions. For example, setting the workload name to ^(http.*)$ collects all containers under workloads starting with http.
+         */
+        workloadNameRegex: string;
+        /**
+         * Specify containers to collect by workload type. Only one type can be selected. If no type is specified, containers of all types will be collected. Supported workload types are: Deployment: stateless workload StatefulSet: stateful workload DaemonSet: daemon process Job: job CronJob: scheduled job
+         */
+        workloadType: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRuleAnnotationTag {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRuleExcludePodAnnotationRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRuleExcludePodLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRuleIncludePodAnnotationRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRuleIncludePodLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleContainerRuleKubernetesRuleLabelTag {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleExcludePath {
+        /**
+         * Collection path type. File: file name. Path: directory.
+         */
+        type: string;
+        /**
+         * Collection path. Must be specified as an absolute path. When Type is Path, Value indicates a directory. When Type is File, Value indicates a file name.
+         */
+        value: string;
+    }
+
+    export interface GetHostGroupRuleExtractRule {
+        /**
+         * The regex pattern required to match the first line of the log. This is valid only when LogType is multiline*log or fullregex*log. The pattern must be a valid regular expression.
+         */
+        beginRegex: string;
+        /**
+         * Log delimiter. Valid only when LogType is delimiter_log.
+         */
+        delimiter: string;
+        /**
+         * Enable nanosecond precision time. When enabled, log time parsing will report time with nanosecond precision. true: Enable nanosecond precision time. false: Disable nanosecond precision time.
+         */
+        enableNanosecond: boolean;
+        /**
+         * Filter rule list.
+         */
+        filterKeyRegexes: outputs.tls.GetHostGroupRuleExtractRuleFilterKeyRegex[];
+        /**
+         * List of log field names (Keys).
+         */
+        keys: string[];
+        /**
+         * The entire log entry must match the regular expression. This is only valid when the log type is fullregex_log. The regular expression must be valid.
+         */
+        logRegex: string;
+        /**
+         * Automatically extract log fields based on the specified log template.
+         */
+        logTemplate: outputs.tls.GetHostGroupRuleExtractRuleLogTemplate;
+        /**
+         * Quotation mark. Content enclosed by quotation marks is parsed as a complete field and not separated. Only valid when LogType is delimiter_log.
+         */
+        quote: string;
+        /**
+         * Regular expression for extracting time, used to extract the time value from the TimeKey field and parse it as the collection time.
+         */
+        timeExtractRegex: string;
+        /**
+         * Parsing format for the time field. If a specified time field in the log is used as the log timestamp, you must provide TimeKey and TimeFormat.
+         */
+        timeFormat: string;
+        /**
+         * Field name for the log time field. If a specified time field in the log is used as the log timestamp, you must provide TimeKey and TimeFormat.
+         */
+        timeKey: string;
+        /**
+         * Sample time. Used to verify whether the specified time parsing format is correct.
+         */
+        timeSample: string;
+        /**
+         * Time zone. Supports machine time zone (default) and custom time zone. Custom time zone supports GMT and UTC.
+         */
+        timeZone: string;
+        /**
+         * Key name for logs that failed to parse when uploading
+         */
+        unMatchLogKey: string;
+        /**
+         * Upload logs that failed to parse. UnMatchUpLoadSwitch=true and UnMatchLogKey must be used together. true: Upload logs that failed to parse. false: Do not upload logs that failed to parse.
+         */
+        unMatchUpLoadSwitch: boolean;
+    }
+
+    export interface GetHostGroupRuleExtractRuleFilterKeyRegex {
+        /**
+         * Name of the filter field.
+         */
+        key: string;
+        /**
+         * The log content of the filter field must match the specified regular expression.
+         */
+        regex: string;
+    }
+
+    export interface GetHostGroupRuleExtractRuleLogTemplate {
+        /**
+         * Log template format
+         */
+        format: string;
+        /**
+         * Log template type. Supported types: Nginx (Nginx log template type).
+         */
+        type: string;
+    }
+
+    export interface GetHostGroupRuleUserDefineRule {
+        /**
+         * Advanced parameters are used for extended configuration. After enabling extended configuration, you can customize advanced behaviors of LogCollector, such as when to release file handles. Note: If multiple conditions for releasing handles are specified, the handle will be released and log file monitoring will end as soon as any condition is met.
+         */
+        advanced: outputs.tls.GetHostGroupRuleUserDefineRuleAdvanced;
+        /**
+         * Whether to upload the Label information of the host group to the log service. Disabled by default. true: LogCollector uploads the Label information of the host group to the specified field. You can specify the field name in the HostGroupLabelKey parameter. false (default): LogCollector does not upload the Label information of the host group.
+         */
+        enableHostGroupLabel: boolean;
+        /**
+         * Whether to upload the hostname field. Default is disabled. true: Adds a field to the original log to record the log source's hostname. Specify the hostname field name using HostnameKey. false (default): Does not add the hostname field.
+         */
+        enableHostname: boolean;
+        /**
+         * Whether to upload raw logs. true: Upload raw logs. false (default): Do not upload raw logs.
+         */
+        enableRawLog: boolean;
+        /**
+         * Add constant fields to logs. Constant fields must follow these restrictions: Up to 5 constant fields can be uploaded. Field name (Key) must be unique and not empty. Length: 1–128 characters, including letters, numbers, and special characters (-*./), and cannot start with an underscore. Field value (Value) must not be empty, maximum length is 512 KiB.
+         */
+        fields: outputs.tls.GetHostGroupRuleUserDefineRuleField[];
+        /**
+         * Field name used to store machine group label information.
+         */
+        hostGroupLabelKey: string;
+        /**
+         * hostname field name. Only required when EnableHostname is set to true.
+         */
+        hostnameKey: string;
+        /**
+         * Ignore log files that have not been updated for a specified duration, in hours.
+         */
+        ignoreOlder: number;
+        /**
+         * Allows multiple log file collections. Empty: Uses the log file ID (including file inode, device, and checksum of the first N bytes) to uniquely identify the log file. RuleID: Uses the collection rule ID and log file ID to uniquely identify the log file. TopicIDRuleName: Uses the log topic ID, collection rule Name, and log file ID to uniquely identify the log file.
+         */
+        multiCollectsType: string;
+        /**
+         * Rules for parsing the collection path. After setting the rule, fields in the collection path are extracted using the specified regex and added as metadata to the log data. Note: This parameter is not supported when collecting container standard output.
+         */
+        parsePathRule: outputs.tls.GetHostGroupRuleUserDefineRuleParsePathRule;
+        /**
+         * LogCollector plugin configuration. After enabling plugin configuration, you can add one or more LogCollector processor plugins to parse logs with complex or variable structures.
+         */
+        plugin: outputs.tls.GetHostGroupRuleUserDefineRulePlugin;
+        /**
+         * Original log field name. Only effective when EnableRawLog is set to true. RawLogKey defaults to **raw**, meaning the original log data will be encapsulated in the **raw** field and uploaded to the log service together with the parsed log data
+         */
+        rawLogKey: string;
+        /**
+         * Rules for routing log partitions. If this parameter is not set, logs are written using the default load balancing mode, and packets are written to any available Shard. If set, logs are collected using the HashKey routing Shard mode, and the log service writes data to the Shard containing the specified Key value.
+         */
+        shardHashKey: outputs.tls.GetHostGroupRuleUserDefineRuleShardHashKey;
+        /**
+         * LogCollector collection strategy, specifying whether LogCollector collects incremental logs or full logs. The default is false, which means full log collection. true: incremental collection. When LogCollector collects logs, it only collects newly added content in the file. When a monitored log file receives new log entries, LogCollector is triggered to collect logs. For log files being collected for the first time, LogCollector automatically determines the collection position based on the incremental threshold TailSizeKb you specify. If the new file size does not exceed the incremental threshold, collection starts from the beginning of the new file. If the new file size exceeds the incremental threshold, collection starts from the position at the end of the file minus the incremental threshold, meaning only incremental logs are collected. For log files that are not being collected for the first time, LogCollector determines the collection position based on the Checkpoint and continues collecting. false: (default) full collection. LogCollector collects logs from the beginning of each file, including historical log data.
+         */
+        tailFiles: boolean;
+        /**
+         * Incremental collection backtracking threshold, in KiB. When LogCollector uses incremental collection, for the first collection of a log file: if the new log file size does not exceed the TailSizeKb value, collection starts from the beginning of the file. If the new log file size exceeds the TailSizeKb value, collection starts from the position TailSizeKb from the end of the file.
+         */
+        tailSizeKb: number;
+    }
+
+    export interface GetHostGroupRuleUserDefineRuleAdvanced {
+        /**
+         * After reading to the end of the log file, whether to release the file handle. Default is false.
+         */
+        closeEof: boolean;
+        /**
+         * Wait time before releasing log file handles. If no new logs are written to a log file for the specified duration, the handle for that log file is released. Unit: seconds. Range: 1–300 seconds. Default: 60 seconds.
+         */
+        closeInactive: number;
+        /**
+         * Whether to release the handle of the log file after it is removed. Default is false.
+         */
+        closeRemoved: boolean;
+        /**
+         * Whether to release the handle of the log file after it is renamed. Default is false.
+         */
+        closeRenamed: boolean;
+        /**
+         * Maximum duration for LogCollector to monitor log files, in seconds. The default is 0 seconds, meaning LogCollector does not limit the monitoring duration. Timing starts when LogCollector begins monitoring the log file. After the specified duration is exceeded, regardless of whether the log file has been fully read, LogCollector immediately releases the file handle and stops monitoring.
+         */
+        closeTimeout: number;
+        /**
+         * Maximum wait time when LogCollector does not read a line break. Unit: seconds. Default: 5s. LogCollector starts timing when it begins reading log file content. If no line break is read within the specified time, it will send the buffered logs. If the file write interval is large, a complete log entry may be split into two parts and written separately. Adjust this parameter based on your log write interval.
+         */
+        noLineTerminatorEofMaxTime: number;
+    }
+
+    export interface GetHostGroupRuleUserDefineRuleField {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface GetHostGroupRuleUserDefineRuleParsePathRule {
+        /**
+         * List of field names. Log Service parses PathSample into multiple fields using regular expressions (Regex). Keys specify the name of each field. You can configure up to 100 field names. Field names cannot be empty or duplicated.
+         */
+        keys: string[];
+        /**
+         * Sample collection path for actual scenarios. The sample path must be an absolute path. Wildcards *, ?, ** are not allowed in the sample path.
+         */
+        pathSample: string;
+        /**
+         * Regular expression used to extract the path field. It must match the example collection path; otherwise, extraction will fail.
+         */
+        regex: string;
+    }
+
+    export interface GetHostGroupRuleUserDefineRulePlugin {
+        /**
+         * LogCollector plugins. For supported plugin lists and parameter descriptions, see LogCollector plugin overview.
+         */
+        processors: string;
+    }
+
+    export interface GetHostGroupRuleUserDefineRuleShardHashKey {
+        /**
+         * The HashKey of the log group specifies the shard where the current log group will be written. The valid range for this parameter is [00000000000000000000000000000000-ffffffffffffffffffffffffffffffff).
+         */
+        hashKey: string;
     }
 
     export interface GetImportTaskImportSourceInfo {
@@ -24306,6 +24954,456 @@ export namespace tls {
          * User tag value.
          */
         value: string;
+    }
+
+    export interface HostGroupRule {
+        /**
+         * Container collection rules
+         */
+        containerRule: outputs.tls.HostGroupRuleContainerRule;
+        /**
+         * Time when the collection configuration was created.
+         */
+        createTime: string;
+        excludePaths: outputs.tls.HostGroupRuleExcludePath[];
+        /**
+         * Extraction rules
+         */
+        extractRule: outputs.tls.HostGroupRuleExtractRule;
+        /**
+         * Collection type. 0: Host log file. 1: K8s container standard output. 2: Log file inside K8s container.
+         */
+        inputType: number;
+        /**
+         * Log sample.
+         */
+        logSample: string;
+        /**
+         * Collection modes. minimalist*log: single-line full mode. json*log: JSON mode. delimiter*log: delimiter mode. multiline*log: multi-line full mode. fullregex_log: full regex mode.
+         */
+        logType: string;
+        /**
+         * Time when the collection configuration was modified.
+         */
+        modifyTime: string;
+        /**
+         * Data collection path list
+         */
+        paths: string[];
+        /**
+         * Running status of the collection configuration. 0: Running. 1: Paused.
+         */
+        pause: number;
+        /**
+         * Collection configuration ID.
+         */
+        ruleId: string;
+        /**
+         * Name of the collection configuration.
+         */
+        ruleName: string;
+        /**
+         * ID of the log topic to which the collection configuration belongs.
+         */
+        topicId: string;
+        /**
+         * Name of the log topic associated with the collection configuration
+         */
+        topicName: string;
+        /**
+         * User-defined collection rules.
+         */
+        userDefineRule: outputs.tls.HostGroupRuleUserDefineRule;
+    }
+
+    export interface HostGroupRuleContainerRule {
+        /**
+         * Container name to collect. If no container name is specified, all containers in the machine group are collected. Supports regular expressions. For example, setting the container name to ^(container-test)$ collects all containers named container-test.
+         */
+        containerNameRegex: string;
+        envTags: outputs.tls.HostGroupRuleContainerRuleEnvTag[];
+        excludeContainerEnvRegexes: outputs.tls.HostGroupRuleContainerRuleExcludeContainerEnvRegex[];
+        excludeContainerLabelRegexes: outputs.tls.HostGroupRuleContainerRuleExcludeContainerLabelRegex[];
+        includeContainerEnvRegexes: outputs.tls.HostGroupRuleContainerRuleIncludeContainerEnvRegex[];
+        includeContainerLabelRegexes: outputs.tls.HostGroupRuleContainerRuleIncludeContainerLabelRegex[];
+        /**
+         * Kubernetes container collection rules.
+         */
+        kubernetesRule: outputs.tls.HostGroupRuleContainerRuleKubernetesRule;
+        /**
+         * Collection information. stdout: Container standard output (stdout). stderr: Container standard error (stderr). all: Both container standard output (stdout) and standard error (stderr).
+         */
+        stream: string;
+    }
+
+    export interface HostGroupRuleContainerRuleEnvTag {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleExcludeContainerEnvRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleExcludeContainerLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleIncludeContainerEnvRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleIncludeContainerLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRule {
+        annotationTags: outputs.tls.HostGroupRuleContainerRuleKubernetesRuleAnnotationTag[];
+        /**
+         * Whether to add all Kubernetes Labels as log tags to the raw log data. When enabled, the log service adds fields for all Labels in the Kubernetes Pod to the log. For example, if the Pod has Label source=DC and destination=CS, the log will include fields **tag**source__: DC and **tag**destination__: CS.
+         */
+        enableAllLabelTag: boolean;
+        excludePodAnnotationRegexes: outputs.tls.HostGroupRuleContainerRuleKubernetesRuleExcludePodAnnotationRegex[];
+        excludePodLabelRegexes: outputs.tls.HostGroupRuleContainerRuleKubernetesRuleExcludePodLabelRegex[];
+        includePodAnnotationRegexes: outputs.tls.HostGroupRuleContainerRuleKubernetesRuleIncludePodAnnotationRegex[];
+        includePodLabelRegexes: outputs.tls.HostGroupRuleContainerRuleKubernetesRuleIncludePodLabelRegex[];
+        labelTags: outputs.tls.HostGroupRuleContainerRuleKubernetesRuleLabelTag[];
+        /**
+         * Name of the Kubernetes Namespace to be collected. If not specified, all containers are collected. Namespace names support regular expression matching. For example, setting the Namespace name to ^(tcp|udp)$ collects all containers under the tcp and udp namespaces.
+         */
+        namespaceNameRegex: string;
+        /**
+         * Pod name is used to specify the Pod(s) to be collected. If the Pod name is not specified, all containers are collected. Pod name supports regex matching. For example, setting the Pod name to ^(http.*)$ collects all containers under Pods whose names start with http.
+         */
+        podNameRegex: string;
+        /**
+         * Specify the container to collect by workload name. If no workload name is specified, all containers are collected. Workload names support regular expressions. For example, setting the workload name to ^(http.*)$ collects all containers under workloads starting with http.
+         */
+        workloadNameRegex: string;
+        /**
+         * Specify containers to collect by workload type. Only one type can be selected. If no type is specified, containers of all types will be collected. Supported workload types are: Deployment: stateless workload StatefulSet: stateful workload DaemonSet: daemon process Job: job CronJob: scheduled job
+         */
+        workloadType: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRuleAnnotationTag {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRuleExcludePodAnnotationRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRuleExcludePodLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRuleIncludePodAnnotationRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRuleIncludePodLabelRegex {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleContainerRuleKubernetesRuleLabelTag {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleExcludePath {
+        /**
+         * Collection path type. File: file name. Path: directory.
+         */
+        type: string;
+        /**
+         * Collection path. Must be specified as an absolute path. When Type is Path, Value indicates a directory. When Type is File, Value indicates a file name.
+         */
+        value: string;
+    }
+
+    export interface HostGroupRuleExtractRule {
+        /**
+         * The regex pattern required to match the first line of the log. This is valid only when LogType is multiline*log or fullregex*log. The pattern must be a valid regular expression.
+         */
+        beginRegex: string;
+        /**
+         * Log delimiter. Valid only when LogType is delimiter_log.
+         */
+        delimiter: string;
+        /**
+         * Enable nanosecond precision time. When enabled, log time parsing will report time with nanosecond precision. true: Enable nanosecond precision time. false: Disable nanosecond precision time.
+         */
+        enableNanosecond: boolean;
+        filterKeyRegexes: outputs.tls.HostGroupRuleExtractRuleFilterKeyRegex[];
+        /**
+         * List of log field names (Keys).
+         */
+        keys: string[];
+        /**
+         * The entire log entry must match the regular expression. This is only valid when the log type is fullregex_log. The regular expression must be valid.
+         */
+        logRegex: string;
+        /**
+         * Automatically extract log fields based on the specified log template.
+         */
+        logTemplate: outputs.tls.HostGroupRuleExtractRuleLogTemplate;
+        /**
+         * Quotation mark. Content enclosed by quotation marks is parsed as a complete field and not separated. Only valid when LogType is delimiter_log.
+         */
+        quote: string;
+        /**
+         * Regular expression for extracting time, used to extract the time value from the TimeKey field and parse it as the collection time.
+         */
+        timeExtractRegex: string;
+        /**
+         * Parsing format for the time field. If a specified time field in the log is used as the log timestamp, you must provide TimeKey and TimeFormat.
+         */
+        timeFormat: string;
+        /**
+         * Field name for the log time field. If a specified time field in the log is used as the log timestamp, you must provide TimeKey and TimeFormat.
+         */
+        timeKey: string;
+        /**
+         * Sample time. Used to verify whether the specified time parsing format is correct.
+         */
+        timeSample: string;
+        /**
+         * Time zone. Supports machine time zone (default) and custom time zone. Custom time zone supports GMT and UTC.
+         */
+        timeZone: string;
+        /**
+         * Key name for logs that failed to parse when uploading
+         */
+        unMatchLogKey: string;
+        /**
+         * Upload logs that failed to parse. UnMatchUpLoadSwitch=true and UnMatchLogKey must be used together. true: Upload logs that failed to parse. false: Do not upload logs that failed to parse.
+         */
+        unMatchUpLoadSwitch: boolean;
+    }
+
+    export interface HostGroupRuleExtractRuleFilterKeyRegex {
+        /**
+         * Name of the filter field.
+         */
+        key: string;
+        /**
+         * The log content of the filter field must match the specified regular expression.
+         */
+        regex: string;
+    }
+
+    export interface HostGroupRuleExtractRuleLogTemplate {
+        /**
+         * Log template format
+         */
+        format: string;
+        /**
+         * Log template type. Supported types: Nginx (Nginx log template type).
+         */
+        type: string;
+    }
+
+    export interface HostGroupRuleUserDefineRule {
+        /**
+         * Advanced parameters are used for extended configuration. After enabling extended configuration, you can customize advanced behaviors of LogCollector, such as when to release file handles. Note: If multiple conditions for releasing handles are specified, the handle will be released and log file monitoring will end as soon as any condition is met.
+         */
+        advanced: outputs.tls.HostGroupRuleUserDefineRuleAdvanced;
+        /**
+         * Whether to upload the Label information of the host group to the log service. Disabled by default. true: LogCollector uploads the Label information of the host group to the specified field. You can specify the field name in the HostGroupLabelKey parameter. false (default): LogCollector does not upload the Label information of the host group.
+         */
+        enableHostGroupLabel: boolean;
+        /**
+         * Whether to upload the hostname field. Default is disabled. true: Adds a field to the original log to record the log source's hostname. Specify the hostname field name using HostnameKey. false (default): Does not add the hostname field.
+         */
+        enableHostname: boolean;
+        /**
+         * Whether to upload raw logs. true: Upload raw logs. false (default): Do not upload raw logs.
+         */
+        enableRawLog: boolean;
+        fields: outputs.tls.HostGroupRuleUserDefineRuleField[];
+        /**
+         * Field name used to store machine group label information.
+         */
+        hostGroupLabelKey: string;
+        /**
+         * hostname field name. Only required when EnableHostname is set to true.
+         */
+        hostnameKey: string;
+        /**
+         * Ignore log files that have not been updated for a specified duration, in hours.
+         */
+        ignoreOlder: number;
+        /**
+         * Allows multiple log file collections. Empty: Uses the log file ID (including file inode, device, and checksum of the first N bytes) to uniquely identify the log file. RuleID: Uses the collection rule ID and log file ID to uniquely identify the log file. TopicIDRuleName: Uses the log topic ID, collection rule Name, and log file ID to uniquely identify the log file.
+         */
+        multiCollectsType: string;
+        /**
+         * Rules for parsing the collection path. After setting the rule, fields in the collection path are extracted using the specified regex and added as metadata to the log data. Note: This parameter is not supported when collecting container standard output.
+         */
+        parsePathRule: outputs.tls.HostGroupRuleUserDefineRuleParsePathRule;
+        /**
+         * LogCollector plugin configuration. After enabling plugin configuration, you can add one or more LogCollector processor plugins to parse logs with complex or variable structures.
+         */
+        plugin: outputs.tls.HostGroupRuleUserDefineRulePlugin;
+        /**
+         * Original log field name. Only effective when EnableRawLog is set to true. RawLogKey defaults to **raw**, meaning the original log data will be encapsulated in the **raw** field and uploaded to the log service together with the parsed log data
+         */
+        rawLogKey: string;
+        /**
+         * Rules for routing log partitions. If this parameter is not set, logs are written using the default load balancing mode, and packets are written to any available Shard. If set, logs are collected using the HashKey routing Shard mode, and the log service writes data to the Shard containing the specified Key value.
+         */
+        shardHashKey: outputs.tls.HostGroupRuleUserDefineRuleShardHashKey;
+        /**
+         * LogCollector collection strategy, specifying whether LogCollector collects incremental logs or full logs. The default is false, which means full log collection. true: incremental collection. When LogCollector collects logs, it only collects newly added content in the file. When a monitored log file receives new log entries, LogCollector is triggered to collect logs. For log files being collected for the first time, LogCollector automatically determines the collection position based on the incremental threshold TailSizeKb you specify. If the new file size does not exceed the incremental threshold, collection starts from the beginning of the new file. If the new file size exceeds the incremental threshold, collection starts from the position at the end of the file minus the incremental threshold, meaning only incremental logs are collected. For log files that are not being collected for the first time, LogCollector determines the collection position based on the Checkpoint and continues collecting. false: (default) full collection. LogCollector collects logs from the beginning of each file, including historical log data.
+         */
+        tailFiles: boolean;
+        /**
+         * Incremental collection backtracking threshold, in KiB. When LogCollector uses incremental collection, for the first collection of a log file: if the new log file size does not exceed the TailSizeKb value, collection starts from the beginning of the file. If the new log file size exceeds the TailSizeKb value, collection starts from the position TailSizeKb from the end of the file.
+         */
+        tailSizeKb: number;
+    }
+
+    export interface HostGroupRuleUserDefineRuleAdvanced {
+        /**
+         * After reading to the end of the log file, whether to release the file handle. Default is false.
+         */
+        closeEof: boolean;
+        /**
+         * Wait time before releasing log file handles. If no new logs are written to a log file for the specified duration, the handle for that log file is released. Unit: seconds. Range: 1–300 seconds. Default: 60 seconds.
+         */
+        closeInactive: number;
+        /**
+         * Whether to release the handle of the log file after it is removed. Default is false.
+         */
+        closeRemoved: boolean;
+        /**
+         * Whether to release the handle of the log file after it is renamed. Default is false.
+         */
+        closeRenamed: boolean;
+        /**
+         * Maximum duration for LogCollector to monitor log files, in seconds. The default is 0 seconds, meaning LogCollector does not limit the monitoring duration. Timing starts when LogCollector begins monitoring the log file. After the specified duration is exceeded, regardless of whether the log file has been fully read, LogCollector immediately releases the file handle and stops monitoring.
+         */
+        closeTimeout: number;
+        /**
+         * Maximum wait time when LogCollector does not read a line break. Unit: seconds. Default: 5s. LogCollector starts timing when it begins reading log file content. If no line break is read within the specified time, it will send the buffered logs. If the file write interval is large, a complete log entry may be split into two parts and written separately. Adjust this parameter based on your log write interval.
+         */
+        noLineTerminatorEofMaxTime: number;
+    }
+
+    export interface HostGroupRuleUserDefineRuleField {
+        /**
+         * Key.
+         */
+        key: string;
+        /**
+         * Value.
+         */
+        val: string;
+    }
+
+    export interface HostGroupRuleUserDefineRuleParsePathRule {
+        /**
+         * List of field names. Log Service parses PathSample into multiple fields using regular expressions (Regex). Keys specify the name of each field. You can configure up to 100 field names. Field names cannot be empty or duplicated.
+         */
+        keys: string[];
+        /**
+         * Sample collection path for actual scenarios. The sample path must be an absolute path. Wildcards *, ?, ** are not allowed in the sample path.
+         */
+        pathSample: string;
+        /**
+         * Regular expression used to extract the path field. It must match the example collection path; otherwise, extraction will fail.
+         */
+        regex: string;
+    }
+
+    export interface HostGroupRuleUserDefineRulePlugin {
+        /**
+         * LogCollector plugins. For supported plugin lists and parameter descriptions, see LogCollector plugin overview.
+         */
+        processors: string;
+    }
+
+    export interface HostGroupRuleUserDefineRuleShardHashKey {
+        /**
+         * The HashKey of the log group specifies the shard where the current log group will be written. The valid range for this parameter is [00000000000000000000000000000000-ffffffffffffffffffffffffffffffff).
+         */
+        hashKey: string;
     }
 
     export interface ImportTaskImportSourceInfo {
@@ -25529,6 +26627,301 @@ export namespace tos {
         storageClass: string;
     }
 
+    export interface BucketMirrorBackRule {
+        /**
+         * Conditions that trigger the back-to-origin function.
+         */
+        condition: outputs.tos.BucketMirrorBackRuleCondition;
+        /**
+         * Rule ID. The unique identifier for the back-to-origin rule configured on the current bucket. You can set this yourself to distinguish between multiple rules. Restrictions:
+         * Characters supported: letters, numbers,   - and _.
+         * Maximum length: 32 characters.
+         */
+        id: string;
+        /**
+         * Back-to-origin redirect configuration.
+         */
+        redirect: outputs.tos.BucketMirrorBackRuleRedirect;
+    }
+
+    export interface BucketMirrorBackRuleCondition {
+        /**
+         * Supports triggering origin fetch only for specified domains. The domain must be able to access the bucket; it is recommended to use a custom domain bound to the bucket. Limit: supports up to 30 domains.
+         */
+        allowHosts: string[];
+        /**
+         * Error code that triggers origin fetch. When a download request returns this error code, origin fetch is triggered. Limit: currently only supports 404.
+         */
+        httpCode: number;
+        /**
+         * Request types that trigger back-to-origin. Value description:
+         * ["GET","HEAD"]: Both GetObject and HeadObject requests can trigger back-to-origin.
+         * ["GET"]: Only GetObject requests can trigger back-to-origin.
+         * Default is ["GET"].
+         */
+        httpMethods: string[];
+        /**
+         * Object name prefix for matching origin fetch objects. Limit: supports up to 512 characters.
+         */
+        keyPrefix: string;
+        /**
+         * Object name suffix for matching origin fetch objects. Limit: supports up to 512 characters.
+         */
+        keySuffix: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirect {
+        fetchHeaderToMetaDataRules: outputs.tos.BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule[];
+        /**
+         * Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
+         */
+        fetchSourceOnRedirect: boolean;
+        /**
+         * Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
+         */
+        fetchSourceOnRedirectWithQuery: boolean;
+        /**
+         * If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
+         */
+        followRedirect: boolean;
+        /**
+         * Specify the headers to include when mirroring back to origin.
+         */
+        mirrorHeader: outputs.tos.BucketMirrorBackRuleRedirectMirrorHeader;
+        /**
+         * List of origin response headers allowed to be passed through directly.
+         */
+        passHeaderFromSources: string[];
+        /**
+         * Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
+         * true: Include request parameters.
+         * false: Do not include request parameters.
+         */
+        passQuery: boolean;
+        /**
+         * List of origin response status codes allowed to be passed through directly.
+         */
+        passStatusCodeFromSources: number[];
+        /**
+         * Back-to-origin address configuration when the origin server is a private bucket.
+         */
+        privateSource: outputs.tos.BucketMirrorBackRuleRedirectPrivateSource;
+        /**
+         * Back-to-origin address configuration when the origin server is a public bucket.
+         */
+        publicSource: outputs.tos.BucketMirrorBackRuleRedirectPublicSource;
+        /**
+         * Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
+         */
+        redirectType: string;
+        /**
+         * Define transformations for the object name when requesting the origin server.
+         */
+        transform: outputs.tos.BucketMirrorBackRuleRedirectTransform;
+    }
+
+    export interface BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule {
+        /**
+         * Suffix appended when writing object metadata.
+         */
+        metaDataSuffix: string;
+        /**
+         * Origin response header name.
+         */
+        sourceHeader: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectMirrorHeader {
+        /**
+         * Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
+         */
+        passAll: boolean;
+        /**
+         * Pass the specified headers to the origin server. Limit: up to 64.
+         */
+        passes: string[];
+        /**
+         * Prohibit forwarding specified headers to the origin. Limit: maximum 64.
+         */
+        removes: string[];
+        sets: outputs.tos.BucketMirrorBackRuleRedirectMirrorHeaderSet[];
+    }
+
+    export interface BucketMirrorBackRuleRedirectMirrorHeaderSet {
+        /**
+         * Request header name.
+         */
+        key: string;
+        /**
+         * Request header value.
+         */
+        value: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSource {
+        /**
+         * Back-to-origin address configuration when the origin server is a private bucket.
+         */
+        sourceEndpoint: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint {
+        followers: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower[];
+        primaries: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary[];
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower {
+        /**
+         * Name of the origin fetch bucket. Required when the origin is a private bucket.
+         */
+        bucketName: string;
+        /**
+         * Private back-to-origin authentication method. Required when the origin server is a private bucket.
+         */
+        credentialProvider: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider;
+        /**
+         * Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+         */
+        endpoint: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider {
+        /**
+         * Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+         */
+        region: string;
+        /**
+         * Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+         */
+        role: string;
+        /**
+         * Authenticate using AK/SK.
+         */
+        staticCredential: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential {
+        /**
+         * AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+         */
+        ak: string;
+        /**
+         * SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+         */
+        sk: string;
+        /**
+         * Encryption method used for SecretKey. Values:
+         * Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+         * AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+         * Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+         */
+        skEncryptType: string;
+        /**
+         * Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+         */
+        storageVendor: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary {
+        /**
+         * Name of the origin fetch bucket. Required when the origin is a private bucket.
+         */
+        bucketName: string;
+        /**
+         * Private back-to-origin authentication method. Required when the origin server is a private bucket.
+         */
+        credentialProvider: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider;
+        /**
+         * Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+         */
+        endpoint: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider {
+        /**
+         * Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+         */
+        region: string;
+        /**
+         * Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+         */
+        role: string;
+        /**
+         * Authenticate using AK/SK.
+         */
+        staticCredential: outputs.tos.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential {
+        /**
+         * AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+         */
+        ak: string;
+        /**
+         * SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+         */
+        sk: string;
+        /**
+         * Encryption method used for SecretKey. Values:
+         * Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+         * AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+         * Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+         */
+        skEncryptType: string;
+        /**
+         * Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+         */
+        storageVendor: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPublicSource {
+        /**
+         * Whether to always use the configured origin address.
+         */
+        fixedEndpoint: boolean;
+        /**
+         * Publicly accessible origin address.
+         */
+        sourceEndpoint: outputs.tos.BucketMirrorBackRuleRedirectPublicSourceSourceEndpoint;
+    }
+
+    export interface BucketMirrorBackRuleRedirectPublicSourceSourceEndpoint {
+        /**
+         * Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses. When all origin fetches fail in Primary, an origin is selected from this configuration.
+         */
+        followers: string[];
+        /**
+         * Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses.
+         */
+        primaries: string[];
+    }
+
+    export interface BucketMirrorBackRuleRedirectTransform {
+        /**
+         * Object name prefix to be replaced when requesting the origin.
+         */
+        replaceKeyPrefix: outputs.tos.BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix;
+        /**
+         * Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+         */
+        withKeyPrefix: string;
+        /**
+         * Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+         */
+        withKeySuffix: string;
+    }
+
+    export interface BucketMirrorBackRuleRedirectTransformReplaceKeyPrefix {
+        /**
+         * Object name prefix to be replaced when requesting the origin. Limit: Supports up to 512 characters.
+         */
+        keyPrefix: string;
+        /**
+         * Value of the object name prefix after replacement when requesting the origin. Limit: Supports up to 512 characters.
+         */
+        replaceWith: string;
+    }
+
     export interface BucketNotificationNotificationRule {
         /**
          * Event notification delivery targets. Must include at least one target and supports up to five different targets.
@@ -25623,6 +27016,39 @@ export namespace tos {
          * Matched prefix and suffix information.
          */
         value: string;
+    }
+
+    export interface BucketObjectLockConfiguration {
+        /**
+         * Enable retention policy Only Enabled is supported, which means the retention policy is enabled
+         */
+        objectLockEnabled: string;
+        /**
+         * Bucket retention policy rules
+         */
+        rule: outputs.tos.BucketObjectLockConfigurationRule;
+    }
+
+    export interface BucketObjectLockConfigurationRule {
+        /**
+         * Default bucket retention policy
+         */
+        defaultRetention: outputs.tos.BucketObjectLockConfigurationRuleDefaultRetention;
+    }
+
+    export interface BucketObjectLockConfigurationRuleDefaultRetention {
+        /**
+         * Object lock days Objects cannot be deleted or overwritten during the specified number of days. Measured in days
+         */
+        days: number;
+        /**
+         * Retention policy mode Only COMPLIANCE is supported, which means compliance mode. In this mode, no user can delete or overwrite locked objects during the retention period
+         */
+        mode: string;
+        /**
+         * Object lock years Objects cannot be deleted or overwritten during the specified number of years. Measured in years, with one year equal to 365 days
+         */
+        years: number;
     }
 
     export interface BucketRealtimeLogRealTimeLog {
@@ -25915,6 +27341,313 @@ export namespace tos {
         storageClass: string;
     }
 
+    export interface GetBucketMirrorBackRule {
+        /**
+         * Conditions that trigger the back-to-origin function.
+         */
+        condition: outputs.tos.GetBucketMirrorBackRuleCondition;
+        /**
+         * Rule ID. The unique identifier for the back-to-origin rule configured on the current bucket. You can set this yourself to distinguish between multiple rules. Restrictions:
+         * Characters supported: letters, numbers,   - and _.
+         * Maximum length: 32 characters.
+         */
+        id: string;
+        /**
+         * Back-to-origin redirect configuration.
+         */
+        redirect: outputs.tos.GetBucketMirrorBackRuleRedirect;
+    }
+
+    export interface GetBucketMirrorBackRuleCondition {
+        /**
+         * Supports triggering origin fetch only for specified domains. The domain must be able to access the bucket; it is recommended to use a custom domain bound to the bucket. Limit: supports up to 30 domains.
+         */
+        allowHosts: string[];
+        /**
+         * Error code that triggers origin fetch. When a download request returns this error code, origin fetch is triggered. Limit: currently only supports 404.
+         */
+        httpCode: number;
+        /**
+         * Request types that trigger back-to-origin. Value description:
+         * ["GET","HEAD"]: Both GetObject and HeadObject requests can trigger back-to-origin.
+         * ["GET"]: Only GetObject requests can trigger back-to-origin.
+         * Default is ["GET"].
+         */
+        httpMethods: string[];
+        /**
+         * Object name prefix for matching origin fetch objects. Limit: supports up to 512 characters.
+         */
+        keyPrefix: string;
+        /**
+         * Object name suffix for matching origin fetch objects. Limit: supports up to 512 characters.
+         */
+        keySuffix: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirect {
+        /**
+         * List of rules for writing origin response headers to object metadata.
+         */
+        fetchHeaderToMetaDataRules: outputs.tos.GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule[];
+        /**
+         * Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
+         */
+        fetchSourceOnRedirect: boolean;
+        /**
+         * Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
+         */
+        fetchSourceOnRedirectWithQuery: boolean;
+        /**
+         * If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
+         */
+        followRedirect: boolean;
+        /**
+         * Specify the headers to include when mirroring back to origin.
+         */
+        mirrorHeader: outputs.tos.GetBucketMirrorBackRuleRedirectMirrorHeader;
+        /**
+         * List of origin response headers allowed to be passed through directly.
+         */
+        passHeaderFromSources: string[];
+        /**
+         * Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
+         * true: Include request parameters.
+         * false: Do not include request parameters.
+         */
+        passQuery: boolean;
+        /**
+         * List of origin response status codes allowed to be passed through directly.
+         */
+        passStatusCodeFromSources: number[];
+        /**
+         * Back-to-origin address configuration when the origin server is a private bucket.
+         */
+        privateSource: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSource;
+        /**
+         * Back-to-origin address configuration when the origin server is a public bucket.
+         */
+        publicSource: outputs.tos.GetBucketMirrorBackRuleRedirectPublicSource;
+        /**
+         * Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
+         */
+        redirectType: string;
+        /**
+         * Define transformations for the object name when requesting the origin server.
+         */
+        transform: outputs.tos.GetBucketMirrorBackRuleRedirectTransform;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule {
+        /**
+         * Suffix appended when writing object metadata.
+         */
+        metaDataSuffix: string;
+        /**
+         * Origin response header name.
+         */
+        sourceHeader: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectMirrorHeader {
+        /**
+         * Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
+         */
+        passAll: boolean;
+        /**
+         * Pass the specified headers to the origin server. Limit: up to 64.
+         */
+        passes: string[];
+        /**
+         * Prohibit forwarding specified headers to the origin. Limit: maximum 64.
+         */
+        removes: string[];
+        /**
+         * List of request headers to add or overwrite during origin fetch.
+         */
+        sets: outputs.tos.GetBucketMirrorBackRuleRedirectMirrorHeaderSet[];
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectMirrorHeaderSet {
+        /**
+         * Request header name.
+         */
+        key: string;
+        /**
+         * Request header value.
+         */
+        value: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSource {
+        /**
+         * Back-to-origin address configuration when the origin server is a private bucket.
+         */
+        sourceEndpoint: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpoint {
+        /**
+         * Backup private origin node list.
+         */
+        followers: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower[];
+        /**
+         * Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
+         */
+        primaries: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary[];
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollower {
+        /**
+         * Name of the origin fetch bucket. Required when the origin is a private bucket.
+         */
+        bucketName: string;
+        /**
+         * Private back-to-origin authentication method. Required when the origin server is a private bucket.
+         */
+        credentialProvider: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider;
+        /**
+         * Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+         */
+        endpoint: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProvider {
+        /**
+         * Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+         */
+        region: string;
+        /**
+         * Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+         */
+        role: string;
+        /**
+         * Authenticate using AK/SK.
+         */
+        staticCredential: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerCredentialProviderStaticCredential {
+        /**
+         * AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+         */
+        ak: string;
+        /**
+         * SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+         */
+        sk: string;
+        /**
+         * Encryption method used for SecretKey. Values:
+         * Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+         * AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+         * Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+         */
+        skEncryptType: string;
+        /**
+         * Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+         */
+        storageVendor: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimary {
+        /**
+         * Name of the origin fetch bucket. Required when the origin is a private bucket.
+         */
+        bucketName: string;
+        /**
+         * Private back-to-origin authentication method. Required when the origin server is a private bucket.
+         */
+        credentialProvider: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider;
+        /**
+         * Access domain name of the origin service provider, excluding bucket name, maximum length 255. Required for private buckets.
+         */
+        endpoint: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProvider {
+        /**
+         * Region where the origin fetch bucket is located. Required when using AK/SK authentication.
+         */
+        region: string;
+        /**
+         * Name of AssumeRole. Only when fetching from a private TOS bucket can AssumeRole be used for authentication. Role authentication and AK/SK authentication are mutually exclusive and cannot be set simultaneously.
+         */
+        role: string;
+        /**
+         * Authenticate using AK/SK.
+         */
+        staticCredential: outputs.tos.GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryCredentialProviderStaticCredential {
+        /**
+         * AccessKey ID of the origin bucket. Required when using AK/SK authentication.
+         */
+        ak: string;
+        /**
+         * SecretKey for the back-to-origin bucket. Required when using AK/SK authentication.
+         */
+        sk: string;
+        /**
+         * Encryption method used for SecretKey. Values:
+         * Empty: SecretKey is in plaintext. After receiving the SecretKey, the server will encrypt and store it.
+         * AES256: SecretKey has been encrypted using the AES256 algorithm on the server side. After receiving the SecretKey, the server will parse and encrypt it for storage.
+         * Note: When a back-to-origin rule is created for the first time, the SecretKey is encrypted with AES256. If you modify the back-to-origin rule without changing the SecretKey parameter, you must first decrypt the SecretKey and then re-encrypt it for storage. Therefore, when calling the PutBucketMirrorBack API to modify the back-to-origin rule and only changing other parameters (not the SecretKey), you can set SKEncryptType to AES256.
+         */
+        skEncryptType: string;
+        /**
+         * Origin service provider. Values: BOS: Baidu Cloud. S3: Other cloud providers using the S3 storage protocol.
+         */
+        storageVendor: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPublicSource {
+        /**
+         * Whether to always use the configured origin address.
+         */
+        fixedEndpoint: boolean;
+        /**
+         * Publicly accessible origin address.
+         */
+        sourceEndpoint: outputs.tos.GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpoint;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectPublicSourceSourceEndpoint {
+        /**
+         * Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses. When all origin fetches fail in Primary, an origin is selected from this configuration.
+         */
+        followers: string[];
+        /**
+         * Origin address. Limit: Maximum length 255, supports up to 5 origin fetch addresses.
+         */
+        primaries: string[];
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectTransform {
+        /**
+         * Object name prefix to be replaced when requesting the origin.
+         */
+        replaceKeyPrefix: outputs.tos.GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefix;
+        /**
+         * Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+         */
+        withKeyPrefix: string;
+        /**
+         * Prefix added before the object name when requesting the origin server. Limit: up to 512 characters.
+         */
+        withKeySuffix: string;
+    }
+
+    export interface GetBucketMirrorBackRuleRedirectTransformReplaceKeyPrefix {
+        /**
+         * Object name prefix to be replaced when requesting the origin. Limit: Supports up to 512 characters.
+         */
+        keyPrefix: string;
+        /**
+         * Value of the object name prefix after replacement when requesting the origin. Limit: Supports up to 512 characters.
+         */
+        replaceWith: string;
+    }
+
     export interface GetBucketNotificationNotificationRule {
         /**
          * Event notification delivery targets. Must include at least one target and supports up to five different targets.
@@ -26021,6 +27754,39 @@ export namespace tos {
          * Matched prefix and suffix information.
          */
         value: string;
+    }
+
+    export interface GetBucketObjectLockConfiguration {
+        /**
+         * Enable retention policy Only Enabled is supported, which means the retention policy is enabled
+         */
+        objectLockEnabled: string;
+        /**
+         * Bucket retention policy rules
+         */
+        rule: outputs.tos.GetBucketObjectLockConfigurationRule;
+    }
+
+    export interface GetBucketObjectLockConfigurationRule {
+        /**
+         * Default bucket retention policy
+         */
+        defaultRetention: outputs.tos.GetBucketObjectLockConfigurationRuleDefaultRetention;
+    }
+
+    export interface GetBucketObjectLockConfigurationRuleDefaultRetention {
+        /**
+         * Object lock days Objects cannot be deleted or overwritten during the specified number of days. Measured in days
+         */
+        days: number;
+        /**
+         * Retention policy mode Only COMPLIANCE is supported, which means compliance mode. In this mode, no user can delete or overwrite locked objects during the retention period
+         */
+        mode: string;
+        /**
+         * Object lock years Objects cannot be deleted or overwritten during the specified number of years. Measured in years, with one year equal to 365 days
+         */
+        years: number;
     }
 
     export interface GetBucketRealtimeLogRealTimeLog {

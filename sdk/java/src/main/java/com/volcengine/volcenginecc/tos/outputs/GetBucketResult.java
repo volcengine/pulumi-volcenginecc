@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketAcl;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketAclGrant;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketLifecycleConfig;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketObjectLockConfiguration;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketTag;
 import java.lang.String;
 import java.util.List;
@@ -71,6 +72,11 @@ public final class GetBucketResult {
      * 
      */
     private String name;
+    /**
+     * @return Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     * 
+     */
+    private GetBucketObjectLockConfiguration objectLockConfiguration;
     /**
      * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
@@ -174,6 +180,13 @@ public final class GetBucketResult {
         return this.name;
     }
     /**
+     * @return Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     * 
+     */
+    public GetBucketObjectLockConfiguration objectLockConfiguration() {
+        return this.objectLockConfiguration;
+    }
+    /**
      * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
@@ -223,6 +236,7 @@ public final class GetBucketResult {
         private List<GetBucketLifecycleConfig> lifecycleConfigs;
         private String location;
         private String name;
+        private GetBucketObjectLockConfiguration objectLockConfiguration;
         private String policy;
         private String projectName;
         private String storageClass;
@@ -242,6 +256,7 @@ public final class GetBucketResult {
     	      this.lifecycleConfigs = defaults.lifecycleConfigs;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.objectLockConfiguration = defaults.objectLockConfiguration;
     	      this.policy = defaults.policy;
     	      this.projectName = defaults.projectName;
     	      this.storageClass = defaults.storageClass;
@@ -348,6 +363,14 @@ public final class GetBucketResult {
             return this;
         }
         @CustomType.Setter
+        public Builder objectLockConfiguration(GetBucketObjectLockConfiguration objectLockConfiguration) {
+            if (objectLockConfiguration == null) {
+              throw new MissingRequiredPropertyException("GetBucketResult", "objectLockConfiguration");
+            }
+            this.objectLockConfiguration = objectLockConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder policy(String policy) {
             if (policy == null) {
               throw new MissingRequiredPropertyException("GetBucketResult", "policy");
@@ -396,6 +419,7 @@ public final class GetBucketResult {
             _resultValue.lifecycleConfigs = lifecycleConfigs;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.objectLockConfiguration = objectLockConfiguration;
             _resultValue.policy = policy;
             _resultValue.projectName = projectName;
             _resultValue.storageClass = storageClass;

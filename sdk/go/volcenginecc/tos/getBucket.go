@@ -53,6 +53,8 @@ type LookupBucketResult struct {
 	Location string `pulumi:"location"`
 	// Bucket name
 	Name string `pulumi:"name"`
+	// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+	ObjectLockConfiguration GetBucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy string `pulumi:"policy"`
 	// Project associated with the bucket
@@ -154,6 +156,11 @@ func (o LookupBucketResultOutput) Location() pulumi.StringOutput {
 // Bucket name
 func (o LookupBucketResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+func (o LookupBucketResultOutput) ObjectLockConfiguration() GetBucketObjectLockConfigurationOutput {
+	return o.ApplyT(func(v LookupBucketResult) GetBucketObjectLockConfiguration { return v.ObjectLockConfiguration }).(GetBucketObjectLockConfigurationOutput)
 }
 
 // String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB

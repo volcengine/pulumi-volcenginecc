@@ -19,10 +19,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql.Outputs
         /// </summary>
         public readonly string? BindMode;
         /// <summary>
-        /// Security group IP address list.
-        /// </summary>
-        public readonly ImmutableArray<string> IpLists;
-        /// <summary>
         /// Security group ID.
         /// </summary>
         public readonly string? SecurityGroupId;
@@ -35,14 +31,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql.Outputs
         private AllowListSecurityGroupBindInfo(
             string? bindMode,
 
-            ImmutableArray<string> ipLists,
-
             string? securityGroupId,
 
             string? securityGroupName)
         {
             BindMode = bindMode;
-            IpLists = ipLists;
             SecurityGroupId = securityGroupId;
             SecurityGroupName = securityGroupName;
         }

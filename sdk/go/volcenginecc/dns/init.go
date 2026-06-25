@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:dns/backup:Backup":
 		r = &Backup{}
+	case "volcenginecc:dns/backupSchedule:BackupSchedule":
+		r = &BackupSchedule{}
 	case "volcenginecc:dns/record:Record":
 		r = &Record{}
 	case "volcenginecc:dns/zone:Zone":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"dns/backup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"dns/backupSchedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

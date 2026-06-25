@@ -42,6 +42,8 @@ type Bucket struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Bucket name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+	ObjectLockConfiguration BucketObjectLockConfigurationOutput `pulumi:"objectLockConfiguration"`
 	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Project associated with the bucket
@@ -104,6 +106,8 @@ type bucketState struct {
 	Location *string `pulumi:"location"`
 	// Bucket name
 	Name *string `pulumi:"name"`
+	// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy *string `pulumi:"policy"`
 	// Project associated with the bucket
@@ -134,6 +138,8 @@ type BucketState struct {
 	Location pulumi.StringPtrInput
 	// Bucket name
 	Name pulumi.StringPtrInput
+	// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy pulumi.StringPtrInput
 	// Project associated with the bucket
@@ -160,6 +166,8 @@ type bucketArgs struct {
 	LifecycleConfigs    []BucketLifecycleConfig `pulumi:"lifecycleConfigs"`
 	// Bucket name
 	Name string `pulumi:"name"`
+	// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy *string `pulumi:"policy"`
 	// Project associated with the bucket
@@ -183,6 +191,8 @@ type BucketArgs struct {
 	LifecycleConfigs    BucketLifecycleConfigArrayInput
 	// Bucket name
 	Name pulumi.StringInput
+	// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
 	Policy pulumi.StringPtrInput
 	// Project associated with the bucket
@@ -330,6 +340,11 @@ func (o BucketOutput) Location() pulumi.StringOutput {
 // Bucket name
 func (o BucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+func (o BucketOutput) ObjectLockConfiguration() BucketObjectLockConfigurationOutput {
+	return o.ApplyT(func(v *Bucket) BucketObjectLockConfigurationOutput { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationOutput)
 }
 
 // String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB

@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.tos.inputs.BucketAclArgs;
 import com.volcengine.volcenginecc.tos.inputs.BucketAclGrantArgs;
 import com.volcengine.volcenginecc.tos.inputs.BucketLifecycleConfigArgs;
+import com.volcengine.volcenginecc.tos.inputs.BucketObjectLockConfigurationArgs;
 import com.volcengine.volcenginecc.tos.inputs.BucketTagArgs;
 import java.lang.String;
 import java.util.List;
@@ -170,6 +171,21 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     * 
+     */
+    @Import(name="objectLockConfiguration")
+    private @Nullable Output<BucketObjectLockConfigurationArgs> objectLockConfiguration;
+
+    /**
+     * @return Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+     * 
+     */
+    public Optional<Output<BucketObjectLockConfigurationArgs>> objectLockConfiguration() {
+        return Optional.ofNullable(this.objectLockConfiguration);
+    }
+
+    /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
      * 
      */
@@ -235,6 +251,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         this.lifecycleConfigs = $.lifecycleConfigs;
         this.location = $.location;
         this.name = $.name;
+        this.objectLockConfiguration = $.objectLockConfiguration;
         this.policy = $.policy;
         this.projectName = $.projectName;
         this.storageClass = $.storageClass;
@@ -468,6 +485,27 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param objectLockConfiguration Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+         * 
+         * @return builder
+         * 
+         */
+        public Builder objectLockConfiguration(@Nullable Output<BucketObjectLockConfigurationArgs> objectLockConfiguration) {
+            $.objectLockConfiguration = objectLockConfiguration;
+            return this;
+        }
+
+        /**
+         * @param objectLockConfiguration Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
+         * 
+         * @return builder
+         * 
+         */
+        public Builder objectLockConfiguration(BucketObjectLockConfigurationArgs objectLockConfiguration) {
+            return objectLockConfiguration(Output.of(objectLockConfiguration));
         }
 
         /**

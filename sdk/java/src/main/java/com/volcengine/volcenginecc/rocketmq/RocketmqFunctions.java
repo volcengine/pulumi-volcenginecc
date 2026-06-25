@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetAccessKeyArgs;
+import com.volcengine.volcenginecc.rocketmq.inputs.GetAccessKeyPlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetAllowListArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetAllowListPlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetGroupArgs;
@@ -18,6 +20,8 @@ import com.volcengine.volcenginecc.rocketmq.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetInstancePlainArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.rocketmq.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetAccessKeyResult;
+import com.volcengine.volcenginecc.rocketmq.outputs.GetAccessKeysResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetAllowListResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetAllowListsResult;
 import com.volcengine.volcenginecc.rocketmq.outputs.GetGroupResult;
@@ -29,6 +33,90 @@ import com.volcengine.volcenginecc.rocketmq.outputs.GetTopicsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class RocketmqFunctions {
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeyResult> getAccessKey(GetAccessKeyArgs args) {
+        return getAccessKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static CompletableFuture<GetAccessKeyResult> getAccessKeyPlain(GetAccessKeyPlainArgs args) {
+        return getAccessKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeyResult> getAccessKey(GetAccessKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAccessKey:getAccessKey", TypeShape.of(GetAccessKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeyResult> getAccessKey(GetAccessKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAccessKey:getAccessKey", TypeShape.of(GetAccessKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static CompletableFuture<GetAccessKeyResult> getAccessKeyPlain(GetAccessKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getAccessKey:getAccessKey", TypeShape.of(GetAccessKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeysResult> getAccessKeys() {
+        return getAccessKeys(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static CompletableFuture<GetAccessKeysResult> getAccessKeysPlain() {
+        return getAccessKeysPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeysResult> getAccessKeys(InvokeArgs args) {
+        return getAccessKeys(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static CompletableFuture<GetAccessKeysResult> getAccessKeysPlain(InvokeArgs args) {
+        return getAccessKeysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeysResult> getAccessKeys(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAccessKeys:getAccessKeys", TypeShape.of(GetAccessKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static Output<GetAccessKeysResult> getAccessKeys(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rocketmq/getAccessKeys:getAccessKeys", TypeShape.of(GetAccessKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RocketMQ::AccessKey
+     * 
+     */
+    public static CompletableFuture<GetAccessKeysResult> getAccessKeysPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rocketmq/getAccessKeys:getAccessKeys", TypeShape.of(GetAccessKeysResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::RocketMQ::AllowList
      * 

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:kafka/allowList:AllowList":
 		r = &AllowList{}
+	case "volcenginecc:kafka/group:Group":
+		r = &Group{}
 	case "volcenginecc:kafka/instance:Instance":
 		r = &Instance{}
 	case "volcenginecc:kafka/topic:Topic":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"kafka/allowList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"kafka/group",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

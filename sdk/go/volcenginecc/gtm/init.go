@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:gtm/gtm:Gtm":
 		r = &Gtm{}
+	case "volcenginecc:gtm/policy:Policy":
+		r = &Policy{}
 	case "volcenginecc:gtm/pool:Pool":
 		r = &Pool{}
 	case "volcenginecc:gtm/routing:Routing":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"gtm/gtm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"gtm/policy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
