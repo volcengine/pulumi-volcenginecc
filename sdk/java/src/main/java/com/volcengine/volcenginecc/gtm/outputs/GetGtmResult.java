@@ -5,6 +5,8 @@ package com.volcengine.volcenginecc.gtm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.volcengine.volcenginecc.gtm.outputs.GetGtmPolicy;
+import com.volcengine.volcenginecc.gtm.outputs.GetGtmProbe;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,10 +59,20 @@ public final class GetGtmResult {
      */
     private String owner;
     /**
+     * @return Detailed configuration of the scheduling policy for the GTM instance.
+     * 
+     */
+    private GetGtmPolicy policy;
+    /**
      * @return Routing policy type. `geo` indicates basic routing policy, `perf` indicates intelligent routing policy
      * 
      */
     private String policyType;
+    /**
+     * @return Detailed configuration of the health check for the GTM instance.
+     * 
+     */
+    private GetGtmProbe probe;
     /**
      * @return Project name to which the GTM instance belongs
      * 
@@ -162,11 +174,25 @@ public final class GetGtmResult {
         return this.owner;
     }
     /**
+     * @return Detailed configuration of the scheduling policy for the GTM instance.
+     * 
+     */
+    public GetGtmPolicy policy() {
+        return this.policy;
+    }
+    /**
      * @return Routing policy type. `geo` indicates basic routing policy, `perf` indicates intelligent routing policy
      * 
      */
     public String policyType() {
         return this.policyType;
+    }
+    /**
+     * @return Detailed configuration of the health check for the GTM instance.
+     * 
+     */
+    public GetGtmProbe probe() {
+        return this.probe;
     }
     /**
      * @return Project name to which the GTM instance belongs
@@ -236,7 +262,9 @@ public final class GetGtmResult {
         private String id;
         private String lastOperator;
         private String owner;
+        private GetGtmPolicy policy;
         private String policyType;
+        private GetGtmProbe probe;
         private String projectName;
         private String remark;
         private String specName;
@@ -256,7 +284,9 @@ public final class GetGtmResult {
     	      this.id = defaults.id;
     	      this.lastOperator = defaults.lastOperator;
     	      this.owner = defaults.owner;
+    	      this.policy = defaults.policy;
     	      this.policyType = defaults.policyType;
+    	      this.probe = defaults.probe;
     	      this.projectName = defaults.projectName;
     	      this.remark = defaults.remark;
     	      this.specName = defaults.specName;
@@ -339,11 +369,27 @@ public final class GetGtmResult {
             return this;
         }
         @CustomType.Setter
+        public Builder policy(GetGtmPolicy policy) {
+            if (policy == null) {
+              throw new MissingRequiredPropertyException("GetGtmResult", "policy");
+            }
+            this.policy = policy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder policyType(String policyType) {
             if (policyType == null) {
               throw new MissingRequiredPropertyException("GetGtmResult", "policyType");
             }
             this.policyType = policyType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder probe(GetGtmProbe probe) {
+            if (probe == null) {
+              throw new MissingRequiredPropertyException("GetGtmResult", "probe");
+            }
+            this.probe = probe;
             return this;
         }
         @CustomType.Setter
@@ -413,7 +459,9 @@ public final class GetGtmResult {
             _resultValue.id = id;
             _resultValue.lastOperator = lastOperator;
             _resultValue.owner = owner;
+            _resultValue.policy = policy;
             _resultValue.policyType = policyType;
+            _resultValue.probe = probe;
             _resultValue.projectName = projectName;
             _resultValue.remark = remark;
             _resultValue.specName = specName;

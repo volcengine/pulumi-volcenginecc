@@ -19,11 +19,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Volcenginecc = Pulumi.Volcenginecc;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cBRBackupPolicyDemo = new Volcenginecc.Index.CbrBackuppolicy("CBRBackupPolicyDemo", new()
+    ///     var cBRBackupPolicyDemo = new Volcenginecc.Cbr.BackupPolicy("CBRBackupPolicyDemo", new()
     ///     {
     ///         BackupType = "INCREMENTAL",
     ///         Crontab = "0 2,1,0 * * 1,2",

@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.waf.inputs.GetDomainArgs;
 import com.volcengine.volcenginecc.waf.inputs.GetDomainPlainArgs;
+import com.volcengine.volcenginecc.waf.inputs.GetHostGroupArgs;
+import com.volcengine.volcenginecc.waf.inputs.GetHostGroupPlainArgs;
 import com.volcengine.volcenginecc.waf.outputs.GetDomainResult;
 import com.volcengine.volcenginecc.waf.outputs.GetDomainsResult;
+import com.volcengine.volcenginecc.waf.outputs.GetHostGroupResult;
+import com.volcengine.volcenginecc.waf.outputs.GetHostGroupsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class WafFunctions {
@@ -100,5 +104,89 @@ public final class WafFunctions {
      */
     public static CompletableFuture<GetDomainsResult> getDomainsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:waf/getDomains:getDomains", TypeShape.of(GetDomainsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupResult> getHostGroup(GetHostGroupArgs args) {
+        return getHostGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static CompletableFuture<GetHostGroupResult> getHostGroupPlain(GetHostGroupPlainArgs args) {
+        return getHostGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupResult> getHostGroup(GetHostGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:waf/getHostGroup:getHostGroup", TypeShape.of(GetHostGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupResult> getHostGroup(GetHostGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:waf/getHostGroup:getHostGroup", TypeShape.of(GetHostGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static CompletableFuture<GetHostGroupResult> getHostGroupPlain(GetHostGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:waf/getHostGroup:getHostGroup", TypeShape.of(GetHostGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupsResult> getHostGroups() {
+        return getHostGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static CompletableFuture<GetHostGroupsResult> getHostGroupsPlain() {
+        return getHostGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupsResult> getHostGroups(InvokeArgs args) {
+        return getHostGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static CompletableFuture<GetHostGroupsResult> getHostGroupsPlain(InvokeArgs args) {
+        return getHostGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupsResult> getHostGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:waf/getHostGroups:getHostGroups", TypeShape.of(GetHostGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static Output<GetHostGroupsResult> getHostGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:waf/getHostGroups:getHostGroups", TypeShape.of(GetHostGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::WAF::HostGroup
+     * 
+     */
+    public static CompletableFuture<GetHostGroupsResult> getHostGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:waf/getHostGroups:getHostGroups", TypeShape.of(GetHostGroupsResult.class), args, Utilities.withVersion(options));
     }
 }

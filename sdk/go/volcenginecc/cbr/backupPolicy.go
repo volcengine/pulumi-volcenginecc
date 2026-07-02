@@ -22,20 +22,20 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/cbr"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := volcenginecc.NewCbrBackuppolicy(ctx, "CBRBackupPolicyDemo", &volcenginecc.CbrBackuppolicyArgs{
-//				BackupType:      "INCREMENTAL",
-//				Crontab:         "0 2,1,0 * * 1,2",
-//				EnablePolicy:    false,
-//				Name:            "CBRBackupPolicyDemo",
-//				RetentionDay:    67,
-//				RetentionNumMax: -1,
-//				RetentionNumMin: 2,
+//			_, err := cbr.NewBackupPolicy(ctx, "CBRBackupPolicyDemo", &cbr.BackupPolicyArgs{
+//				BackupType:      pulumi.String("INCREMENTAL"),
+//				Crontab:         pulumi.String("0 2,1,0 * * 1,2"),
+//				EnablePolicy:    pulumi.Bool(false),
+//				Name:            pulumi.String("CBRBackupPolicyDemo"),
+//				RetentionDay:    pulumi.Int(67),
+//				RetentionNumMax: pulumi.Int(-1),
+//				RetentionNumMin: pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err

@@ -15,7 +15,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr.Outputs
     public sealed class GetRegistryTagResult
     {
         /// <summary>
-        /// Tag key
+        /// Tag key values
         /// </summary>
         public readonly string Key;
         /// <summary>

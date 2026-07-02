@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 /**
  * RabbitMQ access allowlist
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@pulumi/volcenginecc";
- *
- * const rabbitMQAllowListDemo = new volcenginecc.index.RabbitmqAllowlist("RabbitMQAllowListDemo", {
- *     allowListType: "IPv4",
- *     allowList: "192.x.0.0/24",
- *     allowListName: "ccapi-test",
- *     allowListDesc: "test-desc",
- *     associatedInstances: [{
- *         instanceId: "rbtmq-a69238e***",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:waf/domain:Domain":
 		r = &Domain{}
+	case "volcenginecc:waf/hostGroup:HostGroup":
+		r = &HostGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"waf/domain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"waf/hostGroup",
 		&module{version},
 	)
 }

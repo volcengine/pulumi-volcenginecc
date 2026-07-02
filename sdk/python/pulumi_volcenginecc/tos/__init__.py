@@ -15,6 +15,7 @@ from .bucket_mirror_back import *
 from .bucket_notification import *
 from .bucket_realtime_log import *
 from .bucket_rename import *
+from .bucket_website import *
 from .get_bucket import *
 from .get_bucket_access_monitor import *
 from .get_bucket_access_monitors import *
@@ -31,6 +32,8 @@ from .get_bucket_realtime_log import *
 from .get_bucket_realtime_logs import *
 from .get_bucket_rename import *
 from .get_bucket_renames import *
+from .get_bucket_website import *
+from .get_bucket_websites import *
 from .get_buckets import *
 from ._inputs import *
 from . import outputs

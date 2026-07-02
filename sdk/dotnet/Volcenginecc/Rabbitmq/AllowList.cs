@@ -13,34 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Rabbitmq
     /// <summary>
     /// RabbitMQ access allowlist
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Volcenginecc = Pulumi.Volcenginecc;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var rabbitMQAllowListDemo = new Volcenginecc.Index.RabbitmqAllowlist("RabbitMQAllowListDemo", new()
-    ///     {
-    ///         AllowListType = "IPv4",
-    ///         AllowList = "192.x.0.0/24",
-    ///         AllowListName = "ccapi-test",
-    ///         AllowListDesc = "test-desc",
-    ///         AssociatedInstances = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "instanceId", "rbtmq-a69238e***" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

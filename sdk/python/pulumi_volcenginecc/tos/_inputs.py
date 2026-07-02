@@ -112,6 +112,18 @@ __all__ = [
     'BucketRealtimeLogRealTimeLogArgsDict',
     'BucketTagArgs',
     'BucketTagArgsDict',
+    'BucketWebsiteErrorDocumentArgs',
+    'BucketWebsiteErrorDocumentArgsDict',
+    'BucketWebsiteIndexDocumentArgs',
+    'BucketWebsiteIndexDocumentArgsDict',
+    'BucketWebsiteRedirectAllRequestsToArgs',
+    'BucketWebsiteRedirectAllRequestsToArgsDict',
+    'BucketWebsiteRoutingRuleArgs',
+    'BucketWebsiteRoutingRuleArgsDict',
+    'BucketWebsiteRoutingRuleConditionArgs',
+    'BucketWebsiteRoutingRuleConditionArgsDict',
+    'BucketWebsiteRoutingRuleRedirectArgs',
+    'BucketWebsiteRoutingRuleRedirectArgsDict',
 ]
 
 MYPY = False
@@ -3550,5 +3562,357 @@ class BucketTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class BucketWebsiteErrorDocumentArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        When a 4xx error occurs, this page is returned
+        """
+elif False:
+    BucketWebsiteErrorDocumentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketWebsiteErrorDocumentArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: When a 4xx error occurs, this page is returned
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        When a 4xx error occurs, this page is returned
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class BucketWebsiteIndexDocumentArgsDict(TypedDict):
+        forbidden_sub_dir: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+        """
+        suffix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+        """
+elif False:
+    BucketWebsiteIndexDocumentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketWebsiteIndexDocumentArgs:
+    def __init__(__self__, *,
+                 forbidden_sub_dir: Optional[pulumi.Input[builtins.bool]] = None,
+                 suffix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.bool] forbidden_sub_dir: Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+        :param pulumi.Input[builtins.str] suffix: When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+        """
+        if forbidden_sub_dir is not None:
+            pulumi.set(__self__, "forbidden_sub_dir", forbidden_sub_dir)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter(name="forbiddenSubDir")
+    def forbidden_sub_dir(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+        """
+        return pulumi.get(self, "forbidden_sub_dir")
+
+    @forbidden_sub_dir.setter
+    def forbidden_sub_dir(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "forbidden_sub_dir", value)
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+        """
+        return pulumi.get(self, "suffix")
+
+    @suffix.setter
+    def suffix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "suffix", value)
+
+
+if not MYPY:
+    class BucketWebsiteRedirectAllRequestsToArgsDict(TypedDict):
+        host_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Redirect site name
+        """
+        protocol: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Protocol used for redirect requests. Supports http and https. Default is http
+        """
+elif False:
+    BucketWebsiteRedirectAllRequestsToArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketWebsiteRedirectAllRequestsToArgs:
+    def __init__(__self__, *,
+                 host_name: Optional[pulumi.Input[builtins.str]] = None,
+                 protocol: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] host_name: Redirect site name
+        :param pulumi.Input[builtins.str] protocol: Protocol used for redirect requests. Supports http and https. Default is http
+        """
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Redirect site name
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Protocol used for redirect requests. Supports http and https. Default is http
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protocol", value)
+
+
+if not MYPY:
+    class BucketWebsiteRoutingRuleArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input['BucketWebsiteRoutingRuleConditionArgsDict']]
+        """
+        Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+        """
+        redirect: NotRequired[pulumi.Input['BucketWebsiteRoutingRuleRedirectArgsDict']]
+        """
+        Set redirect rule
+        """
+elif False:
+    BucketWebsiteRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketWebsiteRoutingRuleArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input['BucketWebsiteRoutingRuleConditionArgs']] = None,
+                 redirect: Optional[pulumi.Input['BucketWebsiteRoutingRuleRedirectArgs']] = None):
+        """
+        :param pulumi.Input['BucketWebsiteRoutingRuleConditionArgs'] condition: Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+        :param pulumi.Input['BucketWebsiteRoutingRuleRedirectArgs'] redirect: Set redirect rule
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if redirect is not None:
+            pulumi.set(__self__, "redirect", redirect)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input['BucketWebsiteRoutingRuleConditionArgs']]:
+        """
+        Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input['BucketWebsiteRoutingRuleConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def redirect(self) -> Optional[pulumi.Input['BucketWebsiteRoutingRuleRedirectArgs']]:
+        """
+        Set redirect rule
+        """
+        return pulumi.get(self, "redirect")
+
+    @redirect.setter
+    def redirect(self, value: Optional[pulumi.Input['BucketWebsiteRoutingRuleRedirectArgs']]):
+        pulumi.set(self, "redirect", value)
+
+
+if not MYPY:
+    class BucketWebsiteRoutingRuleConditionArgsDict(TypedDict):
+        http_error_code_returned_equals: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+        """
+        key_prefix_equals: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+        """
+elif False:
+    BucketWebsiteRoutingRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketWebsiteRoutingRuleConditionArgs:
+    def __init__(__self__, *,
+                 http_error_code_returned_equals: Optional[pulumi.Input[builtins.int]] = None,
+                 key_prefix_equals: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.int] http_error_code_returned_equals: Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+        :param pulumi.Input[builtins.str] key_prefix_equals: Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+        """
+        if http_error_code_returned_equals is not None:
+            pulumi.set(__self__, "http_error_code_returned_equals", http_error_code_returned_equals)
+        if key_prefix_equals is not None:
+            pulumi.set(__self__, "key_prefix_equals", key_prefix_equals)
+
+    @property
+    @pulumi.getter(name="httpErrorCodeReturnedEquals")
+    def http_error_code_returned_equals(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+        """
+        return pulumi.get(self, "http_error_code_returned_equals")
+
+    @http_error_code_returned_equals.setter
+    def http_error_code_returned_equals(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "http_error_code_returned_equals", value)
+
+    @property
+    @pulumi.getter(name="keyPrefixEquals")
+    def key_prefix_equals(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+        """
+        return pulumi.get(self, "key_prefix_equals")
+
+    @key_prefix_equals.setter
+    def key_prefix_equals(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_prefix_equals", value)
+
+
+if not MYPY:
+    class BucketWebsiteRoutingRuleRedirectArgsDict(TypedDict):
+        host_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Set the redirect site name
+        """
+        http_redirect_code: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+        """
+        protocol: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Protocol used for redirect requests, including http and https. Default is http
+        """
+        replace_key_prefix_with: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Object name prefix used for redirect
+        """
+        replace_key_with: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Object name used for redirect
+        """
+elif False:
+    BucketWebsiteRoutingRuleRedirectArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketWebsiteRoutingRuleRedirectArgs:
+    def __init__(__self__, *,
+                 host_name: Optional[pulumi.Input[builtins.str]] = None,
+                 http_redirect_code: Optional[pulumi.Input[builtins.int]] = None,
+                 protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 replace_key_prefix_with: Optional[pulumi.Input[builtins.str]] = None,
+                 replace_key_with: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] host_name: Set the redirect site name
+        :param pulumi.Input[builtins.int] http_redirect_code: Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+        :param pulumi.Input[builtins.str] protocol: Protocol used for redirect requests, including http and https. Default is http
+        :param pulumi.Input[builtins.str] replace_key_prefix_with: Object name prefix used for redirect
+        :param pulumi.Input[builtins.str] replace_key_with: Object name used for redirect
+        """
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if http_redirect_code is not None:
+            pulumi.set(__self__, "http_redirect_code", http_redirect_code)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if replace_key_prefix_with is not None:
+            pulumi.set(__self__, "replace_key_prefix_with", replace_key_prefix_with)
+        if replace_key_with is not None:
+            pulumi.set(__self__, "replace_key_with", replace_key_with)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Set the redirect site name
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host_name", value)
+
+    @property
+    @pulumi.getter(name="httpRedirectCode")
+    def http_redirect_code(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+        """
+        return pulumi.get(self, "http_redirect_code")
+
+    @http_redirect_code.setter
+    def http_redirect_code(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "http_redirect_code", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Protocol used for redirect requests, including http and https. Default is http
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="replaceKeyPrefixWith")
+    def replace_key_prefix_with(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Object name prefix used for redirect
+        """
+        return pulumi.get(self, "replace_key_prefix_with")
+
+    @replace_key_prefix_with.setter
+    def replace_key_prefix_with(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "replace_key_prefix_with", value)
+
+    @property
+    @pulumi.getter(name="replaceKeyWith")
+    def replace_key_with(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Object name used for redirect
+        """
+        return pulumi.get(self, "replace_key_with")
+
+    @replace_key_with.setter
+    def replace_key_with(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "replace_key_with", value)
 
 

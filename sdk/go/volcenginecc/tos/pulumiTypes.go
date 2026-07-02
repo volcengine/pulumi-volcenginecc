@@ -7617,6 +7617,930 @@ func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
 	}).(BucketTagOutput)
 }
 
+type BucketWebsiteErrorDocument struct {
+	// When a 4xx error occurs, this page is returned
+	Key *string `pulumi:"key"`
+}
+
+// BucketWebsiteErrorDocumentInput is an input type that accepts BucketWebsiteErrorDocumentArgs and BucketWebsiteErrorDocumentOutput values.
+// You can construct a concrete instance of `BucketWebsiteErrorDocumentInput` via:
+//
+//	BucketWebsiteErrorDocumentArgs{...}
+type BucketWebsiteErrorDocumentInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteErrorDocumentOutput() BucketWebsiteErrorDocumentOutput
+	ToBucketWebsiteErrorDocumentOutputWithContext(context.Context) BucketWebsiteErrorDocumentOutput
+}
+
+type BucketWebsiteErrorDocumentArgs struct {
+	// When a 4xx error occurs, this page is returned
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (BucketWebsiteErrorDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteErrorDocument)(nil)).Elem()
+}
+
+func (i BucketWebsiteErrorDocumentArgs) ToBucketWebsiteErrorDocumentOutput() BucketWebsiteErrorDocumentOutput {
+	return i.ToBucketWebsiteErrorDocumentOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteErrorDocumentArgs) ToBucketWebsiteErrorDocumentOutputWithContext(ctx context.Context) BucketWebsiteErrorDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteErrorDocumentOutput)
+}
+
+func (i BucketWebsiteErrorDocumentArgs) ToBucketWebsiteErrorDocumentPtrOutput() BucketWebsiteErrorDocumentPtrOutput {
+	return i.ToBucketWebsiteErrorDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteErrorDocumentArgs) ToBucketWebsiteErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteErrorDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteErrorDocumentOutput).ToBucketWebsiteErrorDocumentPtrOutputWithContext(ctx)
+}
+
+// BucketWebsiteErrorDocumentPtrInput is an input type that accepts BucketWebsiteErrorDocumentArgs, BucketWebsiteErrorDocumentPtr and BucketWebsiteErrorDocumentPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteErrorDocumentPtrInput` via:
+//
+//	        BucketWebsiteErrorDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketWebsiteErrorDocumentPtrInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteErrorDocumentPtrOutput() BucketWebsiteErrorDocumentPtrOutput
+	ToBucketWebsiteErrorDocumentPtrOutputWithContext(context.Context) BucketWebsiteErrorDocumentPtrOutput
+}
+
+type bucketWebsiteErrorDocumentPtrType BucketWebsiteErrorDocumentArgs
+
+func BucketWebsiteErrorDocumentPtr(v *BucketWebsiteErrorDocumentArgs) BucketWebsiteErrorDocumentPtrInput {
+	return (*bucketWebsiteErrorDocumentPtrType)(v)
+}
+
+func (*bucketWebsiteErrorDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteErrorDocument)(nil)).Elem()
+}
+
+func (i *bucketWebsiteErrorDocumentPtrType) ToBucketWebsiteErrorDocumentPtrOutput() BucketWebsiteErrorDocumentPtrOutput {
+	return i.ToBucketWebsiteErrorDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketWebsiteErrorDocumentPtrType) ToBucketWebsiteErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteErrorDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteErrorDocumentPtrOutput)
+}
+
+type BucketWebsiteErrorDocumentOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteErrorDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteErrorDocument)(nil)).Elem()
+}
+
+func (o BucketWebsiteErrorDocumentOutput) ToBucketWebsiteErrorDocumentOutput() BucketWebsiteErrorDocumentOutput {
+	return o
+}
+
+func (o BucketWebsiteErrorDocumentOutput) ToBucketWebsiteErrorDocumentOutputWithContext(ctx context.Context) BucketWebsiteErrorDocumentOutput {
+	return o
+}
+
+func (o BucketWebsiteErrorDocumentOutput) ToBucketWebsiteErrorDocumentPtrOutput() BucketWebsiteErrorDocumentPtrOutput {
+	return o.ToBucketWebsiteErrorDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o BucketWebsiteErrorDocumentOutput) ToBucketWebsiteErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteErrorDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteErrorDocument) *BucketWebsiteErrorDocument {
+		return &v
+	}).(BucketWebsiteErrorDocumentPtrOutput)
+}
+
+// When a 4xx error occurs, this page is returned
+func (o BucketWebsiteErrorDocumentOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteErrorDocument) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteErrorDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteErrorDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteErrorDocument)(nil)).Elem()
+}
+
+func (o BucketWebsiteErrorDocumentPtrOutput) ToBucketWebsiteErrorDocumentPtrOutput() BucketWebsiteErrorDocumentPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteErrorDocumentPtrOutput) ToBucketWebsiteErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteErrorDocumentPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteErrorDocumentPtrOutput) Elem() BucketWebsiteErrorDocumentOutput {
+	return o.ApplyT(func(v *BucketWebsiteErrorDocument) BucketWebsiteErrorDocument {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsiteErrorDocument
+		return ret
+	}).(BucketWebsiteErrorDocumentOutput)
+}
+
+// When a 4xx error occurs, this page is returned
+func (o BucketWebsiteErrorDocumentPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteErrorDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteIndexDocument struct {
+	// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+	ForbiddenSubDir *bool `pulumi:"forbiddenSubDir"`
+	// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+	Suffix *string `pulumi:"suffix"`
+}
+
+// BucketWebsiteIndexDocumentInput is an input type that accepts BucketWebsiteIndexDocumentArgs and BucketWebsiteIndexDocumentOutput values.
+// You can construct a concrete instance of `BucketWebsiteIndexDocumentInput` via:
+//
+//	BucketWebsiteIndexDocumentArgs{...}
+type BucketWebsiteIndexDocumentInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteIndexDocumentOutput() BucketWebsiteIndexDocumentOutput
+	ToBucketWebsiteIndexDocumentOutputWithContext(context.Context) BucketWebsiteIndexDocumentOutput
+}
+
+type BucketWebsiteIndexDocumentArgs struct {
+	// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+	ForbiddenSubDir pulumi.BoolPtrInput `pulumi:"forbiddenSubDir"`
+	// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (BucketWebsiteIndexDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteIndexDocument)(nil)).Elem()
+}
+
+func (i BucketWebsiteIndexDocumentArgs) ToBucketWebsiteIndexDocumentOutput() BucketWebsiteIndexDocumentOutput {
+	return i.ToBucketWebsiteIndexDocumentOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteIndexDocumentArgs) ToBucketWebsiteIndexDocumentOutputWithContext(ctx context.Context) BucketWebsiteIndexDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteIndexDocumentOutput)
+}
+
+func (i BucketWebsiteIndexDocumentArgs) ToBucketWebsiteIndexDocumentPtrOutput() BucketWebsiteIndexDocumentPtrOutput {
+	return i.ToBucketWebsiteIndexDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteIndexDocumentArgs) ToBucketWebsiteIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteIndexDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteIndexDocumentOutput).ToBucketWebsiteIndexDocumentPtrOutputWithContext(ctx)
+}
+
+// BucketWebsiteIndexDocumentPtrInput is an input type that accepts BucketWebsiteIndexDocumentArgs, BucketWebsiteIndexDocumentPtr and BucketWebsiteIndexDocumentPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteIndexDocumentPtrInput` via:
+//
+//	        BucketWebsiteIndexDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketWebsiteIndexDocumentPtrInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteIndexDocumentPtrOutput() BucketWebsiteIndexDocumentPtrOutput
+	ToBucketWebsiteIndexDocumentPtrOutputWithContext(context.Context) BucketWebsiteIndexDocumentPtrOutput
+}
+
+type bucketWebsiteIndexDocumentPtrType BucketWebsiteIndexDocumentArgs
+
+func BucketWebsiteIndexDocumentPtr(v *BucketWebsiteIndexDocumentArgs) BucketWebsiteIndexDocumentPtrInput {
+	return (*bucketWebsiteIndexDocumentPtrType)(v)
+}
+
+func (*bucketWebsiteIndexDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteIndexDocument)(nil)).Elem()
+}
+
+func (i *bucketWebsiteIndexDocumentPtrType) ToBucketWebsiteIndexDocumentPtrOutput() BucketWebsiteIndexDocumentPtrOutput {
+	return i.ToBucketWebsiteIndexDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketWebsiteIndexDocumentPtrType) ToBucketWebsiteIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteIndexDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteIndexDocumentPtrOutput)
+}
+
+type BucketWebsiteIndexDocumentOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteIndexDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteIndexDocument)(nil)).Elem()
+}
+
+func (o BucketWebsiteIndexDocumentOutput) ToBucketWebsiteIndexDocumentOutput() BucketWebsiteIndexDocumentOutput {
+	return o
+}
+
+func (o BucketWebsiteIndexDocumentOutput) ToBucketWebsiteIndexDocumentOutputWithContext(ctx context.Context) BucketWebsiteIndexDocumentOutput {
+	return o
+}
+
+func (o BucketWebsiteIndexDocumentOutput) ToBucketWebsiteIndexDocumentPtrOutput() BucketWebsiteIndexDocumentPtrOutput {
+	return o.ToBucketWebsiteIndexDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o BucketWebsiteIndexDocumentOutput) ToBucketWebsiteIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteIndexDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteIndexDocument) *BucketWebsiteIndexDocument {
+		return &v
+	}).(BucketWebsiteIndexDocumentPtrOutput)
+}
+
+// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+func (o BucketWebsiteIndexDocumentOutput) ForbiddenSubDir() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteIndexDocument) *bool { return v.ForbiddenSubDir }).(pulumi.BoolPtrOutput)
+}
+
+// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+func (o BucketWebsiteIndexDocumentOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteIndexDocument) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteIndexDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteIndexDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteIndexDocument)(nil)).Elem()
+}
+
+func (o BucketWebsiteIndexDocumentPtrOutput) ToBucketWebsiteIndexDocumentPtrOutput() BucketWebsiteIndexDocumentPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteIndexDocumentPtrOutput) ToBucketWebsiteIndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteIndexDocumentPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteIndexDocumentPtrOutput) Elem() BucketWebsiteIndexDocumentOutput {
+	return o.ApplyT(func(v *BucketWebsiteIndexDocument) BucketWebsiteIndexDocument {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsiteIndexDocument
+		return ret
+	}).(BucketWebsiteIndexDocumentOutput)
+}
+
+// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+func (o BucketWebsiteIndexDocumentPtrOutput) ForbiddenSubDir() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteIndexDocument) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForbiddenSubDir
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+func (o BucketWebsiteIndexDocumentPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteIndexDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteRedirectAllRequestsTo struct {
+	// Redirect site name
+	HostName *string `pulumi:"hostName"`
+	// Protocol used for redirect requests. Supports http and https. Default is http
+	Protocol *string `pulumi:"protocol"`
+}
+
+// BucketWebsiteRedirectAllRequestsToInput is an input type that accepts BucketWebsiteRedirectAllRequestsToArgs and BucketWebsiteRedirectAllRequestsToOutput values.
+// You can construct a concrete instance of `BucketWebsiteRedirectAllRequestsToInput` via:
+//
+//	BucketWebsiteRedirectAllRequestsToArgs{...}
+type BucketWebsiteRedirectAllRequestsToInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRedirectAllRequestsToOutput() BucketWebsiteRedirectAllRequestsToOutput
+	ToBucketWebsiteRedirectAllRequestsToOutputWithContext(context.Context) BucketWebsiteRedirectAllRequestsToOutput
+}
+
+type BucketWebsiteRedirectAllRequestsToArgs struct {
+	// Redirect site name
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// Protocol used for redirect requests. Supports http and https. Default is http
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (BucketWebsiteRedirectAllRequestsToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (i BucketWebsiteRedirectAllRequestsToArgs) ToBucketWebsiteRedirectAllRequestsToOutput() BucketWebsiteRedirectAllRequestsToOutput {
+	return i.ToBucketWebsiteRedirectAllRequestsToOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRedirectAllRequestsToArgs) ToBucketWebsiteRedirectAllRequestsToOutputWithContext(ctx context.Context) BucketWebsiteRedirectAllRequestsToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRedirectAllRequestsToOutput)
+}
+
+func (i BucketWebsiteRedirectAllRequestsToArgs) ToBucketWebsiteRedirectAllRequestsToPtrOutput() BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return i.ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRedirectAllRequestsToArgs) ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRedirectAllRequestsToOutput).ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(ctx)
+}
+
+// BucketWebsiteRedirectAllRequestsToPtrInput is an input type that accepts BucketWebsiteRedirectAllRequestsToArgs, BucketWebsiteRedirectAllRequestsToPtr and BucketWebsiteRedirectAllRequestsToPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteRedirectAllRequestsToPtrInput` via:
+//
+//	        BucketWebsiteRedirectAllRequestsToArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketWebsiteRedirectAllRequestsToPtrInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRedirectAllRequestsToPtrOutput() BucketWebsiteRedirectAllRequestsToPtrOutput
+	ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(context.Context) BucketWebsiteRedirectAllRequestsToPtrOutput
+}
+
+type bucketWebsiteRedirectAllRequestsToPtrType BucketWebsiteRedirectAllRequestsToArgs
+
+func BucketWebsiteRedirectAllRequestsToPtr(v *BucketWebsiteRedirectAllRequestsToArgs) BucketWebsiteRedirectAllRequestsToPtrInput {
+	return (*bucketWebsiteRedirectAllRequestsToPtrType)(v)
+}
+
+func (*bucketWebsiteRedirectAllRequestsToPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (i *bucketWebsiteRedirectAllRequestsToPtrType) ToBucketWebsiteRedirectAllRequestsToPtrOutput() BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return i.ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketWebsiteRedirectAllRequestsToPtrType) ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRedirectAllRequestsToPtrOutput)
+}
+
+type BucketWebsiteRedirectAllRequestsToOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRedirectAllRequestsToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (o BucketWebsiteRedirectAllRequestsToOutput) ToBucketWebsiteRedirectAllRequestsToOutput() BucketWebsiteRedirectAllRequestsToOutput {
+	return o
+}
+
+func (o BucketWebsiteRedirectAllRequestsToOutput) ToBucketWebsiteRedirectAllRequestsToOutputWithContext(ctx context.Context) BucketWebsiteRedirectAllRequestsToOutput {
+	return o
+}
+
+func (o BucketWebsiteRedirectAllRequestsToOutput) ToBucketWebsiteRedirectAllRequestsToPtrOutput() BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return o.ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(context.Background())
+}
+
+func (o BucketWebsiteRedirectAllRequestsToOutput) ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteRedirectAllRequestsTo) *BucketWebsiteRedirectAllRequestsTo {
+		return &v
+	}).(BucketWebsiteRedirectAllRequestsToPtrOutput)
+}
+
+// Redirect site name
+func (o BucketWebsiteRedirectAllRequestsToOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRedirectAllRequestsTo) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// Protocol used for redirect requests. Supports http and https. Default is http
+func (o BucketWebsiteRedirectAllRequestsToOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRedirectAllRequestsTo) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteRedirectAllRequestsToPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRedirectAllRequestsToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (o BucketWebsiteRedirectAllRequestsToPtrOutput) ToBucketWebsiteRedirectAllRequestsToPtrOutput() BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteRedirectAllRequestsToPtrOutput) ToBucketWebsiteRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteRedirectAllRequestsToPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteRedirectAllRequestsToPtrOutput) Elem() BucketWebsiteRedirectAllRequestsToOutput {
+	return o.ApplyT(func(v *BucketWebsiteRedirectAllRequestsTo) BucketWebsiteRedirectAllRequestsTo {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsiteRedirectAllRequestsTo
+		return ret
+	}).(BucketWebsiteRedirectAllRequestsToOutput)
+}
+
+// Redirect site name
+func (o BucketWebsiteRedirectAllRequestsToPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRedirectAllRequestsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Protocol used for redirect requests. Supports http and https. Default is http
+func (o BucketWebsiteRedirectAllRequestsToPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRedirectAllRequestsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteRoutingRule struct {
+	// Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+	Condition *BucketWebsiteRoutingRuleCondition `pulumi:"condition"`
+	// Set redirect rule
+	Redirect *BucketWebsiteRoutingRuleRedirect `pulumi:"redirect"`
+}
+
+// BucketWebsiteRoutingRuleInput is an input type that accepts BucketWebsiteRoutingRuleArgs and BucketWebsiteRoutingRuleOutput values.
+// You can construct a concrete instance of `BucketWebsiteRoutingRuleInput` via:
+//
+//	BucketWebsiteRoutingRuleArgs{...}
+type BucketWebsiteRoutingRuleInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRoutingRuleOutput() BucketWebsiteRoutingRuleOutput
+	ToBucketWebsiteRoutingRuleOutputWithContext(context.Context) BucketWebsiteRoutingRuleOutput
+}
+
+type BucketWebsiteRoutingRuleArgs struct {
+	// Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+	Condition BucketWebsiteRoutingRuleConditionPtrInput `pulumi:"condition"`
+	// Set redirect rule
+	Redirect BucketWebsiteRoutingRuleRedirectPtrInput `pulumi:"redirect"`
+}
+
+func (BucketWebsiteRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (i BucketWebsiteRoutingRuleArgs) ToBucketWebsiteRoutingRuleOutput() BucketWebsiteRoutingRuleOutput {
+	return i.ToBucketWebsiteRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRoutingRuleArgs) ToBucketWebsiteRoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleOutput)
+}
+
+// BucketWebsiteRoutingRuleArrayInput is an input type that accepts BucketWebsiteRoutingRuleArray and BucketWebsiteRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `BucketWebsiteRoutingRuleArrayInput` via:
+//
+//	BucketWebsiteRoutingRuleArray{ BucketWebsiteRoutingRuleArgs{...} }
+type BucketWebsiteRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRoutingRuleArrayOutput() BucketWebsiteRoutingRuleArrayOutput
+	ToBucketWebsiteRoutingRuleArrayOutputWithContext(context.Context) BucketWebsiteRoutingRuleArrayOutput
+}
+
+type BucketWebsiteRoutingRuleArray []BucketWebsiteRoutingRuleInput
+
+func (BucketWebsiteRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (i BucketWebsiteRoutingRuleArray) ToBucketWebsiteRoutingRuleArrayOutput() BucketWebsiteRoutingRuleArrayOutput {
+	return i.ToBucketWebsiteRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRoutingRuleArray) ToBucketWebsiteRoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleArrayOutput)
+}
+
+type BucketWebsiteRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (o BucketWebsiteRoutingRuleOutput) ToBucketWebsiteRoutingRuleOutput() BucketWebsiteRoutingRuleOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleOutput) ToBucketWebsiteRoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleOutput {
+	return o
+}
+
+// Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+func (o BucketWebsiteRoutingRuleOutput) Condition() BucketWebsiteRoutingRuleConditionPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRule) *BucketWebsiteRoutingRuleCondition { return v.Condition }).(BucketWebsiteRoutingRuleConditionPtrOutput)
+}
+
+// Set redirect rule
+func (o BucketWebsiteRoutingRuleOutput) Redirect() BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRule) *BucketWebsiteRoutingRuleRedirect { return v.Redirect }).(BucketWebsiteRoutingRuleRedirectPtrOutput)
+}
+
+type BucketWebsiteRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (o BucketWebsiteRoutingRuleArrayOutput) ToBucketWebsiteRoutingRuleArrayOutput() BucketWebsiteRoutingRuleArrayOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleArrayOutput) ToBucketWebsiteRoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleArrayOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleArrayOutput) Index(i pulumi.IntInput) BucketWebsiteRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketWebsiteRoutingRule {
+		return vs[0].([]BucketWebsiteRoutingRule)[vs[1].(int)]
+	}).(BucketWebsiteRoutingRuleOutput)
+}
+
+type BucketWebsiteRoutingRuleCondition struct {
+	// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	HttpErrorCodeReturnedEquals *int `pulumi:"httpErrorCodeReturnedEquals"`
+	// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	KeyPrefixEquals *string `pulumi:"keyPrefixEquals"`
+}
+
+// BucketWebsiteRoutingRuleConditionInput is an input type that accepts BucketWebsiteRoutingRuleConditionArgs and BucketWebsiteRoutingRuleConditionOutput values.
+// You can construct a concrete instance of `BucketWebsiteRoutingRuleConditionInput` via:
+//
+//	BucketWebsiteRoutingRuleConditionArgs{...}
+type BucketWebsiteRoutingRuleConditionInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRoutingRuleConditionOutput() BucketWebsiteRoutingRuleConditionOutput
+	ToBucketWebsiteRoutingRuleConditionOutputWithContext(context.Context) BucketWebsiteRoutingRuleConditionOutput
+}
+
+type BucketWebsiteRoutingRuleConditionArgs struct {
+	// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	HttpErrorCodeReturnedEquals pulumi.IntPtrInput `pulumi:"httpErrorCodeReturnedEquals"`
+	// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	KeyPrefixEquals pulumi.StringPtrInput `pulumi:"keyPrefixEquals"`
+}
+
+func (BucketWebsiteRoutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRoutingRuleCondition)(nil)).Elem()
+}
+
+func (i BucketWebsiteRoutingRuleConditionArgs) ToBucketWebsiteRoutingRuleConditionOutput() BucketWebsiteRoutingRuleConditionOutput {
+	return i.ToBucketWebsiteRoutingRuleConditionOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRoutingRuleConditionArgs) ToBucketWebsiteRoutingRuleConditionOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleConditionOutput)
+}
+
+func (i BucketWebsiteRoutingRuleConditionArgs) ToBucketWebsiteRoutingRuleConditionPtrOutput() BucketWebsiteRoutingRuleConditionPtrOutput {
+	return i.ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRoutingRuleConditionArgs) ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleConditionOutput).ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(ctx)
+}
+
+// BucketWebsiteRoutingRuleConditionPtrInput is an input type that accepts BucketWebsiteRoutingRuleConditionArgs, BucketWebsiteRoutingRuleConditionPtr and BucketWebsiteRoutingRuleConditionPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteRoutingRuleConditionPtrInput` via:
+//
+//	        BucketWebsiteRoutingRuleConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketWebsiteRoutingRuleConditionPtrInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRoutingRuleConditionPtrOutput() BucketWebsiteRoutingRuleConditionPtrOutput
+	ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(context.Context) BucketWebsiteRoutingRuleConditionPtrOutput
+}
+
+type bucketWebsiteRoutingRuleConditionPtrType BucketWebsiteRoutingRuleConditionArgs
+
+func BucketWebsiteRoutingRuleConditionPtr(v *BucketWebsiteRoutingRuleConditionArgs) BucketWebsiteRoutingRuleConditionPtrInput {
+	return (*bucketWebsiteRoutingRuleConditionPtrType)(v)
+}
+
+func (*bucketWebsiteRoutingRuleConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteRoutingRuleCondition)(nil)).Elem()
+}
+
+func (i *bucketWebsiteRoutingRuleConditionPtrType) ToBucketWebsiteRoutingRuleConditionPtrOutput() BucketWebsiteRoutingRuleConditionPtrOutput {
+	return i.ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketWebsiteRoutingRuleConditionPtrType) ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleConditionPtrOutput)
+}
+
+type BucketWebsiteRoutingRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRoutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRoutingRuleCondition)(nil)).Elem()
+}
+
+func (o BucketWebsiteRoutingRuleConditionOutput) ToBucketWebsiteRoutingRuleConditionOutput() BucketWebsiteRoutingRuleConditionOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleConditionOutput) ToBucketWebsiteRoutingRuleConditionOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleConditionOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleConditionOutput) ToBucketWebsiteRoutingRuleConditionPtrOutput() BucketWebsiteRoutingRuleConditionPtrOutput {
+	return o.ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketWebsiteRoutingRuleConditionOutput) ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteRoutingRuleCondition) *BucketWebsiteRoutingRuleCondition {
+		return &v
+	}).(BucketWebsiteRoutingRuleConditionPtrOutput)
+}
+
+// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+func (o BucketWebsiteRoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleCondition) *int { return v.HttpErrorCodeReturnedEquals }).(pulumi.IntPtrOutput)
+}
+
+// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+func (o BucketWebsiteRoutingRuleConditionOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleCondition) *string { return v.KeyPrefixEquals }).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteRoutingRuleConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRoutingRuleConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteRoutingRuleCondition)(nil)).Elem()
+}
+
+func (o BucketWebsiteRoutingRuleConditionPtrOutput) ToBucketWebsiteRoutingRuleConditionPtrOutput() BucketWebsiteRoutingRuleConditionPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleConditionPtrOutput) ToBucketWebsiteRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleConditionPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleConditionPtrOutput) Elem() BucketWebsiteRoutingRuleConditionOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleCondition) BucketWebsiteRoutingRuleCondition {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsiteRoutingRuleCondition
+		return ret
+	}).(BucketWebsiteRoutingRuleConditionOutput)
+}
+
+// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+func (o BucketWebsiteRoutingRuleConditionPtrOutput) HttpErrorCodeReturnedEquals() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpErrorCodeReturnedEquals
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+func (o BucketWebsiteRoutingRuleConditionPtrOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefixEquals
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteRoutingRuleRedirect struct {
+	// Set the redirect site name
+	HostName *string `pulumi:"hostName"`
+	// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+	HttpRedirectCode *int `pulumi:"httpRedirectCode"`
+	// Protocol used for redirect requests, including http and https. Default is http
+	Protocol *string `pulumi:"protocol"`
+	// Object name prefix used for redirect
+	ReplaceKeyPrefixWith *string `pulumi:"replaceKeyPrefixWith"`
+	// Object name used for redirect
+	ReplaceKeyWith *string `pulumi:"replaceKeyWith"`
+}
+
+// BucketWebsiteRoutingRuleRedirectInput is an input type that accepts BucketWebsiteRoutingRuleRedirectArgs and BucketWebsiteRoutingRuleRedirectOutput values.
+// You can construct a concrete instance of `BucketWebsiteRoutingRuleRedirectInput` via:
+//
+//	BucketWebsiteRoutingRuleRedirectArgs{...}
+type BucketWebsiteRoutingRuleRedirectInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRoutingRuleRedirectOutput() BucketWebsiteRoutingRuleRedirectOutput
+	ToBucketWebsiteRoutingRuleRedirectOutputWithContext(context.Context) BucketWebsiteRoutingRuleRedirectOutput
+}
+
+type BucketWebsiteRoutingRuleRedirectArgs struct {
+	// Set the redirect site name
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+	HttpRedirectCode pulumi.IntPtrInput `pulumi:"httpRedirectCode"`
+	// Protocol used for redirect requests, including http and https. Default is http
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Object name prefix used for redirect
+	ReplaceKeyPrefixWith pulumi.StringPtrInput `pulumi:"replaceKeyPrefixWith"`
+	// Object name used for redirect
+	ReplaceKeyWith pulumi.StringPtrInput `pulumi:"replaceKeyWith"`
+}
+
+func (BucketWebsiteRoutingRuleRedirectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRoutingRuleRedirect)(nil)).Elem()
+}
+
+func (i BucketWebsiteRoutingRuleRedirectArgs) ToBucketWebsiteRoutingRuleRedirectOutput() BucketWebsiteRoutingRuleRedirectOutput {
+	return i.ToBucketWebsiteRoutingRuleRedirectOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRoutingRuleRedirectArgs) ToBucketWebsiteRoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleRedirectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleRedirectOutput)
+}
+
+func (i BucketWebsiteRoutingRuleRedirectArgs) ToBucketWebsiteRoutingRuleRedirectPtrOutput() BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return i.ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteRoutingRuleRedirectArgs) ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleRedirectOutput).ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(ctx)
+}
+
+// BucketWebsiteRoutingRuleRedirectPtrInput is an input type that accepts BucketWebsiteRoutingRuleRedirectArgs, BucketWebsiteRoutingRuleRedirectPtr and BucketWebsiteRoutingRuleRedirectPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteRoutingRuleRedirectPtrInput` via:
+//
+//	        BucketWebsiteRoutingRuleRedirectArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketWebsiteRoutingRuleRedirectPtrInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteRoutingRuleRedirectPtrOutput() BucketWebsiteRoutingRuleRedirectPtrOutput
+	ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(context.Context) BucketWebsiteRoutingRuleRedirectPtrOutput
+}
+
+type bucketWebsiteRoutingRuleRedirectPtrType BucketWebsiteRoutingRuleRedirectArgs
+
+func BucketWebsiteRoutingRuleRedirectPtr(v *BucketWebsiteRoutingRuleRedirectArgs) BucketWebsiteRoutingRuleRedirectPtrInput {
+	return (*bucketWebsiteRoutingRuleRedirectPtrType)(v)
+}
+
+func (*bucketWebsiteRoutingRuleRedirectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteRoutingRuleRedirect)(nil)).Elem()
+}
+
+func (i *bucketWebsiteRoutingRuleRedirectPtrType) ToBucketWebsiteRoutingRuleRedirectPtrOutput() BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return i.ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketWebsiteRoutingRuleRedirectPtrType) ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteRoutingRuleRedirectPtrOutput)
+}
+
+type BucketWebsiteRoutingRuleRedirectOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRoutingRuleRedirectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteRoutingRuleRedirect)(nil)).Elem()
+}
+
+func (o BucketWebsiteRoutingRuleRedirectOutput) ToBucketWebsiteRoutingRuleRedirectOutput() BucketWebsiteRoutingRuleRedirectOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleRedirectOutput) ToBucketWebsiteRoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleRedirectOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleRedirectOutput) ToBucketWebsiteRoutingRuleRedirectPtrOutput() BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return o.ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(context.Background())
+}
+
+func (o BucketWebsiteRoutingRuleRedirectOutput) ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteRoutingRuleRedirect) *BucketWebsiteRoutingRuleRedirect {
+		return &v
+	}).(BucketWebsiteRoutingRuleRedirectPtrOutput)
+}
+
+// Set the redirect site name
+func (o BucketWebsiteRoutingRuleRedirectOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleRedirect) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+func (o BucketWebsiteRoutingRuleRedirectOutput) HttpRedirectCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleRedirect) *int { return v.HttpRedirectCode }).(pulumi.IntPtrOutput)
+}
+
+// Protocol used for redirect requests, including http and https. Default is http
+func (o BucketWebsiteRoutingRuleRedirectOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleRedirect) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Object name prefix used for redirect
+func (o BucketWebsiteRoutingRuleRedirectOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleRedirect) *string { return v.ReplaceKeyPrefixWith }).(pulumi.StringPtrOutput)
+}
+
+// Object name used for redirect
+func (o BucketWebsiteRoutingRuleRedirectOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteRoutingRuleRedirect) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
+}
+
+type BucketWebsiteRoutingRuleRedirectPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteRoutingRuleRedirectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteRoutingRuleRedirect)(nil)).Elem()
+}
+
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) ToBucketWebsiteRoutingRuleRedirectPtrOutput() BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) ToBucketWebsiteRoutingRuleRedirectPtrOutputWithContext(ctx context.Context) BucketWebsiteRoutingRuleRedirectPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) Elem() BucketWebsiteRoutingRuleRedirectOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleRedirect) BucketWebsiteRoutingRuleRedirect {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsiteRoutingRuleRedirect
+		return ret
+	}).(BucketWebsiteRoutingRuleRedirectOutput)
+}
+
+// Set the redirect site name
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) HttpRedirectCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleRedirect) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRedirectCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// Protocol used for redirect requests, including http and https. Default is http
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// Object name prefix used for redirect
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceKeyPrefixWith
+	}).(pulumi.StringPtrOutput)
+}
+
+// Object name used for redirect
+func (o BucketWebsiteRoutingRuleRedirectPtrOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteRoutingRuleRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceKeyWith
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetBucketAcl struct {
 	// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 	BucketAclDelivered bool `pulumi:"bucketAclDelivered"`
@@ -11951,6 +12875,435 @@ func (o GetBucketTagArrayOutput) Index(i pulumi.IntInput) GetBucketTagOutput {
 	}).(GetBucketTagOutput)
 }
 
+type GetBucketWebsiteErrorDocument struct {
+	// When a 4xx error occurs, this page is returned
+	Key string `pulumi:"key"`
+}
+
+// GetBucketWebsiteErrorDocumentInput is an input type that accepts GetBucketWebsiteErrorDocumentArgs and GetBucketWebsiteErrorDocumentOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteErrorDocumentInput` via:
+//
+//	GetBucketWebsiteErrorDocumentArgs{...}
+type GetBucketWebsiteErrorDocumentInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteErrorDocumentOutput() GetBucketWebsiteErrorDocumentOutput
+	ToGetBucketWebsiteErrorDocumentOutputWithContext(context.Context) GetBucketWebsiteErrorDocumentOutput
+}
+
+type GetBucketWebsiteErrorDocumentArgs struct {
+	// When a 4xx error occurs, this page is returned
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (GetBucketWebsiteErrorDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteErrorDocument)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteErrorDocumentArgs) ToGetBucketWebsiteErrorDocumentOutput() GetBucketWebsiteErrorDocumentOutput {
+	return i.ToGetBucketWebsiteErrorDocumentOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteErrorDocumentArgs) ToGetBucketWebsiteErrorDocumentOutputWithContext(ctx context.Context) GetBucketWebsiteErrorDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteErrorDocumentOutput)
+}
+
+type GetBucketWebsiteErrorDocumentOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteErrorDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteErrorDocument)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteErrorDocumentOutput) ToGetBucketWebsiteErrorDocumentOutput() GetBucketWebsiteErrorDocumentOutput {
+	return o
+}
+
+func (o GetBucketWebsiteErrorDocumentOutput) ToGetBucketWebsiteErrorDocumentOutputWithContext(ctx context.Context) GetBucketWebsiteErrorDocumentOutput {
+	return o
+}
+
+// When a 4xx error occurs, this page is returned
+func (o GetBucketWebsiteErrorDocumentOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteErrorDocument) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type GetBucketWebsiteIndexDocument struct {
+	// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+	ForbiddenSubDir bool `pulumi:"forbiddenSubDir"`
+	// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+	Suffix string `pulumi:"suffix"`
+}
+
+// GetBucketWebsiteIndexDocumentInput is an input type that accepts GetBucketWebsiteIndexDocumentArgs and GetBucketWebsiteIndexDocumentOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteIndexDocumentInput` via:
+//
+//	GetBucketWebsiteIndexDocumentArgs{...}
+type GetBucketWebsiteIndexDocumentInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteIndexDocumentOutput() GetBucketWebsiteIndexDocumentOutput
+	ToGetBucketWebsiteIndexDocumentOutputWithContext(context.Context) GetBucketWebsiteIndexDocumentOutput
+}
+
+type GetBucketWebsiteIndexDocumentArgs struct {
+	// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+	ForbiddenSubDir pulumi.BoolInput `pulumi:"forbiddenSubDir"`
+	// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+	Suffix pulumi.StringInput `pulumi:"suffix"`
+}
+
+func (GetBucketWebsiteIndexDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteIndexDocument)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteIndexDocumentArgs) ToGetBucketWebsiteIndexDocumentOutput() GetBucketWebsiteIndexDocumentOutput {
+	return i.ToGetBucketWebsiteIndexDocumentOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteIndexDocumentArgs) ToGetBucketWebsiteIndexDocumentOutputWithContext(ctx context.Context) GetBucketWebsiteIndexDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteIndexDocumentOutput)
+}
+
+type GetBucketWebsiteIndexDocumentOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteIndexDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteIndexDocument)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteIndexDocumentOutput) ToGetBucketWebsiteIndexDocumentOutput() GetBucketWebsiteIndexDocumentOutput {
+	return o
+}
+
+func (o GetBucketWebsiteIndexDocumentOutput) ToGetBucketWebsiteIndexDocumentOutputWithContext(ctx context.Context) GetBucketWebsiteIndexDocumentOutput {
+	return o
+}
+
+// Whether to support redirecting to the default homepage of a subdirectory. Value description: false (default): Does not support redirecting to the default homepage of a subdirectory. true: Supports redirecting to the default homepage of a subdirectory
+func (o GetBucketWebsiteIndexDocumentOutput) ForbiddenSubDir() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBucketWebsiteIndexDocument) bool { return v.ForbiddenSubDir }).(pulumi.BoolOutput)
+}
+
+// When requesting a directory (ending with /), returns the object specified by Suffix in that directory. For example, if Suffix is set to index.html, accessing document/ returns document/index.html
+func (o GetBucketWebsiteIndexDocumentOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteIndexDocument) string { return v.Suffix }).(pulumi.StringOutput)
+}
+
+type GetBucketWebsiteRedirectAllRequestsTo struct {
+	// Redirect site name
+	HostName string `pulumi:"hostName"`
+	// Protocol used for redirect requests. Supports http and https. Default is http
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetBucketWebsiteRedirectAllRequestsToInput is an input type that accepts GetBucketWebsiteRedirectAllRequestsToArgs and GetBucketWebsiteRedirectAllRequestsToOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteRedirectAllRequestsToInput` via:
+//
+//	GetBucketWebsiteRedirectAllRequestsToArgs{...}
+type GetBucketWebsiteRedirectAllRequestsToInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteRedirectAllRequestsToOutput() GetBucketWebsiteRedirectAllRequestsToOutput
+	ToGetBucketWebsiteRedirectAllRequestsToOutputWithContext(context.Context) GetBucketWebsiteRedirectAllRequestsToOutput
+}
+
+type GetBucketWebsiteRedirectAllRequestsToArgs struct {
+	// Redirect site name
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// Protocol used for redirect requests. Supports http and https. Default is http
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetBucketWebsiteRedirectAllRequestsToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteRedirectAllRequestsToArgs) ToGetBucketWebsiteRedirectAllRequestsToOutput() GetBucketWebsiteRedirectAllRequestsToOutput {
+	return i.ToGetBucketWebsiteRedirectAllRequestsToOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteRedirectAllRequestsToArgs) ToGetBucketWebsiteRedirectAllRequestsToOutputWithContext(ctx context.Context) GetBucketWebsiteRedirectAllRequestsToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteRedirectAllRequestsToOutput)
+}
+
+type GetBucketWebsiteRedirectAllRequestsToOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteRedirectAllRequestsToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteRedirectAllRequestsToOutput) ToGetBucketWebsiteRedirectAllRequestsToOutput() GetBucketWebsiteRedirectAllRequestsToOutput {
+	return o
+}
+
+func (o GetBucketWebsiteRedirectAllRequestsToOutput) ToGetBucketWebsiteRedirectAllRequestsToOutputWithContext(ctx context.Context) GetBucketWebsiteRedirectAllRequestsToOutput {
+	return o
+}
+
+// Redirect site name
+func (o GetBucketWebsiteRedirectAllRequestsToOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRedirectAllRequestsTo) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Protocol used for redirect requests. Supports http and https. Default is http
+func (o GetBucketWebsiteRedirectAllRequestsToOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRedirectAllRequestsTo) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetBucketWebsiteRoutingRule struct {
+	// Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+	Condition GetBucketWebsiteRoutingRuleCondition `pulumi:"condition"`
+	// Set redirect rule
+	Redirect GetBucketWebsiteRoutingRuleRedirect `pulumi:"redirect"`
+}
+
+// GetBucketWebsiteRoutingRuleInput is an input type that accepts GetBucketWebsiteRoutingRuleArgs and GetBucketWebsiteRoutingRuleOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteRoutingRuleInput` via:
+//
+//	GetBucketWebsiteRoutingRuleArgs{...}
+type GetBucketWebsiteRoutingRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteRoutingRuleOutput() GetBucketWebsiteRoutingRuleOutput
+	ToGetBucketWebsiteRoutingRuleOutputWithContext(context.Context) GetBucketWebsiteRoutingRuleOutput
+}
+
+type GetBucketWebsiteRoutingRuleArgs struct {
+	// Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+	Condition GetBucketWebsiteRoutingRuleConditionInput `pulumi:"condition"`
+	// Set redirect rule
+	Redirect GetBucketWebsiteRoutingRuleRedirectInput `pulumi:"redirect"`
+}
+
+func (GetBucketWebsiteRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteRoutingRuleArgs) ToGetBucketWebsiteRoutingRuleOutput() GetBucketWebsiteRoutingRuleOutput {
+	return i.ToGetBucketWebsiteRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteRoutingRuleArgs) ToGetBucketWebsiteRoutingRuleOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteRoutingRuleOutput)
+}
+
+// GetBucketWebsiteRoutingRuleArrayInput is an input type that accepts GetBucketWebsiteRoutingRuleArray and GetBucketWebsiteRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteRoutingRuleArrayInput` via:
+//
+//	GetBucketWebsiteRoutingRuleArray{ GetBucketWebsiteRoutingRuleArgs{...} }
+type GetBucketWebsiteRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteRoutingRuleArrayOutput() GetBucketWebsiteRoutingRuleArrayOutput
+	ToGetBucketWebsiteRoutingRuleArrayOutputWithContext(context.Context) GetBucketWebsiteRoutingRuleArrayOutput
+}
+
+type GetBucketWebsiteRoutingRuleArray []GetBucketWebsiteRoutingRuleInput
+
+func (GetBucketWebsiteRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteRoutingRuleArray) ToGetBucketWebsiteRoutingRuleArrayOutput() GetBucketWebsiteRoutingRuleArrayOutput {
+	return i.ToGetBucketWebsiteRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteRoutingRuleArray) ToGetBucketWebsiteRoutingRuleArrayOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteRoutingRuleArrayOutput)
+}
+
+type GetBucketWebsiteRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteRoutingRuleOutput) ToGetBucketWebsiteRoutingRuleOutput() GetBucketWebsiteRoutingRuleOutput {
+	return o
+}
+
+func (o GetBucketWebsiteRoutingRuleOutput) ToGetBucketWebsiteRoutingRuleOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleOutput {
+	return o
+}
+
+// Set the matching conditions for the redirect rule. The redirect rule only takes effect when all specified conditions are met
+func (o GetBucketWebsiteRoutingRuleOutput) Condition() GetBucketWebsiteRoutingRuleConditionOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRule) GetBucketWebsiteRoutingRuleCondition { return v.Condition }).(GetBucketWebsiteRoutingRuleConditionOutput)
+}
+
+// Set redirect rule
+func (o GetBucketWebsiteRoutingRuleOutput) Redirect() GetBucketWebsiteRoutingRuleRedirectOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRule) GetBucketWebsiteRoutingRuleRedirect { return v.Redirect }).(GetBucketWebsiteRoutingRuleRedirectOutput)
+}
+
+type GetBucketWebsiteRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketWebsiteRoutingRule)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteRoutingRuleArrayOutput) ToGetBucketWebsiteRoutingRuleArrayOutput() GetBucketWebsiteRoutingRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketWebsiteRoutingRuleArrayOutput) ToGetBucketWebsiteRoutingRuleArrayOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketWebsiteRoutingRuleArrayOutput) Index(i pulumi.IntInput) GetBucketWebsiteRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketWebsiteRoutingRule {
+		return vs[0].([]GetBucketWebsiteRoutingRule)[vs[1].(int)]
+	}).(GetBucketWebsiteRoutingRuleOutput)
+}
+
+type GetBucketWebsiteRoutingRuleCondition struct {
+	// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	HttpErrorCodeReturnedEquals int `pulumi:"httpErrorCodeReturnedEquals"`
+	// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	KeyPrefixEquals string `pulumi:"keyPrefixEquals"`
+}
+
+// GetBucketWebsiteRoutingRuleConditionInput is an input type that accepts GetBucketWebsiteRoutingRuleConditionArgs and GetBucketWebsiteRoutingRuleConditionOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteRoutingRuleConditionInput` via:
+//
+//	GetBucketWebsiteRoutingRuleConditionArgs{...}
+type GetBucketWebsiteRoutingRuleConditionInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteRoutingRuleConditionOutput() GetBucketWebsiteRoutingRuleConditionOutput
+	ToGetBucketWebsiteRoutingRuleConditionOutputWithContext(context.Context) GetBucketWebsiteRoutingRuleConditionOutput
+}
+
+type GetBucketWebsiteRoutingRuleConditionArgs struct {
+	// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	HttpErrorCodeReturnedEquals pulumi.IntInput `pulumi:"httpErrorCodeReturnedEquals"`
+	// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+	KeyPrefixEquals pulumi.StringInput `pulumi:"keyPrefixEquals"`
+}
+
+func (GetBucketWebsiteRoutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRoutingRuleCondition)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteRoutingRuleConditionArgs) ToGetBucketWebsiteRoutingRuleConditionOutput() GetBucketWebsiteRoutingRuleConditionOutput {
+	return i.ToGetBucketWebsiteRoutingRuleConditionOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteRoutingRuleConditionArgs) ToGetBucketWebsiteRoutingRuleConditionOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteRoutingRuleConditionOutput)
+}
+
+type GetBucketWebsiteRoutingRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteRoutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRoutingRuleCondition)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteRoutingRuleConditionOutput) ToGetBucketWebsiteRoutingRuleConditionOutput() GetBucketWebsiteRoutingRuleConditionOutput {
+	return o
+}
+
+func (o GetBucketWebsiteRoutingRuleConditionOutput) ToGetBucketWebsiteRoutingRuleConditionOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleConditionOutput {
+	return o
+}
+
+// Set the HTTP error code that triggers the redirect rule. For example, if HttpErrorCodeReturnedEquals is set to 404, the rule takes effect when the specified object does not exist. If KeyPrefixEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+func (o GetBucketWebsiteRoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleCondition) int { return v.HttpErrorCodeReturnedEquals }).(pulumi.IntOutput)
+}
+
+// Set the object name prefix for the redirect rule to take effect. If HttpErrorCodeReturnedEquals is set, the redirect rule only takes effect when both HttpErrorCodeReturnedEquals and KeyPrefixEquals conditions are met
+func (o GetBucketWebsiteRoutingRuleConditionOutput) KeyPrefixEquals() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleCondition) string { return v.KeyPrefixEquals }).(pulumi.StringOutput)
+}
+
+type GetBucketWebsiteRoutingRuleRedirect struct {
+	// Set the redirect site name
+	HostName string `pulumi:"hostName"`
+	// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+	HttpRedirectCode int `pulumi:"httpRedirectCode"`
+	// Protocol used for redirect requests, including http and https. Default is http
+	Protocol string `pulumi:"protocol"`
+	// Object name prefix used for redirect
+	ReplaceKeyPrefixWith string `pulumi:"replaceKeyPrefixWith"`
+	// Object name used for redirect
+	ReplaceKeyWith string `pulumi:"replaceKeyWith"`
+}
+
+// GetBucketWebsiteRoutingRuleRedirectInput is an input type that accepts GetBucketWebsiteRoutingRuleRedirectArgs and GetBucketWebsiteRoutingRuleRedirectOutput values.
+// You can construct a concrete instance of `GetBucketWebsiteRoutingRuleRedirectInput` via:
+//
+//	GetBucketWebsiteRoutingRuleRedirectArgs{...}
+type GetBucketWebsiteRoutingRuleRedirectInput interface {
+	pulumi.Input
+
+	ToGetBucketWebsiteRoutingRuleRedirectOutput() GetBucketWebsiteRoutingRuleRedirectOutput
+	ToGetBucketWebsiteRoutingRuleRedirectOutputWithContext(context.Context) GetBucketWebsiteRoutingRuleRedirectOutput
+}
+
+type GetBucketWebsiteRoutingRuleRedirectArgs struct {
+	// Set the redirect site name
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+	HttpRedirectCode pulumi.IntInput `pulumi:"httpRedirectCode"`
+	// Protocol used for redirect requests, including http and https. Default is http
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Object name prefix used for redirect
+	ReplaceKeyPrefixWith pulumi.StringInput `pulumi:"replaceKeyPrefixWith"`
+	// Object name used for redirect
+	ReplaceKeyWith pulumi.StringInput `pulumi:"replaceKeyWith"`
+}
+
+func (GetBucketWebsiteRoutingRuleRedirectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRoutingRuleRedirect)(nil)).Elem()
+}
+
+func (i GetBucketWebsiteRoutingRuleRedirectArgs) ToGetBucketWebsiteRoutingRuleRedirectOutput() GetBucketWebsiteRoutingRuleRedirectOutput {
+	return i.ToGetBucketWebsiteRoutingRuleRedirectOutputWithContext(context.Background())
+}
+
+func (i GetBucketWebsiteRoutingRuleRedirectArgs) ToGetBucketWebsiteRoutingRuleRedirectOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleRedirectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketWebsiteRoutingRuleRedirectOutput)
+}
+
+type GetBucketWebsiteRoutingRuleRedirectOutput struct{ *pulumi.OutputState }
+
+func (GetBucketWebsiteRoutingRuleRedirectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketWebsiteRoutingRuleRedirect)(nil)).Elem()
+}
+
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) ToGetBucketWebsiteRoutingRuleRedirectOutput() GetBucketWebsiteRoutingRuleRedirectOutput {
+	return o
+}
+
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) ToGetBucketWebsiteRoutingRuleRedirectOutputWithContext(ctx context.Context) GetBucketWebsiteRoutingRuleRedirectOutput {
+	return o
+}
+
+// Set the redirect site name
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleRedirect) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Status code returned during redirect. Only 3XX status codes can be set; 300 cannot be set. Default is 301
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) HttpRedirectCode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleRedirect) int { return v.HttpRedirectCode }).(pulumi.IntOutput)
+}
+
+// Protocol used for redirect requests, including http and https. Default is http
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleRedirect) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Object name prefix used for redirect
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) ReplaceKeyPrefixWith() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleRedirect) string { return v.ReplaceKeyPrefixWith }).(pulumi.StringOutput)
+}
+
+// Object name used for redirect
+func (o GetBucketWebsiteRoutingRuleRedirectOutput) ReplaceKeyWith() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleRedirect) string { return v.ReplaceKeyWith }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclInput)(nil)).Elem(), BucketAclArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclPtrInput)(nil)).Elem(), BucketAclArgs{})
@@ -12050,6 +13403,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRealtimeLogRealTimeLogPtrInput)(nil)).Elem(), BucketRealtimeLogRealTimeLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteErrorDocumentInput)(nil)).Elem(), BucketWebsiteErrorDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteErrorDocumentPtrInput)(nil)).Elem(), BucketWebsiteErrorDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteIndexDocumentInput)(nil)).Elem(), BucketWebsiteIndexDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteIndexDocumentPtrInput)(nil)).Elem(), BucketWebsiteIndexDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRedirectAllRequestsToInput)(nil)).Elem(), BucketWebsiteRedirectAllRequestsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRedirectAllRequestsToPtrInput)(nil)).Elem(), BucketWebsiteRedirectAllRequestsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleInput)(nil)).Elem(), BucketWebsiteRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleArrayInput)(nil)).Elem(), BucketWebsiteRoutingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleConditionInput)(nil)).Elem(), BucketWebsiteRoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleConditionPtrInput)(nil)).Elem(), BucketWebsiteRoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleRedirectInput)(nil)).Elem(), BucketWebsiteRoutingRuleRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleRedirectPtrInput)(nil)).Elem(), BucketWebsiteRoutingRuleRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclInput)(nil)).Elem(), GetBucketAclArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantInput)(nil)).Elem(), GetBucketAclGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantArrayInput)(nil)).Elem(), GetBucketAclGrantArray{})
@@ -12116,6 +13481,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketRealtimeLogRealTimeLogInput)(nil)).Elem(), GetBucketRealtimeLogRealTimeLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketTagInput)(nil)).Elem(), GetBucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketTagArrayInput)(nil)).Elem(), GetBucketTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteErrorDocumentInput)(nil)).Elem(), GetBucketWebsiteErrorDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteIndexDocumentInput)(nil)).Elem(), GetBucketWebsiteIndexDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRedirectAllRequestsToInput)(nil)).Elem(), GetBucketWebsiteRedirectAllRequestsToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleArrayInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleConditionInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleRedirectInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleRedirectArgs{})
 	pulumi.RegisterOutputType(BucketAclOutput{})
 	pulumi.RegisterOutputType(BucketAclPtrOutput{})
 	pulumi.RegisterOutputType(BucketAclGrantOutput{})
@@ -12214,6 +13586,18 @@ func init() {
 	pulumi.RegisterOutputType(BucketRealtimeLogRealTimeLogPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagOutput{})
 	pulumi.RegisterOutputType(BucketTagArrayOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteErrorDocumentOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteErrorDocumentPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteIndexDocumentOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteIndexDocumentPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRedirectAllRequestsToOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRedirectAllRequestsToPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleConditionPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleRedirectOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleRedirectPtrOutput{})
 	pulumi.RegisterOutputType(GetBucketAclOutput{})
 	pulumi.RegisterOutputType(GetBucketAclGrantOutput{})
 	pulumi.RegisterOutputType(GetBucketAclGrantArrayOutput{})
@@ -12280,4 +13664,11 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketRealtimeLogRealTimeLogOutput{})
 	pulumi.RegisterOutputType(GetBucketTagOutput{})
 	pulumi.RegisterOutputType(GetBucketTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteErrorDocumentOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteIndexDocumentOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteRedirectAllRequestsToOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleRedirectOutput{})
 }

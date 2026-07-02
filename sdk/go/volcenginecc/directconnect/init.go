@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:directconnect/bgpPeer:BgpPeer":
 		r = &BgpPeer{}
+	case "volcenginecc:directconnect/connection:Connection":
+		r = &Connection{}
 	case "volcenginecc:directconnect/directConnectGateway:DirectConnectGateway":
 		r = &DirectConnectGateway{}
 	case "volcenginecc:directconnect/gatewayRoute:GatewayRoute":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"directconnect/bgpPeer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"directconnect/connection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

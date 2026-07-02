@@ -97,6 +97,8 @@ if typing.TYPE_CHECKING:
     transitrouter = __transitrouter
     import pulumi_volcenginecc.vedbm as __vedbm
     vedbm = __vedbm
+    import pulumi_volcenginecc.veenedge as __veenedge
+    veenedge = __veenedge
     import pulumi_volcenginecc.vefaas as __vefaas
     vefaas = __vefaas
     import pulumi_volcenginecc.vepfs as __vepfs
@@ -155,6 +157,7 @@ else:
     tos = _utilities.lazy_import('pulumi_volcenginecc.tos')
     transitrouter = _utilities.lazy_import('pulumi_volcenginecc.transitrouter')
     vedbm = _utilities.lazy_import('pulumi_volcenginecc.vedbm')
+    veenedge = _utilities.lazy_import('pulumi_volcenginecc.veenedge')
     vefaas = _utilities.lazy_import('pulumi_volcenginecc.vefaas')
     vepfs = _utilities.lazy_import('pulumi_volcenginecc.vepfs')
     vke = _utilities.lazy_import('pulumi_volcenginecc.vke')
@@ -640,6 +643,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "directconnect/connection",
+  "fqn": "pulumi_volcenginecc.directconnect",
+  "classes": {
+   "volcenginecc:directconnect/connection:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "directconnect/directConnectGateway",
   "fqn": "pulumi_volcenginecc.directconnect",
   "classes": {
@@ -840,10 +851,34 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "fwcenter/addressBook",
+  "fqn": "pulumi_volcenginecc.fwcenter",
+  "classes": {
+   "volcenginecc:fwcenter/addressBook:AddressBook": "AddressBook"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "fwcenter/controlPolicy",
+  "fqn": "pulumi_volcenginecc.fwcenter",
+  "classes": {
+   "volcenginecc:fwcenter/controlPolicy:ControlPolicy": "ControlPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "fwcenter/dnsControlPolicy",
   "fqn": "pulumi_volcenginecc.fwcenter",
   "classes": {
    "volcenginecc:fwcenter/dnsControlPolicy:DnsControlPolicy": "DnsControlPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "fwcenter/vpcFireWallAclRule",
+  "fqn": "pulumi_volcenginecc.fwcenter",
+  "classes": {
+   "volcenginecc:fwcenter/vpcFireWallAclRule:VpcFireWallAclRule": "VpcFireWallAclRule"
   }
  },
  {
@@ -1140,6 +1175,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.organization",
   "classes": {
    "volcenginecc:organization/serviceControlPolicy:ServiceControlPolicy": "ServiceControlPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "organization/serviceControlPolicyEnabler",
+  "fqn": "pulumi_volcenginecc.organization",
+  "classes": {
+   "volcenginecc:organization/serviceControlPolicyEnabler:ServiceControlPolicyEnabler": "ServiceControlPolicyEnabler"
   }
  },
  {
@@ -1544,6 +1587,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tls/alarmWebhookIntegrationType",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/alarmWebhookIntegrationType:AlarmWebhookIntegrationType": "AlarmWebhookIntegrationType"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tls/consumerGroup",
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
@@ -1704,6 +1755,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tos/bucketWebsite",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketWebsite:BucketWebsite": "BucketWebsite"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "transitrouter/directConnectGatewayAttachment",
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
@@ -1828,6 +1887,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vedbm",
   "classes": {
    "volcenginecc:vedbm/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "veenedge/vpc",
+  "fqn": "pulumi_volcenginecc.veenedge",
+  "classes": {
+   "volcenginecc:veenedge/vpc:Vpc": "Vpc"
   }
  },
  {
@@ -2164,6 +2231,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.waf",
   "classes": {
    "volcenginecc:waf/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "waf/hostGroup",
+  "fqn": "pulumi_volcenginecc.waf",
+  "classes": {
+   "volcenginecc:waf/hostGroup:HostGroup": "HostGroup"
   }
  }
 ]

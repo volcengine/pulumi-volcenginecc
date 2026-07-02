@@ -12,6 +12,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.directconnect.inputs.GetBgpPeerArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetBgpPeerPlainArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetConnectionArgs;
+import com.volcengine.volcenginecc.directconnect.inputs.GetConnectionPlainArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetDirectConnectGatewayArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetDirectConnectGatewayPlainArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetGatewayRouteArgs;
@@ -20,6 +22,8 @@ import com.volcengine.volcenginecc.directconnect.inputs.GetVirtualInterfaceArgs;
 import com.volcengine.volcenginecc.directconnect.inputs.GetVirtualInterfacePlainArgs;
 import com.volcengine.volcenginecc.directconnect.outputs.GetBgpPeerResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetBgpPeersResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetConnectionResult;
+import com.volcengine.volcenginecc.directconnect.outputs.GetConnectionsResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewayResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetDirectConnectGatewaysResult;
 import com.volcengine.volcenginecc.directconnect.outputs.GetGatewayRouteResult;
@@ -112,6 +116,90 @@ public final class DirectconnectFunctions {
      */
     public static CompletableFuture<GetBgpPeersResult> getBgpPeersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getBgpPeers:getBgpPeers", TypeShape.of(GetBgpPeersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
+        return getConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
+        return getConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections() {
+        return getConnections(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static CompletableFuture<GetConnectionsResult> getConnectionsPlain() {
+        return getConnectionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections(InvokeArgs args) {
+        return getConnections(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(InvokeArgs args) {
+        return getConnectionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static Output<GetConnectionsResult> getConnections(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:directconnect/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::DirectConnect::Connection
+     * 
+     */
+    public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:directconnect/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::DirectConnect::DirectConnectGateway

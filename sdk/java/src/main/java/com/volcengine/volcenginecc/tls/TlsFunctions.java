@@ -14,6 +14,8 @@ import com.volcengine.volcenginecc.tls.inputs.GetAlarmArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmPlainArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmWebhookIntegrationTypeArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmWebhookIntegrationTypePlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetEtlArgs;
@@ -39,6 +41,8 @@ import com.volcengine.volcenginecc.tls.inputs.GetTopicPlainArgs;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmResult;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmWebhookIntegrationTypeResult;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmWebhookIntegrationTypesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupsResult;
@@ -183,6 +187,90 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetAlarmNotifyGroupsResult> getAlarmNotifyGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmNotifyGroups:getAlarmNotifyGroups", TypeShape.of(GetAlarmNotifyGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypeResult> getAlarmWebhookIntegrationType(GetAlarmWebhookIntegrationTypeArgs args) {
+        return getAlarmWebhookIntegrationType(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static CompletableFuture<GetAlarmWebhookIntegrationTypeResult> getAlarmWebhookIntegrationTypePlain(GetAlarmWebhookIntegrationTypePlainArgs args) {
+        return getAlarmWebhookIntegrationTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypeResult> getAlarmWebhookIntegrationType(GetAlarmWebhookIntegrationTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmWebhookIntegrationType:getAlarmWebhookIntegrationType", TypeShape.of(GetAlarmWebhookIntegrationTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypeResult> getAlarmWebhookIntegrationType(GetAlarmWebhookIntegrationTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmWebhookIntegrationType:getAlarmWebhookIntegrationType", TypeShape.of(GetAlarmWebhookIntegrationTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static CompletableFuture<GetAlarmWebhookIntegrationTypeResult> getAlarmWebhookIntegrationTypePlain(GetAlarmWebhookIntegrationTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmWebhookIntegrationType:getAlarmWebhookIntegrationType", TypeShape.of(GetAlarmWebhookIntegrationTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypes() {
+        return getAlarmWebhookIntegrationTypes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static CompletableFuture<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypesPlain() {
+        return getAlarmWebhookIntegrationTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypes(InvokeArgs args) {
+        return getAlarmWebhookIntegrationTypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static CompletableFuture<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypesPlain(InvokeArgs args) {
+        return getAlarmWebhookIntegrationTypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmWebhookIntegrationTypes:getAlarmWebhookIntegrationTypes", TypeShape.of(GetAlarmWebhookIntegrationTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static Output<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypes(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmWebhookIntegrationTypes:getAlarmWebhookIntegrationTypes", TypeShape.of(GetAlarmWebhookIntegrationTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmWebhookIntegrationType
+     * 
+     */
+    public static CompletableFuture<GetAlarmWebhookIntegrationTypesResult> getAlarmWebhookIntegrationTypesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmWebhookIntegrationTypes:getAlarmWebhookIntegrationTypes", TypeShape.of(GetAlarmWebhookIntegrationTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::TLS::Alarm

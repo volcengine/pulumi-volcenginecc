@@ -19,11 +19,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Vmp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Volcenginecc = Pulumi.Volcenginecc;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vMPRuleFileDemo = new Volcenginecc.Index.VmpRulefile("VMPRuleFileDemo", new()
+    ///     var vMPRuleFileDemo = new Volcenginecc.Vmp.RuleFile("VMPRuleFileDemo", new()
     ///     {
     ///         Description = "这是一个测试规则文件",
     ///         TargetWorkspaceId = "3ba7844b-e7fc-4688-a869-****",

@@ -19,25 +19,25 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Volcenginecc = Pulumi.Volcenginecc;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var redisParameterGroupDemo = new Volcenginecc.Index.RedisParametergroup("RedisParameterGroupDemo", new()
+    ///     var redisParameterGroupDemo = new Volcenginecc.Redis.ParameterGroup("RedisParameterGroupDemo", new()
     ///     {
     ///         EngineVersion = "6.0",
     ///         Description = "用于测试的Redis 6.0自定义参数组",
     ///         ParamValues = new[]
     ///         {
-    ///             
+    ///             new Volcenginecc.Redis.Inputs.ParameterGroupParamValueArgs
     ///             {
-    ///                 { "value", "allkeys-lru" },
-    ///                 { "name", "maxmemory-policy" },
+    ///                 Value = "allkeys-lru",
+    ///                 Name = "maxmemory-policy",
     ///             },
-    ///             
+    ///             new Volcenginecc.Redis.Inputs.ParameterGroupParamValueArgs
     ///             {
-    ///                 { "value", "300" },
-    ///                 { "name", "proxy-client-idle-timeout" },
+    ///                 Value = "300",
+    ///                 Name = "proxy-client-idle-timeout",
     ///             },
     ///         },
     ///         Name = "test-redis6-param-group",

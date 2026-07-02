@@ -65,7 +65,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
     public sealed class GetCertificateResult
     {
         /// <summary>
-        /// Certificate ID
+        /// Certificate ID. When the replacement mode is stock, this refers to the existing certificate ID used for replacement.
         /// </summary>
         public readonly string CertificateId;
         /// <summary>
@@ -100,6 +100,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
         /// List of listeners associated with the certificate
         /// </summary>
         public readonly ImmutableArray<string> Listeners;
+        /// <summary>
+        /// Old certificate ID to be replaced. Setting this field indicates that the certificate is created in replacement mode.
+        /// </summary>
+        public readonly string OldCertificateId;
         /// <summary>
         /// Server certificate private key. Required when certificate type is Server
         /// </summary>
@@ -145,6 +149,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
 
             ImmutableArray<string> listeners,
 
+            string oldCertificateId,
+
             string privateKey,
 
             string projectName,
@@ -166,6 +172,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
             ExpiredAt = expiredAt;
             Id = id;
             Listeners = listeners;
+            OldCertificateId = oldCertificateId;
             PrivateKey = privateKey;
             ProjectName = projectName;
             PublicKey = publicKey;

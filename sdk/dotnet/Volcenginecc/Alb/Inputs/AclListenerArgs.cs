@@ -14,7 +14,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb.Inputs
     public sealed class AclListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Listener control mode for this access control policy group. white: allowlist mode; black: denylist mode
+        /// Control mode of the listener for this access control policy group. white: Allowlist mode; black: Denylist mode
         /// </summary>
         [Input("aclType")]
         public Input<string>? AclType { get; set; }
