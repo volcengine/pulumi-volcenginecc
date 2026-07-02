@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.volcenginecc.cbrBackuppolicy;
- * import com.pulumi.volcenginecc.cbrBackuppolicyArgs;
+ * import com.volcengine.volcenginecc.cbr.BackupPolicy;
+ * import com.volcengine.volcenginecc.cbr.BackupPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cBRBackupPolicyDemo = new CbrBackuppolicy("cBRBackupPolicyDemo", CbrBackuppolicyArgs.builder()
+ *         var cBRBackupPolicyDemo = new BackupPolicy("cBRBackupPolicyDemo", BackupPolicyArgs.builder()
  *             .backupType("INCREMENTAL")
  *             .crontab("0 2,1,0 * * 1,2")
  *             .enablePolicy(false)

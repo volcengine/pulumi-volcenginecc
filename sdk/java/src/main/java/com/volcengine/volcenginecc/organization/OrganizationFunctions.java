@@ -15,6 +15,8 @@ import com.volcengine.volcenginecc.organization.inputs.GetAccountPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetOrganizationArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetOrganizationPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetServiceControlPolicyArgs;
+import com.volcengine.volcenginecc.organization.inputs.GetServiceControlPolicyEnablerArgs;
+import com.volcengine.volcenginecc.organization.inputs.GetServiceControlPolicyEnablerPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetServiceControlPolicyPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetUnitArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetUnitPlainArgs;
@@ -23,6 +25,8 @@ import com.volcengine.volcenginecc.organization.outputs.GetAccountsResult;
 import com.volcengine.volcenginecc.organization.outputs.GetOrganizationResult;
 import com.volcengine.volcenginecc.organization.outputs.GetOrganizationsResult;
 import com.volcengine.volcenginecc.organization.outputs.GetServiceControlPoliciesResult;
+import com.volcengine.volcenginecc.organization.outputs.GetServiceControlPolicyEnablerResult;
+import com.volcengine.volcenginecc.organization.outputs.GetServiceControlPolicyEnablersResult;
 import com.volcengine.volcenginecc.organization.outputs.GetServiceControlPolicyResult;
 import com.volcengine.volcenginecc.organization.outputs.GetUnitResult;
 import com.volcengine.volcenginecc.organization.outputs.GetUnitsResult;
@@ -280,6 +284,90 @@ public final class OrganizationFunctions {
      */
     public static CompletableFuture<GetServiceControlPolicyResult> getServiceControlPolicyPlain(GetServiceControlPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:organization/getServiceControlPolicy:getServiceControlPolicy", TypeShape.of(GetServiceControlPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablerResult> getServiceControlPolicyEnabler(GetServiceControlPolicyEnablerArgs args) {
+        return getServiceControlPolicyEnabler(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static CompletableFuture<GetServiceControlPolicyEnablerResult> getServiceControlPolicyEnablerPlain(GetServiceControlPolicyEnablerPlainArgs args) {
+        return getServiceControlPolicyEnablerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablerResult> getServiceControlPolicyEnabler(GetServiceControlPolicyEnablerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getServiceControlPolicyEnabler:getServiceControlPolicyEnabler", TypeShape.of(GetServiceControlPolicyEnablerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablerResult> getServiceControlPolicyEnabler(GetServiceControlPolicyEnablerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getServiceControlPolicyEnabler:getServiceControlPolicyEnabler", TypeShape.of(GetServiceControlPolicyEnablerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static CompletableFuture<GetServiceControlPolicyEnablerResult> getServiceControlPolicyEnablerPlain(GetServiceControlPolicyEnablerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:organization/getServiceControlPolicyEnabler:getServiceControlPolicyEnabler", TypeShape.of(GetServiceControlPolicyEnablerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablers() {
+        return getServiceControlPolicyEnablers(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static CompletableFuture<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablersPlain() {
+        return getServiceControlPolicyEnablersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablers(InvokeArgs args) {
+        return getServiceControlPolicyEnablers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static CompletableFuture<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablersPlain(InvokeArgs args) {
+        return getServiceControlPolicyEnablersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getServiceControlPolicyEnablers:getServiceControlPolicyEnablers", TypeShape.of(GetServiceControlPolicyEnablersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static Output<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablers(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getServiceControlPolicyEnablers:getServiceControlPolicyEnablers", TypeShape.of(GetServiceControlPolicyEnablersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::ServiceControlPolicyEnabler
+     * 
+     */
+    public static CompletableFuture<GetServiceControlPolicyEnablersResult> getServiceControlPolicyEnablersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:organization/getServiceControlPolicyEnablers:getServiceControlPolicyEnablers", TypeShape.of(GetServiceControlPolicyEnablersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::Organization::Unit

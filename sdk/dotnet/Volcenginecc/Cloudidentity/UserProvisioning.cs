@@ -19,11 +19,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Volcenginecc = Pulumi.Volcenginecc;
+    /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cloudIdentityUserProvisioningDemo = new Volcenginecc.Index.CloudidentityUserprovisioning("CloudIdentityUserProvisioningDemo", new()
+    ///     var cloudIdentityUserProvisioningDemo = new Volcenginecc.Cloudidentity.UserProvisioning("CloudIdentityUserProvisioningDemo", new()
     ///     {
     ///         TargetId = "2103612***",
     ///         PrincipalType = "Group",

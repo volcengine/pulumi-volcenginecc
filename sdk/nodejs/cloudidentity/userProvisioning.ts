@@ -11,9 +11,9 @@ import * as utilities from "../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@pulumi/volcenginecc";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
- * const cloudIdentityUserProvisioningDemo = new volcenginecc.index.CloudidentityUserprovisioning("CloudIdentityUserProvisioningDemo", {
+ * const cloudIdentityUserProvisioningDemo = new volcenginecc.cloudidentity.UserProvisioning("CloudIdentityUserProvisioningDemo", {
  *     targetId: "2103612***",
  *     principalType: "Group",
  *     principalId: "8990752****",

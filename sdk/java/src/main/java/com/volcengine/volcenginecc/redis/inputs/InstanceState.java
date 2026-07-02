@@ -5,6 +5,7 @@ package com.volcengine.volcenginecc.redis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.volcengine.volcenginecc.redis.inputs.InstanceBackupArgs;
 import com.volcengine.volcenginecc.redis.inputs.InstanceBackupRestoreArgs;
 import com.volcengine.volcenginecc.redis.inputs.InstanceCapacityArgs;
 import com.volcengine.volcenginecc.redis.inputs.InstanceConfigureNodeArgs;
@@ -82,6 +83,13 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<InstanceBackupRestoreArgs>> backupRestore() {
         return Optional.ofNullable(this.backupRestore);
+    }
+
+    @Import(name="backups")
+    private @Nullable Output<List<InstanceBackupArgs>> backups;
+
+    public Optional<Output<List<InstanceBackupArgs>>> backups() {
+        return Optional.ofNullable(this.backups);
     }
 
     /**
@@ -704,6 +712,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.autoRenew = $.autoRenew;
         this.backupPointName = $.backupPointName;
         this.backupRestore = $.backupRestore;
+        this.backups = $.backups;
         this.blueGreenRole = $.blueGreenRole;
         this.capacity = $.capacity;
         this.chargeType = $.chargeType;
@@ -859,6 +868,19 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder backupRestore(InstanceBackupRestoreArgs backupRestore) {
             return backupRestore(Output.of(backupRestore));
+        }
+
+        public Builder backups(@Nullable Output<List<InstanceBackupArgs>> backups) {
+            $.backups = backups;
+            return this;
+        }
+
+        public Builder backups(List<InstanceBackupArgs> backups) {
+            return backups(Output.of(backups));
+        }
+
+        public Builder backups(InstanceBackupArgs... backups) {
+            return backups(List.of(backups));
         }
 
         /**

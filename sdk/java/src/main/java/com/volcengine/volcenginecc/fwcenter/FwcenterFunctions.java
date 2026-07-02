@@ -10,13 +10,193 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.fwcenter.inputs.GetAddressBookArgs;
+import com.volcengine.volcenginecc.fwcenter.inputs.GetAddressBookPlainArgs;
+import com.volcengine.volcenginecc.fwcenter.inputs.GetControlPolicyArgs;
+import com.volcengine.volcenginecc.fwcenter.inputs.GetControlPolicyPlainArgs;
 import com.volcengine.volcenginecc.fwcenter.inputs.GetDnsControlPolicyArgs;
 import com.volcengine.volcenginecc.fwcenter.inputs.GetDnsControlPolicyPlainArgs;
+import com.volcengine.volcenginecc.fwcenter.inputs.GetVpcFireWallAclRuleArgs;
+import com.volcengine.volcenginecc.fwcenter.inputs.GetVpcFireWallAclRulePlainArgs;
+import com.volcengine.volcenginecc.fwcenter.outputs.GetAddressBookResult;
+import com.volcengine.volcenginecc.fwcenter.outputs.GetAddressBooksResult;
+import com.volcengine.volcenginecc.fwcenter.outputs.GetControlPoliciesResult;
+import com.volcengine.volcenginecc.fwcenter.outputs.GetControlPolicyResult;
 import com.volcengine.volcenginecc.fwcenter.outputs.GetDnsControlPoliciesResult;
 import com.volcengine.volcenginecc.fwcenter.outputs.GetDnsControlPolicyResult;
+import com.volcengine.volcenginecc.fwcenter.outputs.GetVpcFireWallAclRuleResult;
+import com.volcengine.volcenginecc.fwcenter.outputs.GetVpcFireWallAclRulesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class FwcenterFunctions {
+    /**
+     * Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBookResult> getAddressBook(GetAddressBookArgs args) {
+        return getAddressBook(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static CompletableFuture<GetAddressBookResult> getAddressBookPlain(GetAddressBookPlainArgs args) {
+        return getAddressBookPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBookResult> getAddressBook(GetAddressBookArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getAddressBook:getAddressBook", TypeShape.of(GetAddressBookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBookResult> getAddressBook(GetAddressBookArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getAddressBook:getAddressBook", TypeShape.of(GetAddressBookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static CompletableFuture<GetAddressBookResult> getAddressBookPlain(GetAddressBookPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getAddressBook:getAddressBook", TypeShape.of(GetAddressBookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBooksResult> getAddressBooks() {
+        return getAddressBooks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static CompletableFuture<GetAddressBooksResult> getAddressBooksPlain() {
+        return getAddressBooksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBooksResult> getAddressBooks(InvokeArgs args) {
+        return getAddressBooks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static CompletableFuture<GetAddressBooksResult> getAddressBooksPlain(InvokeArgs args) {
+        return getAddressBooksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBooksResult> getAddressBooks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getAddressBooks:getAddressBooks", TypeShape.of(GetAddressBooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static Output<GetAddressBooksResult> getAddressBooks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getAddressBooks:getAddressBooks", TypeShape.of(GetAddressBooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::AddressBook
+     * 
+     */
+    public static CompletableFuture<GetAddressBooksResult> getAddressBooksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getAddressBooks:getAddressBooks", TypeShape.of(GetAddressBooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPoliciesResult> getControlPolicies() {
+        return getControlPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static CompletableFuture<GetControlPoliciesResult> getControlPoliciesPlain() {
+        return getControlPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPoliciesResult> getControlPolicies(InvokeArgs args) {
+        return getControlPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static CompletableFuture<GetControlPoliciesResult> getControlPoliciesPlain(InvokeArgs args) {
+        return getControlPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPoliciesResult> getControlPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getControlPolicies:getControlPolicies", TypeShape.of(GetControlPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPoliciesResult> getControlPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getControlPolicies:getControlPolicies", TypeShape.of(GetControlPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static CompletableFuture<GetControlPoliciesResult> getControlPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getControlPolicies:getControlPolicies", TypeShape.of(GetControlPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPolicyResult> getControlPolicy(GetControlPolicyArgs args) {
+        return getControlPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static CompletableFuture<GetControlPolicyResult> getControlPolicyPlain(GetControlPolicyPlainArgs args) {
+        return getControlPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPolicyResult> getControlPolicy(GetControlPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getControlPolicy:getControlPolicy", TypeShape.of(GetControlPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static Output<GetControlPolicyResult> getControlPolicy(GetControlPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getControlPolicy:getControlPolicy", TypeShape.of(GetControlPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::ControlPolicy
+     * 
+     */
+    public static CompletableFuture<GetControlPolicyResult> getControlPolicyPlain(GetControlPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getControlPolicy:getControlPolicy", TypeShape.of(GetControlPolicyResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Plural Data Source schema for Volcengine::FWCenter::DnsControlPolicy
      * 
@@ -100,5 +280,89 @@ public final class FwcenterFunctions {
      */
     public static CompletableFuture<GetDnsControlPolicyResult> getDnsControlPolicyPlain(GetDnsControlPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getDnsControlPolicy:getDnsControlPolicy", TypeShape.of(GetDnsControlPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRuleResult> getVpcFireWallAclRule(GetVpcFireWallAclRuleArgs args) {
+        return getVpcFireWallAclRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static CompletableFuture<GetVpcFireWallAclRuleResult> getVpcFireWallAclRulePlain(GetVpcFireWallAclRulePlainArgs args) {
+        return getVpcFireWallAclRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRuleResult> getVpcFireWallAclRule(GetVpcFireWallAclRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getVpcFireWallAclRule:getVpcFireWallAclRule", TypeShape.of(GetVpcFireWallAclRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRuleResult> getVpcFireWallAclRule(GetVpcFireWallAclRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getVpcFireWallAclRule:getVpcFireWallAclRule", TypeShape.of(GetVpcFireWallAclRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static CompletableFuture<GetVpcFireWallAclRuleResult> getVpcFireWallAclRulePlain(GetVpcFireWallAclRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getVpcFireWallAclRule:getVpcFireWallAclRule", TypeShape.of(GetVpcFireWallAclRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRulesResult> getVpcFireWallAclRules() {
+        return getVpcFireWallAclRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static CompletableFuture<GetVpcFireWallAclRulesResult> getVpcFireWallAclRulesPlain() {
+        return getVpcFireWallAclRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRulesResult> getVpcFireWallAclRules(InvokeArgs args) {
+        return getVpcFireWallAclRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static CompletableFuture<GetVpcFireWallAclRulesResult> getVpcFireWallAclRulesPlain(InvokeArgs args) {
+        return getVpcFireWallAclRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRulesResult> getVpcFireWallAclRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getVpcFireWallAclRules:getVpcFireWallAclRules", TypeShape.of(GetVpcFireWallAclRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static Output<GetVpcFireWallAclRulesResult> getVpcFireWallAclRules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:fwcenter/getVpcFireWallAclRules:getVpcFireWallAclRules", TypeShape.of(GetVpcFireWallAclRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::FWCenter::VpcFirewallAclRule
+     * 
+     */
+    public static CompletableFuture<GetVpcFireWallAclRulesResult> getVpcFireWallAclRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:fwcenter/getVpcFireWallAclRules:getVpcFireWallAclRules", TypeShape.of(GetVpcFireWallAclRulesResult.class), args, Utilities.withVersion(options));
     }
 }

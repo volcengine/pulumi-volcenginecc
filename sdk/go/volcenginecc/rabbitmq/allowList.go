@@ -14,40 +14,6 @@ import (
 
 // RabbitMQ access allowlist
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := volcenginecc.NewRabbitmqAllowlist(ctx, "RabbitMQAllowListDemo", &volcenginecc.RabbitmqAllowlistArgs{
-//				AllowListType: "IPv4",
-//				AllowList:     "192.x.0.0/24",
-//				AllowListName: "ccapi-test",
-//				AllowListDesc: "test-desc",
-//				AssociatedInstances: []map[string]interface{}{
-//					map[string]interface{}{
-//						"instanceId": "rbtmq-a69238e***",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

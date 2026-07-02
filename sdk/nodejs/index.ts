@@ -54,6 +54,7 @@ import * as tos from "./tos";
 import * as transitrouter from "./transitrouter";
 import * as types from "./types";
 import * as vedbm from "./vedbm";
+import * as veenedge from "./veenedge";
 import * as vefaas from "./vefaas";
 import * as vepfs from "./vepfs";
 import * as vke from "./vke";
@@ -107,6 +108,7 @@ export {
     transitrouter,
     types,
     vedbm,
+    veenedge,
     vefaas,
     vepfs,
     vke,

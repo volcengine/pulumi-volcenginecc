@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.redis.InstanceArgs;
 import com.volcengine.volcenginecc.redis.inputs.InstanceState;
+import com.volcengine.volcenginecc.redis.outputs.InstanceBackup;
 import com.volcengine.volcenginecc.redis.outputs.InstanceBackupRestore;
 import com.volcengine.volcenginecc.redis.outputs.InstanceCapacity;
 import com.volcengine.volcenginecc.redis.outputs.InstanceConfigureNode;
@@ -83,6 +84,7 @@ import javax.annotation.Nullable;
  *             .noAuthMode("open")
  *             .parameterGroupId("DefaultParamGroupId-6.0")
  *             .continuousBackup(true)
+ *             .createBackup(true)
  *             .build());
  * 
  *     }
@@ -155,6 +157,12 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<InstanceBackupRestore> backupRestore() {
         return this.backupRestore;
+    }
+    @Export(name="backups", refs={List.class,InstanceBackup.class}, tree="[0,1]")
+    private Output<List<InstanceBackup>> backups;
+
+    public Output<List<InstanceBackup>> backups() {
+        return this.backups;
     }
     /**
      * Blue-green deployment role of the instance. Valid values: Blue: blue instance. Green: green instance. This parameter is returned only for Redis instances that have used the blue-green deployment feature.

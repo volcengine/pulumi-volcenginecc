@@ -11,9 +11,9 @@ import * as utilities from "../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@pulumi/volcenginecc";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
- * const cBRBackupPolicyDemo = new volcenginecc.index.CbrBackuppolicy("CBRBackupPolicyDemo", {
+ * const cBRBackupPolicyDemo = new volcenginecc.cbr.BackupPolicy("CBRBackupPolicyDemo", {
  *     backupType: "INCREMENTAL",
  *     crontab: "0 2,1,0 * * 1,2",
  *     enablePolicy: false,

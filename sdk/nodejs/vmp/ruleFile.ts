@@ -11,9 +11,9 @@ import * as utilities from "../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@pulumi/volcenginecc";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
- * const vMPRuleFileDemo = new volcenginecc.index.VmpRulefile("VMPRuleFileDemo", {
+ * const vMPRuleFileDemo = new volcenginecc.vmp.RuleFile("VMPRuleFileDemo", {
  *     description: "这是一个测试规则文件",
  *     targetWorkspaceId: "3ba7844b-e7fc-4688-a869-****",
  *     content: `groups:

@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as volcenginecc from "@pulumi/volcenginecc";
+ * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
- * const redisParameterGroupDemo = new volcenginecc.index.RedisParametergroup("RedisParameterGroupDemo", {
+ * const redisParameterGroupDemo = new volcenginecc.redis.ParameterGroup("RedisParameterGroupDemo", {
  *     engineVersion: "6.0",
  *     description: "用于测试的Redis 6.0自定义参数组",
  *     paramValues: [

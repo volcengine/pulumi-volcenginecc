@@ -22,18 +22,18 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc"
+//	"github.com/volcengine/pulumi-volcenginecc/sdk/go/volcenginecc/vmp"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := volcenginecc.NewVmpRulefile(ctx, "VMPRuleFileDemo", &volcenginecc.VmpRulefileArgs{
-//				Description:       "这是一个测试规则文件",
-//				TargetWorkspaceId: "3ba7844b-e7fc-4688-a869-****",
-//				Content:           "groups:\n- name: example\n  rules:\n  - record: example_metric\n    expr: sum(up)",
-//				WorkspaceId:       "3ba7844b-e7fc-4688-a869-****",
-//				Name:              "test-rule-file",
+//			_, err := vmp.NewRuleFile(ctx, "VMPRuleFileDemo", &vmp.RuleFileArgs{
+//				Description:       pulumi.String("这是一个测试规则文件"),
+//				TargetWorkspaceId: pulumi.String("3ba7844b-e7fc-4688-a869-****"),
+//				Content:           pulumi.String("groups:\n- name: example\n  rules:\n  - record: example_metric\n    expr: sum(up)"),
+//				WorkspaceId:       pulumi.String("3ba7844b-e7fc-4688-a869-****"),
+//				Name:              pulumi.String("test-rule-file"),
 //			})
 //			if err != nil {
 //				return err

@@ -50,6 +50,11 @@ export type BucketRename = import("./bucketRename").BucketRename;
 export const BucketRename: typeof import("./bucketRename").BucketRename = null as any;
 utilities.lazyLoad(exports, ["BucketRename"], () => require("./bucketRename"));
 
+export { BucketWebsiteArgs, BucketWebsiteState } from "./bucketWebsite";
+export type BucketWebsite = import("./bucketWebsite").BucketWebsite;
+export const BucketWebsite: typeof import("./bucketWebsite").BucketWebsite = null as any;
+utilities.lazyLoad(exports, ["BucketWebsite"], () => require("./bucketWebsite"));
+
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
@@ -130,6 +135,16 @@ export const getBucketRenames: typeof import("./getBucketRenames").getBucketRena
 export const getBucketRenamesOutput: typeof import("./getBucketRenames").getBucketRenamesOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketRenames","getBucketRenamesOutput"], () => require("./getBucketRenames"));
 
+export { GetBucketWebsiteArgs, GetBucketWebsiteResult, GetBucketWebsiteOutputArgs } from "./getBucketWebsite";
+export const getBucketWebsite: typeof import("./getBucketWebsite").getBucketWebsite = null as any;
+export const getBucketWebsiteOutput: typeof import("./getBucketWebsite").getBucketWebsiteOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketWebsite","getBucketWebsiteOutput"], () => require("./getBucketWebsite"));
+
+export { GetBucketWebsitesResult } from "./getBucketWebsites";
+export const getBucketWebsites: typeof import("./getBucketWebsites").getBucketWebsites = null as any;
+export const getBucketWebsitesOutput: typeof import("./getBucketWebsites").getBucketWebsitesOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketWebsites","getBucketWebsitesOutput"], () => require("./getBucketWebsites"));
+
 export { GetBucketsResult } from "./getBuckets";
 export const getBuckets: typeof import("./getBuckets").getBuckets = null as any;
 export const getBucketsOutput: typeof import("./getBuckets").getBucketsOutput = null as any;
@@ -158,6 +173,8 @@ const _module = {
                 return new BucketRealtimeLog(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketRename:BucketRename":
                 return new BucketRename(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketWebsite:BucketWebsite":
+                return new BucketWebsite(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -172,3 +189,4 @@ pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketMirrorBack", _m
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRealtimeLog", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRename", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketWebsite", _module)

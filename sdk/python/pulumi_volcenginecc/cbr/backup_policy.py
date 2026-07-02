@@ -353,11 +353,11 @@ class BackupPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_volcenginecc as volcenginecc
 
-        c_br_backup_policy_demo = volcenginecc.index.CbrBackuppolicy("CBRBackupPolicyDemo",
-            backup_type=INCREMENTAL,
-            crontab=0 2,1,0 * * 1,2,
+        c_br_backup_policy_demo = volcenginecc.cbr.BackupPolicy("CBRBackupPolicyDemo",
+            backup_type="INCREMENTAL",
+            crontab="0 2,1,0 * * 1,2",
             enable_policy=False,
-            name=CBRBackupPolicyDemo,
+            name="CBRBackupPolicyDemo",
             retention_day=67,
             retention_num_max=-1,
             retention_num_min=2)
@@ -394,11 +394,11 @@ class BackupPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_volcenginecc as volcenginecc
 
-        c_br_backup_policy_demo = volcenginecc.index.CbrBackuppolicy("CBRBackupPolicyDemo",
-            backup_type=INCREMENTAL,
-            crontab=0 2,1,0 * * 1,2,
+        c_br_backup_policy_demo = volcenginecc.cbr.BackupPolicy("CBRBackupPolicyDemo",
+            backup_type="INCREMENTAL",
+            crontab="0 2,1,0 * * 1,2",
             enable_policy=False,
-            name=CBRBackupPolicyDemo,
+            name="CBRBackupPolicyDemo",
             retention_day=67,
             retention_num_max=-1,
             retention_num_min=2)
