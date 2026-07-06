@@ -10,13 +10,197 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.id.inputs.GetAuthConfigArgs;
+import com.volcengine.volcenginecc.id.inputs.GetAuthConfigPlainArgs;
+import com.volcengine.volcenginecc.id.inputs.GetPermissionNamespaceArgs;
+import com.volcengine.volcenginecc.id.inputs.GetPermissionNamespacePlainArgs;
 import com.volcengine.volcenginecc.id.inputs.GetServiceArgs;
 import com.volcengine.volcenginecc.id.inputs.GetServicePlainArgs;
+import com.volcengine.volcenginecc.id.inputs.GetUserPoolArgs;
+import com.volcengine.volcenginecc.id.inputs.GetUserPoolPlainArgs;
+import com.volcengine.volcenginecc.id.inputs.GetWorkloadPoolArgs;
+import com.volcengine.volcenginecc.id.inputs.GetWorkloadPoolPlainArgs;
+import com.volcengine.volcenginecc.id.outputs.GetAuthConfigResult;
+import com.volcengine.volcenginecc.id.outputs.GetAuthConfigsResult;
+import com.volcengine.volcenginecc.id.outputs.GetPermissionNamespaceResult;
+import com.volcengine.volcenginecc.id.outputs.GetPermissionNamespacesResult;
 import com.volcengine.volcenginecc.id.outputs.GetServiceResult;
 import com.volcengine.volcenginecc.id.outputs.GetServicesResult;
+import com.volcengine.volcenginecc.id.outputs.GetUserPoolResult;
+import com.volcengine.volcenginecc.id.outputs.GetUserPoolsResult;
+import com.volcengine.volcenginecc.id.outputs.GetWorkloadPoolResult;
+import com.volcengine.volcenginecc.id.outputs.GetWorkloadPoolsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class IdFunctions {
+    /**
+     * Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigResult> getAuthConfig(GetAuthConfigArgs args) {
+        return getAuthConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static CompletableFuture<GetAuthConfigResult> getAuthConfigPlain(GetAuthConfigPlainArgs args) {
+        return getAuthConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigResult> getAuthConfig(GetAuthConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getAuthConfig:getAuthConfig", TypeShape.of(GetAuthConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigResult> getAuthConfig(GetAuthConfigArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getAuthConfig:getAuthConfig", TypeShape.of(GetAuthConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static CompletableFuture<GetAuthConfigResult> getAuthConfigPlain(GetAuthConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getAuthConfig:getAuthConfig", TypeShape.of(GetAuthConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigsResult> getAuthConfigs() {
+        return getAuthConfigs(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static CompletableFuture<GetAuthConfigsResult> getAuthConfigsPlain() {
+        return getAuthConfigsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigsResult> getAuthConfigs(InvokeArgs args) {
+        return getAuthConfigs(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static CompletableFuture<GetAuthConfigsResult> getAuthConfigsPlain(InvokeArgs args) {
+        return getAuthConfigsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigsResult> getAuthConfigs(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getAuthConfigs:getAuthConfigs", TypeShape.of(GetAuthConfigsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static Output<GetAuthConfigsResult> getAuthConfigs(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getAuthConfigs:getAuthConfigs", TypeShape.of(GetAuthConfigsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::AuthConfig
+     * 
+     */
+    public static CompletableFuture<GetAuthConfigsResult> getAuthConfigsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getAuthConfigs:getAuthConfigs", TypeShape.of(GetAuthConfigsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespaceResult> getPermissionNamespace(GetPermissionNamespaceArgs args) {
+        return getPermissionNamespace(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static CompletableFuture<GetPermissionNamespaceResult> getPermissionNamespacePlain(GetPermissionNamespacePlainArgs args) {
+        return getPermissionNamespacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespaceResult> getPermissionNamespace(GetPermissionNamespaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getPermissionNamespace:getPermissionNamespace", TypeShape.of(GetPermissionNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespaceResult> getPermissionNamespace(GetPermissionNamespaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getPermissionNamespace:getPermissionNamespace", TypeShape.of(GetPermissionNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static CompletableFuture<GetPermissionNamespaceResult> getPermissionNamespacePlain(GetPermissionNamespacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getPermissionNamespace:getPermissionNamespace", TypeShape.of(GetPermissionNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespacesResult> getPermissionNamespaces() {
+        return getPermissionNamespaces(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static CompletableFuture<GetPermissionNamespacesResult> getPermissionNamespacesPlain() {
+        return getPermissionNamespacesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespacesResult> getPermissionNamespaces(InvokeArgs args) {
+        return getPermissionNamespaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static CompletableFuture<GetPermissionNamespacesResult> getPermissionNamespacesPlain(InvokeArgs args) {
+        return getPermissionNamespacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespacesResult> getPermissionNamespaces(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getPermissionNamespaces:getPermissionNamespaces", TypeShape.of(GetPermissionNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static Output<GetPermissionNamespacesResult> getPermissionNamespaces(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getPermissionNamespaces:getPermissionNamespaces", TypeShape.of(GetPermissionNamespacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::PermissionNamespace
+     * 
+     */
+    public static CompletableFuture<GetPermissionNamespacesResult> getPermissionNamespacesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getPermissionNamespaces:getPermissionNamespaces", TypeShape.of(GetPermissionNamespacesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::ID::Service
      * 
@@ -100,5 +284,173 @@ public final class IdFunctions {
      */
     public static CompletableFuture<GetServicesResult> getServicesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:id/getServices:getServices", TypeShape.of(GetServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolResult> getUserPool(GetUserPoolArgs args) {
+        return getUserPool(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static CompletableFuture<GetUserPoolResult> getUserPoolPlain(GetUserPoolPlainArgs args) {
+        return getUserPoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolResult> getUserPool(GetUserPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getUserPool:getUserPool", TypeShape.of(GetUserPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolResult> getUserPool(GetUserPoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getUserPool:getUserPool", TypeShape.of(GetUserPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static CompletableFuture<GetUserPoolResult> getUserPoolPlain(GetUserPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getUserPool:getUserPool", TypeShape.of(GetUserPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolsResult> getUserPools() {
+        return getUserPools(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static CompletableFuture<GetUserPoolsResult> getUserPoolsPlain() {
+        return getUserPoolsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolsResult> getUserPools(InvokeArgs args) {
+        return getUserPools(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static CompletableFuture<GetUserPoolsResult> getUserPoolsPlain(InvokeArgs args) {
+        return getUserPoolsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolsResult> getUserPools(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getUserPools:getUserPools", TypeShape.of(GetUserPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static Output<GetUserPoolsResult> getUserPools(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getUserPools:getUserPools", TypeShape.of(GetUserPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::UserPool
+     * 
+     */
+    public static CompletableFuture<GetUserPoolsResult> getUserPoolsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getUserPools:getUserPools", TypeShape.of(GetUserPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolResult> getWorkloadPool(GetWorkloadPoolArgs args) {
+        return getWorkloadPool(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static CompletableFuture<GetWorkloadPoolResult> getWorkloadPoolPlain(GetWorkloadPoolPlainArgs args) {
+        return getWorkloadPoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolResult> getWorkloadPool(GetWorkloadPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getWorkloadPool:getWorkloadPool", TypeShape.of(GetWorkloadPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolResult> getWorkloadPool(GetWorkloadPoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getWorkloadPool:getWorkloadPool", TypeShape.of(GetWorkloadPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static CompletableFuture<GetWorkloadPoolResult> getWorkloadPoolPlain(GetWorkloadPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getWorkloadPool:getWorkloadPool", TypeShape.of(GetWorkloadPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolsResult> getWorkloadPools() {
+        return getWorkloadPools(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static CompletableFuture<GetWorkloadPoolsResult> getWorkloadPoolsPlain() {
+        return getWorkloadPoolsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolsResult> getWorkloadPools(InvokeArgs args) {
+        return getWorkloadPools(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static CompletableFuture<GetWorkloadPoolsResult> getWorkloadPoolsPlain(InvokeArgs args) {
+        return getWorkloadPoolsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolsResult> getWorkloadPools(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getWorkloadPools:getWorkloadPools", TypeShape.of(GetWorkloadPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static Output<GetWorkloadPoolsResult> getWorkloadPools(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:id/getWorkloadPools:getWorkloadPools", TypeShape.of(GetWorkloadPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ID::WorkloadPool
+     * 
+     */
+    public static CompletableFuture<GetWorkloadPoolsResult> getWorkloadPoolsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:id/getWorkloadPools:getWorkloadPools", TypeShape.of(GetWorkloadPoolsResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -10,13 +10,101 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.veenedge.inputs.GetCloudServerArgs;
+import com.volcengine.volcenginecc.veenedge.inputs.GetCloudServerPlainArgs;
 import com.volcengine.volcenginecc.veenedge.inputs.GetVpcArgs;
 import com.volcengine.volcenginecc.veenedge.inputs.GetVpcPlainArgs;
+import com.volcengine.volcenginecc.veenedge.outputs.GetCloudServerResult;
+import com.volcengine.volcenginecc.veenedge.outputs.GetCloudServersResult;
 import com.volcengine.volcenginecc.veenedge.outputs.GetVpcResult;
 import com.volcengine.volcenginecc.veenedge.outputs.GetVpcsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class VeenedgeFunctions {
+    /**
+     * Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServerResult> getCloudServer(GetCloudServerArgs args) {
+        return getCloudServer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static CompletableFuture<GetCloudServerResult> getCloudServerPlain(GetCloudServerPlainArgs args) {
+        return getCloudServerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServerResult> getCloudServer(GetCloudServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getCloudServer:getCloudServer", TypeShape.of(GetCloudServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServerResult> getCloudServer(GetCloudServerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getCloudServer:getCloudServer", TypeShape.of(GetCloudServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static CompletableFuture<GetCloudServerResult> getCloudServerPlain(GetCloudServerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:veenedge/getCloudServer:getCloudServer", TypeShape.of(GetCloudServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServersResult> getCloudServers() {
+        return getCloudServers(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static CompletableFuture<GetCloudServersResult> getCloudServersPlain() {
+        return getCloudServersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServersResult> getCloudServers(InvokeArgs args) {
+        return getCloudServers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static CompletableFuture<GetCloudServersResult> getCloudServersPlain(InvokeArgs args) {
+        return getCloudServersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServersResult> getCloudServers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getCloudServers:getCloudServers", TypeShape.of(GetCloudServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static Output<GetCloudServersResult> getCloudServers(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getCloudServers:getCloudServers", TypeShape.of(GetCloudServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::CloudServer
+     * 
+     */
+    public static CompletableFuture<GetCloudServersResult> getCloudServersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:veenedge/getCloudServers:getCloudServers", TypeShape.of(GetCloudServersResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::VeenEdge::VPC
      * 

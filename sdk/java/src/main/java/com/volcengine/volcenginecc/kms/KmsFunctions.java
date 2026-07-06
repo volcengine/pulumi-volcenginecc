@@ -11,11 +11,15 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyArgs;
+import com.volcengine.volcenginecc.kms.inputs.GetKeyMaterialArgs;
+import com.volcengine.volcenginecc.kms.inputs.GetKeyMaterialPlainArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyPlainArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyRingArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetKeyRingPlainArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetSecretArgs;
 import com.volcengine.volcenginecc.kms.inputs.GetSecretPlainArgs;
+import com.volcengine.volcenginecc.kms.outputs.GetKeyMaterialResult;
+import com.volcengine.volcenginecc.kms.outputs.GetKeyMaterialsResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyRingResult;
 import com.volcengine.volcenginecc.kms.outputs.GetKeyRingsResult;
@@ -59,6 +63,90 @@ public final class KmsFunctions {
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialResult> getKeyMaterial(GetKeyMaterialArgs args) {
+        return getKeyMaterial(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static CompletableFuture<GetKeyMaterialResult> getKeyMaterialPlain(GetKeyMaterialPlainArgs args) {
+        return getKeyMaterialPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialResult> getKeyMaterial(GetKeyMaterialArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyMaterial:getKeyMaterial", TypeShape.of(GetKeyMaterialResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialResult> getKeyMaterial(GetKeyMaterialArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyMaterial:getKeyMaterial", TypeShape.of(GetKeyMaterialResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static CompletableFuture<GetKeyMaterialResult> getKeyMaterialPlain(GetKeyMaterialPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKeyMaterial:getKeyMaterial", TypeShape.of(GetKeyMaterialResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialsResult> getKeyMaterials() {
+        return getKeyMaterials(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static CompletableFuture<GetKeyMaterialsResult> getKeyMaterialsPlain() {
+        return getKeyMaterialsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialsResult> getKeyMaterials(InvokeArgs args) {
+        return getKeyMaterials(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static CompletableFuture<GetKeyMaterialsResult> getKeyMaterialsPlain(InvokeArgs args) {
+        return getKeyMaterialsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialsResult> getKeyMaterials(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyMaterials:getKeyMaterials", TypeShape.of(GetKeyMaterialsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static Output<GetKeyMaterialsResult> getKeyMaterials(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:kms/getKeyMaterials:getKeyMaterials", TypeShape.of(GetKeyMaterialsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::KMS::KeyMaterial
+     * 
+     */
+    public static CompletableFuture<GetKeyMaterialsResult> getKeyMaterialsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:kms/getKeyMaterials:getKeyMaterials", TypeShape.of(GetKeyMaterialsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::KMS::KeyRing

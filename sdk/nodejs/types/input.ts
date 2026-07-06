@@ -7423,6 +7423,51 @@ export namespace fwcenter {
         vpcId?: pulumi.Input<string>;
     }
 
+    export interface NatFireWallControlPolicyDestPortListV1 {
+        /**
+         * Specific address information.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * Description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Address type. ip: IPv4; ipv6: IPv6; domain: domain name; port: port.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NatFireWallControlPolicyDestinationCidrListV1 {
+        /**
+         * Specific address information.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * Description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Address type. ip: IPv4; ipv6: IPv6; domain: domain name; port: port.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NatFireWallControlPolicySourceCidrListV1 {
+        /**
+         * Specific address information.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * Description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Address type. ip: IPv4; ipv6: IPv6; domain: domain name; port: port.
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface VpcFireWallAclRuleDestPortListV1 {
         /**
          * Detailed address information.
@@ -8104,6 +8149,59 @@ export namespace iam {
 }
 
 export namespace id {
+    export interface AuthConfigApiKeyAuthConfig {
+        /**
+         * ApiKey Value
+         */
+        apiKey?: pulumi.Input<string>;
+        apiKeyMetadatas?: pulumi.Input<pulumi.Input<inputs.id.AuthConfigApiKeyAuthConfigApiKeyMetadata>[]>;
+        /**
+         * ApiKey Name
+         */
+        apiKeyName?: pulumi.Input<string>;
+        /**
+         * Expiration Timestamp
+         */
+        expiryTimestamp?: pulumi.Input<number>;
+    }
+
+    export interface AuthConfigApiKeyAuthConfigApiKeyMetadata {
+        /**
+         * Parameter Location
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * Parameter Name
+         */
+        parameterName?: pulumi.Input<string>;
+    }
+
+    export interface AuthConfigJwtAuthConfig {
+        /**
+         * Allowed Audience List
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Allowed Client List
+         */
+        allowedClients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * JWT Discovery URL。
+         */
+        discoveryUrl?: pulumi.Input<string>;
+    }
+
+    export interface PermissionNamespaceTag {
+        /**
+         * Tag Key
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Tag Value
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface ServiceBackend {
         /**
          * Backend service domain name, for example api.example.com
@@ -8250,6 +8348,39 @@ export namespace id {
     }
 
     export interface ServiceTag {
+        /**
+         * Tag key
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Tag value
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface UserPoolBrand {
+        /**
+         * Brand logo URL
+         */
+        logoUri?: pulumi.Input<string>;
+        /**
+         * Brand name
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface UserPoolTag {
+        /**
+         * Tag key
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Tag value
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadPoolTag {
         /**
          * Tag key
          */
@@ -14346,6 +14477,364 @@ export namespace vedbm {
 }
 
 export namespace veenedge {
+    export interface CloudServerAdvancedConfiguration {
+        /**
+         * Enable deletion protection.
+         */
+        deleteProtection?: pulumi.Input<boolean>;
+        /**
+         * Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+         */
+        instanceDesc?: pulumi.Input<string>;
+        /**
+         * Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+         */
+        instanceHostName?: pulumi.Input<string>;
+        /**
+         * Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+         */
+        instanceName?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerBillingConfig {
+        /**
+         * Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+         */
+        bandwidthBillingMethod?: pulumi.Input<string>;
+        /**
+         * Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+         */
+        computingBillingMethod?: pulumi.Input<string>;
+        /**
+         * Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+         */
+        prePaidPeriod?: pulumi.Input<string>;
+        /**
+         * Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+         */
+        prePaidPeriodNumber?: pulumi.Input<number>;
+    }
+
+    export interface CloudServerCustomData {
+        /**
+         * Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+         */
+        data?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerInstanceAreaNum {
+        /**
+         * Region name
+         */
+        areaName?: pulumi.Input<string>;
+        /**
+         * Node name. Specify the node where you want to deploy the edge service.
+         */
+        clusterName?: pulumi.Input<string>;
+        /**
+         * Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+         */
+        defaultIsp?: pulumi.Input<string>;
+        /**
+         * Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+         */
+        externalNetworkMode?: pulumi.Input<string>;
+        /**
+         * List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+         */
+        hostNameLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Carrier. Possible values: CMCC, CTCC, CUCC.
+         */
+        isp?: pulumi.Input<string>;
+        /**
+         * Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+         */
+        multiInterfaceNameConfig?: pulumi.Input<inputs.veenedge.CloudServerInstanceAreaNumMultiInterfaceNameConfig>;
+        /**
+         * Number of instances.
+         */
+        num?: pulumi.Input<number>;
+        /**
+         * Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+         */
+        singleInterfaceNameConfig?: pulumi.Input<inputs.veenedge.CloudServerInstanceAreaNumSingleInterfaceNameConfig>;
+        /**
+         * Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+         */
+        subnetIdentity?: pulumi.Input<string>;
+        /**
+         * Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+         */
+        vpcIdentity?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerInstanceAreaNumMultiInterfaceNameConfig {
+        /**
+         * Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+         */
+        cmccExternalInterfaceName?: pulumi.Input<string>;
+        /**
+         * Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+         */
+        ctccExternalInterfaceName?: pulumi.Input<string>;
+        /**
+         * Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+         */
+        cuccExternalInterfaceName?: pulumi.Input<string>;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+         */
+        internalInterfaceName?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerInstanceAreaNumSingleInterfaceNameConfig {
+        /**
+         * Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+         */
+        externalInterfaceName?: pulumi.Input<string>;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+         */
+        internalInterfaceName?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerNetworkConfig {
+        /**
+         * Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+         */
+        bandwidthPeak?: pulumi.Input<string>;
+        bandwidthPeakLimitIspConfigs?: pulumi.Input<pulumi.Input<inputs.veenedge.CloudServerNetworkConfigBandwidthPeakLimitIspConfig>[]>;
+        /**
+         * Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+         */
+        boundEipShareBandwidthPeak?: pulumi.Input<string>;
+        /**
+         * Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+         */
+        customExternalInterfaceName?: pulumi.Input<string>;
+        /**
+         * Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+         */
+        customInternalInterfaceName?: pulumi.Input<string>;
+        /**
+         * Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+         */
+        disableIpv4?: pulumi.Input<boolean>;
+        /**
+         * DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+         */
+        dnsLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+         */
+        dnsType?: pulumi.Input<string>;
+        /**
+         * Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+         */
+        enableIpv6?: pulumi.Input<boolean>;
+        /**
+         * Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+         */
+        limitMode?: pulumi.Input<string>;
+        /**
+         * Number of auxiliary private IPs.
+         */
+        secondaryInternalIpNum?: pulumi.Input<number>;
+        /**
+         * List of bound global firewall IDs.
+         */
+        securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+         */
+        tcpTimeout?: pulumi.Input<number>;
+        /**
+         * UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+         */
+        udpTimeout?: pulumi.Input<number>;
+    }
+
+    export interface CloudServerNetworkConfigBandwidthPeakLimitIspConfig {
+        /**
+         * Bandwidth limit value for this carrier.
+         */
+        bandwidthPeakLimit?: pulumi.Input<string>;
+        /**
+         * Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+         */
+        isp?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerScheduleStrategy {
+        /**
+         * Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+         */
+        priceStrategy?: pulumi.Input<string>;
+        /**
+         * Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+         */
+        scheduleStrategy?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerSecretConfig {
+        /**
+         * Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+         */
+        secretData?: pulumi.Input<string>;
+        /**
+         * Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+         */
+        secretType?: pulumi.Input<number>;
+    }
+
+    export interface CloudServerStorageConfig {
+        /**
+         * Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+         */
+        dataDisk?: pulumi.Input<inputs.veenedge.CloudServerStorageConfigDataDisk>;
+        dataDiskLists?: pulumi.Input<pulumi.Input<inputs.veenedge.CloudServerStorageConfigDataDiskList>[]>;
+        dataLocalDisks?: pulumi.Input<pulumi.Input<inputs.veenedge.CloudServerStorageConfigDataLocalDisk>[]>;
+        /**
+         * System disk configuration
+         */
+        systemDisk?: pulumi.Input<inputs.veenedge.CloudServerStorageConfigSystemDisk>;
+    }
+
+    export interface CloudServerStorageConfigDataDisk {
+        /**
+         * Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+         */
+        capacity?: pulumi.Input<string>;
+        /**
+         * Release disk with instance
+         */
+        deleteWithInstance?: pulumi.Input<boolean>;
+        /**
+         * Disk unique identifier
+         */
+        diskIdentity?: pulumi.Input<string>;
+        /**
+         * Local disk type.
+         */
+        localDiskClass?: pulumi.Input<string>;
+        /**
+         * Local disk resource name.
+         */
+        localDiskResourceName?: pulumi.Input<string>;
+        /**
+         * Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerStorageConfigDataDiskList {
+        /**
+         * Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+         */
+        capacity?: pulumi.Input<string>;
+        /**
+         * Release disk with instance
+         */
+        deleteWithInstance?: pulumi.Input<boolean>;
+        /**
+         * Disk unique identifier
+         */
+        diskIdentity?: pulumi.Input<string>;
+        /**
+         * Local disk type.
+         */
+        localDiskClass?: pulumi.Input<string>;
+        /**
+         * Local disk resource name.
+         */
+        localDiskResourceName?: pulumi.Input<string>;
+        /**
+         * Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerStorageConfigDataLocalDisk {
+        /**
+         * Disk specifications.
+         */
+        diskSpec?: pulumi.Input<inputs.veenedge.CloudServerStorageConfigDataLocalDiskDiskSpec>;
+        /**
+         * Number of disks
+         */
+        num?: pulumi.Input<number>;
+    }
+
+    export interface CloudServerStorageConfigDataLocalDiskDiskSpec {
+        /**
+         * Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+         */
+        capacity?: pulumi.Input<string>;
+        /**
+         * Release disk with instance
+         */
+        deleteWithInstance?: pulumi.Input<boolean>;
+        /**
+         * Disk unique identifier
+         */
+        diskIdentity?: pulumi.Input<string>;
+        /**
+         * Local disk type.
+         */
+        localDiskClass?: pulumi.Input<string>;
+        /**
+         * Local disk resource name.
+         */
+        localDiskResourceName?: pulumi.Input<string>;
+        /**
+         * Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerStorageConfigSystemDisk {
+        /**
+         * Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+         */
+        capacity?: pulumi.Input<string>;
+        /**
+         * Release disk with instance
+         */
+        deleteWithInstance?: pulumi.Input<boolean>;
+        /**
+         * Disk unique identifier
+         */
+        diskIdentity?: pulumi.Input<string>;
+        /**
+         * Local disk type.
+         */
+        localDiskClass?: pulumi.Input<string>;
+        /**
+         * Local disk resource name.
+         */
+        localDiskResourceName?: pulumi.Input<string>;
+        /**
+         * Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string>;
+    }
+
+    export interface CloudServerTag {
+        /**
+         * Tag key
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Tag value
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface VpcSubnet {
         /**
          * Subnet CIDR Block, e.g. 10.1.0.0/16
