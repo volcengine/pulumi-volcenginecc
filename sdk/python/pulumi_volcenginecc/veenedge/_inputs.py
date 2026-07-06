@@ -16,6 +16,40 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'CloudServerAdvancedConfigurationArgs',
+    'CloudServerAdvancedConfigurationArgsDict',
+    'CloudServerBillingConfigArgs',
+    'CloudServerBillingConfigArgsDict',
+    'CloudServerCustomDataArgs',
+    'CloudServerCustomDataArgsDict',
+    'CloudServerInstanceAreaNumArgs',
+    'CloudServerInstanceAreaNumArgsDict',
+    'CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs',
+    'CloudServerInstanceAreaNumMultiInterfaceNameConfigArgsDict',
+    'CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs',
+    'CloudServerInstanceAreaNumSingleInterfaceNameConfigArgsDict',
+    'CloudServerNetworkConfigArgs',
+    'CloudServerNetworkConfigArgsDict',
+    'CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs',
+    'CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgsDict',
+    'CloudServerScheduleStrategyArgs',
+    'CloudServerScheduleStrategyArgsDict',
+    'CloudServerSecretConfigArgs',
+    'CloudServerSecretConfigArgsDict',
+    'CloudServerStorageConfigArgs',
+    'CloudServerStorageConfigArgsDict',
+    'CloudServerStorageConfigDataDiskArgs',
+    'CloudServerStorageConfigDataDiskArgsDict',
+    'CloudServerStorageConfigDataDiskListArgs',
+    'CloudServerStorageConfigDataDiskListArgsDict',
+    'CloudServerStorageConfigDataLocalDiskArgs',
+    'CloudServerStorageConfigDataLocalDiskArgsDict',
+    'CloudServerStorageConfigDataLocalDiskDiskSpecArgs',
+    'CloudServerStorageConfigDataLocalDiskDiskSpecArgsDict',
+    'CloudServerStorageConfigSystemDiskArgs',
+    'CloudServerStorageConfigSystemDiskArgsDict',
+    'CloudServerTagArgs',
+    'CloudServerTagArgsDict',
     'VpcSubnetArgs',
     'VpcSubnetArgsDict',
     'VpcTagArgs',
@@ -23,6 +57,1769 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class CloudServerAdvancedConfigurationArgsDict(TypedDict):
+        delete_protection: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable deletion protection.
+        """
+        instance_desc: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+        """
+        instance_host_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \\n\\n-1, \\n\\n-2.
+        """
+        instance_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \\n\\n-1, \\n\\n-2.
+        """
+elif False:
+    CloudServerAdvancedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerAdvancedConfigurationArgs:
+    def __init__(__self__, *,
+                 delete_protection: Optional[pulumi.Input[builtins.bool]] = None,
+                 instance_desc: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_host_name: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.bool] delete_protection: Enable deletion protection.
+        :param pulumi.Input[builtins.str] instance_desc: Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+        :param pulumi.Input[builtins.str] instance_host_name: Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \\n\\n-1, \\n\\n-2.
+        :param pulumi.Input[builtins.str] instance_name: Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \\n\\n-1, \\n\\n-2.
+        """
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
+        if instance_desc is not None:
+            pulumi.set(__self__, "instance_desc", instance_desc)
+        if instance_host_name is not None:
+            pulumi.set(__self__, "instance_host_name", instance_host_name)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+
+    @property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable deletion protection.
+        """
+        return pulumi.get(self, "delete_protection")
+
+    @delete_protection.setter
+    def delete_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_protection", value)
+
+    @property
+    @pulumi.getter(name="instanceDesc")
+    def instance_desc(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+        """
+        return pulumi.get(self, "instance_desc")
+
+    @instance_desc.setter
+    def instance_desc(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_desc", value)
+
+    @property
+    @pulumi.getter(name="instanceHostName")
+    def instance_host_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \\n\\n-1, \\n\\n-2.
+        """
+        return pulumi.get(self, "instance_host_name")
+
+    @instance_host_name.setter
+    def instance_host_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_host_name", value)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \\n\\n-1, \\n\\n-2.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_name", value)
+
+
+if not MYPY:
+    class CloudServerBillingConfigArgsDict(TypedDict):
+        auto_renew: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+        """
+        bandwidth_billing_method: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        """
+        computing_billing_method: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+        """
+        pre_paid_period: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+        """
+        pre_paid_period_number: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+        """
+elif False:
+    CloudServerBillingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerBillingConfigArgs:
+    def __init__(__self__, *,
+                 auto_renew: Optional[pulumi.Input[builtins.bool]] = None,
+                 bandwidth_billing_method: Optional[pulumi.Input[builtins.str]] = None,
+                 computing_billing_method: Optional[pulumi.Input[builtins.str]] = None,
+                 pre_paid_period: Optional[pulumi.Input[builtins.str]] = None,
+                 pre_paid_period_number: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.bool] auto_renew: Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+        :param pulumi.Input[builtins.str] bandwidth_billing_method: Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        :param pulumi.Input[builtins.str] computing_billing_method: Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+        :param pulumi.Input[builtins.str] pre_paid_period: Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+        :param pulumi.Input[builtins.int] pre_paid_period_number: Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+        """
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
+        if bandwidth_billing_method is not None:
+            pulumi.set(__self__, "bandwidth_billing_method", bandwidth_billing_method)
+        if computing_billing_method is not None:
+            pulumi.set(__self__, "computing_billing_method", computing_billing_method)
+        if pre_paid_period is not None:
+            pulumi.set(__self__, "pre_paid_period", pre_paid_period)
+        if pre_paid_period_number is not None:
+            pulumi.set(__self__, "pre_paid_period_number", pre_paid_period_number)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+        """
+        return pulumi.get(self, "auto_renew")
+
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter(name="bandwidthBillingMethod")
+    def bandwidth_billing_method(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        """
+        return pulumi.get(self, "bandwidth_billing_method")
+
+    @bandwidth_billing_method.setter
+    def bandwidth_billing_method(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bandwidth_billing_method", value)
+
+    @property
+    @pulumi.getter(name="computingBillingMethod")
+    def computing_billing_method(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+        """
+        return pulumi.get(self, "computing_billing_method")
+
+    @computing_billing_method.setter
+    def computing_billing_method(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "computing_billing_method", value)
+
+    @property
+    @pulumi.getter(name="prePaidPeriod")
+    def pre_paid_period(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+        """
+        return pulumi.get(self, "pre_paid_period")
+
+    @pre_paid_period.setter
+    def pre_paid_period(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "pre_paid_period", value)
+
+    @property
+    @pulumi.getter(name="prePaidPeriodNumber")
+    def pre_paid_period_number(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+        """
+        return pulumi.get(self, "pre_paid_period_number")
+
+    @pre_paid_period_number.setter
+    def pre_paid_period_number(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "pre_paid_period_number", value)
+
+
+if not MYPY:
+    class CloudServerCustomDataArgsDict(TypedDict):
+        data: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+        """
+elif False:
+    CloudServerCustomDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerCustomDataArgs:
+    def __init__(__self__, *,
+                 data: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] data: Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+        """
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "data", value)
+
+
+if not MYPY:
+    class CloudServerInstanceAreaNumArgsDict(TypedDict):
+        area_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Region name
+        """
+        cluster_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Node name. Specify the node where you want to deploy the edge service.
+        """
+        default_isp: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        """
+        external_network_mode: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+        """
+        host_name_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+        """
+        isp: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Carrier. Possible values: CMCC, CTCC, CUCC.
+        """
+        multi_interface_name_config: NotRequired[pulumi.Input['CloudServerInstanceAreaNumMultiInterfaceNameConfigArgsDict']]
+        """
+        Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+        """
+        num: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Number of instances.
+        """
+        single_interface_name_config: NotRequired[pulumi.Input['CloudServerInstanceAreaNumSingleInterfaceNameConfigArgsDict']]
+        """
+        Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+        """
+        subnet_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+        vpc_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+elif False:
+    CloudServerInstanceAreaNumArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerInstanceAreaNumArgs:
+    def __init__(__self__, *,
+                 area_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                 default_isp: Optional[pulumi.Input[builtins.str]] = None,
+                 external_network_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 host_name_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 isp: Optional[pulumi.Input[builtins.str]] = None,
+                 multi_interface_name_config: Optional[pulumi.Input['CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs']] = None,
+                 num: Optional[pulumi.Input[builtins.int]] = None,
+                 single_interface_name_config: Optional[pulumi.Input['CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs']] = None,
+                 subnet_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc_identity: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] area_name: Region name
+        :param pulumi.Input[builtins.str] cluster_name: Node name. Specify the node where you want to deploy the edge service.
+        :param pulumi.Input[builtins.str] default_isp: Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        :param pulumi.Input[builtins.str] external_network_mode: Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] host_name_lists: List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+        :param pulumi.Input[builtins.str] isp: Carrier. Possible values: CMCC, CTCC, CUCC.
+        :param pulumi.Input['CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs'] multi_interface_name_config: Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+        :param pulumi.Input[builtins.int] num: Number of instances.
+        :param pulumi.Input['CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs'] single_interface_name_config: Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+        :param pulumi.Input[builtins.str] subnet_identity: Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        :param pulumi.Input[builtins.str] vpc_identity: Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+        if area_name is not None:
+            pulumi.set(__self__, "area_name", area_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if default_isp is not None:
+            pulumi.set(__self__, "default_isp", default_isp)
+        if external_network_mode is not None:
+            pulumi.set(__self__, "external_network_mode", external_network_mode)
+        if host_name_lists is not None:
+            pulumi.set(__self__, "host_name_lists", host_name_lists)
+        if isp is not None:
+            pulumi.set(__self__, "isp", isp)
+        if multi_interface_name_config is not None:
+            pulumi.set(__self__, "multi_interface_name_config", multi_interface_name_config)
+        if num is not None:
+            pulumi.set(__self__, "num", num)
+        if single_interface_name_config is not None:
+            pulumi.set(__self__, "single_interface_name_config", single_interface_name_config)
+        if subnet_identity is not None:
+            pulumi.set(__self__, "subnet_identity", subnet_identity)
+        if vpc_identity is not None:
+            pulumi.set(__self__, "vpc_identity", vpc_identity)
+
+    @property
+    @pulumi.getter(name="areaName")
+    def area_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region name
+        """
+        return pulumi.get(self, "area_name")
+
+    @area_name.setter
+    def area_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "area_name", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Node name. Specify the node where you want to deploy the edge service.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="defaultIsp")
+    def default_isp(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        """
+        return pulumi.get(self, "default_isp")
+
+    @default_isp.setter
+    def default_isp(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_isp", value)
+
+    @property
+    @pulumi.getter(name="externalNetworkMode")
+    def external_network_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+        """
+        return pulumi.get(self, "external_network_mode")
+
+    @external_network_mode.setter
+    def external_network_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "external_network_mode", value)
+
+    @property
+    @pulumi.getter(name="hostNameLists")
+    def host_name_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+        """
+        return pulumi.get(self, "host_name_lists")
+
+    @host_name_lists.setter
+    def host_name_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "host_name_lists", value)
+
+    @property
+    @pulumi.getter
+    def isp(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Carrier. Possible values: CMCC, CTCC, CUCC.
+        """
+        return pulumi.get(self, "isp")
+
+    @isp.setter
+    def isp(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "isp", value)
+
+    @property
+    @pulumi.getter(name="multiInterfaceNameConfig")
+    def multi_interface_name_config(self) -> Optional[pulumi.Input['CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs']]:
+        """
+        Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+        """
+        return pulumi.get(self, "multi_interface_name_config")
+
+    @multi_interface_name_config.setter
+    def multi_interface_name_config(self, value: Optional[pulumi.Input['CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs']]):
+        pulumi.set(self, "multi_interface_name_config", value)
+
+    @property
+    @pulumi.getter
+    def num(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Number of instances.
+        """
+        return pulumi.get(self, "num")
+
+    @num.setter
+    def num(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "num", value)
+
+    @property
+    @pulumi.getter(name="singleInterfaceNameConfig")
+    def single_interface_name_config(self) -> Optional[pulumi.Input['CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs']]:
+        """
+        Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+        """
+        return pulumi.get(self, "single_interface_name_config")
+
+    @single_interface_name_config.setter
+    def single_interface_name_config(self, value: Optional[pulumi.Input['CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs']]):
+        pulumi.set(self, "single_interface_name_config", value)
+
+    @property
+    @pulumi.getter(name="subnetIdentity")
+    def subnet_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+        return pulumi.get(self, "subnet_identity")
+
+    @subnet_identity.setter
+    def subnet_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subnet_identity", value)
+
+    @property
+    @pulumi.getter(name="vpcIdentity")
+    def vpc_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+        return pulumi.get(self, "vpc_identity")
+
+    @vpc_identity.setter
+    def vpc_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc_identity", value)
+
+
+if not MYPY:
+    class CloudServerInstanceAreaNumMultiInterfaceNameConfigArgsDict(TypedDict):
+        cmcc_external_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+        """
+        ctcc_external_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        cucc_external_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+        """
+        internal_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+        """
+elif False:
+    CloudServerInstanceAreaNumMultiInterfaceNameConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs:
+    def __init__(__self__, *,
+                 cmcc_external_interface_name: Optional[pulumi.Input[builtins.str]] = None,
+                 ctcc_external_interface_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cucc_external_interface_name: Optional[pulumi.Input[builtins.str]] = None,
+                 internal_interface_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] cmcc_external_interface_name: Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+        :param pulumi.Input[builtins.str] ctcc_external_interface_name: Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        :param pulumi.Input[builtins.str] cucc_external_interface_name: Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+        :param pulumi.Input[builtins.str] internal_interface_name: Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+        """
+        if cmcc_external_interface_name is not None:
+            pulumi.set(__self__, "cmcc_external_interface_name", cmcc_external_interface_name)
+        if ctcc_external_interface_name is not None:
+            pulumi.set(__self__, "ctcc_external_interface_name", ctcc_external_interface_name)
+        if cucc_external_interface_name is not None:
+            pulumi.set(__self__, "cucc_external_interface_name", cucc_external_interface_name)
+        if internal_interface_name is not None:
+            pulumi.set(__self__, "internal_interface_name", internal_interface_name)
+
+    @property
+    @pulumi.getter(name="cmccExternalInterfaceName")
+    def cmcc_external_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "cmcc_external_interface_name")
+
+    @cmcc_external_interface_name.setter
+    def cmcc_external_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cmcc_external_interface_name", value)
+
+    @property
+    @pulumi.getter(name="ctccExternalInterfaceName")
+    def ctcc_external_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "ctcc_external_interface_name")
+
+    @ctcc_external_interface_name.setter
+    def ctcc_external_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ctcc_external_interface_name", value)
+
+    @property
+    @pulumi.getter(name="cuccExternalInterfaceName")
+    def cucc_external_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "cucc_external_interface_name")
+
+    @cucc_external_interface_name.setter
+    def cucc_external_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "cucc_external_interface_name", value)
+
+    @property
+    @pulumi.getter(name="internalInterfaceName")
+    def internal_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "internal_interface_name")
+
+    @internal_interface_name.setter
+    def internal_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "internal_interface_name", value)
+
+
+if not MYPY:
+    class CloudServerInstanceAreaNumSingleInterfaceNameConfigArgsDict(TypedDict):
+        external_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        internal_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+        """
+elif False:
+    CloudServerInstanceAreaNumSingleInterfaceNameConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs:
+    def __init__(__self__, *,
+                 external_interface_name: Optional[pulumi.Input[builtins.str]] = None,
+                 internal_interface_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] external_interface_name: Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        :param pulumi.Input[builtins.str] internal_interface_name: Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+        """
+        if external_interface_name is not None:
+            pulumi.set(__self__, "external_interface_name", external_interface_name)
+        if internal_interface_name is not None:
+            pulumi.set(__self__, "internal_interface_name", internal_interface_name)
+
+    @property
+    @pulumi.getter(name="externalInterfaceName")
+    def external_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "external_interface_name")
+
+    @external_interface_name.setter
+    def external_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "external_interface_name", value)
+
+    @property
+    @pulumi.getter(name="internalInterfaceName")
+    def internal_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "internal_interface_name")
+
+    @internal_interface_name.setter
+    def internal_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "internal_interface_name", value)
+
+
+if not MYPY:
+    class CloudServerNetworkConfigArgsDict(TypedDict):
+        bandwidth_peak: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+        """
+        bandwidth_peak_limit_isp_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgsDict']]]]
+        bound_eip_share_bandwidth_peak: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+        """
+        custom_external_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        custom_internal_interface_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+        """
+        disable_ipv4: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+        """
+        dns_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+        """
+        dns_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+        """
+        enable_ipv6: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+        """
+        limit_mode: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+        """
+        secondary_internal_ip_num: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Number of auxiliary private IPs.
+        """
+        security_group_id_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of bound global firewall IDs.
+        """
+        tcp_timeout: NotRequired[pulumi.Input[builtins.int]]
+        """
+        TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+        """
+        udp_timeout: NotRequired[pulumi.Input[builtins.int]]
+        """
+        UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+        """
+elif False:
+    CloudServerNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerNetworkConfigArgs:
+    def __init__(__self__, *,
+                 bandwidth_peak: Optional[pulumi.Input[builtins.str]] = None,
+                 bandwidth_peak_limit_isp_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs']]]] = None,
+                 bound_eip_share_bandwidth_peak: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_external_interface_name: Optional[pulumi.Input[builtins.str]] = None,
+                 custom_internal_interface_name: Optional[pulumi.Input[builtins.str]] = None,
+                 disable_ipv4: Optional[pulumi.Input[builtins.bool]] = None,
+                 dns_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 dns_type: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_ipv6: Optional[pulumi.Input[builtins.bool]] = None,
+                 limit_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 secondary_internal_ip_num: Optional[pulumi.Input[builtins.int]] = None,
+                 security_group_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 tcp_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 udp_timeout: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] bandwidth_peak: Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+        :param pulumi.Input[builtins.str] bound_eip_share_bandwidth_peak: Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+        :param pulumi.Input[builtins.str] custom_external_interface_name: Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        :param pulumi.Input[builtins.str] custom_internal_interface_name: Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+        :param pulumi.Input[builtins.bool] disable_ipv4: Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_lists: DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+        :param pulumi.Input[builtins.str] dns_type: DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+        :param pulumi.Input[builtins.bool] enable_ipv6: Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+        :param pulumi.Input[builtins.str] limit_mode: Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+        :param pulumi.Input[builtins.int] secondary_internal_ip_num: Number of auxiliary private IPs.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_id_lists: List of bound global firewall IDs.
+        :param pulumi.Input[builtins.int] tcp_timeout: TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+        :param pulumi.Input[builtins.int] udp_timeout: UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+        """
+        if bandwidth_peak is not None:
+            pulumi.set(__self__, "bandwidth_peak", bandwidth_peak)
+        if bandwidth_peak_limit_isp_configs is not None:
+            pulumi.set(__self__, "bandwidth_peak_limit_isp_configs", bandwidth_peak_limit_isp_configs)
+        if bound_eip_share_bandwidth_peak is not None:
+            pulumi.set(__self__, "bound_eip_share_bandwidth_peak", bound_eip_share_bandwidth_peak)
+        if custom_external_interface_name is not None:
+            pulumi.set(__self__, "custom_external_interface_name", custom_external_interface_name)
+        if custom_internal_interface_name is not None:
+            pulumi.set(__self__, "custom_internal_interface_name", custom_internal_interface_name)
+        if disable_ipv4 is not None:
+            pulumi.set(__self__, "disable_ipv4", disable_ipv4)
+        if dns_lists is not None:
+            pulumi.set(__self__, "dns_lists", dns_lists)
+        if dns_type is not None:
+            pulumi.set(__self__, "dns_type", dns_type)
+        if enable_ipv6 is not None:
+            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+        if limit_mode is not None:
+            pulumi.set(__self__, "limit_mode", limit_mode)
+        if secondary_internal_ip_num is not None:
+            pulumi.set(__self__, "secondary_internal_ip_num", secondary_internal_ip_num)
+        if security_group_id_lists is not None:
+            pulumi.set(__self__, "security_group_id_lists", security_group_id_lists)
+        if tcp_timeout is not None:
+            pulumi.set(__self__, "tcp_timeout", tcp_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="bandwidthPeak")
+    def bandwidth_peak(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+        """
+        return pulumi.get(self, "bandwidth_peak")
+
+    @bandwidth_peak.setter
+    def bandwidth_peak(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bandwidth_peak", value)
+
+    @property
+    @pulumi.getter(name="bandwidthPeakLimitIspConfigs")
+    def bandwidth_peak_limit_isp_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs']]]]:
+        return pulumi.get(self, "bandwidth_peak_limit_isp_configs")
+
+    @bandwidth_peak_limit_isp_configs.setter
+    def bandwidth_peak_limit_isp_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs']]]]):
+        pulumi.set(self, "bandwidth_peak_limit_isp_configs", value)
+
+    @property
+    @pulumi.getter(name="boundEipShareBandwidthPeak")
+    def bound_eip_share_bandwidth_peak(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+        """
+        return pulumi.get(self, "bound_eip_share_bandwidth_peak")
+
+    @bound_eip_share_bandwidth_peak.setter
+    def bound_eip_share_bandwidth_peak(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bound_eip_share_bandwidth_peak", value)
+
+    @property
+    @pulumi.getter(name="customExternalInterfaceName")
+    def custom_external_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "custom_external_interface_name")
+
+    @custom_external_interface_name.setter
+    def custom_external_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_external_interface_name", value)
+
+    @property
+    @pulumi.getter(name="customInternalInterfaceName")
+    def custom_internal_interface_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "custom_internal_interface_name")
+
+    @custom_internal_interface_name.setter
+    def custom_internal_interface_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_internal_interface_name", value)
+
+    @property
+    @pulumi.getter(name="disableIpv4")
+    def disable_ipv4(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+        """
+        return pulumi.get(self, "disable_ipv4")
+
+    @disable_ipv4.setter
+    def disable_ipv4(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disable_ipv4", value)
+
+    @property
+    @pulumi.getter(name="dnsLists")
+    def dns_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+        """
+        return pulumi.get(self, "dns_lists")
+
+    @dns_lists.setter
+    def dns_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "dns_lists", value)
+
+    @property
+    @pulumi.getter(name="dnsType")
+    def dns_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+        """
+        return pulumi.get(self, "dns_type")
+
+    @dns_type.setter
+    def dns_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dns_type", value)
+
+    @property
+    @pulumi.getter(name="enableIpv6")
+    def enable_ipv6(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+        """
+        return pulumi.get(self, "enable_ipv6")
+
+    @enable_ipv6.setter
+    def enable_ipv6(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_ipv6", value)
+
+    @property
+    @pulumi.getter(name="limitMode")
+    def limit_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+        """
+        return pulumi.get(self, "limit_mode")
+
+    @limit_mode.setter
+    def limit_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "limit_mode", value)
+
+    @property
+    @pulumi.getter(name="secondaryInternalIpNum")
+    def secondary_internal_ip_num(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Number of auxiliary private IPs.
+        """
+        return pulumi.get(self, "secondary_internal_ip_num")
+
+    @secondary_internal_ip_num.setter
+    def secondary_internal_ip_num(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "secondary_internal_ip_num", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIdLists")
+    def security_group_id_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of bound global firewall IDs.
+        """
+        return pulumi.get(self, "security_group_id_lists")
+
+    @security_group_id_lists.setter
+    def security_group_id_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "security_group_id_lists", value)
+
+    @property
+    @pulumi.getter(name="tcpTimeout")
+    def tcp_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+        """
+        return pulumi.get(self, "tcp_timeout")
+
+    @tcp_timeout.setter
+    def tcp_timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "tcp_timeout", value)
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+        """
+        return pulumi.get(self, "udp_timeout")
+
+    @udp_timeout.setter
+    def udp_timeout(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "udp_timeout", value)
+
+
+if not MYPY:
+    class CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgsDict(TypedDict):
+        bandwidth_peak_limit: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Bandwidth limit value for this carrier.
+        """
+        isp: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+        """
+elif False:
+    CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs:
+    def __init__(__self__, *,
+                 bandwidth_peak_limit: Optional[pulumi.Input[builtins.str]] = None,
+                 isp: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] bandwidth_peak_limit: Bandwidth limit value for this carrier.
+        :param pulumi.Input[builtins.str] isp: Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+        """
+        if bandwidth_peak_limit is not None:
+            pulumi.set(__self__, "bandwidth_peak_limit", bandwidth_peak_limit)
+        if isp is not None:
+            pulumi.set(__self__, "isp", isp)
+
+    @property
+    @pulumi.getter(name="bandwidthPeakLimit")
+    def bandwidth_peak_limit(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Bandwidth limit value for this carrier.
+        """
+        return pulumi.get(self, "bandwidth_peak_limit")
+
+    @bandwidth_peak_limit.setter
+    def bandwidth_peak_limit(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bandwidth_peak_limit", value)
+
+    @property
+    @pulumi.getter
+    def isp(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+        """
+        return pulumi.get(self, "isp")
+
+    @isp.setter
+    def isp(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "isp", value)
+
+
+if not MYPY:
+    class CloudServerScheduleStrategyArgsDict(TypedDict):
+        price_strategy: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+        """
+        schedule_strategy: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+        """
+elif False:
+    CloudServerScheduleStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerScheduleStrategyArgs:
+    def __init__(__self__, *,
+                 price_strategy: Optional[pulumi.Input[builtins.str]] = None,
+                 schedule_strategy: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] price_strategy: Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+        :param pulumi.Input[builtins.str] schedule_strategy: Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+        """
+        if price_strategy is not None:
+            pulumi.set(__self__, "price_strategy", price_strategy)
+        if schedule_strategy is not None:
+            pulumi.set(__self__, "schedule_strategy", schedule_strategy)
+
+    @property
+    @pulumi.getter(name="priceStrategy")
+    def price_strategy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+        """
+        return pulumi.get(self, "price_strategy")
+
+    @price_strategy.setter
+    def price_strategy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "price_strategy", value)
+
+    @property
+    @pulumi.getter(name="scheduleStrategy")
+    def schedule_strategy(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+        """
+        return pulumi.get(self, "schedule_strategy")
+
+    @schedule_strategy.setter
+    def schedule_strategy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schedule_strategy", value)
+
+
+if not MYPY:
+    class CloudServerSecretConfigArgsDict(TypedDict):
+        secret_data: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+        """
+        secret_type: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+        """
+elif False:
+    CloudServerSecretConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerSecretConfigArgs:
+    def __init__(__self__, *,
+                 secret_data: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_type: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] secret_data: Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+        :param pulumi.Input[builtins.int] secret_type: Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+        """
+        if secret_data is not None:
+            pulumi.set(__self__, "secret_data", secret_data)
+        if secret_type is not None:
+            pulumi.set(__self__, "secret_type", secret_type)
+
+    @property
+    @pulumi.getter(name="secretData")
+    def secret_data(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+        """
+        return pulumi.get(self, "secret_data")
+
+    @secret_data.setter
+    def secret_data(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_data", value)
+
+    @property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+        """
+        return pulumi.get(self, "secret_type")
+
+    @secret_type.setter
+    def secret_type(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "secret_type", value)
+
+
+if not MYPY:
+    class CloudServerStorageConfigArgsDict(TypedDict):
+        data_disk: NotRequired[pulumi.Input['CloudServerStorageConfigDataDiskArgsDict']]
+        """
+        Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+        """
+        data_disk_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataDiskListArgsDict']]]]
+        data_local_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataLocalDiskArgsDict']]]]
+        system_disk: NotRequired[pulumi.Input['CloudServerStorageConfigSystemDiskArgsDict']]
+        """
+        System disk configuration
+        """
+elif False:
+    CloudServerStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerStorageConfigArgs:
+    def __init__(__self__, *,
+                 data_disk: Optional[pulumi.Input['CloudServerStorageConfigDataDiskArgs']] = None,
+                 data_disk_lists: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataDiskListArgs']]]] = None,
+                 data_local_disks: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataLocalDiskArgs']]]] = None,
+                 system_disk: Optional[pulumi.Input['CloudServerStorageConfigSystemDiskArgs']] = None):
+        """
+        :param pulumi.Input['CloudServerStorageConfigDataDiskArgs'] data_disk: Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+        :param pulumi.Input['CloudServerStorageConfigSystemDiskArgs'] system_disk: System disk configuration
+        """
+        if data_disk is not None:
+            pulumi.set(__self__, "data_disk", data_disk)
+        if data_disk_lists is not None:
+            pulumi.set(__self__, "data_disk_lists", data_disk_lists)
+        if data_local_disks is not None:
+            pulumi.set(__self__, "data_local_disks", data_local_disks)
+        if system_disk is not None:
+            pulumi.set(__self__, "system_disk", system_disk)
+
+    @property
+    @pulumi.getter(name="dataDisk")
+    def data_disk(self) -> Optional[pulumi.Input['CloudServerStorageConfigDataDiskArgs']]:
+        """
+        Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+        """
+        return pulumi.get(self, "data_disk")
+
+    @data_disk.setter
+    def data_disk(self, value: Optional[pulumi.Input['CloudServerStorageConfigDataDiskArgs']]):
+        pulumi.set(self, "data_disk", value)
+
+    @property
+    @pulumi.getter(name="dataDiskLists")
+    def data_disk_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataDiskListArgs']]]]:
+        return pulumi.get(self, "data_disk_lists")
+
+    @data_disk_lists.setter
+    def data_disk_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataDiskListArgs']]]]):
+        pulumi.set(self, "data_disk_lists", value)
+
+    @property
+    @pulumi.getter(name="dataLocalDisks")
+    def data_local_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataLocalDiskArgs']]]]:
+        return pulumi.get(self, "data_local_disks")
+
+    @data_local_disks.setter
+    def data_local_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServerStorageConfigDataLocalDiskArgs']]]]):
+        pulumi.set(self, "data_local_disks", value)
+
+    @property
+    @pulumi.getter(name="systemDisk")
+    def system_disk(self) -> Optional[pulumi.Input['CloudServerStorageConfigSystemDiskArgs']]:
+        """
+        System disk configuration
+        """
+        return pulumi.get(self, "system_disk")
+
+    @system_disk.setter
+    def system_disk(self, value: Optional[pulumi.Input['CloudServerStorageConfigSystemDiskArgs']]):
+        pulumi.set(self, "system_disk", value)
+
+
+if not MYPY:
+    class CloudServerStorageConfigDataDiskArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        delete_with_instance: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Release disk with instance
+        """
+        disk_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk unique identifier
+        """
+        local_disk_class: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk type.
+        """
+        local_disk_resource_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk resource name.
+        """
+        storage_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+elif False:
+    CloudServerStorageConfigDataDiskArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerStorageConfigDataDiskArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_with_instance: Optional[pulumi.Input[builtins.bool]] = None,
+                 disk_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_class: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_resource_name: Optional[pulumi.Input[builtins.str]] = None,
+                 storage_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] capacity: Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        :param pulumi.Input[builtins.bool] delete_with_instance: Release disk with instance
+        :param pulumi.Input[builtins.str] disk_identity: Disk unique identifier
+        :param pulumi.Input[builtins.str] local_disk_class: Local disk type.
+        :param pulumi.Input[builtins.str] local_disk_resource_name: Local disk resource name.
+        :param pulumi.Input[builtins.str] storage_type: Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Release disk with instance
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @delete_with_instance.setter
+    def delete_with_instance(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_with_instance", value)
+
+    @property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk unique identifier
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @disk_identity.setter
+    def disk_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "disk_identity", value)
+
+    @property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk type.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @local_disk_class.setter
+    def local_disk_class(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_class", value)
+
+    @property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk resource name.
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @local_disk_resource_name.setter
+    def local_disk_resource_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_resource_name", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_type", value)
+
+
+if not MYPY:
+    class CloudServerStorageConfigDataDiskListArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        delete_with_instance: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Release disk with instance
+        """
+        disk_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk unique identifier
+        """
+        local_disk_class: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk type.
+        """
+        local_disk_resource_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk resource name.
+        """
+        storage_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+elif False:
+    CloudServerStorageConfigDataDiskListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerStorageConfigDataDiskListArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_with_instance: Optional[pulumi.Input[builtins.bool]] = None,
+                 disk_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_class: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_resource_name: Optional[pulumi.Input[builtins.str]] = None,
+                 storage_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] capacity: Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        :param pulumi.Input[builtins.bool] delete_with_instance: Release disk with instance
+        :param pulumi.Input[builtins.str] disk_identity: Disk unique identifier
+        :param pulumi.Input[builtins.str] local_disk_class: Local disk type.
+        :param pulumi.Input[builtins.str] local_disk_resource_name: Local disk resource name.
+        :param pulumi.Input[builtins.str] storage_type: Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Release disk with instance
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @delete_with_instance.setter
+    def delete_with_instance(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_with_instance", value)
+
+    @property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk unique identifier
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @disk_identity.setter
+    def disk_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "disk_identity", value)
+
+    @property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk type.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @local_disk_class.setter
+    def local_disk_class(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_class", value)
+
+    @property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk resource name.
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @local_disk_resource_name.setter
+    def local_disk_resource_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_resource_name", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_type", value)
+
+
+if not MYPY:
+    class CloudServerStorageConfigDataLocalDiskArgsDict(TypedDict):
+        disk_spec: NotRequired[pulumi.Input['CloudServerStorageConfigDataLocalDiskDiskSpecArgsDict']]
+        """
+        Disk specifications.
+        """
+        num: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Number of disks
+        """
+elif False:
+    CloudServerStorageConfigDataLocalDiskArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerStorageConfigDataLocalDiskArgs:
+    def __init__(__self__, *,
+                 disk_spec: Optional[pulumi.Input['CloudServerStorageConfigDataLocalDiskDiskSpecArgs']] = None,
+                 num: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input['CloudServerStorageConfigDataLocalDiskDiskSpecArgs'] disk_spec: Disk specifications.
+        :param pulumi.Input[builtins.int] num: Number of disks
+        """
+        if disk_spec is not None:
+            pulumi.set(__self__, "disk_spec", disk_spec)
+        if num is not None:
+            pulumi.set(__self__, "num", num)
+
+    @property
+    @pulumi.getter(name="diskSpec")
+    def disk_spec(self) -> Optional[pulumi.Input['CloudServerStorageConfigDataLocalDiskDiskSpecArgs']]:
+        """
+        Disk specifications.
+        """
+        return pulumi.get(self, "disk_spec")
+
+    @disk_spec.setter
+    def disk_spec(self, value: Optional[pulumi.Input['CloudServerStorageConfigDataLocalDiskDiskSpecArgs']]):
+        pulumi.set(self, "disk_spec", value)
+
+    @property
+    @pulumi.getter
+    def num(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Number of disks
+        """
+        return pulumi.get(self, "num")
+
+    @num.setter
+    def num(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "num", value)
+
+
+if not MYPY:
+    class CloudServerStorageConfigDataLocalDiskDiskSpecArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        delete_with_instance: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Release disk with instance
+        """
+        disk_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk unique identifier
+        """
+        local_disk_class: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk type.
+        """
+        local_disk_resource_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk resource name.
+        """
+        storage_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+elif False:
+    CloudServerStorageConfigDataLocalDiskDiskSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerStorageConfigDataLocalDiskDiskSpecArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_with_instance: Optional[pulumi.Input[builtins.bool]] = None,
+                 disk_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_class: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_resource_name: Optional[pulumi.Input[builtins.str]] = None,
+                 storage_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] capacity: Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        :param pulumi.Input[builtins.bool] delete_with_instance: Release disk with instance
+        :param pulumi.Input[builtins.str] disk_identity: Disk unique identifier
+        :param pulumi.Input[builtins.str] local_disk_class: Local disk type.
+        :param pulumi.Input[builtins.str] local_disk_resource_name: Local disk resource name.
+        :param pulumi.Input[builtins.str] storage_type: Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Release disk with instance
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @delete_with_instance.setter
+    def delete_with_instance(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_with_instance", value)
+
+    @property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk unique identifier
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @disk_identity.setter
+    def disk_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "disk_identity", value)
+
+    @property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk type.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @local_disk_class.setter
+    def local_disk_class(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_class", value)
+
+    @property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk resource name.
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @local_disk_resource_name.setter
+    def local_disk_resource_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_resource_name", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_type", value)
+
+
+if not MYPY:
+    class CloudServerStorageConfigSystemDiskArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        delete_with_instance: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Release disk with instance
+        """
+        disk_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk unique identifier
+        """
+        local_disk_class: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk type.
+        """
+        local_disk_resource_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Local disk resource name.
+        """
+        storage_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+elif False:
+    CloudServerStorageConfigSystemDiskArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerStorageConfigSystemDiskArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[builtins.str]] = None,
+                 delete_with_instance: Optional[pulumi.Input[builtins.bool]] = None,
+                 disk_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_class: Optional[pulumi.Input[builtins.str]] = None,
+                 local_disk_resource_name: Optional[pulumi.Input[builtins.str]] = None,
+                 storage_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] capacity: Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        :param pulumi.Input[builtins.bool] delete_with_instance: Release disk with instance
+        :param pulumi.Input[builtins.str] disk_identity: Disk unique identifier
+        :param pulumi.Input[builtins.str] local_disk_class: Local disk type.
+        :param pulumi.Input[builtins.str] local_disk_resource_name: Local disk resource name.
+        :param pulumi.Input[builtins.str] storage_type: Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Release disk with instance
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @delete_with_instance.setter
+    def delete_with_instance(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "delete_with_instance", value)
+
+    @property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk unique identifier
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @disk_identity.setter
+    def disk_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "disk_identity", value)
+
+    @property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk type.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @local_disk_class.setter
+    def local_disk_class(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_class", value)
+
+    @property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Local disk resource name.
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @local_disk_resource_name.setter
+    def local_disk_resource_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "local_disk_resource_name", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_type", value)
+
+
+if not MYPY:
+    class CloudServerTagArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Tag key
+        """
+        value: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Tag value
+        """
+elif False:
+    CloudServerTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CloudServerTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[builtins.str]] = None,
+                 value: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] key: Tag key
+        :param pulumi.Input[builtins.str] value: Tag value
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Tag key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Tag value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "value", value)
+
 
 if not MYPY:
     class VpcSubnetArgsDict(TypedDict):

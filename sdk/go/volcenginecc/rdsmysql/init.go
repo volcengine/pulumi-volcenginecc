@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointPublicAddress{}
 	case "volcenginecc:rdsmysql/instance:Instance":
 		r = &Instance{}
+	case "volcenginecc:rdsmysql/instanceReadonlyNode:InstanceReadonlyNode":
+		r = &InstanceReadonlyNode{}
 	case "volcenginecc:rdsmysql/parameterTemplate:ParameterTemplate":
 		r = &ParameterTemplate{}
 	default:
@@ -83,6 +85,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"rdsmysql/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"rdsmysql/instanceReadonlyNode",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

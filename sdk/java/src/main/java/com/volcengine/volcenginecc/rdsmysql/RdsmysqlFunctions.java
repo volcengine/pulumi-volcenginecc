@@ -24,6 +24,8 @@ import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointPublicAddressArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetEndpointPublicAddressPlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstanceReadonlyNodeArgs;
+import com.volcengine.volcenginecc.rdsmysql.inputs.GetInstanceReadonlyNodePlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetParameterTemplateArgs;
 import com.volcengine.volcenginecc.rdsmysql.inputs.GetParameterTemplatePlainArgs;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetAllowListResult;
@@ -38,6 +40,8 @@ import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointPublicAddressResu
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointPublicAddressesResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetEndpointsResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceReadonlyNodeResult;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceReadonlyNodesResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstancesResult;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetParameterTemplateResult;
@@ -583,6 +587,90 @@ public final class RdsmysqlFunctions {
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodeResult> getInstanceReadonlyNode(GetInstanceReadonlyNodeArgs args) {
+        return getInstanceReadonlyNode(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static CompletableFuture<GetInstanceReadonlyNodeResult> getInstanceReadonlyNodePlain(GetInstanceReadonlyNodePlainArgs args) {
+        return getInstanceReadonlyNodePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodeResult> getInstanceReadonlyNode(GetInstanceReadonlyNodeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getInstanceReadonlyNode:getInstanceReadonlyNode", TypeShape.of(GetInstanceReadonlyNodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodeResult> getInstanceReadonlyNode(GetInstanceReadonlyNodeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getInstanceReadonlyNode:getInstanceReadonlyNode", TypeShape.of(GetInstanceReadonlyNodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static CompletableFuture<GetInstanceReadonlyNodeResult> getInstanceReadonlyNodePlain(GetInstanceReadonlyNodePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getInstanceReadonlyNode:getInstanceReadonlyNode", TypeShape.of(GetInstanceReadonlyNodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodes() {
+        return getInstanceReadonlyNodes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static CompletableFuture<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodesPlain() {
+        return getInstanceReadonlyNodesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodes(InvokeArgs args) {
+        return getInstanceReadonlyNodes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static CompletableFuture<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodesPlain(InvokeArgs args) {
+        return getInstanceReadonlyNodesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getInstanceReadonlyNodes:getInstanceReadonlyNodes", TypeShape.of(GetInstanceReadonlyNodesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static Output<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodes(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:rdsmysql/getInstanceReadonlyNodes:getInstanceReadonlyNodes", TypeShape.of(GetInstanceReadonlyNodesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::RDSMySQL::InstanceReadonlyNode
+     * 
+     */
+    public static CompletableFuture<GetInstanceReadonlyNodesResult> getInstanceReadonlyNodesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:rdsmysql/getInstanceReadonlyNodes:getInstanceReadonlyNodes", TypeShape.of(GetInstanceReadonlyNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::RDSMySQL::Instance

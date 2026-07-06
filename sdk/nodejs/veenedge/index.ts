@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CloudServerArgs, CloudServerState } from "./cloudServer";
+export type CloudServer = import("./cloudServer").CloudServer;
+export const CloudServer: typeof import("./cloudServer").CloudServer = null as any;
+utilities.lazyLoad(exports, ["CloudServer"], () => require("./cloudServer"));
+
+export { GetCloudServerArgs, GetCloudServerResult, GetCloudServerOutputArgs } from "./getCloudServer";
+export const getCloudServer: typeof import("./getCloudServer").getCloudServer = null as any;
+export const getCloudServerOutput: typeof import("./getCloudServer").getCloudServerOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudServer","getCloudServerOutput"], () => require("./getCloudServer"));
+
+export { GetCloudServersResult } from "./getCloudServers";
+export const getCloudServers: typeof import("./getCloudServers").getCloudServers = null as any;
+export const getCloudServersOutput: typeof import("./getCloudServers").getCloudServersOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudServers","getCloudServersOutput"], () => require("./getCloudServers"));
+
 export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
 export const getVpc: typeof import("./getVpc").getVpc = null as any;
 export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
@@ -25,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:veenedge/cloudServer:CloudServer":
+                return new CloudServer(name, <any>undefined, { urn })
             case "volcenginecc:veenedge/vpc:Vpc":
                 return new Vpc(name, <any>undefined, { urn })
             default:
@@ -32,4 +49,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "veenedge/cloudServer", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "veenedge/vpc", _module)

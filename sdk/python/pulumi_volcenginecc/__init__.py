@@ -875,6 +875,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "fwcenter/natFireWallControlPolicy",
+  "fqn": "pulumi_volcenginecc.fwcenter",
+  "classes": {
+   "volcenginecc:fwcenter/natFireWallControlPolicy:NatFireWallControlPolicy": "NatFireWallControlPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "fwcenter/vpcFireWallAclRule",
   "fqn": "pulumi_volcenginecc.fwcenter",
   "classes": {
@@ -1011,10 +1019,42 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "id/authConfig",
+  "fqn": "pulumi_volcenginecc.id",
+  "classes": {
+   "volcenginecc:id/authConfig:AuthConfig": "AuthConfig"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "id/permissionNamespace",
+  "fqn": "pulumi_volcenginecc.id",
+  "classes": {
+   "volcenginecc:id/permissionNamespace:PermissionNamespace": "PermissionNamespace"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "id/service",
   "fqn": "pulumi_volcenginecc.id",
   "classes": {
    "volcenginecc:id/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "id/userPool",
+  "fqn": "pulumi_volcenginecc.id",
+  "classes": {
+   "volcenginecc:id/userPool:UserPool": "UserPool"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "id/workloadPool",
+  "fqn": "pulumi_volcenginecc.id",
+  "classes": {
+   "volcenginecc:id/workloadPool:WorkloadPool": "WorkloadPool"
   }
  },
  {
@@ -1063,6 +1103,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.kms",
   "classes": {
    "volcenginecc:kms/key:Key": "Key"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "kms/keyMaterial",
+  "fqn": "pulumi_volcenginecc.kms",
+  "classes": {
+   "volcenginecc:kms/keyMaterial:KeyMaterial": "KeyMaterial"
   }
  },
  {
@@ -1375,6 +1423,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.rdsmysql",
   "classes": {
    "volcenginecc:rdsmysql/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "rdsmysql/instanceReadonlyNode",
+  "fqn": "pulumi_volcenginecc.rdsmysql",
+  "classes": {
+   "volcenginecc:rdsmysql/instanceReadonlyNode:InstanceReadonlyNode": "InstanceReadonlyNode"
   }
  },
  {
@@ -1887,6 +1943,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vedbm",
   "classes": {
    "volcenginecc:vedbm/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "veenedge/cloudServer",
+  "fqn": "pulumi_volcenginecc.veenedge",
+  "classes": {
+   "volcenginecc:veenedge/cloudServer:CloudServer": "CloudServer"
   }
  },
  {

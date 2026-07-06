@@ -6,6 +6,9 @@ import builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .cloud_server import *
+from .get_cloud_server import *
+from .get_cloud_servers import *
 from .get_vpc import *
 from .get_vpcs import *
 from .vpc import *

@@ -13,6 +13,3129 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CloudServerAdvancedConfiguration struct {
+	// Enable deletion protection.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
+	// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+	InstanceDesc *string `pulumi:"instanceDesc"`
+	// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+	InstanceHostName *string `pulumi:"instanceHostName"`
+	// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+	InstanceName *string `pulumi:"instanceName"`
+}
+
+// CloudServerAdvancedConfigurationInput is an input type that accepts CloudServerAdvancedConfigurationArgs and CloudServerAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `CloudServerAdvancedConfigurationInput` via:
+//
+//	CloudServerAdvancedConfigurationArgs{...}
+type CloudServerAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToCloudServerAdvancedConfigurationOutput() CloudServerAdvancedConfigurationOutput
+	ToCloudServerAdvancedConfigurationOutputWithContext(context.Context) CloudServerAdvancedConfigurationOutput
+}
+
+type CloudServerAdvancedConfigurationArgs struct {
+	// Enable deletion protection.
+	DeleteProtection pulumi.BoolPtrInput `pulumi:"deleteProtection"`
+	// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+	InstanceDesc pulumi.StringPtrInput `pulumi:"instanceDesc"`
+	// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+	InstanceHostName pulumi.StringPtrInput `pulumi:"instanceHostName"`
+	// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+	InstanceName pulumi.StringPtrInput `pulumi:"instanceName"`
+}
+
+func (CloudServerAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i CloudServerAdvancedConfigurationArgs) ToCloudServerAdvancedConfigurationOutput() CloudServerAdvancedConfigurationOutput {
+	return i.ToCloudServerAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i CloudServerAdvancedConfigurationArgs) ToCloudServerAdvancedConfigurationOutputWithContext(ctx context.Context) CloudServerAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerAdvancedConfigurationOutput)
+}
+
+func (i CloudServerAdvancedConfigurationArgs) ToCloudServerAdvancedConfigurationPtrOutput() CloudServerAdvancedConfigurationPtrOutput {
+	return i.ToCloudServerAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerAdvancedConfigurationArgs) ToCloudServerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) CloudServerAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerAdvancedConfigurationOutput).ToCloudServerAdvancedConfigurationPtrOutputWithContext(ctx)
+}
+
+// CloudServerAdvancedConfigurationPtrInput is an input type that accepts CloudServerAdvancedConfigurationArgs, CloudServerAdvancedConfigurationPtr and CloudServerAdvancedConfigurationPtrOutput values.
+// You can construct a concrete instance of `CloudServerAdvancedConfigurationPtrInput` via:
+//
+//	        CloudServerAdvancedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerAdvancedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerAdvancedConfigurationPtrOutput() CloudServerAdvancedConfigurationPtrOutput
+	ToCloudServerAdvancedConfigurationPtrOutputWithContext(context.Context) CloudServerAdvancedConfigurationPtrOutput
+}
+
+type cloudServerAdvancedConfigurationPtrType CloudServerAdvancedConfigurationArgs
+
+func CloudServerAdvancedConfigurationPtr(v *CloudServerAdvancedConfigurationArgs) CloudServerAdvancedConfigurationPtrInput {
+	return (*cloudServerAdvancedConfigurationPtrType)(v)
+}
+
+func (*cloudServerAdvancedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i *cloudServerAdvancedConfigurationPtrType) ToCloudServerAdvancedConfigurationPtrOutput() CloudServerAdvancedConfigurationPtrOutput {
+	return i.ToCloudServerAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerAdvancedConfigurationPtrType) ToCloudServerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) CloudServerAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerAdvancedConfigurationPtrOutput)
+}
+
+type CloudServerAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CloudServerAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o CloudServerAdvancedConfigurationOutput) ToCloudServerAdvancedConfigurationOutput() CloudServerAdvancedConfigurationOutput {
+	return o
+}
+
+func (o CloudServerAdvancedConfigurationOutput) ToCloudServerAdvancedConfigurationOutputWithContext(ctx context.Context) CloudServerAdvancedConfigurationOutput {
+	return o
+}
+
+func (o CloudServerAdvancedConfigurationOutput) ToCloudServerAdvancedConfigurationPtrOutput() CloudServerAdvancedConfigurationPtrOutput {
+	return o.ToCloudServerAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerAdvancedConfigurationOutput) ToCloudServerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) CloudServerAdvancedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerAdvancedConfiguration) *CloudServerAdvancedConfiguration {
+		return &v
+	}).(CloudServerAdvancedConfigurationPtrOutput)
+}
+
+// Enable deletion protection.
+func (o CloudServerAdvancedConfigurationOutput) DeleteProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerAdvancedConfiguration) *bool { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+func (o CloudServerAdvancedConfigurationOutput) InstanceDesc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerAdvancedConfiguration) *string { return v.InstanceDesc }).(pulumi.StringPtrOutput)
+}
+
+// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+func (o CloudServerAdvancedConfigurationOutput) InstanceHostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerAdvancedConfiguration) *string { return v.InstanceHostName }).(pulumi.StringPtrOutput)
+}
+
+// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+func (o CloudServerAdvancedConfigurationOutput) InstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerAdvancedConfiguration) *string { return v.InstanceName }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerAdvancedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerAdvancedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o CloudServerAdvancedConfigurationPtrOutput) ToCloudServerAdvancedConfigurationPtrOutput() CloudServerAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudServerAdvancedConfigurationPtrOutput) ToCloudServerAdvancedConfigurationPtrOutputWithContext(ctx context.Context) CloudServerAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudServerAdvancedConfigurationPtrOutput) Elem() CloudServerAdvancedConfigurationOutput {
+	return o.ApplyT(func(v *CloudServerAdvancedConfiguration) CloudServerAdvancedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerAdvancedConfiguration
+		return ret
+	}).(CloudServerAdvancedConfigurationOutput)
+}
+
+// Enable deletion protection.
+func (o CloudServerAdvancedConfigurationPtrOutput) DeleteProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerAdvancedConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteProtection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+func (o CloudServerAdvancedConfigurationPtrOutput) InstanceDesc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceDesc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+func (o CloudServerAdvancedConfigurationPtrOutput) InstanceHostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceHostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+func (o CloudServerAdvancedConfigurationPtrOutput) InstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerBillingConfig struct {
+	// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod *string `pulumi:"bandwidthBillingMethod"`
+	// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+	ComputingBillingMethod *string `pulumi:"computingBillingMethod"`
+	// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+	PrePaidPeriod *string `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+	PrePaidPeriodNumber *int `pulumi:"prePaidPeriodNumber"`
+}
+
+// CloudServerBillingConfigInput is an input type that accepts CloudServerBillingConfigArgs and CloudServerBillingConfigOutput values.
+// You can construct a concrete instance of `CloudServerBillingConfigInput` via:
+//
+//	CloudServerBillingConfigArgs{...}
+type CloudServerBillingConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerBillingConfigOutput() CloudServerBillingConfigOutput
+	ToCloudServerBillingConfigOutputWithContext(context.Context) CloudServerBillingConfigOutput
+}
+
+type CloudServerBillingConfigArgs struct {
+	// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
+	// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod pulumi.StringPtrInput `pulumi:"bandwidthBillingMethod"`
+	// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+	ComputingBillingMethod pulumi.StringPtrInput `pulumi:"computingBillingMethod"`
+	// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+	PrePaidPeriod pulumi.StringPtrInput `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+	PrePaidPeriodNumber pulumi.IntPtrInput `pulumi:"prePaidPeriodNumber"`
+}
+
+func (CloudServerBillingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerBillingConfig)(nil)).Elem()
+}
+
+func (i CloudServerBillingConfigArgs) ToCloudServerBillingConfigOutput() CloudServerBillingConfigOutput {
+	return i.ToCloudServerBillingConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerBillingConfigArgs) ToCloudServerBillingConfigOutputWithContext(ctx context.Context) CloudServerBillingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerBillingConfigOutput)
+}
+
+func (i CloudServerBillingConfigArgs) ToCloudServerBillingConfigPtrOutput() CloudServerBillingConfigPtrOutput {
+	return i.ToCloudServerBillingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerBillingConfigArgs) ToCloudServerBillingConfigPtrOutputWithContext(ctx context.Context) CloudServerBillingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerBillingConfigOutput).ToCloudServerBillingConfigPtrOutputWithContext(ctx)
+}
+
+// CloudServerBillingConfigPtrInput is an input type that accepts CloudServerBillingConfigArgs, CloudServerBillingConfigPtr and CloudServerBillingConfigPtrOutput values.
+// You can construct a concrete instance of `CloudServerBillingConfigPtrInput` via:
+//
+//	        CloudServerBillingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerBillingConfigPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerBillingConfigPtrOutput() CloudServerBillingConfigPtrOutput
+	ToCloudServerBillingConfigPtrOutputWithContext(context.Context) CloudServerBillingConfigPtrOutput
+}
+
+type cloudServerBillingConfigPtrType CloudServerBillingConfigArgs
+
+func CloudServerBillingConfigPtr(v *CloudServerBillingConfigArgs) CloudServerBillingConfigPtrInput {
+	return (*cloudServerBillingConfigPtrType)(v)
+}
+
+func (*cloudServerBillingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerBillingConfig)(nil)).Elem()
+}
+
+func (i *cloudServerBillingConfigPtrType) ToCloudServerBillingConfigPtrOutput() CloudServerBillingConfigPtrOutput {
+	return i.ToCloudServerBillingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerBillingConfigPtrType) ToCloudServerBillingConfigPtrOutputWithContext(ctx context.Context) CloudServerBillingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerBillingConfigPtrOutput)
+}
+
+type CloudServerBillingConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerBillingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerBillingConfig)(nil)).Elem()
+}
+
+func (o CloudServerBillingConfigOutput) ToCloudServerBillingConfigOutput() CloudServerBillingConfigOutput {
+	return o
+}
+
+func (o CloudServerBillingConfigOutput) ToCloudServerBillingConfigOutputWithContext(ctx context.Context) CloudServerBillingConfigOutput {
+	return o
+}
+
+func (o CloudServerBillingConfigOutput) ToCloudServerBillingConfigPtrOutput() CloudServerBillingConfigPtrOutput {
+	return o.ToCloudServerBillingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerBillingConfigOutput) ToCloudServerBillingConfigPtrOutputWithContext(ctx context.Context) CloudServerBillingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerBillingConfig) *CloudServerBillingConfig {
+		return &v
+	}).(CloudServerBillingConfigPtrOutput)
+}
+
+// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+func (o CloudServerBillingConfigOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerBillingConfig) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+func (o CloudServerBillingConfigOutput) BandwidthBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerBillingConfig) *string { return v.BandwidthBillingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+func (o CloudServerBillingConfigOutput) ComputingBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerBillingConfig) *string { return v.ComputingBillingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+func (o CloudServerBillingConfigOutput) PrePaidPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerBillingConfig) *string { return v.PrePaidPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+func (o CloudServerBillingConfigOutput) PrePaidPeriodNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerBillingConfig) *int { return v.PrePaidPeriodNumber }).(pulumi.IntPtrOutput)
+}
+
+type CloudServerBillingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerBillingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerBillingConfig)(nil)).Elem()
+}
+
+func (o CloudServerBillingConfigPtrOutput) ToCloudServerBillingConfigPtrOutput() CloudServerBillingConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerBillingConfigPtrOutput) ToCloudServerBillingConfigPtrOutputWithContext(ctx context.Context) CloudServerBillingConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerBillingConfigPtrOutput) Elem() CloudServerBillingConfigOutput {
+	return o.ApplyT(func(v *CloudServerBillingConfig) CloudServerBillingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerBillingConfig
+		return ret
+	}).(CloudServerBillingConfigOutput)
+}
+
+// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+func (o CloudServerBillingConfigPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerBillingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRenew
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+func (o CloudServerBillingConfigPtrOutput) BandwidthBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerBillingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthBillingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+func (o CloudServerBillingConfigPtrOutput) ComputingBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerBillingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputingBillingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+func (o CloudServerBillingConfigPtrOutput) PrePaidPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerBillingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrePaidPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+func (o CloudServerBillingConfigPtrOutput) PrePaidPeriodNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudServerBillingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PrePaidPeriodNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+type CloudServerCustomData struct {
+	// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+	Data *string `pulumi:"data"`
+}
+
+// CloudServerCustomDataInput is an input type that accepts CloudServerCustomDataArgs and CloudServerCustomDataOutput values.
+// You can construct a concrete instance of `CloudServerCustomDataInput` via:
+//
+//	CloudServerCustomDataArgs{...}
+type CloudServerCustomDataInput interface {
+	pulumi.Input
+
+	ToCloudServerCustomDataOutput() CloudServerCustomDataOutput
+	ToCloudServerCustomDataOutputWithContext(context.Context) CloudServerCustomDataOutput
+}
+
+type CloudServerCustomDataArgs struct {
+	// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+	Data pulumi.StringPtrInput `pulumi:"data"`
+}
+
+func (CloudServerCustomDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerCustomData)(nil)).Elem()
+}
+
+func (i CloudServerCustomDataArgs) ToCloudServerCustomDataOutput() CloudServerCustomDataOutput {
+	return i.ToCloudServerCustomDataOutputWithContext(context.Background())
+}
+
+func (i CloudServerCustomDataArgs) ToCloudServerCustomDataOutputWithContext(ctx context.Context) CloudServerCustomDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerCustomDataOutput)
+}
+
+func (i CloudServerCustomDataArgs) ToCloudServerCustomDataPtrOutput() CloudServerCustomDataPtrOutput {
+	return i.ToCloudServerCustomDataPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerCustomDataArgs) ToCloudServerCustomDataPtrOutputWithContext(ctx context.Context) CloudServerCustomDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerCustomDataOutput).ToCloudServerCustomDataPtrOutputWithContext(ctx)
+}
+
+// CloudServerCustomDataPtrInput is an input type that accepts CloudServerCustomDataArgs, CloudServerCustomDataPtr and CloudServerCustomDataPtrOutput values.
+// You can construct a concrete instance of `CloudServerCustomDataPtrInput` via:
+//
+//	        CloudServerCustomDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerCustomDataPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerCustomDataPtrOutput() CloudServerCustomDataPtrOutput
+	ToCloudServerCustomDataPtrOutputWithContext(context.Context) CloudServerCustomDataPtrOutput
+}
+
+type cloudServerCustomDataPtrType CloudServerCustomDataArgs
+
+func CloudServerCustomDataPtr(v *CloudServerCustomDataArgs) CloudServerCustomDataPtrInput {
+	return (*cloudServerCustomDataPtrType)(v)
+}
+
+func (*cloudServerCustomDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerCustomData)(nil)).Elem()
+}
+
+func (i *cloudServerCustomDataPtrType) ToCloudServerCustomDataPtrOutput() CloudServerCustomDataPtrOutput {
+	return i.ToCloudServerCustomDataPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerCustomDataPtrType) ToCloudServerCustomDataPtrOutputWithContext(ctx context.Context) CloudServerCustomDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerCustomDataPtrOutput)
+}
+
+type CloudServerCustomDataOutput struct{ *pulumi.OutputState }
+
+func (CloudServerCustomDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerCustomData)(nil)).Elem()
+}
+
+func (o CloudServerCustomDataOutput) ToCloudServerCustomDataOutput() CloudServerCustomDataOutput {
+	return o
+}
+
+func (o CloudServerCustomDataOutput) ToCloudServerCustomDataOutputWithContext(ctx context.Context) CloudServerCustomDataOutput {
+	return o
+}
+
+func (o CloudServerCustomDataOutput) ToCloudServerCustomDataPtrOutput() CloudServerCustomDataPtrOutput {
+	return o.ToCloudServerCustomDataPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerCustomDataOutput) ToCloudServerCustomDataPtrOutputWithContext(ctx context.Context) CloudServerCustomDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerCustomData) *CloudServerCustomData {
+		return &v
+	}).(CloudServerCustomDataPtrOutput)
+}
+
+// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+func (o CloudServerCustomDataOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerCustomData) *string { return v.Data }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerCustomDataPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerCustomDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerCustomData)(nil)).Elem()
+}
+
+func (o CloudServerCustomDataPtrOutput) ToCloudServerCustomDataPtrOutput() CloudServerCustomDataPtrOutput {
+	return o
+}
+
+func (o CloudServerCustomDataPtrOutput) ToCloudServerCustomDataPtrOutputWithContext(ctx context.Context) CloudServerCustomDataPtrOutput {
+	return o
+}
+
+func (o CloudServerCustomDataPtrOutput) Elem() CloudServerCustomDataOutput {
+	return o.ApplyT(func(v *CloudServerCustomData) CloudServerCustomData {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerCustomData
+		return ret
+	}).(CloudServerCustomDataOutput)
+}
+
+// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+func (o CloudServerCustomDataPtrOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerCustomData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerInstanceAreaNum struct {
+	// Region name
+	AreaName *string `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service.
+	ClusterName *string `pulumi:"clusterName"`
+	// Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp *string `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+	ExternalNetworkMode *string `pulumi:"externalNetworkMode"`
+	// List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+	HostNameLists []string `pulumi:"hostNameLists"`
+	// Carrier. Possible values: CMCC, CTCC, CUCC.
+	Isp *string `pulumi:"isp"`
+	// Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+	MultiInterfaceNameConfig *CloudServerInstanceAreaNumMultiInterfaceNameConfig `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num *int `pulumi:"num"`
+	// Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+	SingleInterfaceNameConfig *CloudServerInstanceAreaNumSingleInterfaceNameConfig `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity *string `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	VpcIdentity *string `pulumi:"vpcIdentity"`
+}
+
+// CloudServerInstanceAreaNumInput is an input type that accepts CloudServerInstanceAreaNumArgs and CloudServerInstanceAreaNumOutput values.
+// You can construct a concrete instance of `CloudServerInstanceAreaNumInput` via:
+//
+//	CloudServerInstanceAreaNumArgs{...}
+type CloudServerInstanceAreaNumInput interface {
+	pulumi.Input
+
+	ToCloudServerInstanceAreaNumOutput() CloudServerInstanceAreaNumOutput
+	ToCloudServerInstanceAreaNumOutputWithContext(context.Context) CloudServerInstanceAreaNumOutput
+}
+
+type CloudServerInstanceAreaNumArgs struct {
+	// Region name
+	AreaName pulumi.StringPtrInput `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service.
+	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	// Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp pulumi.StringPtrInput `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+	ExternalNetworkMode pulumi.StringPtrInput `pulumi:"externalNetworkMode"`
+	// List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+	HostNameLists pulumi.StringArrayInput `pulumi:"hostNameLists"`
+	// Carrier. Possible values: CMCC, CTCC, CUCC.
+	Isp pulumi.StringPtrInput `pulumi:"isp"`
+	// Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+	MultiInterfaceNameConfig CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrInput `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num pulumi.IntPtrInput `pulumi:"num"`
+	// Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+	SingleInterfaceNameConfig CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrInput `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity pulumi.StringPtrInput `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	VpcIdentity pulumi.StringPtrInput `pulumi:"vpcIdentity"`
+}
+
+func (CloudServerInstanceAreaNumArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (i CloudServerInstanceAreaNumArgs) ToCloudServerInstanceAreaNumOutput() CloudServerInstanceAreaNumOutput {
+	return i.ToCloudServerInstanceAreaNumOutputWithContext(context.Background())
+}
+
+func (i CloudServerInstanceAreaNumArgs) ToCloudServerInstanceAreaNumOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumOutput)
+}
+
+// CloudServerInstanceAreaNumArrayInput is an input type that accepts CloudServerInstanceAreaNumArray and CloudServerInstanceAreaNumArrayOutput values.
+// You can construct a concrete instance of `CloudServerInstanceAreaNumArrayInput` via:
+//
+//	CloudServerInstanceAreaNumArray{ CloudServerInstanceAreaNumArgs{...} }
+type CloudServerInstanceAreaNumArrayInput interface {
+	pulumi.Input
+
+	ToCloudServerInstanceAreaNumArrayOutput() CloudServerInstanceAreaNumArrayOutput
+	ToCloudServerInstanceAreaNumArrayOutputWithContext(context.Context) CloudServerInstanceAreaNumArrayOutput
+}
+
+type CloudServerInstanceAreaNumArray []CloudServerInstanceAreaNumInput
+
+func (CloudServerInstanceAreaNumArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (i CloudServerInstanceAreaNumArray) ToCloudServerInstanceAreaNumArrayOutput() CloudServerInstanceAreaNumArrayOutput {
+	return i.ToCloudServerInstanceAreaNumArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServerInstanceAreaNumArray) ToCloudServerInstanceAreaNumArrayOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumArrayOutput)
+}
+
+type CloudServerInstanceAreaNumOutput struct{ *pulumi.OutputState }
+
+func (CloudServerInstanceAreaNumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (o CloudServerInstanceAreaNumOutput) ToCloudServerInstanceAreaNumOutput() CloudServerInstanceAreaNumOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumOutput) ToCloudServerInstanceAreaNumOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumOutput {
+	return o
+}
+
+// Region name
+func (o CloudServerInstanceAreaNumOutput) AreaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.AreaName }).(pulumi.StringPtrOutput)
+}
+
+// Node name. Specify the node where you want to deploy the edge service.
+func (o CloudServerInstanceAreaNumOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+func (o CloudServerInstanceAreaNumOutput) DefaultIsp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.DefaultIsp }).(pulumi.StringPtrOutput)
+}
+
+// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+func (o CloudServerInstanceAreaNumOutput) ExternalNetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.ExternalNetworkMode }).(pulumi.StringPtrOutput)
+}
+
+// List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+func (o CloudServerInstanceAreaNumOutput) HostNameLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) []string { return v.HostNameLists }).(pulumi.StringArrayOutput)
+}
+
+// Carrier. Possible values: CMCC, CTCC, CUCC.
+func (o CloudServerInstanceAreaNumOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.Isp }).(pulumi.StringPtrOutput)
+}
+
+// Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+func (o CloudServerInstanceAreaNumOutput) MultiInterfaceNameConfig() CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *CloudServerInstanceAreaNumMultiInterfaceNameConfig {
+		return v.MultiInterfaceNameConfig
+	}).(CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput)
+}
+
+// Number of instances.
+func (o CloudServerInstanceAreaNumOutput) Num() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *int { return v.Num }).(pulumi.IntPtrOutput)
+}
+
+// Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+func (o CloudServerInstanceAreaNumOutput) SingleInterfaceNameConfig() CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *CloudServerInstanceAreaNumSingleInterfaceNameConfig {
+		return v.SingleInterfaceNameConfig
+	}).(CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput)
+}
+
+// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+func (o CloudServerInstanceAreaNumOutput) SubnetIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.SubnetIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+func (o CloudServerInstanceAreaNumOutput) VpcIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNum) *string { return v.VpcIdentity }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerInstanceAreaNumArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServerInstanceAreaNumArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (o CloudServerInstanceAreaNumArrayOutput) ToCloudServerInstanceAreaNumArrayOutput() CloudServerInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumArrayOutput) ToCloudServerInstanceAreaNumArrayOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumArrayOutput) Index(i pulumi.IntInput) CloudServerInstanceAreaNumOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServerInstanceAreaNum {
+		return vs[0].([]CloudServerInstanceAreaNum)[vs[1].(int)]
+	}).(CloudServerInstanceAreaNumOutput)
+}
+
+type CloudServerInstanceAreaNumMultiInterfaceNameConfig struct {
+	// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+	CmccExternalInterfaceName *string `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CtccExternalInterfaceName *string `pulumi:"ctccExternalInterfaceName"`
+	// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CuccExternalInterfaceName *string `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName *string `pulumi:"internalInterfaceName"`
+}
+
+// CloudServerInstanceAreaNumMultiInterfaceNameConfigInput is an input type that accepts CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs and CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `CloudServerInstanceAreaNumMultiInterfaceNameConfigInput` via:
+//
+//	CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs{...}
+type CloudServerInstanceAreaNumMultiInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput
+	ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput
+}
+
+type CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs struct {
+	// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+	CmccExternalInterfaceName pulumi.StringPtrInput `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CtccExternalInterfaceName pulumi.StringPtrInput `pulumi:"ctccExternalInterfaceName"`
+	// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CuccExternalInterfaceName pulumi.StringPtrInput `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName pulumi.StringPtrInput `pulumi:"internalInterfaceName"`
+}
+
+func (CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return i.ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+func (i CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return i.ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput).ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx)
+}
+
+// CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrInput is an input type that accepts CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs, CloudServerInstanceAreaNumMultiInterfaceNameConfigPtr and CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput values.
+// You can construct a concrete instance of `CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrInput` via:
+//
+//	        CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput
+	ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput
+}
+
+type cloudServerInstanceAreaNumMultiInterfaceNameConfigPtrType CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs
+
+func CloudServerInstanceAreaNumMultiInterfaceNameConfigPtr(v *CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrInput {
+	return (*cloudServerInstanceAreaNumMultiInterfaceNameConfigPtrType)(v)
+}
+
+func (*cloudServerInstanceAreaNumMultiInterfaceNameConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i *cloudServerInstanceAreaNumMultiInterfaceNameConfigPtrType) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return i.ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerInstanceAreaNumMultiInterfaceNameConfigPtrType) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput)
+}
+
+type CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o.ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerInstanceAreaNumMultiInterfaceNameConfig) *CloudServerInstanceAreaNumMultiInterfaceNameConfig {
+		return &v
+	}).(CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput)
+}
+
+// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) CmccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string { return v.CmccExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) CtccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string { return v.CtccExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) CuccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string { return v.CuccExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string { return v.InternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) ToCloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) Elem() CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumMultiInterfaceNameConfig) CloudServerInstanceAreaNumMultiInterfaceNameConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerInstanceAreaNumMultiInterfaceNameConfig
+		return ret
+	}).(CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) CmccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CmccExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) CtccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CtccExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) CuccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CuccExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerInstanceAreaNumSingleInterfaceNameConfig struct {
+	// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	ExternalInterfaceName *string `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName *string `pulumi:"internalInterfaceName"`
+}
+
+// CloudServerInstanceAreaNumSingleInterfaceNameConfigInput is an input type that accepts CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs and CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `CloudServerInstanceAreaNumSingleInterfaceNameConfigInput` via:
+//
+//	CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs{...}
+type CloudServerInstanceAreaNumSingleInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput
+	ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput
+}
+
+type CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs struct {
+	// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	ExternalInterfaceName pulumi.StringPtrInput `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName pulumi.StringPtrInput `pulumi:"internalInterfaceName"`
+}
+
+func (CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return i.ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+func (i CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return i.ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput).ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx)
+}
+
+// CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrInput is an input type that accepts CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs, CloudServerInstanceAreaNumSingleInterfaceNameConfigPtr and CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput values.
+// You can construct a concrete instance of `CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrInput` via:
+//
+//	        CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput
+	ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput
+}
+
+type cloudServerInstanceAreaNumSingleInterfaceNameConfigPtrType CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs
+
+func CloudServerInstanceAreaNumSingleInterfaceNameConfigPtr(v *CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrInput {
+	return (*cloudServerInstanceAreaNumSingleInterfaceNameConfigPtrType)(v)
+}
+
+func (*cloudServerInstanceAreaNumSingleInterfaceNameConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i *cloudServerInstanceAreaNumSingleInterfaceNameConfigPtrType) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return i.ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerInstanceAreaNumSingleInterfaceNameConfigPtrType) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput)
+}
+
+type CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o.ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerInstanceAreaNumSingleInterfaceNameConfig) *CloudServerInstanceAreaNumSingleInterfaceNameConfig {
+		return &v
+	}).(CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput)
+}
+
+// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNumSingleInterfaceNameConfig) *string { return v.ExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerInstanceAreaNumSingleInterfaceNameConfig) *string { return v.InternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput() CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ToCloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput) Elem() CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumSingleInterfaceNameConfig) CloudServerInstanceAreaNumSingleInterfaceNameConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerInstanceAreaNumSingleInterfaceNameConfig
+		return ret
+	}).(CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumSingleInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+func (o CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerInstanceAreaNumSingleInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerNetworkConfig struct {
+	// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+	BandwidthPeak                *string                                               `pulumi:"bandwidthPeak"`
+	BandwidthPeakLimitIspConfigs []CloudServerNetworkConfigBandwidthPeakLimitIspConfig `pulumi:"bandwidthPeakLimitIspConfigs"`
+	// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+	BoundEipShareBandwidthPeak *string `pulumi:"boundEipShareBandwidthPeak"`
+	// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CustomExternalInterfaceName *string `pulumi:"customExternalInterfaceName"`
+	// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CustomInternalInterfaceName *string `pulumi:"customInternalInterfaceName"`
+	// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+	DisableIpv4 *bool `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+	DnsLists []string `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+	DnsType *string `pulumi:"dnsType"`
+	// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+	EnableIpv6 *bool `pulumi:"enableIpv6"`
+	// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+	LimitMode *string `pulumi:"limitMode"`
+	// Number of auxiliary private IPs.
+	SecondaryInternalIpNum *int `pulumi:"secondaryInternalIpNum"`
+	// List of bound global firewall IDs.
+	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
+	// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+	TcpTimeout *int `pulumi:"tcpTimeout"`
+	// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+	UdpTimeout *int `pulumi:"udpTimeout"`
+}
+
+// CloudServerNetworkConfigInput is an input type that accepts CloudServerNetworkConfigArgs and CloudServerNetworkConfigOutput values.
+// You can construct a concrete instance of `CloudServerNetworkConfigInput` via:
+//
+//	CloudServerNetworkConfigArgs{...}
+type CloudServerNetworkConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerNetworkConfigOutput() CloudServerNetworkConfigOutput
+	ToCloudServerNetworkConfigOutputWithContext(context.Context) CloudServerNetworkConfigOutput
+}
+
+type CloudServerNetworkConfigArgs struct {
+	// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+	BandwidthPeak                pulumi.StringPtrInput                                         `pulumi:"bandwidthPeak"`
+	BandwidthPeakLimitIspConfigs CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput `pulumi:"bandwidthPeakLimitIspConfigs"`
+	// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+	BoundEipShareBandwidthPeak pulumi.StringPtrInput `pulumi:"boundEipShareBandwidthPeak"`
+	// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CustomExternalInterfaceName pulumi.StringPtrInput `pulumi:"customExternalInterfaceName"`
+	// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CustomInternalInterfaceName pulumi.StringPtrInput `pulumi:"customInternalInterfaceName"`
+	// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+	DisableIpv4 pulumi.BoolPtrInput `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+	DnsLists pulumi.StringArrayInput `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+	DnsType pulumi.StringPtrInput `pulumi:"dnsType"`
+	// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+	EnableIpv6 pulumi.BoolPtrInput `pulumi:"enableIpv6"`
+	// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+	LimitMode pulumi.StringPtrInput `pulumi:"limitMode"`
+	// Number of auxiliary private IPs.
+	SecondaryInternalIpNum pulumi.IntPtrInput `pulumi:"secondaryInternalIpNum"`
+	// List of bound global firewall IDs.
+	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
+	// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+	TcpTimeout pulumi.IntPtrInput `pulumi:"tcpTimeout"`
+	// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
+}
+
+func (CloudServerNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerNetworkConfig)(nil)).Elem()
+}
+
+func (i CloudServerNetworkConfigArgs) ToCloudServerNetworkConfigOutput() CloudServerNetworkConfigOutput {
+	return i.ToCloudServerNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerNetworkConfigArgs) ToCloudServerNetworkConfigOutputWithContext(ctx context.Context) CloudServerNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerNetworkConfigOutput)
+}
+
+func (i CloudServerNetworkConfigArgs) ToCloudServerNetworkConfigPtrOutput() CloudServerNetworkConfigPtrOutput {
+	return i.ToCloudServerNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerNetworkConfigArgs) ToCloudServerNetworkConfigPtrOutputWithContext(ctx context.Context) CloudServerNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerNetworkConfigOutput).ToCloudServerNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// CloudServerNetworkConfigPtrInput is an input type that accepts CloudServerNetworkConfigArgs, CloudServerNetworkConfigPtr and CloudServerNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `CloudServerNetworkConfigPtrInput` via:
+//
+//	        CloudServerNetworkConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerNetworkConfigPtrOutput() CloudServerNetworkConfigPtrOutput
+	ToCloudServerNetworkConfigPtrOutputWithContext(context.Context) CloudServerNetworkConfigPtrOutput
+}
+
+type cloudServerNetworkConfigPtrType CloudServerNetworkConfigArgs
+
+func CloudServerNetworkConfigPtr(v *CloudServerNetworkConfigArgs) CloudServerNetworkConfigPtrInput {
+	return (*cloudServerNetworkConfigPtrType)(v)
+}
+
+func (*cloudServerNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerNetworkConfig)(nil)).Elem()
+}
+
+func (i *cloudServerNetworkConfigPtrType) ToCloudServerNetworkConfigPtrOutput() CloudServerNetworkConfigPtrOutput {
+	return i.ToCloudServerNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerNetworkConfigPtrType) ToCloudServerNetworkConfigPtrOutputWithContext(ctx context.Context) CloudServerNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerNetworkConfigPtrOutput)
+}
+
+type CloudServerNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerNetworkConfig)(nil)).Elem()
+}
+
+func (o CloudServerNetworkConfigOutput) ToCloudServerNetworkConfigOutput() CloudServerNetworkConfigOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigOutput) ToCloudServerNetworkConfigOutputWithContext(ctx context.Context) CloudServerNetworkConfigOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigOutput) ToCloudServerNetworkConfigPtrOutput() CloudServerNetworkConfigPtrOutput {
+	return o.ToCloudServerNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerNetworkConfigOutput) ToCloudServerNetworkConfigPtrOutputWithContext(ctx context.Context) CloudServerNetworkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerNetworkConfig) *CloudServerNetworkConfig {
+		return &v
+	}).(CloudServerNetworkConfigPtrOutput)
+}
+
+// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+func (o CloudServerNetworkConfigOutput) BandwidthPeak() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *string { return v.BandwidthPeak }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudServerNetworkConfigOutput) BandwidthPeakLimitIspConfigs() CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) []CloudServerNetworkConfigBandwidthPeakLimitIspConfig {
+		return v.BandwidthPeakLimitIspConfigs
+	}).(CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput)
+}
+
+// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+func (o CloudServerNetworkConfigOutput) BoundEipShareBandwidthPeak() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *string { return v.BoundEipShareBandwidthPeak }).(pulumi.StringPtrOutput)
+}
+
+// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o CloudServerNetworkConfigOutput) CustomExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *string { return v.CustomExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+func (o CloudServerNetworkConfigOutput) CustomInternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *string { return v.CustomInternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+func (o CloudServerNetworkConfigOutput) DisableIpv4() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *bool { return v.DisableIpv4 }).(pulumi.BoolPtrOutput)
+}
+
+// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+func (o CloudServerNetworkConfigOutput) DnsLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) []string { return v.DnsLists }).(pulumi.StringArrayOutput)
+}
+
+// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+func (o CloudServerNetworkConfigOutput) DnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *string { return v.DnsType }).(pulumi.StringPtrOutput)
+}
+
+// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+func (o CloudServerNetworkConfigOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *bool { return v.EnableIpv6 }).(pulumi.BoolPtrOutput)
+}
+
+// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+func (o CloudServerNetworkConfigOutput) LimitMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *string { return v.LimitMode }).(pulumi.StringPtrOutput)
+}
+
+// Number of auxiliary private IPs.
+func (o CloudServerNetworkConfigOutput) SecondaryInternalIpNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *int { return v.SecondaryInternalIpNum }).(pulumi.IntPtrOutput)
+}
+
+// List of bound global firewall IDs.
+func (o CloudServerNetworkConfigOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
+}
+
+// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+func (o CloudServerNetworkConfigOutput) TcpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *int { return v.TcpTimeout }).(pulumi.IntPtrOutput)
+}
+
+// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+func (o CloudServerNetworkConfigOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfig) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
+}
+
+type CloudServerNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerNetworkConfig)(nil)).Elem()
+}
+
+func (o CloudServerNetworkConfigPtrOutput) ToCloudServerNetworkConfigPtrOutput() CloudServerNetworkConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigPtrOutput) ToCloudServerNetworkConfigPtrOutputWithContext(ctx context.Context) CloudServerNetworkConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigPtrOutput) Elem() CloudServerNetworkConfigOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) CloudServerNetworkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerNetworkConfig
+		return ret
+	}).(CloudServerNetworkConfigOutput)
+}
+
+// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+func (o CloudServerNetworkConfigPtrOutput) BandwidthPeak() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthPeak
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudServerNetworkConfigPtrOutput) BandwidthPeakLimitIspConfigs() CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) []CloudServerNetworkConfigBandwidthPeakLimitIspConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthPeakLimitIspConfigs
+	}).(CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput)
+}
+
+// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+func (o CloudServerNetworkConfigPtrOutput) BoundEipShareBandwidthPeak() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BoundEipShareBandwidthPeak
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o CloudServerNetworkConfigPtrOutput) CustomExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+func (o CloudServerNetworkConfigPtrOutput) CustomInternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomInternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+func (o CloudServerNetworkConfigPtrOutput) DisableIpv4() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableIpv4
+	}).(pulumi.BoolPtrOutput)
+}
+
+// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+func (o CloudServerNetworkConfigPtrOutput) DnsLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+func (o CloudServerNetworkConfigPtrOutput) DnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+func (o CloudServerNetworkConfigPtrOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIpv6
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+func (o CloudServerNetworkConfigPtrOutput) LimitMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LimitMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of auxiliary private IPs.
+func (o CloudServerNetworkConfigPtrOutput) SecondaryInternalIpNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryInternalIpNum
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of bound global firewall IDs.
+func (o CloudServerNetworkConfigPtrOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIdLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+func (o CloudServerNetworkConfigPtrOutput) TcpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+func (o CloudServerNetworkConfigPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudServerNetworkConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfig struct {
+	// Bandwidth limit value for this carrier.
+	BandwidthPeakLimit *string `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+	Isp *string `pulumi:"isp"`
+}
+
+// CloudServerNetworkConfigBandwidthPeakLimitIspConfigInput is an input type that accepts CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs and CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput values.
+// You can construct a concrete instance of `CloudServerNetworkConfigBandwidthPeakLimitIspConfigInput` via:
+//
+//	CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs{...}
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput() CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput
+	ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(context.Context) CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput
+}
+
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs struct {
+	// Bandwidth limit value for this carrier.
+	BandwidthPeakLimit pulumi.StringPtrInput `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+	Isp pulumi.StringPtrInput `pulumi:"isp"`
+}
+
+func (CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (i CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput() CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return i.ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(ctx context.Context) CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput)
+}
+
+// CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput is an input type that accepts CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray and CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput values.
+// You can construct a concrete instance of `CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput` via:
+//
+//	CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray{ CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs{...} }
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput interface {
+	pulumi.Input
+
+	ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput() CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput
+	ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(context.Context) CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput
+}
+
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray []CloudServerNetworkConfigBandwidthPeakLimitIspConfigInput
+
+func (CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (i CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput() CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return i.ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(ctx context.Context) CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput)
+}
+
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput() CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(ctx context.Context) CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return o
+}
+
+// Bandwidth limit value for this carrier.
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) BandwidthPeakLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfigBandwidthPeakLimitIspConfig) *string { return v.BandwidthPeakLimit }).(pulumi.StringPtrOutput)
+}
+
+// Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerNetworkConfigBandwidthPeakLimitIspConfig) *string { return v.Isp }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput() CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) ToCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(ctx context.Context) CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o
+}
+
+func (o CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) Index(i pulumi.IntInput) CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServerNetworkConfigBandwidthPeakLimitIspConfig {
+		return vs[0].([]CloudServerNetworkConfigBandwidthPeakLimitIspConfig)[vs[1].(int)]
+	}).(CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput)
+}
+
+type CloudServerScheduleStrategy struct {
+	// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+	PriceStrategy *string `pulumi:"priceStrategy"`
+	// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+	ScheduleStrategy *string `pulumi:"scheduleStrategy"`
+}
+
+// CloudServerScheduleStrategyInput is an input type that accepts CloudServerScheduleStrategyArgs and CloudServerScheduleStrategyOutput values.
+// You can construct a concrete instance of `CloudServerScheduleStrategyInput` via:
+//
+//	CloudServerScheduleStrategyArgs{...}
+type CloudServerScheduleStrategyInput interface {
+	pulumi.Input
+
+	ToCloudServerScheduleStrategyOutput() CloudServerScheduleStrategyOutput
+	ToCloudServerScheduleStrategyOutputWithContext(context.Context) CloudServerScheduleStrategyOutput
+}
+
+type CloudServerScheduleStrategyArgs struct {
+	// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+	PriceStrategy pulumi.StringPtrInput `pulumi:"priceStrategy"`
+	// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+	ScheduleStrategy pulumi.StringPtrInput `pulumi:"scheduleStrategy"`
+}
+
+func (CloudServerScheduleStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerScheduleStrategy)(nil)).Elem()
+}
+
+func (i CloudServerScheduleStrategyArgs) ToCloudServerScheduleStrategyOutput() CloudServerScheduleStrategyOutput {
+	return i.ToCloudServerScheduleStrategyOutputWithContext(context.Background())
+}
+
+func (i CloudServerScheduleStrategyArgs) ToCloudServerScheduleStrategyOutputWithContext(ctx context.Context) CloudServerScheduleStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerScheduleStrategyOutput)
+}
+
+func (i CloudServerScheduleStrategyArgs) ToCloudServerScheduleStrategyPtrOutput() CloudServerScheduleStrategyPtrOutput {
+	return i.ToCloudServerScheduleStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerScheduleStrategyArgs) ToCloudServerScheduleStrategyPtrOutputWithContext(ctx context.Context) CloudServerScheduleStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerScheduleStrategyOutput).ToCloudServerScheduleStrategyPtrOutputWithContext(ctx)
+}
+
+// CloudServerScheduleStrategyPtrInput is an input type that accepts CloudServerScheduleStrategyArgs, CloudServerScheduleStrategyPtr and CloudServerScheduleStrategyPtrOutput values.
+// You can construct a concrete instance of `CloudServerScheduleStrategyPtrInput` via:
+//
+//	        CloudServerScheduleStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerScheduleStrategyPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerScheduleStrategyPtrOutput() CloudServerScheduleStrategyPtrOutput
+	ToCloudServerScheduleStrategyPtrOutputWithContext(context.Context) CloudServerScheduleStrategyPtrOutput
+}
+
+type cloudServerScheduleStrategyPtrType CloudServerScheduleStrategyArgs
+
+func CloudServerScheduleStrategyPtr(v *CloudServerScheduleStrategyArgs) CloudServerScheduleStrategyPtrInput {
+	return (*cloudServerScheduleStrategyPtrType)(v)
+}
+
+func (*cloudServerScheduleStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerScheduleStrategy)(nil)).Elem()
+}
+
+func (i *cloudServerScheduleStrategyPtrType) ToCloudServerScheduleStrategyPtrOutput() CloudServerScheduleStrategyPtrOutput {
+	return i.ToCloudServerScheduleStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerScheduleStrategyPtrType) ToCloudServerScheduleStrategyPtrOutputWithContext(ctx context.Context) CloudServerScheduleStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerScheduleStrategyPtrOutput)
+}
+
+type CloudServerScheduleStrategyOutput struct{ *pulumi.OutputState }
+
+func (CloudServerScheduleStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerScheduleStrategy)(nil)).Elem()
+}
+
+func (o CloudServerScheduleStrategyOutput) ToCloudServerScheduleStrategyOutput() CloudServerScheduleStrategyOutput {
+	return o
+}
+
+func (o CloudServerScheduleStrategyOutput) ToCloudServerScheduleStrategyOutputWithContext(ctx context.Context) CloudServerScheduleStrategyOutput {
+	return o
+}
+
+func (o CloudServerScheduleStrategyOutput) ToCloudServerScheduleStrategyPtrOutput() CloudServerScheduleStrategyPtrOutput {
+	return o.ToCloudServerScheduleStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerScheduleStrategyOutput) ToCloudServerScheduleStrategyPtrOutputWithContext(ctx context.Context) CloudServerScheduleStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerScheduleStrategy) *CloudServerScheduleStrategy {
+		return &v
+	}).(CloudServerScheduleStrategyPtrOutput)
+}
+
+// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+func (o CloudServerScheduleStrategyOutput) PriceStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerScheduleStrategy) *string { return v.PriceStrategy }).(pulumi.StringPtrOutput)
+}
+
+// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+func (o CloudServerScheduleStrategyOutput) ScheduleStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerScheduleStrategy) *string { return v.ScheduleStrategy }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerScheduleStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerScheduleStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerScheduleStrategy)(nil)).Elem()
+}
+
+func (o CloudServerScheduleStrategyPtrOutput) ToCloudServerScheduleStrategyPtrOutput() CloudServerScheduleStrategyPtrOutput {
+	return o
+}
+
+func (o CloudServerScheduleStrategyPtrOutput) ToCloudServerScheduleStrategyPtrOutputWithContext(ctx context.Context) CloudServerScheduleStrategyPtrOutput {
+	return o
+}
+
+func (o CloudServerScheduleStrategyPtrOutput) Elem() CloudServerScheduleStrategyOutput {
+	return o.ApplyT(func(v *CloudServerScheduleStrategy) CloudServerScheduleStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerScheduleStrategy
+		return ret
+	}).(CloudServerScheduleStrategyOutput)
+}
+
+// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+func (o CloudServerScheduleStrategyPtrOutput) PriceStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerScheduleStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+func (o CloudServerScheduleStrategyPtrOutput) ScheduleStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerScheduleStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerSecretConfig struct {
+	// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+	SecretData *string `pulumi:"secretData"`
+	// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+	SecretType *int `pulumi:"secretType"`
+}
+
+// CloudServerSecretConfigInput is an input type that accepts CloudServerSecretConfigArgs and CloudServerSecretConfigOutput values.
+// You can construct a concrete instance of `CloudServerSecretConfigInput` via:
+//
+//	CloudServerSecretConfigArgs{...}
+type CloudServerSecretConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerSecretConfigOutput() CloudServerSecretConfigOutput
+	ToCloudServerSecretConfigOutputWithContext(context.Context) CloudServerSecretConfigOutput
+}
+
+type CloudServerSecretConfigArgs struct {
+	// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+	SecretData pulumi.StringPtrInput `pulumi:"secretData"`
+	// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+	SecretType pulumi.IntPtrInput `pulumi:"secretType"`
+}
+
+func (CloudServerSecretConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerSecretConfig)(nil)).Elem()
+}
+
+func (i CloudServerSecretConfigArgs) ToCloudServerSecretConfigOutput() CloudServerSecretConfigOutput {
+	return i.ToCloudServerSecretConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerSecretConfigArgs) ToCloudServerSecretConfigOutputWithContext(ctx context.Context) CloudServerSecretConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerSecretConfigOutput)
+}
+
+func (i CloudServerSecretConfigArgs) ToCloudServerSecretConfigPtrOutput() CloudServerSecretConfigPtrOutput {
+	return i.ToCloudServerSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerSecretConfigArgs) ToCloudServerSecretConfigPtrOutputWithContext(ctx context.Context) CloudServerSecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerSecretConfigOutput).ToCloudServerSecretConfigPtrOutputWithContext(ctx)
+}
+
+// CloudServerSecretConfigPtrInput is an input type that accepts CloudServerSecretConfigArgs, CloudServerSecretConfigPtr and CloudServerSecretConfigPtrOutput values.
+// You can construct a concrete instance of `CloudServerSecretConfigPtrInput` via:
+//
+//	        CloudServerSecretConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerSecretConfigPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerSecretConfigPtrOutput() CloudServerSecretConfigPtrOutput
+	ToCloudServerSecretConfigPtrOutputWithContext(context.Context) CloudServerSecretConfigPtrOutput
+}
+
+type cloudServerSecretConfigPtrType CloudServerSecretConfigArgs
+
+func CloudServerSecretConfigPtr(v *CloudServerSecretConfigArgs) CloudServerSecretConfigPtrInput {
+	return (*cloudServerSecretConfigPtrType)(v)
+}
+
+func (*cloudServerSecretConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerSecretConfig)(nil)).Elem()
+}
+
+func (i *cloudServerSecretConfigPtrType) ToCloudServerSecretConfigPtrOutput() CloudServerSecretConfigPtrOutput {
+	return i.ToCloudServerSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerSecretConfigPtrType) ToCloudServerSecretConfigPtrOutputWithContext(ctx context.Context) CloudServerSecretConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerSecretConfigPtrOutput)
+}
+
+type CloudServerSecretConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerSecretConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerSecretConfig)(nil)).Elem()
+}
+
+func (o CloudServerSecretConfigOutput) ToCloudServerSecretConfigOutput() CloudServerSecretConfigOutput {
+	return o
+}
+
+func (o CloudServerSecretConfigOutput) ToCloudServerSecretConfigOutputWithContext(ctx context.Context) CloudServerSecretConfigOutput {
+	return o
+}
+
+func (o CloudServerSecretConfigOutput) ToCloudServerSecretConfigPtrOutput() CloudServerSecretConfigPtrOutput {
+	return o.ToCloudServerSecretConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerSecretConfigOutput) ToCloudServerSecretConfigPtrOutputWithContext(ctx context.Context) CloudServerSecretConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerSecretConfig) *CloudServerSecretConfig {
+		return &v
+	}).(CloudServerSecretConfigPtrOutput)
+}
+
+// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+func (o CloudServerSecretConfigOutput) SecretData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerSecretConfig) *string { return v.SecretData }).(pulumi.StringPtrOutput)
+}
+
+// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+func (o CloudServerSecretConfigOutput) SecretType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerSecretConfig) *int { return v.SecretType }).(pulumi.IntPtrOutput)
+}
+
+type CloudServerSecretConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerSecretConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerSecretConfig)(nil)).Elem()
+}
+
+func (o CloudServerSecretConfigPtrOutput) ToCloudServerSecretConfigPtrOutput() CloudServerSecretConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerSecretConfigPtrOutput) ToCloudServerSecretConfigPtrOutputWithContext(ctx context.Context) CloudServerSecretConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerSecretConfigPtrOutput) Elem() CloudServerSecretConfigOutput {
+	return o.ApplyT(func(v *CloudServerSecretConfig) CloudServerSecretConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerSecretConfig
+		return ret
+	}).(CloudServerSecretConfigOutput)
+}
+
+// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+func (o CloudServerSecretConfigPtrOutput) SecretData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerSecretConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+func (o CloudServerSecretConfigPtrOutput) SecretType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudServerSecretConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecretType
+	}).(pulumi.IntPtrOutput)
+}
+
+type CloudServerStorageConfig struct {
+	// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+	DataDisk       *CloudServerStorageConfigDataDisk       `pulumi:"dataDisk"`
+	DataDiskLists  []CloudServerStorageConfigDataDiskList  `pulumi:"dataDiskLists"`
+	DataLocalDisks []CloudServerStorageConfigDataLocalDisk `pulumi:"dataLocalDisks"`
+	// System disk configuration
+	SystemDisk *CloudServerStorageConfigSystemDisk `pulumi:"systemDisk"`
+}
+
+// CloudServerStorageConfigInput is an input type that accepts CloudServerStorageConfigArgs and CloudServerStorageConfigOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigInput` via:
+//
+//	CloudServerStorageConfigArgs{...}
+type CloudServerStorageConfigInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigOutput() CloudServerStorageConfigOutput
+	ToCloudServerStorageConfigOutputWithContext(context.Context) CloudServerStorageConfigOutput
+}
+
+type CloudServerStorageConfigArgs struct {
+	// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+	DataDisk       CloudServerStorageConfigDataDiskPtrInput        `pulumi:"dataDisk"`
+	DataDiskLists  CloudServerStorageConfigDataDiskListArrayInput  `pulumi:"dataDiskLists"`
+	DataLocalDisks CloudServerStorageConfigDataLocalDiskArrayInput `pulumi:"dataLocalDisks"`
+	// System disk configuration
+	SystemDisk CloudServerStorageConfigSystemDiskPtrInput `pulumi:"systemDisk"`
+}
+
+func (CloudServerStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfig)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigArgs) ToCloudServerStorageConfigOutput() CloudServerStorageConfigOutput {
+	return i.ToCloudServerStorageConfigOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigArgs) ToCloudServerStorageConfigOutputWithContext(ctx context.Context) CloudServerStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigOutput)
+}
+
+func (i CloudServerStorageConfigArgs) ToCloudServerStorageConfigPtrOutput() CloudServerStorageConfigPtrOutput {
+	return i.ToCloudServerStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigArgs) ToCloudServerStorageConfigPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigOutput).ToCloudServerStorageConfigPtrOutputWithContext(ctx)
+}
+
+// CloudServerStorageConfigPtrInput is an input type that accepts CloudServerStorageConfigArgs, CloudServerStorageConfigPtr and CloudServerStorageConfigPtrOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigPtrInput` via:
+//
+//	        CloudServerStorageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerStorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigPtrOutput() CloudServerStorageConfigPtrOutput
+	ToCloudServerStorageConfigPtrOutputWithContext(context.Context) CloudServerStorageConfigPtrOutput
+}
+
+type cloudServerStorageConfigPtrType CloudServerStorageConfigArgs
+
+func CloudServerStorageConfigPtr(v *CloudServerStorageConfigArgs) CloudServerStorageConfigPtrInput {
+	return (*cloudServerStorageConfigPtrType)(v)
+}
+
+func (*cloudServerStorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfig)(nil)).Elem()
+}
+
+func (i *cloudServerStorageConfigPtrType) ToCloudServerStorageConfigPtrOutput() CloudServerStorageConfigPtrOutput {
+	return i.ToCloudServerStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerStorageConfigPtrType) ToCloudServerStorageConfigPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigPtrOutput)
+}
+
+type CloudServerStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfig)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigOutput) ToCloudServerStorageConfigOutput() CloudServerStorageConfigOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigOutput) ToCloudServerStorageConfigOutputWithContext(ctx context.Context) CloudServerStorageConfigOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigOutput) ToCloudServerStorageConfigPtrOutput() CloudServerStorageConfigPtrOutput {
+	return o.ToCloudServerStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerStorageConfigOutput) ToCloudServerStorageConfigPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerStorageConfig) *CloudServerStorageConfig {
+		return &v
+	}).(CloudServerStorageConfigPtrOutput)
+}
+
+// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+func (o CloudServerStorageConfigOutput) DataDisk() CloudServerStorageConfigDataDiskPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfig) *CloudServerStorageConfigDataDisk { return v.DataDisk }).(CloudServerStorageConfigDataDiskPtrOutput)
+}
+
+func (o CloudServerStorageConfigOutput) DataDiskLists() CloudServerStorageConfigDataDiskListArrayOutput {
+	return o.ApplyT(func(v CloudServerStorageConfig) []CloudServerStorageConfigDataDiskList { return v.DataDiskLists }).(CloudServerStorageConfigDataDiskListArrayOutput)
+}
+
+func (o CloudServerStorageConfigOutput) DataLocalDisks() CloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o.ApplyT(func(v CloudServerStorageConfig) []CloudServerStorageConfigDataLocalDisk { return v.DataLocalDisks }).(CloudServerStorageConfigDataLocalDiskArrayOutput)
+}
+
+// System disk configuration
+func (o CloudServerStorageConfigOutput) SystemDisk() CloudServerStorageConfigSystemDiskPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfig) *CloudServerStorageConfigSystemDisk { return v.SystemDisk }).(CloudServerStorageConfigSystemDiskPtrOutput)
+}
+
+type CloudServerStorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfig)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigPtrOutput) ToCloudServerStorageConfigPtrOutput() CloudServerStorageConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigPtrOutput) ToCloudServerStorageConfigPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigPtrOutput) Elem() CloudServerStorageConfigOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfig) CloudServerStorageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerStorageConfig
+		return ret
+	}).(CloudServerStorageConfigOutput)
+}
+
+// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+func (o CloudServerStorageConfigPtrOutput) DataDisk() CloudServerStorageConfigDataDiskPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfig) *CloudServerStorageConfigDataDisk {
+		if v == nil {
+			return nil
+		}
+		return v.DataDisk
+	}).(CloudServerStorageConfigDataDiskPtrOutput)
+}
+
+func (o CloudServerStorageConfigPtrOutput) DataDiskLists() CloudServerStorageConfigDataDiskListArrayOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfig) []CloudServerStorageConfigDataDiskList {
+		if v == nil {
+			return nil
+		}
+		return v.DataDiskLists
+	}).(CloudServerStorageConfigDataDiskListArrayOutput)
+}
+
+func (o CloudServerStorageConfigPtrOutput) DataLocalDisks() CloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfig) []CloudServerStorageConfigDataLocalDisk {
+		if v == nil {
+			return nil
+		}
+		return v.DataLocalDisks
+	}).(CloudServerStorageConfigDataLocalDiskArrayOutput)
+}
+
+// System disk configuration
+func (o CloudServerStorageConfigPtrOutput) SystemDisk() CloudServerStorageConfigSystemDiskPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfig) *CloudServerStorageConfigSystemDisk {
+		if v == nil {
+			return nil
+		}
+		return v.SystemDisk
+	}).(CloudServerStorageConfigSystemDiskPtrOutput)
+}
+
+type CloudServerStorageConfigDataDisk struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// CloudServerStorageConfigDataDiskInput is an input type that accepts CloudServerStorageConfigDataDiskArgs and CloudServerStorageConfigDataDiskOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataDiskInput` via:
+//
+//	CloudServerStorageConfigDataDiskArgs{...}
+type CloudServerStorageConfigDataDiskInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataDiskOutput() CloudServerStorageConfigDataDiskOutput
+	ToCloudServerStorageConfigDataDiskOutputWithContext(context.Context) CloudServerStorageConfigDataDiskOutput
+}
+
+type CloudServerStorageConfigDataDiskArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (CloudServerStorageConfigDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataDisk)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigDataDiskArgs) ToCloudServerStorageConfigDataDiskOutput() CloudServerStorageConfigDataDiskOutput {
+	return i.ToCloudServerStorageConfigDataDiskOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataDiskArgs) ToCloudServerStorageConfigDataDiskOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataDiskOutput)
+}
+
+func (i CloudServerStorageConfigDataDiskArgs) ToCloudServerStorageConfigDataDiskPtrOutput() CloudServerStorageConfigDataDiskPtrOutput {
+	return i.ToCloudServerStorageConfigDataDiskPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataDiskArgs) ToCloudServerStorageConfigDataDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataDiskOutput).ToCloudServerStorageConfigDataDiskPtrOutputWithContext(ctx)
+}
+
+// CloudServerStorageConfigDataDiskPtrInput is an input type that accepts CloudServerStorageConfigDataDiskArgs, CloudServerStorageConfigDataDiskPtr and CloudServerStorageConfigDataDiskPtrOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataDiskPtrInput` via:
+//
+//	        CloudServerStorageConfigDataDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerStorageConfigDataDiskPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataDiskPtrOutput() CloudServerStorageConfigDataDiskPtrOutput
+	ToCloudServerStorageConfigDataDiskPtrOutputWithContext(context.Context) CloudServerStorageConfigDataDiskPtrOutput
+}
+
+type cloudServerStorageConfigDataDiskPtrType CloudServerStorageConfigDataDiskArgs
+
+func CloudServerStorageConfigDataDiskPtr(v *CloudServerStorageConfigDataDiskArgs) CloudServerStorageConfigDataDiskPtrInput {
+	return (*cloudServerStorageConfigDataDiskPtrType)(v)
+}
+
+func (*cloudServerStorageConfigDataDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfigDataDisk)(nil)).Elem()
+}
+
+func (i *cloudServerStorageConfigDataDiskPtrType) ToCloudServerStorageConfigDataDiskPtrOutput() CloudServerStorageConfigDataDiskPtrOutput {
+	return i.ToCloudServerStorageConfigDataDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerStorageConfigDataDiskPtrType) ToCloudServerStorageConfigDataDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataDiskPtrOutput)
+}
+
+type CloudServerStorageConfigDataDiskOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataDisk)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataDiskOutput) ToCloudServerStorageConfigDataDiskOutput() CloudServerStorageConfigDataDiskOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskOutput) ToCloudServerStorageConfigDataDiskOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskOutput) ToCloudServerStorageConfigDataDiskPtrOutput() CloudServerStorageConfigDataDiskPtrOutput {
+	return o.ToCloudServerStorageConfigDataDiskPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerStorageConfigDataDiskOutput) ToCloudServerStorageConfigDataDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerStorageConfigDataDisk) *CloudServerStorageConfigDataDisk {
+		return &v
+	}).(CloudServerStorageConfigDataDiskPtrOutput)
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigDataDiskOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDisk) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigDataDiskOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDisk) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigDataDiskOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDisk) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigDataDiskOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDisk) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigDataDiskOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDisk) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigDataDiskOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDisk) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerStorageConfigDataDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfigDataDisk)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataDiskPtrOutput) ToCloudServerStorageConfigDataDiskPtrOutput() CloudServerStorageConfigDataDiskPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskPtrOutput) ToCloudServerStorageConfigDataDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskPtrOutput) Elem() CloudServerStorageConfigDataDiskOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) CloudServerStorageConfigDataDisk {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerStorageConfigDataDisk
+		return ret
+	}).(CloudServerStorageConfigDataDiskOutput)
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigDataDiskPtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigDataDiskPtrOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteWithInstance
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigDataDiskPtrOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigDataDiskPtrOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigDataDiskPtrOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigDataDiskPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerStorageConfigDataDiskList struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// CloudServerStorageConfigDataDiskListInput is an input type that accepts CloudServerStorageConfigDataDiskListArgs and CloudServerStorageConfigDataDiskListOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataDiskListInput` via:
+//
+//	CloudServerStorageConfigDataDiskListArgs{...}
+type CloudServerStorageConfigDataDiskListInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataDiskListOutput() CloudServerStorageConfigDataDiskListOutput
+	ToCloudServerStorageConfigDataDiskListOutputWithContext(context.Context) CloudServerStorageConfigDataDiskListOutput
+}
+
+type CloudServerStorageConfigDataDiskListArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (CloudServerStorageConfigDataDiskListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigDataDiskListArgs) ToCloudServerStorageConfigDataDiskListOutput() CloudServerStorageConfigDataDiskListOutput {
+	return i.ToCloudServerStorageConfigDataDiskListOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataDiskListArgs) ToCloudServerStorageConfigDataDiskListOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataDiskListOutput)
+}
+
+// CloudServerStorageConfigDataDiskListArrayInput is an input type that accepts CloudServerStorageConfigDataDiskListArray and CloudServerStorageConfigDataDiskListArrayOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataDiskListArrayInput` via:
+//
+//	CloudServerStorageConfigDataDiskListArray{ CloudServerStorageConfigDataDiskListArgs{...} }
+type CloudServerStorageConfigDataDiskListArrayInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataDiskListArrayOutput() CloudServerStorageConfigDataDiskListArrayOutput
+	ToCloudServerStorageConfigDataDiskListArrayOutputWithContext(context.Context) CloudServerStorageConfigDataDiskListArrayOutput
+}
+
+type CloudServerStorageConfigDataDiskListArray []CloudServerStorageConfigDataDiskListInput
+
+func (CloudServerStorageConfigDataDiskListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigDataDiskListArray) ToCloudServerStorageConfigDataDiskListArrayOutput() CloudServerStorageConfigDataDiskListArrayOutput {
+	return i.ToCloudServerStorageConfigDataDiskListArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataDiskListArray) ToCloudServerStorageConfigDataDiskListArrayOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataDiskListArrayOutput)
+}
+
+type CloudServerStorageConfigDataDiskListOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataDiskListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataDiskListOutput) ToCloudServerStorageConfigDataDiskListOutput() CloudServerStorageConfigDataDiskListOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskListOutput) ToCloudServerStorageConfigDataDiskListOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskListOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigDataDiskListOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDiskList) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigDataDiskListOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDiskList) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigDataDiskListOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDiskList) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigDataDiskListOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDiskList) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigDataDiskListOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDiskList) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigDataDiskListOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataDiskList) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerStorageConfigDataDiskListArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataDiskListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataDiskListArrayOutput) ToCloudServerStorageConfigDataDiskListArrayOutput() CloudServerStorageConfigDataDiskListArrayOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskListArrayOutput) ToCloudServerStorageConfigDataDiskListArrayOutputWithContext(ctx context.Context) CloudServerStorageConfigDataDiskListArrayOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataDiskListArrayOutput) Index(i pulumi.IntInput) CloudServerStorageConfigDataDiskListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServerStorageConfigDataDiskList {
+		return vs[0].([]CloudServerStorageConfigDataDiskList)[vs[1].(int)]
+	}).(CloudServerStorageConfigDataDiskListOutput)
+}
+
+type CloudServerStorageConfigDataLocalDisk struct {
+	// Disk specifications.
+	DiskSpec *CloudServerStorageConfigDataLocalDiskDiskSpec `pulumi:"diskSpec"`
+	// Number of disks
+	Num *int `pulumi:"num"`
+}
+
+// CloudServerStorageConfigDataLocalDiskInput is an input type that accepts CloudServerStorageConfigDataLocalDiskArgs and CloudServerStorageConfigDataLocalDiskOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataLocalDiskInput` via:
+//
+//	CloudServerStorageConfigDataLocalDiskArgs{...}
+type CloudServerStorageConfigDataLocalDiskInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataLocalDiskOutput() CloudServerStorageConfigDataLocalDiskOutput
+	ToCloudServerStorageConfigDataLocalDiskOutputWithContext(context.Context) CloudServerStorageConfigDataLocalDiskOutput
+}
+
+type CloudServerStorageConfigDataLocalDiskArgs struct {
+	// Disk specifications.
+	DiskSpec CloudServerStorageConfigDataLocalDiskDiskSpecPtrInput `pulumi:"diskSpec"`
+	// Number of disks
+	Num pulumi.IntPtrInput `pulumi:"num"`
+}
+
+func (CloudServerStorageConfigDataLocalDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigDataLocalDiskArgs) ToCloudServerStorageConfigDataLocalDiskOutput() CloudServerStorageConfigDataLocalDiskOutput {
+	return i.ToCloudServerStorageConfigDataLocalDiskOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataLocalDiskArgs) ToCloudServerStorageConfigDataLocalDiskOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataLocalDiskOutput)
+}
+
+// CloudServerStorageConfigDataLocalDiskArrayInput is an input type that accepts CloudServerStorageConfigDataLocalDiskArray and CloudServerStorageConfigDataLocalDiskArrayOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataLocalDiskArrayInput` via:
+//
+//	CloudServerStorageConfigDataLocalDiskArray{ CloudServerStorageConfigDataLocalDiskArgs{...} }
+type CloudServerStorageConfigDataLocalDiskArrayInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataLocalDiskArrayOutput() CloudServerStorageConfigDataLocalDiskArrayOutput
+	ToCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(context.Context) CloudServerStorageConfigDataLocalDiskArrayOutput
+}
+
+type CloudServerStorageConfigDataLocalDiskArray []CloudServerStorageConfigDataLocalDiskInput
+
+func (CloudServerStorageConfigDataLocalDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigDataLocalDiskArray) ToCloudServerStorageConfigDataLocalDiskArrayOutput() CloudServerStorageConfigDataLocalDiskArrayOutput {
+	return i.ToCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataLocalDiskArray) ToCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataLocalDiskArrayOutput)
+}
+
+type CloudServerStorageConfigDataLocalDiskOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataLocalDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataLocalDiskOutput) ToCloudServerStorageConfigDataLocalDiskOutput() CloudServerStorageConfigDataLocalDiskOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskOutput) ToCloudServerStorageConfigDataLocalDiskOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskOutput {
+	return o
+}
+
+// Disk specifications.
+func (o CloudServerStorageConfigDataLocalDiskOutput) DiskSpec() CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDisk) *CloudServerStorageConfigDataLocalDiskDiskSpec {
+		return v.DiskSpec
+	}).(CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput)
+}
+
+// Number of disks
+func (o CloudServerStorageConfigDataLocalDiskOutput) Num() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDisk) *int { return v.Num }).(pulumi.IntPtrOutput)
+}
+
+type CloudServerStorageConfigDataLocalDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataLocalDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataLocalDiskArrayOutput) ToCloudServerStorageConfigDataLocalDiskArrayOutput() CloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskArrayOutput) ToCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskArrayOutput) Index(i pulumi.IntInput) CloudServerStorageConfigDataLocalDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServerStorageConfigDataLocalDisk {
+		return vs[0].([]CloudServerStorageConfigDataLocalDisk)[vs[1].(int)]
+	}).(CloudServerStorageConfigDataLocalDiskOutput)
+}
+
+type CloudServerStorageConfigDataLocalDiskDiskSpec struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// CloudServerStorageConfigDataLocalDiskDiskSpecInput is an input type that accepts CloudServerStorageConfigDataLocalDiskDiskSpecArgs and CloudServerStorageConfigDataLocalDiskDiskSpecOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataLocalDiskDiskSpecInput` via:
+//
+//	CloudServerStorageConfigDataLocalDiskDiskSpecArgs{...}
+type CloudServerStorageConfigDataLocalDiskDiskSpecInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataLocalDiskDiskSpecOutput() CloudServerStorageConfigDataLocalDiskDiskSpecOutput
+	ToCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecOutput
+}
+
+type CloudServerStorageConfigDataLocalDiskDiskSpecArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (CloudServerStorageConfigDataLocalDiskDiskSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataLocalDiskDiskSpec)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigDataLocalDiskDiskSpecArgs) ToCloudServerStorageConfigDataLocalDiskDiskSpecOutput() CloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return i.ToCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataLocalDiskDiskSpecArgs) ToCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataLocalDiskDiskSpecOutput)
+}
+
+func (i CloudServerStorageConfigDataLocalDiskDiskSpecArgs) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput() CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return i.ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigDataLocalDiskDiskSpecArgs) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataLocalDiskDiskSpecOutput).ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(ctx)
+}
+
+// CloudServerStorageConfigDataLocalDiskDiskSpecPtrInput is an input type that accepts CloudServerStorageConfigDataLocalDiskDiskSpecArgs, CloudServerStorageConfigDataLocalDiskDiskSpecPtr and CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigDataLocalDiskDiskSpecPtrInput` via:
+//
+//	        CloudServerStorageConfigDataLocalDiskDiskSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerStorageConfigDataLocalDiskDiskSpecPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput() CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput
+	ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput
+}
+
+type cloudServerStorageConfigDataLocalDiskDiskSpecPtrType CloudServerStorageConfigDataLocalDiskDiskSpecArgs
+
+func CloudServerStorageConfigDataLocalDiskDiskSpecPtr(v *CloudServerStorageConfigDataLocalDiskDiskSpecArgs) CloudServerStorageConfigDataLocalDiskDiskSpecPtrInput {
+	return (*cloudServerStorageConfigDataLocalDiskDiskSpecPtrType)(v)
+}
+
+func (*cloudServerStorageConfigDataLocalDiskDiskSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfigDataLocalDiskDiskSpec)(nil)).Elem()
+}
+
+func (i *cloudServerStorageConfigDataLocalDiskDiskSpecPtrType) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput() CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return i.ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerStorageConfigDataLocalDiskDiskSpecPtrType) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput)
+}
+
+type CloudServerStorageConfigDataLocalDiskDiskSpecOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataLocalDiskDiskSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigDataLocalDiskDiskSpec)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) ToCloudServerStorageConfigDataLocalDiskDiskSpecOutput() CloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) ToCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput() CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return o.ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerStorageConfigDataLocalDiskDiskSpec) *CloudServerStorageConfigDataLocalDiskDiskSpec {
+		return &v
+	}).(CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput)
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDiskDiskSpec) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDiskDiskSpec) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDiskDiskSpec) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDiskDiskSpec) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDiskDiskSpec) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigDataLocalDiskDiskSpec) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfigDataLocalDiskDiskSpec)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput() CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) ToCloudServerStorageConfigDataLocalDiskDiskSpecPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) Elem() CloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) CloudServerStorageConfigDataLocalDiskDiskSpec {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerStorageConfigDataLocalDiskDiskSpec
+		return ret
+	}).(CloudServerStorageConfigDataLocalDiskDiskSpecOutput)
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteWithInstance
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigDataLocalDiskDiskSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerStorageConfigSystemDisk struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// CloudServerStorageConfigSystemDiskInput is an input type that accepts CloudServerStorageConfigSystemDiskArgs and CloudServerStorageConfigSystemDiskOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigSystemDiskInput` via:
+//
+//	CloudServerStorageConfigSystemDiskArgs{...}
+type CloudServerStorageConfigSystemDiskInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigSystemDiskOutput() CloudServerStorageConfigSystemDiskOutput
+	ToCloudServerStorageConfigSystemDiskOutputWithContext(context.Context) CloudServerStorageConfigSystemDiskOutput
+}
+
+type CloudServerStorageConfigSystemDiskArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (CloudServerStorageConfigSystemDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigSystemDisk)(nil)).Elem()
+}
+
+func (i CloudServerStorageConfigSystemDiskArgs) ToCloudServerStorageConfigSystemDiskOutput() CloudServerStorageConfigSystemDiskOutput {
+	return i.ToCloudServerStorageConfigSystemDiskOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigSystemDiskArgs) ToCloudServerStorageConfigSystemDiskOutputWithContext(ctx context.Context) CloudServerStorageConfigSystemDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigSystemDiskOutput)
+}
+
+func (i CloudServerStorageConfigSystemDiskArgs) ToCloudServerStorageConfigSystemDiskPtrOutput() CloudServerStorageConfigSystemDiskPtrOutput {
+	return i.ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(context.Background())
+}
+
+func (i CloudServerStorageConfigSystemDiskArgs) ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigSystemDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigSystemDiskOutput).ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(ctx)
+}
+
+// CloudServerStorageConfigSystemDiskPtrInput is an input type that accepts CloudServerStorageConfigSystemDiskArgs, CloudServerStorageConfigSystemDiskPtr and CloudServerStorageConfigSystemDiskPtrOutput values.
+// You can construct a concrete instance of `CloudServerStorageConfigSystemDiskPtrInput` via:
+//
+//	        CloudServerStorageConfigSystemDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudServerStorageConfigSystemDiskPtrInput interface {
+	pulumi.Input
+
+	ToCloudServerStorageConfigSystemDiskPtrOutput() CloudServerStorageConfigSystemDiskPtrOutput
+	ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(context.Context) CloudServerStorageConfigSystemDiskPtrOutput
+}
+
+type cloudServerStorageConfigSystemDiskPtrType CloudServerStorageConfigSystemDiskArgs
+
+func CloudServerStorageConfigSystemDiskPtr(v *CloudServerStorageConfigSystemDiskArgs) CloudServerStorageConfigSystemDiskPtrInput {
+	return (*cloudServerStorageConfigSystemDiskPtrType)(v)
+}
+
+func (*cloudServerStorageConfigSystemDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfigSystemDisk)(nil)).Elem()
+}
+
+func (i *cloudServerStorageConfigSystemDiskPtrType) ToCloudServerStorageConfigSystemDiskPtrOutput() CloudServerStorageConfigSystemDiskPtrOutput {
+	return i.ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServerStorageConfigSystemDiskPtrType) ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigSystemDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerStorageConfigSystemDiskPtrOutput)
+}
+
+type CloudServerStorageConfigSystemDiskOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigSystemDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerStorageConfigSystemDisk)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigSystemDiskOutput) ToCloudServerStorageConfigSystemDiskOutput() CloudServerStorageConfigSystemDiskOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigSystemDiskOutput) ToCloudServerStorageConfigSystemDiskOutputWithContext(ctx context.Context) CloudServerStorageConfigSystemDiskOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigSystemDiskOutput) ToCloudServerStorageConfigSystemDiskPtrOutput() CloudServerStorageConfigSystemDiskPtrOutput {
+	return o.ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServerStorageConfigSystemDiskOutput) ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigSystemDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServerStorageConfigSystemDisk) *CloudServerStorageConfigSystemDisk {
+		return &v
+	}).(CloudServerStorageConfigSystemDiskPtrOutput)
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigSystemDiskOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigSystemDisk) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigSystemDiskOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigSystemDisk) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigSystemDiskOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigSystemDisk) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigSystemDiskOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigSystemDisk) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigSystemDiskOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigSystemDisk) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigSystemDiskOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerStorageConfigSystemDisk) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerStorageConfigSystemDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServerStorageConfigSystemDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServerStorageConfigSystemDisk)(nil)).Elem()
+}
+
+func (o CloudServerStorageConfigSystemDiskPtrOutput) ToCloudServerStorageConfigSystemDiskPtrOutput() CloudServerStorageConfigSystemDiskPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigSystemDiskPtrOutput) ToCloudServerStorageConfigSystemDiskPtrOutputWithContext(ctx context.Context) CloudServerStorageConfigSystemDiskPtrOutput {
+	return o
+}
+
+func (o CloudServerStorageConfigSystemDiskPtrOutput) Elem() CloudServerStorageConfigSystemDiskOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) CloudServerStorageConfigSystemDisk {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServerStorageConfigSystemDisk
+		return ret
+	}).(CloudServerStorageConfigSystemDiskOutput)
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o CloudServerStorageConfigSystemDiskPtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Release disk with instance
+func (o CloudServerStorageConfigSystemDiskPtrOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteWithInstance
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disk unique identifier
+func (o CloudServerStorageConfigSystemDiskPtrOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk type.
+func (o CloudServerStorageConfigSystemDiskPtrOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name.
+func (o CloudServerStorageConfigSystemDiskPtrOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o CloudServerStorageConfigSystemDiskPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServerStorageConfigSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServerTag struct {
+	// Tag key
+	Key *string `pulumi:"key"`
+	// Tag value
+	Value *string `pulumi:"value"`
+}
+
+// CloudServerTagInput is an input type that accepts CloudServerTagArgs and CloudServerTagOutput values.
+// You can construct a concrete instance of `CloudServerTagInput` via:
+//
+//	CloudServerTagArgs{...}
+type CloudServerTagInput interface {
+	pulumi.Input
+
+	ToCloudServerTagOutput() CloudServerTagOutput
+	ToCloudServerTagOutputWithContext(context.Context) CloudServerTagOutput
+}
+
+type CloudServerTagArgs struct {
+	// Tag key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Tag value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CloudServerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerTag)(nil)).Elem()
+}
+
+func (i CloudServerTagArgs) ToCloudServerTagOutput() CloudServerTagOutput {
+	return i.ToCloudServerTagOutputWithContext(context.Background())
+}
+
+func (i CloudServerTagArgs) ToCloudServerTagOutputWithContext(ctx context.Context) CloudServerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerTagOutput)
+}
+
+// CloudServerTagArrayInput is an input type that accepts CloudServerTagArray and CloudServerTagArrayOutput values.
+// You can construct a concrete instance of `CloudServerTagArrayInput` via:
+//
+//	CloudServerTagArray{ CloudServerTagArgs{...} }
+type CloudServerTagArrayInput interface {
+	pulumi.Input
+
+	ToCloudServerTagArrayOutput() CloudServerTagArrayOutput
+	ToCloudServerTagArrayOutputWithContext(context.Context) CloudServerTagArrayOutput
+}
+
+type CloudServerTagArray []CloudServerTagInput
+
+func (CloudServerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerTag)(nil)).Elem()
+}
+
+func (i CloudServerTagArray) ToCloudServerTagArrayOutput() CloudServerTagArrayOutput {
+	return i.ToCloudServerTagArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServerTagArray) ToCloudServerTagArrayOutputWithContext(ctx context.Context) CloudServerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServerTagArrayOutput)
+}
+
+type CloudServerTagOutput struct{ *pulumi.OutputState }
+
+func (CloudServerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServerTag)(nil)).Elem()
+}
+
+func (o CloudServerTagOutput) ToCloudServerTagOutput() CloudServerTagOutput {
+	return o
+}
+
+func (o CloudServerTagOutput) ToCloudServerTagOutputWithContext(ctx context.Context) CloudServerTagOutput {
+	return o
+}
+
+// Tag key
+func (o CloudServerTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Tag value
+func (o CloudServerTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CloudServerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServerTag)(nil)).Elem()
+}
+
+func (o CloudServerTagArrayOutput) ToCloudServerTagArrayOutput() CloudServerTagArrayOutput {
+	return o
+}
+
+func (o CloudServerTagArrayOutput) ToCloudServerTagArrayOutputWithContext(ctx context.Context) CloudServerTagArrayOutput {
+	return o
+}
+
+func (o CloudServerTagArrayOutput) Index(i pulumi.IntInput) CloudServerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServerTag {
+		return vs[0].([]CloudServerTag)[vs[1].(int)]
+	}).(CloudServerTagOutput)
+}
+
 type VpcSubnet struct {
 	// Subnet CIDR Block, e.g. 10.1.0.0/16
 	Cidr *string `pulumi:"cidr"`
@@ -232,6 +3355,1689 @@ func (o VpcTagArrayOutput) Index(i pulumi.IntInput) VpcTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcTag {
 		return vs[0].([]VpcTag)[vs[1].(int)]
 	}).(VpcTagOutput)
+}
+
+type GetCloudServerAdvancedConfiguration struct {
+	// Enable deletion protection.
+	DeleteProtection bool `pulumi:"deleteProtection"`
+	// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+	InstanceDesc string `pulumi:"instanceDesc"`
+	// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+	InstanceHostName string `pulumi:"instanceHostName"`
+	// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+	InstanceName string `pulumi:"instanceName"`
+}
+
+// GetCloudServerAdvancedConfigurationInput is an input type that accepts GetCloudServerAdvancedConfigurationArgs and GetCloudServerAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `GetCloudServerAdvancedConfigurationInput` via:
+//
+//	GetCloudServerAdvancedConfigurationArgs{...}
+type GetCloudServerAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToGetCloudServerAdvancedConfigurationOutput() GetCloudServerAdvancedConfigurationOutput
+	ToGetCloudServerAdvancedConfigurationOutputWithContext(context.Context) GetCloudServerAdvancedConfigurationOutput
+}
+
+type GetCloudServerAdvancedConfigurationArgs struct {
+	// Enable deletion protection.
+	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
+	// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+	InstanceDesc pulumi.StringInput `pulumi:"instanceDesc"`
+	// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+	InstanceHostName pulumi.StringInput `pulumi:"instanceHostName"`
+	// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+	InstanceName pulumi.StringInput `pulumi:"instanceName"`
+}
+
+func (GetCloudServerAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i GetCloudServerAdvancedConfigurationArgs) ToGetCloudServerAdvancedConfigurationOutput() GetCloudServerAdvancedConfigurationOutput {
+	return i.ToGetCloudServerAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerAdvancedConfigurationArgs) ToGetCloudServerAdvancedConfigurationOutputWithContext(ctx context.Context) GetCloudServerAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerAdvancedConfigurationOutput)
+}
+
+type GetCloudServerAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o GetCloudServerAdvancedConfigurationOutput) ToGetCloudServerAdvancedConfigurationOutput() GetCloudServerAdvancedConfigurationOutput {
+	return o
+}
+
+func (o GetCloudServerAdvancedConfigurationOutput) ToGetCloudServerAdvancedConfigurationOutputWithContext(ctx context.Context) GetCloudServerAdvancedConfigurationOutput {
+	return o
+}
+
+// Enable deletion protection.
+func (o GetCloudServerAdvancedConfigurationOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerAdvancedConfiguration) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+// Description of the edge instance. Up to 80 characters allowed. When you create edge instances in batches, the system adds the same description to each instance.
+func (o GetCloudServerAdvancedConfigurationOutput) InstanceDesc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerAdvancedConfiguration) string { return v.InstanceDesc }).(pulumi.StringOutput)
+}
+
+// Custom hostname. Naming rules: Windows systems allow 2–10 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot contain only numbers. Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. Linux systems allow 2–59 characters. Supports lowercase letters, numbers, and hyphens (-). Cannot start or end with a hyphen (-), and hyphens (-) cannot be used consecutively. When creating edge instances in bulk, the system adds a numeric suffix to your custom hostname. Example: \n\n-1, \n\n-2.
+func (o GetCloudServerAdvancedConfigurationOutput) InstanceHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerAdvancedConfiguration) string { return v.InstanceHostName }).(pulumi.StringOutput)
+}
+
+// Edge instance name. Naming rules: 5–80 characters allowed. Supports Chinese, uppercase letters, lowercase letters, and numbers. Supports special characters ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/. Spaces are not allowed, and the name cannot start with a forward slash (/). When creating edge instances in batch, the system will add a numeric suffix to the specified instance name. Example: \n\n-1, \n\n-2.
+func (o GetCloudServerAdvancedConfigurationOutput) InstanceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerAdvancedConfiguration) string { return v.InstanceName }).(pulumi.StringOutput)
+}
+
+type GetCloudServerBillingConfig struct {
+	// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+	AutoRenew bool `pulumi:"autoRenew"`
+	// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod string `pulumi:"bandwidthBillingMethod"`
+	// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+	ComputingBillingMethod string `pulumi:"computingBillingMethod"`
+	// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+	PrePaidPeriod string `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+	PrePaidPeriodNumber int `pulumi:"prePaidPeriodNumber"`
+}
+
+// GetCloudServerBillingConfigInput is an input type that accepts GetCloudServerBillingConfigArgs and GetCloudServerBillingConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerBillingConfigInput` via:
+//
+//	GetCloudServerBillingConfigArgs{...}
+type GetCloudServerBillingConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerBillingConfigOutput() GetCloudServerBillingConfigOutput
+	ToGetCloudServerBillingConfigOutputWithContext(context.Context) GetCloudServerBillingConfigOutput
+}
+
+type GetCloudServerBillingConfigArgs struct {
+	// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+	AutoRenew pulumi.BoolInput `pulumi:"autoRenew"`
+	// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod pulumi.StringInput `pulumi:"bandwidthBillingMethod"`
+	// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+	ComputingBillingMethod pulumi.StringInput `pulumi:"computingBillingMethod"`
+	// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+	PrePaidPeriod pulumi.StringInput `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+	PrePaidPeriodNumber pulumi.IntInput `pulumi:"prePaidPeriodNumber"`
+}
+
+func (GetCloudServerBillingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerBillingConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerBillingConfigArgs) ToGetCloudServerBillingConfigOutput() GetCloudServerBillingConfigOutput {
+	return i.ToGetCloudServerBillingConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerBillingConfigArgs) ToGetCloudServerBillingConfigOutputWithContext(ctx context.Context) GetCloudServerBillingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerBillingConfigOutput)
+}
+
+type GetCloudServerBillingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerBillingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerBillingConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerBillingConfigOutput) ToGetCloudServerBillingConfigOutput() GetCloudServerBillingConfigOutput {
+	return o
+}
+
+func (o GetCloudServerBillingConfigOutput) ToGetCloudServerBillingConfigOutputWithContext(ctx context.Context) GetCloudServerBillingConfigOutput {
+	return o
+}
+
+// Enable auto-renewal. This parameter is effective only when computing*billing*method is set to PrePaid. Value options: true: Enable auto-renewal. false (default): Disable auto-renewal.
+func (o GetCloudServerBillingConfigOutput) AutoRenew() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerBillingConfig) bool { return v.AutoRenew }).(pulumi.BoolOutput)
+}
+
+// Bandwidth billing method. Value options: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+func (o GetCloudServerBillingConfigOutput) BandwidthBillingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerBillingConfig) string { return v.BandwidthBillingMethod }).(pulumi.StringOutput)
+}
+
+// Computing billing method. Value range: MonthlyPeak: Billed by monthly peak. DailyPeak: Billed by daily peak. PrePaid: Yearly/monthly subscription. When computing*billing*method is set to PrePaid, you must also specify the pre*paid*period and pre*paid*period_number parameters.
+func (o GetCloudServerBillingConfigOutput) ComputingBillingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerBillingConfig) string { return v.ComputingBillingMethod }).(pulumi.StringOutput)
+}
+
+// Unit for the purchase duration of the resource. When the value of computing*billing*method is PrePaid, this parameter must be specified. Value range: monthly: month.
+func (o GetCloudServerBillingConfigOutput) PrePaidPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerBillingConfig) string { return v.PrePaidPeriod }).(pulumi.StringOutput)
+}
+
+// Resource purchase duration. When computing*billing*method is set to PrePaid, this parameter must be specified. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36.
+func (o GetCloudServerBillingConfigOutput) PrePaidPeriodNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerBillingConfig) int { return v.PrePaidPeriodNumber }).(pulumi.IntOutput)
+}
+
+type GetCloudServerCustomData struct {
+	// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+	Data string `pulumi:"data"`
+}
+
+// GetCloudServerCustomDataInput is an input type that accepts GetCloudServerCustomDataArgs and GetCloudServerCustomDataOutput values.
+// You can construct a concrete instance of `GetCloudServerCustomDataInput` via:
+//
+//	GetCloudServerCustomDataArgs{...}
+type GetCloudServerCustomDataInput interface {
+	pulumi.Input
+
+	ToGetCloudServerCustomDataOutput() GetCloudServerCustomDataOutput
+	ToGetCloudServerCustomDataOutputWithContext(context.Context) GetCloudServerCustomDataOutput
+}
+
+type GetCloudServerCustomDataArgs struct {
+	// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+	Data pulumi.StringInput `pulumi:"data"`
+}
+
+func (GetCloudServerCustomDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerCustomData)(nil)).Elem()
+}
+
+func (i GetCloudServerCustomDataArgs) ToGetCloudServerCustomDataOutput() GetCloudServerCustomDataOutput {
+	return i.ToGetCloudServerCustomDataOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerCustomDataArgs) ToGetCloudServerCustomDataOutputWithContext(ctx context.Context) GetCloudServerCustomDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerCustomDataOutput)
+}
+
+type GetCloudServerCustomDataOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerCustomDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerCustomData)(nil)).Elem()
+}
+
+func (o GetCloudServerCustomDataOutput) ToGetCloudServerCustomDataOutput() GetCloudServerCustomDataOutput {
+	return o
+}
+
+func (o GetCloudServerCustomDataOutput) ToGetCloudServerCustomDataOutputWithContext(ctx context.Context) GetCloudServerCustomDataOutput {
+	return o
+}
+
+// Custom data. Custom data is configuration information for edge instances. You can enter up to 16KB of custom data. Input requirements: Scripts must be entered in plain text. The platform will automatically encode the script in Base64. Do not enter scripts that are already Base64 encoded. For Linux systems, use Shell scripts, which typically start with #!/bin/bash. For Windows systems, use PowerShell scripts, which can be entered directly. The script will execute when the edge instance starts for the first time. If the operating system of the edge instance is reset or replaced later, the script will also execute the first time the system starts after the reset or replacement.
+func (o GetCloudServerCustomDataOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerCustomData) string { return v.Data }).(pulumi.StringOutput)
+}
+
+type GetCloudServerInstanceAreaNum struct {
+	// Region name
+	AreaName string `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service.
+	ClusterName string `pulumi:"clusterName"`
+	// Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp string `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+	ExternalNetworkMode string `pulumi:"externalNetworkMode"`
+	// List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+	HostNameLists []string `pulumi:"hostNameLists"`
+	// Carrier. Possible values: CMCC, CTCC, CUCC.
+	Isp string `pulumi:"isp"`
+	// Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+	MultiInterfaceNameConfig GetCloudServerInstanceAreaNumMultiInterfaceNameConfig `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num int `pulumi:"num"`
+	// Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+	SingleInterfaceNameConfig GetCloudServerInstanceAreaNumSingleInterfaceNameConfig `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity string `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	VpcIdentity string `pulumi:"vpcIdentity"`
+}
+
+// GetCloudServerInstanceAreaNumInput is an input type that accepts GetCloudServerInstanceAreaNumArgs and GetCloudServerInstanceAreaNumOutput values.
+// You can construct a concrete instance of `GetCloudServerInstanceAreaNumInput` via:
+//
+//	GetCloudServerInstanceAreaNumArgs{...}
+type GetCloudServerInstanceAreaNumInput interface {
+	pulumi.Input
+
+	ToGetCloudServerInstanceAreaNumOutput() GetCloudServerInstanceAreaNumOutput
+	ToGetCloudServerInstanceAreaNumOutputWithContext(context.Context) GetCloudServerInstanceAreaNumOutput
+}
+
+type GetCloudServerInstanceAreaNumArgs struct {
+	// Region name
+	AreaName pulumi.StringInput `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp pulumi.StringInput `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+	ExternalNetworkMode pulumi.StringInput `pulumi:"externalNetworkMode"`
+	// List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+	HostNameLists pulumi.StringArrayInput `pulumi:"hostNameLists"`
+	// Carrier. Possible values: CMCC, CTCC, CUCC.
+	Isp pulumi.StringInput `pulumi:"isp"`
+	// Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+	MultiInterfaceNameConfig GetCloudServerInstanceAreaNumMultiInterfaceNameConfigInput `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num pulumi.IntInput `pulumi:"num"`
+	// Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+	SingleInterfaceNameConfig GetCloudServerInstanceAreaNumSingleInterfaceNameConfigInput `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity pulumi.StringInput `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	VpcIdentity pulumi.StringInput `pulumi:"vpcIdentity"`
+}
+
+func (GetCloudServerInstanceAreaNumArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (i GetCloudServerInstanceAreaNumArgs) ToGetCloudServerInstanceAreaNumOutput() GetCloudServerInstanceAreaNumOutput {
+	return i.ToGetCloudServerInstanceAreaNumOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerInstanceAreaNumArgs) ToGetCloudServerInstanceAreaNumOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerInstanceAreaNumOutput)
+}
+
+// GetCloudServerInstanceAreaNumArrayInput is an input type that accepts GetCloudServerInstanceAreaNumArray and GetCloudServerInstanceAreaNumArrayOutput values.
+// You can construct a concrete instance of `GetCloudServerInstanceAreaNumArrayInput` via:
+//
+//	GetCloudServerInstanceAreaNumArray{ GetCloudServerInstanceAreaNumArgs{...} }
+type GetCloudServerInstanceAreaNumArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudServerInstanceAreaNumArrayOutput() GetCloudServerInstanceAreaNumArrayOutput
+	ToGetCloudServerInstanceAreaNumArrayOutputWithContext(context.Context) GetCloudServerInstanceAreaNumArrayOutput
+}
+
+type GetCloudServerInstanceAreaNumArray []GetCloudServerInstanceAreaNumInput
+
+func (GetCloudServerInstanceAreaNumArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (i GetCloudServerInstanceAreaNumArray) ToGetCloudServerInstanceAreaNumArrayOutput() GetCloudServerInstanceAreaNumArrayOutput {
+	return i.ToGetCloudServerInstanceAreaNumArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerInstanceAreaNumArray) ToGetCloudServerInstanceAreaNumArrayOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerInstanceAreaNumArrayOutput)
+}
+
+type GetCloudServerInstanceAreaNumOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerInstanceAreaNumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (o GetCloudServerInstanceAreaNumOutput) ToGetCloudServerInstanceAreaNumOutput() GetCloudServerInstanceAreaNumOutput {
+	return o
+}
+
+func (o GetCloudServerInstanceAreaNumOutput) ToGetCloudServerInstanceAreaNumOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumOutput {
+	return o
+}
+
+// Region name
+func (o GetCloudServerInstanceAreaNumOutput) AreaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.AreaName }).(pulumi.StringOutput)
+}
+
+// Node name. Specify the node where you want to deploy the edge service.
+func (o GetCloudServerInstanceAreaNumOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
+func (o GetCloudServerInstanceAreaNumOutput) DefaultIsp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.DefaultIsp }).(pulumi.StringOutput)
+}
+
+// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
+func (o GetCloudServerInstanceAreaNumOutput) ExternalNetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.ExternalNetworkMode }).(pulumi.StringOutput)
+}
+
+// List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to "hosta","hostb", then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
+func (o GetCloudServerInstanceAreaNumOutput) HostNameLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) []string { return v.HostNameLists }).(pulumi.StringArrayOutput)
+}
+
+// Carrier. Possible values: CMCC, CTCC, CUCC.
+func (o GetCloudServerInstanceAreaNumOutput) Isp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.Isp }).(pulumi.StringOutput)
+}
+
+// Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
+func (o GetCloudServerInstanceAreaNumOutput) MultiInterfaceNameConfig() GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) GetCloudServerInstanceAreaNumMultiInterfaceNameConfig {
+		return v.MultiInterfaceNameConfig
+	}).(GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+// Number of instances.
+func (o GetCloudServerInstanceAreaNumOutput) Num() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) int { return v.Num }).(pulumi.IntOutput)
+}
+
+// Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
+func (o GetCloudServerInstanceAreaNumOutput) SingleInterfaceNameConfig() GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) GetCloudServerInstanceAreaNumSingleInterfaceNameConfig {
+		return v.SingleInterfaceNameConfig
+	}).(GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+func (o GetCloudServerInstanceAreaNumOutput) SubnetIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.SubnetIdentity }).(pulumi.StringOutput)
+}
+
+// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+func (o GetCloudServerInstanceAreaNumOutput) VpcIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNum) string { return v.VpcIdentity }).(pulumi.StringOutput)
+}
+
+type GetCloudServerInstanceAreaNumArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerInstanceAreaNumArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerInstanceAreaNum)(nil)).Elem()
+}
+
+func (o GetCloudServerInstanceAreaNumArrayOutput) ToGetCloudServerInstanceAreaNumArrayOutput() GetCloudServerInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o GetCloudServerInstanceAreaNumArrayOutput) ToGetCloudServerInstanceAreaNumArrayOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o GetCloudServerInstanceAreaNumArrayOutput) Index(i pulumi.IntInput) GetCloudServerInstanceAreaNumOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudServerInstanceAreaNum {
+		return vs[0].([]GetCloudServerInstanceAreaNum)[vs[1].(int)]
+	}).(GetCloudServerInstanceAreaNumOutput)
+}
+
+type GetCloudServerInstanceAreaNumMultiInterfaceNameConfig struct {
+	// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+	CmccExternalInterfaceName string `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CtccExternalInterfaceName string `pulumi:"ctccExternalInterfaceName"`
+	// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CuccExternalInterfaceName string `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName string `pulumi:"internalInterfaceName"`
+}
+
+// GetCloudServerInstanceAreaNumMultiInterfaceNameConfigInput is an input type that accepts GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs and GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerInstanceAreaNumMultiInterfaceNameConfigInput` via:
+//
+//	GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs{...}
+type GetCloudServerInstanceAreaNumMultiInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput() GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput
+	ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Context) GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput
+}
+
+type GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs struct {
+	// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+	CmccExternalInterfaceName pulumi.StringInput `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CtccExternalInterfaceName pulumi.StringInput `pulumi:"ctccExternalInterfaceName"`
+	// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CuccExternalInterfaceName pulumi.StringInput `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName pulumi.StringInput `pulumi:"internalInterfaceName"`
+}
+
+func (GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput() GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return i.ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs) ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+type GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput() GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+func (o GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) ToGetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+// Mobile public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance.
+func (o GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) CmccExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNumMultiInterfaceNameConfig) string {
+		return v.CmccExternalInterfaceName
+	}).(pulumi.StringOutput)
+}
+
+// Telecom public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) CtccExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNumMultiInterfaceNameConfig) string {
+		return v.CtccExternalInterfaceName
+	}).(pulumi.StringOutput)
+}
+
+// Public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+func (o GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) CuccExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNumMultiInterfaceNameConfig) string {
+		return v.CuccExternalInterfaceName
+	}).(pulumi.StringOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+func (o GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNumMultiInterfaceNameConfig) string { return v.InternalInterfaceName }).(pulumi.StringOutput)
+}
+
+type GetCloudServerInstanceAreaNumSingleInterfaceNameConfig struct {
+	// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	ExternalInterfaceName string `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName string `pulumi:"internalInterfaceName"`
+}
+
+// GetCloudServerInstanceAreaNumSingleInterfaceNameConfigInput is an input type that accepts GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs and GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerInstanceAreaNumSingleInterfaceNameConfigInput` via:
+//
+//	GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs{...}
+type GetCloudServerInstanceAreaNumSingleInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput() GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput
+	ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Context) GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput
+}
+
+type GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs struct {
+	// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	ExternalInterfaceName pulumi.StringInput `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+	InternalInterfaceName pulumi.StringInput `pulumi:"internalInterfaceName"`
+}
+
+func (GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput() GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return i.ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs) ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+type GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput() GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+func (o GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ToGetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+// Public network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) ExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNumSingleInterfaceNameConfig) string { return v.ExternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Network interface names must be unique within the same edge instance.
+func (o GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerInstanceAreaNumSingleInterfaceNameConfig) string { return v.InternalInterfaceName }).(pulumi.StringOutput)
+}
+
+type GetCloudServerNetworkConfig struct {
+	// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+	BandwidthPeak string `pulumi:"bandwidthPeak"`
+	// Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+	BandwidthPeakLimitIspConfigs []GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig `pulumi:"bandwidthPeakLimitIspConfigs"`
+	// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+	BoundEipShareBandwidthPeak string `pulumi:"boundEipShareBandwidthPeak"`
+	// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CustomExternalInterfaceName string `pulumi:"customExternalInterfaceName"`
+	// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CustomInternalInterfaceName string `pulumi:"customInternalInterfaceName"`
+	// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+	DisableIpv4 bool `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+	DnsLists []string `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+	DnsType string `pulumi:"dnsType"`
+	// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+	EnableIpv6 bool `pulumi:"enableIpv6"`
+	// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+	LimitMode string `pulumi:"limitMode"`
+	// Number of auxiliary private IPs.
+	SecondaryInternalIpNum int `pulumi:"secondaryInternalIpNum"`
+	// List of bound global firewall IDs.
+	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
+	// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+	TcpTimeout int `pulumi:"tcpTimeout"`
+	// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+	UdpTimeout int `pulumi:"udpTimeout"`
+}
+
+// GetCloudServerNetworkConfigInput is an input type that accepts GetCloudServerNetworkConfigArgs and GetCloudServerNetworkConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerNetworkConfigInput` via:
+//
+//	GetCloudServerNetworkConfigArgs{...}
+type GetCloudServerNetworkConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerNetworkConfigOutput() GetCloudServerNetworkConfigOutput
+	ToGetCloudServerNetworkConfigOutputWithContext(context.Context) GetCloudServerNetworkConfigOutput
+}
+
+type GetCloudServerNetworkConfigArgs struct {
+	// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+	BandwidthPeak pulumi.StringInput `pulumi:"bandwidthPeak"`
+	// Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+	BandwidthPeakLimitIspConfigs GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput `pulumi:"bandwidthPeakLimitIspConfigs"`
+	// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+	BoundEipShareBandwidthPeak pulumi.StringInput `pulumi:"boundEipShareBandwidthPeak"`
+	// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CustomExternalInterfaceName pulumi.StringInput `pulumi:"customExternalInterfaceName"`
+	// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+	CustomInternalInterfaceName pulumi.StringInput `pulumi:"customInternalInterfaceName"`
+	// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+	DisableIpv4 pulumi.BoolInput `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+	DnsLists pulumi.StringArrayInput `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+	DnsType pulumi.StringInput `pulumi:"dnsType"`
+	// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+	EnableIpv6 pulumi.BoolInput `pulumi:"enableIpv6"`
+	// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+	LimitMode pulumi.StringInput `pulumi:"limitMode"`
+	// Number of auxiliary private IPs.
+	SecondaryInternalIpNum pulumi.IntInput `pulumi:"secondaryInternalIpNum"`
+	// List of bound global firewall IDs.
+	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
+	// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+	TcpTimeout pulumi.IntInput `pulumi:"tcpTimeout"`
+	// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+	UdpTimeout pulumi.IntInput `pulumi:"udpTimeout"`
+}
+
+func (GetCloudServerNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerNetworkConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerNetworkConfigArgs) ToGetCloudServerNetworkConfigOutput() GetCloudServerNetworkConfigOutput {
+	return i.ToGetCloudServerNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerNetworkConfigArgs) ToGetCloudServerNetworkConfigOutputWithContext(ctx context.Context) GetCloudServerNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerNetworkConfigOutput)
+}
+
+type GetCloudServerNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerNetworkConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerNetworkConfigOutput) ToGetCloudServerNetworkConfigOutput() GetCloudServerNetworkConfigOutput {
+	return o
+}
+
+func (o GetCloudServerNetworkConfigOutput) ToGetCloudServerNetworkConfigOutputWithContext(ctx context.Context) GetCloudServerNetworkConfigOutput {
+	return o
+}
+
+// Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
+func (o GetCloudServerNetworkConfigOutput) BandwidthPeak() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) string { return v.BandwidthPeak }).(pulumi.StringOutput)
+}
+
+// Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+func (o GetCloudServerNetworkConfigOutput) BandwidthPeakLimitIspConfigs() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) []GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig {
+		return v.BandwidthPeakLimitIspConfigs
+	}).(GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput)
+}
+
+// Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidthPeak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+func (o GetCloudServerNetworkConfigOutput) BoundEipShareBandwidthPeak() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) string { return v.BoundEipShareBandwidthPeak }).(pulumi.StringOutput)
+}
+
+// Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o GetCloudServerNetworkConfigOutput) CustomExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) string { return v.CustomExternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
+func (o GetCloudServerNetworkConfigOutput) CustomInternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) string { return v.CustomInternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
+func (o GetCloudServerNetworkConfigOutput) DisableIpv4() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) bool { return v.DisableIpv4 }).(pulumi.BoolOutput)
+}
+
+// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
+func (o GetCloudServerNetworkConfigOutput) DnsLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) []string { return v.DnsLists }).(pulumi.StringArrayOutput)
+}
+
+// DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
+func (o GetCloudServerNetworkConfigOutput) DnsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) string { return v.DnsType }).(pulumi.StringOutput)
+}
+
+// Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
+func (o GetCloudServerNetworkConfigOutput) EnableIpv6() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) bool { return v.EnableIpv6 }).(pulumi.BoolOutput)
+}
+
+// Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidthPeak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+func (o GetCloudServerNetworkConfigOutput) LimitMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) string { return v.LimitMode }).(pulumi.StringOutput)
+}
+
+// Number of auxiliary private IPs.
+func (o GetCloudServerNetworkConfigOutput) SecondaryInternalIpNum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) int { return v.SecondaryInternalIpNum }).(pulumi.IntOutput)
+}
+
+// List of bound global firewall IDs.
+func (o GetCloudServerNetworkConfigOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
+}
+
+// TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
+func (o GetCloudServerNetworkConfigOutput) TcpTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) int { return v.TcpTimeout }).(pulumi.IntOutput)
+}
+
+// UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
+func (o GetCloudServerNetworkConfigOutput) UdpTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfig) int { return v.UdpTimeout }).(pulumi.IntOutput)
+}
+
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig struct {
+	// Bandwidth limit value for this carrier.
+	BandwidthPeakLimit string `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+	Isp string `pulumi:"isp"`
+}
+
+// GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigInput is an input type that accepts GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs and GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigInput` via:
+//
+//	GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs{...}
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput
+	ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(context.Context) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput
+}
+
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs struct {
+	// Bandwidth limit value for this carrier.
+	BandwidthPeakLimit pulumi.StringInput `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+	Isp pulumi.StringInput `pulumi:"isp"`
+}
+
+func (GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return i.ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(ctx context.Context) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput)
+}
+
+// GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput is an input type that accepts GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray and GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput values.
+// You can construct a concrete instance of `GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput` via:
+//
+//	GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray{ GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs{...} }
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput
+	ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(context.Context) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput
+}
+
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray []GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigInput
+
+func (GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return i.ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(ctx context.Context) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput)
+}
+
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return o
+}
+
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutputWithContext(ctx context.Context) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return o
+}
+
+// Bandwidth limit value for this carrier.
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) BandwidthPeakLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig) string { return v.BandwidthPeakLimit }).(pulumi.StringOutput)
+}
+
+// Carrier. Value options: CMCC: China Mobile. CTCC: China Telecom. CUCC: China Unicom.
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput) Isp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig) string { return v.Isp }).(pulumi.StringOutput)
+}
+
+type GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput() GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o
+}
+
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) ToGetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutputWithContext(ctx context.Context) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput {
+	return o
+}
+
+func (o GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput) Index(i pulumi.IntInput) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig {
+		return vs[0].([]GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig)[vs[1].(int)]
+	}).(GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput)
+}
+
+type GetCloudServerScheduleStrategy struct {
+	// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+	PriceStrategy string `pulumi:"priceStrategy"`
+	// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+	ScheduleStrategy string `pulumi:"scheduleStrategy"`
+}
+
+// GetCloudServerScheduleStrategyInput is an input type that accepts GetCloudServerScheduleStrategyArgs and GetCloudServerScheduleStrategyOutput values.
+// You can construct a concrete instance of `GetCloudServerScheduleStrategyInput` via:
+//
+//	GetCloudServerScheduleStrategyArgs{...}
+type GetCloudServerScheduleStrategyInput interface {
+	pulumi.Input
+
+	ToGetCloudServerScheduleStrategyOutput() GetCloudServerScheduleStrategyOutput
+	ToGetCloudServerScheduleStrategyOutputWithContext(context.Context) GetCloudServerScheduleStrategyOutput
+}
+
+type GetCloudServerScheduleStrategyArgs struct {
+	// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+	PriceStrategy pulumi.StringInput `pulumi:"priceStrategy"`
+	// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+	ScheduleStrategy pulumi.StringInput `pulumi:"scheduleStrategy"`
+}
+
+func (GetCloudServerScheduleStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerScheduleStrategy)(nil)).Elem()
+}
+
+func (i GetCloudServerScheduleStrategyArgs) ToGetCloudServerScheduleStrategyOutput() GetCloudServerScheduleStrategyOutput {
+	return i.ToGetCloudServerScheduleStrategyOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerScheduleStrategyArgs) ToGetCloudServerScheduleStrategyOutputWithContext(ctx context.Context) GetCloudServerScheduleStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerScheduleStrategyOutput)
+}
+
+type GetCloudServerScheduleStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerScheduleStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerScheduleStrategy)(nil)).Elem()
+}
+
+func (o GetCloudServerScheduleStrategyOutput) ToGetCloudServerScheduleStrategyOutput() GetCloudServerScheduleStrategyOutput {
+	return o
+}
+
+func (o GetCloudServerScheduleStrategyOutput) ToGetCloudServerScheduleStrategyOutputWithContext(ctx context.Context) GetCloudServerScheduleStrategyOutput {
+	return o
+}
+
+// Pricing policy: high*priority: prioritize higher price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with higher bandwidth prices for deploying edge instances. low*priority: prioritize lower price. When you create multiple edge instances across multiple regions, this policy means the system will prioritize nodes in cities with lower bandwidth prices for deploying edge instances.
+func (o GetCloudServerScheduleStrategyOutput) PriceStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerScheduleStrategy) string { return v.PriceStrategy }).(pulumi.StringOutput)
+}
+
+// Scheduling policy: dispersion: city dispersion. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in different cities for deploying edge instances. concentration: city concentration. When you create multiple edge instances in multiple regions, this policy means the system prioritizes nodes in the same city for deploying edge instances.
+func (o GetCloudServerScheduleStrategyOutput) ScheduleStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerScheduleStrategy) string { return v.ScheduleStrategy }).(pulumi.StringOutput)
+}
+
+type GetCloudServerSecretConfig struct {
+	// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+	SecretData string `pulumi:"secretData"`
+	// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+	SecretType int `pulumi:"secretType"`
+}
+
+// GetCloudServerSecretConfigInput is an input type that accepts GetCloudServerSecretConfigArgs and GetCloudServerSecretConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerSecretConfigInput` via:
+//
+//	GetCloudServerSecretConfigArgs{...}
+type GetCloudServerSecretConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerSecretConfigOutput() GetCloudServerSecretConfigOutput
+	ToGetCloudServerSecretConfigOutputWithContext(context.Context) GetCloudServerSecretConfigOutput
+}
+
+type GetCloudServerSecretConfigArgs struct {
+	// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+	SecretData pulumi.StringInput `pulumi:"secretData"`
+	// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+	SecretType pulumi.IntInput `pulumi:"secretType"`
+}
+
+func (GetCloudServerSecretConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerSecretConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerSecretConfigArgs) ToGetCloudServerSecretConfigOutput() GetCloudServerSecretConfigOutput {
+	return i.ToGetCloudServerSecretConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerSecretConfigArgs) ToGetCloudServerSecretConfigOutputWithContext(ctx context.Context) GetCloudServerSecretConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerSecretConfigOutput)
+}
+
+type GetCloudServerSecretConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerSecretConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerSecretConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerSecretConfigOutput) ToGetCloudServerSecretConfigOutput() GetCloudServerSecretConfigOutput {
+	return o
+}
+
+func (o GetCloudServerSecretConfigOutput) ToGetCloudServerSecretConfigOutputWithContext(ctx context.Context) GetCloudServerSecretConfigOutput {
+	return o
+}
+
+// Login password. Custom password: Password input rules are as follows: 8–30 characters allowed. The password must contain at least three of the following types: uppercase letters, lowercase letters, numbers, and special characters. Supported special characters: ()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ Double quotes (") , backslash (), and spaces are not allowed, and the password cannot start with a forward slash (/). SSH Key type password: Enter the SSH key pair ID. You can query the key pair ID via the ListSSHKey API.
+func (o GetCloudServerSecretConfigOutput) SecretData() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerSecretConfig) string { return v.SecretData }).(pulumi.StringOutput)
+}
+
+// Type of login password for edge instances. Value options: 2: Custom password. 3: SSH Key type password. 4: Indicates no login credentials are injected.
+func (o GetCloudServerSecretConfigOutput) SecretType() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerSecretConfig) int { return v.SecretType }).(pulumi.IntOutput)
+}
+
+type GetCloudServerStorageConfig struct {
+	// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+	DataDisk GetCloudServerStorageConfigDataDisk `pulumi:"dataDisk"`
+	// Data disk list. This parameter is used to add one or more data disks.
+	DataDiskLists []GetCloudServerStorageConfigDataDiskList `pulumi:"dataDiskLists"`
+	// Local data disk configuration list.
+	DataLocalDisks []GetCloudServerStorageConfigDataLocalDisk `pulumi:"dataLocalDisks"`
+	// System disk configuration
+	SystemDisk GetCloudServerStorageConfigSystemDisk `pulumi:"systemDisk"`
+}
+
+// GetCloudServerStorageConfigInput is an input type that accepts GetCloudServerStorageConfigArgs and GetCloudServerStorageConfigOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigInput` via:
+//
+//	GetCloudServerStorageConfigArgs{...}
+type GetCloudServerStorageConfigInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigOutput() GetCloudServerStorageConfigOutput
+	ToGetCloudServerStorageConfigOutputWithContext(context.Context) GetCloudServerStorageConfigOutput
+}
+
+type GetCloudServerStorageConfigArgs struct {
+	// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+	DataDisk GetCloudServerStorageConfigDataDiskInput `pulumi:"dataDisk"`
+	// Data disk list. This parameter is used to add one or more data disks.
+	DataDiskLists GetCloudServerStorageConfigDataDiskListArrayInput `pulumi:"dataDiskLists"`
+	// Local data disk configuration list.
+	DataLocalDisks GetCloudServerStorageConfigDataLocalDiskArrayInput `pulumi:"dataLocalDisks"`
+	// System disk configuration
+	SystemDisk GetCloudServerStorageConfigSystemDiskInput `pulumi:"systemDisk"`
+}
+
+func (GetCloudServerStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfig)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigArgs) ToGetCloudServerStorageConfigOutput() GetCloudServerStorageConfigOutput {
+	return i.ToGetCloudServerStorageConfigOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigArgs) ToGetCloudServerStorageConfigOutputWithContext(ctx context.Context) GetCloudServerStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigOutput)
+}
+
+type GetCloudServerStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfig)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigOutput) ToGetCloudServerStorageConfigOutput() GetCloudServerStorageConfigOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigOutput) ToGetCloudServerStorageConfigOutputWithContext(ctx context.Context) GetCloudServerStorageConfigOutput {
+	return o
+}
+
+// Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
+func (o GetCloudServerStorageConfigOutput) DataDisk() GetCloudServerStorageConfigDataDiskOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfig) GetCloudServerStorageConfigDataDisk { return v.DataDisk }).(GetCloudServerStorageConfigDataDiskOutput)
+}
+
+// Data disk list. This parameter is used to add one or more data disks.
+func (o GetCloudServerStorageConfigOutput) DataDiskLists() GetCloudServerStorageConfigDataDiskListArrayOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfig) []GetCloudServerStorageConfigDataDiskList { return v.DataDiskLists }).(GetCloudServerStorageConfigDataDiskListArrayOutput)
+}
+
+// Local data disk configuration list.
+func (o GetCloudServerStorageConfigOutput) DataLocalDisks() GetCloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfig) []GetCloudServerStorageConfigDataLocalDisk {
+		return v.DataLocalDisks
+	}).(GetCloudServerStorageConfigDataLocalDiskArrayOutput)
+}
+
+// System disk configuration
+func (o GetCloudServerStorageConfigOutput) SystemDisk() GetCloudServerStorageConfigSystemDiskOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfig) GetCloudServerStorageConfigSystemDisk { return v.SystemDisk }).(GetCloudServerStorageConfigSystemDiskOutput)
+}
+
+type GetCloudServerStorageConfigDataDisk struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetCloudServerStorageConfigDataDiskInput is an input type that accepts GetCloudServerStorageConfigDataDiskArgs and GetCloudServerStorageConfigDataDiskOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigDataDiskInput` via:
+//
+//	GetCloudServerStorageConfigDataDiskArgs{...}
+type GetCloudServerStorageConfigDataDiskInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigDataDiskOutput() GetCloudServerStorageConfigDataDiskOutput
+	ToGetCloudServerStorageConfigDataDiskOutputWithContext(context.Context) GetCloudServerStorageConfigDataDiskOutput
+}
+
+type GetCloudServerStorageConfigDataDiskArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetCloudServerStorageConfigDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataDisk)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigDataDiskArgs) ToGetCloudServerStorageConfigDataDiskOutput() GetCloudServerStorageConfigDataDiskOutput {
+	return i.ToGetCloudServerStorageConfigDataDiskOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigDataDiskArgs) ToGetCloudServerStorageConfigDataDiskOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigDataDiskOutput)
+}
+
+type GetCloudServerStorageConfigDataDiskOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataDisk)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigDataDiskOutput) ToGetCloudServerStorageConfigDataDiskOutput() GetCloudServerStorageConfigDataDiskOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataDiskOutput) ToGetCloudServerStorageConfigDataDiskOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataDiskOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o GetCloudServerStorageConfigDataDiskOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDisk) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk with instance
+func (o GetCloudServerStorageConfigDataDiskOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDisk) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Disk unique identifier
+func (o GetCloudServerStorageConfigDataDiskOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDisk) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk type.
+func (o GetCloudServerStorageConfigDataDiskOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDisk) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name.
+func (o GetCloudServerStorageConfigDataDiskOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDisk) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetCloudServerStorageConfigDataDiskOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDisk) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetCloudServerStorageConfigDataDiskList struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetCloudServerStorageConfigDataDiskListInput is an input type that accepts GetCloudServerStorageConfigDataDiskListArgs and GetCloudServerStorageConfigDataDiskListOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigDataDiskListInput` via:
+//
+//	GetCloudServerStorageConfigDataDiskListArgs{...}
+type GetCloudServerStorageConfigDataDiskListInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigDataDiskListOutput() GetCloudServerStorageConfigDataDiskListOutput
+	ToGetCloudServerStorageConfigDataDiskListOutputWithContext(context.Context) GetCloudServerStorageConfigDataDiskListOutput
+}
+
+type GetCloudServerStorageConfigDataDiskListArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetCloudServerStorageConfigDataDiskListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigDataDiskListArgs) ToGetCloudServerStorageConfigDataDiskListOutput() GetCloudServerStorageConfigDataDiskListOutput {
+	return i.ToGetCloudServerStorageConfigDataDiskListOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigDataDiskListArgs) ToGetCloudServerStorageConfigDataDiskListOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataDiskListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigDataDiskListOutput)
+}
+
+// GetCloudServerStorageConfigDataDiskListArrayInput is an input type that accepts GetCloudServerStorageConfigDataDiskListArray and GetCloudServerStorageConfigDataDiskListArrayOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigDataDiskListArrayInput` via:
+//
+//	GetCloudServerStorageConfigDataDiskListArray{ GetCloudServerStorageConfigDataDiskListArgs{...} }
+type GetCloudServerStorageConfigDataDiskListArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigDataDiskListArrayOutput() GetCloudServerStorageConfigDataDiskListArrayOutput
+	ToGetCloudServerStorageConfigDataDiskListArrayOutputWithContext(context.Context) GetCloudServerStorageConfigDataDiskListArrayOutput
+}
+
+type GetCloudServerStorageConfigDataDiskListArray []GetCloudServerStorageConfigDataDiskListInput
+
+func (GetCloudServerStorageConfigDataDiskListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigDataDiskListArray) ToGetCloudServerStorageConfigDataDiskListArrayOutput() GetCloudServerStorageConfigDataDiskListArrayOutput {
+	return i.ToGetCloudServerStorageConfigDataDiskListArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigDataDiskListArray) ToGetCloudServerStorageConfigDataDiskListArrayOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataDiskListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigDataDiskListArrayOutput)
+}
+
+type GetCloudServerStorageConfigDataDiskListOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigDataDiskListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigDataDiskListOutput) ToGetCloudServerStorageConfigDataDiskListOutput() GetCloudServerStorageConfigDataDiskListOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataDiskListOutput) ToGetCloudServerStorageConfigDataDiskListOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataDiskListOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o GetCloudServerStorageConfigDataDiskListOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDiskList) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk with instance
+func (o GetCloudServerStorageConfigDataDiskListOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDiskList) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Disk unique identifier
+func (o GetCloudServerStorageConfigDataDiskListOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDiskList) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk type.
+func (o GetCloudServerStorageConfigDataDiskListOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDiskList) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name.
+func (o GetCloudServerStorageConfigDataDiskListOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDiskList) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetCloudServerStorageConfigDataDiskListOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataDiskList) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetCloudServerStorageConfigDataDiskListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigDataDiskListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerStorageConfigDataDiskList)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigDataDiskListArrayOutput) ToGetCloudServerStorageConfigDataDiskListArrayOutput() GetCloudServerStorageConfigDataDiskListArrayOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataDiskListArrayOutput) ToGetCloudServerStorageConfigDataDiskListArrayOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataDiskListArrayOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataDiskListArrayOutput) Index(i pulumi.IntInput) GetCloudServerStorageConfigDataDiskListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudServerStorageConfigDataDiskList {
+		return vs[0].([]GetCloudServerStorageConfigDataDiskList)[vs[1].(int)]
+	}).(GetCloudServerStorageConfigDataDiskListOutput)
+}
+
+type GetCloudServerStorageConfigDataLocalDisk struct {
+	// Disk specifications.
+	DiskSpec GetCloudServerStorageConfigDataLocalDiskDiskSpec `pulumi:"diskSpec"`
+	// Number of disks
+	Num int `pulumi:"num"`
+}
+
+// GetCloudServerStorageConfigDataLocalDiskInput is an input type that accepts GetCloudServerStorageConfigDataLocalDiskArgs and GetCloudServerStorageConfigDataLocalDiskOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigDataLocalDiskInput` via:
+//
+//	GetCloudServerStorageConfigDataLocalDiskArgs{...}
+type GetCloudServerStorageConfigDataLocalDiskInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigDataLocalDiskOutput() GetCloudServerStorageConfigDataLocalDiskOutput
+	ToGetCloudServerStorageConfigDataLocalDiskOutputWithContext(context.Context) GetCloudServerStorageConfigDataLocalDiskOutput
+}
+
+type GetCloudServerStorageConfigDataLocalDiskArgs struct {
+	// Disk specifications.
+	DiskSpec GetCloudServerStorageConfigDataLocalDiskDiskSpecInput `pulumi:"diskSpec"`
+	// Number of disks
+	Num pulumi.IntInput `pulumi:"num"`
+}
+
+func (GetCloudServerStorageConfigDataLocalDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigDataLocalDiskArgs) ToGetCloudServerStorageConfigDataLocalDiskOutput() GetCloudServerStorageConfigDataLocalDiskOutput {
+	return i.ToGetCloudServerStorageConfigDataLocalDiskOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigDataLocalDiskArgs) ToGetCloudServerStorageConfigDataLocalDiskOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataLocalDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigDataLocalDiskOutput)
+}
+
+// GetCloudServerStorageConfigDataLocalDiskArrayInput is an input type that accepts GetCloudServerStorageConfigDataLocalDiskArray and GetCloudServerStorageConfigDataLocalDiskArrayOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigDataLocalDiskArrayInput` via:
+//
+//	GetCloudServerStorageConfigDataLocalDiskArray{ GetCloudServerStorageConfigDataLocalDiskArgs{...} }
+type GetCloudServerStorageConfigDataLocalDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigDataLocalDiskArrayOutput() GetCloudServerStorageConfigDataLocalDiskArrayOutput
+	ToGetCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(context.Context) GetCloudServerStorageConfigDataLocalDiskArrayOutput
+}
+
+type GetCloudServerStorageConfigDataLocalDiskArray []GetCloudServerStorageConfigDataLocalDiskInput
+
+func (GetCloudServerStorageConfigDataLocalDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigDataLocalDiskArray) ToGetCloudServerStorageConfigDataLocalDiskArrayOutput() GetCloudServerStorageConfigDataLocalDiskArrayOutput {
+	return i.ToGetCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigDataLocalDiskArray) ToGetCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataLocalDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigDataLocalDiskArrayOutput)
+}
+
+type GetCloudServerStorageConfigDataLocalDiskOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigDataLocalDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskOutput) ToGetCloudServerStorageConfigDataLocalDiskOutput() GetCloudServerStorageConfigDataLocalDiskOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskOutput) ToGetCloudServerStorageConfigDataLocalDiskOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataLocalDiskOutput {
+	return o
+}
+
+// Disk specifications.
+func (o GetCloudServerStorageConfigDataLocalDiskOutput) DiskSpec() GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDisk) GetCloudServerStorageConfigDataLocalDiskDiskSpec {
+		return v.DiskSpec
+	}).(GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput)
+}
+
+// Number of disks
+func (o GetCloudServerStorageConfigDataLocalDiskOutput) Num() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDisk) int { return v.Num }).(pulumi.IntOutput)
+}
+
+type GetCloudServerStorageConfigDataLocalDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigDataLocalDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerStorageConfigDataLocalDisk)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskArrayOutput) ToGetCloudServerStorageConfigDataLocalDiskArrayOutput() GetCloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskArrayOutput) ToGetCloudServerStorageConfigDataLocalDiskArrayOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataLocalDiskArrayOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskArrayOutput) Index(i pulumi.IntInput) GetCloudServerStorageConfigDataLocalDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudServerStorageConfigDataLocalDisk {
+		return vs[0].([]GetCloudServerStorageConfigDataLocalDisk)[vs[1].(int)]
+	}).(GetCloudServerStorageConfigDataLocalDiskOutput)
+}
+
+type GetCloudServerStorageConfigDataLocalDiskDiskSpec struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetCloudServerStorageConfigDataLocalDiskDiskSpecInput is an input type that accepts GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs and GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigDataLocalDiskDiskSpecInput` via:
+//
+//	GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs{...}
+type GetCloudServerStorageConfigDataLocalDiskDiskSpecInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutput() GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput
+	ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(context.Context) GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput
+}
+
+type GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDiskDiskSpec)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs) ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutput() GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return i.ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs) ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput)
+}
+
+type GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDiskDiskSpec)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutput() GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) ToGetCloudServerStorageConfigDataLocalDiskDiskSpecOutputWithContext(ctx context.Context) GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDiskDiskSpec) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk with instance
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDiskDiskSpec) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Disk unique identifier
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDiskDiskSpec) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk type.
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDiskDiskSpec) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name.
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDiskDiskSpec) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigDataLocalDiskDiskSpec) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetCloudServerStorageConfigSystemDisk struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity string `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetCloudServerStorageConfigSystemDiskInput is an input type that accepts GetCloudServerStorageConfigSystemDiskArgs and GetCloudServerStorageConfigSystemDiskOutput values.
+// You can construct a concrete instance of `GetCloudServerStorageConfigSystemDiskInput` via:
+//
+//	GetCloudServerStorageConfigSystemDiskArgs{...}
+type GetCloudServerStorageConfigSystemDiskInput interface {
+	pulumi.Input
+
+	ToGetCloudServerStorageConfigSystemDiskOutput() GetCloudServerStorageConfigSystemDiskOutput
+	ToGetCloudServerStorageConfigSystemDiskOutputWithContext(context.Context) GetCloudServerStorageConfigSystemDiskOutput
+}
+
+type GetCloudServerStorageConfigSystemDiskArgs struct {
+	// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk with instance
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Disk unique identifier
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk type.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name.
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetCloudServerStorageConfigSystemDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigSystemDisk)(nil)).Elem()
+}
+
+func (i GetCloudServerStorageConfigSystemDiskArgs) ToGetCloudServerStorageConfigSystemDiskOutput() GetCloudServerStorageConfigSystemDiskOutput {
+	return i.ToGetCloudServerStorageConfigSystemDiskOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerStorageConfigSystemDiskArgs) ToGetCloudServerStorageConfigSystemDiskOutputWithContext(ctx context.Context) GetCloudServerStorageConfigSystemDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerStorageConfigSystemDiskOutput)
+}
+
+type GetCloudServerStorageConfigSystemDiskOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerStorageConfigSystemDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerStorageConfigSystemDisk)(nil)).Elem()
+}
+
+func (o GetCloudServerStorageConfigSystemDiskOutput) ToGetCloudServerStorageConfigSystemDiskOutput() GetCloudServerStorageConfigSystemDiskOutput {
+	return o
+}
+
+func (o GetCloudServerStorageConfigSystemDiskOutput) ToGetCloudServerStorageConfigSystemDiskOutputWithContext(ctx context.Context) GetCloudServerStorageConfigSystemDiskOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB. Capacity range: System cloud disk: 40–100. Data cloud disk: 20–1000.
+func (o GetCloudServerStorageConfigSystemDiskOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigSystemDisk) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk with instance
+func (o GetCloudServerStorageConfigSystemDiskOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigSystemDisk) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Disk unique identifier
+func (o GetCloudServerStorageConfigSystemDiskOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigSystemDisk) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk type.
+func (o GetCloudServerStorageConfigSystemDiskOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigSystemDisk) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name.
+func (o GetCloudServerStorageConfigSystemDiskOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigSystemDisk) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type. Valid values: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetCloudServerStorageConfigSystemDiskOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerStorageConfigSystemDisk) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetCloudServerTag struct {
+	// Tag key
+	Key string `pulumi:"key"`
+	// Tag value
+	Value string `pulumi:"value"`
+}
+
+// GetCloudServerTagInput is an input type that accepts GetCloudServerTagArgs and GetCloudServerTagOutput values.
+// You can construct a concrete instance of `GetCloudServerTagInput` via:
+//
+//	GetCloudServerTagArgs{...}
+type GetCloudServerTagInput interface {
+	pulumi.Input
+
+	ToGetCloudServerTagOutput() GetCloudServerTagOutput
+	ToGetCloudServerTagOutputWithContext(context.Context) GetCloudServerTagOutput
+}
+
+type GetCloudServerTagArgs struct {
+	// Tag key
+	Key pulumi.StringInput `pulumi:"key"`
+	// Tag value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCloudServerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerTag)(nil)).Elem()
+}
+
+func (i GetCloudServerTagArgs) ToGetCloudServerTagOutput() GetCloudServerTagOutput {
+	return i.ToGetCloudServerTagOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerTagArgs) ToGetCloudServerTagOutputWithContext(ctx context.Context) GetCloudServerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerTagOutput)
+}
+
+// GetCloudServerTagArrayInput is an input type that accepts GetCloudServerTagArray and GetCloudServerTagArrayOutput values.
+// You can construct a concrete instance of `GetCloudServerTagArrayInput` via:
+//
+//	GetCloudServerTagArray{ GetCloudServerTagArgs{...} }
+type GetCloudServerTagArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudServerTagArrayOutput() GetCloudServerTagArrayOutput
+	ToGetCloudServerTagArrayOutputWithContext(context.Context) GetCloudServerTagArrayOutput
+}
+
+type GetCloudServerTagArray []GetCloudServerTagInput
+
+func (GetCloudServerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerTag)(nil)).Elem()
+}
+
+func (i GetCloudServerTagArray) ToGetCloudServerTagArrayOutput() GetCloudServerTagArrayOutput {
+	return i.ToGetCloudServerTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudServerTagArray) ToGetCloudServerTagArrayOutputWithContext(ctx context.Context) GetCloudServerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudServerTagArrayOutput)
+}
+
+type GetCloudServerTagOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudServerTag)(nil)).Elem()
+}
+
+func (o GetCloudServerTagOutput) ToGetCloudServerTagOutput() GetCloudServerTagOutput {
+	return o
+}
+
+func (o GetCloudServerTagOutput) ToGetCloudServerTagOutputWithContext(ctx context.Context) GetCloudServerTagOutput {
+	return o
+}
+
+// Tag key
+func (o GetCloudServerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Tag value
+func (o GetCloudServerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudServerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCloudServerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudServerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudServerTag)(nil)).Elem()
+}
+
+func (o GetCloudServerTagArrayOutput) ToGetCloudServerTagArrayOutput() GetCloudServerTagArrayOutput {
+	return o
+}
+
+func (o GetCloudServerTagArrayOutput) ToGetCloudServerTagArrayOutputWithContext(ctx context.Context) GetCloudServerTagArrayOutput {
+	return o
+}
+
+func (o GetCloudServerTagArrayOutput) Index(i pulumi.IntInput) GetCloudServerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudServerTag {
+		return vs[0].([]GetCloudServerTag)[vs[1].(int)]
+	}).(GetCloudServerTagOutput)
 }
 
 type GetVpcSubnet struct {
@@ -510,18 +5316,130 @@ func (o GetVpcTagArrayOutput) Index(i pulumi.IntInput) GetVpcTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerAdvancedConfigurationInput)(nil)).Elem(), CloudServerAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerAdvancedConfigurationPtrInput)(nil)).Elem(), CloudServerAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerBillingConfigInput)(nil)).Elem(), CloudServerBillingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerBillingConfigPtrInput)(nil)).Elem(), CloudServerBillingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerCustomDataInput)(nil)).Elem(), CloudServerCustomDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerCustomDataPtrInput)(nil)).Elem(), CloudServerCustomDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerInstanceAreaNumInput)(nil)).Elem(), CloudServerInstanceAreaNumArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerInstanceAreaNumArrayInput)(nil)).Elem(), CloudServerInstanceAreaNumArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerInstanceAreaNumMultiInterfaceNameConfigInput)(nil)).Elem(), CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrInput)(nil)).Elem(), CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerInstanceAreaNumSingleInterfaceNameConfigInput)(nil)).Elem(), CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrInput)(nil)).Elem(), CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerNetworkConfigInput)(nil)).Elem(), CloudServerNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerNetworkConfigPtrInput)(nil)).Elem(), CloudServerNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerNetworkConfigBandwidthPeakLimitIspConfigInput)(nil)).Elem(), CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput)(nil)).Elem(), CloudServerNetworkConfigBandwidthPeakLimitIspConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerScheduleStrategyInput)(nil)).Elem(), CloudServerScheduleStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerScheduleStrategyPtrInput)(nil)).Elem(), CloudServerScheduleStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerSecretConfigInput)(nil)).Elem(), CloudServerSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerSecretConfigPtrInput)(nil)).Elem(), CloudServerSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigInput)(nil)).Elem(), CloudServerStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigPtrInput)(nil)).Elem(), CloudServerStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataDiskInput)(nil)).Elem(), CloudServerStorageConfigDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataDiskPtrInput)(nil)).Elem(), CloudServerStorageConfigDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataDiskListInput)(nil)).Elem(), CloudServerStorageConfigDataDiskListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataDiskListArrayInput)(nil)).Elem(), CloudServerStorageConfigDataDiskListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataLocalDiskInput)(nil)).Elem(), CloudServerStorageConfigDataLocalDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataLocalDiskArrayInput)(nil)).Elem(), CloudServerStorageConfigDataLocalDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataLocalDiskDiskSpecInput)(nil)).Elem(), CloudServerStorageConfigDataLocalDiskDiskSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigDataLocalDiskDiskSpecPtrInput)(nil)).Elem(), CloudServerStorageConfigDataLocalDiskDiskSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigSystemDiskInput)(nil)).Elem(), CloudServerStorageConfigSystemDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigSystemDiskPtrInput)(nil)).Elem(), CloudServerStorageConfigSystemDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerTagInput)(nil)).Elem(), CloudServerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerTagArrayInput)(nil)).Elem(), CloudServerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcSubnetInput)(nil)).Elem(), VpcSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcSubnetArrayInput)(nil)).Elem(), VpcSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagInput)(nil)).Elem(), VpcTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagArrayInput)(nil)).Elem(), VpcTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerAdvancedConfigurationInput)(nil)).Elem(), GetCloudServerAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerBillingConfigInput)(nil)).Elem(), GetCloudServerBillingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerCustomDataInput)(nil)).Elem(), GetCloudServerCustomDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerInstanceAreaNumInput)(nil)).Elem(), GetCloudServerInstanceAreaNumArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerInstanceAreaNumArrayInput)(nil)).Elem(), GetCloudServerInstanceAreaNumArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerInstanceAreaNumMultiInterfaceNameConfigInput)(nil)).Elem(), GetCloudServerInstanceAreaNumMultiInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerInstanceAreaNumSingleInterfaceNameConfigInput)(nil)).Elem(), GetCloudServerInstanceAreaNumSingleInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerNetworkConfigInput)(nil)).Elem(), GetCloudServerNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigInput)(nil)).Elem(), GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayInput)(nil)).Elem(), GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerScheduleStrategyInput)(nil)).Elem(), GetCloudServerScheduleStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerSecretConfigInput)(nil)).Elem(), GetCloudServerSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigInput)(nil)).Elem(), GetCloudServerStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigDataDiskInput)(nil)).Elem(), GetCloudServerStorageConfigDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigDataDiskListInput)(nil)).Elem(), GetCloudServerStorageConfigDataDiskListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigDataDiskListArrayInput)(nil)).Elem(), GetCloudServerStorageConfigDataDiskListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDiskInput)(nil)).Elem(), GetCloudServerStorageConfigDataLocalDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDiskArrayInput)(nil)).Elem(), GetCloudServerStorageConfigDataLocalDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigDataLocalDiskDiskSpecInput)(nil)).Elem(), GetCloudServerStorageConfigDataLocalDiskDiskSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigSystemDiskInput)(nil)).Elem(), GetCloudServerStorageConfigSystemDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerTagInput)(nil)).Elem(), GetCloudServerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerTagArrayInput)(nil)).Elem(), GetCloudServerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcSubnetInput)(nil)).Elem(), GetVpcSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcSubnetArrayInput)(nil)).Elem(), GetVpcSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcTagInput)(nil)).Elem(), GetVpcTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcTagArrayInput)(nil)).Elem(), GetVpcTagArray{})
+	pulumi.RegisterOutputType(CloudServerAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(CloudServerAdvancedConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerBillingConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerBillingConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerCustomDataOutput{})
+	pulumi.RegisterOutputType(CloudServerCustomDataPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerInstanceAreaNumOutput{})
+	pulumi.RegisterOutputType(CloudServerInstanceAreaNumArrayOutput{})
+	pulumi.RegisterOutputType(CloudServerInstanceAreaNumMultiInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerInstanceAreaNumMultiInterfaceNameConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerInstanceAreaNumSingleInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerInstanceAreaNumSingleInterfaceNameConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerNetworkConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput{})
+	pulumi.RegisterOutputType(CloudServerScheduleStrategyOutput{})
+	pulumi.RegisterOutputType(CloudServerScheduleStrategyPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerSecretConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerSecretConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataDiskOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataDiskPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataDiskListOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataDiskListArrayOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataLocalDiskOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataLocalDiskArrayOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataLocalDiskDiskSpecOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigDataLocalDiskDiskSpecPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigSystemDiskOutput{})
+	pulumi.RegisterOutputType(CloudServerStorageConfigSystemDiskPtrOutput{})
+	pulumi.RegisterOutputType(CloudServerTagOutput{})
+	pulumi.RegisterOutputType(CloudServerTagArrayOutput{})
 	pulumi.RegisterOutputType(VpcSubnetOutput{})
 	pulumi.RegisterOutputType(VpcSubnetArrayOutput{})
 	pulumi.RegisterOutputType(VpcTagOutput{})
 	pulumi.RegisterOutputType(VpcTagArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudServerAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(GetCloudServerBillingConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerCustomDataOutput{})
+	pulumi.RegisterOutputType(GetCloudServerInstanceAreaNumOutput{})
+	pulumi.RegisterOutputType(GetCloudServerInstanceAreaNumArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudServerInstanceAreaNumMultiInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerInstanceAreaNumSingleInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerNetworkConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerNetworkConfigBandwidthPeakLimitIspConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudServerScheduleStrategyOutput{})
+	pulumi.RegisterOutputType(GetCloudServerSecretConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigDataDiskOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigDataDiskListOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigDataDiskListArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigDataLocalDiskOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigDataLocalDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigDataLocalDiskDiskSpecOutput{})
+	pulumi.RegisterOutputType(GetCloudServerStorageConfigSystemDiskOutput{})
+	pulumi.RegisterOutputType(GetCloudServerTagOutput{})
+	pulumi.RegisterOutputType(GetCloudServerTagArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcSubnetOutput{})
 	pulumi.RegisterOutputType(GetVpcSubnetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcTagOutput{})
