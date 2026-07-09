@@ -26,6 +26,62 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.rocketmq.Instance;
+ * import com.volcengine.volcenginecc.rocketmq.InstanceArgs;
+ * import com.pulumi.volcenginecc.rocketmq.inputs.InstanceTagArgs;
+ * import com.pulumi.volcenginecc.rocketmq.inputs.InstanceChargeDetailArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var rocketMQInstanceDemo = new Instance("rocketMQInstanceDemo", InstanceArgs.builder()
+ *             .allowListIds(            
+ *                 "acl-5380876c62044b658c3c7da4xxxx",
+ *                 "acl-3e998a9ef43e48eda1d07e2exxxx")
+ *             .ipVersionType("IPv4")
+ *             .enableSsl(true)
+ *             .tags(InstanceTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .version("5.x")
+ *             .zoneId("cn-beijing-a,cn-beijing-c,cn-beijing-d")
+ *             .computeSpec("rocketmq.x2.2k")
+ *             .storageSpace(300)
+ *             .vpcId("vpc-1a1vgeo93ycxxxxxxxjnuw")
+ *             .subnetId("subnet-ij9s4h4xxxxxxx95wx4p")
+ *             .fileReservedTime(72)
+ *             .instanceName("RocketMQInstanceDemo")
+ *             .chargeDetail(InstanceChargeDetailArgs.builder()
+ *                 .charge_type("PostPaid")
+ *                 .build())
+ *             .sslMode("permissive")
+ *             .networkTypes("PrivateNetwork")
+ *             .projectName("default")
+ *             .instanceDescription("RocketMQInstanceDemo description")
+ *             .eipId("eip-bt6jb362txxxxx2zbpbo")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -135,9 +191,19 @@ public class Instance extends com.pulumi.resources.CustomResource {
     public Output<String> computeSpec() {
         return this.computeSpec;
     }
+    /**
+     * Instance connection information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="connectionInfos", refs={List.class,InstanceConnectionInfo.class}, tree="[0,1]")
     private Output<List<InstanceConnectionInfo>> connectionInfos;
 
+    /**
+     * @return Instance connection information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<InstanceConnectionInfo>> connectionInfos() {
         return this.connectionInfos;
     }
@@ -365,9 +431,19 @@ public class Instance extends com.pulumi.resources.CustomResource {
     public Output<String> subnetId() {
         return this.subnetId;
     }
+    /**
+     * Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="tags", refs={List.class,InstanceTag.class}, tree="[0,1]")
     private Output<List<InstanceTag>> tags;
 
+    /**
+     * @return Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<InstanceTag>> tags() {
         return this.tags;
     }

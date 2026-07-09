@@ -29,6 +29,11 @@ public final class BucketMirrorBackRuleRedirectMirrorHeader {
      * 
      */
     private @Nullable List<String> removes;
+    /**
+     * @return List of request headers to add or overwrite during origin fetch.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     private @Nullable List<BucketMirrorBackRuleRedirectMirrorHeaderSet> sets;
 
     private BucketMirrorBackRuleRedirectMirrorHeader() {}
@@ -53,6 +58,11 @@ public final class BucketMirrorBackRuleRedirectMirrorHeader {
     public List<String> removes() {
         return this.removes == null ? List.of() : this.removes;
     }
+    /**
+     * @return List of request headers to add or overwrite during origin fetch.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public List<BucketMirrorBackRuleRedirectMirrorHeaderSet> sets() {
         return this.sets == null ? List.of() : this.sets;
     }

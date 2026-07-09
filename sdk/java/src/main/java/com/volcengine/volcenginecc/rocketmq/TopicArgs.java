@@ -19,9 +19,19 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicArgs Empty = new TopicArgs();
 
+    /**
+     * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="accessPolicies")
     private @Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<TopicAccessPolicyArgs>>> accessPolicies() {
         return Optional.ofNullable(this.accessPolicies);
     }
@@ -130,15 +140,36 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TopicArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicies(@Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
             return this;
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicies(List<TopicAccessPolicyArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicies(TopicAccessPolicyArgs... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }

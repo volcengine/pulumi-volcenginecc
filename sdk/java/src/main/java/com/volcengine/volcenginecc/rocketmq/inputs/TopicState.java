@@ -21,9 +21,19 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicState Empty = new TopicState();
 
+    /**
+     * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="accessPolicies")
     private @Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<TopicAccessPolicyArgs>>> accessPolicies() {
         return Optional.ofNullable(this.accessPolicies);
     }
@@ -58,9 +68,19 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Consumer group information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="groupsInfos")
     private @Nullable Output<List<TopicGroupsInfoArgs>> groupsInfos;
 
+    /**
+     * @return Consumer group information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<TopicGroupsInfoArgs>>> groupsInfos() {
         return Optional.ofNullable(this.groupsInfos);
     }
@@ -125,16 +145,36 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.queueNumber);
     }
 
+    /**
+     * Queue information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="queuesInfos")
     private @Nullable Output<List<TopicQueuesInfoArgs>> queuesInfos;
 
+    /**
+     * @return Queue information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<TopicQueuesInfoArgs>>> queuesInfos() {
         return Optional.ofNullable(this.queuesInfos);
     }
 
+    /**
+     * Permissions for each RocketMQ key on the current Topic, permission field
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="readAccessPolicies")
     private @Nullable Output<List<TopicReadAccessPolicyArgs>> readAccessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, permission field
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<TopicReadAccessPolicyArgs>>> readAccessPolicies() {
         return Optional.ofNullable(this.readAccessPolicies);
     }
@@ -204,15 +244,36 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
             $ = new TopicState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicies(@Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
             return this;
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicies(List<TopicAccessPolicyArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicies(TopicAccessPolicyArgs... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }
@@ -259,15 +320,36 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
+        /**
+         * @param groupsInfos Consumer group information list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsInfos(@Nullable Output<List<TopicGroupsInfoArgs>> groupsInfos) {
             $.groupsInfos = groupsInfos;
             return this;
         }
 
+        /**
+         * @param groupsInfos Consumer group information list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsInfos(List<TopicGroupsInfoArgs> groupsInfos) {
             return groupsInfos(Output.of(groupsInfos));
         }
 
+        /**
+         * @param groupsInfos Consumer group information list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupsInfos(TopicGroupsInfoArgs... groupsInfos) {
             return groupsInfos(List.of(groupsInfos));
         }
@@ -356,28 +438,70 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
             return queueNumber(Output.of(queueNumber));
         }
 
+        /**
+         * @param queuesInfos Queue information list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queuesInfos(@Nullable Output<List<TopicQueuesInfoArgs>> queuesInfos) {
             $.queuesInfos = queuesInfos;
             return this;
         }
 
+        /**
+         * @param queuesInfos Queue information list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queuesInfos(List<TopicQueuesInfoArgs> queuesInfos) {
             return queuesInfos(Output.of(queuesInfos));
         }
 
+        /**
+         * @param queuesInfos Queue information list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queuesInfos(TopicQueuesInfoArgs... queuesInfos) {
             return queuesInfos(List.of(queuesInfos));
         }
 
+        /**
+         * @param readAccessPolicies Permissions for each RocketMQ key on the current Topic, permission field
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readAccessPolicies(@Nullable Output<List<TopicReadAccessPolicyArgs>> readAccessPolicies) {
             $.readAccessPolicies = readAccessPolicies;
             return this;
         }
 
+        /**
+         * @param readAccessPolicies Permissions for each RocketMQ key on the current Topic, permission field
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readAccessPolicies(List<TopicReadAccessPolicyArgs> readAccessPolicies) {
             return readAccessPolicies(Output.of(readAccessPolicies));
         }
 
+        /**
+         * @param readAccessPolicies Permissions for each RocketMQ key on the current Topic, permission field
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readAccessPolicies(TopicReadAccessPolicyArgs... readAccessPolicies) {
             return readAccessPolicies(List.of(readAccessPolicies));
         }

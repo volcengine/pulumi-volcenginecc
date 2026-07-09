@@ -1,0 +1,3 @@
+name: volcenginecc
+description: A Pulumi resource provider for volcenginecc.
+language: python

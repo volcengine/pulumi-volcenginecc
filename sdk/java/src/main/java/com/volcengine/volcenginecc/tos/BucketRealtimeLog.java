@@ -20,6 +20,43 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketRealtimeLog;
+ * import com.volcengine.volcenginecc.tos.BucketRealtimeLogArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketRealtimeLogRealTimeLogArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketRealtimeLogDemo = new BucketRealtimeLog("tOSBucketRealtimeLogDemo", BucketRealtimeLogArgs.builder()
+ *             .bucketName("ccapi-test")
+ *             .realTimeLog(BucketRealtimeLogRealTimeLogArgs.builder()
+ *                 .role("TOSLogArchiveTLSRole")
+ *                 .use_service_topic(true)
+ *                 .tls_project_id("569b6ea5-xxxxxx-90d47ff07774")
+ *                 .tls_topic_id("22fca26e-xxxxxx-a9bb6d3fb9bd")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

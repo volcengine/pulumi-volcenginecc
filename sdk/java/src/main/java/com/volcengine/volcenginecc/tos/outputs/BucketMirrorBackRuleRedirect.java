@@ -19,6 +19,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketMirrorBackRuleRedirect {
+    /**
+     * @return List of rules for writing origin response headers to object metadata.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     private @Nullable List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule> fetchHeaderToMetaDataRules;
     /**
      * @return Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
@@ -79,6 +84,11 @@ public final class BucketMirrorBackRuleRedirect {
     private @Nullable BucketMirrorBackRuleRedirectTransform transform;
 
     private BucketMirrorBackRuleRedirect() {}
+    /**
+     * @return List of rules for writing origin response headers to object metadata.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule> fetchHeaderToMetaDataRules() {
         return this.fetchHeaderToMetaDataRules == null ? List.of() : this.fetchHeaderToMetaDataRules;
     }

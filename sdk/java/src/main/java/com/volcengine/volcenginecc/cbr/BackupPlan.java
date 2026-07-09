@@ -22,6 +22,46 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.cbr.BackupPlan;
+ * import com.volcengine.volcenginecc.cbr.BackupPlanArgs;
+ * import com.pulumi.volcenginecc.cbr.inputs.BackupPlanResourceListArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cBRBackupPlanDemo = new BackupPlan("cBRBackupPlanDemo", BackupPlanArgs.builder()
+ *             .name("CBRBackupPlanDemo")
+ *             .policyId("policy-krn3z1wf9ubujxxxxx")
+ *             .resourceLists(BackupPlanResourceListArgs.builder()
+ *                 .resource_type("ECS")
+ *                 .resource_id("res-krn4bq3sctbwvxxxxx")
+ *                 .meta_information(Map.ofEntries(
+ *                     Map.entry("vepfsMeta", ""),
+ *                     Map.entry("ecsMeta", "{\"AutoBackupAllAttachedVolumes\":true,\"VolumeList\":[{\"VolumeId\":\"vol-3wt6m9uygg4kgxxxxx\",\"VolumeName\":\"emr-d6af13acb6966xxxxx-volume-1-2\",\"VolumeType\":\"ESSD_FlexPL\"},{\"VolumeId\":\"vol-3wt6m9vh3a3qxxxxx\",\"VolumeName\":\"emr-d6af13acb6966xxxxx-volume-2-2\",\"VolumeType\":\"ESSD_FlexPL\"}]}")
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -117,9 +157,19 @@ public class BackupPlan extends com.pulumi.resources.CustomResource {
     public Output<String> policyId() {
         return this.policyId;
     }
+    /**
+     * Backup Source List
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="resourceLists", refs={List.class,BackupPlanResourceList.class}, tree="[0,1]")
     private Output<List<BackupPlanResourceList>> resourceLists;
 
+    /**
+     * @return Backup Source List
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<BackupPlanResourceList>> resourceLists() {
         return this.resourceLists;
     }

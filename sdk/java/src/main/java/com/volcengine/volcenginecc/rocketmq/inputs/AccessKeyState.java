@@ -49,14 +49,14 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
+     * Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
      * 
      */
     @Import(name="actived")
     private @Nullable Output<Boolean> actived;
 
     /**
-     * @return Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
+     * @return Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
      * 
      */
     public Optional<Output<Boolean>> actived() {
@@ -138,9 +138,19 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.secretKey);
     }
 
+    /**
+     * Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="topicPermissions")
     private @Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions;
 
+    /**
+     * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<AccessKeyTopicPermissionArgs>>> topicPermissions() {
         return Optional.ofNullable(this.topicPermissions);
     }
@@ -220,7 +230,7 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actived Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
+         * @param actived Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
          * 
          * @return builder
          * 
@@ -231,7 +241,7 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actived Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
+         * @param actived Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
          * 
          * @return builder
          * 
@@ -345,15 +355,36 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
             return secretKey(Output.of(secretKey));
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicPermissions(@Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions) {
             $.topicPermissions = topicPermissions;
             return this;
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicPermissions(List<AccessKeyTopicPermissionArgs> topicPermissions) {
             return topicPermissions(Output.of(topicPermissions));
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicPermissions(AccessKeyTopicPermissionArgs... topicPermissions) {
             return topicPermissions(List.of(topicPermissions));
         }

@@ -60,12 +60,12 @@ public final class GetCloudServerInstanceAreaNum {
      */
     private GetCloudServerInstanceAreaNumSingleInterfaceNameConfig singleInterfaceNameConfig;
     /**
-     * @return Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+     * @return Subnet ID. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
      * 
      */
     private String subnetIdentity;
     /**
-     * @return Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+     * @return Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
      * 
      */
     private String vpcIdentity;
@@ -135,14 +135,14 @@ public final class GetCloudServerInstanceAreaNum {
         return this.singleInterfaceNameConfig;
     }
     /**
-     * @return Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+     * @return Subnet ID. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
      * 
      */
     public String subnetIdentity() {
         return this.subnetIdentity;
     }
     /**
-     * @return Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+     * @return Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
      * 
      */
     public String vpcIdentity() {

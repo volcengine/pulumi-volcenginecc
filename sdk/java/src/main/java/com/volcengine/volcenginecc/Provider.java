@@ -23,48 +23,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:volcenginecc")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY`
-     * environment variable
+     * The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
      * 
      */
     @Export(name="accessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessKey;
 
     /**
-     * @return The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY`
-     * environment variable
+     * @return The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
      * 
      */
     public Output<Optional<String>> accessKey() {
         return Codegen.optional(this.accessKey);
     }
     /**
-     * CUSTOMER HEADERS for Volcengine Provider. The customer_headers field uses commas (,) to separate multiple headers, and
-     * colons (:) to separate each header key from its corresponding value.
+     * CUSTOMER HEADERS for Volcengine Provider. The&lt;span pulumi-lang-nodejs=&#34; customerHeaders &#34; pulumi-lang-dotnet=&#34; CustomerHeaders &#34; pulumi-lang-go=&#34; customerHeaders &#34; pulumi-lang-python=&#34; customer_headers &#34; pulumi-lang-yaml=&#34; customerHeaders &#34; pulumi-lang-java=&#34; customerHeaders &#34; pulumi-lang-hcl=&#34; customer_headers &#34;&gt; customerHeaders &lt;/span&gt;field uses commas (,) to separate multiple headers, and colons (:) to separate each header key from its corresponding value.
      * 
      */
     @Export(name="customerHeaders", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerHeaders;
 
     /**
-     * @return CUSTOMER HEADERS for Volcengine Provider. The customer_headers field uses commas (,) to separate multiple headers, and
-     * colons (:) to separate each header key from its corresponding value.
+     * @return CUSTOMER HEADERS for Volcengine Provider. The&lt;span pulumi-lang-nodejs=&#34; customerHeaders &#34; pulumi-lang-dotnet=&#34; CustomerHeaders &#34; pulumi-lang-go=&#34; customerHeaders &#34; pulumi-lang-python=&#34; customer_headers &#34; pulumi-lang-yaml=&#34; customerHeaders &#34; pulumi-lang-java=&#34; customerHeaders &#34; pulumi-lang-hcl=&#34; customer_headers &#34;&gt; customerHeaders &lt;/span&gt;field uses commas (,) to separate multiple headers, and colons (:) to separate each header key from its corresponding value.
      * 
      */
     public Output<Optional<String>> customerHeaders() {
         return Codegen.optional(this.customerHeaders);
     }
     /**
-     * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
-     * variable
+     * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
      * 
      */
     @Export(name="filePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filePath;
 
     /**
-     * @return The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment
-     * variable
+     * @return The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
      * 
      */
     public Output<Optional<String>> filePath() {
@@ -99,48 +93,42 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.proxyUrl);
     }
     /**
-     * The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`
-     * environment variable
+     * The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION` environment variable
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
-     * @return The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION`
-     * environment variable
+     * @return The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION` environment variable
      * 
      */
     public Output<Optional<String>> region() {
         return Codegen.optional(this.region);
     }
     /**
-     * he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`
-     * environment variable
+     * he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
      * 
      */
     @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretKey;
 
     /**
-     * @return he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY`
-     * environment variable
+     * @return he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
      * 
      */
     public Output<Optional<String>> secretKey() {
         return Codegen.optional(this.secretKey);
     }
     /**
-     * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
-     * variable
+     * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment variable
      * 
      */
     @Export(name="sessionToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sessionToken;
 
     /**
-     * @return The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment
-     * variable
+     * @return The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment variable
      * 
      */
     public Output<Optional<String>> sessionToken() {

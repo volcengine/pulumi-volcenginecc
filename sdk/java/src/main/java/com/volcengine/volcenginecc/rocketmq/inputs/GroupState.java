@@ -35,16 +35,36 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.consumeMessageOrderly);
     }
 
+    /**
+     * Consumer client list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="consumedClients")
     private @Nullable Output<List<GroupConsumedClientArgs>> consumedClients;
 
+    /**
+     * @return Consumer client list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<GroupConsumedClientArgs>>> consumedClients() {
         return Optional.ofNullable(this.consumedClients);
     }
 
+    /**
+     * Topic information subscribed by consumer instance groups under this Group.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="consumedTopics")
     private @Nullable Output<List<GroupConsumedTopicArgs>> consumedTopics;
 
+    /**
+     * @return Topic information subscribed by consumer instance groups under this Group.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<GroupConsumedTopicArgs>>> consumedTopics() {
         return Optional.ofNullable(this.consumedTopics);
     }
@@ -336,28 +356,70 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return consumeMessageOrderly(Output.of(consumeMessageOrderly));
         }
 
+        /**
+         * @param consumedClients Consumer client list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumedClients(@Nullable Output<List<GroupConsumedClientArgs>> consumedClients) {
             $.consumedClients = consumedClients;
             return this;
         }
 
+        /**
+         * @param consumedClients Consumer client list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumedClients(List<GroupConsumedClientArgs> consumedClients) {
             return consumedClients(Output.of(consumedClients));
         }
 
+        /**
+         * @param consumedClients Consumer client list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumedClients(GroupConsumedClientArgs... consumedClients) {
             return consumedClients(List.of(consumedClients));
         }
 
+        /**
+         * @param consumedTopics Topic information subscribed by consumer instance groups under this Group.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumedTopics(@Nullable Output<List<GroupConsumedTopicArgs>> consumedTopics) {
             $.consumedTopics = consumedTopics;
             return this;
         }
 
+        /**
+         * @param consumedTopics Topic information subscribed by consumer instance groups under this Group.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumedTopics(List<GroupConsumedTopicArgs> consumedTopics) {
             return consumedTopics(Output.of(consumedTopics));
         }
 
+        /**
+         * @param consumedTopics Topic information subscribed by consumer instance groups under this Group.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consumedTopics(GroupConsumedTopicArgs... consumedTopics) {
             return consumedTopics(List.of(consumedTopics));
         }

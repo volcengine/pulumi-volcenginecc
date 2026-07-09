@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.cbr.BackupResource;
  * import com.volcengine.volcenginecc.cbr.BackupResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -136,9 +136,19 @@ public class BackupResource extends com.pulumi.resources.CustomResource {
     public Output<BackupResourceMetaInformation> metaInformation() {
         return this.metaInformation;
     }
+    /**
+     * List of Associated Backup Plans
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="plans", refs={List.class,BackupResourcePlan.class}, tree="[0,1]")
     private Output<List<BackupResourcePlan>> plans;
 
+    /**
+     * @return List of Associated Backup Plans
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<BackupResourcePlan>> plans() {
         return this.plans;
     }

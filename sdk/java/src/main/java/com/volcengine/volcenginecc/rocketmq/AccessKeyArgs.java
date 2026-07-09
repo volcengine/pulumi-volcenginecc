@@ -63,9 +63,19 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
         return this.instanceId;
     }
 
+    /**
+     * Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="topicPermissions")
     private @Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions;
 
+    /**
+     * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<AccessKeyTopicPermissionArgs>>> topicPermissions() {
         return Optional.ofNullable(this.topicPermissions);
     }
@@ -160,15 +170,36 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
             return instanceId(Output.of(instanceId));
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicPermissions(@Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions) {
             $.topicPermissions = topicPermissions;
             return this;
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicPermissions(List<AccessKeyTopicPermissionArgs> topicPermissions) {
             return topicPermissions(Output.of(topicPermissions));
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicPermissions(AccessKeyTopicPermissionArgs... topicPermissions) {
             return topicPermissions(List.of(topicPermissions));
         }

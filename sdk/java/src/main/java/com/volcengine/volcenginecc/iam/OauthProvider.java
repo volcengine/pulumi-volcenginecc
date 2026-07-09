@@ -29,8 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.iam.OauthProvider;
  * import com.volcengine.volcenginecc.iam.OauthProviderArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -158,14 +158,18 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
+     * OAuth User Info Sub-User Mapping Method
+     *   1. Map Sub-User Name
+     *   2. Map Sub-User Secure Mobile Number
      * 
      */
     @Export(name="identityMapType", refs={Integer.class}, tree="[0]")
     private Output<Integer> identityMapType;
 
     /**
-     * @return OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
+     * @return OAuth User Info Sub-User Mapping Method
+     *   1. Map Sub-User Name
+     *   2. Map Sub-User Secure Mobile Number
      * 
      */
     public Output<Integer> identityMapType() {
@@ -228,28 +232,38 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
         return this.scope;
     }
     /**
-     * Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
+     * Identity Provider SSO Type
+     *   1. Role SSO (not supported yet)
+     *   2. User SSO
      * 
      */
     @Export(name="ssoType", refs={Integer.class}, tree="[0]")
     private Output<Integer> ssoType;
 
     /**
-     * @return Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
+     * @return Identity Provider SSO Type
+     *   1. Role SSO (not supported yet)
+     *   2. User SSO
      * 
      */
     public Output<Integer> ssoType() {
         return this.ssoType;
     }
     /**
-     * Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
+     * Identity Provider Status (User SSO Only)
+     *   1. Enabled
+     *   2. Enabled (other login methods disabled)
+     *   3. Disabled
      * 
      */
     @Export(name="status", refs={Integer.class}, tree="[0]")
     private Output<Integer> status;
 
     /**
-     * @return Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
+     * @return Identity Provider Status (User SSO Only)
+     *   1. Enabled
+     *   2. Enabled (other login methods disabled)
+     *   3. Disabled
      * 
      */
     public Output<Integer> status() {

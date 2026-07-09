@@ -34,22 +34,32 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.bandwidthPeak);
     }
 
+    /**
+     * Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="bandwidthPeakLimitIspConfigs")
     private @Nullable Output<List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs>> bandwidthPeakLimitIspConfigs;
 
+    /**
+     * @return Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs>>> bandwidthPeakLimitIspConfigs() {
         return Optional.ofNullable(this.bandwidthPeakLimitIspConfigs);
     }
 
     /**
-     * Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+     * Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
      * 
      */
     @Import(name="boundEipShareBandwidthPeak")
     private @Nullable Output<String> boundEipShareBandwidthPeak;
 
     /**
-     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
      * 
      */
     public Optional<Output<String>> boundEipShareBandwidthPeak() {
@@ -147,14 +157,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+     * Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
      * 
      */
     @Import(name="limitMode")
     private @Nullable Output<String> limitMode;
 
     /**
-     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
      * 
      */
     public Optional<Output<String>> limitMode() {
@@ -279,21 +289,42 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
             return bandwidthPeak(Output.of(bandwidthPeak));
         }
 
+        /**
+         * @param bandwidthPeakLimitIspConfigs Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bandwidthPeakLimitIspConfigs(@Nullable Output<List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs>> bandwidthPeakLimitIspConfigs) {
             $.bandwidthPeakLimitIspConfigs = bandwidthPeakLimitIspConfigs;
             return this;
         }
 
+        /**
+         * @param bandwidthPeakLimitIspConfigs Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bandwidthPeakLimitIspConfigs(List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs> bandwidthPeakLimitIspConfigs) {
             return bandwidthPeakLimitIspConfigs(Output.of(bandwidthPeakLimitIspConfigs));
         }
 
+        /**
+         * @param bandwidthPeakLimitIspConfigs Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bandwidthPeakLimitIspConfigs(CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs... bandwidthPeakLimitIspConfigs) {
             return bandwidthPeakLimitIspConfigs(List.of(bandwidthPeakLimitIspConfigs));
         }
 
         /**
-         * @param boundEipShareBandwidthPeak Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+         * @param boundEipShareBandwidthPeak Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
          * 
          * @return builder
          * 
@@ -304,7 +335,7 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param boundEipShareBandwidthPeak Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+         * @param boundEipShareBandwidthPeak Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
          * 
          * @return builder
          * 
@@ -450,7 +481,7 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param limitMode Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+         * @param limitMode Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
          * 
          * @return builder
          * 
@@ -461,7 +492,7 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param limitMode Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+         * @param limitMode Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
          * 
          * @return builder
          * 

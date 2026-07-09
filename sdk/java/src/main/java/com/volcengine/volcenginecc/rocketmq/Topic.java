@@ -25,6 +25,45 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.rocketmq.Topic;
+ * import com.volcengine.volcenginecc.rocketmq.TopicArgs;
+ * import com.pulumi.volcenginecc.rocketmq.inputs.TopicAccessPolicyArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var rocketMQTopicDemo = new Topic("rocketMQTopicDemo", TopicArgs.builder()
+ *             .instanceId("rocketmq-cnngxxxxx3c2d")
+ *             .topicName("ccapi-test-test-2")
+ *             .messageType(0)
+ *             .description("this is a test")
+ *             .queueNumber(6)
+ *             .accessPolicies(TopicAccessPolicyArgs.builder()
+ *                 .access_key("TPl1xxxxxxblh5Gpxa79")
+ *                 .authority("ALL")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -36,9 +75,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="volcenginecc:rocketmq/topic:Topic")
 public class Topic extends com.pulumi.resources.CustomResource {
+    /**
+     * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="accessPolicies", refs={List.class,TopicAccessPolicy.class}, tree="[0,1]")
     private Output<List<TopicAccessPolicy>> accessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<TopicAccessPolicy>> accessPolicies() {
         return this.accessPolicies;
     }
@@ -70,9 +119,19 @@ public class Topic extends com.pulumi.resources.CustomResource {
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Consumer group information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="groupsInfos", refs={List.class,TopicGroupsInfo.class}, tree="[0,1]")
     private Output<List<TopicGroupsInfo>> groupsInfos;
 
+    /**
+     * @return Consumer group information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<TopicGroupsInfo>> groupsInfos() {
         return this.groupsInfos;
     }
@@ -132,15 +191,35 @@ public class Topic extends com.pulumi.resources.CustomResource {
     public Output<Integer> queueNumber() {
         return this.queueNumber;
     }
+    /**
+     * Queue information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="queuesInfos", refs={List.class,TopicQueuesInfo.class}, tree="[0,1]")
     private Output<List<TopicQueuesInfo>> queuesInfos;
 
+    /**
+     * @return Queue information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<TopicQueuesInfo>> queuesInfos() {
         return this.queuesInfos;
     }
+    /**
+     * Permissions for each RocketMQ key on the current Topic, permission field
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="readAccessPolicies", refs={List.class,TopicReadAccessPolicy.class}, tree="[0,1]")
     private Output<List<TopicReadAccessPolicy>> readAccessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, permission field
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<TopicReadAccessPolicy>> readAccessPolicies() {
         return this.readAccessPolicies;
     }

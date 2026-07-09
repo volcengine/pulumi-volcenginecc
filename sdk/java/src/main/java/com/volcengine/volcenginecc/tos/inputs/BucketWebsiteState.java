@@ -80,9 +80,19 @@ public final class BucketWebsiteState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.redirectAllRequestsTo);
     }
 
+    /**
+     * Redirect rule
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="routingRules")
     private @Nullable Output<List<BucketWebsiteRoutingRuleArgs>> routingRules;
 
+    /**
+     * @return Redirect rule
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BucketWebsiteRoutingRuleArgs>>> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }
@@ -199,15 +209,36 @@ public final class BucketWebsiteState extends com.pulumi.resources.ResourceArgs 
             return redirectAllRequestsTo(Output.of(redirectAllRequestsTo));
         }
 
+        /**
+         * @param routingRules Redirect rule
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routingRules(@Nullable Output<List<BucketWebsiteRoutingRuleArgs>> routingRules) {
             $.routingRules = routingRules;
             return this;
         }
 
+        /**
+         * @param routingRules Redirect rule
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routingRules(List<BucketWebsiteRoutingRuleArgs> routingRules) {
             return routingRules(Output.of(routingRules));
         }
 
+        /**
+         * @param routingRules Redirect rule
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routingRules(BucketWebsiteRoutingRuleArgs... routingRules) {
             return routingRules(List.of(routingRules));
         }

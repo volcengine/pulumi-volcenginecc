@@ -25,6 +25,74 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.Bucket;
+ * import com.volcengine.volcenginecc.tos.BucketArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketTagArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketLifecycleConfigArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketLifecycleConfigExpirationArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketLifecycleConfigFilterArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketObjectLockConfigurationArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketObjectLockConfigurationRuleArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketObjectLockConfigurationRuleDefaultRetentionArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var bucketDemo = new Bucket("bucketDemo", BucketArgs.builder()
+ *             .name("bucket-demo")
+ *             .storageClass("STANDARD")
+ *             .enableVersionStatus("Enabled")
+ *             .bucketType("fns")
+ *             .tags(BucketTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .policy("}{{@code \"Version\":\"1.0\",\"Statement\":[}{{@code \"Sid\":\"f8fd\",\"Effect\":\"Allow\",\"Principal\":[\"*******\"],\"Action\":[\"tos:Get*\",\"tos:List*\",\"tos:HeadBucket\"],\"Resource\":[\"trn:tos:::************\",\"trn:tos:::************}&#47;{@code *\"]}}{@code ]}}{@code ")
+ *             .lifecycleConfigs(BucketLifecycleConfigArgs.builder()
+ *                 .expiration(BucketLifecycleConfigExpirationArgs.builder()
+ *                     .date("2027-01-18T00:00:00Z")
+ *                     .build())
+ *                 .filter(BucketLifecycleConfigFilterArgs.builder()
+ *                     .greaterThanIncludeEqual("Disabled")
+ *                     .lessThanIncludeEqual("Disabled")
+ *                     .objectSizeGreaterThan(123)
+ *                     .objectSizeLessThan(789)
+ *                     .build())
+ *                 .lifecycle_rule_id("bucketdemo")
+ *                 .prefix("prefix")
+ *                 .status("Enabled")
+ *                 .build())
+ *             .objectLockConfiguration(BucketObjectLockConfigurationArgs.builder()
+ *                 .object_lock_enabled("Enabled")
+ *                 .rule(BucketObjectLockConfigurationRuleArgs.builder()
+ *                     .defaultRetention(BucketObjectLockConfigurationRuleDefaultRetentionArgs.builder()
+ *                         .mode("COMPLIANCE")
+ *                         .days(21)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -140,9 +208,19 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     public Output<String> intranetEndpoint() {
         return this.intranetEndpoint;
     }
+    /**
+     * Bucket lifecycle
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="lifecycleConfigs", refs={List.class,BucketLifecycleConfig.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfig>> lifecycleConfigs;
 
+    /**
+     * @return Bucket lifecycle
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<BucketLifecycleConfig>> lifecycleConfigs() {
         return this.lifecycleConfigs;
     }
@@ -230,9 +308,19 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     public Output<String> storageClass() {
         return this.storageClass;
     }
+    /**
+     * Bucket tag information
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="tags", refs={List.class,BucketTag.class}, tree="[0,1]")
     private Output<List<BucketTag>> tags;
 
+    /**
+     * @return Bucket tag information
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<BucketTag>> tags() {
         return this.tags;
     }

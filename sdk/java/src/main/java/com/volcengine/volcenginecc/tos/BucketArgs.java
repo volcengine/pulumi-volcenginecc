@@ -89,9 +89,19 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enableVersionStatus);
     }
 
+    /**
+     * Bucket lifecycle
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="lifecycleConfigs")
     private @Nullable Output<List<BucketLifecycleConfigArgs>> lifecycleConfigs;
 
+    /**
+     * @return Bucket lifecycle
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BucketLifecycleConfigArgs>>> lifecycleConfigs() {
         return Optional.ofNullable(this.lifecycleConfigs);
     }
@@ -171,9 +181,19 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.storageClass);
     }
 
+    /**
+     * Bucket tag information
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<List<BucketTagArgs>> tags;
 
+    /**
+     * @return Bucket tag information
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BucketTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -306,15 +326,36 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
             return enableVersionStatus(Output.of(enableVersionStatus));
         }
 
+        /**
+         * @param lifecycleConfigs Bucket lifecycle
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleConfigs(@Nullable Output<List<BucketLifecycleConfigArgs>> lifecycleConfigs) {
             $.lifecycleConfigs = lifecycleConfigs;
             return this;
         }
 
+        /**
+         * @param lifecycleConfigs Bucket lifecycle
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleConfigs(List<BucketLifecycleConfigArgs> lifecycleConfigs) {
             return lifecycleConfigs(Output.of(lifecycleConfigs));
         }
 
+        /**
+         * @param lifecycleConfigs Bucket lifecycle
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lifecycleConfigs(BucketLifecycleConfigArgs... lifecycleConfigs) {
             return lifecycleConfigs(List.of(lifecycleConfigs));
         }
@@ -424,15 +465,36 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
             return storageClass(Output.of(storageClass));
         }
 
+        /**
+         * @param tags Bucket tag information
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<List<BucketTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Bucket tag information
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(List<BucketTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tags Bucket tag information
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(BucketTagArgs... tags) {
             return tags(List.of(tags));
         }

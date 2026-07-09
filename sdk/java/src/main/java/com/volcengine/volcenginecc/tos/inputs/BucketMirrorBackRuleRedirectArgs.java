@@ -23,9 +23,19 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     public static final BucketMirrorBackRuleRedirectArgs Empty = new BucketMirrorBackRuleRedirectArgs();
 
+    /**
+     * List of rules for writing origin response headers to object metadata.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="fetchHeaderToMetaDataRules")
     private @Nullable Output<List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs>> fetchHeaderToMetaDataRules;
 
+    /**
+     * @return List of rules for writing origin response headers to object metadata.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs>>> fetchHeaderToMetaDataRules() {
         return Optional.ofNullable(this.fetchHeaderToMetaDataRules);
     }
@@ -234,15 +244,36 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
             $ = new BucketMirrorBackRuleRedirectArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fetchHeaderToMetaDataRules List of rules for writing origin response headers to object metadata.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fetchHeaderToMetaDataRules(@Nullable Output<List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs>> fetchHeaderToMetaDataRules) {
             $.fetchHeaderToMetaDataRules = fetchHeaderToMetaDataRules;
             return this;
         }
 
+        /**
+         * @param fetchHeaderToMetaDataRules List of rules for writing origin response headers to object metadata.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fetchHeaderToMetaDataRules(List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs> fetchHeaderToMetaDataRules) {
             return fetchHeaderToMetaDataRules(Output.of(fetchHeaderToMetaDataRules));
         }
 
+        /**
+         * @param fetchHeaderToMetaDataRules List of rules for writing origin response headers to object metadata.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fetchHeaderToMetaDataRules(BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs... fetchHeaderToMetaDataRules) {
             return fetchHeaderToMetaDataRules(List.of(fetchHeaderToMetaDataRules));
         }

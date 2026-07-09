@@ -21,6 +21,60 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketCors;
+ * import com.volcengine.volcenginecc.tos.BucketCorsArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketCorsCorsRuleArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketCorsDemo = new BucketCors("tOSBucketCorsDemo", BucketCorsArgs.builder()
+ *             .bucketName("ccapi-test")
+ *             .corsRules(            
+ *                 BucketCorsCorsRuleArgs.builder()
+ *                     .allowed_origins(Arrays.asList(                    
+ *                         "http://test1.example.com:8080",
+ *                         "http://test2.example.com:8088"))
+ *                     .allowed_methods(Arrays.asList(                    
+ *                         "PUT",
+ *                         "DELETE"))
+ *                     .expose_headers(Arrays.asList("x-tos-version-id"))
+ *                     .max_age_seconds(7200)
+ *                     .allowed_headers(Arrays.asList(                    
+ *                         "Content-Type",
+ *                         "Authorization"))
+ *                     .response_vary(false)
+ *                     .build(),
+ *                 BucketCorsCorsRuleArgs.builder()
+ *                     .allowed_origins(Arrays.asList("https://*.example.org"))
+ *                     .allowed_methods(Arrays.asList("HEAD"))
+ *                     .expose_headers(Arrays.asList("x-tos-request-id"))
+ *                     .max_age_seconds(1800)
+ *                     .allowed_headers(Arrays.asList("*"))
+ *                     .response_vary(true)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -46,9 +100,19 @@ public class BucketCors extends com.pulumi.resources.CustomResource {
     public Output<String> bucketName() {
         return this.bucketName;
     }
+    /**
+     * CORS rule information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="corsRules", refs={List.class,BucketCorsCorsRule.class}, tree="[0,1]")
     private Output<List<BucketCorsCorsRule>> corsRules;
 
+    /**
+     * @return CORS rule information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<BucketCorsCorsRule>> corsRules() {
         return this.corsRules;
     }

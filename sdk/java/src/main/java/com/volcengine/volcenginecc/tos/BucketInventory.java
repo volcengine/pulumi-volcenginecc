@@ -24,6 +24,64 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketInventory;
+ * import com.volcengine.volcenginecc.tos.BucketInventoryArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketInventoryDestinationArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketInventoryFilterArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketInventoryOptionalFieldsArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketInventoryScheduleArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketInventoryDemo = new BucketInventory("tOSBucketInventoryDemo", BucketInventoryArgs.builder()
+ *             .bucketName("ccapi-test")
+ *             .destination(BucketInventoryDestinationArgs.builder()
+ *                 .tos_bucket_destination(Map.ofEntries(
+ *                     Map.entry("accountId", "21xxxxxxxxx"),
+ *                     Map.entry("bucket", "ccapi-test"),
+ *                     Map.entry("format", "CSV"),
+ *                     Map.entry("prefix", "tos_bucket_inventory"),
+ *                     Map.entry("role", "TosArchiveTOSxxxxxx")
+ *                 ))
+ *                 .build())
+ *             .filter(BucketInventoryFilterArgs.builder()
+ *                 .prefix("sdfsaf")
+ *                 .build())
+ *             .includedObjectVersions("Current")
+ *             .inventoryId("test")
+ *             .isEnabled(true)
+ *             .isUnCompressed(false)
+ *             .optionalFields(BucketInventoryOptionalFieldsArgs.builder()
+ *                 .field(Arrays.asList(                
+ *                     "StorageClass",
+ *                     "IntelligentTieringAccessTier"))
+ *                 .build())
+ *             .schedule(BucketInventoryScheduleArgs.builder()
+ *                 .frequency("Weekly")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

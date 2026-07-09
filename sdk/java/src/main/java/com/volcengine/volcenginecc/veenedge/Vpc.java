@@ -35,8 +35,8 @@ import javax.annotation.Nullable;
  * import com.volcengine.volcenginecc.veenedge.VpcArgs;
  * import com.pulumi.volcenginecc.veenedge.inputs.VpcSubnetArgs;
  * import com.pulumi.volcenginecc.veenedge.inputs.VpcTagArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -240,15 +240,35 @@ public class Vpc extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * List of subnets created when creating the VPC
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="subnets", refs={List.class,VpcSubnet.class}, tree="[0,1]")
     private Output<List<VpcSubnet>> subnets;
 
+    /**
+     * @return List of subnets created when creating the VPC
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<VpcSubnet>> subnets() {
         return this.subnets;
     }
+    /**
+     * Tag List of VPC Instance
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="tags", refs={List.class,VpcTag.class}, tree="[0,1]")
     private Output<List<VpcTag>> tags;
 
+    /**
+     * @return Tag List of VPC Instance
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<VpcTag>> tags() {
         return this.tags;
     }

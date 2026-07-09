@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.rocketmq.Group;
  * import com.volcengine.volcenginecc.rocketmq.GroupArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -84,15 +84,35 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Boolean> consumeMessageOrderly() {
         return this.consumeMessageOrderly;
     }
+    /**
+     * Consumer client list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="consumedClients", refs={List.class,GroupConsumedClient.class}, tree="[0,1]")
     private Output<List<GroupConsumedClient>> consumedClients;
 
+    /**
+     * @return Consumer client list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<GroupConsumedClient>> consumedClients() {
         return this.consumedClients;
     }
+    /**
+     * Topic information subscribed by consumer instance groups under this Group.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="consumedTopics", refs={List.class,GroupConsumedTopic.class}, tree="[0,1]")
     private Output<List<GroupConsumedTopic>> consumedTopics;
 
+    /**
+     * @return Topic information subscribed by consumer instance groups under this Group.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<GroupConsumedTopic>> consumedTopics() {
         return this.consumedTopics;
     }

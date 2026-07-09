@@ -34,16 +34,36 @@ public final class CloudServerStorageConfigArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.dataDisk);
     }
 
+    /**
+     * Data disk list. This parameter is used to add one or more data disks.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="dataDiskLists")
     private @Nullable Output<List<CloudServerStorageConfigDataDiskListArgs>> dataDiskLists;
 
+    /**
+     * @return Data disk list. This parameter is used to add one or more data disks.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<CloudServerStorageConfigDataDiskListArgs>>> dataDiskLists() {
         return Optional.ofNullable(this.dataDiskLists);
     }
 
+    /**
+     * Local data disk configuration list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="dataLocalDisks")
     private @Nullable Output<List<CloudServerStorageConfigDataLocalDiskArgs>> dataLocalDisks;
 
+    /**
+     * @return Local data disk configuration list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<CloudServerStorageConfigDataLocalDiskArgs>>> dataLocalDisks() {
         return Optional.ofNullable(this.dataLocalDisks);
     }
@@ -111,28 +131,70 @@ public final class CloudServerStorageConfigArgs extends com.pulumi.resources.Res
             return dataDisk(Output.of(dataDisk));
         }
 
+        /**
+         * @param dataDiskLists Data disk list. This parameter is used to add one or more data disks.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDiskLists(@Nullable Output<List<CloudServerStorageConfigDataDiskListArgs>> dataDiskLists) {
             $.dataDiskLists = dataDiskLists;
             return this;
         }
 
+        /**
+         * @param dataDiskLists Data disk list. This parameter is used to add one or more data disks.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDiskLists(List<CloudServerStorageConfigDataDiskListArgs> dataDiskLists) {
             return dataDiskLists(Output.of(dataDiskLists));
         }
 
+        /**
+         * @param dataDiskLists Data disk list. This parameter is used to add one or more data disks.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDiskLists(CloudServerStorageConfigDataDiskListArgs... dataDiskLists) {
             return dataDiskLists(List.of(dataDiskLists));
         }
 
+        /**
+         * @param dataLocalDisks Local data disk configuration list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataLocalDisks(@Nullable Output<List<CloudServerStorageConfigDataLocalDiskArgs>> dataLocalDisks) {
             $.dataLocalDisks = dataLocalDisks;
             return this;
         }
 
+        /**
+         * @param dataLocalDisks Local data disk configuration list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataLocalDisks(List<CloudServerStorageConfigDataLocalDiskArgs> dataLocalDisks) {
             return dataLocalDisks(Output.of(dataLocalDisks));
         }
 
+        /**
+         * @param dataLocalDisks Local data disk configuration list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataLocalDisks(CloudServerStorageConfigDataLocalDiskArgs... dataLocalDisks) {
             return dataLocalDisks(List.of(dataLocalDisks));
         }

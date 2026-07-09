@@ -94,9 +94,19 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.metaInformation);
     }
 
+    /**
+     * List of Associated Backup Plans
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="plans")
     private @Nullable Output<List<BackupResourcePlanArgs>> plans;
 
+    /**
+     * @return List of Associated Backup Plans
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BackupResourcePlanArgs>>> plans() {
         return Optional.ofNullable(this.plans);
     }
@@ -331,15 +341,36 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
             return metaInformation(Output.of(metaInformation));
         }
 
+        /**
+         * @param plans List of Associated Backup Plans
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plans(@Nullable Output<List<BackupResourcePlanArgs>> plans) {
             $.plans = plans;
             return this;
         }
 
+        /**
+         * @param plans List of Associated Backup Plans
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plans(List<BackupResourcePlanArgs> plans) {
             return plans(Output.of(plans));
         }
 
+        /**
+         * @param plans List of Associated Backup Plans
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plans(BackupResourcePlanArgs... plans) {
             return plans(List.of(plans));
         }

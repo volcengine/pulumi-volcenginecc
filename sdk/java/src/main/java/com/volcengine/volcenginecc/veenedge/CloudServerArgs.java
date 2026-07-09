@@ -163,9 +163,19 @@ public final class CloudServerArgs extends com.pulumi.resources.ResourceArgs {
         return this.imageId;
     }
 
+    /**
+     * Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="instanceAreaNums")
     private @Nullable Output<List<CloudServerInstanceAreaNumArgs>> instanceAreaNums;
 
+    /**
+     * @return Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<CloudServerInstanceAreaNumArgs>>> instanceAreaNums() {
         return Optional.ofNullable(this.instanceAreaNums);
     }
@@ -260,9 +270,19 @@ public final class CloudServerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.storageConfig);
     }
 
+    /**
+     * Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<List<CloudServerTagArgs>> tags;
 
+    /**
+     * @return Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<CloudServerTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -496,15 +516,36 @@ public final class CloudServerArgs extends com.pulumi.resources.ResourceArgs {
             return imageId(Output.of(imageId));
         }
 
+        /**
+         * @param instanceAreaNums Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceAreaNums(@Nullable Output<List<CloudServerInstanceAreaNumArgs>> instanceAreaNums) {
             $.instanceAreaNums = instanceAreaNums;
             return this;
         }
 
+        /**
+         * @param instanceAreaNums Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceAreaNums(List<CloudServerInstanceAreaNumArgs> instanceAreaNums) {
             return instanceAreaNums(Output.of(instanceAreaNums));
         }
 
+        /**
+         * @param instanceAreaNums Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceAreaNums(CloudServerInstanceAreaNumArgs... instanceAreaNums) {
             return instanceAreaNums(List.of(instanceAreaNums));
         }
@@ -635,15 +676,36 @@ public final class CloudServerArgs extends com.pulumi.resources.ResourceArgs {
             return storageConfig(Output.of(storageConfig));
         }
 
+        /**
+         * @param tags Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<List<CloudServerTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(List<CloudServerTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tags Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(CloudServerTagArgs... tags) {
             return tags(List.of(tags));
         }

@@ -33,9 +33,19 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.bucketAclDelivered);
     }
 
+    /**
+     * Root node for object access control permissions
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="grants")
     private @Nullable Output<List<BucketAclGrantArgs>> grants;
 
+    /**
+     * @return Root node for object access control permissions
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BucketAclGrantArgs>>> grants() {
         return Optional.ofNullable(this.grants);
     }
@@ -102,15 +112,36 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
             return bucketAclDelivered(Output.of(bucketAclDelivered));
         }
 
+        /**
+         * @param grants Root node for object access control permissions
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grants(@Nullable Output<List<BucketAclGrantArgs>> grants) {
             $.grants = grants;
             return this;
         }
 
+        /**
+         * @param grants Root node for object access control permissions
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grants(List<BucketAclGrantArgs> grants) {
             return grants(Output.of(grants));
         }
 
+        /**
+         * @param grants Root node for object access control permissions
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grants(BucketAclGrantArgs... grants) {
             return grants(List.of(grants));
         }

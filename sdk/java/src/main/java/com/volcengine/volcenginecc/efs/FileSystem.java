@@ -25,6 +25,52 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.efs.FileSystem;
+ * import com.volcengine.volcenginecc.efs.FileSystemArgs;
+ * import com.pulumi.volcenginecc.efs.inputs.FileSystemPerformanceArgs;
+ * import com.pulumi.volcenginecc.efs.inputs.FileSystemTagArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var eFSFileSystemDemo = new FileSystem("eFSFileSystemDemo", FileSystemArgs.builder()
+ *             .fileSystemName("cc-test")
+ *             .description("description")
+ *             .chargeType("PayAsYouGo")
+ *             .zoneId("cn-beijing-a")
+ *             .instanceType("Premium")
+ *             .performanceDensity("Premium_125")
+ *             .projectName("default")
+ *             .performance(FileSystemPerformanceArgs.builder()
+ *                 .bandwidth_mode("Provisioned")
+ *                 .provisioned_bandwidth(300)
+ *                 .build())
+ *             .tags(FileSystemTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -260,9 +306,19 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
     public Output<FileSystemStorage> storage() {
         return this.storage;
     }
+    /**
+     * Tag list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="tags", refs={List.class,FileSystemTag.class}, tree="[0,1]")
     private Output<List<FileSystemTag>> tags;
 
+    /**
+     * @return Tag list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<FileSystemTag>> tags() {
         return this.tags;
     }

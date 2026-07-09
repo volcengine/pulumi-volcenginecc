@@ -31,6 +31,104 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.veenedge.CloudServer;
+ * import com.volcengine.volcenginecc.veenedge.CloudServerArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerAdvancedConfigurationArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerBillingConfigArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerCustomDataArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerNetworkConfigArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerScheduleStrategyArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerSecretConfigArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerStorageConfigArgs;
+ * import com.pulumi.volcenginecc.veenedge.inputs.CloudServerTagArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CloudServer("example", CloudServerArgs.builder()
+ *             .cloudServerName("测试边缘服务")
+ *             .cloudServerDesc("包年包月计费及全配置测试")
+ *             .imageId("imagexxxxxxiqm")
+ *             .specName("veEN.I1.2xlarge")
+ *             .project("default")
+ *             .disableVga(false)
+ *             .advancedConfiguration(CloudServerAdvancedConfigurationArgs.builder()
+ *                 .instance_host_name("host-name")
+ *                 .instance_name("ccapi-test-1")
+ *                 .delete_protection(true)
+ *                 .instance_desc("测试实例描述")
+ *                 .build())
+ *             .billingConfig(CloudServerBillingConfigArgs.builder()
+ *                 .bandwidth_billing_method("MonthlyP95")
+ *                 .computing_billing_method("MonthlyPeak")
+ *                 .build())
+ *             .customData(CloudServerCustomDataArgs.builder()
+ *                 .data("asfdsadfasdf")
+ *                 .build())
+ *             .networkConfig(CloudServerNetworkConfigArgs.builder()
+ *                 .bandwidth_peak("5")
+ *                 .bound_eip_share_bandwidth_peak("5")
+ *                 .custom_external_interface_name("eth1")
+ *                 .custom_internal_interface_name("eth0")
+ *                 .dns_list(Arrays.asList(                
+ *                     "114.114.114.114",
+ *                     "180.184.1.1",
+ *                     "223.6.6.7"))
+ *                 .dns_type("custom")
+ *                 .enable_ipv_6(true)
+ *                 .limit_mode("shared")
+ *                 .secondary_internal_ip_num(1)
+ *                 .security_group_id_list(Arrays.asList("veew-sg-113xxxxxxxx195"))
+ *                 .tcp_timeout(900)
+ *                 .udp_timeout(60)
+ *                 .build())
+ *             .scheduleStrategy(CloudServerScheduleStrategyArgs.builder()
+ *                 .price_strategy("low_priority")
+ *                 .schedule_strategy("dispersion")
+ *                 .build())
+ *             .secretConfig(CloudServerSecretConfigArgs.builder()
+ *                 .secret_type(3)
+ *                 .secret_data("sshkey-dzxxxxxxx78xx")
+ *                 .build())
+ *             .storageConfig(CloudServerStorageConfigArgs.builder()
+ *                 .system_disk(Map.ofEntries(
+ *                     Map.entry("capacity", "40"),
+ *                     Map.entry("storageType", "CloudBlockSSD")
+ *                 ))
+ *                 .data_local_disks(Arrays.asList(Map.ofEntries(
+ *                     Map.entry("num", 1),
+ *                     Map.entry("diskSpec", Map.ofEntries(
+ *                         Map.entry("capacity", "950"),
+ *                         Map.entry("storageType", "LocalSSD")
+ *                     ))
+ *                 )))
+ *                 .build())
+ *             .tags(CloudServerTagArgs.builder()
+ *                 .value("env")
+ *                 .key("test")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -224,9 +322,19 @@ public class CloudServer extends com.pulumi.resources.CustomResource {
     public Output<String> imageId() {
         return this.imageId;
     }
+    /**
+     * Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="instanceAreaNums", refs={List.class,CloudServerInstanceAreaNum.class}, tree="[0,1]")
     private Output<List<CloudServerInstanceAreaNum>> instanceAreaNums;
 
+    /**
+     * @return Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<CloudServerInstanceAreaNum>> instanceAreaNums() {
         return this.instanceAreaNums;
     }
@@ -412,9 +520,19 @@ public class CloudServer extends com.pulumi.resources.CustomResource {
     public Output<CloudServerStorageConfig> storageConfig() {
         return this.storageConfig;
     }
+    /**
+     * Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Export(name="tags", refs={List.class,CloudServerTag.class}, tree="[0,1]")
     private Output<List<CloudServerTag>> tags;
 
+    /**
+     * @return Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Output<List<CloudServerTag>> tags() {
         return this.tags;
     }

@@ -107,14 +107,18 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
+     * OAuth User Info Sub-User Mapping Method
+     *   1. Map Sub-User Name
+     *   2. Map Sub-User Secure Mobile Number
      * 
      */
     @Import(name="identityMapType")
     private @Nullable Output<Integer> identityMapType;
 
     /**
-     * @return OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
+     * @return OAuth User Info Sub-User Mapping Method
+     *   1. Map Sub-User Name
+     *   2. Map Sub-User Secure Mobile Number
      * 
      */
     public Optional<Output<Integer>> identityMapType() {
@@ -182,14 +186,18 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
+     * Identity Provider SSO Type
+     *   1. Role SSO (not supported yet)
+     *   2. User SSO
      * 
      */
     @Import(name="ssoType")
     private @Nullable Output<Integer> ssoType;
 
     /**
-     * @return Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
+     * @return Identity Provider SSO Type
+     *   1. Role SSO (not supported yet)
+     *   2. User SSO
      * 
      */
     public Optional<Output<Integer>> ssoType() {
@@ -197,14 +205,20 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
+     * Identity Provider Status (User SSO Only)
+     *   1. Enabled
+     *   2. Enabled (other login methods disabled)
+     *   3. Disabled
      * 
      */
     @Import(name="status")
     private @Nullable Output<Integer> status;
 
     /**
-     * @return Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
+     * @return Identity Provider Status (User SSO Only)
+     *   1. Enabled
+     *   2. Enabled (other login methods disabled)
+     *   3. Disabled
      * 
      */
     public Optional<Output<Integer>> status() {
@@ -438,7 +452,9 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityMapType OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
+         * @param identityMapType OAuth User Info Sub-User Mapping Method
+         *   1. Map Sub-User Name
+         *   2. Map Sub-User Secure Mobile Number
          * 
          * @return builder
          * 
@@ -449,7 +465,9 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityMapType OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
+         * @param identityMapType OAuth User Info Sub-User Mapping Method
+         *   1. Map Sub-User Name
+         *   2. Map Sub-User Secure Mobile Number
          * 
          * @return builder
          * 
@@ -543,7 +561,9 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ssoType Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
+         * @param ssoType Identity Provider SSO Type
+         *   1. Role SSO (not supported yet)
+         *   2. User SSO
          * 
          * @return builder
          * 
@@ -554,7 +574,9 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ssoType Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
+         * @param ssoType Identity Provider SSO Type
+         *   1. Role SSO (not supported yet)
+         *   2. User SSO
          * 
          * @return builder
          * 
@@ -564,7 +586,10 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param status Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
+         * @param status Identity Provider Status (User SSO Only)
+         *   1. Enabled
+         *   2. Enabled (other login methods disabled)
+         *   3. Disabled
          * 
          * @return builder
          * 
@@ -575,7 +600,10 @@ public final class OauthProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param status Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
+         * @param status Identity Provider Status (User SSO Only)
+         *   1. Enabled
+         *   2. Enabled (other login methods disabled)
+         *   3. Disabled
          * 
          * @return builder
          * 

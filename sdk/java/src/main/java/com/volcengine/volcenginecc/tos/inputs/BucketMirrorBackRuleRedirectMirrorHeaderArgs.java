@@ -63,9 +63,19 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
         return Optional.ofNullable(this.removes);
     }
 
+    /**
+     * List of request headers to add or overwrite during origin fetch.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     @Import(name="sets")
     private @Nullable Output<List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs>> sets;
 
+    /**
+     * @return List of request headers to add or overwrite during origin fetch.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
     public Optional<Output<List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs>>> sets() {
         return Optional.ofNullable(this.sets);
     }
@@ -180,15 +190,36 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
             return removes(List.of(removes));
         }
 
+        /**
+         * @param sets List of request headers to add or overwrite during origin fetch.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sets(@Nullable Output<List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs>> sets) {
             $.sets = sets;
             return this;
         }
 
+        /**
+         * @param sets List of request headers to add or overwrite during origin fetch.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sets(List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs> sets) {
             return sets(Output.of(sets));
         }
 
+        /**
+         * @param sets List of request headers to add or overwrite during origin fetch.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sets(BucketMirrorBackRuleRedirectMirrorHeaderSetArgs... sets) {
             return sets(List.of(sets));
         }

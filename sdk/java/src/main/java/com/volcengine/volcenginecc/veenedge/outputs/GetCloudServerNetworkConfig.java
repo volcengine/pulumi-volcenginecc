@@ -25,7 +25,7 @@ public final class GetCloudServerNetworkConfig {
      */
     private List<GetCloudServerNetworkConfigBandwidthPeakLimitIspConfig> bandwidthPeakLimitIspConfigs;
     /**
-     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
      * 
      */
     private String boundEipShareBandwidthPeak;
@@ -60,7 +60,7 @@ public final class GetCloudServerNetworkConfig {
      */
     private Boolean enableIpv6;
     /**
-     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
      * 
      */
     private String limitMode;
@@ -101,7 +101,7 @@ public final class GetCloudServerNetworkConfig {
         return this.bandwidthPeakLimitIspConfigs;
     }
     /**
-     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
      * 
      */
     public String boundEipShareBandwidthPeak() {
@@ -150,7 +150,7 @@ public final class GetCloudServerNetworkConfig {
         return this.enableIpv6;
     }
     /**
-     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
      * 
      */
     public String limitMode() {
