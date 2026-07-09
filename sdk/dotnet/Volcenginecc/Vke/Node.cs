@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
 {
     /// <summary>
     /// Corresponds to Node in Kubernetes, which is the basic element of a Container Service cluster. Nodes mainly include: Master nodes (control nodes) and Worker nodes (compute nodes/worker nodes). Applications are actually deployed on Worker nodes, supporting random deployment on Worker nodes or deployment on specified Worker nodes through configuration. In Container Service, node generally refers to Worker node.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vkeNodeDemo = new Volcenginecc.Vke.Node("VkeNodeDemo", new()
     ///     {
@@ -32,12 +32,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
     ///         KeepInstanceName = true,
     ///         NodePoolId = "pd5s9srqxxxxxo88e621g",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vke/node:Node example "cluster_id|node_pool_id|node_id"
     /// ```

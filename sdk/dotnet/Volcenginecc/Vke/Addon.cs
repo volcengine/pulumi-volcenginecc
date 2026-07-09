@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
 {
     /// <summary>
     /// The cluster supports installation of various types of components, including network, storage, monitoring, DNS, security, image, GPU, and more, to meet your diverse business needs. You can deploy, upgrade, or uninstall components as needed.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vKEAddonDemo = new Volcenginecc.Vke.Addon("VKEAddonDemo", new()
     ///     {
@@ -32,12 +32,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
     ///         Version = "v1.2.7",
     ///         Config = "{\"CsiNasDriver\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.9\",\"Memory\":\"1900Mi\"}}},\"CsiProvisioner\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.5\",\"Memory\":\"4Gi\"}}},\"LivenessProbe\":{\"Resources\":{\"Requests\":{\"Cpu\":\"0.01\",\"Memory\":\"20Mi\"},\"Limits\":{\"Cpu\":\"0.1\",\"Memory\":\"100Mi\"}}}}",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vke/addon:Addon example "cluster_id|name"
     /// ```

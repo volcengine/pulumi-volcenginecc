@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
 {
     /// <summary>
     /// Custom commands are features provided by Cloud Assistant to meet your personalized O&amp;M needs. If the preset public commands do not meet your requirements, you can create custom commands and batch execute your custom commands on instances using O&amp;M tasks.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var commandDemo = new Volcenginecc.Ecs.Command("CommandDemo", new()
     ///     {
@@ -58,12 +58,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     ///         Username = "rxxxx",
     ///         WorkingDir = "/home",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:ecs/command:Command example "command_id"
     /// ```

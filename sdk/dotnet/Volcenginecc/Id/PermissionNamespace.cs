@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
 {
     /// <summary>
     /// ID namespace is a resource isolation unit in permissions management. It can be used to organize associated entities, projects, and tags.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Id.PermissionNamespace("Example", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:id/permissionNamespace:PermissionNamespace example "namespace_name"
     /// ```

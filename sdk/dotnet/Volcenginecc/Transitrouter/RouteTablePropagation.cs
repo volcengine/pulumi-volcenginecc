@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 {
     /// <summary>
     /// Details of route learning that meet the criteria.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var routeTablePropagationDemo = new Volcenginecc.Transitrouter.RouteTablePropagation("RouteTablePropagationDemo", new()
     ///     {
     ///         TransitRouterAttachmentId = "tr-attach-mjoxz9mx5ji85***",
     ///         TransitRouterRouteTableId = "tr-rtb-mjoxx4ofrt345sm****",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:transitrouter/routeTablePropagation:RouteTablePropagation example "transit_router_route_table_id|transit_router_attachment_id"
     /// ```

@@ -19,14 +19,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Creation Time
-     *
+     * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
      * @return Creation Time
-     *
+     * 
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
@@ -34,14 +34,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Access Domain Name
-     *
+     * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
      * @return Access Domain Name
-     *
+     * 
      */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
@@ -49,14 +49,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Project Name
-     *
+     * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
      * @return Project Name
-     *
+     * 
      */
     public Optional<Output<String>> projectName() {
         return Optional.ofNullable(this.projectName);
@@ -65,7 +65,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     /**
      * Backup Repository Tag
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<List<VaultTagArgs>> tags;
@@ -73,7 +73,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Backup Repository Tag
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<VaultTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
@@ -81,14 +81,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Repository ID
-     *
+     * 
      */
     @Import(name="vaultId")
     private @Nullable Output<String> vaultId;
 
     /**
      * @return Backup Repository ID
-     *
+     * 
      */
     public Optional<Output<String>> vaultId() {
         return Optional.ofNullable(this.vaultId);
@@ -96,14 +96,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Repository Name
-     *
+     * 
      */
     @Import(name="vaultName")
     private @Nullable Output<String> vaultName;
 
     /**
      * @return Backup Repository Name
-     *
+     * 
      */
     public Optional<Output<String>> vaultName() {
         return Optional.ofNullable(this.vaultName);
@@ -140,9 +140,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Creation Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
@@ -151,9 +151,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Creation Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
@@ -161,9 +161,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param endpoint Access Domain Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
@@ -172,9 +172,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param endpoint Access Domain Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
@@ -182,9 +182,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param projectName Project Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder projectName(@Nullable Output<String> projectName) {
             $.projectName = projectName;
@@ -193,9 +193,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param projectName Project Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
@@ -204,9 +204,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Backup Repository Tag
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(@Nullable Output<List<VaultTagArgs>> tags) {
             $.tags = tags;
@@ -216,9 +216,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Backup Repository Tag
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(List<VaultTagArgs> tags) {
             return tags(Output.of(tags));
@@ -227,9 +227,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Backup Repository Tag
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(VaultTagArgs... tags) {
             return tags(List.of(tags));
@@ -237,9 +237,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vaultId Backup Repository ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vaultId(@Nullable Output<String> vaultId) {
             $.vaultId = vaultId;
@@ -248,9 +248,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vaultId Backup Repository ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vaultId(String vaultId) {
             return vaultId(Output.of(vaultId));
@@ -258,9 +258,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vaultName Backup Repository Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vaultName(@Nullable Output<String> vaultName) {
             $.vaultName = vaultName;
@@ -269,9 +269,9 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vaultName Backup Repository Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vaultName(String vaultName) {
             return vaultName(Output.of(vaultName));

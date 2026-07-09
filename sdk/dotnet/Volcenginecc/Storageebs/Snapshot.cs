@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
 {
     /// <summary>
     /// A snapshot is a backup method. Each snapshot is a backup file of cloud disk data at a specific point in time. When data is lost or a failure occurs, you can roll back cloud disk data using the snapshot to recover lost data.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var storageEBSSnapshotDemo = new Volcenginecc.Storageebs.Snapshot("StorageEBSSnapshotDemo", new()
     ///     {
@@ -38,12 +38,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:storageebs/snapshot:Snapshot example "snapshot_id"
     /// ```

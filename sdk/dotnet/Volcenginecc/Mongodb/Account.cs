@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb
 {
     /// <summary>
     /// MongoDB instance database account.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var mongoDBAccountDemo = new Volcenginecc.Mongodb.Account("MongoDBAccountDemo", new()
     ///     {
@@ -44,12 +44,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb
     ///         AuthDb = "admin",
     ///         InstanceId = "mongo-replica-xxxxxxxx",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:mongodb/account:Account example "instance_id|account_name"
     /// ```

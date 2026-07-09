@@ -21,14 +21,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
-     *
+     * 
      */
     @Import(name="bandwidthPeak")
     private @Nullable Output<String> bandwidthPeak;
 
     /**
      * @return Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
-     *
+     * 
      */
     public Optional<Output<String>> bandwidthPeak() {
         return Optional.ofNullable(this.bandwidthPeak);
@@ -37,7 +37,7 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
     /**
      * Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="bandwidthPeakLimitIspConfigs")
     private @Nullable Output<List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs>> bandwidthPeakLimitIspConfigs;
@@ -45,7 +45,7 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
     /**
      * @return Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs>>> bandwidthPeakLimitIspConfigs() {
         return Optional.ofNullable(this.bandwidthPeakLimitIspConfigs);
@@ -53,14 +53,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
-     *
+     * 
      */
     @Import(name="boundEipShareBandwidthPeak")
     private @Nullable Output<String> boundEipShareBandwidthPeak;
 
     /**
      * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
-     *
+     * 
      */
     public Optional<Output<String>> boundEipShareBandwidthPeak() {
         return Optional.ofNullable(this.boundEipShareBandwidthPeak);
@@ -68,14 +68,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
-     *
+     * 
      */
     @Import(name="customExternalInterfaceName")
     private @Nullable Output<String> customExternalInterfaceName;
 
     /**
      * @return Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
-     *
+     * 
      */
     public Optional<Output<String>> customExternalInterfaceName() {
         return Optional.ofNullable(this.customExternalInterfaceName);
@@ -83,14 +83,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
-     *
+     * 
      */
     @Import(name="customInternalInterfaceName")
     private @Nullable Output<String> customInternalInterfaceName;
 
     /**
      * @return Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
-     *
+     * 
      */
     public Optional<Output<String>> customInternalInterfaceName() {
         return Optional.ofNullable(this.customInternalInterfaceName);
@@ -98,14 +98,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
-     *
+     * 
      */
     @Import(name="disableIpv4")
     private @Nullable Output<Boolean> disableIpv4;
 
     /**
      * @return Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
-     *
+     * 
      */
     public Optional<Output<Boolean>> disableIpv4() {
         return Optional.ofNullable(this.disableIpv4);
@@ -113,14 +113,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-     *
+     * 
      */
     @Import(name="dnsLists")
     private @Nullable Output<List<String>> dnsLists;
 
     /**
      * @return DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-     *
+     * 
      */
     public Optional<Output<List<String>>> dnsLists() {
         return Optional.ofNullable(this.dnsLists);
@@ -128,14 +128,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
-     *
+     * 
      */
     @Import(name="dnsType")
     private @Nullable Output<String> dnsType;
 
     /**
      * @return DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
-     *
+     * 
      */
     public Optional<Output<String>> dnsType() {
         return Optional.ofNullable(this.dnsType);
@@ -143,14 +143,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
-     *
+     * 
      */
     @Import(name="enableIpv6")
     private @Nullable Output<Boolean> enableIpv6;
 
     /**
      * @return Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
-     *
+     * 
      */
     public Optional<Output<Boolean>> enableIpv6() {
         return Optional.ofNullable(this.enableIpv6);
@@ -158,14 +158,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
-     *
+     * 
      */
     @Import(name="limitMode")
     private @Nullable Output<String> limitMode;
 
     /**
      * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
-     *
+     * 
      */
     public Optional<Output<String>> limitMode() {
         return Optional.ofNullable(this.limitMode);
@@ -173,14 +173,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Number of auxiliary private IPs.
-     *
+     * 
      */
     @Import(name="secondaryInternalIpNum")
     private @Nullable Output<Integer> secondaryInternalIpNum;
 
     /**
      * @return Number of auxiliary private IPs.
-     *
+     * 
      */
     public Optional<Output<Integer>> secondaryInternalIpNum() {
         return Optional.ofNullable(this.secondaryInternalIpNum);
@@ -188,14 +188,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * List of bound global firewall IDs.
-     *
+     * 
      */
     @Import(name="securityGroupIdLists")
     private @Nullable Output<List<String>> securityGroupIdLists;
 
     /**
      * @return List of bound global firewall IDs.
-     *
+     * 
      */
     public Optional<Output<List<String>>> securityGroupIdLists() {
         return Optional.ofNullable(this.securityGroupIdLists);
@@ -203,14 +203,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
-     *
+     * 
      */
     @Import(name="tcpTimeout")
     private @Nullable Output<Integer> tcpTimeout;
 
     /**
      * @return TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
-     *
+     * 
      */
     public Optional<Output<Integer>> tcpTimeout() {
         return Optional.ofNullable(this.tcpTimeout);
@@ -218,14 +218,14 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
     /**
      * UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
-     *
+     * 
      */
     @Import(name="udpTimeout")
     private @Nullable Output<Integer> udpTimeout;
 
     /**
      * @return UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
-     *
+     * 
      */
     public Optional<Output<Integer>> udpTimeout() {
         return Optional.ofNullable(this.udpTimeout);
@@ -270,9 +270,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param bandwidthPeak Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bandwidthPeak(@Nullable Output<String> bandwidthPeak) {
             $.bandwidthPeak = bandwidthPeak;
@@ -281,9 +281,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param bandwidthPeak Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bandwidthPeak(String bandwidthPeak) {
             return bandwidthPeak(Output.of(bandwidthPeak));
@@ -292,9 +292,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         /**
          * @param bandwidthPeakLimitIspConfigs Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bandwidthPeakLimitIspConfigs(@Nullable Output<List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs>> bandwidthPeakLimitIspConfigs) {
             $.bandwidthPeakLimitIspConfigs = bandwidthPeakLimitIspConfigs;
@@ -304,9 +304,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         /**
          * @param bandwidthPeakLimitIspConfigs Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bandwidthPeakLimitIspConfigs(List<CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs> bandwidthPeakLimitIspConfigs) {
             return bandwidthPeakLimitIspConfigs(Output.of(bandwidthPeakLimitIspConfigs));
@@ -315,9 +315,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
         /**
          * @param bandwidthPeakLimitIspConfigs Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bandwidthPeakLimitIspConfigs(CloudServerNetworkConfigBandwidthPeakLimitIspConfigArgs... bandwidthPeakLimitIspConfigs) {
             return bandwidthPeakLimitIspConfigs(List.of(bandwidthPeakLimitIspConfigs));
@@ -325,9 +325,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param boundEipShareBandwidthPeak Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder boundEipShareBandwidthPeak(@Nullable Output<String> boundEipShareBandwidthPeak) {
             $.boundEipShareBandwidthPeak = boundEipShareBandwidthPeak;
@@ -336,9 +336,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param boundEipShareBandwidthPeak Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder boundEipShareBandwidthPeak(String boundEipShareBandwidthPeak) {
             return boundEipShareBandwidthPeak(Output.of(boundEipShareBandwidthPeak));
@@ -346,9 +346,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param customExternalInterfaceName Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder customExternalInterfaceName(@Nullable Output<String> customExternalInterfaceName) {
             $.customExternalInterfaceName = customExternalInterfaceName;
@@ -357,9 +357,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param customExternalInterfaceName Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder customExternalInterfaceName(String customExternalInterfaceName) {
             return customExternalInterfaceName(Output.of(customExternalInterfaceName));
@@ -367,9 +367,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param customInternalInterfaceName Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder customInternalInterfaceName(@Nullable Output<String> customInternalInterfaceName) {
             $.customInternalInterfaceName = customInternalInterfaceName;
@@ -378,9 +378,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param customInternalInterfaceName Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder customInternalInterfaceName(String customInternalInterfaceName) {
             return customInternalInterfaceName(Output.of(customInternalInterfaceName));
@@ -388,9 +388,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param disableIpv4 Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder disableIpv4(@Nullable Output<Boolean> disableIpv4) {
             $.disableIpv4 = disableIpv4;
@@ -399,9 +399,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param disableIpv4 Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder disableIpv4(Boolean disableIpv4) {
             return disableIpv4(Output.of(disableIpv4));
@@ -409,9 +409,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dnsLists DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder dnsLists(@Nullable Output<List<String>> dnsLists) {
             $.dnsLists = dnsLists;
@@ -420,9 +420,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dnsLists DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder dnsLists(List<String> dnsLists) {
             return dnsLists(Output.of(dnsLists));
@@ -430,9 +430,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dnsLists DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder dnsLists(String... dnsLists) {
             return dnsLists(List.of(dnsLists));
@@ -440,9 +440,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dnsType DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder dnsType(@Nullable Output<String> dnsType) {
             $.dnsType = dnsType;
@@ -451,9 +451,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dnsType DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder dnsType(String dnsType) {
             return dnsType(Output.of(dnsType));
@@ -461,9 +461,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param enableIpv6 Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder enableIpv6(@Nullable Output<Boolean> enableIpv6) {
             $.enableIpv6 = enableIpv6;
@@ -472,9 +472,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param enableIpv6 Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder enableIpv6(Boolean enableIpv6) {
             return enableIpv6(Output.of(enableIpv6));
@@ -482,9 +482,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param limitMode Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder limitMode(@Nullable Output<String> limitMode) {
             $.limitMode = limitMode;
@@ -493,9 +493,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param limitMode Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder limitMode(String limitMode) {
             return limitMode(Output.of(limitMode));
@@ -503,9 +503,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param secondaryInternalIpNum Number of auxiliary private IPs.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder secondaryInternalIpNum(@Nullable Output<Integer> secondaryInternalIpNum) {
             $.secondaryInternalIpNum = secondaryInternalIpNum;
@@ -514,9 +514,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param secondaryInternalIpNum Number of auxiliary private IPs.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder secondaryInternalIpNum(Integer secondaryInternalIpNum) {
             return secondaryInternalIpNum(Output.of(secondaryInternalIpNum));
@@ -524,9 +524,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param securityGroupIdLists List of bound global firewall IDs.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder securityGroupIdLists(@Nullable Output<List<String>> securityGroupIdLists) {
             $.securityGroupIdLists = securityGroupIdLists;
@@ -535,9 +535,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param securityGroupIdLists List of bound global firewall IDs.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder securityGroupIdLists(List<String> securityGroupIdLists) {
             return securityGroupIdLists(Output.of(securityGroupIdLists));
@@ -545,9 +545,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param securityGroupIdLists List of bound global firewall IDs.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder securityGroupIdLists(String... securityGroupIdLists) {
             return securityGroupIdLists(List.of(securityGroupIdLists));
@@ -555,9 +555,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param tcpTimeout TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tcpTimeout(@Nullable Output<Integer> tcpTimeout) {
             $.tcpTimeout = tcpTimeout;
@@ -566,9 +566,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param tcpTimeout TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tcpTimeout(Integer tcpTimeout) {
             return tcpTimeout(Output.of(tcpTimeout));
@@ -576,9 +576,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param udpTimeout UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder udpTimeout(@Nullable Output<Integer> udpTimeout) {
             $.udpTimeout = udpTimeout;
@@ -587,9 +587,9 @@ public final class CloudServerNetworkConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param udpTimeout UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder udpTimeout(Integer udpTimeout) {
             return udpTimeout(Output.of(udpTimeout));

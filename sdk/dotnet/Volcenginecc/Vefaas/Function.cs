@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
 {
     /// <summary>
     /// A function consists of function code and function configuration. It is the basic unit for scheduling and running function code.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vefaasFunctionDemo = new Volcenginecc.Vefaas.Function("VefaasFunctionDemo", new()
     ///     {
@@ -54,7 +54,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///             Enable_nas = true,
     ///             Nas_configs = new[]
     ///             {
-    ///
+    ///                 
     ///                 {
     ///                     { "remotePath", "/" },
     ///                     { "localMountPath", "/mnt/nas" },
@@ -75,7 +75,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///             },
     ///             Mount_points = new[]
     ///             {
-    ///
+    ///                 
     ///                 {
     ///                     { "bucketPath", "/" },
     ///                     { "localMountPath", "/mnt/tos" },
@@ -97,13 +97,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///         {
     ///             Enable_async_task = true,
     ///             Max_retry = 2,
-    ///             Destination_config =
+    ///             Destination_config = 
     ///             {
-    ///                 { "onFailure",
+    ///                 { "onFailure", 
     ///                 {
     ///                     { "destination", "https://ccapi-failure.com" },
     ///                 } },
-    ///                 { "onSuccess",
+    ///                 { "onSuccess", 
     ///                 {
     ///                     { "destination", "https://ccapi-success.com" },
     ///                 } },
@@ -120,12 +120,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///         SourceType = "tos",
     ///         EnableDependencyInstall = true,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vefaas/function:Function example "function_id"
     /// ```

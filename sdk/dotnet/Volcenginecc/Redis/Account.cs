@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
 {
     /// <summary>
     /// Redis Cache Database supports creating multiple accounts. You can select different roles when creating an account. Each role grants different permissions, helping you manage the database with greater precision and enhance data security.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var redisAccountDemo = new Volcenginecc.Redis.Account("RedisAccountDemo", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
     ///         Password = "******",
     ///         RoleName = "Administrator",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:redis/account:Account example "instance_id|account_name"
     /// ```

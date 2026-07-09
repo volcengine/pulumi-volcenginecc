@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
 {
     /// <summary>
     /// To enable communication between your private network and a local data center or another private network via a VPN connection, you must first create a VPN gateway.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vpnVpnGatewayDemo = new Volcenginecc.Vpn.VpnGateway("VpnVpnGatewayDemo", new()
     ///     {
@@ -39,12 +39,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
     ///         VpcId = "vpc-3nr6adxxxxu8931eb64y4z2",
     ///         SubnetId = "subnet-btepcsxxxxw5h0b2u6hppyd",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpn/vpnGateway:VpnGateway example "vpn_gateway_id"
     /// ```

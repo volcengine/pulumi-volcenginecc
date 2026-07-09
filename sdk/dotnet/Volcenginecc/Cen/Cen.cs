@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cen
 {
     /// <summary>
     /// Cloud Enterprise Network (CEN) provides fast, high-quality, and stable networking capabilities to quickly build private networks (VPC) across regions and between on-premises data centers (IDC), helping you create a global cloud network with enterprise-scale and communication capabilities
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cENCENDemo = new Volcenginecc.Cen.Cen("CENCENDemo", new()
     ///     {
@@ -47,12 +47,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cen
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cen/cen:Cen example "cen_id"
     /// ```

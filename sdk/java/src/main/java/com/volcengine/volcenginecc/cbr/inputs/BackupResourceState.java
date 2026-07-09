@@ -21,14 +21,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Account ID that created this backup source
-     *
+     * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
      * @return Account ID that created this backup source
-     *
+     * 
      */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
@@ -36,14 +36,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Creation Time
-     *
+     * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
      * @return Creation Time
-     *
+     * 
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
@@ -51,14 +51,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Instance ID
-     *
+     * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Instance ID
-     *
+     * 
      */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
@@ -66,14 +66,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Instance Name
-     *
+     * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
      * @return Instance Name
-     *
+     * 
      */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
@@ -81,14 +81,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
-     *
+     * 
      */
     @Import(name="metaInformation")
     private @Nullable Output<BackupResourceMetaInformationArgs> metaInformation;
 
     /**
      * @return Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
-     *
+     * 
      */
     public Optional<Output<BackupResourceMetaInformationArgs>> metaInformation() {
         return Optional.ofNullable(this.metaInformation);
@@ -97,7 +97,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     /**
      * List of Associated Backup Plans
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="plans")
     private @Nullable Output<List<BackupResourcePlanArgs>> plans;
@@ -105,7 +105,7 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
     /**
      * @return List of Associated Backup Plans
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BackupResourcePlanArgs>>> plans() {
         return Optional.ofNullable(this.plans);
@@ -113,14 +113,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Number of Restore Points
-     *
+     * 
      */
     @Import(name="recoveryPointNumber")
     private @Nullable Output<Integer> recoveryPointNumber;
 
     /**
      * @return Number of Restore Points
-     *
+     * 
      */
     public Optional<Output<Integer>> recoveryPointNumber() {
         return Optional.ofNullable(this.recoveryPointNumber);
@@ -128,14 +128,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Backup Source ID
-     *
+     * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
      * @return Backup Source ID
-     *
+     * 
      */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
@@ -143,14 +143,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
-     *
+     * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
      * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
-     *
+     * 
      */
     public Optional<Output<String>> resourceType() {
         return Optional.ofNullable(this.resourceType);
@@ -158,14 +158,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
-     *
+     * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
-     *
+     * 
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
@@ -173,14 +173,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Update Time
-     *
+     * 
      */
     @Import(name="updatedTime")
     private @Nullable Output<String> updatedTime;
 
     /**
      * @return Update Time
-     *
+     * 
      */
     public Optional<Output<String>> updatedTime() {
         return Optional.ofNullable(this.updatedTime);
@@ -188,14 +188,14 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
     /**
      * Bytes Already Backed Up
-     *
+     * 
      */
     @Import(name="usedCapacityInBytes")
     private @Nullable Output<Integer> usedCapacityInBytes;
 
     /**
      * @return Bytes Already Backed Up
-     *
+     * 
      */
     public Optional<Output<Integer>> usedCapacityInBytes() {
         return Optional.ofNullable(this.usedCapacityInBytes);
@@ -238,9 +238,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param accountId Account ID that created this backup source
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
@@ -249,9 +249,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param accountId Account ID that created this backup source
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
@@ -259,9 +259,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param createdTime Creation Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
@@ -270,9 +270,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param createdTime Creation Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
@@ -280,9 +280,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param instanceId Instance ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -291,9 +291,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param instanceId Instance ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -301,9 +301,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param instanceName Instance Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
@@ -312,9 +312,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param instanceName Instance Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
@@ -322,9 +322,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param metaInformation Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder metaInformation(@Nullable Output<BackupResourceMetaInformationArgs> metaInformation) {
             $.metaInformation = metaInformation;
@@ -333,9 +333,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param metaInformation Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder metaInformation(BackupResourceMetaInformationArgs metaInformation) {
             return metaInformation(Output.of(metaInformation));
@@ -344,9 +344,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         /**
          * @param plans List of Associated Backup Plans
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder plans(@Nullable Output<List<BackupResourcePlanArgs>> plans) {
             $.plans = plans;
@@ -356,9 +356,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         /**
          * @param plans List of Associated Backup Plans
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder plans(List<BackupResourcePlanArgs> plans) {
             return plans(Output.of(plans));
@@ -367,9 +367,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
         /**
          * @param plans List of Associated Backup Plans
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder plans(BackupResourcePlanArgs... plans) {
             return plans(List.of(plans));
@@ -377,9 +377,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param recoveryPointNumber Number of Restore Points
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder recoveryPointNumber(@Nullable Output<Integer> recoveryPointNumber) {
             $.recoveryPointNumber = recoveryPointNumber;
@@ -388,9 +388,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param recoveryPointNumber Number of Restore Points
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder recoveryPointNumber(Integer recoveryPointNumber) {
             return recoveryPointNumber(Output.of(recoveryPointNumber));
@@ -398,9 +398,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param resourceId Backup Source ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
@@ -409,9 +409,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param resourceId Backup Source ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
@@ -419,9 +419,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param resourceType Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceType(@Nullable Output<String> resourceType) {
             $.resourceType = resourceType;
@@ -430,9 +430,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param resourceType Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
@@ -440,9 +440,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param status Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
@@ -451,9 +451,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param status Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder status(String status) {
             return status(Output.of(status));
@@ -461,9 +461,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param updatedTime Update Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder updatedTime(@Nullable Output<String> updatedTime) {
             $.updatedTime = updatedTime;
@@ -472,9 +472,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param updatedTime Update Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder updatedTime(String updatedTime) {
             return updatedTime(Output.of(updatedTime));
@@ -482,9 +482,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param usedCapacityInBytes Bytes Already Backed Up
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder usedCapacityInBytes(@Nullable Output<Integer> usedCapacityInBytes) {
             $.usedCapacityInBytes = usedCapacityInBytes;
@@ -493,9 +493,9 @@ public final class BackupResourceState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param usedCapacityInBytes Bytes Already Backed Up
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder usedCapacityInBytes(Integer usedCapacityInBytes) {
             return usedCapacityInBytes(Output.of(usedCapacityInBytes));

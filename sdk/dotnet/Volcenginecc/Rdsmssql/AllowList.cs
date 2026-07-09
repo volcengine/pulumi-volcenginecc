@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql
 {
     /// <summary>
     /// API request parameter - Create RDS SQL Server allowlist (CreateAllowList)
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSMsSQLAllowlistDemo = new Volcenginecc.Rdsmssql.AllowList("RDSMsSQLAllowlistDemo", new()
     ///     {
@@ -40,12 +40,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmssql
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdsmssql/allowList:AllowList example "allow_list_id"
     /// ```

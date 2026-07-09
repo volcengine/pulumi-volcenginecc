@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 {
     /// <summary>
     /// The NLB instance receives user access requests and forwards them to backend servers based on the configuration of listeners and server groups.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var nLBDemo = new Volcenginecc.Clb.Nlb("NLBDemo", new()
     ///     {
@@ -55,12 +55,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:clb/nlb:Nlb example "load_balancer_id"
     /// ```

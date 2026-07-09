@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
 {
     /// <summary>
     /// Private network resolution
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateZoneDemo = new Volcenginecc.Privatezone.PrivateZone("PrivateZoneDemo", new()
     ///     {
@@ -47,12 +47,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
     ///         },
     ///         Remark = "测试域名",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatezone/privateZone:PrivateZone example "zid"
     /// ```

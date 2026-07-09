@@ -20,14 +20,14 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
     /**
      * Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
-     *
+     * 
      */
     @Import(name="passAll")
     private @Nullable Output<Boolean> passAll;
 
     /**
      * @return Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
-     *
+     * 
      */
     public Optional<Output<Boolean>> passAll() {
         return Optional.ofNullable(this.passAll);
@@ -35,14 +35,14 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
     /**
      * Pass the specified headers to the origin server. Limit: up to 64.
-     *
+     * 
      */
     @Import(name="passes")
     private @Nullable Output<List<String>> passes;
 
     /**
      * @return Pass the specified headers to the origin server. Limit: up to 64.
-     *
+     * 
      */
     public Optional<Output<List<String>>> passes() {
         return Optional.ofNullable(this.passes);
@@ -50,14 +50,14 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
     /**
      * Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-     *
+     * 
      */
     @Import(name="removes")
     private @Nullable Output<List<String>> removes;
 
     /**
      * @return Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-     *
+     * 
      */
     public Optional<Output<List<String>>> removes() {
         return Optional.ofNullable(this.removes);
@@ -66,7 +66,7 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
     /**
      * List of request headers to add or overwrite during origin fetch.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="sets")
     private @Nullable Output<List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs>> sets;
@@ -74,7 +74,7 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
     /**
      * @return List of request headers to add or overwrite during origin fetch.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs>>> sets() {
         return Optional.ofNullable(this.sets);
@@ -109,9 +109,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param passAll Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder passAll(@Nullable Output<Boolean> passAll) {
             $.passAll = passAll;
@@ -120,9 +120,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param passAll Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder passAll(Boolean passAll) {
             return passAll(Output.of(passAll));
@@ -130,9 +130,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param passes Pass the specified headers to the origin server. Limit: up to 64.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder passes(@Nullable Output<List<String>> passes) {
             $.passes = passes;
@@ -141,9 +141,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param passes Pass the specified headers to the origin server. Limit: up to 64.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder passes(List<String> passes) {
             return passes(Output.of(passes));
@@ -151,9 +151,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param passes Pass the specified headers to the origin server. Limit: up to 64.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder passes(String... passes) {
             return passes(List.of(passes));
@@ -161,9 +161,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param removes Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder removes(@Nullable Output<List<String>> removes) {
             $.removes = removes;
@@ -172,9 +172,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param removes Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder removes(List<String> removes) {
             return removes(Output.of(removes));
@@ -182,9 +182,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
 
         /**
          * @param removes Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder removes(String... removes) {
             return removes(List.of(removes));
@@ -193,9 +193,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
         /**
          * @param sets List of request headers to add or overwrite during origin fetch.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder sets(@Nullable Output<List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs>> sets) {
             $.sets = sets;
@@ -205,9 +205,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
         /**
          * @param sets List of request headers to add or overwrite during origin fetch.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder sets(List<BucketMirrorBackRuleRedirectMirrorHeaderSetArgs> sets) {
             return sets(Output.of(sets));
@@ -216,9 +216,9 @@ public final class BucketMirrorBackRuleRedirectMirrorHeaderArgs extends com.pulu
         /**
          * @param sets List of request headers to add or overwrite during origin fetch.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder sets(BucketMirrorBackRuleRedirectMirrorHeaderSetArgs... sets) {
             return sets(List.of(sets));

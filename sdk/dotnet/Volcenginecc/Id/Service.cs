@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
 {
     /// <summary>
     /// ID Permission Gateway Service is used to define backend service access configuration, permission space binding, and optional route rules for unified management of service access by the agent identity and permission management platform
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var iDServiceDemo = new Volcenginecc.Id.Service("IDServiceDemo", new()
     ///     {
@@ -42,11 +42,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///             {
     ///                 Path = "/api/v1/orders",
     ///                 Priority = 20,
-    ///                 Api_spec =
+    ///                 Api_spec = 
     ///                 {
     ///                     { "extractors", new[]
     ///                     {
-    ///
+    ///                         
     ///                         {
     ///                             { "path", "/orderId" },
     ///                             { "isAuth", false },
@@ -58,7 +58,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///                     { "actionValue", "query" },
     ///                     { "responseFilters", new[]
     ///                     {
-    ///
+    ///                         
     ///                         {
     ///                             { "mode", 2 },
     ///                             { "isAuth", false },
@@ -84,12 +84,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:id/service:Service example "service_id"
     /// ```

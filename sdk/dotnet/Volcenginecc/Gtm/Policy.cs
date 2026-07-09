@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
 {
     /// <summary>
     /// Scheduling policy configuration under the GTM instance, identified by GtmId and PolicyType, and maintained via UpdatePolicy.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var gTMPolicyDemo = new Volcenginecc.Gtm.Policy("GTMPolicyDemo", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
     ///         AlarmOnly = false,
     ///         RoutingMode = "geo-lb",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:gtm/policy:Policy example "gtm_id|policy_type"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
 {
     /// <summary>
     /// Upstream is an abstraction of the backend for API gateway instances. You can group backend applications with the same functionality into an upstream, which decouples routing from backend applications and provides flexible support for scenarios such as canary releases and multi-version management. This article introduces the concept and purpose of upstream
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var aPIGUpstreamAIProviderDemo = new Volcenginecc.Apig.Upstream("APIGUpstreamAIProviderDemo", new()
     ///     {
@@ -63,7 +63,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///             {
     ///                 DomainList = new[]
     ///                 {
-    ///
+    ///                     
     ///                     {
     ///                         { "domain", "www.test7.com" },
     ///                         { "port", 5566 },
@@ -72,12 +72,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:apig/upstream:Upstream example "upstream_id"
     /// ```

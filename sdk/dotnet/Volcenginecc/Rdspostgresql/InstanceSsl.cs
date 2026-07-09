@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
 {
     /// <summary>
     /// Instance SSL configuration.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSPostgreSQLInstanceSSLDemo = new Volcenginecc.Rdspostgresql.InstanceSsl("RDSPostgreSQLInstanceSSLDemo", new()
     ///     {
@@ -29,12 +29,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
     ///         InstanceId = "postgres-60xxxx5ed9",
     ///         ForceEncryption = true,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdspostgresql/instanceSsl:InstanceSsl example "instance_id"
     /// ```

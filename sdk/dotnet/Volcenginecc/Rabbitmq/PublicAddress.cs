@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Rabbitmq
 {
     /// <summary>
     /// RabbitMQ supports enabling public access. Once enabled, you can access the RabbitMQ instance via the public network.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var publicaddressDemo = new Volcenginecc.Rabbitmq.PublicAddress("publicaddressDemo", new()
     ///     {
     ///         InstanceId = "rbtmq-db26b7****",
     ///         EipId = "eip-2f8w9fh1qmwao4****",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rabbitmq/publicAddress:PublicAddress example "instance_id"
     /// ```

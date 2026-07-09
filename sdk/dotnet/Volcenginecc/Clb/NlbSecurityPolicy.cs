@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 {
     /// <summary>
     /// Some security policies are preset for common scenarios. If the system preset policies do not meet your needs, you can also customize security policies
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cLBNLBSecurityPolicyDemo = new Volcenginecc.Clb.NlbSecurityPolicy("CLBNLBSecurityPolicyDemo", new()
     ///     {
@@ -45,12 +45,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     ///             "TLSv1.3",
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:clb/nlbSecurityPolicy:NlbSecurityPolicy example "security_policy_id"
     /// ```

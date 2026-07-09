@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
 {
     /// <summary>
     /// Host in the log service, used to manage server nodes for log collection
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tLSHostDemo = new Volcenginecc.Tls.Host("TLSHostDemo", new()
     ///     {
     ///         HostGroupId = "cef95463-1bc0-410f-9c4b-3114xxxxxx",
     ///         Ip = "192.168.1.3",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tls/host:Host example "host_group_id|ip"
     /// ```

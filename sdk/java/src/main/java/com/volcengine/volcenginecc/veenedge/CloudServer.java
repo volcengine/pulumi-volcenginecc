@@ -27,14 +27,14 @@ import javax.annotation.Nullable;
 
 /**
  * Edge cloud server instance (CloudServer) resources. Create multiple edge instances based on a set of specifications, images, and regional distribution configurations, and provide integrated management for network, storage, billing, scheduling policies, login credentials, and more.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var example = new CloudServer("example", CloudServerArgs.builder()
  *             .cloudServerName("测试边缘服务")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .bound_eip_share_bandwidth_peak("5")
  *                 .custom_external_interface_name("eth1")
  *                 .custom_internal_interface_name("eth0")
- *                 .dns_list(Arrays.asList(
+ *                 .dns_list(Arrays.asList(                
  *                     "114.114.114.114",
  *                     "180.184.1.1",
  *                     "223.6.6.7"))
@@ -124,200 +124,200 @@ import javax.annotation.Nullable;
  *                 .key("test")
  *                 .build())
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:veenedge/cloudServer:CloudServer example &#34;cloud_server_identity&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:veenedge/cloudServer:CloudServer")
 public class CloudServer extends com.pulumi.resources.CustomResource {
     /**
      * Advanced configuration for customizing edge instance name, instance description, and hostname. When creating edge instances in bulk, instance names and hostnames are generated in sequence based on the custom names.
-     *
+     * 
      */
     @Export(name="advancedConfiguration", refs={CloudServerAdvancedConfiguration.class}, tree="[0]")
     private Output<CloudServerAdvancedConfiguration> advancedConfiguration;
 
     /**
      * @return Advanced configuration for customizing edge instance name, instance description, and hostname. When creating edge instances in bulk, instance names and hostnames are generated in sequence based on the custom names.
-     *
+     * 
      */
     public Output<CloudServerAdvancedConfiguration> advancedConfiguration() {
         return this.advancedConfiguration;
     }
     /**
      * Architecture of the edge instance
-     *
+     * 
      */
     @Export(name="arch", refs={String.class}, tree="[0]")
     private Output<String> arch;
 
     /**
      * @return Architecture of the edge instance
-     *
+     * 
      */
     public Output<String> arch() {
         return this.arch;
     }
     /**
      * Bare metal package identifier, returned only for bare metal type instances.
-     *
+     * 
      */
     @Export(name="bareMetalPackage", refs={String.class}, tree="[0]")
     private Output<String> bareMetalPackage;
 
     /**
      * @return Bare metal package identifier, returned only for bare metal type instances.
-     *
+     * 
      */
     public Output<String> bareMetalPackage() {
         return this.bareMetalPackage;
     }
     /**
      * Billing method, including billing for compute and bandwidth.
-     *
+     * 
      */
     @Export(name="billingConfig", refs={CloudServerBillingConfig.class}, tree="[0]")
     private Output<CloudServerBillingConfig> billingConfig;
 
     /**
      * @return Billing method, including billing for compute and bandwidth.
-     *
+     * 
      */
     public Output<CloudServerBillingConfig> billingConfig() {
         return this.billingConfig;
     }
     /**
      * Description of the edge service.
-     *
+     * 
      */
     @Export(name="cloudServerDesc", refs={String.class}, tree="[0]")
     private Output<String> cloudServerDesc;
 
     /**
      * @return Description of the edge service.
-     *
+     * 
      */
     public Output<String> cloudServerDesc() {
         return this.cloudServerDesc;
     }
     /**
      * Edge service ID. You can query the edge service ID via the ListCloudServers API.
-     *
+     * 
      */
     @Export(name="cloudServerIdentity", refs={String.class}, tree="[0]")
     private Output<String> cloudServerIdentity;
 
     /**
      * @return Edge service ID. You can query the edge service ID via the ListCloudServers API.
-     *
+     * 
      */
     public Output<String> cloudServerIdentity() {
         return this.cloudServerIdentity;
     }
     /**
      * Edge service name
-     *
+     * 
      */
     @Export(name="cloudServerName", refs={String.class}, tree="[0]")
     private Output<String> cloudServerName;
 
     /**
      * @return Edge service name
-     *
+     * 
      */
     public Output<String> cloudServerName() {
         return this.cloudServerName;
     }
     /**
      * CPU configuration for the instance
-     *
+     * 
      */
     @Export(name="cpu", refs={String.class}, tree="[0]")
     private Output<String> cpu;
 
     /**
      * @return CPU configuration for the instance
-     *
+     * 
      */
     public Output<String> cpu() {
         return this.cpu;
     }
     /**
      * Note: This parameter applies only to postpaid instances. Edge instance creation timeout. Unit: seconds. Minimum: 120. If the creation time of the edge instance exceeds the specified value, the creation fails and its status changes to open_fail. You can delete the related instance through the console or API. If this parameter is not specified, there is no limit on the instance creation time.
-     *
+     * 
      */
     @Export(name="createInstanceTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> createInstanceTimeout;
 
     /**
      * @return Note: This parameter applies only to postpaid instances. Edge instance creation timeout. Unit: seconds. Minimum: 120. If the creation time of the edge instance exceeds the specified value, the creation fails and its status changes to open_fail. You can delete the related instance through the console or API. If this parameter is not specified, there is no limit on the instance creation time.
-     *
+     * 
      */
     public Output<Integer> createInstanceTimeout() {
         return this.createInstanceTimeout;
     }
     /**
      * Creation time, displayed in UNIX timestamp format.
-     *
+     * 
      */
     @Export(name="createdTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> createdTime;
 
     /**
      * @return Creation time, displayed in UNIX timestamp format.
-     *
+     * 
      */
     public Output<Integer> createdTime() {
         return this.createdTime;
     }
     /**
      * Custom data configuration.
-     *
+     * 
      */
     @Export(name="customData", refs={CloudServerCustomData.class}, tree="[0]")
     private Output<CloudServerCustomData> customData;
 
     /**
      * @return Custom data configuration.
-     *
+     * 
      */
     public Output<CloudServerCustomData> customData() {
         return this.customData;
     }
     /**
      * Enable or disable VGA. Value range: true: Disable VGA. false (default): Enable VGA. This parameter applies only to cloud gaming edge instances. When VGA is enabled, you can log in to the edge instance using VNC, but this feature may affect the instance&#39;s performance. If you do not enable this feature, the instance&#39;s performance is not affected, but you cannot log in directly via VNC.
-     *
+     * 
      */
     @Export(name="disableVga", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableVga;
 
     /**
      * @return Enable or disable VGA. Value range: true: Disable VGA. false (default): Enable VGA. This parameter applies only to cloud gaming edge instances. When VGA is enabled, you can log in to the edge instance using VNC, but this feature may affect the instance&#39;s performance. If you do not enable this feature, the instance&#39;s performance is not affected, but you cannot log in directly via VNC.
-     *
+     * 
      */
     public Output<Boolean> disableVga() {
         return this.disableVga;
     }
     /**
      * Image ID. You can query the image ID using the ListImages API.
-     *
+     * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output<String> imageId;
 
     /**
      * @return Image ID. You can query the image ID using the ListImages API.
-     *
+     * 
      */
     public Output<String> imageId() {
         return this.imageId;
@@ -325,7 +325,7 @@ public class CloudServer extends com.pulumi.resources.CustomResource {
     /**
      * Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="instanceAreaNums", refs={List.class,CloudServerInstanceAreaNum.class}, tree="[0,1]")
     private Output<List<CloudServerInstanceAreaNum>> instanceAreaNums;
@@ -333,189 +333,189 @@ public class CloudServer extends com.pulumi.resources.CustomResource {
     /**
      * @return Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<CloudServerInstanceAreaNum>> instanceAreaNums() {
         return this.instanceAreaNums;
     }
     /**
      * Number of edge instances in the edge service.
-     *
+     * 
      */
     @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> instanceCount;
 
     /**
      * @return Number of edge instances in the edge service.
-     *
+     * 
      */
     public Output<Integer> instanceCount() {
         return this.instanceCount;
     }
     /**
      * Edge instance types: virtual*machine: Virtual machine. bare*metal: Bare metal.
-     *
+     * 
      */
     @Export(name="loadType", refs={String.class}, tree="[0]")
     private Output<String> loadType;
 
     /**
      * @return Edge instance types: virtual*machine: Virtual machine. bare*metal: Bare metal.
-     *
+     * 
      */
     public Output<String> loadType() {
         return this.loadType;
     }
     /**
      * Memory configuration for the instance
-     *
+     * 
      */
     @Export(name="mem", refs={String.class}, tree="[0]")
     private Output<String> mem;
 
     /**
      * @return Memory configuration for the instance
-     *
+     * 
      */
     public Output<String> mem() {
         return this.mem;
     }
     /**
      * Network configuration.
-     *
+     * 
      */
     @Export(name="networkConfig", refs={CloudServerNetworkConfig.class}, tree="[0]")
     private Output<CloudServerNetworkConfig> networkConfig;
 
     /**
      * @return Network configuration.
-     *
+     * 
      */
     public Output<CloudServerNetworkConfig> networkConfig() {
         return this.networkConfig;
     }
     /**
      * Project associated with the edge service. Edge instances created under the edge service inherit this project. If this parameter is not set or is an empty string, the default value &#39;default&#39; is used.
-     *
+     * 
      */
     @Export(name="project", refs={String.class}, tree="[0]")
     private Output<String> project;
 
     /**
      * @return Project associated with the edge service. Edge instances created under the edge service inherit this project. If this parameter is not set or is an empty string, the default value &#39;default&#39; is used.
-     *
+     * 
      */
     public Output<String> project() {
         return this.project;
     }
     /**
      * Scheduling policy. If this parameter is not set, the default policy is city distribution and lowest price priority. When the service level is city-level, you do not need to set this parameter; the policy will be city distribution and lowest price priority. If this parameter is set to other values, the policy will not take effect. It is recommended to leave this parameter blank. When the service level is region-level, the configured policy will take effect.
-     *
+     * 
      */
     @Export(name="scheduleStrategy", refs={CloudServerScheduleStrategy.class}, tree="[0]")
     private Output<CloudServerScheduleStrategy> scheduleStrategy;
 
     /**
      * @return Scheduling policy. If this parameter is not set, the default policy is city distribution and lowest price priority. When the service level is city-level, you do not need to set this parameter; the policy will be city distribution and lowest price priority. If this parameter is set to other values, the policy will not take effect. It is recommended to leave this parameter blank. When the service level is region-level, the configured policy will take effect.
-     *
+     * 
      */
     public Output<CloudServerScheduleStrategy> scheduleStrategy() {
         return this.scheduleStrategy;
     }
     /**
      * Edge instance login password settings
-     *
+     * 
      */
     @Export(name="secretConfig", refs={CloudServerSecretConfig.class}, tree="[0]")
     private Output<CloudServerSecretConfig> secretConfig;
 
     /**
      * @return Edge instance login password settings
-     *
+     * 
      */
     public Output<CloudServerSecretConfig> secretConfig() {
         return this.secretConfig;
     }
     /**
      * Number of regions where the edge service is deployed
-     *
+     * 
      */
     @Export(name="serverAreaCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverAreaCount;
 
     /**
      * @return Number of regions where the edge service is deployed
-     *
+     * 
      */
     public Output<Integer> serverAreaCount() {
         return this.serverAreaCount;
     }
     /**
      * Instance specification name.
-     *
+     * 
      */
     @Export(name="spec", refs={String.class}, tree="[0]")
     private Output<String> spec;
 
     /**
      * @return Instance specification name.
-     *
+     * 
      */
     public Output<String> spec() {
         return this.spec;
     }
     /**
      * Chinese name of the instance type.
-     *
+     * 
      */
     @Export(name="specDisplay", refs={String.class}, tree="[0]")
     private Output<String> specDisplay;
 
     /**
      * @return Chinese name of the instance type.
-     *
+     * 
      */
     public Output<String> specDisplay() {
         return this.specDisplay;
     }
     /**
      * Edge instance type name. You can use the ListInstanceTypes API to query available instance types. If the required type is not listed, please submit a ticket request.
-     *
+     * 
      */
     @Export(name="specName", refs={String.class}, tree="[0]")
     private Output<String> specName;
 
     /**
      * @return Edge instance type name. You can use the ListInstanceTypes API to query available instance types. If the required type is not listed, please submit a ticket request.
-     *
+     * 
      */
     public Output<String> specName() {
         return this.specName;
     }
     /**
      * Edge instance status. opening: being created. starting: starting up. running: running. stopping: being stopped. stop: stopped. rebooting: rebooting. terminating: being terminated. open_fail: creation failed.
-     *
+     * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return Edge instance status. opening: being created. starting: starting up. running: running. stopping: being stopped. stop: stopped. rebooting: rebooting. terminating: being terminated. open_fail: creation failed.
-     *
+     * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
      * Storage configuration, including the type and capacity information for system and data disks.
-     *
+     * 
      */
     @Export(name="storageConfig", refs={CloudServerStorageConfig.class}, tree="[0]")
     private Output<CloudServerStorageConfig> storageConfig;
 
     /**
      * @return Storage configuration, including the type and capacity information for system and data disks.
-     *
+     * 
      */
     public Output<CloudServerStorageConfig> storageConfig() {
         return this.storageConfig;
@@ -523,7 +523,7 @@ public class CloudServer extends com.pulumi.resources.CustomResource {
     /**
      * Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="tags", refs={List.class,CloudServerTag.class}, tree="[0,1]")
     private Output<List<CloudServerTag>> tags;
@@ -531,21 +531,21 @@ public class CloudServer extends com.pulumi.resources.CustomResource {
     /**
      * @return Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<CloudServerTag>> tags() {
         return this.tags;
     }
     /**
      * Update time, displayed in UNIX timestamp format.
-     *
+     * 
      */
     @Export(name="updatedTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> updatedTime;
 
     /**
      * @return Update time, displayed in UNIX timestamp format.
-     *
+     * 
      */
     public Output<Integer> updatedTime() {
         return this.updatedTime;

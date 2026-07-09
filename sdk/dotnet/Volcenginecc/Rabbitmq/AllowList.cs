@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rabbitmq
 {
     /// <summary>
     /// RabbitMQ access allowlist
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rabbitMQAllowListDemo = new Volcenginecc.Rabbitmq.AllowList("RabbitMQAllowListDemo", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rabbitmq
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rabbitmq/allowList:AllowList example "allow_list_id"
     /// ```

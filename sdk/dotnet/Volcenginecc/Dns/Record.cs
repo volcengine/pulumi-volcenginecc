@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Dns
 {
     /// <summary>
     /// DNS record resource, used to create, query, update, delete, and list a single DNS record under a specified domain name.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var dNSRecordDemo = new Volcenginecc.Dns.Record("DNSRecordDemo", new()
     ///     {
@@ -35,12 +35,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Dns
     ///         Weight = 2,
     ///         Enable = false,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:dns/record:Record example "zid|record_id"
     /// ```

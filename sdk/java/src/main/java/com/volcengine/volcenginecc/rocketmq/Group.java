@@ -20,14 +20,14 @@ import javax.annotation.Nullable;
 
 /**
  * Group, also known as Consumer Group, is a collection of consumers with similar consumption behavior, used to categorize and manage different consumers. Each consumer group consumes different types of messages. Within each consumer group, the logic for publishing or subscribing to messages is consistent. In RocketMQ Message Queue, you need to create a Group and use the Group ID to identify different types of producers or consumers.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var rocketMQGroupDemo = new Group("rocketMQGroupDemo", GroupArgs.builder()
  *             .instanceId("rocketmq-cnnxxxxxc2d")
@@ -54,32 +54,32 @@ import javax.annotation.Nullable;
  *             .groupType("TCP")
  *             .retryMaxTimes(2)
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:rocketmq/group:Group example &#34;instance_id|group_id&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:rocketmq/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     *
+     * 
      */
     @Export(name="consumeMessageOrderly", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> consumeMessageOrderly;
 
     /**
      * @return Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     *
+     * 
      */
     public Output<Boolean> consumeMessageOrderly() {
         return this.consumeMessageOrderly;
@@ -87,7 +87,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Consumer client list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="consumedClients", refs={List.class,GroupConsumedClient.class}, tree="[0,1]")
     private Output<List<GroupConsumedClient>> consumedClients;
@@ -95,7 +95,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return Consumer client list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<GroupConsumedClient>> consumedClients() {
         return this.consumedClients;
@@ -103,7 +103,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Topic information subscribed by consumer instance groups under this Group.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="consumedTopics", refs={List.class,GroupConsumedTopic.class}, tree="[0,1]")
     private Output<List<GroupConsumedTopic>> consumedTopics;
@@ -111,217 +111,217 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return Topic information subscribed by consumer instance groups under this Group.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<GroupConsumedTopic>> consumedTopics() {
         return this.consumedTopics;
     }
     /**
      * Group creation time.
-     *
+     * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
      * @return Group creation time.
-     *
+     * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
      * Brief description of the Group.
-     *
+     * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
      * @return Brief description of the Group.
-     *
+     * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
      * Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
-     *
+     * 
      */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
      * @return Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
-     *
+     * 
      */
     public Output<String> groupId() {
         return this.groupId;
     }
     /**
      * Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
-     *
+     * 
      */
     @Export(name="groupType", refs={String.class}, tree="[0]")
     private Output<String> groupType;
 
     /**
      * @return Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
-     *
+     * 
      */
     public Output<String> groupType() {
         return this.groupType;
     }
     /**
      * Instance ID.
-     *
+     * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     *
+     * 
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
      * Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     *
+     * 
      */
     @Export(name="isSubSame", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isSubSame;
 
     /**
      * @return Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     *
+     * 
      */
     public Output<Boolean> isSubSame() {
         return this.isSubSame;
     }
     /**
      * Whether consumption is sequential.
-     *
+     * 
      */
     @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateTimestamp;
 
     /**
      * @return Whether consumption is sequential.
-     *
+     * 
      */
     public Output<String> lastUpdateTimestamp() {
         return this.lastUpdateTimestamp;
     }
     /**
      * Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
-     *
+     * 
      */
     @Export(name="messageDelayTime", refs={String.class}, tree="[0]")
     private Output<String> messageDelayTime;
 
     /**
      * @return Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
-     *
+     * 
      */
     public Output<String> messageDelayTime() {
         return this.messageDelayTime;
     }
     /**
      * Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
-     *
+     * 
      */
     @Export(name="messageModel", refs={String.class}, tree="[0]")
     private Output<String> messageModel;
 
     /**
      * @return Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
-     *
+     * 
      */
     public Output<String> messageModel() {
         return this.messageModel;
     }
     /**
      * Maximum number of consumption retries.
-     *
+     * 
      */
     @Export(name="retryMaxTimes", refs={Integer.class}, tree="[0]")
     private Output<Integer> retryMaxTimes;
 
     /**
      * @return Maximum number of consumption retries.
-     *
+     * 
      */
     public Output<Integer> retryMaxTimes() {
         return this.retryMaxTimes;
     }
     /**
      * RocketMQ version.
-     *
+     * 
      */
     @Export(name="rocketmqVersion", refs={String.class}, tree="[0]")
     private Output<String> rocketmqVersion;
 
     /**
      * @return RocketMQ version.
-     *
+     * 
      */
     public Output<String> rocketmqVersion() {
         return this.rocketmqVersion;
     }
     /**
      * Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
-     *
+     * 
      */
     @Export(name="serviceStatus", refs={String.class}, tree="[0]")
     private Output<String> serviceStatus;
 
     /**
      * @return Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
-     *
+     * 
      */
     public Output<String> serviceStatus() {
         return this.serviceStatus;
     }
     /**
      * Consumer group status. Online: Consuming, Offline: Not consuming.
-     *
+     * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return Consumer group status. Online: Consuming, Offline: Not consuming.
-     *
+     * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
      * Total TPS of consumer instance groups under this Group, measured in messages per second.
-     *
+     * 
      */
     @Export(name="totalConsumedRate", refs={String.class}, tree="[0]")
     private Output<String> totalConsumedRate;
 
     /**
      * @return Total TPS of consumer instance groups under this Group, measured in messages per second.
-     *
+     * 
      */
     public Output<String> totalConsumedRate() {
         return this.totalConsumedRate;
     }
     /**
      * Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
-     *
+     * 
      */
     @Export(name="totalDiff", refs={Integer.class}, tree="[0]")
     private Output<Integer> totalDiff;
 
     /**
      * @return Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
-     *
+     * 
      */
     public Output<Integer> totalDiff() {
         return this.totalDiff;

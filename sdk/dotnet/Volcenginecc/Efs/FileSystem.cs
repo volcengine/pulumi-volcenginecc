@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
 {
     /// <summary>
     /// A file system is a storage system that manages files through a directory tree structure. It is divided into local file systems and remote file systems. This refers specifically to remote file systems, which support concurrent access by multiple compute nodes and shared datasets.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var eFSFileSystemDemo = new Volcenginecc.Efs.FileSystem("EFSFileSystemDemo", new()
     ///     {
@@ -46,12 +46,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:efs/fileSystem:FileSystem example "file_system_id"
     /// ```

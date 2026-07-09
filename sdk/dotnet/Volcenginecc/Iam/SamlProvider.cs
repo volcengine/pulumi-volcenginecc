@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 {
     /// <summary>
     /// SAML identity provider is a user authentication service provider responsible for collecting and storing user identity data such as usernames and passwords. In access control (IAM), it is an entity that contains external identity provider metadata and provides identity management services.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var iAMSamlProviderDemo = new Volcenginecc.Iam.SamlProvider("IAMSamlProviderDemo", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///         SsoType = 1,
     ///         Status = 1,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:iam/samlProvider:SamlProvider example "saml_provider_name"
     /// ```

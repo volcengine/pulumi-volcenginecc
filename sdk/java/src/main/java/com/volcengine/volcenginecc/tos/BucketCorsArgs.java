@@ -18,14 +18,14 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket name.
-     *
+     * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
      * @return Bucket name.
-     *
+     * 
      */
     public Output<String> bucketName() {
         return this.bucketName;
@@ -34,7 +34,7 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * CORS rule information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="corsRules", required=true)
     private Output<List<BucketCorsCorsRuleArgs>> corsRules;
@@ -42,7 +42,7 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return CORS rule information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BucketCorsCorsRuleArgs>> corsRules() {
         return this.corsRules;
@@ -75,9 +75,9 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucketName Bucket name.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
@@ -86,9 +86,9 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucketName Bucket name.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
@@ -97,9 +97,9 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param corsRules CORS rule information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder corsRules(Output<List<BucketCorsCorsRuleArgs>> corsRules) {
             $.corsRules = corsRules;
@@ -109,9 +109,9 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param corsRules CORS rule information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder corsRules(List<BucketCorsCorsRuleArgs> corsRules) {
             return corsRules(Output.of(corsRules));
@@ -120,9 +120,9 @@ public final class BucketCorsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param corsRules CORS rule information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder corsRules(BucketCorsCorsRuleArgs... corsRules) {
             return corsRules(List.of(corsRules));

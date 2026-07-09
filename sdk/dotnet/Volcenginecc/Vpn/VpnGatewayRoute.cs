@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
 {
     /// <summary>
     /// Add a route entry to the VPN gateway.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vpnGatewayRouteDemo = new Volcenginecc.Vpn.VpnGatewayRoute("VpnGatewayRouteDemo", new()
     ///     {
@@ -29,12 +29,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
     ///         NextHopId = "vgc-****",
     ///         VpnGatewayId = "vgw-****",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpn/vpnGatewayRoute:VpnGatewayRoute example "vpn_gateway_route_id"
     /// ```

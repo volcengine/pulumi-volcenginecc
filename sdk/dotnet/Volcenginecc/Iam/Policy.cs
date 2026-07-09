@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 {
     /// <summary>
     /// A policy describes permissions. IAM users, user groups, or roles must be granted permissions by associating policies. If system preset policies do not meet your requirements, you can create custom policies for fine-grained permission definition.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var policyDemo = new Volcenginecc.Iam.Policy("PolicyDemo", new()
     ///     {
@@ -36,7 +36,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///                 Name = "test",
     ///                 Policy_scope = new[]
     ///                 {
-    ///
+    ///                     
     ///                     {
     ///                         { "project_name", "default" },
     ///                         { "policy_scope_type", "test" },
@@ -52,7 +52,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///                 Name = "roles",
     ///                 Policy_scope = new[]
     ///                 {
-    ///
+    ///                     
     ///                     {
     ///                         { "project_name", "default" },
     ///                     },
@@ -66,7 +66,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///                 Name = "test",
     ///                 Policy_scope = new[]
     ///                 {
-    ///
+    ///                     
     ///                     {
     ///                         { "project_name", "default" },
     ///                     },
@@ -74,12 +74,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:iam/policy:Policy example "policy_name|policy_type"
     /// ```

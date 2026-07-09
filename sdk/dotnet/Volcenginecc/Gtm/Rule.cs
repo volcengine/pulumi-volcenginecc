@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
 {
     /// <summary>
     /// GTM routing rule resource, which defines the address pool set, health checks, and effective policies for a specific line.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var gTMRuleDemo = new Volcenginecc.Gtm.Rule("GTMRuleDemo", new()
     ///     {
@@ -60,7 +60,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
     ///             Http_method = "GET",
     ///             Http_usability_codes = new[]
     ///             {
-    ///
+    ///                 
     ///                 {
     ///                     { "operator", "interval" },
     ///                     { "codes", new[]
@@ -87,12 +87,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
     ///         UsePolicyProbeNodes = false,
     ///         Weight = 1,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:gtm/rule:Rule example "gtm_id|policy_type|rule_id"
     /// ```

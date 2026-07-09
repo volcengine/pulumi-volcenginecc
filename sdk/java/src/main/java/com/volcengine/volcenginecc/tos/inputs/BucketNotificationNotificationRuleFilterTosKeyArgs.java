@@ -19,7 +19,7 @@ public final class BucketNotificationNotificationRuleFilterTosKeyArgs extends co
     /**
      * Object filter information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="filterRules")
     private @Nullable Output<List<BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs>> filterRules;
@@ -27,7 +27,7 @@ public final class BucketNotificationNotificationRuleFilterTosKeyArgs extends co
     /**
      * @return Object filter information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs>>> filterRules() {
         return Optional.ofNullable(this.filterRules);
@@ -60,9 +60,9 @@ public final class BucketNotificationNotificationRuleFilterTosKeyArgs extends co
         /**
          * @param filterRules Object filter information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder filterRules(@Nullable Output<List<BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs>> filterRules) {
             $.filterRules = filterRules;
@@ -72,9 +72,9 @@ public final class BucketNotificationNotificationRuleFilterTosKeyArgs extends co
         /**
          * @param filterRules Object filter information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder filterRules(List<BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs> filterRules) {
             return filterRules(Output.of(filterRules));
@@ -83,9 +83,9 @@ public final class BucketNotificationNotificationRuleFilterTosKeyArgs extends co
         /**
          * @param filterRules Object filter information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder filterRules(BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs... filterRules) {
             return filterRules(List.of(filterRules));

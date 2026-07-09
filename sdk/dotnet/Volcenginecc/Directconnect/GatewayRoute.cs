@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
 {
     /// <summary>
     /// Add a static route to the dedicated gateway.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var directConnectGatewayRouteDemo = new Volcenginecc.Directconnect.GatewayRoute("DirectConnectGatewayRouteDemo", new()
     ///     {
@@ -29,12 +29,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
     ///         NextHopId = "dcv-****",
     ///         DestinationCidrBlock = "192.168.1.0/28",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:directconnect/gatewayRoute:GatewayRoute example "direct_connect_gateway_route_id"
     /// ```

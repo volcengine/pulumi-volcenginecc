@@ -12,23 +12,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Bucket inventory rules. After creating a bucket inventory, TOS outputs various object information daily or weekly, including object count, size, storage type, and more.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketInventoryDemo = new Volcenginecc.Tos.BucketInventory("TOSBucketInventoryDemo", new()
     ///     {
     ///         BucketName = "ccapi-test",
     ///         Destination = new Volcenginecc.Tos.Inputs.BucketInventoryDestinationArgs
     ///         {
-    ///             Tos_bucket_destination =
+    ///             Tos_bucket_destination = 
     ///             {
     ///                 { "accountId", "21xxxxxxxxx" },
     ///                 { "bucket", "ccapi-test" },
@@ -58,12 +58,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             Frequency = "Weekly",
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketInventory:BucketInventory example "bucket_name|inventory_id"
     /// ```

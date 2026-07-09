@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 {
     /// <summary>
     /// A shared bandwidth package is a cloud resource that supports multiplexing and sharing bandwidth. Add multiple public IPs or IPv6 public bandwidths within a single region to a shared bandwidth package instance to share one bandwidth.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var bandwidthPackageDemo = new Volcenginecc.Vpc.BandwidthPackage("BandwidthPackageDemo", new()
     ///     {
@@ -51,12 +51,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpc/bandwidthPackage:BandwidthPackage example "bandwidth_package_id"
     /// ```

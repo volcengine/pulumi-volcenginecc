@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Kafka
 {
     /// <summary>
     /// Topic refers to the message subject and is used to categorize messages. Supports resource management at the Topic level, including creating, viewing, and deleting Topics.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var kafkaTopicDemo = new Volcenginecc.Kafka.Topic("KafkaTopicDemo", new()
     ///     {
@@ -64,12 +64,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Kafka
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:kafka/topic:Topic example "instance_id|topic_name"
     /// ```

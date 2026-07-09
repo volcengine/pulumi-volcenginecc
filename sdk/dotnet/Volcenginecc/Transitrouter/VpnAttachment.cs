@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 {
     /// <summary>
     /// By establishing a connection between the IPsec connection of the VPN and the transit router, you can enable communication between the VPN-connected network and the private network of the transit router.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var transitRouterVpnAttachmentDemo = new Volcenginecc.Transitrouter.VpnAttachment("TransitRouterVpnAttachmentDemo", new()
     ///     {
@@ -40,12 +40,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     ///         VpnConnectionId = "vgc-ij0yxxxxx474o8cux0n08t",
     ///         ZoneId = "cn-beijing-a",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:transitrouter/vpnAttachment:VpnAttachment example "transit_router_id|transit_router_attachment_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
 {
     /// <summary>
     /// Workload pool
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Id.WorkloadPool("Example", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:id/workloadPool:WorkloadPool example "workload_pool_name"
     /// ```

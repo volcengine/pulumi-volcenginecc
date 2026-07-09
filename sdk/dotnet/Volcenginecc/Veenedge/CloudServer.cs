@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Veenedge
 {
     /// <summary>
     /// Edge cloud server instance (CloudServer) resources. Create multiple edge instances based on a set of specifications, images, and regional distribution configurations, and provide integrated management for network, storage, billing, scheduling policies, login credentials, and more.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Veenedge.CloudServer("Example", new()
     ///     {
@@ -82,17 +82,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Veenedge
     ///         },
     ///         StorageConfig = new Volcenginecc.Veenedge.Inputs.CloudServerStorageConfigArgs
     ///         {
-    ///             System_disk =
+    ///             System_disk = 
     ///             {
     ///                 { "capacity", "40" },
     ///                 { "storageType", "CloudBlockSSD" },
     ///             },
     ///             Data_local_disks = new[]
     ///             {
-    ///
+    ///                 
     ///                 {
     ///                     { "num", 1 },
-    ///                     { "diskSpec",
+    ///                     { "diskSpec", 
     ///                     {
     ///                         { "capacity", "950" },
     ///                         { "storageType", "LocalSSD" },
@@ -109,12 +109,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Veenedge
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:veenedge/cloudServer:CloudServer example "cloud_server_identity"
     /// ```

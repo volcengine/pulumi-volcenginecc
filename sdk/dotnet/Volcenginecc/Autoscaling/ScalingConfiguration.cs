@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Autoscaling
 {
     /// <summary>
     /// Defines the instance configuration in the scaling group, including compute, memory, network, storage, and security. When the scaling group expands, new instances are created based on this configuration source.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var autoScalingDemo = new Volcenginecc.Autoscaling.ScalingConfiguration("AutoScalingDemo", new()
     ///     {
@@ -100,12 +100,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Autoscaling
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:autoscaling/scalingConfiguration:ScalingConfiguration example "scaling_configuration_id"
     /// ```

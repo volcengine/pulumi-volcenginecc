@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
 {
     /// <summary>
     /// Trigger management
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vEFAASTimerDemo = new Volcenginecc.Vefaas.Timer("VEFAASTimerDemo", new()
     ///     {
@@ -34,12 +34,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///         EnableConcurrency = false,
     ///         Retries = 5,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vefaas/timer:Timer example "function_id|timer_id"
     /// ```

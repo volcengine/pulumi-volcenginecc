@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
 {
     /// <summary>
     /// After a Redis cache database instance is created, you can set an allowlist for the instance to permit devices to access it.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var redisAllowListDemo = new Volcenginecc.Redis.AllowList("RedisAllowListDemo", new()
     ///     {
@@ -54,12 +54,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
     ///             "redis-cnlfenhsypxxxxxx",
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:redis/allowList:AllowList example "allow_list_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
     /// RocketMQ key
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rocketMQAccessKeyDemo = new Volcenginecc.Rocketmq.AccessKey("RocketMQAccessKeyDemo", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     ///         AllAuthority = "SUB",
     ///         Description = "自定义SUB权限",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rocketmq/accessKey:AccessKey example "instance_id|access_key"
     /// ```

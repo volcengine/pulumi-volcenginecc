@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Static website hosting configuration for TOS bucket. You can configure the bucket for static website hosting mode and access the static website via the bucket domain name
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketWebsiteDemo = new Volcenginecc.Tos.BucketWebsite("TOSBucketWebsiteDemo", new()
     ///     {
@@ -54,12 +54,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketWebsite:BucketWebsite example "bucket"
     /// ```

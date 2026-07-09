@@ -1497,6 +1497,9 @@
             "volcenginecc_ecs_instance": {
                 "current": "volcenginecc:ecs/instance:Instance",
                 "fields": {
+                    "data_volumes": {
+                        "maxItemsOne": false
+                    },
                     "eip_address": {
                         "fields": {
                             "security_protection_types": {
@@ -6840,6 +6843,9 @@
             "volcenginecc_ecs_instance": {
                 "current": "volcenginecc:ecs/getInstance:getInstance",
                 "fields": {
+                    "data_volumes": {
+                        "maxItemsOne": false
+                    },
                     "eip_address": {
                         "fields": {
                             "security_protection_types": {

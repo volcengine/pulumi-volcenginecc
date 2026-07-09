@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vmp
 {
     /// <summary>
     /// VMP alert rule configuration
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vMPAlertingRuleDemo = new Volcenginecc.Vmp.AlertingRule("VMPAlertingRuleDemo", new()
     ///     {
@@ -85,12 +85,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vmp
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vmp/alertingRule:AlertingRule example "alerting_rule_id"
     /// ```

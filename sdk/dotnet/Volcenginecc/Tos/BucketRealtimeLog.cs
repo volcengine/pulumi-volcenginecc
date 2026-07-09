@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Log analysis feature
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketRealtimeLogDemo = new Volcenginecc.Tos.BucketRealtimeLog("TOSBucketRealtimeLogDemo", new()
     ///     {
@@ -34,12 +34,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             Tls_topic_id = "22fca26e-xxxxxx-a9bb6d3fb9bd",
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example "bucket_name"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
 {
     /// <summary>
     /// Volcano Engine Cloud Database PostgreSQL parameter template, used for managing and batch applying PostgreSQL instance parameter configurations
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSPostgreSQLParameterTemplatDdemo = new Volcenginecc.Rdspostgresql.ParameterTemplate("RDSPostgreSQLParameterTemplatDdemo", new()
     ///     {
@@ -43,12 +43,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdspostgresql/parameterTemplate:ParameterTemplate example "template_id"
     /// ```

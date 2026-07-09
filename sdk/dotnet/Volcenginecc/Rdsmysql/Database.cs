@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
 {
     /// <summary>
     /// Database
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var databaseDemo = new Volcenginecc.Rdsmysql.Database("DatabaseDemo", new()
     ///     {
@@ -39,12 +39,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
     ///         InstanceId = "mysql-779***",
     ///         Name = "rdstest",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdsmysql/database:Database example "instance_id|name"
     /// ```

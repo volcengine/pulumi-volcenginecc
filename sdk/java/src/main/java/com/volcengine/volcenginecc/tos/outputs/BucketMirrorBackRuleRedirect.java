@@ -22,64 +22,64 @@ public final class BucketMirrorBackRuleRedirect {
     /**
      * @return List of rules for writing origin response headers to object metadata.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     private @Nullable List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule> fetchHeaderToMetaDataRules;
     /**
      * @return Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
-     *
+     * 
      */
     private @Nullable Boolean fetchSourceOnRedirect;
     /**
      * @return Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
-     *
+     * 
      */
     private @Nullable Boolean fetchSourceOnRedirectWithQuery;
     /**
      * @return If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
-     *
+     * 
      */
     private @Nullable Boolean followRedirect;
     /**
      * @return Specify the headers to include when mirroring back to origin.
-     *
+     * 
      */
     private @Nullable BucketMirrorBackRuleRedirectMirrorHeader mirrorHeader;
     /**
      * @return List of origin response headers allowed to be passed through directly.
-     *
+     * 
      */
     private @Nullable List<String> passHeaderFromSources;
     /**
      * @return Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
      * true: Include request parameters.
      * false: Do not include request parameters.
-     *
+     * 
      */
     private @Nullable Boolean passQuery;
     /**
      * @return List of origin response status codes allowed to be passed through directly.
-     *
+     * 
      */
     private @Nullable List<Integer> passStatusCodeFromSources;
     /**
      * @return Back-to-origin address configuration when the origin server is a private bucket.
-     *
+     * 
      */
     private @Nullable BucketMirrorBackRuleRedirectPrivateSource privateSource;
     /**
      * @return Back-to-origin address configuration when the origin server is a public bucket.
-     *
+     * 
      */
     private @Nullable BucketMirrorBackRuleRedirectPublicSource publicSource;
     /**
      * @return Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
-     *
+     * 
      */
     private @Nullable String redirectType;
     /**
      * @return Define transformations for the object name when requesting the origin server.
-     *
+     * 
      */
     private @Nullable BucketMirrorBackRuleRedirectTransform transform;
 
@@ -87,42 +87,42 @@ public final class BucketMirrorBackRuleRedirect {
     /**
      * @return List of rules for writing origin response headers to object metadata.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRule> fetchHeaderToMetaDataRules() {
         return this.fetchHeaderToMetaDataRules == null ? List.of() : this.fetchHeaderToMetaDataRules;
     }
     /**
      * @return Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
-     *
+     * 
      */
     public Optional<Boolean> fetchSourceOnRedirect() {
         return Optional.ofNullable(this.fetchSourceOnRedirect);
     }
     /**
      * @return Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
-     *
+     * 
      */
     public Optional<Boolean> fetchSourceOnRedirectWithQuery() {
         return Optional.ofNullable(this.fetchSourceOnRedirectWithQuery);
     }
     /**
      * @return If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
-     *
+     * 
      */
     public Optional<Boolean> followRedirect() {
         return Optional.ofNullable(this.followRedirect);
     }
     /**
      * @return Specify the headers to include when mirroring back to origin.
-     *
+     * 
      */
     public Optional<BucketMirrorBackRuleRedirectMirrorHeader> mirrorHeader() {
         return Optional.ofNullable(this.mirrorHeader);
     }
     /**
      * @return List of origin response headers allowed to be passed through directly.
-     *
+     * 
      */
     public List<String> passHeaderFromSources() {
         return this.passHeaderFromSources == null ? List.of() : this.passHeaderFromSources;
@@ -131,42 +131,42 @@ public final class BucketMirrorBackRuleRedirect {
      * @return Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
      * true: Include request parameters.
      * false: Do not include request parameters.
-     *
+     * 
      */
     public Optional<Boolean> passQuery() {
         return Optional.ofNullable(this.passQuery);
     }
     /**
      * @return List of origin response status codes allowed to be passed through directly.
-     *
+     * 
      */
     public List<Integer> passStatusCodeFromSources() {
         return this.passStatusCodeFromSources == null ? List.of() : this.passStatusCodeFromSources;
     }
     /**
      * @return Back-to-origin address configuration when the origin server is a private bucket.
-     *
+     * 
      */
     public Optional<BucketMirrorBackRuleRedirectPrivateSource> privateSource() {
         return Optional.ofNullable(this.privateSource);
     }
     /**
      * @return Back-to-origin address configuration when the origin server is a public bucket.
-     *
+     * 
      */
     public Optional<BucketMirrorBackRuleRedirectPublicSource> publicSource() {
         return Optional.ofNullable(this.publicSource);
     }
     /**
      * @return Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
-     *
+     * 
      */
     public Optional<String> redirectType() {
         return Optional.ofNullable(this.redirectType);
     }
     /**
      * @return Define transformations for the object name when requesting the origin server.
-     *
+     * 
      */
     public Optional<BucketMirrorBackRuleRedirectTransform> transform() {
         return Optional.ofNullable(this.transform);

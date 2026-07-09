@@ -20,14 +20,14 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Plan Name
-     *
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Backup Plan Name
-     *
+     * 
      */
     public Output<String> name() {
         return this.name;
@@ -35,14 +35,14 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Policy ID
-     *
+     * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
      * @return Backup Policy ID
-     *
+     * 
      */
     public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
@@ -51,7 +51,7 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Backup Source List
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="resourceLists", required=true)
     private Output<List<BackupPlanResourceListArgs>> resourceLists;
@@ -59,7 +59,7 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Backup Source List
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BackupPlanResourceListArgs>> resourceLists() {
         return this.resourceLists;
@@ -93,9 +93,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Backup Plan Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder name(Output<String> name) {
             $.name = name;
@@ -104,9 +104,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Backup Plan Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
@@ -114,9 +114,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policyId Backup Policy ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
@@ -125,9 +125,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policyId Backup Policy ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
@@ -136,9 +136,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceLists Backup Source List
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceLists(Output<List<BackupPlanResourceListArgs>> resourceLists) {
             $.resourceLists = resourceLists;
@@ -148,9 +148,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceLists Backup Source List
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceLists(List<BackupPlanResourceListArgs> resourceLists) {
             return resourceLists(Output.of(resourceLists));
@@ -159,9 +159,9 @@ public final class BackupPlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceLists Backup Source List
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceLists(BackupPlanResourceListArgs... resourceLists) {
             return resourceLists(List.of(resourceLists));

@@ -21,14 +21,14 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Cluster Name of VPC Instance
-     *
+     * 
      */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
     /**
      * @return Cluster Name of VPC Instance
-     *
+     * 
      */
     public Output<String> clusterName() {
         return this.clusterName;
@@ -36,14 +36,14 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Description of VPC Instance
-     *
+     * 
      */
     @Import(name="desc", required=true)
     private Output<String> desc;
 
     /**
      * @return Description of VPC Instance
-     *
+     * 
      */
     public Output<String> desc() {
         return this.desc;
@@ -51,14 +51,14 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Project Name of VPC Instance
-     *
+     * 
      */
     @Import(name="project")
     private @Nullable Output<String> project;
 
     /**
      * @return Project Name of VPC Instance
-     *
+     * 
      */
     public Optional<Output<String>> project() {
         return Optional.ofNullable(this.project);
@@ -66,14 +66,14 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC Instance CIDR Block, e.g. 10.0.0.0/16
-     *
+     * 
      */
     @Import(name="segment", required=true)
     private Output<String> segment;
 
     /**
      * @return VPC Instance CIDR Block, e.g. 10.0.0.0/16
-     *
+     * 
      */
     public Output<String> segment() {
         return this.segment;
@@ -82,7 +82,7 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of subnets created when creating the VPC
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<VpcSubnetArgs>> subnets;
@@ -90,7 +90,7 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return List of subnets created when creating the VPC
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<VpcSubnetArgs>>> subnets() {
         return Optional.ofNullable(this.subnets);
@@ -99,7 +99,7 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Tag List of VPC Instance
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<List<VpcTagArgs>> tags;
@@ -107,7 +107,7 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Tag List of VPC Instance
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<VpcTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
@@ -115,14 +115,14 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC Instance Name
-     *
+     * 
      */
     @Import(name="vpcName", required=true)
     private Output<String> vpcName;
 
     /**
      * @return VPC Instance Name
-     *
+     * 
      */
     public Output<String> vpcName() {
         return this.vpcName;
@@ -160,9 +160,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clusterName Cluster Name of VPC Instance
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
@@ -171,9 +171,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clusterName Cluster Name of VPC Instance
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
@@ -181,9 +181,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param desc Description of VPC Instance
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder desc(Output<String> desc) {
             $.desc = desc;
@@ -192,9 +192,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param desc Description of VPC Instance
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder desc(String desc) {
             return desc(Output.of(desc));
@@ -202,9 +202,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param project Project Name of VPC Instance
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder project(@Nullable Output<String> project) {
             $.project = project;
@@ -213,9 +213,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param project Project Name of VPC Instance
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder project(String project) {
             return project(Output.of(project));
@@ -223,9 +223,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param segment VPC Instance CIDR Block, e.g. 10.0.0.0/16
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder segment(Output<String> segment) {
             $.segment = segment;
@@ -234,9 +234,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param segment VPC Instance CIDR Block, e.g. 10.0.0.0/16
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder segment(String segment) {
             return segment(Output.of(segment));
@@ -245,9 +245,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnets List of subnets created when creating the VPC
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnets(@Nullable Output<List<VpcSubnetArgs>> subnets) {
             $.subnets = subnets;
@@ -257,9 +257,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnets List of subnets created when creating the VPC
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnets(List<VpcSubnetArgs> subnets) {
             return subnets(Output.of(subnets));
@@ -268,9 +268,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnets List of subnets created when creating the VPC
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnets(VpcSubnetArgs... subnets) {
             return subnets(List.of(subnets));
@@ -279,9 +279,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Tag List of VPC Instance
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(@Nullable Output<List<VpcTagArgs>> tags) {
             $.tags = tags;
@@ -291,9 +291,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Tag List of VPC Instance
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(List<VpcTagArgs> tags) {
             return tags(Output.of(tags));
@@ -302,9 +302,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Tag List of VPC Instance
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(VpcTagArgs... tags) {
             return tags(List.of(tags));
@@ -312,9 +312,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcName VPC Instance Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vpcName(Output<String> vpcName) {
             $.vpcName = vpcName;
@@ -323,9 +323,9 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcName VPC Instance Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vpcName(String vpcName) {
             return vpcName(Output.of(vpcName));

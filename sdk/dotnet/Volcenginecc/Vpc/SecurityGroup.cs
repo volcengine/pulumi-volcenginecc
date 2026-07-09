@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 {
     /// <summary>
     /// A security group is a logical grouping that provides access policies for NICs within the same private network that share security requirements and mutual trust. You can control inbound and outbound traffic for associated NICs by configuring security group rules
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var securityGroupDemo = new Volcenginecc.Vpc.SecurityGroup("SecurityGroupDemo", new()
     ///     {
@@ -68,12 +68,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpc/securityGroup:SecurityGroup example "security_group_id"
     /// ```

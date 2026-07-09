@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
 {
     /// <summary>
     /// The database is an independent database within a PostgreSQL instance, used to store and manage data.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSPostgreSQLDatabaseDemo = new Volcenginecc.Rdspostgresql.Database("RDSPostgreSQLDatabaseDemo", new()
     ///     {
@@ -32,12 +32,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
     ///         Collate = "C",
     ///         CType = "C.UTF-8",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdspostgresql/database:Database example "instance_id|db_name"
     /// ```

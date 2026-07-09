@@ -12,17 +12,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
 {
     /// <summary>
     /// Event rule details
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cloudMonitorEventRuleDemo = new Volcenginecc.Cloudmonitor.EventRule("CloudMonitorEventRuleDemo", new()
     ///     {
@@ -53,12 +53,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
     ///             },
     ///         }),
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cloudmonitor/eventRule:EventRule example "rule_id"
     /// ```
@@ -89,7 +89,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
 
         /// <summary>
         /// Rule status
-        ///
+        ///   
         ///   enable: Rule enabled
         ///   disable: Rule disabled
         /// </summary>
@@ -216,7 +216,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
 
         /// <summary>
         /// Rule status
-        ///
+        ///   
         ///   enable: Rule enabled
         ///   disable: Rule disabled
         /// </summary>
@@ -304,7 +304,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
 
         /// <summary>
         /// Rule status
-        ///
+        ///   
         ///   enable: Rule enabled
         ///   disable: Rule disabled
         /// </summary>

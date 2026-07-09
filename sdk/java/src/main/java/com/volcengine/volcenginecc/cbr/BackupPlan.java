@@ -18,14 +18,14 @@ import javax.annotation.Nullable;
 
 /**
  * To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var cBRBackupPlanDemo = new BackupPlan("cBRBackupPlanDemo", BackupPlanArgs.builder()
  *             .name("CBRBackupPlanDemo")
@@ -57,102 +57,102 @@ import javax.annotation.Nullable;
  *                 ))
  *                 .build())
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:cbr/backupPlan:BackupPlan example &#34;plan_id&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:cbr/backupPlan:BackupPlan")
 public class BackupPlan extends com.pulumi.resources.CustomResource {
     /**
      * Account ID that created this plan
-     *
+     * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
      * @return Account ID that created this plan
-     *
+     * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
      * Creation Time
-     *
+     * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
      * @return Creation Time
-     *
+     * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
      * Backup Plan Name
-     *
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Backup Plan Name
-     *
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
      * Backup Plan ID
-     *
+     * 
      */
     @Export(name="planId", refs={String.class}, tree="[0]")
     private Output<String> planId;
 
     /**
      * @return Backup Plan ID
-     *
+     * 
      */
     public Output<String> planId() {
         return this.planId;
     }
     /**
      * Backup Policy
-     *
+     * 
      */
     @Export(name="policy", refs={BackupPlanPolicy.class}, tree="[0]")
     private Output<BackupPlanPolicy> policy;
 
     /**
      * @return Backup Policy
-     *
+     * 
      */
     public Output<BackupPlanPolicy> policy() {
         return this.policy;
     }
     /**
      * Backup Policy ID
-     *
+     * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
      * @return Backup Policy ID
-     *
+     * 
      */
     public Output<String> policyId() {
         return this.policyId;
@@ -160,7 +160,7 @@ public class BackupPlan extends com.pulumi.resources.CustomResource {
     /**
      * Backup Source List
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="resourceLists", refs={List.class,BackupPlanResourceList.class}, tree="[0,1]")
     private Output<List<BackupPlanResourceList>> resourceLists;
@@ -168,21 +168,21 @@ public class BackupPlan extends com.pulumi.resources.CustomResource {
     /**
      * @return Backup Source List
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BackupPlanResourceList>> resourceLists() {
         return this.resourceLists;
     }
     /**
      * Update Time
-     *
+     * 
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
      * @return Update Time
-     *
+     * 
      */
     public Output<String> updatedTime() {
         return this.updatedTime;

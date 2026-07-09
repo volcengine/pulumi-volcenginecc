@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
     /// RocketMQ Access Allowlist
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rocketMQAllowListDemo = new Volcenginecc.Rocketmq.AllowList("RocketMQAllowListDemo", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rocketmq/allowList:AllowList example "allow_list_id"
     /// ```

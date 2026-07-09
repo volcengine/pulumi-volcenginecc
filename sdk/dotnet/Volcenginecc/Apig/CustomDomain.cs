@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
 {
     /// <summary>
     /// The service serves as the entry point for external access. You can bind your custom domain to the service using the domain binding feature
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var apigCustomDomainDemo = new Volcenginecc.Apig.CustomDomain("ApigCustomDomainDemo", new()
     ///     {
@@ -36,12 +36,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///         Comments = "ApigCustomDomainDemo custom domain",
     ///         SslRedirect = true,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:apig/customDomain:CustomDomain example "custom_domain_id"
     /// ```

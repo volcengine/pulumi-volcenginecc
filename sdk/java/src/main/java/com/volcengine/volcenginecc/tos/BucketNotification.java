@@ -17,14 +17,14 @@ import javax.annotation.Nullable;
 
 /**
  * Set event notification rules. Use event notification to receive alerts when resources in the bucket change.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var tOSBucketNotificationDemo = new BucketNotification("tOSBucketNotificationDemo", BucketNotificationArgs.builder()
  *             .bucketName("ccapi-test")
@@ -70,12 +70,12 @@ import javax.annotation.Nullable;
  *                         .functionId("o1xxxxx")
  *                         .build())
  *                     .build())
- *                 .events(
+ *                 .events(                
  *                     "tos:ObjectCreated:Put",
  *                     "tos:LifecycleExpiration:Delete")
  *                 .filter(BucketNotificationNotificationRuleFilterArgs.builder()
  *                     .tosKey(BucketNotificationNotificationRuleFilterTosKeyArgs.builder()
- *                         .filterRules(
+ *                         .filterRules(                        
  *                             BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs.builder()
  *                                 .name("prefix")
  *                                 .value("preifx")
@@ -89,32 +89,32 @@ import javax.annotation.Nullable;
  *                 .rule_id("test-0")
  *                 .build())
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketNotification:BucketNotification example &#34;bucket_name&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:tos/bucketNotification:BucketNotification")
 public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name.
-     *
+     * 
      */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
      * @return Bucket name.
-     *
+     * 
      */
     public Output<String> bucketName() {
         return this.bucketName;
@@ -122,7 +122,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * Event notification rule information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="notificationRules", refs={List.class,BucketNotificationNotificationRule.class}, tree="[0,1]")
     private Output<List<BucketNotificationNotificationRule>> notificationRules;
@@ -130,7 +130,7 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * @return Event notification rule information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BucketNotificationNotificationRule>> notificationRules() {
         return this.notificationRules;

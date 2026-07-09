@@ -17,31 +17,31 @@ import javax.annotation.Nullable;
 public final class CloudServerStorageConfig {
     /**
      * @return Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
-     *
+     * 
      */
     private @Nullable CloudServerStorageConfigDataDisk dataDisk;
     /**
      * @return Data disk list. This parameter is used to add one or more data disks.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     private @Nullable List<CloudServerStorageConfigDataDiskList> dataDiskLists;
     /**
      * @return Local data disk configuration list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     private @Nullable List<CloudServerStorageConfigDataLocalDisk> dataLocalDisks;
     /**
      * @return System disk configuration
-     *
+     * 
      */
     private @Nullable CloudServerStorageConfigSystemDisk systemDisk;
 
     private CloudServerStorageConfig() {}
     /**
      * @return Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
-     *
+     * 
      */
     public Optional<CloudServerStorageConfigDataDisk> dataDisk() {
         return Optional.ofNullable(this.dataDisk);
@@ -49,7 +49,7 @@ public final class CloudServerStorageConfig {
     /**
      * @return Data disk list. This parameter is used to add one or more data disks.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public List<CloudServerStorageConfigDataDiskList> dataDiskLists() {
         return this.dataDiskLists == null ? List.of() : this.dataDiskLists;
@@ -57,14 +57,14 @@ public final class CloudServerStorageConfig {
     /**
      * @return Local data disk configuration list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public List<CloudServerStorageConfigDataLocalDisk> dataLocalDisks() {
         return this.dataLocalDisks == null ? List.of() : this.dataLocalDisks;
     }
     /**
      * @return System disk configuration
-     *
+     * 
      */
     public Optional<CloudServerStorageConfigSystemDisk> systemDisk() {
         return Optional.ofNullable(this.systemDisk);

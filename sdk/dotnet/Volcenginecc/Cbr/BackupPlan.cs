@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
     /// To enable automatic backup for backup sources, you can create a backup plan, associate backup sources and backup policies within the plan, specify backup storage space, and set backup data retention rules. After creating the backup plan, the system will automatically back up the specified sources in a unified manner according to the associated backup policy configuration
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cBRBackupPlanDemo = new Volcenginecc.Cbr.BackupPlan("CBRBackupPlanDemo", new()
     ///     {
@@ -33,7 +33,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     ///             {
     ///                 Resource_type = "ECS",
     ///                 Resource_id = "res-krn4bq3sctbwvxxxxx",
-    ///                 Meta_information =
+    ///                 Meta_information = 
     ///                 {
     ///                     { "vepfsMeta", "" },
     ///                     { "ecsMeta", "{\"AutoBackupAllAttachedVolumes\":true,\"VolumeList\":[{\"VolumeId\":\"vol-3wt6m9uygg4kgxxxxx\",\"VolumeName\":\"emr-d6af13acb6966xxxxx-volume-1-2\",\"VolumeType\":\"ESSD_FlexPL\"},{\"VolumeId\":\"vol-3wt6m9vh3a3qxxxxx\",\"VolumeName\":\"emr-d6af13acb6966xxxxx-volume-2-2\",\"VolumeType\":\"ESSD_FlexPL\"}]}" },
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cbr/backupPlan:BackupPlan example "plan_id"
     /// ```

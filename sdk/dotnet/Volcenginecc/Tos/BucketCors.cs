@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Set CORS (Cross-Origin Resource Sharing) rules for the bucket.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketCorsDemo = new Volcenginecc.Tos.BucketCors("TOSBucketCorsDemo", new()
     ///     {
@@ -75,12 +75,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketCors:BucketCors example "bucket_name"
     /// ```

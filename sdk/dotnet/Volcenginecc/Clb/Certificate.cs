@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 {
     /// <summary>
     /// Provides unified certificate management service for HTTPS protocol. Certificates do not need to be uploaded to backend servers. Supports decryption processing on CLB instances, reducing CPU overhead on backend servers.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var certificatDemo = new Volcenginecc.Clb.Certificate("CertificatDemo", new()
     ///     {
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:clb/certificate:Certificate example "certificate_id"
     /// ```

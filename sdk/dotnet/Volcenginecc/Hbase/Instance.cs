@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Hbase
 {
     /// <summary>
     /// Table Database HBase Edition is a fully managed NoSQL service based on Apache HBase, compatible with the standard HBase access protocol, offering advantages such as low-cost storage and high scalability throughput.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var hBaseInstanceDemo = new Volcenginecc.Hbase.Instance("HBaseInstanceDemo", new()
     ///     {
@@ -54,12 +54,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Hbase
     ///         StorageType = "HdfsSsd",
     ///         EnableAuth = true,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:hbase/instance:Instance example "instance_id"
     /// ```

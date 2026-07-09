@@ -12,17 +12,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Organization
 {
     /// <summary>
     /// Control policy.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var organizationServiceControlPolicyDemo = new Volcenginecc.Organization.ServiceControlPolicy("OrganizationServiceControlPolicyDemo", new()
     ///     {
@@ -70,12 +70,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Organization
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:organization/serviceControlPolicy:ServiceControlPolicy example "policy_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
 {
     /// <summary>
     /// A service is a set of routes exposed as entry points to distinguish traffic sources and protocols, enabling business, environment, and logical tenant isolation. Services can bind independent access domains, allowing access by domain.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var apigGatewayServiceDemo = new Volcenginecc.Apig.GatewayService("ApigGatewayServiceDemo", new()
     ///     {
@@ -45,12 +45,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///             Private_network_ip = new() { },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:apig/gatewayService:GatewayService example "service_id"
     /// ```

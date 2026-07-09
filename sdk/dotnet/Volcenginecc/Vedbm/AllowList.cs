@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm
 {
     /// <summary>
     /// vedbm access allowlist.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vEDBMAllowListDemo = new Volcenginecc.Vedbm.AllowList("VEDBMAllowListDemo", new()
     ///     {
@@ -43,12 +43,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm
     ///         },
     ///         ModifyMode = "Cover",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vedbm/allowList:AllowList example "allow_list_id"
     /// ```

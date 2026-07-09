@@ -21,14 +21,14 @@ import javax.annotation.Nullable;
 
 /**
  * A file system is a storage system that manages files through a directory tree structure. It is divided into local file systems and remote file systems. This refers specifically to remote file systems, which support concurrent access by multiple compute nodes and shared datasets.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var eFSFileSystemDemo = new FileSystem("eFSFileSystemDemo", FileSystemArgs.builder()
  *             .fileSystemName("cc-test")
@@ -66,242 +66,242 @@ import javax.annotation.Nullable;
  *                 .value("test")
  *                 .build())
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:efs/fileSystem:FileSystem example &#34;file_system_id&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:efs/fileSystem:FileSystem")
 public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
      * Access point limit.
-     *
+     * 
      */
     @Export(name="accessPointLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> accessPointLimit;
 
     /**
      * @return Access point limit.
-     *
+     * 
      */
     public Output<Integer> accessPointLimit() {
         return this.accessPointLimit;
     }
     /**
      * File system billing configuration.
-     *
+     * 
      */
     @Export(name="chargeConfig", refs={FileSystemChargeConfig.class}, tree="[0]")
     private Output<FileSystemChargeConfig> chargeConfig;
 
     /**
      * @return File system billing configuration.
-     *
+     * 
      */
     public Output<FileSystemChargeConfig> chargeConfig() {
         return this.chargeConfig;
     }
     /**
      * Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
-     *
+     * 
      */
     @Export(name="chargeType", refs={String.class}, tree="[0]")
     private Output<String> chargeType;
 
     /**
      * @return Billing type. Only supports PayAsYouGo, which means pay-as-you-go billing.
-     *
+     * 
      */
     public Output<String> chargeType() {
         return this.chargeType;
     }
     /**
      * File system creation time.
-     *
+     * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
      * @return File system creation time.
-     *
+     * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
      * Description.
-     *
+     * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
      * @return Description.
-     *
+     * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
      * Time when file system bandwidth can be downgraded.
-     *
+     * 
      */
     @Export(name="downgradeUnlockTime", refs={String.class}, tree="[0]")
     private Output<String> downgradeUnlockTime;
 
     /**
      * @return Time when file system bandwidth can be downgraded.
-     *
+     * 
      */
     public Output<String> downgradeUnlockTime() {
         return this.downgradeUnlockTime;
     }
     /**
      * File system ID.
-     *
+     * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
      * @return File system ID.
-     *
+     * 
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
     /**
      * File system name.
-     *
+     * 
      */
     @Export(name="fileSystemName", refs={String.class}, tree="[0]")
     private Output<String> fileSystemName;
 
     /**
      * @return File system name.
-     *
+     * 
      */
     public Output<String> fileSystemName() {
         return this.fileSystemName;
     }
     /**
      * Basic: Basic type, Premium: Premium type.
-     *
+     * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
      * @return Basic: Basic type, Premium: Premium type.
-     *
+     * 
      */
     public Output<String> instanceType() {
         return this.instanceType;
     }
     /**
      * Mount point limit.
-     *
+     * 
      */
     @Export(name="mountPointLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> mountPointLimit;
 
     /**
      * @return Mount point limit.
-     *
+     * 
      */
     public Output<Integer> mountPointLimit() {
         return this.mountPointLimit;
     }
     /**
      * File system performance information.
-     *
+     * 
      */
     @Export(name="performance", refs={FileSystemPerformance.class}, tree="[0]")
     private Output<FileSystemPerformance> performance;
 
     /**
      * @return File system performance information.
-     *
+     * 
      */
     public Output<FileSystemPerformance> performance() {
         return this.performance;
     }
     /**
      * File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
-     *
+     * 
      */
     @Export(name="performanceDensity", refs={String.class}, tree="[0]")
     private Output<String> performanceDensity;
 
     /**
      * @return File system performance density. Value description: Basic*50: Basic type 50MB/s/TiB, Premium*125: Premium type 125MB/s/TiB.
-     *
+     * 
      */
     public Output<String> performanceDensity() {
         return this.performanceDensity;
     }
     /**
      * Project name.
-     *
+     * 
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
      * @return Project name.
-     *
+     * 
      */
     public Output<String> projectName() {
         return this.projectName;
     }
     /**
      * Protocol type.
-     *
+     * 
      */
     @Export(name="protocolTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protocolTypes;
 
     /**
      * @return Protocol type.
-     *
+     * 
      */
     public Output<List<String>> protocolTypes() {
         return this.protocolTypes;
     }
     /**
      * File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
-     *
+     * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return File system status. Value description: Creating: Creating. CreateError: Creation failed. Running: Running. Updating: Updating. Deleting: Deleting. DeleteError: Deletion failed. Deleted: Deleted. Stopped: Stopped.
-     *
+     * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
      * File system capacity information.
-     *
+     * 
      */
     @Export(name="storage", refs={FileSystemStorage.class}, tree="[0]")
     private Output<FileSystemStorage> storage;
 
     /**
      * @return File system capacity information.
-     *
+     * 
      */
     public Output<FileSystemStorage> storage() {
         return this.storage;
@@ -309,7 +309,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
      * Tag list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="tags", refs={List.class,FileSystemTag.class}, tree="[0,1]")
     private Output<List<FileSystemTag>> tags;
@@ -317,49 +317,49 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
      * @return Tag list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<FileSystemTag>> tags() {
         return this.tags;
     }
     /**
      * File system update time.
-     *
+     * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**
      * @return File system update time.
-     *
+     * 
      */
     public Output<String> updateTime() {
         return this.updateTime;
     }
     /**
      * Availability zone ID.
-     *
+     * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**
      * @return Availability zone ID.
-     *
+     * 
      */
     public Output<String> zoneId() {
         return this.zoneId;
     }
     /**
      * Availability zone name.
-     *
+     * 
      */
     @Export(name="zoneName", refs={String.class}, tree="[0]")
     private Output<String> zoneName;
 
     /**
      * @return Availability zone name.
-     *
+     * 
      */
     public Output<String> zoneName() {
         return this.zoneName;

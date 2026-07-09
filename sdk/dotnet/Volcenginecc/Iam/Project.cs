@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 {
     /// <summary>
     /// Resource project (Project) provides a mechanism for resource group management, helping you achieve logical resource isolation. You can use resource projects for project-based authorization, billing, and other operations.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var iAMProjectDemo = new Volcenginecc.Iam.Project("IAMProjectDemo", new()
     ///     {
@@ -30,12 +30,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///         DisplayName = "IAMProjectDemo",
     ///         ParentProjectName = "default",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:iam/project:Project example "project_name"
     /// ```

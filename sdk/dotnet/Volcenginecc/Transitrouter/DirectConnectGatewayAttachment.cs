@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 {
     /// <summary>
     /// Direct connect gateway type network instance connection resource
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var directConnectGatewayAttachmentDemo = new Volcenginecc.Transitrouter.DirectConnectGatewayAttachment("DirectConnectGatewayAttachmentDemo", new()
     ///     {
@@ -38,12 +38,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:transitrouter/directConnectGatewayAttachment:DirectConnectGatewayAttachment example "transit_router_id|transit_router_attachment_id"
     /// ```

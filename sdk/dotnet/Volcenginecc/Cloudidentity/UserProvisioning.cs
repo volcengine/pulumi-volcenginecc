@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity
 {
     /// <summary>
     /// After you create a Cloud Identity Center user, you need to grant the user login access to each account.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cloudIdentityUserProvisioningDemo = new Volcenginecc.Cloudidentity.UserProvisioning("CloudIdentityUserProvisioningDemo", new()
     ///     {
@@ -34,12 +34,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity
     ///         Description = "ccapi-test",
     ///         DuplicationSuffix = "-cctest",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cloudidentity/userProvisioning:UserProvisioning example "user_provisioning_id"
     /// ```

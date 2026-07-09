@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
 {
     /// <summary>
     /// Health checks are essential for ensuring application availability. ALB regularly performs health checks on backend servers to verify whether they can accept new requests. If a backend server fails to respond properly to ALB's health check requests, client traffic will not be routed to that server. ALB forwards traffic to other servers with a healthy status, ensuring service continuity and reliability. ALB health checks are performed based on server groups. Once health checks are enabled for a server group, ALB periodically checks the status of backend servers within the group.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var aLBHealthCheckTemplateDemo = new Volcenginecc.Alb.HealthCheckTemplate("ALBHealthCheckTemplateDemo", new()
     ///     {
@@ -48,12 +48,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:alb/healthCheckTemplate:HealthCheckTemplate example "health_check_template_id"
     /// ```

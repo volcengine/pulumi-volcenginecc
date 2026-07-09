@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
 {
     /// <summary>
     /// Container Registry (CR) provides secure, highly available hosting services for container images, Helm Charts, and other OCI-compliant cloud-native artifacts, making it easy for enterprise users to manage the full lifecycle of container images and Helm Charts
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cRRegistryDemo = new Volcenginecc.Cr.Registry("CRRegistryDemo", new()
     ///     {
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cr/registry:Registry example "name"
     /// ```

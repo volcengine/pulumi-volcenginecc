@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity
 {
     /// <summary>
     /// When you need to grant SSO authorization to Cloud Identity Center users in bulk, you can first manage users in bulk through user groups
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cloudIdentityGroupDemo = new Volcenginecc.Cloudidentity.Group("CloudIdentityGroupDemo", new()
     ///     {
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cloudidentity/group:Group example "group_id"
     /// ```

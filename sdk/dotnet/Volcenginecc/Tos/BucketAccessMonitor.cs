@@ -12,27 +12,27 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// This API is used to set access tracking for the storage bucket. You must enable access tracking before creating lifecycle rules for last access time. Once enabled, TOS automatically checks and records the last access time for all objects in the bucket.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var bucketAccessMonitorDemo = new Volcenginecc.Tos.BucketAccessMonitor("BucketAccessMonitorDemo", new()
     ///     {
     ///         Bucket = "ccapi-test",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketAccessMonitor:BucketAccessMonitor example "bucket"
     /// ```

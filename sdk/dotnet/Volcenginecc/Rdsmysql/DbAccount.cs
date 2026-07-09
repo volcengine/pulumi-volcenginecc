@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
 {
     /// <summary>
     /// Database account.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSMySQLDBAccountDemo = new Volcenginecc.Rdsmysql.DbAccount("RDSMySQLDBAccountDemo", new()
     ///     {
@@ -61,12 +61,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
     ///         Host = "%",
     ///         TableColumnPrivileges = new[] {},
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdsmysql/dbAccount:DbAccount example "instance_id|account_name|host"
     /// ```

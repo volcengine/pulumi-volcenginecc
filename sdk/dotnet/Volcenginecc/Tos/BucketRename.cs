@@ -12,27 +12,27 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Bucket RenameObject feature configuration. When enabled, you can call the RenameObject API to rename objects; this feature is mutually exclusive with versioning
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketRenameDemo = new Volcenginecc.Tos.BucketRename("TOSBucketRenameDemo", new()
     ///     {
     ///         Bucket = "ccapi-test-16",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketRename:BucketRename example "bucket"
     /// ```

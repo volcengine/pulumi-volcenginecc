@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
 {
     /// <summary>
     /// Allocated from the subnet associated with the private NAT gateway for IP address translation.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var natGatewayNatIpDemo = new Volcenginecc.Natgateway.NatIp("NatGatewayNatIpDemo", new()
     ///     {
@@ -30,12 +30,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
     ///         NatIpName = "NatGatewayNatIpDemo",
     ///         NatIpValue = "192.168.xxx.xx",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:natgateway/natIp:NatIp example "nat_ip_id"
     /// ```

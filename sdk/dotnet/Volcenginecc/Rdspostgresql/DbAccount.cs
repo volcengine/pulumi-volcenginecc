@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
 {
     /// <summary>
     /// RDS PostgreSQL Database Account
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSPostgreSQLDBAccountNormalDemo = new Volcenginecc.Rdspostgresql.DbAccount("RDSPostgreSQLDBAccountNormalDemo", new()
     ///     {
@@ -35,12 +35,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
     ///             "DDL",
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdspostgresql/dbAccount:DbAccount example "instance_id|account_name"
     /// ```

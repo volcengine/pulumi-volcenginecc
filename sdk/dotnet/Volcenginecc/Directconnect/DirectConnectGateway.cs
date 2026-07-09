@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
 {
     /// <summary>
     /// The Direct Connect Gateway is the entry point for local data centers to access the cloud. It connects private networks (VPC) and physical dedicated connections, enabling mutual access between on-premises data centers (IDC) and cloud private networks (VPC).
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var directConnectDirectConnectGatewayDemo = new Volcenginecc.Directconnect.DirectConnectGateway("DirectConnectDirectConnectGatewayDemo", new()
     ///     {
@@ -38,12 +38,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:directconnect/directConnectGateway:DirectConnectGateway example "direct_connect_gateway_id"
     /// ```

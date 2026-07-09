@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cdn
 {
     /// <summary>
     /// Global configuration extends domain configuration capabilities with the following advantages: increases the capacity of denylist and allowlist. For example, an IP denylist can contain up to 30,000 entries. Improves domain configuration efficiency. A single global configuration can be associated with multiple domains. Provides a common list type that can be used in additional domain configurations. Modifications to a global configuration are immediately applied to all associated domains.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cDNShareConfigDemo = new Volcenginecc.Cdn.ShareConfig("CDNShareConfigDemo", new()
     ///     {
@@ -31,7 +31,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cdn
     ///         AllowRefererAccessRule = new Volcenginecc.Cdn.Inputs.ShareConfigAllowRefererAccessRuleArgs
     ///         {
     ///             Allow_empty = true,
-    ///             Common_type =
+    ///             Common_type = 
     ///             {
     ///                 { "ignoreCase", true },
     ///                 { "rules", new[]
@@ -42,12 +42,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cdn
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cdn/shareConfig:ShareConfig example "config_name"
     /// ```

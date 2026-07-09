@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm
 {
     /// <summary>
     /// Database connection terminal management
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vEDBMEndpointDemo = new Volcenginecc.Vedbm.Endpoint("VEDBMEndpointDemo", new()
     ///     {
@@ -43,12 +43,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm
     ///         },
     ///         ReadWriteMode = "ReadOnly",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vedbm/endpoint:Endpoint example "instance_id|endpoint_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
 {
     /// <summary>
     /// An image is a special file containing the basic operating system and application data required for a cloud server instance. You must select an image when creating an instance.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var imageDemo = new Volcenginecc.Ecs.Image("ImageDemo", new()
     ///     {
@@ -42,12 +42,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:ecs/image:Image example "image_id"
     /// ```

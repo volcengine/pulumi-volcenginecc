@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 {
     /// <summary>
     /// Transit router bandwidth package resources.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var transitRouterBandwidthPackageDemo = new Volcenginecc.Transitrouter.TransitRouterBandwidthPackage("TransitRouterBandwidthPackageDemo", new()
     ///     {
@@ -44,12 +44,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     ///         },
     ///         TransitRouterBandwidthPackageName = "ccapi-test",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:transitrouter/transitRouterBandwidthPackage:TransitRouterBandwidthPackage example "transit_router_bandwidth_package_id"
     /// ```

@@ -21,14 +21,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Region name
-     *
+     * 
      */
     @Import(name="areaName")
     private @Nullable Output<String> areaName;
 
     /**
      * @return Region name
-     *
+     * 
      */
     public Optional<Output<String>> areaName() {
         return Optional.ofNullable(this.areaName);
@@ -36,14 +36,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Node name. Specify the node where you want to deploy the edge service.
-     *
+     * 
      */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
     /**
      * @return Node name. Specify the node where you want to deploy the edge service.
-     *
+     * 
      */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
@@ -51,14 +51,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
-     *
+     * 
      */
     @Import(name="defaultIsp")
     private @Nullable Output<String> defaultIsp;
 
     /**
      * @return Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
-     *
+     * 
      */
     public Optional<Output<String>> defaultIsp() {
         return Optional.ofNullable(this.defaultIsp);
@@ -66,14 +66,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
-     *
+     * 
      */
     @Import(name="externalNetworkMode")
     private @Nullable Output<String> externalNetworkMode;
 
     /**
      * @return Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
-     *
+     * 
      */
     public Optional<Output<String>> externalNetworkMode() {
         return Optional.ofNullable(this.externalNetworkMode);
@@ -81,14 +81,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to &#34;hosta&#34;,&#34;hostb&#34;, then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
-     *
+     * 
      */
     @Import(name="hostNameLists")
     private @Nullable Output<List<String>> hostNameLists;
 
     /**
      * @return List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to &#34;hosta&#34;,&#34;hostb&#34;, then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
-     *
+     * 
      */
     public Optional<Output<List<String>>> hostNameLists() {
         return Optional.ofNullable(this.hostNameLists);
@@ -96,14 +96,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Carrier. Possible values: CMCC, CTCC, CUCC.
-     *
+     * 
      */
     @Import(name="isp")
     private @Nullable Output<String> isp;
 
     /**
      * @return Carrier. Possible values: CMCC, CTCC, CUCC.
-     *
+     * 
      */
     public Optional<Output<String>> isp() {
         return Optional.ofNullable(this.isp);
@@ -111,14 +111,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
-     *
+     * 
      */
     @Import(name="multiInterfaceNameConfig")
     private @Nullable Output<CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs> multiInterfaceNameConfig;
 
     /**
      * @return Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
-     *
+     * 
      */
     public Optional<Output<CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs>> multiInterfaceNameConfig() {
         return Optional.ofNullable(this.multiInterfaceNameConfig);
@@ -126,14 +126,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Number of instances.
-     *
+     * 
      */
     @Import(name="num")
     private @Nullable Output<Integer> num;
 
     /**
      * @return Number of instances.
-     *
+     * 
      */
     public Optional<Output<Integer>> num() {
         return Optional.ofNullable(this.num);
@@ -141,14 +141,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
-     *
+     * 
      */
     @Import(name="singleInterfaceNameConfig")
     private @Nullable Output<CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs> singleInterfaceNameConfig;
 
     /**
      * @return Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
-     *
+     * 
      */
     public Optional<Output<CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs>> singleInterfaceNameConfig() {
         return Optional.ofNullable(this.singleInterfaceNameConfig);
@@ -156,14 +156,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Subnet ID. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-     *
+     * 
      */
     @Import(name="subnetIdentity")
     private @Nullable Output<String> subnetIdentity;
 
     /**
      * @return Subnet ID. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-     *
+     * 
      */
     public Optional<Output<String>> subnetIdentity() {
         return Optional.ofNullable(this.subnetIdentity);
@@ -171,14 +171,14 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
     /**
      * Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-     *
+     * 
      */
     @Import(name="vpcIdentity")
     private @Nullable Output<String> vpcIdentity;
 
     /**
      * @return Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-     *
+     * 
      */
     public Optional<Output<String>> vpcIdentity() {
         return Optional.ofNullable(this.vpcIdentity);
@@ -220,9 +220,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param areaName Region name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder areaName(@Nullable Output<String> areaName) {
             $.areaName = areaName;
@@ -231,9 +231,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param areaName Region name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder areaName(String areaName) {
             return areaName(Output.of(areaName));
@@ -241,9 +241,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param clusterName Node name. Specify the node where you want to deploy the edge service.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
@@ -252,9 +252,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param clusterName Node name. Specify the node where you want to deploy the edge service.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
@@ -262,9 +262,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param defaultIsp Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder defaultIsp(@Nullable Output<String> defaultIsp) {
             $.defaultIsp = defaultIsp;
@@ -273,9 +273,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param defaultIsp Default ISP. This parameter applies only to multi-line nodes. When specifying the default ISP, ensure it is within the node ISP range. Only one ISP can be set as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must match the ISP specified in external*network*mode. For example, when external*network*mode is single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is single*interface*single*ip or no*interface, default*isp does not need to be specified.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder defaultIsp(String defaultIsp) {
             return defaultIsp(Output.of(defaultIsp));
@@ -283,9 +283,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param externalNetworkMode Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder externalNetworkMode(@Nullable Output<String> externalNetworkMode) {
             $.externalNetworkMode = externalNetworkMode;
@@ -294,9 +294,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param externalNetworkMode Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: Single NIC, multiple IPs. If you are a new multi-line node user, submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: Single NIC, CMCC IP. Submit a ticket to enable the relevant permissions. single*interface*cucc*ip: Single NIC, CUCC IP. Submit a ticket to enable the relevant permissions. single*interface*ctcc*ip: Single NIC, CTCC IP. Submit a ticket to enable the relevant permissions. multi*interface*multi*ip: Multiple NICs, multiple IPs. Submit a ticket to enable the relevant permissions. single*interface*single*ip: Single NIC, single IP. In this mode, the system randomly assigns a public IP address from an available carrier based on inventory. no*interface: No public NIC. Submit a ticket to enable the relevant permissions. Default value: When a public NIC is present: If single NIC multi-IP permission is enabled, single*interface*multi*ip (Single NIC, multiple IPs) is used by default. If single NIC multi-IP permission is disabled, single*interface*single*ip (Single NIC, single IP) is used by default. If no public NIC is present, no*interface is used by default.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder externalNetworkMode(String externalNetworkMode) {
             return externalNetworkMode(Output.of(externalNetworkMode));
@@ -304,9 +304,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param hostNameLists List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to &#34;hosta&#34;,&#34;hostb&#34;, then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder hostNameLists(@Nullable Output<List<String>> hostNameLists) {
             $.hostNameLists = hostNameLists;
@@ -315,9 +315,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param hostNameLists List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to &#34;hosta&#34;,&#34;hostb&#34;, then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder hostNameLists(List<String> hostNameLists) {
             return hostNameLists(Output.of(hostNameLists));
@@ -325,9 +325,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param hostNameLists List of hostnames. The system assigns hostnames to created edge instances in order. You can use both the host*name*list and instance*host*name parameters at the same time. Both parameters take effect, but host*name*list has higher priority than instance*host*name. For example, if you create 3 edge instances in bulk, set instance*host*name to host, and set host*name*list to &#34;hosta&#34;,&#34;hostb&#34;, then the names of the 3 edge instances will be hosta, hostb, and host-3 respectively.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder hostNameLists(String... hostNameLists) {
             return hostNameLists(List.of(hostNameLists));
@@ -335,9 +335,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param isp Carrier. Possible values: CMCC, CTCC, CUCC.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder isp(@Nullable Output<String> isp) {
             $.isp = isp;
@@ -346,9 +346,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param isp Carrier. Possible values: CMCC, CTCC, CUCC.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder isp(String isp) {
             return isp(Output.of(isp));
@@ -356,9 +356,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param multiInterfaceNameConfig Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder multiInterfaceNameConfig(@Nullable Output<CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs> multiInterfaceNameConfig) {
             $.multiInterfaceNameConfig = multiInterfaceNameConfig;
@@ -367,9 +367,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param multiInterfaceNameConfig Network interface names for private network type edge instances configured with multiple public network interfaces. You can use this parameter to set the names of public and private network interfaces. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure, and also set the interface name using the multi*interface*name*config parameter, only the latter will take effect. If you set the public network interface name only through the custom*external*interface*name parameter in the network*config structure, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the Telecom public network interface. The names for the Unicom and Mobile public network interfaces will use the default values. If you do not set the interface name, the default values will be used: Linux edge instances: The default name for the private network interface is eth0. The default name for the Telecom public network interface is eth1. The default name for the Unicom public network interface is eth2. The default name for the Mobile public network interface is eth3. Windows edge instances: The default name for the private network interface is Ethernet0. The default name for the Telecom public network interface is Ethernet1. The default name for the Unicom public network interface is Ethernet2. The default name for the Mobile public network interface is Ethernet3. Notes: The multi*interface*name*config parameter and the single*interface*name*config parameter cannot be specified at the same time. The names of different network interfaces on the same edge instance must be unique. When using the multi*interface*name*config parameter, you must specify all interface names at the same time.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder multiInterfaceNameConfig(CloudServerInstanceAreaNumMultiInterfaceNameConfigArgs multiInterfaceNameConfig) {
             return multiInterfaceNameConfig(Output.of(multiInterfaceNameConfig));
@@ -377,9 +377,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param num Number of instances.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder num(@Nullable Output<Integer> num) {
             $.num = num;
@@ -388,9 +388,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param num Number of instances.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder num(Integer num) {
             return num(Output.of(num));
@@ -398,9 +398,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param singleInterfaceNameConfig Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder singleInterfaceNameConfig(@Nullable Output<CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs> singleInterfaceNameConfig) {
             $.singleInterfaceNameConfig = singleInterfaceNameConfig;
@@ -409,9 +409,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param singleInterfaceNameConfig Network interface card name for a private network type edge instance configured with a single public network interface card. You can use this parameter to set the names of the public and private network interface cards. It is recommended to set both the public and private network interface card names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the relevant feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface card name using the custom*internal*interface*name or custom*external*interface*name parameters in the network*config structure, and also set the name using the single*interface*name*config parameter, only the latter will take effect. If you do not set the network interface card name, the default values will be used: For Linux edge instances: the private network interface card name defaults to eth0, and the public network interface card name defaults to eth1. For Windows edge instances: the private network interface card name defaults to Ethernet0, and the public network interface card name defaults to Ethernet1. Notes: The single*interface*name*config parameter and the multi*interface*name*config parameter cannot be specified at the same time. The names of different network interface cards within the same edge instance must be unique. This parameter applies to edge instances with a single public network interface card on both single-line and multi-line nodes, but does not apply to edge instances with multiple public network interface cards on multi-line nodes.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder singleInterfaceNameConfig(CloudServerInstanceAreaNumSingleInterfaceNameConfigArgs singleInterfaceNameConfig) {
             return singleInterfaceNameConfig(Output.of(singleInterfaceNameConfig));
@@ -419,9 +419,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param subnetIdentity Subnet ID. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnetIdentity(@Nullable Output<String> subnetIdentity) {
             $.subnetIdentity = subnetIdentity;
@@ -430,9 +430,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param subnetIdentity Subnet ID. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnetIdentity(String subnetIdentity) {
             return subnetIdentity(Output.of(subnetIdentity));
@@ -440,9 +440,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param vpcIdentity Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vpcIdentity(@Nullable Output<String> vpcIdentity) {
             $.vpcIdentity = vpcIdentity;
@@ -451,9 +451,9 @@ public final class CloudServerInstanceAreaNumArgs extends com.pulumi.resources.R
 
         /**
          * @param vpcIdentity Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, you must also set&lt;span pulumi-lang-nodejs=&#34; subnetIdentity &#34; pulumi-lang-dotnet=&#34; SubnetIdentity &#34; pulumi-lang-go=&#34; subnetIdentity &#34; pulumi-lang-python=&#34; subnet_identity &#34; pulumi-lang-yaml=&#34; subnetIdentity &#34; pulumi-lang-java=&#34; subnetIdentity &#34; pulumi-lang-hcl=&#34; subnet_identity &#34;&gt; subnetIdentity &lt;/span&gt;to specify the subnet.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vpcIdentity(String vpcIdentity) {
             return vpcIdentity(Output.of(vpcIdentity));

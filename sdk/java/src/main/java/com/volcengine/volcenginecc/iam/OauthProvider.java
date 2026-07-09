@@ -16,14 +16,14 @@ import javax.annotation.Nullable;
 
 /**
  * OAuth Identity Provider Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -35,12 +35,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var iAMOauthProviderDemo = new OauthProvider("iAMOauthProviderDemo", OauthProviderArgs.builder()
  *             .oauthProviderName("tf_oauth")
@@ -57,102 +57,102 @@ import javax.annotation.Nullable;
  *             .identityMapType(1)
  *             .idpIdentityKey("username")
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:iam/oauthProvider:OauthProvider example &#34;oauth_provider_name&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:iam/oauthProvider:OauthProvider")
 public class OauthProvider extends com.pulumi.resources.CustomResource {
     /**
      * OAuth Authorization Access Template
-     *
+     * 
      */
     @Export(name="authorizeTemplate", refs={String.class}, tree="[0]")
     private Output<String> authorizeTemplate;
 
     /**
      * @return OAuth Authorization Access Template
-     *
+     * 
      */
     public Output<String> authorizeTemplate() {
         return this.authorizeTemplate;
     }
     /**
      * OAuth Authorization Endpoint Address
-     *
+     * 
      */
     @Export(name="authorizeUrl", refs={String.class}, tree="[0]")
     private Output<String> authorizeUrl;
 
     /**
      * @return OAuth Authorization Endpoint Address
-     *
+     * 
      */
     public Output<String> authorizeUrl() {
         return this.authorizeUrl;
     }
     /**
      * OAuth Application Client Id
-     *
+     * 
      */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
      * @return OAuth Application Client Id
-     *
+     * 
      */
     public Output<String> clientId() {
         return this.clientId;
     }
     /**
      * OAuth Authorization Application Secret
-     *
+     * 
      */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
      * @return OAuth Authorization Application Secret
-     *
+     * 
      */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
     /**
      * Creation Time
-     *
+     * 
      */
     @Export(name="createDate", refs={String.class}, tree="[0]")
     private Output<String> createDate;
 
     /**
      * @return Creation Time
-     *
+     * 
      */
     public Output<String> createDate() {
         return this.createDate;
     }
     /**
      * Identity Provider Description
-     *
+     * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
      * @return Identity Provider Description
-     *
+     * 
      */
     public Output<String> description() {
         return this.description;
@@ -161,7 +161,7 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
      * OAuth User Info Sub-User Mapping Method
      *   1. Map Sub-User Name
      *   2. Map Sub-User Secure Mobile Number
-     *
+     * 
      */
     @Export(name="identityMapType", refs={Integer.class}, tree="[0]")
     private Output<Integer> identityMapType;
@@ -170,63 +170,63 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
      * @return OAuth User Info Sub-User Mapping Method
      *   1. Map Sub-User Name
      *   2. Map Sub-User Secure Mobile Number
-     *
+     * 
      */
     public Output<Integer> identityMapType() {
         return this.identityMapType;
     }
     /**
      * OAuth User Info Mapping Field
-     *
+     * 
      */
     @Export(name="idpIdentityKey", refs={String.class}, tree="[0]")
     private Output<String> idpIdentityKey;
 
     /**
      * @return OAuth User Info Mapping Field
-     *
+     * 
      */
     public Output<String> idpIdentityKey() {
         return this.idpIdentityKey;
     }
     /**
      * OAuth Identity Provider Name
-     *
+     * 
      */
     @Export(name="oauthProviderName", refs={String.class}, tree="[0]")
     private Output<String> oauthProviderName;
 
     /**
      * @return OAuth Identity Provider Name
-     *
+     * 
      */
     public Output<String> oauthProviderName() {
         return this.oauthProviderName;
     }
     /**
      * Identity Provider ID
-     *
+     * 
      */
     @Export(name="providerId", refs={String.class}, tree="[0]")
     private Output<String> providerId;
 
     /**
      * @return Identity Provider ID
-     *
+     * 
      */
     public Output<String> providerId() {
         return this.providerId;
     }
     /**
      * OAuth Authorization Service Scope (separate multiple scopes with spaces)
-     *
+     * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
      * @return OAuth Authorization Service Scope (separate multiple scopes with spaces)
-     *
+     * 
      */
     public Output<String> scope() {
         return this.scope;
@@ -235,7 +235,7 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
      * Identity Provider SSO Type
      *   1. Role SSO (not supported yet)
      *   2. User SSO
-     *
+     * 
      */
     @Export(name="ssoType", refs={Integer.class}, tree="[0]")
     private Output<Integer> ssoType;
@@ -244,7 +244,7 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
      * @return Identity Provider SSO Type
      *   1. Role SSO (not supported yet)
      *   2. User SSO
-     *
+     * 
      */
     public Output<Integer> ssoType() {
         return this.ssoType;
@@ -254,7 +254,7 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
      *   1. Enabled
      *   2. Enabled (other login methods disabled)
      *   3. Disabled
-     *
+     * 
      */
     @Export(name="status", refs={Integer.class}, tree="[0]")
     private Output<Integer> status;
@@ -264,63 +264,63 @@ public class OauthProvider extends com.pulumi.resources.CustomResource {
      *   1. Enabled
      *   2. Enabled (other login methods disabled)
      *   3. Disabled
-     *
+     * 
      */
     public Output<Integer> status() {
         return this.status;
     }
     /**
      * OAuth Authorization Service AccessToken Endpoint Address
-     *
+     * 
      */
     @Export(name="tokenUrl", refs={String.class}, tree="[0]")
     private Output<String> tokenUrl;
 
     /**
      * @return OAuth Authorization Service AccessToken Endpoint Address
-     *
+     * 
      */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
     /**
      * Identity Provider Trn
-     *
+     * 
      */
     @Export(name="trn", refs={String.class}, tree="[0]")
     private Output<String> trn;
 
     /**
      * @return Identity Provider Trn
-     *
+     * 
      */
     public Output<String> trn() {
         return this.trn;
     }
     /**
      * Update Time
-     *
+     * 
      */
     @Export(name="updateDate", refs={String.class}, tree="[0]")
     private Output<String> updateDate;
 
     /**
      * @return Update Time
-     *
+     * 
      */
     public Output<String> updateDate() {
         return this.updateDate;
     }
     /**
      * OAuth Authorization Service User Info Endpoint Address
-     *
+     * 
      */
     @Export(name="userInfoUrl", refs={String.class}, tree="[0]")
     private Output<String> userInfoUrl;
 
     /**
      * @return OAuth Authorization Service User Info Endpoint Address
-     *
+     * 
      */
     public Output<String> userInfoUrl() {
         return this.userInfoUrl;

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
 {
     /// <summary>
     /// Cluster Management Kubeconfig
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vKEKubeconfigDemo = new Volcenginecc.Vke.Kubeconfig("VKEKubeconfigDemo", new()
     ///     {
@@ -29,12 +29,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vke
     ///         Type = "Private",
     ///         ValidDuration = 2,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vke/kubeconfig:Kubeconfig example "cluster_id|kubeconfig_id"
     /// ```

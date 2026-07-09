@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 {
     /// <summary>
     /// A prefix list is a collection of CIDR blocks used to simplify the configuration of security group rules and route table entries. When the prefix list is modified, all associated resources are updated synchronously.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var prefixlistDemo = new Volcenginecc.Vpc.PrefixList("PrefixlistDemo", new()
     ///     {
@@ -47,12 +47,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpc/prefixList:PrefixList example "prefix_list_id"
     /// ```

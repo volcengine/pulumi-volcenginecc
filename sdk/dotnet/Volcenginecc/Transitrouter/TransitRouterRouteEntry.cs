@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 {
     /// <summary>
     /// By creating or deleting static routes in route tables associated with network instance connections or cross-region connections, you can flexibly control traffic direction in the transit router
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var transitRouterRouteEntryDemo = new Volcenginecc.Transitrouter.TransitRouterRouteEntry("TransitRouterRouteEntryDemo", new()
     ///     {
@@ -33,12 +33,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     ///         TransitRouterRouteEntryNextHopType = "Attachment",
     ///         TransitRouterRouteEntryType = "Propagated",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:transitrouter/transitRouterRouteEntry:TransitRouterRouteEntry example "transit_router_route_table_id|transit_router_route_entry_id"
     /// ```

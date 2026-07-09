@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
     /// Refers to the backup object, which is the starting point for cloud backup operations. It can be a computing resource, service instance, or a group of collaborative services and resources from the backup source product, such as ECS full instance, cloud disk, or object storage bucket.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cBRBackupResourceDemo = new Volcenginecc.Cbr.BackupResource("CBRBackupResourceDemo", new()
     ///     {
@@ -29,12 +29,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
     ///         InstanceName = "CBRBackupResourceDemo",
     ///         ResourceType = "ECS",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cbr/backupResource:BackupResource example "resource_id"
     /// ```

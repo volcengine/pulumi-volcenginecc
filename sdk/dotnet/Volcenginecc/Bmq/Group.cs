@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
 {
     /// <summary>
     /// A group of consumers with the same Group ID. When multiple consumers in the same Group consume a Topic, each message is delivered to only one consumer, enabling load balancing. Using Groups ensures that messages in a Topic are consumed in parallel.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var bMQGroupDemo = new Volcenginecc.Bmq.Group("BMQGroupDemo", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
     ///             Partition_id = 1,
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:bmq/group:Group example "group_id"
     /// ```

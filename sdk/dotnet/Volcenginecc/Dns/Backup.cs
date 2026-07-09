@@ -12,27 +12,27 @@ namespace Volcengine.Pulumi.Volcenginecc.Dns
 {
     /// <summary>
     /// Backup Information
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var dNSBackupDemo = new Volcenginecc.Dns.Backup("DNSBackupDemo", new()
     ///     {
     ///         Zid = "21xxxx",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:dns/backup:Backup example "zid|backup_id"
     /// ```

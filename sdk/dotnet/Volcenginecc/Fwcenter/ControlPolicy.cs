@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Fwcenter
 {
     /// <summary>
     /// Internet boundary firewall access control policy
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Fwcenter.ControlPolicy("Example", new()
     ///     {
@@ -49,12 +49,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Fwcenter
     ///         StartTime = 1782230400,
     ///         EndTime = 1782489540,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:fwcenter/controlPolicy:ControlPolicy example "rule_id|direction"
     /// ```

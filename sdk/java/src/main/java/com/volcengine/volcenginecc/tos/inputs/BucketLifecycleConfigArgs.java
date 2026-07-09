@@ -25,14 +25,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Specify expiration attributes for unmerged multipart tasks (fragments)
-     *
+     * 
      */
     @Import(name="abortInCompleteMultipartUpload")
     private @Nullable Output<BucketLifecycleConfigAbortInCompleteMultipartUploadArgs> abortInCompleteMultipartUpload;
 
     /**
      * @return Specify expiration attributes for unmerged multipart tasks (fragments)
-     *
+     * 
      */
     public Optional<Output<BucketLifecycleConfigAbortInCompleteMultipartUploadArgs>> abortInCompleteMultipartUpload() {
         return Optional.ofNullable(this.abortInCompleteMultipartUpload);
@@ -40,14 +40,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
-     *
+     * 
      */
     @Import(name="expiration")
     private @Nullable Output<BucketLifecycleConfigExpirationArgs> expiration;
 
     /**
      * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
-     *
+     * 
      */
     public Optional<Output<BucketLifecycleConfigExpirationArgs>> expiration() {
         return Optional.ofNullable(this.expiration);
@@ -55,14 +55,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Filter conditions for applying the rule
-     *
+     * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketLifecycleConfigFilterArgs> filter;
 
     /**
      * @return Filter conditions for applying the rule
-     *
+     * 
      */
     public Optional<Output<BucketLifecycleConfigFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
@@ -70,14 +70,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Rule ID
-     *
+     * 
      */
     @Import(name="lifecycleRuleId")
     private @Nullable Output<String> lifecycleRuleId;
 
     /**
      * @return Rule ID
-     *
+     * 
      */
     public Optional<Output<String>> lifecycleRuleId() {
         return Optional.ofNullable(this.lifecycleRuleId);
@@ -93,7 +93,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     /**
      * Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="nonCurrentVersionTransitions")
     private @Nullable Output<List<BucketLifecycleConfigNonCurrentVersionTransitionArgs>> nonCurrentVersionTransitions;
@@ -101,7 +101,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketLifecycleConfigNonCurrentVersionTransitionArgs>>> nonCurrentVersionTransitions() {
         return Optional.ofNullable(this.nonCurrentVersionTransitions);
@@ -109,14 +109,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Prefix to which the rule applies
-     *
+     * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
      * @return Prefix to which the rule applies
-     *
+     * 
      */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
@@ -124,14 +124,14 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Enable rule. Includes Enabled, Disabled.
-     *
+     * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return Enable rule. Includes Enabled, Disabled.
-     *
+     * 
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
@@ -140,7 +140,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     /**
      * Tag
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<List<BucketLifecycleConfigTagArgs>> tags;
@@ -148,7 +148,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return Tag
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketLifecycleConfigTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
@@ -157,7 +157,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     /**
      * Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="transitions")
     private @Nullable Output<List<BucketLifecycleConfigTransitionArgs>> transitions;
@@ -165,7 +165,7 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketLifecycleConfigTransitionArgs>>> transitions() {
         return Optional.ofNullable(this.transitions);
@@ -206,9 +206,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param abortInCompleteMultipartUpload Specify expiration attributes for unmerged multipart tasks (fragments)
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder abortInCompleteMultipartUpload(@Nullable Output<BucketLifecycleConfigAbortInCompleteMultipartUploadArgs> abortInCompleteMultipartUpload) {
             $.abortInCompleteMultipartUpload = abortInCompleteMultipartUpload;
@@ -217,9 +217,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param abortInCompleteMultipartUpload Specify expiration attributes for unmerged multipart tasks (fragments)
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder abortInCompleteMultipartUpload(BucketLifecycleConfigAbortInCompleteMultipartUploadArgs abortInCompleteMultipartUpload) {
             return abortInCompleteMultipartUpload(Output.of(abortInCompleteMultipartUpload));
@@ -227,9 +227,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param expiration Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder expiration(@Nullable Output<BucketLifecycleConfigExpirationArgs> expiration) {
             $.expiration = expiration;
@@ -238,9 +238,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param expiration Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder expiration(BucketLifecycleConfigExpirationArgs expiration) {
             return expiration(Output.of(expiration));
@@ -248,9 +248,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param filter Filter conditions for applying the rule
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder filter(@Nullable Output<BucketLifecycleConfigFilterArgs> filter) {
             $.filter = filter;
@@ -259,9 +259,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param filter Filter conditions for applying the rule
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder filter(BucketLifecycleConfigFilterArgs filter) {
             return filter(Output.of(filter));
@@ -269,9 +269,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param lifecycleRuleId Rule ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder lifecycleRuleId(@Nullable Output<String> lifecycleRuleId) {
             $.lifecycleRuleId = lifecycleRuleId;
@@ -280,9 +280,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param lifecycleRuleId Rule ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder lifecycleRuleId(String lifecycleRuleId) {
             return lifecycleRuleId(Output.of(lifecycleRuleId));
@@ -300,9 +300,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param nonCurrentVersionTransitions Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder nonCurrentVersionTransitions(@Nullable Output<List<BucketLifecycleConfigNonCurrentVersionTransitionArgs>> nonCurrentVersionTransitions) {
             $.nonCurrentVersionTransitions = nonCurrentVersionTransitions;
@@ -312,9 +312,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param nonCurrentVersionTransitions Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder nonCurrentVersionTransitions(List<BucketLifecycleConfigNonCurrentVersionTransitionArgs> nonCurrentVersionTransitions) {
             return nonCurrentVersionTransitions(Output.of(nonCurrentVersionTransitions));
@@ -323,9 +323,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param nonCurrentVersionTransitions Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder nonCurrentVersionTransitions(BucketLifecycleConfigNonCurrentVersionTransitionArgs... nonCurrentVersionTransitions) {
             return nonCurrentVersionTransitions(List.of(nonCurrentVersionTransitions));
@@ -333,9 +333,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param prefix Prefix to which the rule applies
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
@@ -344,9 +344,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param prefix Prefix to which the rule applies
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
@@ -354,9 +354,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param status Enable rule. Includes Enabled, Disabled.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
@@ -365,9 +365,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param status Enable rule. Includes Enabled, Disabled.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder status(String status) {
             return status(Output.of(status));
@@ -376,9 +376,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param tags Tag
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(@Nullable Output<List<BucketLifecycleConfigTagArgs>> tags) {
             $.tags = tags;
@@ -388,9 +388,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param tags Tag
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(List<BucketLifecycleConfigTagArgs> tags) {
             return tags(Output.of(tags));
@@ -399,9 +399,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param tags Tag
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(BucketLifecycleConfigTagArgs... tags) {
             return tags(List.of(tags));
@@ -410,9 +410,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param transitions Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder transitions(@Nullable Output<List<BucketLifecycleConfigTransitionArgs>> transitions) {
             $.transitions = transitions;
@@ -422,9 +422,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param transitions Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder transitions(List<BucketLifecycleConfigTransitionArgs> transitions) {
             return transitions(Output.of(transitions));
@@ -433,9 +433,9 @@ public final class BucketLifecycleConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param transitions Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder transitions(BucketLifecycleConfigTransitionArgs... transitions) {
             return transitions(List.of(transitions));

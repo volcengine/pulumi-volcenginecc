@@ -23,14 +23,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket name
-     *
+     * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
      * @return Bucket name
-     *
+     * 
      */
     public Output<String> bucket() {
         return this.bucket;
@@ -38,14 +38,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Error page configuration
-     *
+     * 
      */
     @Import(name="errorDocument")
     private @Nullable Output<BucketWebsiteErrorDocumentArgs> errorDocument;
 
     /**
      * @return Error page configuration
-     *
+     * 
      */
     public Optional<Output<BucketWebsiteErrorDocumentArgs>> errorDocument() {
         return Optional.ofNullable(this.errorDocument);
@@ -53,14 +53,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Default homepage configuration
-     *
+     * 
      */
     @Import(name="indexDocument")
     private @Nullable Output<BucketWebsiteIndexDocumentArgs> indexDocument;
 
     /**
      * @return Default homepage configuration
-     *
+     * 
      */
     public Optional<Output<BucketWebsiteIndexDocumentArgs>> indexDocument() {
         return Optional.ofNullable(this.indexDocument);
@@ -68,14 +68,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Rule for redirecting all requests
-     *
+     * 
      */
     @Import(name="redirectAllRequestsTo")
     private @Nullable Output<BucketWebsiteRedirectAllRequestsToArgs> redirectAllRequestsTo;
 
     /**
      * @return Rule for redirecting all requests
-     *
+     * 
      */
     public Optional<Output<BucketWebsiteRedirectAllRequestsToArgs>> redirectAllRequestsTo() {
         return Optional.ofNullable(this.redirectAllRequestsTo);
@@ -84,7 +84,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Redirect rule
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="routingRules")
     private @Nullable Output<List<BucketWebsiteRoutingRuleArgs>> routingRules;
@@ -92,7 +92,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Redirect rule
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketWebsiteRoutingRuleArgs>>> routingRules() {
         return Optional.ofNullable(this.routingRules);
@@ -128,9 +128,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucket Bucket name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
@@ -139,9 +139,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucket Bucket name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
@@ -149,9 +149,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param errorDocument Error page configuration
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder errorDocument(@Nullable Output<BucketWebsiteErrorDocumentArgs> errorDocument) {
             $.errorDocument = errorDocument;
@@ -160,9 +160,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param errorDocument Error page configuration
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder errorDocument(BucketWebsiteErrorDocumentArgs errorDocument) {
             return errorDocument(Output.of(errorDocument));
@@ -170,9 +170,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param indexDocument Default homepage configuration
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder indexDocument(@Nullable Output<BucketWebsiteIndexDocumentArgs> indexDocument) {
             $.indexDocument = indexDocument;
@@ -181,9 +181,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param indexDocument Default homepage configuration
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder indexDocument(BucketWebsiteIndexDocumentArgs indexDocument) {
             return indexDocument(Output.of(indexDocument));
@@ -191,9 +191,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param redirectAllRequestsTo Rule for redirecting all requests
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder redirectAllRequestsTo(@Nullable Output<BucketWebsiteRedirectAllRequestsToArgs> redirectAllRequestsTo) {
             $.redirectAllRequestsTo = redirectAllRequestsTo;
@@ -202,9 +202,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param redirectAllRequestsTo Rule for redirecting all requests
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder redirectAllRequestsTo(BucketWebsiteRedirectAllRequestsToArgs redirectAllRequestsTo) {
             return redirectAllRequestsTo(Output.of(redirectAllRequestsTo));
@@ -213,9 +213,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingRules Redirect rule
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder routingRules(@Nullable Output<List<BucketWebsiteRoutingRuleArgs>> routingRules) {
             $.routingRules = routingRules;
@@ -225,9 +225,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingRules Redirect rule
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder routingRules(List<BucketWebsiteRoutingRuleArgs> routingRules) {
             return routingRules(Output.of(routingRules));
@@ -236,9 +236,9 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingRules Redirect rule
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder routingRules(BucketWebsiteRoutingRuleArgs... routingRules) {
             return routingRules(List.of(routingRules));

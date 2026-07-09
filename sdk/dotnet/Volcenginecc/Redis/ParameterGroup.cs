@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
 {
     /// <summary>
     /// Volcano Engine Cloud Database Redis Edition parameter group, used to manage and apply Redis instance parameter configurations in bulk
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var redisParameterGroupDemo = new Volcenginecc.Redis.ParameterGroup("RedisParameterGroupDemo", new()
     ///     {
@@ -42,12 +42,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis
     ///         },
     ///         Name = "test-redis6-param-group",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:redis/parameterGroup:ParameterGroup example "parameter_group_id"
     /// ```

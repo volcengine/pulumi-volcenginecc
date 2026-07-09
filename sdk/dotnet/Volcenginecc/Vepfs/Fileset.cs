@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs
 {
     /// <summary>
     /// Fileset details
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vEPFSFilesetDemo = new Volcenginecc.Vepfs.Fileset("VEPFSFilesetDemo", new()
     ///     {
@@ -29,12 +29,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs
     ///         FileSystemId = "vepfs-cnbj81448xxxxx",
     ///         FilesetPathOnCreate = "/test1/",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vepfs/fileset:Fileset example "file_system_id|fileset_id"
     /// ```
@@ -122,7 +122,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs
 
         /// <summary>
         /// Fileset status. The possible values are:
-        ///
+        ///   
         ///     - `Creating`: Creating
         ///     - `CreateError`: Creation failed
         ///     - `Running`: Running
@@ -313,7 +313,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs
 
         /// <summary>
         /// Fileset status. The possible values are:
-        ///
+        ///   
         ///     - `Creating`: Creating
         ///     - `CreateError`: Creation failed
         ///     - `Running`: Running

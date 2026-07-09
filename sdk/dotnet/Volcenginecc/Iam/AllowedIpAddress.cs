@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 {
     /// <summary>
     /// IP allowlist configuration
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var iAMAllowedIpAddressDemo = new Volcenginecc.Iam.AllowedIpAddress("IAMAllowedIpAddressDemo", new()
     ///     {
@@ -45,12 +45,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:iam/allowedIpAddress:AllowedIpAddress example "user_id"
     /// ```

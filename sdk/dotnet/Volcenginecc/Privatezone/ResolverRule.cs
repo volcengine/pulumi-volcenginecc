@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
 {
     /// <summary>
     /// Forwarding rule details
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateZoneResolverRuleDemo = new Volcenginecc.Privatezone.ResolverRule("PrivateZoneResolverRuleDemo", new()
     ///     {
@@ -50,12 +50,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatezone/resolverRule:ResolverRule example "rule_id"
     /// ```

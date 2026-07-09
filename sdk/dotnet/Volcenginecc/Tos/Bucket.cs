@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var bucketDemo = new Volcenginecc.Tos.Bucket("BucketDemo", new()
     ///     {
@@ -71,12 +71,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucket:Bucket example "name"
     /// ```

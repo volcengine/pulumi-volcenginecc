@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
 {
     /// <summary>
     /// VPC access endpoint
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cRVpcEndpointDemo = new Volcenginecc.Cr.VpcEndpoint("CRVpcEndpointDemo", new()
     ///     {
@@ -36,12 +36,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cr/vpcEndpoint:VpcEndpoint example "registry"
     /// ```

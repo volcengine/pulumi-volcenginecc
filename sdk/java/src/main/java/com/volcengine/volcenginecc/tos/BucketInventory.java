@@ -20,14 +20,14 @@ import javax.annotation.Nullable;
 
 /**
  * Bucket inventory rules. After creating a bucket inventory, TOS outputs various object information daily or weekly, including object count, size, storage type, and more.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var tOSBucketInventoryDemo = new BucketInventory("tOSBucketInventoryDemo", BucketInventoryArgs.builder()
  *             .bucketName("ccapi-test")
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .isEnabled(true)
  *             .isUnCompressed(false)
  *             .optionalFields(BucketInventoryOptionalFieldsArgs.builder()
- *                 .field(Arrays.asList(
+ *                 .field(Arrays.asList(                
  *                     "StorageClass",
  *                     "IntelligentTieringAccessTier"))
  *                 .build())
@@ -77,144 +77,144 @@ import javax.annotation.Nullable;
  *                 .frequency("Weekly")
  *                 .build())
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketInventory:BucketInventory example &#34;bucket_name|inventory_id&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:tos/bucketInventory:BucketInventory")
 public class BucketInventory extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name.
-     *
+     * 
      */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
      * @return Bucket name.
-     *
+     * 
      */
     public Output<String> bucketName() {
         return this.bucketName;
     }
     /**
      * Information related to inventory files.
-     *
+     * 
      */
     @Export(name="destination", refs={BucketInventoryDestination.class}, tree="[0]")
     private Output<BucketInventoryDestination> destination;
 
     /**
      * @return Information related to inventory files.
-     *
+     * 
      */
     public Output<BucketInventoryDestination> destination() {
         return this.destination;
     }
     /**
      * Prefix for filtering bucket inventory.
-     *
+     * 
      */
     @Export(name="filter", refs={BucketInventoryFilter.class}, tree="[0]")
     private Output<BucketInventoryFilter> filter;
 
     /**
      * @return Prefix for filtering bucket inventory.
-     *
+     * 
      */
     public Output<BucketInventoryFilter> filter() {
         return this.filter;
     }
     /**
      * Object version to export. Options: All: export information for all object versions. Current: export information for the current object version.
-     *
+     * 
      */
     @Export(name="includedObjectVersions", refs={String.class}, tree="[0]")
     private Output<String> includedObjectVersions;
 
     /**
      * @return Object version to export. Options: All: export information for all object versions. Current: export information for the current object version.
-     *
+     * 
      */
     public Output<String> includedObjectVersions() {
         return this.includedObjectVersions;
     }
     /**
      * Bucket inventory name, which must be globally unique within the current bucket. Details: Length must be 0–64 characters. Only lowercase letters a–z, uppercase letters A–Z, digits 0–9, hyphens (-), underscores (_), and periods (.) are allowed. The name must start and end with a lowercase letter a–z, uppercase letter A–Z, or digit 0–9.
-     *
+     * 
      */
     @Export(name="inventoryId", refs={String.class}, tree="[0]")
     private Output<String> inventoryId;
 
     /**
      * @return Bucket inventory name, which must be globally unique within the current bucket. Details: Length must be 0–64 characters. Only lowercase letters a–z, uppercase letters A–Z, digits 0–9, hyphens (-), underscores (_), and periods (.) are allowed. The name must start and end with a lowercase letter a–z, uppercase letter A–Z, or digit 0–9.
-     *
+     * 
      */
     public Output<String> inventoryId() {
         return this.inventoryId;
     }
     /**
      * Whether to enable the bucket inventory feature. Options: true: enable; false: disable.
-     *
+     * 
      */
     @Export(name="isEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isEnabled;
 
     /**
      * @return Whether to enable the bucket inventory feature. Options: true: enable; false: disable.
-     *
+     * 
      */
     public Output<Boolean> isEnabled() {
         return this.isEnabled;
     }
     /**
      * Whether it is uncompressed.
-     *
+     * 
      */
     @Export(name="isUnCompressed", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isUnCompressed;
 
     /**
      * @return Whether it is uncompressed.
-     *
+     * 
      */
     public Output<Boolean> isUnCompressed() {
         return this.isUnCompressed;
     }
     /**
      * Information about exported inventory files.
-     *
+     * 
      */
     @Export(name="optionalFields", refs={BucketInventoryOptionalFields.class}, tree="[0]")
     private Output<BucketInventoryOptionalFields> optionalFields;
 
     /**
      * @return Information about exported inventory files.
-     *
+     * 
      */
     public Output<BucketInventoryOptionalFields> optionalFields() {
         return this.optionalFields;
     }
     /**
      * Bucket inventory export frequency information.
-     *
+     * 
      */
     @Export(name="schedule", refs={BucketInventorySchedule.class}, tree="[0]")
     private Output<BucketInventorySchedule> schedule;
 
     /**
      * @return Bucket inventory export frequency information.
-     *
+     * 
      */
     public Output<BucketInventorySchedule> schedule() {
         return this.schedule;

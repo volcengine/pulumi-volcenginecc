@@ -12,24 +12,24 @@ namespace Volcengine.Pulumi.Volcenginecc.Organization
 {
     /// <summary>
     /// Enterprise Organization Management
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var organizationDemo = new Volcenginecc.Organization.Organization("organizationDemo");
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:organization/organization:Organization example "organization_id"
     /// ```

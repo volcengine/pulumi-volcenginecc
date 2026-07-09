@@ -17,14 +17,14 @@ import javax.annotation.Nullable;
 
 /**
  * Configure origin fetch rules for the specified TOS bucket. When an object request meets the specified conditions, TOS can fetch the object from a public or private origin according to the rules.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -45,19 +45,19 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var tOSBucketMirrorBackDemo = new BucketMirrorBack("tOSBucketMirrorBackDemo", BucketMirrorBackArgs.builder()
  *             .bucket("ccapi-test")
  *             .rules(BucketMirrorBackRuleArgs.builder()
  *                 .condition(BucketMirrorBackRuleConditionArgs.builder()
  *                     .httpCode(404)
- *                     .httpMethod(Arrays.asList(
+ *                     .httpMethod(Arrays.asList(                    
  *                         "GET",
  *                         "HEAD"))
  *                     .keyPrefix("object-key-prefix")
@@ -75,10 +75,10 @@ import javax.annotation.Nullable;
  *                     .followRedirect(true)
  *                     .mirrorHeader(BucketMirrorBackRuleRedirectMirrorHeaderArgs.builder()
  *                         .passAll(true)
- *                         .pass(Arrays.asList(
+ *                         .pass(Arrays.asList(                        
  *                             "aaa",
  *                             "bbb"))
- *                         .remove(Arrays.asList(
+ *                         .remove(Arrays.asList(                        
  *                             "xxx",
  *                             "yyy"))
  *                         .set(Arrays.asList(Map.ofEntries(
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .passHeaderFromSource(Arrays.asList("X-Source-Header"))
  *                     .passQuery(true)
- *                     .passStatusCodeFromSource(Arrays.asList(
+ *                     .passStatusCodeFromSource(Arrays.asList(                    
  *                         404,
  *                         500))
  *                     .privateSource(BucketMirrorBackRuleRedirectPrivateSourceArgs.builder()
@@ -135,32 +135,32 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketMirrorBack:BucketMirrorBack example &#34;bucket&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:tos/bucketMirrorBack:BucketMirrorBack")
 public class BucketMirrorBack extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name requiring origin fetch rule configuration.
-     *
+     * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
      * @return Bucket name requiring origin fetch rule configuration.
-     *
+     * 
      */
     public Output<String> bucket() {
         return this.bucket;
@@ -168,7 +168,7 @@ public class BucketMirrorBack extends com.pulumi.resources.CustomResource {
     /**
      * Array of origin fetch policy rules.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="rules", refs={List.class,BucketMirrorBackRule.class}, tree="[0,1]")
     private Output<List<BucketMirrorBackRule>> rules;
@@ -176,7 +176,7 @@ public class BucketMirrorBack extends com.pulumi.resources.CustomResource {
     /**
      * @return Array of origin fetch policy rules.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BucketMirrorBackRule>> rules() {
         return this.rules;

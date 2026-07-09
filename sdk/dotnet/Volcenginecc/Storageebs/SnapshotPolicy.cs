@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
 {
     /// <summary>
     /// Automatic snapshot policy
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var storageEBSSnapshotPolicyDemo = new Volcenginecc.Storageebs.SnapshotPolicy("StorageEBSSnapshotPolicyDemo", new()
     ///     {
@@ -52,12 +52,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:storageebs/snapshotPolicy:SnapshotPolicy example "auto_snapshot_policy_id"
     /// ```

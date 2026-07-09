@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb
 {
     /// <summary>
     /// After you create a MongoDB document database instance, you can set an allowlist for the instance to permit external devices to access it. This article describes how to set an allowlist in the console.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var mongoDBAllowListDemo = new Volcenginecc.Mongodb.AllowList("MongoDBAllowListDemo", new()
     ///     {
@@ -48,12 +48,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:mongodb/allowList:AllowList example "allow_list_id"
     /// ```

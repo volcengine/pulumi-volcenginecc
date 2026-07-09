@@ -20,14 +20,14 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     *
+     * 
      */
     @Import(name="allAuthority", required=true)
     private Output<String> allAuthority;
 
     /**
      * @return Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     *
+     * 
      */
     public Output<String> allAuthority() {
         return this.allAuthority;
@@ -35,14 +35,14 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     *
+     * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     *
+     * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
@@ -50,14 +50,14 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance ID
-     *
+     * 
      */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
     /**
      * @return Instance ID
-     *
+     * 
      */
     public Output<String> instanceId() {
         return this.instanceId;
@@ -66,7 +66,7 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="topicPermissions")
     private @Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions;
@@ -74,7 +74,7 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<AccessKeyTopicPermissionArgs>>> topicPermissions() {
         return Optional.ofNullable(this.topicPermissions);
@@ -109,9 +109,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allAuthority Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder allAuthority(Output<String> allAuthority) {
             $.allAuthority = allAuthority;
@@ -120,9 +120,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allAuthority Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder allAuthority(String allAuthority) {
             return allAuthority(Output.of(allAuthority));
@@ -130,9 +130,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
@@ -141,9 +141,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder description(String description) {
             return description(Output.of(description));
@@ -151,9 +151,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -162,9 +162,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -173,9 +173,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder topicPermissions(@Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions) {
             $.topicPermissions = topicPermissions;
@@ -185,9 +185,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder topicPermissions(List<AccessKeyTopicPermissionArgs> topicPermissions) {
             return topicPermissions(Output.of(topicPermissions));
@@ -196,9 +196,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder topicPermissions(AccessKeyTopicPermissionArgs... topicPermissions) {
             return topicPermissions(List.of(topicPermissions));

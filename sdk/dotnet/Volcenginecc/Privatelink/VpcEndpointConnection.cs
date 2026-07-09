@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink
 {
     /// <summary>
     /// Unidirectional, private network connection established between the endpoint and the endpoint service
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateLinkVpcEndpointConnectionDemo = new Volcenginecc.Privatelink.VpcEndpointConnection("PrivateLinkVpcEndpointConnectionDemo", new()
     ///     {
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatelink/vpcEndpointConnection:VpcEndpointConnection example "service_id|endpoint_id"
     /// ```

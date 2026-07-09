@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs
 {
     /// <summary>
     /// File storage vePFS is a newly launched high-throughput, low-latency, scalable parallel file system service designed to meet the high-throughput and low-latency data read/write requirements in high-performance computing scenarios. It can be widely used in HPC (high-performance computing), AI training or inference, energy exploration, industrial simulation, film rendering, life sciences, meteorological analysis, and other scenarios. vePFS also provides one-click deployment and integrated monitoring and alerting capabilities, eliminating deployment and maintenance costs while maximizing your business efficiency.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vEPFSInstanceDemo = new Volcenginecc.Vepfs.Instance("VEPFSInstanceDemo", new()
     ///     {
@@ -46,12 +46,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vepfs
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vepfs/instance:Instance example "file_system_id"
     /// ```

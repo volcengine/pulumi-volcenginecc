@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
 {
     /// <summary>
     /// The cloud-native messaging engine is 100% compatible with the Apache Kafka protocol. It offers a fully managed, high-throughput, low-latency, highly available, highly scalable, and highly stable distributed messaging engine service based on cloud-native architecture. Supports flexible and dynamic scaling, integrated stream and batch processing, and provides enterprise-grade real-time stream data processing capabilities for large-scale data. Helps you build the 'central nervous system' for data processing, widely used in scenarios such as log collection, data aggregation, and offline data analysis.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var bMQInstanceDemo = new Volcenginecc.Bmq.Instance("BMQInstanceDemo", new()
     ///     {
@@ -67,12 +67,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Bmq
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:bmq/instance:Instance example "instance_id"
     /// ```

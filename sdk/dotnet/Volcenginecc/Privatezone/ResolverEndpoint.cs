@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
 {
     /// <summary>
     /// In scenarios where external DNS query requests are forwarded to the resolver, you need to create an endpoint. After receiving DNS query requests forwarded by the resolver, outbound endpoints forward DNS queries to external DNS servers. After receiving DNS query requests from external sources, inbound endpoints forward DNS queries to the resolver
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateZoneResolverEndpointDemo = new Volcenginecc.Privatezone.ResolverEndpoint("PrivateZoneResolverEndpointDemo", new()
     ///     {
@@ -55,12 +55,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
     ///         VpcRegion = "cn-beijing",
     ///         Direction = "OUTBOUND",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatezone/resolverEndpoint:ResolverEndpoint example "endpoint_id"
     /// ```

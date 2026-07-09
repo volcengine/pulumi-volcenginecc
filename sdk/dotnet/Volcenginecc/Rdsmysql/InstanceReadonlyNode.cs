@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
 {
     /// <summary>
     /// Read-only node resources for RDS MySQL instances (NodeType=ReadOnly). Create, delete, or modify specifications using CreateDBNodes/DeleteDBNodes/ModifyDBNodeSpec; retrieve node details using DescribeDBInstanceHAConfig + DescribeReadOnlyNodeDelay; modify replication delay configuration using ModifyReadOnlyNodeDelayReplicationTime
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Rdsmysql.InstanceReadonlyNode("Example", new()
     ///     {
@@ -34,12 +34,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
     ///         },
     ///         DelayReplicationTime = 300,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdsmysql/instanceReadonlyNode:InstanceReadonlyNode example "instance_id|node_id"
     /// ```

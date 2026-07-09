@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
 {
     /// <summary>
     /// An instance launch template is a collection of instance configuration information for quickly purchasing instances. You can store all configuration information except passwords in the template, including key pairs, compute specifications, cloud disks, networks, etc. If all configuration information is valid, you can purchase instances with one click without repeated configuration.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var ecsLaunchTemplateDemo = new Volcenginecc.Ecs.LaunchTemplate("EcsLaunchTemplateDemo", new()
     ///     {
@@ -54,7 +54,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     ///             Key_pair_name = "MigrationKey-job-yecd7dromy38dfaxgxt8",
     ///             Network_interfaces = new[]
     ///             {
-    ///
+    ///                 
     ///                 {
     ///                     { "securityGroupIds", new[]
     ///                     {
@@ -64,7 +64,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     ///                 },
     ///             },
     ///             Project_name = "default",
-    ///             Scheduled_instance =
+    ///             Scheduled_instance = 
     ///             {
     ///                 { "scheduledInstanceDescription", "test" },
     ///                 { "scheduledInstanceName", "test-template" },
@@ -111,12 +111,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:ecs/launchTemplate:LaunchTemplate example "launch_template_id"
     /// ```

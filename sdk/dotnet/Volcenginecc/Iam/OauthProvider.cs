@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 {
     /// <summary>
     /// OAuth Identity Provider Resource
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var iAMOauthProviderDemo = new Volcenginecc.Iam.OauthProvider("IAMOauthProviderDemo", new()
     ///     {
@@ -39,12 +39,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///         IdentityMapType = 1,
     ///         IdpIdentityKey = "username",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:iam/oauthProvider:OauthProvider example "oauth_provider_name"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
 {
     /// <summary>
     /// The user gateway is a collection and abstraction of information on your local gateway side. With the user gateway, you can register local gateway information to the cloud VPC. One user gateway can connect to multiple VPN gateways
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vpncustomergatewayDemo = new Volcenginecc.Vpn.CustomerGateway("vpncustomergatewayDemo", new()
     ///     {
@@ -32,12 +32,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
     ///         IpVersion = "ipv4",
     ///         ProjectName = "default",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpn/customerGateway:CustomerGateway example "customer_gateway_id"
     /// ```

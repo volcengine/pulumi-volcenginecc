@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
 {
     /// <summary>
     /// SSL client certificate is a sub-resource of the SSL server.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vPNSslVpnClientCertDemo = new Volcenginecc.Vpn.SslVpnClientCert("VPNSslVpnClientCertDemo", new()
     ///     {
@@ -37,12 +37,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpn/sslVpnClientCert:SslVpnClientCert example "ssl_vpn_client_cert_id"
     /// ```

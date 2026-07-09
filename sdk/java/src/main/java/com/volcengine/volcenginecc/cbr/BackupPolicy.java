@@ -17,14 +17,14 @@ import javax.annotation.Nullable;
 
 /**
  * The backup policy defines information such as backup cycle and backup type. Subsequently, backup plans associate the backup policy with backup storage space to achieve automatic backup
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -36,12 +36,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var cBRBackupPolicyDemo = new BackupPolicy("cBRBackupPolicyDemo", BackupPolicyArgs.builder()
  *             .backupType("INCREMENTAL")
@@ -52,186 +52,186 @@ import javax.annotation.Nullable;
  *             .retentionNumMax(-1)
  *             .retentionNumMin(2)
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:cbr/backupPolicy:BackupPolicy example &#34;policy_id&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:cbr/backupPolicy:BackupPolicy")
 public class BackupPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Account ID that created this policy
-     *
+     * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
      * @return Account ID that created this policy
-     *
+     * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
      * Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
-     *
+     * 
      */
     @Export(name="backupType", refs={String.class}, tree="[0]")
     private Output<String> backupType;
 
     /**
      * @return Backup type. Values are as follows: FULL: full backup; INCREMENTAL: incremental backup
-     *
+     * 
      */
     public Output<String> backupType() {
         return this.backupType;
     }
     /**
      * Creation time
-     *
+     * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
      * @return Creation time
-     *
+     * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
      * Backup cycle, using a crontab expression
-     *
+     * 
      */
     @Export(name="crontab", refs={String.class}, tree="[0]")
     private Output<String> crontab;
 
     /**
      * @return Backup cycle, using a crontab expression
-     *
+     * 
      */
     public Output<String> crontab() {
         return this.crontab;
     }
     /**
      * Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
-     *
+     * 
      */
     @Export(name="enablePolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enablePolicy;
 
     /**
      * @return Whether the policy is enabled. Values are as follows: true: policy enabled; false: policy disabled
-     *
+     * 
      */
     public Output<Boolean> enablePolicy() {
         return this.enablePolicy;
     }
     /**
      * Policy Name
-     *
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Policy Name
-     *
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
      * Number of backup plans associated with this policy
-     *
+     * 
      */
     @Export(name="planNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> planNumber;
 
     /**
      * @return Number of backup plans associated with this policy
-     *
+     * 
      */
     public Output<Integer> planNumber() {
         return this.planNumber;
     }
     /**
      * Backup Policy ID
-     *
+     * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
      * @return Backup Policy ID
-     *
+     * 
      */
     public Output<String> policyId() {
         return this.policyId;
     }
     /**
      * Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
-     *
+     * 
      */
     @Export(name="retentionDay", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionDay;
 
     /**
      * @return Restore point retention period. -1 means retain indefinitely. Other valid values range from [1, 999999]
-     *
+     * 
      */
     public Output<Integer> retentionDay() {
         return this.retentionDay;
     }
     /**
      * Maximum number of restore points retained
-     *
+     * 
      */
     @Export(name="retentionNumMax", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionNumMax;
 
     /**
      * @return Maximum number of restore points retained
-     *
+     * 
      */
     public Output<Integer> retentionNumMax() {
         return this.retentionNumMax;
     }
     /**
      * Minimum restore point retention limit
-     *
+     * 
      */
     @Export(name="retentionNumMin", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionNumMin;
 
     /**
      * @return Minimum restore point retention limit
-     *
+     * 
      */
     public Output<Integer> retentionNumMin() {
         return this.retentionNumMin;
     }
     /**
      * Update time
-     *
+     * 
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
      * @return Update time
-     *
+     * 
      */
     public Output<String> updatedTime() {
         return this.updatedTime;

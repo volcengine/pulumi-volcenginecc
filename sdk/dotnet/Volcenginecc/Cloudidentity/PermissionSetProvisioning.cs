@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudidentity
 {
     /// <summary>
     /// Deploy permission set to the specified account
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cloudIdentityPermissionSetProvisioningDemo = new Volcenginecc.Cloudidentity.PermissionSetProvisioning("CloudIdentityPermissionSetProvisioningDemo", new()
     ///     {
     ///         PermissionSetId = "897569*****",
     ///         TargetId = "21036*****",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cloudidentity/permissionSetProvisioning:PermissionSetProvisioning example "permission_set_id|target_id"
     /// ```

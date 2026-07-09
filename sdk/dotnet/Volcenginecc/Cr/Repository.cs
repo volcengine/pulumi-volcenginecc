@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
 {
     /// <summary>
     /// The OCI artifact repository is used to store container images, Helm Charts, and other OCI (Open Container Initiative) artifacts that comply with open container standards.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var repositoryDemo = new Volcenginecc.Cr.Repository("RepositoryDemo", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
     ///         Description = "RepositoryDemo description",
     ///         AccessLevel = "Public",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cr/repository:Repository example "registry|namespace|name"
     /// ```

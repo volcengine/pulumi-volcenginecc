@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink
 {
     /// <summary>
     /// Gateway endpoint
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateLinkGatewayEndpointDemo = new Volcenginecc.Privatelink.GatewayEndpoint("PrivateLinkGatewayEndpointDemo", new()
     ///     {
@@ -40,12 +40,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink
     ///         },
     ///         ServiceId = "gwepsvc-3rxxxxxxsk2ilz3f62",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatelink/gatewayEndpoint:GatewayEndpoint example "endpoint_id"
     /// ```

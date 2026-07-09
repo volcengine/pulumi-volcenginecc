@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
 {
     /// <summary>
     /// A DNS record maps a domain name to resource information within a VPC.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateZoneRecordDemo = new Volcenginecc.Privatezone.Record("PrivateZoneRecordDemo", new()
     ///     {
@@ -35,12 +35,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatezone
     ///         Zid = 403215,
     ///         Enable = true,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatezone/record:Record example "record_id"
     /// ```

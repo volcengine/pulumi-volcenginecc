@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
     /// Group, also known as Consumer Group, is a collection of consumers with similar consumption behavior, used to categorize and manage different consumers. Each consumer group consumes different types of messages. Within each consumer group, the logic for publishing or subscribing to messages is consistent. In RocketMQ Message Queue, you need to create a Group and use the Group ID to identify different types of producers or consumers.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rocketMQGroupDemo = new Volcenginecc.Rocketmq.Group("RocketMQGroupDemo", new()
     ///     {
@@ -32,12 +32,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     ///         GroupType = "TCP",
     ///         RetryMaxTimes = 2,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rocketmq/group:Group example "instance_id|group_id"
     /// ```

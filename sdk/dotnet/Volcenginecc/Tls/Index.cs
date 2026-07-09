@@ -12,17 +12,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
 {
     /// <summary>
     /// The log service supports log search and analysis. You must configure indexes to enable log search and analysis. When configuring indexes, specify the index type and the data type for each field. The index configuration determines the search method and the precision of search results.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Std = Pulumi.Std;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tLSIndexDemo = new Volcenginecc.Tls.Index("TLSIndexDemo", new()
     ///     {
@@ -238,12 +238,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tls/index:Index example "topic_id"
     /// ```

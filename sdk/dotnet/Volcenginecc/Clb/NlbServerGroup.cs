@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
 {
     /// <summary>
     /// A server group is a set of backend servers.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var nLBServerGroupDemo = new Volcenginecc.Clb.NlbServerGroup("NLBServerGroupDemo", new()
     ///     {
@@ -71,12 +71,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Clb
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:clb/nlbServerGroup:NlbServerGroup example "server_group_id"
     /// ```

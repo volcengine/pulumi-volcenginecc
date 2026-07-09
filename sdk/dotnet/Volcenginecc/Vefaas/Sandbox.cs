@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
 {
     /// <summary>
     /// A sandbox instance is a secure and isolated container runtime environment that actually runs the sandbox image in the cloud sandbox
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vefaasSandboxDemo = new Volcenginecc.Vefaas.Sandbox("VefaasSandboxDemo", new()
     ///     {
@@ -51,7 +51,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///             Enable = true,
     ///             Tos_mount_points = new[]
     ///             {
-    ///
+    ///                 
     ///                 {
     ///                     { "bucketPath", "/mnt/tos" },
     ///                     { "localMountPath", "/mnt/tos" },
@@ -67,12 +67,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vefaas
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vefaas/sandbox:Sandbox example "function_id|sandbox_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
 {
     /// <summary>
     /// The physical connection is a dedicated physical connection resource in the dedicated connection service, used to connect the local IDC to the Volcano Engine access point
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Directconnect.Connection("Example", new()
     ///     {
@@ -46,12 +46,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:directconnect/connection:Connection example "direct_connect_connection_id"
     /// ```

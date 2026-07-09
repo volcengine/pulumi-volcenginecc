@@ -20,14 +20,14 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Bucket name.
-     *
+     * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
      * @return Bucket name.
-     *
+     * 
      */
     public Output<String> bucketName() {
         return this.bucketName;
@@ -36,7 +36,7 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
     /**
      * Event notification rule information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="notificationRules")
     private @Nullable Output<List<BucketNotificationNotificationRuleArgs>> notificationRules;
@@ -44,7 +44,7 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Event notification rule information.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketNotificationNotificationRuleArgs>>> notificationRules() {
         return Optional.ofNullable(this.notificationRules);
@@ -77,9 +77,9 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param bucketName Bucket name.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
@@ -88,9 +88,9 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param bucketName Bucket name.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
@@ -99,9 +99,9 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param notificationRules Event notification rule information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder notificationRules(@Nullable Output<List<BucketNotificationNotificationRuleArgs>> notificationRules) {
             $.notificationRules = notificationRules;
@@ -111,9 +111,9 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param notificationRules Event notification rule information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder notificationRules(List<BucketNotificationNotificationRuleArgs> notificationRules) {
             return notificationRules(Output.of(notificationRules));
@@ -122,9 +122,9 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param notificationRules Event notification rule information.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder notificationRules(BucketNotificationNotificationRuleArgs... notificationRules) {
             return notificationRules(List.of(notificationRules));

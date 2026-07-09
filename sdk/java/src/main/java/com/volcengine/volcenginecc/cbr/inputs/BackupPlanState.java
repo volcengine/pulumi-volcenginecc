@@ -20,14 +20,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Account ID that created this plan
-     *
+     * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
      * @return Account ID that created this plan
-     *
+     * 
      */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
@@ -35,14 +35,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Creation Time
-     *
+     * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
      * @return Creation Time
-     *
+     * 
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
@@ -50,14 +50,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Plan Name
-     *
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Backup Plan Name
-     *
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
@@ -65,14 +65,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Plan ID
-     *
+     * 
      */
     @Import(name="planId")
     private @Nullable Output<String> planId;
 
     /**
      * @return Backup Plan ID
-     *
+     * 
      */
     public Optional<Output<String>> planId() {
         return Optional.ofNullable(this.planId);
@@ -80,14 +80,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Policy
-     *
+     * 
      */
     @Import(name="policy")
     private @Nullable Output<BackupPlanPolicyArgs> policy;
 
     /**
      * @return Backup Policy
-     *
+     * 
      */
     public Optional<Output<BackupPlanPolicyArgs>> policy() {
         return Optional.ofNullable(this.policy);
@@ -95,14 +95,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Backup Policy ID
-     *
+     * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
      * @return Backup Policy ID
-     *
+     * 
      */
     public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
@@ -111,7 +111,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * Backup Source List
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="resourceLists")
     private @Nullable Output<List<BackupPlanResourceListArgs>> resourceLists;
@@ -119,7 +119,7 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Backup Source List
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BackupPlanResourceListArgs>>> resourceLists() {
         return Optional.ofNullable(this.resourceLists);
@@ -127,14 +127,14 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Update Time
-     *
+     * 
      */
     @Import(name="updatedTime")
     private @Nullable Output<String> updatedTime;
 
     /**
      * @return Update Time
-     *
+     * 
      */
     public Optional<Output<String>> updatedTime() {
         return Optional.ofNullable(this.updatedTime);
@@ -173,9 +173,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountId Account ID that created this plan
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
@@ -184,9 +184,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountId Account ID that created this plan
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
@@ -194,9 +194,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Creation Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
@@ -205,9 +205,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Creation Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
@@ -215,9 +215,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Backup Plan Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
@@ -226,9 +226,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Backup Plan Name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
@@ -236,9 +236,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param planId Backup Plan ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder planId(@Nullable Output<String> planId) {
             $.planId = planId;
@@ -247,9 +247,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param planId Backup Plan ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder planId(String planId) {
             return planId(Output.of(planId));
@@ -257,9 +257,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policy Backup Policy
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policy(@Nullable Output<BackupPlanPolicyArgs> policy) {
             $.policy = policy;
@@ -268,9 +268,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policy Backup Policy
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policy(BackupPlanPolicyArgs policy) {
             return policy(Output.of(policy));
@@ -278,9 +278,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policyId Backup Policy ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policyId(@Nullable Output<String> policyId) {
             $.policyId = policyId;
@@ -289,9 +289,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policyId Backup Policy ID
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
@@ -300,9 +300,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceLists Backup Source List
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceLists(@Nullable Output<List<BackupPlanResourceListArgs>> resourceLists) {
             $.resourceLists = resourceLists;
@@ -312,9 +312,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceLists Backup Source List
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceLists(List<BackupPlanResourceListArgs> resourceLists) {
             return resourceLists(Output.of(resourceLists));
@@ -323,9 +323,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceLists Backup Source List
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder resourceLists(BackupPlanResourceListArgs... resourceLists) {
             return resourceLists(List.of(resourceLists));
@@ -333,9 +333,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param updatedTime Update Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder updatedTime(@Nullable Output<String> updatedTime) {
             $.updatedTime = updatedTime;
@@ -344,9 +344,9 @@ public final class BackupPlanState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param updatedTime Update Time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder updatedTime(String updatedTime) {
             return updatedTime(Output.of(updatedTime));

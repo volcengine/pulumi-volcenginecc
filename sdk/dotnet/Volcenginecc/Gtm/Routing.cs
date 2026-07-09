@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
 {
     /// <summary>
     /// Used to start or stop a GTM instance. After starting, the GTM instance configures DNS resolution for the scheduling domain, and initiates health checks and failover. After stopping, health checks and failover for the GTM instance also stop. However, DNS resolution from the scheduling domain to the target address does not stop. If you need to delete DNS resolution from the scheduling domain to the target address, you can call the DeleteGtm API to delete the GTM instance.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var gTMRoutingDemo = new Volcenginecc.Gtm.Routing("GTMRoutingDemo", new()
     ///     {
     ///         GtmId = "gtm_id_xxxxx",
     ///         RoutingEnabled = true,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:gtm/routing:Routing example "gtm_id"
     /// ```

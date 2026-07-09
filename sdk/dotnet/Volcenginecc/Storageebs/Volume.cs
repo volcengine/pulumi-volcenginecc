@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
 {
     /// <summary>
     /// Cloud disk is a block storage device with high availability, high reliability, high performance, and elastic scalability. It can be used as a scalable disk for cloud servers and elastic container services.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var volumeDemo = new Volcenginecc.Storageebs.Volume("VolumeDemo", new()
     ///     {
@@ -30,12 +30,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Storageebs
     ///         Size = 10,
     ///         ZoneId = "cn-beijing-x",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:storageebs/volume:Volume example "volume_id"
     /// ```

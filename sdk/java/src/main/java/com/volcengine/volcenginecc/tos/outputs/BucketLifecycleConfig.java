@@ -21,79 +21,79 @@ import javax.annotation.Nullable;
 public final class BucketLifecycleConfig {
     /**
      * @return Specify expiration attributes for unmerged multipart tasks (fragments)
-     *
+     * 
      */
     private @Nullable BucketLifecycleConfigAbortInCompleteMultipartUpload abortInCompleteMultipartUpload;
     /**
      * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
-     *
+     * 
      */
     private @Nullable BucketLifecycleConfigExpiration expiration;
     /**
      * @return Filter conditions for applying the rule
-     *
+     * 
      */
     private @Nullable BucketLifecycleConfigFilter filter;
     /**
      * @return Rule ID
-     *
+     * 
      */
     private @Nullable String lifecycleRuleId;
     private @Nullable BucketLifecycleConfigNoCurrentVersionExpiration noCurrentVersionExpiration;
     /**
      * @return Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     private @Nullable List<BucketLifecycleConfigNonCurrentVersionTransition> nonCurrentVersionTransitions;
     /**
      * @return Prefix to which the rule applies
-     *
+     * 
      */
     private @Nullable String prefix;
     /**
      * @return Enable rule. Includes Enabled, Disabled.
-     *
+     * 
      */
     private @Nullable String status;
     /**
      * @return Tag
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     private @Nullable List<BucketLifecycleConfigTag> tags;
     /**
      * @return Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     private @Nullable List<BucketLifecycleConfigTransition> transitions;
 
     private BucketLifecycleConfig() {}
     /**
      * @return Specify expiration attributes for unmerged multipart tasks (fragments)
-     *
+     * 
      */
     public Optional<BucketLifecycleConfigAbortInCompleteMultipartUpload> abortInCompleteMultipartUpload() {
         return Optional.ofNullable(this.abortInCompleteMultipartUpload);
     }
     /**
      * @return Expiration attribute for deleting the latest version object in the lifecycle rule based on last modified time
-     *
+     * 
      */
     public Optional<BucketLifecycleConfigExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
     /**
      * @return Filter conditions for applying the rule
-     *
+     * 
      */
     public Optional<BucketLifecycleConfigFilter> filter() {
         return Optional.ofNullable(this.filter);
     }
     /**
      * @return Rule ID
-     *
+     * 
      */
     public Optional<String> lifecycleRuleId() {
         return Optional.ofNullable(this.lifecycleRuleId);
@@ -104,21 +104,21 @@ public final class BucketLifecycleConfig {
     /**
      * @return Expiration attribute for transitioning historical version objects in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public List<BucketLifecycleConfigNonCurrentVersionTransition> nonCurrentVersionTransitions() {
         return this.nonCurrentVersionTransitions == null ? List.of() : this.nonCurrentVersionTransitions;
     }
     /**
      * @return Prefix to which the rule applies
-     *
+     * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
      * @return Enable rule. Includes Enabled, Disabled.
-     *
+     * 
      */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
@@ -126,7 +126,7 @@ public final class BucketLifecycleConfig {
     /**
      * @return Tag
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public List<BucketLifecycleConfigTag> tags() {
         return this.tags == null ? List.of() : this.tags;
@@ -134,7 +134,7 @@ public final class BucketLifecycleConfig {
     /**
      * @return Expiration attribute for transitioning the latest version object in the lifecycle rule based on last modified time
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public List<BucketLifecycleConfigTransition> transitions() {
         return this.transitions == null ? List.of() : this.transitions;

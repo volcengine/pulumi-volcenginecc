@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
     /// In a RocketMQ instance, a Topic is the basic unit for sending and consuming messages. RocketMQ Message Queue categorizes and manages different types of messages using Topics. Producers send messages to RocketMQ Topics, and consumers consume messages by subscribing to those Topics.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rocketMQTopicDemo = new Volcenginecc.Rocketmq.Topic("RocketMQTopicDemo", new()
     ///     {
@@ -39,12 +39,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rocketmq/topic:Topic example "instance_id|topic_name"
     /// ```

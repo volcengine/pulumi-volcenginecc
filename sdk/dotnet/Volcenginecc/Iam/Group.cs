@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
 {
     /// <summary>
     /// A user group is a collection of users. When a user group is associated with a policy, all users in the group gain the corresponding policy permissions. A user can belong to multiple user groups and have permissions from each group.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var groupDemo = new Volcenginecc.Iam.Group("GroupDemo", new()
     ///     {
@@ -43,7 +43,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///                 Policy_name = "ECSFullAccess",
     ///                 Policy_scope = new[]
     ///                 {
-    ///
+    ///                     
     ///                     {
     ///                         { "attachTime", "20230810T071***Z" },
     ///                         { "policyScopeType", "Project" },
@@ -54,12 +54,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Iam
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:iam/group:Group example "user_group_name"
     /// ```

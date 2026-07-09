@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
 {
     /// <summary>
     /// RocketMQ Message Queue is a distributed messaging middleware service built on Apache RocketMQ. It is fully compatible with all open-source RocketMQ components and concepts, offering low latency, high elasticity and high reliability, and high throughput. No changes to business code are required, enabling users to quickly migrate to the cloud.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rocketMQInstanceDemo = new Volcenginecc.Rocketmq.Instance("RocketMQInstanceDemo", new()
     ///     {
@@ -58,12 +58,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rocketmq
     ///         InstanceDescription = "RocketMQInstanceDemo description",
     ///         EipId = "eip-bt6jb362txxxxx2zbpbo",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rocketmq/instance:Instance example "instance_id"
     /// ```

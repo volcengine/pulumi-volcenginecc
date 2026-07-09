@@ -21,14 +21,14 @@ import javax.annotation.Nullable;
 
 /**
  * A bucket is a container for storing objects. All objects must belong to a bucket. Buckets have various configuration properties, including region and access permissions. You can create different types of buckets to store different data based on your needs.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App }{{@code
  *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
  *     }}{@code
- *
+ * 
  *     public static void stack(Context ctx) }{{@code
  *         var bucketDemo = new Bucket("bucketDemo", BucketArgs.builder()
  *             .name("bucket-demo")
@@ -88,32 +88,32 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .build());
- *
+ * 
  *     }}{@code
  * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:tos/bucket:Bucket example &#34;name&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:tos/bucket:Bucket")
 public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * Bucket access control permissions
-     *
+     * 
      */
     @Export(name="acl", refs={BucketAcl.class}, tree="[0]")
     private Output<BucketAcl> acl;
 
     /**
      * @return Bucket access control permissions
-     *
+     * 
      */
     public Output<BucketAcl> acl() {
         return this.acl;
@@ -126,84 +126,84 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     }
     /**
      * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
-     *
+     * 
      */
     @Export(name="azRedundancy", refs={String.class}, tree="[0]")
     private Output<String> azRedundancy;
 
     /**
      * @return Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
-     *
+     * 
      */
     public Output<String> azRedundancy() {
         return this.azRedundancy;
     }
     /**
      * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
-     *
+     * 
      */
     @Export(name="bucketType", refs={String.class}, tree="[0]")
     private Output<String> bucketType;
 
     /**
      * @return Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
-     *
+     * 
      */
     public Output<String> bucketType() {
         return this.bucketType;
     }
     /**
      * Bucket creation time
-     *
+     * 
      */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
     /**
      * @return Bucket creation time
-     *
+     * 
      */
     public Output<String> creationDate() {
         return this.creationDate;
     }
     /**
      * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
-     *
+     * 
      */
     @Export(name="enableVersionStatus", refs={String.class}, tree="[0]")
     private Output<String> enableVersionStatus;
 
     /**
      * @return Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
-     *
+     * 
      */
     public Output<String> enableVersionStatus() {
         return this.enableVersionStatus;
     }
     /**
      * TOS protocol public access domain name for the bucket
-     *
+     * 
      */
     @Export(name="extranetEndpoint", refs={String.class}, tree="[0]")
     private Output<String> extranetEndpoint;
 
     /**
      * @return TOS protocol public access domain name for the bucket
-     *
+     * 
      */
     public Output<String> extranetEndpoint() {
         return this.extranetEndpoint;
     }
     /**
      * Private network access domain name for the bucket&#39;s TOS protocol
-     *
+     * 
      */
     @Export(name="intranetEndpoint", refs={String.class}, tree="[0]")
     private Output<String> intranetEndpoint;
 
     /**
      * @return Private network access domain name for the bucket&#39;s TOS protocol
-     *
+     * 
      */
     public Output<String> intranetEndpoint() {
         return this.intranetEndpoint;
@@ -211,7 +211,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * Bucket lifecycle
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="lifecycleConfigs", refs={List.class,BucketLifecycleConfig.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfig>> lifecycleConfigs;
@@ -219,91 +219,91 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * @return Bucket lifecycle
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BucketLifecycleConfig>> lifecycleConfigs() {
         return this.lifecycleConfigs;
     }
     /**
      * Bucket region
-     *
+     * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
      * @return Bucket region
-     *
+     * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
      * Bucket name
-     *
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Bucket name
-     *
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
      * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
-     *
+     * 
      */
     @Export(name="objectLockConfiguration", refs={BucketObjectLockConfiguration.class}, tree="[0]")
     private Output<BucketObjectLockConfiguration> objectLockConfiguration;
 
     /**
      * @return Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
-     *
+     * 
      */
     public Output<BucketObjectLockConfiguration> objectLockConfiguration() {
         return this.objectLockConfiguration;
     }
     /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
-     *
+     * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
      * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
-     *
+     * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
      * Project associated with the bucket
-     *
+     * 
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
      * @return Project associated with the bucket
-     *
+     * 
      */
     public Output<String> projectName() {
         return this.projectName;
     }
     /**
      * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
-     *
+     * 
      */
     @Export(name="storageClass", refs={String.class}, tree="[0]")
     private Output<String> storageClass;
 
     /**
      * @return Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
-     *
+     * 
      */
     public Output<String> storageClass() {
         return this.storageClass;
@@ -311,7 +311,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * Bucket tag information
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="tags", refs={List.class,BucketTag.class}, tree="[0,1]")
     private Output<List<BucketTag>> tags;
@@ -319,7 +319,7 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * @return Bucket tag information
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<BucketTag>> tags() {
         return this.tags;

@@ -23,14 +23,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket access control permissions
-     *
+     * 
      */
     @Import(name="acl")
     private @Nullable Output<BucketAclArgs> acl;
 
     /**
      * @return Bucket access control permissions
-     *
+     * 
      */
     public Optional<Output<BucketAclArgs>> acl() {
         return Optional.ofNullable(this.acl);
@@ -45,14 +45,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
-     *
+     * 
      */
     @Import(name="azRedundancy")
     private @Nullable Output<String> azRedundancy;
 
     /**
      * @return Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
-     *
+     * 
      */
     public Optional<Output<String>> azRedundancy() {
         return Optional.ofNullable(this.azRedundancy);
@@ -60,14 +60,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
-     *
+     * 
      */
     @Import(name="bucketType")
     private @Nullable Output<String> bucketType;
 
     /**
      * @return Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
-     *
+     * 
      */
     public Optional<Output<String>> bucketType() {
         return Optional.ofNullable(this.bucketType);
@@ -75,14 +75,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket creation time
-     *
+     * 
      */
     @Import(name="creationDate")
     private @Nullable Output<String> creationDate;
 
     /**
      * @return Bucket creation time
-     *
+     * 
      */
     public Optional<Output<String>> creationDate() {
         return Optional.ofNullable(this.creationDate);
@@ -90,14 +90,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
-     *
+     * 
      */
     @Import(name="enableVersionStatus")
     private @Nullable Output<String> enableVersionStatus;
 
     /**
      * @return Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
-     *
+     * 
      */
     public Optional<Output<String>> enableVersionStatus() {
         return Optional.ofNullable(this.enableVersionStatus);
@@ -105,14 +105,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * TOS protocol public access domain name for the bucket
-     *
+     * 
      */
     @Import(name="extranetEndpoint")
     private @Nullable Output<String> extranetEndpoint;
 
     /**
      * @return TOS protocol public access domain name for the bucket
-     *
+     * 
      */
     public Optional<Output<String>> extranetEndpoint() {
         return Optional.ofNullable(this.extranetEndpoint);
@@ -120,14 +120,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Private network access domain name for the bucket&#39;s TOS protocol
-     *
+     * 
      */
     @Import(name="intranetEndpoint")
     private @Nullable Output<String> intranetEndpoint;
 
     /**
      * @return Private network access domain name for the bucket&#39;s TOS protocol
-     *
+     * 
      */
     public Optional<Output<String>> intranetEndpoint() {
         return Optional.ofNullable(this.intranetEndpoint);
@@ -136,7 +136,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     /**
      * Bucket lifecycle
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="lifecycleConfigs")
     private @Nullable Output<List<BucketLifecycleConfigArgs>> lifecycleConfigs;
@@ -144,7 +144,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Bucket lifecycle
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketLifecycleConfigArgs>>> lifecycleConfigs() {
         return Optional.ofNullable(this.lifecycleConfigs);
@@ -152,14 +152,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket region
-     *
+     * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
      * @return Bucket region
-     *
+     * 
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
@@ -167,14 +167,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket name
-     *
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Bucket name
-     *
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
@@ -182,14 +182,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
-     *
+     * 
      */
     @Import(name="objectLockConfiguration")
     private @Nullable Output<BucketObjectLockConfigurationArgs> objectLockConfiguration;
 
     /**
      * @return Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
-     *
+     * 
      */
     public Optional<Output<BucketObjectLockConfigurationArgs>> objectLockConfiguration() {
         return Optional.ofNullable(this.objectLockConfiguration);
@@ -197,14 +197,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
-     *
+     * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
      * @return String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
-     *
+     * 
      */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
@@ -212,14 +212,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Project associated with the bucket
-     *
+     * 
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
      * @return Project associated with the bucket
-     *
+     * 
      */
     public Optional<Output<String>> projectName() {
         return Optional.ofNullable(this.projectName);
@@ -227,14 +227,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
-     *
+     * 
      */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
     /**
      * @return Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
-     *
+     * 
      */
     public Optional<Output<String>> storageClass() {
         return Optional.ofNullable(this.storageClass);
@@ -243,7 +243,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     /**
      * Bucket tag information
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<List<BucketTagArgs>> tags;
@@ -251,7 +251,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Bucket tag information
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
@@ -298,9 +298,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param acl Bucket access control permissions
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder acl(@Nullable Output<BucketAclArgs> acl) {
             $.acl = acl;
@@ -309,9 +309,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param acl Bucket access control permissions
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder acl(BucketAclArgs acl) {
             return acl(Output.of(acl));
@@ -328,9 +328,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azRedundancy Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder azRedundancy(@Nullable Output<String> azRedundancy) {
             $.azRedundancy = azRedundancy;
@@ -339,9 +339,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azRedundancy Bucket availability zone redundancy type. Includes single-az: single availability zone redundancy, multi-az: multi availability zone redundancy
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder azRedundancy(String azRedundancy) {
             return azRedundancy(Output.of(azRedundancy));
@@ -349,9 +349,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucketType Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucketType(@Nullable Output<String> bucketType) {
             $.bucketType = bucketType;
@@ -360,9 +360,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucketType Bucket type. Includes hns: hierarchical bucket type, fns: flat bucket type
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder bucketType(String bucketType) {
             return bucketType(Output.of(bucketType));
@@ -370,9 +370,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param creationDate Bucket creation time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder creationDate(@Nullable Output<String> creationDate) {
             $.creationDate = creationDate;
@@ -381,9 +381,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param creationDate Bucket creation time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder creationDate(String creationDate) {
             return creationDate(Output.of(creationDate));
@@ -391,9 +391,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enableVersionStatus Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder enableVersionStatus(@Nullable Output<String> enableVersionStatus) {
             $.enableVersionStatus = enableVersionStatus;
@@ -402,9 +402,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enableVersionStatus Bucket versioning status. Enabled: Enable versioning. Suspended: Suspend versioning
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder enableVersionStatus(String enableVersionStatus) {
             return enableVersionStatus(Output.of(enableVersionStatus));
@@ -412,9 +412,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param extranetEndpoint TOS protocol public access domain name for the bucket
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder extranetEndpoint(@Nullable Output<String> extranetEndpoint) {
             $.extranetEndpoint = extranetEndpoint;
@@ -423,9 +423,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param extranetEndpoint TOS protocol public access domain name for the bucket
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder extranetEndpoint(String extranetEndpoint) {
             return extranetEndpoint(Output.of(extranetEndpoint));
@@ -433,9 +433,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param intranetEndpoint Private network access domain name for the bucket&#39;s TOS protocol
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder intranetEndpoint(@Nullable Output<String> intranetEndpoint) {
             $.intranetEndpoint = intranetEndpoint;
@@ -444,9 +444,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param intranetEndpoint Private network access domain name for the bucket&#39;s TOS protocol
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder intranetEndpoint(String intranetEndpoint) {
             return intranetEndpoint(Output.of(intranetEndpoint));
@@ -455,9 +455,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param lifecycleConfigs Bucket lifecycle
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder lifecycleConfigs(@Nullable Output<List<BucketLifecycleConfigArgs>> lifecycleConfigs) {
             $.lifecycleConfigs = lifecycleConfigs;
@@ -467,9 +467,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param lifecycleConfigs Bucket lifecycle
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder lifecycleConfigs(List<BucketLifecycleConfigArgs> lifecycleConfigs) {
             return lifecycleConfigs(Output.of(lifecycleConfigs));
@@ -478,9 +478,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param lifecycleConfigs Bucket lifecycle
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder lifecycleConfigs(BucketLifecycleConfigArgs... lifecycleConfigs) {
             return lifecycleConfigs(List.of(lifecycleConfigs));
@@ -488,9 +488,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location Bucket region
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
@@ -499,9 +499,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location Bucket region
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder location(String location) {
             return location(Output.of(location));
@@ -509,9 +509,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Bucket name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
@@ -520,9 +520,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Bucket name
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
@@ -530,9 +530,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param objectLockConfiguration Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder objectLockConfiguration(@Nullable Output<BucketObjectLockConfigurationArgs> objectLockConfiguration) {
             $.objectLockConfiguration = objectLockConfiguration;
@@ -541,9 +541,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param objectLockConfiguration Bucket object lock (WORM retention policy) configuration. After configuring the bucket retention policy, if no object retention time is specified when uploading an object, the newly uploaded object will inherit the bucket retention time
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder objectLockConfiguration(BucketObjectLockConfigurationArgs objectLockConfiguration) {
             return objectLockConfiguration(Output.of(objectLockConfiguration));
@@ -551,9 +551,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policy String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
@@ -562,9 +562,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policy String in JSON format containing bucket policy information. The total size of all bucket policy JSONs for a single bucket must not exceed 20KB
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
@@ -572,9 +572,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param projectName Project associated with the bucket
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder projectName(@Nullable Output<String> projectName) {
             $.projectName = projectName;
@@ -583,9 +583,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param projectName Project associated with the bucket
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
@@ -593,9 +593,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageClass Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder storageClass(@Nullable Output<String> storageClass) {
             $.storageClass = storageClass;
@@ -604,9 +604,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageClass Default storage class for the bucket. Includes STANDARD: Standard storage. IA: Infrequent access storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE*FR: Archive flashback storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD_ARCHIVE: Deep cold archive storage
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder storageClass(String storageClass) {
             return storageClass(Output.of(storageClass));
@@ -615,9 +615,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Bucket tag information
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(@Nullable Output<List<BucketTagArgs>> tags) {
             $.tags = tags;
@@ -627,9 +627,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Bucket tag information
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(List<BucketTagArgs> tags) {
             return tags(Output.of(tags));
@@ -638,9 +638,9 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Bucket tag information
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder tags(BucketTagArgs... tags) {
             return tags(List.of(tags));

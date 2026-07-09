@@ -15,122 +15,122 @@ import java.util.Objects;
 public final class GetAccessKeyResult {
     /**
      * @return AccessKey ID for the RocketMQ key
-     *
+     * 
      */
     private String accessKey;
     /**
      * @return All ACL configuration information for the RocketMQ key
-     *
+     * 
      */
     private String aclConfigJson;
     /**
      * @return Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
-     *
+     * 
      */
     private Boolean actived;
     /**
      * @return Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     *
+     * 
      */
     private String allAuthority;
     /**
      * @return Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-     *
+     * 
      */
     private String createTime;
     /**
      * @return Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     *
+     * 
      */
     private String description;
     /**
      * @return Uniquely identifies the resource.
-     *
+     * 
      */
     private String id;
     /**
      * @return Instance ID
-     *
+     * 
      */
     private String instanceId;
     /**
      * @return RocketMQ key. Returned only after creation
-     *
+     * 
      */
     private String secretKey;
     /**
      * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
-     *
+     * 
      */
     private List<GetAccessKeyTopicPermission> topicPermissions;
 
     private GetAccessKeyResult() {}
     /**
      * @return AccessKey ID for the RocketMQ key
-     *
+     * 
      */
     public String accessKey() {
         return this.accessKey;
     }
     /**
      * @return All ACL configuration information for the RocketMQ key
-     *
+     * 
      */
     public String aclConfigJson() {
         return this.aclConfigJson;
     }
     /**
      * @return Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
-     *
+     * 
      */
     public Boolean actived() {
         return this.actived;
     }
     /**
      * @return Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     *
+     * 
      */
     public String allAuthority() {
         return this.allAuthority;
     }
     /**
      * @return Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-     *
+     * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
      * @return Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     *
+     * 
      */
     public String description() {
         return this.description;
     }
     /**
      * @return Uniquely identifies the resource.
-     *
+     * 
      */
     public String id() {
         return this.id;
     }
     /**
      * @return Instance ID
-     *
+     * 
      */
     public String instanceId() {
         return this.instanceId;
     }
     /**
      * @return RocketMQ key. Returned only after creation
-     *
+     * 
      */
     public String secretKey() {
         return this.secretKey;
     }
     /**
      * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
-     *
+     * 
      */
     public List<GetAccessKeyTopicPermission> topicPermissions() {
         return this.topicPermissions;

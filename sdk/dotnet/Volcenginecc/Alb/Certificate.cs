@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
 {
     /// <summary>
     /// ALB supports uploading server certificates and CA certificates to the console and manages uploaded certificates separately
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var aLBCertificateDemo = new Volcenginecc.Alb.Certificate("ALBCertificateDemo", new()
     ///     {
@@ -39,12 +39,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Alb
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:alb/certificate:Certificate example "certificate_id|certificate_type"
     /// ```

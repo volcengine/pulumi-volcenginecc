@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 {
     /// <summary>
     /// Carrier for the IPv6 gateway service. Creating an IPv6 gateway instance is required for IPv6 public network configuration
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var ipv6GatewayDemo = new Volcenginecc.Vpc.Ipv6Gateway("Ipv6GatewayDemo", new()
     ///     {
@@ -38,12 +38,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpc/ipv6Gateway:Ipv6Gateway example "ipv6_gateway_id"
     /// ```

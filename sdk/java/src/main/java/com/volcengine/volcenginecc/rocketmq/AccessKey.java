@@ -18,14 +18,14 @@ import javax.annotation.Nullable;
 
 /**
  * RocketMQ key
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var rocketMQAccessKeyDemo = new AccessKey("rocketMQAccessKeyDemo", AccessKeyArgs.builder()
  *             .topicPermissions(AccessKeyTopicPermissionArgs.builder()
@@ -54,130 +54,130 @@ import javax.annotation.Nullable;
  *             .allAuthority("SUB")
  *             .description("自定义SUB权限")
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:rocketmq/accessKey:AccessKey example &#34;instance_id|access_key&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:rocketmq/accessKey:AccessKey")
 public class AccessKey extends com.pulumi.resources.CustomResource {
     /**
      * AccessKey ID for the RocketMQ key
-     *
+     * 
      */
     @Export(name="accessKey", refs={String.class}, tree="[0]")
     private Output<String> accessKey;
 
     /**
      * @return AccessKey ID for the RocketMQ key
-     *
+     * 
      */
     public Output<String> accessKey() {
         return this.accessKey;
     }
     /**
      * All ACL configuration information for the RocketMQ key
-     *
+     * 
      */
     @Export(name="aclConfigJson", refs={String.class}, tree="[0]")
     private Output<String> aclConfigJson;
 
     /**
      * @return All ACL configuration information for the RocketMQ key
-     *
+     * 
      */
     public Output<String> aclConfigJson() {
         return this.aclConfigJson;
     }
     /**
      * Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
-     *
+     * 
      */
     @Export(name="actived", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> actived;
 
     /**
      * @return Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
-     *
+     * 
      */
     public Output<Boolean> actived() {
         return this.actived;
     }
     /**
      * Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     *
+     * 
      */
     @Export(name="allAuthority", refs={String.class}, tree="[0]")
     private Output<String> allAuthority;
 
     /**
      * @return Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     *
+     * 
      */
     public Output<String> allAuthority() {
         return this.allAuthority;
     }
     /**
      * Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-     *
+     * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
      * @return Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-     *
+     * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
      * Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     *
+     * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
      * @return Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     *
+     * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
      * Instance ID
-     *
+     * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
      * @return Instance ID
-     *
+     * 
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
      * RocketMQ key. Returned only after creation
-     *
+     * 
      */
     @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output<String> secretKey;
 
     /**
      * @return RocketMQ key. Returned only after creation
-     *
+     * 
      */
     public Output<String> secretKey() {
         return this.secretKey;
@@ -185,7 +185,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
     /**
      * Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Export(name="topicPermissions", refs={List.class,AccessKeyTopicPermission.class}, tree="[0,1]")
     private Output<List<AccessKeyTopicPermission>> topicPermissions;
@@ -193,7 +193,7 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
     /**
      * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Output<List<AccessKeyTopicPermission>> topicPermissions() {
         return this.topicPermissions;

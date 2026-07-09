@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Dns
 {
     /// <summary>
     /// Domain backup plan configuration.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var dNSBackupScheduleDemo = new Volcenginecc.Dns.BackupSchedule("DNSBackupScheduleDemo", new()
     ///     {
     ///         Zid = "2xxxx71",
     ///         Schedule = 1,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:dns/backupSchedule:BackupSchedule example "zid"
     /// ```

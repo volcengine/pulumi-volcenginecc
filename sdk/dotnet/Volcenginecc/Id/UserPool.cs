@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
 {
     /// <summary>
     /// The user pool is the core identity directory resource in the ID service for managing users, login methods, and identity connections
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Id.UserPool("Example", new()
     ///     {
@@ -62,12 +62,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:id/userPool:UserPool example "uid"
     /// ```

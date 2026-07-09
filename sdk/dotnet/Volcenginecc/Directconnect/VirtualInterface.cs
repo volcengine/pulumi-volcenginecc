@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
 {
     /// <summary>
     /// The virtual interface is built on top of a physical dedicated line. It is a logical interface that enables the local data center (IDC) to connect to different private networks in the cloud via the physical dedicated line. Supports both static routing and BGP routing. This operation uses BGP routing.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var directConnectVirtualInterfaceDemo = new Volcenginecc.Directconnect.VirtualInterface("DirectConnectVirtualInterfaceDemo", new()
     ///     {
@@ -50,12 +50,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Directconnect
     ///         },
     ///         BfdDetectInterval = 1000,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:directconnect/virtualInterface:VirtualInterface example "virtual_interface_id"
     /// ```

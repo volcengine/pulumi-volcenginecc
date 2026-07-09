@@ -24,7 +24,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="accessPolicies")
     private @Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies;
@@ -32,7 +32,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<TopicAccessPolicyArgs>>> accessPolicies() {
         return Optional.ofNullable(this.accessPolicies);
@@ -40,14 +40,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Topic creation time.
-     *
+     * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
      * @return Topic creation time.
-     *
+     * 
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
@@ -55,14 +55,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Topic description, length: 0–128 characters.
-     *
+     * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return Topic description, length: 0–128 characters.
-     *
+     * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
@@ -71,7 +71,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * Consumer group information list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="groupsInfos")
     private @Nullable Output<List<TopicGroupsInfoArgs>> groupsInfos;
@@ -79,7 +79,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Consumer group information list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<TopicGroupsInfoArgs>>> groupsInfos() {
         return Optional.ofNullable(this.groupsInfos);
@@ -87,14 +87,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance ID.
-     *
+     * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     *
+     * 
      */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
@@ -102,14 +102,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance name.
-     *
+     * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
      * @return Instance name.
-     *
+     * 
      */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
@@ -117,14 +117,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-     *
+     * 
      */
     @Import(name="messageType")
     private @Nullable Output<Integer> messageType;
 
     /**
      * @return Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-     *
+     * 
      */
     public Optional<Output<Integer>> messageType() {
         return Optional.ofNullable(this.messageType);
@@ -132,14 +132,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-     *
+     * 
      */
     @Import(name="queueNumber")
     private @Nullable Output<Integer> queueNumber;
 
     /**
      * @return Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-     *
+     * 
      */
     public Optional<Output<Integer>> queueNumber() {
         return Optional.ofNullable(this.queueNumber);
@@ -148,7 +148,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * Queue information list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="queuesInfos")
     private @Nullable Output<List<TopicQueuesInfoArgs>> queuesInfos;
@@ -156,7 +156,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Queue information list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<TopicQueuesInfoArgs>>> queuesInfos() {
         return Optional.ofNullable(this.queuesInfos);
@@ -165,7 +165,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * Permissions for each RocketMQ key on the current Topic, permission field
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="readAccessPolicies")
     private @Nullable Output<List<TopicReadAccessPolicyArgs>> readAccessPolicies;
@@ -173,7 +173,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Permissions for each RocketMQ key on the current Topic, permission field
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<TopicReadAccessPolicyArgs>>> readAccessPolicies() {
         return Optional.ofNullable(this.readAccessPolicies);
@@ -181,14 +181,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
-     *
+     * 
      */
     @Import(name="serviceStatus")
     private @Nullable Output<String> serviceStatus;
 
     /**
      * @return Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
-     *
+     * 
      */
     public Optional<Output<String>> serviceStatus() {
         return Optional.ofNullable(this.serviceStatus);
@@ -196,14 +196,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-     *
+     * 
      */
     @Import(name="topicName")
     private @Nullable Output<String> topicName;
 
     /**
      * @return Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-     *
+     * 
      */
     public Optional<Output<String>> topicName() {
         return Optional.ofNullable(this.topicName);
@@ -247,9 +247,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accessPolicies(@Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
@@ -259,9 +259,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accessPolicies(List<TopicAccessPolicyArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
@@ -270,9 +270,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder accessPolicies(TopicAccessPolicyArgs... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
@@ -280,9 +280,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Topic creation time.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
@@ -291,9 +291,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Topic creation time.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
@@ -301,9 +301,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Topic description, length: 0–128 characters.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
@@ -312,9 +312,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Topic description, length: 0–128 characters.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder description(String description) {
             return description(Output.of(description));
@@ -323,9 +323,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param groupsInfos Consumer group information list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder groupsInfos(@Nullable Output<List<TopicGroupsInfoArgs>> groupsInfos) {
             $.groupsInfos = groupsInfos;
@@ -335,9 +335,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param groupsInfos Consumer group information list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder groupsInfos(List<TopicGroupsInfoArgs> groupsInfos) {
             return groupsInfos(Output.of(groupsInfos));
@@ -346,9 +346,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param groupsInfos Consumer group information list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder groupsInfos(TopicGroupsInfoArgs... groupsInfos) {
             return groupsInfos(List.of(groupsInfos));
@@ -356,9 +356,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -367,9 +367,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -377,9 +377,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceName Instance name.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
@@ -388,9 +388,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceName Instance name.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
@@ -398,9 +398,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageType Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder messageType(@Nullable Output<Integer> messageType) {
             $.messageType = messageType;
@@ -409,9 +409,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageType Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder messageType(Integer messageType) {
             return messageType(Output.of(messageType));
@@ -419,9 +419,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param queueNumber Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder queueNumber(@Nullable Output<Integer> queueNumber) {
             $.queueNumber = queueNumber;
@@ -430,9 +430,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param queueNumber Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder queueNumber(Integer queueNumber) {
             return queueNumber(Output.of(queueNumber));
@@ -441,9 +441,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param queuesInfos Queue information list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder queuesInfos(@Nullable Output<List<TopicQueuesInfoArgs>> queuesInfos) {
             $.queuesInfos = queuesInfos;
@@ -453,9 +453,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param queuesInfos Queue information list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder queuesInfos(List<TopicQueuesInfoArgs> queuesInfos) {
             return queuesInfos(Output.of(queuesInfos));
@@ -464,9 +464,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param queuesInfos Queue information list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder queuesInfos(TopicQueuesInfoArgs... queuesInfos) {
             return queuesInfos(List.of(queuesInfos));
@@ -475,9 +475,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param readAccessPolicies Permissions for each RocketMQ key on the current Topic, permission field
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder readAccessPolicies(@Nullable Output<List<TopicReadAccessPolicyArgs>> readAccessPolicies) {
             $.readAccessPolicies = readAccessPolicies;
@@ -487,9 +487,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param readAccessPolicies Permissions for each RocketMQ key on the current Topic, permission field
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder readAccessPolicies(List<TopicReadAccessPolicyArgs> readAccessPolicies) {
             return readAccessPolicies(Output.of(readAccessPolicies));
@@ -498,9 +498,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param readAccessPolicies Permissions for each RocketMQ key on the current Topic, permission field
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder readAccessPolicies(TopicReadAccessPolicyArgs... readAccessPolicies) {
             return readAccessPolicies(List.of(readAccessPolicies));
@@ -508,9 +508,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceStatus Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder serviceStatus(@Nullable Output<String> serviceStatus) {
             $.serviceStatus = serviceStatus;
@@ -519,9 +519,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceStatus Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder serviceStatus(String serviceStatus) {
             return serviceStatus(Output.of(serviceStatus));
@@ -529,9 +529,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param topicName Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder topicName(@Nullable Output<String> topicName) {
             $.topicName = topicName;
@@ -540,9 +540,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param topicName Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder topicName(String topicName) {
             return topicName(Output.of(topicName));

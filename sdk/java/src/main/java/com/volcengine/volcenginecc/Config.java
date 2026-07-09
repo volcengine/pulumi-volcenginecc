@@ -15,77 +15,77 @@ public final class Config {
     private static final com.pulumi.Config config = com.pulumi.Config.of("volcenginecc");
 /**
  * The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
- *
+ * 
  */
     public Optional<String> accessKey() {
         return Codegen.stringProp("accessKey").config(config).env("VOLCENGINE_ACCESS_KEY").get();
     }
 /**
  * An &lt;span pulumi-lang-nodejs=&#34;`assumeRole`&#34; pulumi-lang-dotnet=&#34;`AssumeRole`&#34; pulumi-lang-go=&#34;`assumeRole`&#34; pulumi-lang-python=&#34;`assume_role`&#34; pulumi-lang-yaml=&#34;`assumeRole`&#34; pulumi-lang-java=&#34;`assumeRole`&#34; pulumi-lang-hcl=&#34;`assume_role`&#34;&gt;`assumeRole`&lt;/span&gt; block (documented below). Only one &lt;span pulumi-lang-nodejs=&#34;`assumeRole`&#34; pulumi-lang-dotnet=&#34;`AssumeRole`&#34; pulumi-lang-go=&#34;`assumeRole`&#34; pulumi-lang-python=&#34;`assume_role`&#34; pulumi-lang-yaml=&#34;`assumeRole`&#34; pulumi-lang-java=&#34;`assumeRole`&#34; pulumi-lang-hcl=&#34;`assume_role`&#34;&gt;`assumeRole`&lt;/span&gt; block may be in the configuration.
- *
+ * 
  */
     public Optional<AssumeRole> assumeRole() {
         return Codegen.objectProp("assumeRole", AssumeRole.class).config(config).get();
     }
 /**
  * CUSTOMER HEADERS for Volcengine Provider. The&lt;span pulumi-lang-nodejs=&#34; customerHeaders &#34; pulumi-lang-dotnet=&#34; CustomerHeaders &#34; pulumi-lang-go=&#34; customerHeaders &#34; pulumi-lang-python=&#34; customer_headers &#34; pulumi-lang-yaml=&#34; customerHeaders &#34; pulumi-lang-java=&#34; customerHeaders &#34; pulumi-lang-hcl=&#34; customer_headers &#34;&gt; customerHeaders &lt;/span&gt;field uses commas (,) to separate multiple headers, and colons (:) to separate each header key from its corresponding value.
- *
+ * 
  */
     public Optional<String> customerHeaders() {
         return Codegen.stringProp("customerHeaders").config(config).env("VOLCENGINE_CUSTOMER_HEADERS").get();
     }
 /**
  * Disable SSL for Volcengine Provider
- *
+ * 
  */
     public Optional<Boolean> disableSsl() {
         return Codegen.booleanProp("disableSsl").config(config).env("VOLCENGINE_DISABLE_SSL").get();
     }
 /**
  * An &lt;span pulumi-lang-nodejs=&#34;`endpoints`&#34; pulumi-lang-dotnet=&#34;`Endpoints`&#34; pulumi-lang-go=&#34;`endpoints`&#34; pulumi-lang-python=&#34;`endpoints`&#34; pulumi-lang-yaml=&#34;`endpoints`&#34; pulumi-lang-java=&#34;`endpoints`&#34; pulumi-lang-hcl=&#34;`endpoints`&#34;&gt;`endpoints`&lt;/span&gt; block (documented below). Only one &lt;span pulumi-lang-nodejs=&#34;`endpoints`&#34; pulumi-lang-dotnet=&#34;`Endpoints`&#34; pulumi-lang-go=&#34;`endpoints`&#34; pulumi-lang-python=&#34;`endpoints`&#34; pulumi-lang-yaml=&#34;`endpoints`&#34; pulumi-lang-java=&#34;`endpoints`&#34; pulumi-lang-hcl=&#34;`endpoints`&#34;&gt;`endpoints`&lt;/span&gt; block may be in the configuration.
- *
+ * 
  */
     public Optional<Endpoints> endpoints() {
         return Codegen.objectProp("endpoints", Endpoints.class).config(config).get();
     }
 /**
  * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
- *
+ * 
  */
     public Optional<String> filePath() {
         return Codegen.stringProp("filePath").config(config).env("VOLCENGINE_FILE_PATH").get();
     }
 /**
  * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
- *
+ * 
  */
     public Optional<String> profile() {
         return Codegen.stringProp("profile").config(config).env("VOLCENGINE_PROFILE").get();
     }
 /**
  * PROXY URL for Volcengine Provider
- *
+ * 
  */
     public Optional<String> proxyUrl() {
         return Codegen.stringProp("proxyUrl").config(config).env("VOLCENGINE_PROXY_URL").get();
     }
 /**
  * The Region for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_REGION` environment variable
- *
+ * 
  */
     public Optional<String> region() {
         return Codegen.stringProp("region").config(config).env("VOLCENGINE_REGION").get();
     }
 /**
  * he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
- *
+ * 
  */
     public Optional<String> secretKey() {
         return Codegen.stringProp("secretKey").config(config).env("VOLCENGINE_SECRET_KEY").get();
     }
 /**
  * The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment variable
- *
+ * 
  */
     public Optional<String> sessionToken() {
         return Codegen.stringProp("sessionToken").config(config).env("VOLCENGINE_SESSION_TOKEN").get();

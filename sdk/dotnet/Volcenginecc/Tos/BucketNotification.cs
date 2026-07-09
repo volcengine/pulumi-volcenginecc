@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Set event notification rules. Use event notification to receive alerts when resources in the bucket change.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketNotificationDemo = new Volcenginecc.Tos.BucketNotification("TOSBucketNotificationDemo", new()
     ///     {
@@ -34,7 +34,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///                 {
     ///                     Kafka = new[]
     ///                     {
-    ///
+    ///                         
     ///                         {
     ///                             { "instanceId", "kafka-cnnxxxxxm26rh" },
     ///                             { "region", "cn-beijing" },
@@ -45,7 +45,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///                     },
     ///                     RocketMq = new[]
     ///                     {
-    ///
+    ///                         
     ///                         {
     ///                             { "accessKeyId", "IpGw4i6xxxxxKrkdwRXZ" },
     ///                             { "instanceId", "rocketmq-cnngaxxxxx22ab8" },
@@ -89,12 +89,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketNotification:BucketNotification example "bucket_name"
     /// ```

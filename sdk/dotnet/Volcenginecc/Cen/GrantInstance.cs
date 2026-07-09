@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cen
 {
     /// <summary>
     /// Authorize this account's network instance for use by the specified account's Cloud Enterprise Network instance
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cenGranInstanceDemo = new Volcenginecc.Cen.GrantInstance("CenGranInstanceDemo", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cen
     ///         InstanceRegionId = "cn-beijing",
     ///         InstanceType = "VPC",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cen/grantInstance:GrantInstance example "instance_id|cen_id"
     /// ```

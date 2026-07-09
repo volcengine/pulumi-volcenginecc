@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink
 {
     /// <summary>
     /// The endpoint node is a private network service access point deployed by the service user in their own VPC, used to access the service provider's services via the private network.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var privateLinkVpcEndpointDemo = new Volcenginecc.Privatelink.VpcEndpoint("PrivateLinkVpcEndpointDemo", new()
     ///     {
@@ -60,12 +60,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Privatelink
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:privatelink/vpcEndpoint:VpcEndpoint example "endpoint_id"
     /// ```

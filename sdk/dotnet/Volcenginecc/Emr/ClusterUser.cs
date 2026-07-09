@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Emr
 {
     /// <summary>
     /// Users in an E-MapReduce (EMR) cluster are divided into regular users and system users. Regular users are added to the cluster manually through import or creation in the user management module. System users are built-in management users for each component created during cluster initialization and cannot be edited or deleted.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var eMRClusterUserDemo = new Volcenginecc.Emr.ClusterUser("EMRClusterUserDemo", new()
     ///     {
@@ -35,12 +35,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Emr
     ///         },
     ///         Description = "EMRClusterUserDemo",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:emr/clusterUser:ClusterUser example "cluster_id|user_name"
     /// ```

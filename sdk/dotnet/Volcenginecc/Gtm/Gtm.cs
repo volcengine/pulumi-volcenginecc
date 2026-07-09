@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
 {
     /// <summary>
     /// The GTM instance is the core resource in Cloud Scheduling GTM for hosting scheduling domain names, routing policies, and health check configurations. After creating a GTM instance, you can use it to configure global traffic scheduling, failover, and health check capabilities for your business domain name
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var gTMGTMDemo = new Volcenginecc.Gtm.Gtm("GTMGTMDemo", new()
     ///     {
@@ -35,12 +35,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Gtm
     ///         PolicyType = "perf",
     ///         AlarmId = "71xxxx26d79-2b08-4033-b025-71xxxx26d79",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:gtm/gtm:Gtm example "gtm_id"
     /// ```

@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Mongodb
 {
     /// <summary>
     /// SSL encryption settings for the MongoDB instance, including whether the feature is enabled, SSL certificate expiration time, and other information.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var mongoDBSSLStateDemo = new Volcenginecc.Mongodb.SslState("MongoDBSSLStateDemo", new()
     ///     {
     ///         InstanceId = "mongo-replica-d1****",
     ///         SslAction = "Open",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:mongodb/sslState:SslState example "instance_id"
     /// ```

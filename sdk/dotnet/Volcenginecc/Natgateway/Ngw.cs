@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
 {
     /// <summary>
     /// NAT Gateway provides network address translation services for cloud servers within the private network
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var natGatewayNGWDemo = new Volcenginecc.Natgateway.Ngw("NatGatewayNGWDemo", new()
     ///     {
@@ -42,12 +42,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Natgateway
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:natgateway/ngw:Ngw example "nat_gateway_id"
     /// ```

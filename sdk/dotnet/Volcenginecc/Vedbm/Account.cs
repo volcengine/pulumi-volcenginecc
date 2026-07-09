@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm
 {
     /// <summary>
     /// Database Account Management
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vEDBMAccountDemo = new Volcenginecc.Vedbm.Account("VEDBMAccountDemo", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vedbm
     ///         AccountType = "Super",
     ///         AccountDesc = "this is a super account",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vedbm/account:Account example "instance_id|account_name"
     /// ```

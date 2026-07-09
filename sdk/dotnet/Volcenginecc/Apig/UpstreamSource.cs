@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
 {
     /// <summary>
     /// The API Gateway supports cluster registration based on container services (VKE) and container service clusters. Import clusters into the API Gateway instance to use them as Upstream sources, allowing the gateway to retrieve the Service list from the cluster
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var upstreamSourceNacosDemo = new Volcenginecc.Apig.UpstreamSource("UpstreamSourceNacosDemo", new()
     ///     {
@@ -30,12 +30,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///         SourceType = "Nacos",
     ///         SourceSpec = new Volcenginecc.Apig.Inputs.UpstreamSourceSourceSpecArgs
     ///         {
-    ///             Nacos_source =
+    ///             Nacos_source = 
     ///             {
     ///                 { "nacosId", "nd3thmnjdl46p917xxxxx" },
-    ///                 { "authConfig",
+    ///                 { "authConfig", 
     ///                 {
-    ///                     { "basic",
+    ///                     { "basic", 
     ///                     {
     ///                         { "username", "nacos" },
     ///                         { "password", "******" },
@@ -44,12 +44,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:apig/upstreamSource:UpstreamSource example "upstream_source_id"
     /// ```

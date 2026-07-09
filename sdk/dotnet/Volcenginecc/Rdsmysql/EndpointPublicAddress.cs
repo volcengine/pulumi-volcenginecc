@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
 {
     /// <summary>
     /// Instance connection endpoint public address.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var endpointPublicAddressDemo = new Volcenginecc.Rdsmysql.EndpointPublicAddress("EndpointPublicAddressDemo", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
     ///         DomainPrefix = "ccapi-terraform",
     ///         Port = "23306",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdsmysql/endpointPublicAddress:EndpointPublicAddress example "instance_id|endpoint_id"
     /// ```

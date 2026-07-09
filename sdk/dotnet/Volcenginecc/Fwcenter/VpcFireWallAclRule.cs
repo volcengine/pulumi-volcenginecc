@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Fwcenter
 {
     /// <summary>
     /// VPC border firewall access control policy (ACL rule), used to define allow, block, or observe rules for traffic between VPCs.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Fwcenter.VpcFireWallAclRule("Example", new()
     ///     {
@@ -50,12 +50,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Fwcenter
     ///         Status = true,
     ///         VpcFirewallId = "vfw-yeoxxxxxx4vvsy6xj",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:fwcenter/vpcFireWallAclRule:VpcFireWallAclRule example "vpc_firewall_id|rule_id"
     /// ```

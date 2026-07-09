@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
 {
     /// <summary>
     /// Adding access addresses to the allowlist for public network access can effectively enhance information security
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cREndpointAclPolicyDemo = new Volcenginecc.Cr.EndpointAclPolicy("CREndpointAclPolicyDemo", new()
     ///     {
@@ -30,12 +30,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cr
     ///         Entry = "0.0.0.0/0",
     ///         Description = "test acl policy",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cr/endpointAclPolicy:EndpointAclPolicy example "registry|entry"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
 {
     /// <summary>
     /// Inbound Authentication Configuration
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Id.AuthConfig("Example", new()
     ///     {
@@ -44,12 +44,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Id
     ///         },
     ///         AuthType = "Jwt",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:id/authConfig:AuthConfig example "inbound_auth_config_id"
     /// ```

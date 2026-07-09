@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 {
     /// <summary>
     /// A high availability virtual IP (HAVIP) is a private IP resource that can be independently owned, created, or deleted at any time based on business needs. In primary/secondary cluster scenarios, HAVIP is typically used with high availability software (such as Keepalived or Windows Server Failover Cluster) to build high availability primary/secondary services
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vPCHAVIPDemo = new Volcenginecc.Vpc.HaVip("VPCHAVIPDemo", new()
     ///     {
@@ -46,12 +46,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpc/haVip:HaVip example "ha_vip_id"
     /// ```

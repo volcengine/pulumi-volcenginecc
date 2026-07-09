@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
 {
     /// <summary>
     /// A connection established between TR instances in two different regions enables cross-region communication.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var transitRouterPeerAttachmentDemo = new Volcenginecc.Transitrouter.PeerAttachment("TransitRouterPeerAttachmentDemo", new()
     ///     {
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Transitrouter
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:transitrouter/peerAttachment:PeerAttachment example "transit_router_attachment_id"
     /// ```

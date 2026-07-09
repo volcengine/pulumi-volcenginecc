@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Veenedge
 {
     /// <summary>
     /// Edge computing custom VPC instance, used to create independent virtual network environments on edge nodes
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Veenedge.Vpc("Example", new()
     ///     {
@@ -54,12 +54,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Veenedge
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:veenedge/vpc:Vpc example "vpc_identity"
     /// ```

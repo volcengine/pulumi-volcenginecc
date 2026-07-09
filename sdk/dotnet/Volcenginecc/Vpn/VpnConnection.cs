@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
 {
     /// <summary>
     /// The IPsec connection is based on the Internet and establishes an IPsec VPN communication tunnel between the VPN gateway and the user gateway. Data is encrypted using the IKE and IPsec protocols to ensure secure transmission through the tunnel.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vpnVpnConnectionDemo = new Volcenginecc.Vpn.VpnConnection("VpnVpnConnectionDemo", new()
     ///     {
@@ -69,12 +69,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpn
     ///         NatTraversal = true,
     ///         DpdAction = "restart",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpn/vpnConnection:VpnConnection example "vpn_connection_id"
     /// ```

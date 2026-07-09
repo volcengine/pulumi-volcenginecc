@@ -12,28 +12,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Cbr
 {
     /// <summary>
     /// Used to store your backup data
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var cBRVaultDemo = new Volcenginecc.Cbr.Vault("CBRVaultDemo", new()
     ///     {
     ///         VaultName = "CBRVaultDemo",
     ///         ProjectName = "default",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cbr/vault:Vault example "vault_id"
     /// ```

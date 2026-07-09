@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
 {
     /// <summary>
     /// Webhook integration configuration is used to manage alert notification channels such as DingTalk, Feishu, WeCom, and custom Webhooks
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Tls.AlarmWebhookIntegrationType("Example", new()
     ///     {
@@ -44,12 +44,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     ///         },
     ///         WebhookMethod = "PUT",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tls/alarmWebhookIntegrationType:AlarmWebhookIntegrationType example "webhook_id"
     /// ```

@@ -20,7 +20,7 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
     /**
      * Backup private origin node list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="followers")
     private @Nullable Output<List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerArgs>> followers;
@@ -28,7 +28,7 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
     /**
      * @return Backup private origin node list.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerArgs>>> followers() {
         return Optional.ofNullable(this.followers);
@@ -37,7 +37,7 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
     /**
      * Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     @Import(name="primaries")
     private @Nullable Output<List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryArgs>> primaries;
@@ -45,7 +45,7 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
     /**
      * @return Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-     *
+     * 
      */
     public Optional<Output<List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryArgs>>> primaries() {
         return Optional.ofNullable(this.primaries);
@@ -79,9 +79,9 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
         /**
          * @param followers Backup private origin node list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder followers(@Nullable Output<List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerArgs>> followers) {
             $.followers = followers;
@@ -91,9 +91,9 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
         /**
          * @param followers Backup private origin node list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder followers(List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerArgs> followers) {
             return followers(Output.of(followers));
@@ -102,9 +102,9 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
         /**
          * @param followers Backup private origin node list.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder followers(BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointFollowerArgs... followers) {
             return followers(List.of(followers));
@@ -113,9 +113,9 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
         /**
          * @param primaries Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder primaries(@Nullable Output<List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryArgs>> primaries) {
             $.primaries = primaries;
@@ -125,9 +125,9 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
         /**
          * @param primaries Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder primaries(List<BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryArgs> primaries) {
             return primaries(Output.of(primaries));
@@ -136,9 +136,9 @@ public final class BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs e
         /**
          * @param primaries Origin address for requests. Supports up to 5 origin fetch addresses. Required when the origin is a private bucket.
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder primaries(BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointPrimaryArgs... primaries) {
             return primaries(List.of(primaries));

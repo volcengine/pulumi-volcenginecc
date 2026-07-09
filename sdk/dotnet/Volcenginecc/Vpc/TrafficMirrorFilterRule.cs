@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
 {
     /// <summary>
     /// Filtering conditions are composed of filtering rules, divided into inbound filtering rules and outbound filtering rules.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var vPCTrafficMirrorFilterRuleDemo = new Volcenginecc.Vpc.TrafficMirrorFilterRule("VPCTrafficMirrorFilterRuleDemo", new()
     ///     {
@@ -36,12 +36,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Vpc
     ///         TrafficDirection = "ingress",
     ///         TrafficMirrorFilterId = "tmf-3nqp5bt6a3dog931exxxxx",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:vpc/trafficMirrorFilterRule:TrafficMirrorFilterRule example "traffic_mirror_filter_id|traffic_mirror_filter_rule_id"
     /// ```

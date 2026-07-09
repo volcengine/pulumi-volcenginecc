@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
 {
     /// <summary>
     /// Configure origin fetch rules for the specified TOS bucket. When an object request meets the specified conditions, TOS can fetch the object from a public or private origin according to the rules.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tOSBucketMirrorBackDemo = new Volcenginecc.Tos.BucketMirrorBack("TOSBucketMirrorBackDemo", new()
     ///     {
@@ -74,7 +74,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///                         },
     ///                         Set = new[]
     ///                         {
-    ///
+    ///                             
     ///                             {
     ///                                 { "key", "X-Set-Header" },
     ///                                 { "value", "set-value" },
@@ -97,13 +97,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///                         {
     ///                             Primary = new[]
     ///                             {
-    ///
+    ///                                 
     ///                                 {
     ///                                     { "bucketName", "primary-bucket" },
     ///                                     { "endpoint", "http://xxxxx.volces.com" },
-    ///                                     { "credentialProvider",
+    ///                                     { "credentialProvider", 
     ///                                     {
-    ///                                         { "staticCredential",
+    ///                                         { "staticCredential", 
     ///                                         {
     ///                                             { "storageVendor", "S3" },
     ///                                             { "skEncryptType", "" },
@@ -117,13 +117,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///                             },
     ///                             Follower = new[]
     ///                             {
-    ///
+    ///                                 
     ///                                 {
     ///                                     { "bucketName", "follower-bucket" },
     ///                                     { "endpoint", "http://xxxxx.volces.com" },
-    ///                                     { "credentialProvider",
+    ///                                     { "credentialProvider", 
     ///                                     {
-    ///                                         { "staticCredential",
+    ///                                         { "staticCredential", 
     ///                                         {
     ///                                             { "storageVendor", "S3" },
     ///                                             { "skEncryptType", "" },
@@ -152,12 +152,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tos/bucketMirrorBack:BucketMirrorBack example "bucket"
     /// ```

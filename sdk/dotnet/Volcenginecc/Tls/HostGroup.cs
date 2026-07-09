@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
 {
     /// <summary>
     /// Machine group in Log Service, used to manage a group of log collection machines.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var tLSHostGroupDemo = new Volcenginecc.Tls.HostGroup("TLSHostGroupDemo", new()
     ///     {
@@ -38,12 +38,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tls
     ///         UpdateStartTime = "00:00",
     ///         IamProjectName = "default",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:tls/hostGroup:HostGroup example "host_group_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Kafka
 {
     /// <summary>
     /// When creating a Kafka instance, you can bind an allowlist as needed. After binding the allowlist to the Kafka instance, only IP addresses and address ranges specified in the allowlist can access the Kafka message queue instance. For security, we recommend creating an allowlist and adding the client IP address or IP address range to the Kafka instance's allowlist. Regularly maintain and manage the allowlist to enhance the security of Kafka instance access
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var kafkaAllowListDemo = new Volcenginecc.Kafka.AllowList("KafkaAllowListDemo", new()
     ///     {
@@ -41,12 +41,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Kafka
     ///         },
     ///         ApplyInstanceNum = 2,
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:kafka/allowList:AllowList example "allow_list_id"
     /// ```

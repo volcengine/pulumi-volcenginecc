@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
 {
     /// <summary>
     /// RDS PostgreSQL backup resources support both physical and logical backups. Physical backups can be created and queried; logical backups can be created, deleted, downloaded, and queried.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSPostgreSQLBackupDemo = new Volcenginecc.Rdspostgresql.Backup("RDSPostgreSQLBackupDemo", new()
     ///     {
@@ -47,12 +47,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdspostgresql
     ///             Wal_log_space_limit_enable = true,
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdspostgresql/backup:Backup example "backup_id|instance_id"
     /// ```

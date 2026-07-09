@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
 {
     /// <summary>
     /// Volcano Engine Cloud Database MySQL version parameter template for managing and applying MySQL instance parameter configurations in bulk
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var rDSMySQLParameterTemplateDemo = new Volcenginecc.Rdsmysql.ParameterTemplate("RDSMySQLParameterTemplateDemo", new()
     ///     {
@@ -45,12 +45,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Rdsmysql
     ///         EngineType = "InnoDB",
     ///         ProjectName = "default",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:rdsmysql/parameterTemplate:ParameterTemplate example "template_id"
     /// ```
