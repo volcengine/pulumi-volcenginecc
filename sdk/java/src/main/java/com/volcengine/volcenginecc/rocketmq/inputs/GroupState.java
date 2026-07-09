@@ -22,43 +22,63 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     * 
+     *
      */
     @Import(name="consumeMessageOrderly")
     private @Nullable Output<Boolean> consumeMessageOrderly;
 
     /**
      * @return Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     * 
+     *
      */
     public Optional<Output<Boolean>> consumeMessageOrderly() {
         return Optional.ofNullable(this.consumeMessageOrderly);
     }
 
+    /**
+     * Consumer client list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="consumedClients")
     private @Nullable Output<List<GroupConsumedClientArgs>> consumedClients;
 
+    /**
+     * @return Consumer client list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<GroupConsumedClientArgs>>> consumedClients() {
         return Optional.ofNullable(this.consumedClients);
     }
 
+    /**
+     * Topic information subscribed by consumer instance groups under this Group.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="consumedTopics")
     private @Nullable Output<List<GroupConsumedTopicArgs>> consumedTopics;
 
+    /**
+     * @return Topic information subscribed by consumer instance groups under this Group.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<GroupConsumedTopicArgs>>> consumedTopics() {
         return Optional.ofNullable(this.consumedTopics);
     }
 
     /**
      * Group creation time.
-     * 
+     *
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
      * @return Group creation time.
-     * 
+     *
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
@@ -66,14 +86,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Brief description of the Group.
-     * 
+     *
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return Brief description of the Group.
-     * 
+     *
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
@@ -81,14 +101,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
-     * 
+     *
      */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
     /**
      * @return Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
-     * 
+     *
      */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
@@ -96,14 +116,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
-     * 
+     *
      */
     @Import(name="groupType")
     private @Nullable Output<String> groupType;
 
     /**
      * @return Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
-     * 
+     *
      */
     public Optional<Output<String>> groupType() {
         return Optional.ofNullable(this.groupType);
@@ -111,14 +131,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance ID.
-     * 
+     *
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     * 
+     *
      */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
@@ -126,14 +146,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     * 
+     *
      */
     @Import(name="isSubSame")
     private @Nullable Output<Boolean> isSubSame;
 
     /**
      * @return Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-     * 
+     *
      */
     public Optional<Output<Boolean>> isSubSame() {
         return Optional.ofNullable(this.isSubSame);
@@ -141,14 +161,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether consumption is sequential.
-     * 
+     *
      */
     @Import(name="lastUpdateTimestamp")
     private @Nullable Output<String> lastUpdateTimestamp;
 
     /**
      * @return Whether consumption is sequential.
-     * 
+     *
      */
     public Optional<Output<String>> lastUpdateTimestamp() {
         return Optional.ofNullable(this.lastUpdateTimestamp);
@@ -156,14 +176,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
-     * 
+     *
      */
     @Import(name="messageDelayTime")
     private @Nullable Output<String> messageDelayTime;
 
     /**
      * @return Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
-     * 
+     *
      */
     public Optional<Output<String>> messageDelayTime() {
         return Optional.ofNullable(this.messageDelayTime);
@@ -171,14 +191,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
-     * 
+     *
      */
     @Import(name="messageModel")
     private @Nullable Output<String> messageModel;
 
     /**
      * @return Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
-     * 
+     *
      */
     public Optional<Output<String>> messageModel() {
         return Optional.ofNullable(this.messageModel);
@@ -186,14 +206,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Maximum number of consumption retries.
-     * 
+     *
      */
     @Import(name="retryMaxTimes")
     private @Nullable Output<Integer> retryMaxTimes;
 
     /**
      * @return Maximum number of consumption retries.
-     * 
+     *
      */
     public Optional<Output<Integer>> retryMaxTimes() {
         return Optional.ofNullable(this.retryMaxTimes);
@@ -201,14 +221,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * RocketMQ version.
-     * 
+     *
      */
     @Import(name="rocketmqVersion")
     private @Nullable Output<String> rocketmqVersion;
 
     /**
      * @return RocketMQ version.
-     * 
+     *
      */
     public Optional<Output<String>> rocketmqVersion() {
         return Optional.ofNullable(this.rocketmqVersion);
@@ -216,14 +236,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
-     * 
+     *
      */
     @Import(name="serviceStatus")
     private @Nullable Output<String> serviceStatus;
 
     /**
      * @return Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
-     * 
+     *
      */
     public Optional<Output<String>> serviceStatus() {
         return Optional.ofNullable(this.serviceStatus);
@@ -231,14 +251,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Consumer group status. Online: Consuming, Offline: Not consuming.
-     * 
+     *
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return Consumer group status. Online: Consuming, Offline: Not consuming.
-     * 
+     *
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
@@ -246,14 +266,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Total TPS of consumer instance groups under this Group, measured in messages per second.
-     * 
+     *
      */
     @Import(name="totalConsumedRate")
     private @Nullable Output<String> totalConsumedRate;
 
     /**
      * @return Total TPS of consumer instance groups under this Group, measured in messages per second.
-     * 
+     *
      */
     public Optional<Output<String>> totalConsumedRate() {
         return Optional.ofNullable(this.totalConsumedRate);
@@ -261,14 +281,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
-     * 
+     *
      */
     @Import(name="totalDiff")
     private @Nullable Output<Integer> totalDiff;
 
     /**
      * @return Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
-     * 
+     *
      */
     public Optional<Output<Integer>> totalDiff() {
         return Optional.ofNullable(this.totalDiff);
@@ -317,9 +337,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param consumeMessageOrderly Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder consumeMessageOrderly(@Nullable Output<Boolean> consumeMessageOrderly) {
             $.consumeMessageOrderly = consumeMessageOrderly;
@@ -328,45 +348,87 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param consumeMessageOrderly Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder consumeMessageOrderly(Boolean consumeMessageOrderly) {
             return consumeMessageOrderly(Output.of(consumeMessageOrderly));
         }
 
+        /**
+         * @param consumedClients Consumer client list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder consumedClients(@Nullable Output<List<GroupConsumedClientArgs>> consumedClients) {
             $.consumedClients = consumedClients;
             return this;
         }
 
+        /**
+         * @param consumedClients Consumer client list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder consumedClients(List<GroupConsumedClientArgs> consumedClients) {
             return consumedClients(Output.of(consumedClients));
         }
 
+        /**
+         * @param consumedClients Consumer client list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder consumedClients(GroupConsumedClientArgs... consumedClients) {
             return consumedClients(List.of(consumedClients));
         }
 
+        /**
+         * @param consumedTopics Topic information subscribed by consumer instance groups under this Group.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder consumedTopics(@Nullable Output<List<GroupConsumedTopicArgs>> consumedTopics) {
             $.consumedTopics = consumedTopics;
             return this;
         }
 
+        /**
+         * @param consumedTopics Topic information subscribed by consumer instance groups under this Group.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder consumedTopics(List<GroupConsumedTopicArgs> consumedTopics) {
             return consumedTopics(Output.of(consumedTopics));
         }
 
+        /**
+         * @param consumedTopics Topic information subscribed by consumer instance groups under this Group.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder consumedTopics(GroupConsumedTopicArgs... consumedTopics) {
             return consumedTopics(List.of(consumedTopics));
         }
 
         /**
          * @param createdTime Group creation time.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
@@ -375,9 +437,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Group creation time.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
@@ -385,9 +447,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Brief description of the Group.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
@@ -396,9 +458,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Brief description of the Group.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(String description) {
             return description(Output.of(description));
@@ -406,9 +468,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groupId Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder groupId(@Nullable Output<String> groupId) {
             $.groupId = groupId;
@@ -417,9 +479,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groupId Group ID. Length must be between 7 and 120 characters and can only contain letters, numbers, hyphens (-), and underscores (*). It is recommended to start with GID  - or GID*. The ID cannot be changed after the Group is created, so set it carefully. For RocketMQ instances created on or before June 5, 2023, the Group name cannot exceed 93 characters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
@@ -427,9 +489,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groupType Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder groupType(@Nullable Output<String> groupType) {
             $.groupType = groupType;
@@ -438,9 +500,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param groupType Group protocol identifier, used to indicate the production and consumption protocol type for this Group. Can be set to TCP.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder groupType(String groupType) {
             return groupType(Output.of(groupType));
@@ -448,9 +510,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -459,9 +521,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -469,9 +531,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isSubSame Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isSubSame(@Nullable Output<Boolean> isSubSame) {
             $.isSubSame = isSubSame;
@@ -480,9 +542,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isSubSame Whether the subscription relationships of consumer instance groups within the Group are consistent. true: Consistent, false: Inconsistent.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isSubSame(Boolean isSubSame) {
             return isSubSame(Output.of(isSubSame));
@@ -490,9 +552,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param lastUpdateTimestamp Whether consumption is sequential.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder lastUpdateTimestamp(@Nullable Output<String> lastUpdateTimestamp) {
             $.lastUpdateTimestamp = lastUpdateTimestamp;
@@ -501,9 +563,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param lastUpdateTimestamp Whether consumption is sequential.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder lastUpdateTimestamp(String lastUpdateTimestamp) {
             return lastUpdateTimestamp(Output.of(lastUpdateTimestamp));
@@ -511,9 +573,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageDelayTime Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder messageDelayTime(@Nullable Output<String> messageDelayTime) {
             $.messageDelayTime = messageDelayTime;
@@ -522,9 +584,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageDelayTime Message latency. The difference between the production time of the earliest unconsumed message in the consumer instance group and the current time, measured in milliseconds.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder messageDelayTime(String messageDelayTime) {
             return messageDelayTime(Output.of(messageDelayTime));
@@ -532,9 +594,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageModel Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder messageModel(@Nullable Output<String> messageModel) {
             $.messageModel = messageModel;
@@ -543,9 +605,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageModel Message consumption mode. The default is clustering mode. Do not configure both clustering and broadcasting modes under the same Group. Clustering: Clustering consumption mode, Broadcasting: Broadcasting consumption mode.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder messageModel(String messageModel) {
             return messageModel(Output.of(messageModel));
@@ -553,9 +615,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retryMaxTimes Maximum number of consumption retries.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder retryMaxTimes(@Nullable Output<Integer> retryMaxTimes) {
             $.retryMaxTimes = retryMaxTimes;
@@ -564,9 +626,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retryMaxTimes Maximum number of consumption retries.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder retryMaxTimes(Integer retryMaxTimes) {
             return retryMaxTimes(Output.of(retryMaxTimes));
@@ -574,9 +636,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param rocketmqVersion RocketMQ version.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder rocketmqVersion(@Nullable Output<String> rocketmqVersion) {
             $.rocketmqVersion = rocketmqVersion;
@@ -585,9 +647,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param rocketmqVersion RocketMQ version.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder rocketmqVersion(String rocketmqVersion) {
             return rocketmqVersion(Output.of(rocketmqVersion));
@@ -595,9 +657,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceStatus Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder serviceStatus(@Nullable Output<String> serviceStatus) {
             $.serviceStatus = serviceStatus;
@@ -606,9 +668,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceStatus Service status. Creating: Being created, Running: Running, Deleting: Being deleted, Abnormal: Abnormal, Updating: Being updated.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder serviceStatus(String serviceStatus) {
             return serviceStatus(Output.of(serviceStatus));
@@ -616,9 +678,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status Consumer group status. Online: Consuming, Offline: Not consuming.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
@@ -627,9 +689,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status Consumer group status. Online: Consuming, Offline: Not consuming.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(String status) {
             return status(Output.of(status));
@@ -637,9 +699,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param totalConsumedRate Total TPS of consumer instance groups under this Group, measured in messages per second.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder totalConsumedRate(@Nullable Output<String> totalConsumedRate) {
             $.totalConsumedRate = totalConsumedRate;
@@ -648,9 +710,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param totalConsumedRate Total TPS of consumer instance groups under this Group, measured in messages per second.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder totalConsumedRate(String totalConsumedRate) {
             return totalConsumedRate(Output.of(totalConsumedRate));
@@ -658,9 +720,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param totalDiff Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder totalDiff(@Nullable Output<Integer> totalDiff) {
             $.totalDiff = totalDiff;
@@ -669,9 +731,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param totalDiff Total number of unconsumed messages in the consumer instance group. The message backlog shown here is the total backlog before Tag filtering, including messages for all Tags under the Topic.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder totalDiff(Integer totalDiff) {
             return totalDiff(Output.of(totalDiff));

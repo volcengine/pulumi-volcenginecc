@@ -21,43 +21,63 @@ public final class CloudServerStorageConfigArgs extends com.pulumi.resources.Res
 
     /**
      * Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
-     * 
+     *
      */
     @Import(name="dataDisk")
     private @Nullable Output<CloudServerStorageConfigDataDiskArgs> dataDisk;
 
     /**
      * @return Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
-     * 
+     *
      */
     public Optional<Output<CloudServerStorageConfigDataDiskArgs>> dataDisk() {
         return Optional.ofNullable(this.dataDisk);
     }
 
+    /**
+     * Data disk list. This parameter is used to add one or more data disks.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="dataDiskLists")
     private @Nullable Output<List<CloudServerStorageConfigDataDiskListArgs>> dataDiskLists;
 
+    /**
+     * @return Data disk list. This parameter is used to add one or more data disks.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<CloudServerStorageConfigDataDiskListArgs>>> dataDiskLists() {
         return Optional.ofNullable(this.dataDiskLists);
     }
 
+    /**
+     * Local data disk configuration list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="dataLocalDisks")
     private @Nullable Output<List<CloudServerStorageConfigDataLocalDiskArgs>> dataLocalDisks;
 
+    /**
+     * @return Local data disk configuration list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<CloudServerStorageConfigDataLocalDiskArgs>>> dataLocalDisks() {
         return Optional.ofNullable(this.dataLocalDisks);
     }
 
     /**
      * System disk configuration
-     * 
+     *
      */
     @Import(name="systemDisk")
     private @Nullable Output<CloudServerStorageConfigSystemDiskArgs> systemDisk;
 
     /**
      * @return System disk configuration
-     * 
+     *
      */
     public Optional<Output<CloudServerStorageConfigSystemDiskArgs>> systemDisk() {
         return Optional.ofNullable(this.systemDisk);
@@ -92,9 +112,9 @@ public final class CloudServerStorageConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dataDisk Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder dataDisk(@Nullable Output<CloudServerStorageConfigDataDiskArgs> dataDisk) {
             $.dataDisk = dataDisk;
@@ -103,45 +123,87 @@ public final class CloudServerStorageConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param dataDisk Data disk. This parameter is used to add a single data disk. To add multiple data disks at once, use the data*disk*list parameter.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder dataDisk(CloudServerStorageConfigDataDiskArgs dataDisk) {
             return dataDisk(Output.of(dataDisk));
         }
 
+        /**
+         * @param dataDiskLists Data disk list. This parameter is used to add one or more data disks.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder dataDiskLists(@Nullable Output<List<CloudServerStorageConfigDataDiskListArgs>> dataDiskLists) {
             $.dataDiskLists = dataDiskLists;
             return this;
         }
 
+        /**
+         * @param dataDiskLists Data disk list. This parameter is used to add one or more data disks.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder dataDiskLists(List<CloudServerStorageConfigDataDiskListArgs> dataDiskLists) {
             return dataDiskLists(Output.of(dataDiskLists));
         }
 
+        /**
+         * @param dataDiskLists Data disk list. This parameter is used to add one or more data disks.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder dataDiskLists(CloudServerStorageConfigDataDiskListArgs... dataDiskLists) {
             return dataDiskLists(List.of(dataDiskLists));
         }
 
+        /**
+         * @param dataLocalDisks Local data disk configuration list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder dataLocalDisks(@Nullable Output<List<CloudServerStorageConfigDataLocalDiskArgs>> dataLocalDisks) {
             $.dataLocalDisks = dataLocalDisks;
             return this;
         }
 
+        /**
+         * @param dataLocalDisks Local data disk configuration list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder dataLocalDisks(List<CloudServerStorageConfigDataLocalDiskArgs> dataLocalDisks) {
             return dataLocalDisks(Output.of(dataLocalDisks));
         }
 
+        /**
+         * @param dataLocalDisks Local data disk configuration list.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder dataLocalDisks(CloudServerStorageConfigDataLocalDiskArgs... dataLocalDisks) {
             return dataLocalDisks(List.of(dataLocalDisks));
         }
 
         /**
          * @param systemDisk System disk configuration
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder systemDisk(@Nullable Output<CloudServerStorageConfigSystemDiskArgs> systemDisk) {
             $.systemDisk = systemDisk;
@@ -150,9 +212,9 @@ public final class CloudServerStorageConfigArgs extends com.pulumi.resources.Res
 
         /**
          * @param systemDisk System disk configuration
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder systemDisk(CloudServerStorageConfigSystemDiskArgs systemDisk) {
             return systemDisk(Output.of(systemDisk));

@@ -29,14 +29,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Advanced configuration for customizing edge instance name, instance description, and hostname. When creating edge instances in bulk, instance names and hostnames are generated in sequence based on the custom names.
-     * 
+     *
      */
     @Import(name="advancedConfiguration")
     private @Nullable Output<CloudServerAdvancedConfigurationArgs> advancedConfiguration;
 
     /**
      * @return Advanced configuration for customizing edge instance name, instance description, and hostname. When creating edge instances in bulk, instance names and hostnames are generated in sequence based on the custom names.
-     * 
+     *
      */
     public Optional<Output<CloudServerAdvancedConfigurationArgs>> advancedConfiguration() {
         return Optional.ofNullable(this.advancedConfiguration);
@@ -44,14 +44,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Architecture of the edge instance
-     * 
+     *
      */
     @Import(name="arch")
     private @Nullable Output<String> arch;
 
     /**
      * @return Architecture of the edge instance
-     * 
+     *
      */
     public Optional<Output<String>> arch() {
         return Optional.ofNullable(this.arch);
@@ -59,14 +59,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Bare metal package identifier, returned only for bare metal type instances.
-     * 
+     *
      */
     @Import(name="bareMetalPackage")
     private @Nullable Output<String> bareMetalPackage;
 
     /**
      * @return Bare metal package identifier, returned only for bare metal type instances.
-     * 
+     *
      */
     public Optional<Output<String>> bareMetalPackage() {
         return Optional.ofNullable(this.bareMetalPackage);
@@ -74,14 +74,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Billing method, including billing for compute and bandwidth.
-     * 
+     *
      */
     @Import(name="billingConfig")
     private @Nullable Output<CloudServerBillingConfigArgs> billingConfig;
 
     /**
      * @return Billing method, including billing for compute and bandwidth.
-     * 
+     *
      */
     public Optional<Output<CloudServerBillingConfigArgs>> billingConfig() {
         return Optional.ofNullable(this.billingConfig);
@@ -89,14 +89,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Description of the edge service.
-     * 
+     *
      */
     @Import(name="cloudServerDesc")
     private @Nullable Output<String> cloudServerDesc;
 
     /**
      * @return Description of the edge service.
-     * 
+     *
      */
     public Optional<Output<String>> cloudServerDesc() {
         return Optional.ofNullable(this.cloudServerDesc);
@@ -104,14 +104,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Edge service ID. You can query the edge service ID via the ListCloudServers API.
-     * 
+     *
      */
     @Import(name="cloudServerIdentity")
     private @Nullable Output<String> cloudServerIdentity;
 
     /**
      * @return Edge service ID. You can query the edge service ID via the ListCloudServers API.
-     * 
+     *
      */
     public Optional<Output<String>> cloudServerIdentity() {
         return Optional.ofNullable(this.cloudServerIdentity);
@@ -119,14 +119,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Edge service name
-     * 
+     *
      */
     @Import(name="cloudServerName")
     private @Nullable Output<String> cloudServerName;
 
     /**
      * @return Edge service name
-     * 
+     *
      */
     public Optional<Output<String>> cloudServerName() {
         return Optional.ofNullable(this.cloudServerName);
@@ -134,14 +134,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * CPU configuration for the instance
-     * 
+     *
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
      * @return CPU configuration for the instance
-     * 
+     *
      */
     public Optional<Output<String>> cpu() {
         return Optional.ofNullable(this.cpu);
@@ -149,14 +149,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Note: This parameter applies only to postpaid instances. Edge instance creation timeout. Unit: seconds. Minimum: 120. If the creation time of the edge instance exceeds the specified value, the creation fails and its status changes to open_fail. You can delete the related instance through the console or API. If this parameter is not specified, there is no limit on the instance creation time.
-     * 
+     *
      */
     @Import(name="createInstanceTimeout")
     private @Nullable Output<Integer> createInstanceTimeout;
 
     /**
      * @return Note: This parameter applies only to postpaid instances. Edge instance creation timeout. Unit: seconds. Minimum: 120. If the creation time of the edge instance exceeds the specified value, the creation fails and its status changes to open_fail. You can delete the related instance through the console or API. If this parameter is not specified, there is no limit on the instance creation time.
-     * 
+     *
      */
     public Optional<Output<Integer>> createInstanceTimeout() {
         return Optional.ofNullable(this.createInstanceTimeout);
@@ -164,14 +164,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Creation time, displayed in UNIX timestamp format.
-     * 
+     *
      */
     @Import(name="createdTime")
     private @Nullable Output<Integer> createdTime;
 
     /**
      * @return Creation time, displayed in UNIX timestamp format.
-     * 
+     *
      */
     public Optional<Output<Integer>> createdTime() {
         return Optional.ofNullable(this.createdTime);
@@ -179,14 +179,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Custom data configuration.
-     * 
+     *
      */
     @Import(name="customData")
     private @Nullable Output<CloudServerCustomDataArgs> customData;
 
     /**
      * @return Custom data configuration.
-     * 
+     *
      */
     public Optional<Output<CloudServerCustomDataArgs>> customData() {
         return Optional.ofNullable(this.customData);
@@ -194,14 +194,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Enable or disable VGA. Value range: true: Disable VGA. false (default): Enable VGA. This parameter applies only to cloud gaming edge instances. When VGA is enabled, you can log in to the edge instance using VNC, but this feature may affect the instance&#39;s performance. If you do not enable this feature, the instance&#39;s performance is not affected, but you cannot log in directly via VNC.
-     * 
+     *
      */
     @Import(name="disableVga")
     private @Nullable Output<Boolean> disableVga;
 
     /**
      * @return Enable or disable VGA. Value range: true: Disable VGA. false (default): Enable VGA. This parameter applies only to cloud gaming edge instances. When VGA is enabled, you can log in to the edge instance using VNC, but this feature may affect the instance&#39;s performance. If you do not enable this feature, the instance&#39;s performance is not affected, but you cannot log in directly via VNC.
-     * 
+     *
      */
     public Optional<Output<Boolean>> disableVga() {
         return Optional.ofNullable(this.disableVga);
@@ -209,36 +209,46 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Image ID. You can query the image ID using the ListImages API.
-     * 
+     *
      */
     @Import(name="imageId")
     private @Nullable Output<String> imageId;
 
     /**
      * @return Image ID. You can query the image ID using the ListImages API.
-     * 
+     *
      */
     public Optional<Output<String>> imageId() {
         return Optional.ofNullable(this.imageId);
     }
 
+    /**
+     * Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="instanceAreaNums")
     private @Nullable Output<List<CloudServerInstanceAreaNumArgs>> instanceAreaNums;
 
+    /**
+     * @return Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<CloudServerInstanceAreaNumArgs>>> instanceAreaNums() {
         return Optional.ofNullable(this.instanceAreaNums);
     }
 
     /**
      * Number of edge instances in the edge service.
-     * 
+     *
      */
     @Import(name="instanceCount")
     private @Nullable Output<Integer> instanceCount;
 
     /**
      * @return Number of edge instances in the edge service.
-     * 
+     *
      */
     public Optional<Output<Integer>> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
@@ -246,14 +256,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Edge instance types: virtual*machine: Virtual machine. bare*metal: Bare metal.
-     * 
+     *
      */
     @Import(name="loadType")
     private @Nullable Output<String> loadType;
 
     /**
      * @return Edge instance types: virtual*machine: Virtual machine. bare*metal: Bare metal.
-     * 
+     *
      */
     public Optional<Output<String>> loadType() {
         return Optional.ofNullable(this.loadType);
@@ -261,14 +271,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Memory configuration for the instance
-     * 
+     *
      */
     @Import(name="mem")
     private @Nullable Output<String> mem;
 
     /**
      * @return Memory configuration for the instance
-     * 
+     *
      */
     public Optional<Output<String>> mem() {
         return Optional.ofNullable(this.mem);
@@ -276,14 +286,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Network configuration.
-     * 
+     *
      */
     @Import(name="networkConfig")
     private @Nullable Output<CloudServerNetworkConfigArgs> networkConfig;
 
     /**
      * @return Network configuration.
-     * 
+     *
      */
     public Optional<Output<CloudServerNetworkConfigArgs>> networkConfig() {
         return Optional.ofNullable(this.networkConfig);
@@ -291,14 +301,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Project associated with the edge service. Edge instances created under the edge service inherit this project. If this parameter is not set or is an empty string, the default value &#39;default&#39; is used.
-     * 
+     *
      */
     @Import(name="project")
     private @Nullable Output<String> project;
 
     /**
      * @return Project associated with the edge service. Edge instances created under the edge service inherit this project. If this parameter is not set or is an empty string, the default value &#39;default&#39; is used.
-     * 
+     *
      */
     public Optional<Output<String>> project() {
         return Optional.ofNullable(this.project);
@@ -306,14 +316,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Scheduling policy. If this parameter is not set, the default policy is city distribution and lowest price priority. When the service level is city-level, you do not need to set this parameter; the policy will be city distribution and lowest price priority. If this parameter is set to other values, the policy will not take effect. It is recommended to leave this parameter blank. When the service level is region-level, the configured policy will take effect.
-     * 
+     *
      */
     @Import(name="scheduleStrategy")
     private @Nullable Output<CloudServerScheduleStrategyArgs> scheduleStrategy;
 
     /**
      * @return Scheduling policy. If this parameter is not set, the default policy is city distribution and lowest price priority. When the service level is city-level, you do not need to set this parameter; the policy will be city distribution and lowest price priority. If this parameter is set to other values, the policy will not take effect. It is recommended to leave this parameter blank. When the service level is region-level, the configured policy will take effect.
-     * 
+     *
      */
     public Optional<Output<CloudServerScheduleStrategyArgs>> scheduleStrategy() {
         return Optional.ofNullable(this.scheduleStrategy);
@@ -321,14 +331,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Edge instance login password settings
-     * 
+     *
      */
     @Import(name="secretConfig")
     private @Nullable Output<CloudServerSecretConfigArgs> secretConfig;
 
     /**
      * @return Edge instance login password settings
-     * 
+     *
      */
     public Optional<Output<CloudServerSecretConfigArgs>> secretConfig() {
         return Optional.ofNullable(this.secretConfig);
@@ -336,14 +346,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Number of regions where the edge service is deployed
-     * 
+     *
      */
     @Import(name="serverAreaCount")
     private @Nullable Output<Integer> serverAreaCount;
 
     /**
      * @return Number of regions where the edge service is deployed
-     * 
+     *
      */
     public Optional<Output<Integer>> serverAreaCount() {
         return Optional.ofNullable(this.serverAreaCount);
@@ -351,14 +361,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance specification name.
-     * 
+     *
      */
     @Import(name="spec")
     private @Nullable Output<String> spec;
 
     /**
      * @return Instance specification name.
-     * 
+     *
      */
     public Optional<Output<String>> spec() {
         return Optional.ofNullable(this.spec);
@@ -366,14 +376,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Chinese name of the instance type.
-     * 
+     *
      */
     @Import(name="specDisplay")
     private @Nullable Output<String> specDisplay;
 
     /**
      * @return Chinese name of the instance type.
-     * 
+     *
      */
     public Optional<Output<String>> specDisplay() {
         return Optional.ofNullable(this.specDisplay);
@@ -381,14 +391,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Edge instance type name. You can use the ListInstanceTypes API to query available instance types. If the required type is not listed, please submit a ticket request.
-     * 
+     *
      */
     @Import(name="specName")
     private @Nullable Output<String> specName;
 
     /**
      * @return Edge instance type name. You can use the ListInstanceTypes API to query available instance types. If the required type is not listed, please submit a ticket request.
-     * 
+     *
      */
     public Optional<Output<String>> specName() {
         return Optional.ofNullable(this.specName);
@@ -396,14 +406,14 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Edge instance status. opening: being created. starting: starting up. running: running. stopping: being stopped. stop: stopped. rebooting: rebooting. terminating: being terminated. open_fail: creation failed.
-     * 
+     *
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return Edge instance status. opening: being created. starting: starting up. running: running. stopping: being stopped. stop: stopped. rebooting: rebooting. terminating: being terminated. open_fail: creation failed.
-     * 
+     *
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
@@ -411,36 +421,46 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Storage configuration, including the type and capacity information for system and data disks.
-     * 
+     *
      */
     @Import(name="storageConfig")
     private @Nullable Output<CloudServerStorageConfigArgs> storageConfig;
 
     /**
      * @return Storage configuration, including the type and capacity information for system and data disks.
-     * 
+     *
      */
     public Optional<Output<CloudServerStorageConfigArgs>> storageConfig() {
         return Optional.ofNullable(this.storageConfig);
     }
 
+    /**
+     * Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="tags")
     private @Nullable Output<List<CloudServerTagArgs>> tags;
 
+    /**
+     * @return Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<CloudServerTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
      * Update time, displayed in UNIX timestamp format.
-     * 
+     *
      */
     @Import(name="updatedTime")
     private @Nullable Output<Integer> updatedTime;
 
     /**
      * @return Update time, displayed in UNIX timestamp format.
-     * 
+     *
      */
     public Optional<Output<Integer>> updatedTime() {
         return Optional.ofNullable(this.updatedTime);
@@ -500,9 +520,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param advancedConfiguration Advanced configuration for customizing edge instance name, instance description, and hostname. When creating edge instances in bulk, instance names and hostnames are generated in sequence based on the custom names.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder advancedConfiguration(@Nullable Output<CloudServerAdvancedConfigurationArgs> advancedConfiguration) {
             $.advancedConfiguration = advancedConfiguration;
@@ -511,9 +531,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param advancedConfiguration Advanced configuration for customizing edge instance name, instance description, and hostname. When creating edge instances in bulk, instance names and hostnames are generated in sequence based on the custom names.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder advancedConfiguration(CloudServerAdvancedConfigurationArgs advancedConfiguration) {
             return advancedConfiguration(Output.of(advancedConfiguration));
@@ -521,9 +541,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arch Architecture of the edge instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder arch(@Nullable Output<String> arch) {
             $.arch = arch;
@@ -532,9 +552,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arch Architecture of the edge instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder arch(String arch) {
             return arch(Output.of(arch));
@@ -542,9 +562,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bareMetalPackage Bare metal package identifier, returned only for bare metal type instances.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder bareMetalPackage(@Nullable Output<String> bareMetalPackage) {
             $.bareMetalPackage = bareMetalPackage;
@@ -553,9 +573,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bareMetalPackage Bare metal package identifier, returned only for bare metal type instances.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder bareMetalPackage(String bareMetalPackage) {
             return bareMetalPackage(Output.of(bareMetalPackage));
@@ -563,9 +583,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param billingConfig Billing method, including billing for compute and bandwidth.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder billingConfig(@Nullable Output<CloudServerBillingConfigArgs> billingConfig) {
             $.billingConfig = billingConfig;
@@ -574,9 +594,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param billingConfig Billing method, including billing for compute and bandwidth.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder billingConfig(CloudServerBillingConfigArgs billingConfig) {
             return billingConfig(Output.of(billingConfig));
@@ -584,9 +604,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cloudServerDesc Description of the edge service.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cloudServerDesc(@Nullable Output<String> cloudServerDesc) {
             $.cloudServerDesc = cloudServerDesc;
@@ -595,9 +615,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cloudServerDesc Description of the edge service.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cloudServerDesc(String cloudServerDesc) {
             return cloudServerDesc(Output.of(cloudServerDesc));
@@ -605,9 +625,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cloudServerIdentity Edge service ID. You can query the edge service ID via the ListCloudServers API.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cloudServerIdentity(@Nullable Output<String> cloudServerIdentity) {
             $.cloudServerIdentity = cloudServerIdentity;
@@ -616,9 +636,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cloudServerIdentity Edge service ID. You can query the edge service ID via the ListCloudServers API.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cloudServerIdentity(String cloudServerIdentity) {
             return cloudServerIdentity(Output.of(cloudServerIdentity));
@@ -626,9 +646,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cloudServerName Edge service name
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cloudServerName(@Nullable Output<String> cloudServerName) {
             $.cloudServerName = cloudServerName;
@@ -637,9 +657,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cloudServerName Edge service name
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cloudServerName(String cloudServerName) {
             return cloudServerName(Output.of(cloudServerName));
@@ -647,9 +667,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cpu CPU configuration for the instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cpu(@Nullable Output<String> cpu) {
             $.cpu = cpu;
@@ -658,9 +678,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cpu CPU configuration for the instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder cpu(String cpu) {
             return cpu(Output.of(cpu));
@@ -668,9 +688,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createInstanceTimeout Note: This parameter applies only to postpaid instances. Edge instance creation timeout. Unit: seconds. Minimum: 120. If the creation time of the edge instance exceeds the specified value, the creation fails and its status changes to open_fail. You can delete the related instance through the console or API. If this parameter is not specified, there is no limit on the instance creation time.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createInstanceTimeout(@Nullable Output<Integer> createInstanceTimeout) {
             $.createInstanceTimeout = createInstanceTimeout;
@@ -679,9 +699,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createInstanceTimeout Note: This parameter applies only to postpaid instances. Edge instance creation timeout. Unit: seconds. Minimum: 120. If the creation time of the edge instance exceeds the specified value, the creation fails and its status changes to open_fail. You can delete the related instance through the console or API. If this parameter is not specified, there is no limit on the instance creation time.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createInstanceTimeout(Integer createInstanceTimeout) {
             return createInstanceTimeout(Output.of(createInstanceTimeout));
@@ -689,9 +709,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Creation time, displayed in UNIX timestamp format.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createdTime(@Nullable Output<Integer> createdTime) {
             $.createdTime = createdTime;
@@ -700,9 +720,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdTime Creation time, displayed in UNIX timestamp format.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createdTime(Integer createdTime) {
             return createdTime(Output.of(createdTime));
@@ -710,9 +730,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customData Custom data configuration.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder customData(@Nullable Output<CloudServerCustomDataArgs> customData) {
             $.customData = customData;
@@ -721,9 +741,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customData Custom data configuration.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder customData(CloudServerCustomDataArgs customData) {
             return customData(Output.of(customData));
@@ -731,9 +751,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param disableVga Enable or disable VGA. Value range: true: Disable VGA. false (default): Enable VGA. This parameter applies only to cloud gaming edge instances. When VGA is enabled, you can log in to the edge instance using VNC, but this feature may affect the instance&#39;s performance. If you do not enable this feature, the instance&#39;s performance is not affected, but you cannot log in directly via VNC.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder disableVga(@Nullable Output<Boolean> disableVga) {
             $.disableVga = disableVga;
@@ -742,9 +762,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param disableVga Enable or disable VGA. Value range: true: Disable VGA. false (default): Enable VGA. This parameter applies only to cloud gaming edge instances. When VGA is enabled, you can log in to the edge instance using VNC, but this feature may affect the instance&#39;s performance. If you do not enable this feature, the instance&#39;s performance is not affected, but you cannot log in directly via VNC.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder disableVga(Boolean disableVga) {
             return disableVga(Output.of(disableVga));
@@ -752,9 +772,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param imageId Image ID. You can query the image ID using the ListImages API.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder imageId(@Nullable Output<String> imageId) {
             $.imageId = imageId;
@@ -763,32 +783,53 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param imageId Image ID. You can query the image ID using the ListImages API.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder imageId(String imageId) {
             return imageId(Output.of(imageId));
         }
 
+        /**
+         * @param instanceAreaNums Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder instanceAreaNums(@Nullable Output<List<CloudServerInstanceAreaNumArgs>> instanceAreaNums) {
             $.instanceAreaNums = instanceAreaNums;
             return this;
         }
 
+        /**
+         * @param instanceAreaNums Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder instanceAreaNums(List<CloudServerInstanceAreaNumArgs> instanceAreaNums) {
             return instanceAreaNums(Output.of(instanceAreaNums));
         }
 
+        /**
+         * @param instanceAreaNums Region or node information for the edge instance, and the number of edge instances. If this parameter is not specified, no edge instance will be created.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder instanceAreaNums(CloudServerInstanceAreaNumArgs... instanceAreaNums) {
             return instanceAreaNums(List.of(instanceAreaNums));
         }
 
         /**
          * @param instanceCount Number of edge instances in the edge service.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceCount(@Nullable Output<Integer> instanceCount) {
             $.instanceCount = instanceCount;
@@ -797,9 +838,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceCount Number of edge instances in the edge service.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceCount(Integer instanceCount) {
             return instanceCount(Output.of(instanceCount));
@@ -807,9 +848,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param loadType Edge instance types: virtual*machine: Virtual machine. bare*metal: Bare metal.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder loadType(@Nullable Output<String> loadType) {
             $.loadType = loadType;
@@ -818,9 +859,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param loadType Edge instance types: virtual*machine: Virtual machine. bare*metal: Bare metal.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder loadType(String loadType) {
             return loadType(Output.of(loadType));
@@ -828,9 +869,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param mem Memory configuration for the instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder mem(@Nullable Output<String> mem) {
             $.mem = mem;
@@ -839,9 +880,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param mem Memory configuration for the instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder mem(String mem) {
             return mem(Output.of(mem));
@@ -849,9 +890,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkConfig Network configuration.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder networkConfig(@Nullable Output<CloudServerNetworkConfigArgs> networkConfig) {
             $.networkConfig = networkConfig;
@@ -860,9 +901,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkConfig Network configuration.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder networkConfig(CloudServerNetworkConfigArgs networkConfig) {
             return networkConfig(Output.of(networkConfig));
@@ -870,9 +911,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param project Project associated with the edge service. Edge instances created under the edge service inherit this project. If this parameter is not set or is an empty string, the default value &#39;default&#39; is used.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder project(@Nullable Output<String> project) {
             $.project = project;
@@ -881,9 +922,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param project Project associated with the edge service. Edge instances created under the edge service inherit this project. If this parameter is not set or is an empty string, the default value &#39;default&#39; is used.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder project(String project) {
             return project(Output.of(project));
@@ -891,9 +932,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param scheduleStrategy Scheduling policy. If this parameter is not set, the default policy is city distribution and lowest price priority. When the service level is city-level, you do not need to set this parameter; the policy will be city distribution and lowest price priority. If this parameter is set to other values, the policy will not take effect. It is recommended to leave this parameter blank. When the service level is region-level, the configured policy will take effect.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder scheduleStrategy(@Nullable Output<CloudServerScheduleStrategyArgs> scheduleStrategy) {
             $.scheduleStrategy = scheduleStrategy;
@@ -902,9 +943,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param scheduleStrategy Scheduling policy. If this parameter is not set, the default policy is city distribution and lowest price priority. When the service level is city-level, you do not need to set this parameter; the policy will be city distribution and lowest price priority. If this parameter is set to other values, the policy will not take effect. It is recommended to leave this parameter blank. When the service level is region-level, the configured policy will take effect.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder scheduleStrategy(CloudServerScheduleStrategyArgs scheduleStrategy) {
             return scheduleStrategy(Output.of(scheduleStrategy));
@@ -912,9 +953,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secretConfig Edge instance login password settings
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder secretConfig(@Nullable Output<CloudServerSecretConfigArgs> secretConfig) {
             $.secretConfig = secretConfig;
@@ -923,9 +964,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secretConfig Edge instance login password settings
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder secretConfig(CloudServerSecretConfigArgs secretConfig) {
             return secretConfig(Output.of(secretConfig));
@@ -933,9 +974,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serverAreaCount Number of regions where the edge service is deployed
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder serverAreaCount(@Nullable Output<Integer> serverAreaCount) {
             $.serverAreaCount = serverAreaCount;
@@ -944,9 +985,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serverAreaCount Number of regions where the edge service is deployed
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder serverAreaCount(Integer serverAreaCount) {
             return serverAreaCount(Output.of(serverAreaCount));
@@ -954,9 +995,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param spec Instance specification name.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder spec(@Nullable Output<String> spec) {
             $.spec = spec;
@@ -965,9 +1006,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param spec Instance specification name.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder spec(String spec) {
             return spec(Output.of(spec));
@@ -975,9 +1016,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param specDisplay Chinese name of the instance type.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder specDisplay(@Nullable Output<String> specDisplay) {
             $.specDisplay = specDisplay;
@@ -986,9 +1027,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param specDisplay Chinese name of the instance type.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder specDisplay(String specDisplay) {
             return specDisplay(Output.of(specDisplay));
@@ -996,9 +1037,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param specName Edge instance type name. You can use the ListInstanceTypes API to query available instance types. If the required type is not listed, please submit a ticket request.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder specName(@Nullable Output<String> specName) {
             $.specName = specName;
@@ -1007,9 +1048,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param specName Edge instance type name. You can use the ListInstanceTypes API to query available instance types. If the required type is not listed, please submit a ticket request.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder specName(String specName) {
             return specName(Output.of(specName));
@@ -1017,9 +1058,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status Edge instance status. opening: being created. starting: starting up. running: running. stopping: being stopped. stop: stopped. rebooting: rebooting. terminating: being terminated. open_fail: creation failed.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
@@ -1028,9 +1069,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status Edge instance status. opening: being created. starting: starting up. running: running. stopping: being stopped. stop: stopped. rebooting: rebooting. terminating: being terminated. open_fail: creation failed.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(String status) {
             return status(Output.of(status));
@@ -1038,9 +1079,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageConfig Storage configuration, including the type and capacity information for system and data disks.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder storageConfig(@Nullable Output<CloudServerStorageConfigArgs> storageConfig) {
             $.storageConfig = storageConfig;
@@ -1049,32 +1090,53 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageConfig Storage configuration, including the type and capacity information for system and data disks.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder storageConfig(CloudServerStorageConfigArgs storageConfig) {
             return storageConfig(Output.of(storageConfig));
         }
 
+        /**
+         * @param tags Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(@Nullable Output<List<CloudServerTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(List<CloudServerTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tags Tags for the edge service. A tag consists of a tag key (Key) and a tag value (Value). Note the following when using tags: Only custom tags can be created. If you set tags when creating an edge service, the edge instances created with the service will inherit the tags. If an edge service needs to bind multiple tags, the tag keys must not be the same. Tag keys set under the same edge service must be unique. If a tag key already exists, the new tag value will overwrite the old value. You can set up to 50 tags at a time.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(CloudServerTagArgs... tags) {
             return tags(List.of(tags));
         }
 
         /**
          * @param updatedTime Update time, displayed in UNIX timestamp format.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder updatedTime(@Nullable Output<Integer> updatedTime) {
             $.updatedTime = updatedTime;
@@ -1083,9 +1145,9 @@ public final class CloudServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param updatedTime Update time, displayed in UNIX timestamp format.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder updatedTime(Integer updatedTime) {
             return updatedTime(Output.of(updatedTime));

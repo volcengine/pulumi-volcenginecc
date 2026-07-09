@@ -17,38 +17,167 @@ import javax.annotation.Nullable;
 
 /**
  * Configure origin fetch rules for the specified TOS bucket. When an object request meets the specified conditions, TOS can fetch the object from a public or private origin according to the rules.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ *
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketMirrorBack;
+ * import com.volcengine.volcenginecc.tos.BucketMirrorBackArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleConditionArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectMirrorHeaderArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectPrivateSourceArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectTransformArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketMirrorBackRuleRedirectTransformReplaceKeyPrefixArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ *
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ *
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketMirrorBackDemo = new BucketMirrorBack("tOSBucketMirrorBackDemo", BucketMirrorBackArgs.builder()
+ *             .bucket("ccapi-test")
+ *             .rules(BucketMirrorBackRuleArgs.builder()
+ *                 .condition(BucketMirrorBackRuleConditionArgs.builder()
+ *                     .httpCode(404)
+ *                     .httpMethod(Arrays.asList(
+ *                         "GET",
+ *                         "HEAD"))
+ *                     .keyPrefix("object-key-prefix")
+ *                     .keySuffix("object-key-suffix")
+ *                     .allowHost(Arrays.asList("example.volcengine.com"))
+ *                     .build())
+ *                 .id("rule-003")
+ *                 .redirect(BucketMirrorBackRuleRedirectArgs.builder()
+ *                     .fetchHeaderToMetaDataRules(BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs.builder()
+ *                         .metaDataSuffix("-meta")
+ *                         .sourceHeader("X-Custom-Header")
+ *                         .build())
+ *                     .fetchSourceOnRedirect(false)
+ *                     .fetchSourceOnRedirectWithQuery(false)
+ *                     .followRedirect(true)
+ *                     .mirrorHeader(BucketMirrorBackRuleRedirectMirrorHeaderArgs.builder()
+ *                         .passAll(true)
+ *                         .pass(Arrays.asList(
+ *                             "aaa",
+ *                             "bbb"))
+ *                         .remove(Arrays.asList(
+ *                             "xxx",
+ *                             "yyy"))
+ *                         .set(Arrays.asList(Map.ofEntries(
+ *                             Map.entry("key", "X-Set-Header"),
+ *                             Map.entry("value", "set-value")
+ *                         )))
+ *                         .build())
+ *                     .passHeaderFromSource(Arrays.asList("X-Source-Header"))
+ *                     .passQuery(true)
+ *                     .passStatusCodeFromSource(Arrays.asList(
+ *                         404,
+ *                         500))
+ *                     .privateSource(BucketMirrorBackRuleRedirectPrivateSourceArgs.builder()
+ *                         .sourceEndpoint(BucketMirrorBackRuleRedirectPrivateSourceSourceEndpointArgs.builder()
+ *                             .primary(Arrays.asList(Map.ofEntries(
+ *                                 Map.entry("bucketName", "primary-bucket"),
+ *                                 Map.entry("endpoint", "http://xxxxx.volces.com"),
+ *                                 Map.entry("credentialProvider", Map.ofEntries(
+ *                                     Map.entry("staticCredential", Map.ofEntries(
+ *                                         Map.entry("storageVendor", "S3"),
+ *                                         Map.entry("skEncryptType", ""),
+ *                                         Map.entry("sk", "sk-test-primary"),
+ *                                         Map.entry("ak", "ak-test-primary")
+ *                                     )),
+ *                                     Map.entry("role", ""),
+ *                                     Map.entry("region", "cn-beijing")
+ *                                 ))
+ *                             )))
+ *                             .follower(Arrays.asList(Map.ofEntries(
+ *                                 Map.entry("bucketName", "follower-bucket"),
+ *                                 Map.entry("endpoint", "http://xxxxx.volces.com"),
+ *                                 Map.entry("credentialProvider", Map.ofEntries(
+ *                                     Map.entry("staticCredential", Map.ofEntries(
+ *                                         Map.entry("storageVendor", "S3"),
+ *                                         Map.entry("skEncryptType", ""),
+ *                                         Map.entry("sk", "sk-test-follower"),
+ *                                         Map.entry("ak", "ak-test-follower")
+ *                                     )),
+ *                                     Map.entry("role", ""),
+ *                                     Map.entry("region", "cn-beijing")
+ *                                 ))
+ *                             )))
+ *                             .build())
+ *                         .build())
+ *                     .redirectType("Mirror")
+ *                     .transform(BucketMirrorBackRuleRedirectTransformArgs.builder()
+ *                         .withKeyPrefix("addtional-key-prefix")
+ *                         .withKeySuffix("addtional-key-suffix")
+ *                         .replaceKeyPrefix(BucketMirrorBackRuleRedirectTransformReplaceKeyPrefixArgs.builder()
+ *                             .keyPrefix("key-prefix")
+ *                             .replaceWith("replace-with")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ *
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketMirrorBack:BucketMirrorBack example &#34;bucket&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketMirrorBack:BucketMirrorBack")
 public class BucketMirrorBack extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name requiring origin fetch rule configuration.
-     * 
+     *
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
      * @return Bucket name requiring origin fetch rule configuration.
-     * 
+     *
      */
     public Output<String> bucket() {
         return this.bucket;
     }
+    /**
+     * Array of origin fetch policy rules.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="rules", refs={List.class,BucketMirrorBackRule.class}, tree="[0,1]")
     private Output<List<BucketMirrorBackRule>> rules;
 
+    /**
+     * @return Array of origin fetch policy rules.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<BucketMirrorBackRule>> rules() {
         return this.rules;
     }

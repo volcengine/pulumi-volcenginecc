@@ -19,209 +19,219 @@ import javax.annotation.Nullable;
 
 /**
  * Refers to the backup object, which is the starting point for cloud backup operations. It can be a computing resource, service instance, or a group of collaborative services and resources from the backup source product, such as ECS full instance, cloud disk, or object storage bucket.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- * 
+ *
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.cbr.BackupResource;
  * import com.volcengine.volcenginecc.cbr.BackupResourceArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- * 
+ *
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- * 
+ *
  *     public static void stack(Context ctx) {
  *         var cBRBackupResourceDemo = new BackupResource("cBRBackupResourceDemo", BackupResourceArgs.builder()
  *             .instanceId("i-yebwmo5pfkcva4xxxxx")
  *             .instanceName("CBRBackupResourceDemo")
  *             .resourceType("ECS")
  *             .build());
- * 
+ *
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:cbr/backupResource:BackupResource example &#34;resource_id&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:cbr/backupResource:BackupResource")
 public class BackupResource extends com.pulumi.resources.CustomResource {
     /**
      * Account ID that created this backup source
-     * 
+     *
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
      * @return Account ID that created this backup source
-     * 
+     *
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
      * Creation Time
-     * 
+     *
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
      * @return Creation Time
-     * 
+     *
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
      * Instance ID
-     * 
+     *
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
      * @return Instance ID
-     * 
+     *
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
      * Instance Name
-     * 
+     *
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
      * @return Instance Name
-     * 
+     *
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
      * Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
-     * 
+     *
      */
     @Export(name="metaInformation", refs={BackupResourceMetaInformation.class}, tree="[0]")
     private Output<BackupResourceMetaInformation> metaInformation;
 
     /**
      * @return Resource meta information (used to store additional configuration when creating a backup plan). ECS full backup parameters: see the EcsBackupConfiguration structure. vePFS backup parameters: see the VePFSBackupConfiguration structure.
-     * 
+     *
      */
     public Output<BackupResourceMetaInformation> metaInformation() {
         return this.metaInformation;
     }
+    /**
+     * List of Associated Backup Plans
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="plans", refs={List.class,BackupResourcePlan.class}, tree="[0,1]")
     private Output<List<BackupResourcePlan>> plans;
 
+    /**
+     * @return List of Associated Backup Plans
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<BackupResourcePlan>> plans() {
         return this.plans;
     }
     /**
      * Number of Restore Points
-     * 
+     *
      */
     @Export(name="recoveryPointNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> recoveryPointNumber;
 
     /**
      * @return Number of Restore Points
-     * 
+     *
      */
     public Output<Integer> recoveryPointNumber() {
         return this.recoveryPointNumber;
     }
     /**
      * Backup Source ID
-     * 
+     *
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
      * @return Backup Source ID
-     * 
+     *
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
      * Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
-     * 
+     *
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
      * @return Backup source type. Value description: ECS: ECS full instance. vePFS: vePFS file system.
-     * 
+     *
      */
     public Output<String> resourceType() {
         return this.resourceType;
     }
     /**
      * Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
-     * 
+     *
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return Backup source status. Possible values: AVAILABLE, REMOVING, BEING*BACKED*UP, RECOVERING, CREATING, ERROR, UNAVAILABLE.
-     * 
+     *
      */
     public Output<String> status() {
         return this.status;
     }
     /**
      * Update Time
-     * 
+     *
      */
     @Export(name="updatedTime", refs={String.class}, tree="[0]")
     private Output<String> updatedTime;
 
     /**
      * @return Update Time
-     * 
+     *
      */
     public Output<String> updatedTime() {
         return this.updatedTime;
     }
     /**
      * Bytes Already Backed Up
-     * 
+     *
      */
     @Export(name="usedCapacityInBytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> usedCapacityInBytes;
 
     /**
      * @return Bytes Already Backed Up
-     * 
+     *
      */
     public Output<Integer> usedCapacityInBytes() {
         return this.usedCapacityInBytes;

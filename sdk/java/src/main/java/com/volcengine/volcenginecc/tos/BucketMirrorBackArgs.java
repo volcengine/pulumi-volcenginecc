@@ -20,22 +20,32 @@ public final class BucketMirrorBackArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Bucket name requiring origin fetch rule configuration.
-     * 
+     *
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
      * @return Bucket name requiring origin fetch rule configuration.
-     * 
+     *
      */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * Array of origin fetch policy rules.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="rules")
     private @Nullable Output<List<BucketMirrorBackRuleArgs>> rules;
 
+    /**
+     * @return Array of origin fetch policy rules.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<BucketMirrorBackRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
@@ -67,9 +77,9 @@ public final class BucketMirrorBackArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param bucket Bucket name requiring origin fetch rule configuration.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
@@ -78,23 +88,44 @@ public final class BucketMirrorBackArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param bucket Bucket name requiring origin fetch rule configuration.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param rules Array of origin fetch policy rules.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder rules(@Nullable Output<List<BucketMirrorBackRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules Array of origin fetch policy rules.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder rules(List<BucketMirrorBackRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules Array of origin fetch policy rules.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder rules(BucketMirrorBackRuleArgs... rules) {
             return rules(List.of(rules));
         }

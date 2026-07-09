@@ -18,23 +18,53 @@ public final class BucketNotificationNotificationRuleDestinationArgs extends com
 
     public static final BucketNotificationNotificationRuleDestinationArgs Empty = new BucketNotificationNotificationRuleDestinationArgs();
 
+    /**
+     * Event delivery target is Kafka message queue.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="kafkas")
     private @Nullable Output<List<BucketNotificationNotificationRuleDestinationKafkaArgs>> kafkas;
 
+    /**
+     * @return Event delivery target is Kafka message queue.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<BucketNotificationNotificationRuleDestinationKafkaArgs>>> kafkas() {
         return Optional.ofNullable(this.kafkas);
     }
 
+    /**
+     * Event delivery target is RocketMQ message queue.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="rocketMqs")
     private @Nullable Output<List<BucketNotificationNotificationRuleDestinationRocketMqArgs>> rocketMqs;
 
+    /**
+     * @return Event delivery target is RocketMQ message queue.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<BucketNotificationNotificationRuleDestinationRocketMqArgs>>> rocketMqs() {
         return Optional.ofNullable(this.rocketMqs);
     }
 
+    /**
+     * Event delivery target is Function Service.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="veFaaS")
     private @Nullable Output<List<BucketNotificationNotificationRuleDestinationVeFaaArgs>> veFaaS;
 
+    /**
+     * @return Event delivery target is Function Service.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<BucketNotificationNotificationRuleDestinationVeFaaArgs>>> veFaaS() {
         return Optional.ofNullable(this.veFaaS);
     }
@@ -65,41 +95,104 @@ public final class BucketNotificationNotificationRuleDestinationArgs extends com
             $ = new BucketNotificationNotificationRuleDestinationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kafkas Event delivery target is Kafka message queue.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder kafkas(@Nullable Output<List<BucketNotificationNotificationRuleDestinationKafkaArgs>> kafkas) {
             $.kafkas = kafkas;
             return this;
         }
 
+        /**
+         * @param kafkas Event delivery target is Kafka message queue.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder kafkas(List<BucketNotificationNotificationRuleDestinationKafkaArgs> kafkas) {
             return kafkas(Output.of(kafkas));
         }
 
+        /**
+         * @param kafkas Event delivery target is Kafka message queue.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder kafkas(BucketNotificationNotificationRuleDestinationKafkaArgs... kafkas) {
             return kafkas(List.of(kafkas));
         }
 
+        /**
+         * @param rocketMqs Event delivery target is RocketMQ message queue.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder rocketMqs(@Nullable Output<List<BucketNotificationNotificationRuleDestinationRocketMqArgs>> rocketMqs) {
             $.rocketMqs = rocketMqs;
             return this;
         }
 
+        /**
+         * @param rocketMqs Event delivery target is RocketMQ message queue.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder rocketMqs(List<BucketNotificationNotificationRuleDestinationRocketMqArgs> rocketMqs) {
             return rocketMqs(Output.of(rocketMqs));
         }
 
+        /**
+         * @param rocketMqs Event delivery target is RocketMQ message queue.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder rocketMqs(BucketNotificationNotificationRuleDestinationRocketMqArgs... rocketMqs) {
             return rocketMqs(List.of(rocketMqs));
         }
 
+        /**
+         * @param veFaaS Event delivery target is Function Service.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder veFaaS(@Nullable Output<List<BucketNotificationNotificationRuleDestinationVeFaaArgs>> veFaaS) {
             $.veFaaS = veFaaS;
             return this;
         }
 
+        /**
+         * @param veFaaS Event delivery target is Function Service.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder veFaaS(List<BucketNotificationNotificationRuleDestinationVeFaaArgs> veFaaS) {
             return veFaaS(Output.of(veFaaS));
         }
 
+        /**
+         * @param veFaaS Event delivery target is Function Service.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder veFaaS(BucketNotificationNotificationRuleDestinationVeFaaArgs... veFaaS) {
             return veFaaS(List.of(veFaaS));
         }

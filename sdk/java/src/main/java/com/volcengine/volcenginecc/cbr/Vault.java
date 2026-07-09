@@ -17,124 +17,134 @@ import javax.annotation.Nullable;
 
 /**
  * Used to store your backup data
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- * 
+ *
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.cbr.Vault;
  * import com.volcengine.volcenginecc.cbr.VaultArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- * 
+ *
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- * 
+ *
  *     public static void stack(Context ctx) {
  *         var cBRVaultDemo = new Vault("cBRVaultDemo", VaultArgs.builder()
  *             .vaultName("CBRVaultDemo")
  *             .projectName("default")
  *             .build());
- * 
+ *
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:cbr/vault:Vault example &#34;vault_id&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:cbr/vault:Vault")
 public class Vault extends com.pulumi.resources.CustomResource {
     /**
      * Creation Time
-     * 
+     *
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
      * @return Creation Time
-     * 
+     *
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
      * Access Domain Name
-     * 
+     *
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
      * @return Access Domain Name
-     * 
+     *
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
      * Project Name
-     * 
+     *
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
      * @return Project Name
-     * 
+     *
      */
     public Output<String> projectName() {
         return this.projectName;
     }
+    /**
+     * Backup Repository Tag
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="tags", refs={List.class,VaultTag.class}, tree="[0,1]")
     private Output<List<VaultTag>> tags;
 
+    /**
+     * @return Backup Repository Tag
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<VaultTag>> tags() {
         return this.tags;
     }
     /**
      * Backup Repository ID
-     * 
+     *
      */
     @Export(name="vaultId", refs={String.class}, tree="[0]")
     private Output<String> vaultId;
 
     /**
      * @return Backup Repository ID
-     * 
+     *
      */
     public Output<String> vaultId() {
         return this.vaultId;
     }
     /**
      * Backup Repository Name
-     * 
+     *
      */
     @Export(name="vaultName", refs={String.class}, tree="[0]")
     private Output<String> vaultName;
 
     /**
      * @return Backup Repository Name
-     * 
+     *
      */
     public Output<String> vaultName() {
         return this.vaultName;

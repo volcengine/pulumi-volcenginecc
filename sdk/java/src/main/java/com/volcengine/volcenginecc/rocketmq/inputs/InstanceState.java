@@ -24,14 +24,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Account ID to which the instance belongs.
-     * 
+     *
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
      * @return Account ID to which the instance belongs.
-     * 
+     *
      */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
@@ -39,14 +39,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-     * 
+     *
      */
     @Import(name="allowListIds")
     private @Nullable Output<List<String>> allowListIds;
 
     /**
      * @return List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-     * 
+     *
      */
     public Optional<Output<List<String>>> allowListIds() {
         return Optional.ofNullable(this.allowListIds);
@@ -54,14 +54,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether private network domain name supports public resolution. true: enabled false: disabled
-     * 
+     *
      */
     @Import(name="applyPrivateDnsToPublic")
     private @Nullable Output<Boolean> applyPrivateDnsToPublic;
 
     /**
      * @return Whether private network domain name supports public resolution. true: enabled false: disabled
-     * 
+     *
      */
     public Optional<Output<Boolean>> applyPrivateDnsToPublic() {
         return Optional.ofNullable(this.applyPrivateDnsToPublic);
@@ -69,14 +69,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to automatically create queues when the instance specification changes.
-     * 
+     *
      */
     @Import(name="autoScaleQueue")
     private @Nullable Output<Boolean> autoScaleQueue;
 
     /**
      * @return Whether to automatically create queues when the instance specification changes.
-     * 
+     *
      */
     public Optional<Output<Boolean>> autoScaleQueue() {
         return Optional.ofNullable(this.autoScaleQueue);
@@ -84,14 +84,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Remaining number of partitions that can be created.
-     * 
+     *
      */
     @Import(name="availableQueueNumber")
     private @Nullable Output<Integer> availableQueueNumber;
 
     /**
      * @return Remaining number of partitions that can be created.
-     * 
+     *
      */
     public Optional<Output<Integer>> availableQueueNumber() {
         return Optional.ofNullable(this.availableQueueNumber);
@@ -99,14 +99,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Billing method and related billing information for the instance.
-     * 
+     *
      */
     @Import(name="chargeDetail")
     private @Nullable Output<InstanceChargeDetailArgs> chargeDetail;
 
     /**
      * @return Billing method and related billing information for the instance.
-     * 
+     *
      */
     public Optional<Output<InstanceChargeDetailArgs>> chargeDetail() {
         return Optional.ofNullable(this.chargeDetail);
@@ -114,36 +114,46 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance compute specification. You can view the currently available compute specifications in the product specifications list.
-     * 
+     *
      */
     @Import(name="computeSpec")
     private @Nullable Output<String> computeSpec;
 
     /**
      * @return Instance compute specification. You can view the currently available compute specifications in the product specifications list.
-     * 
+     *
      */
     public Optional<Output<String>> computeSpec() {
         return Optional.ofNullable(this.computeSpec);
     }
 
+    /**
+     * Instance connection information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="connectionInfos")
     private @Nullable Output<List<InstanceConnectionInfoArgs>> connectionInfos;
 
+    /**
+     * @return Instance connection information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<InstanceConnectionInfoArgs>>> connectionInfos() {
         return Optional.ofNullable(this.connectionInfos);
     }
 
     /**
      * Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
-     * 
+     *
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
      * @return Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
-     * 
+     *
      */
     public Optional<Output<String>> createTime() {
         return Optional.ofNullable(this.createTime);
@@ -151,14 +161,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
-     * 
+     *
      */
     @Import(name="eipId")
     private @Nullable Output<String> eipId;
 
     /**
      * @return EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
-     * 
+     *
      */
     public Optional<Output<String>> eipId() {
         return Optional.ofNullable(this.eipId);
@@ -166,14 +176,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to use SSL encryption.
-     * 
+     *
      */
     @Import(name="enableSsl")
     private @Nullable Output<Boolean> enableSsl;
 
     /**
      * @return Whether to use SSL encryption.
-     * 
+     *
      */
     public Optional<Output<Boolean>> enableSsl() {
         return Optional.ofNullable(this.enableSsl);
@@ -181,14 +191,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
-     * 
+     *
      */
     @Import(name="fileReservedTime")
     private @Nullable Output<Integer> fileReservedTime;
 
     /**
      * @return Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
-     * 
+     *
      */
     public Optional<Output<Integer>> fileReservedTime() {
         return Optional.ofNullable(this.fileReservedTime);
@@ -196,14 +206,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Brief description of the instance. Length range: 1–128 characters.
-     * 
+     *
      */
     @Import(name="instanceDescription")
     private @Nullable Output<String> instanceDescription;
 
     /**
      * @return Brief description of the instance. Length range: 1–128 characters.
-     * 
+     *
      */
     public Optional<Output<String>> instanceDescription() {
         return Optional.ofNullable(this.instanceDescription);
@@ -211,14 +221,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance ID.
-     * 
+     *
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     * 
+     *
      */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
@@ -226,14 +236,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
-     * 
+     *
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
      * @return Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
-     * 
+     *
      */
     public Optional<Output<String>> instanceName() {
         return Optional.ofNullable(this.instanceName);
@@ -241,14 +251,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance status.
-     * 
+     *
      */
     @Import(name="instanceStatus")
     private @Nullable Output<String> instanceStatus;
 
     /**
      * @return Instance status.
-     * 
+     *
      */
     public Optional<Output<String>> instanceStatus() {
         return Optional.ofNullable(this.instanceStatus);
@@ -256,14 +266,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * IP version. Options are IPv4 or DualStack.
-     * 
+     *
      */
     @Import(name="ipVersionType")
     private @Nullable Output<String> ipVersionType;
 
     /**
      * @return IP version. Options are IPv4 or DualStack.
-     * 
+     *
      */
     public Optional<Output<String>> ipVersionType() {
         return Optional.ofNullable(this.ipVersionType);
@@ -271,14 +281,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance network type, fixed as PrivateNetwork.
-     * 
+     *
      */
     @Import(name="networkTypes")
     private @Nullable Output<String> networkTypes;
 
     /**
      * @return Instance network type, fixed as PrivateNetwork.
-     * 
+     *
      */
     public Optional<Output<String>> networkTypes() {
         return Optional.ofNullable(this.networkTypes);
@@ -286,14 +296,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
-     * 
+     *
      */
     @Import(name="productInfo")
     private @Nullable Output<InstanceProductInfoArgs> productInfo;
 
     /**
      * @return Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
-     * 
+     *
      */
     public Optional<Output<InstanceProductInfoArgs>> productInfo() {
         return Optional.ofNullable(this.productInfo);
@@ -301,14 +311,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
-     * 
+     *
      */
     @Import(name="projectName")
     private @Nullable Output<String> projectName;
 
     /**
      * @return The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
-     * 
+     *
      */
     public Optional<Output<String>> projectName() {
         return Optional.ofNullable(this.projectName);
@@ -316,14 +326,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Region ID where the instance is located.
-     * 
+     *
      */
     @Import(name="regionId")
     private @Nullable Output<String> regionId;
 
     /**
      * @return Region ID where the instance is located.
-     * 
+     *
      */
     public Optional<Output<String>> regionId() {
         return Optional.ofNullable(this.regionId);
@@ -331,14 +341,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
-     * 
+     *
      */
     @Import(name="sslMode")
     private @Nullable Output<String> sslMode;
 
     /**
      * @return The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
-     * 
+     *
      */
     public Optional<Output<String>> sslMode() {
         return Optional.ofNullable(this.sslMode);
@@ -346,14 +356,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
-     * 
+     *
      */
     @Import(name="storageSpace")
     private @Nullable Output<Integer> storageSpace;
 
     /**
      * @return Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
-     * 
+     *
      */
     public Optional<Output<Integer>> storageSpace() {
         return Optional.ofNullable(this.storageSpace);
@@ -361,36 +371,46 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
      * @return VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
+    /**
+     * Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="tags")
     private @Nullable Output<List<InstanceTagArgs>> tags;
 
+    /**
+     * @return Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<InstanceTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
      * Number of consumer groups (Group) currently created for the instance.
-     * 
+     *
      */
     @Import(name="usedGroupNumber")
     private @Nullable Output<Integer> usedGroupNumber;
 
     /**
      * @return Number of consumer groups (Group) currently created for the instance.
-     * 
+     *
      */
     public Optional<Output<Integer>> usedGroupNumber() {
         return Optional.ofNullable(this.usedGroupNumber);
@@ -398,14 +418,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Number of queues already used by the instance.
-     * 
+     *
      */
     @Import(name="usedQueueNumber")
     private @Nullable Output<Integer> usedQueueNumber;
 
     /**
      * @return Number of queues already used by the instance.
-     * 
+     *
      */
     public Optional<Output<Integer>> usedQueueNumber() {
         return Optional.ofNullable(this.usedQueueNumber);
@@ -413,14 +433,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Used storage space for the instance, in GiB.
-     * 
+     *
      */
     @Import(name="usedStorageSpace")
     private @Nullable Output<Integer> usedStorageSpace;
 
     /**
      * @return Used storage space for the instance, in GiB.
-     * 
+     *
      */
     public Optional<Output<Integer>> usedStorageSpace() {
         return Optional.ofNullable(this.usedStorageSpace);
@@ -428,14 +448,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Number of topics created in the current instance.
-     * 
+     *
      */
     @Import(name="usedTopicNumber")
     private @Nullable Output<Integer> usedTopicNumber;
 
     /**
      * @return Number of topics created in the current instance.
-     * 
+     *
      */
     public Optional<Output<Integer>> usedTopicNumber() {
         return Optional.ofNullable(this.usedTopicNumber);
@@ -443,14 +463,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
-     * 
+     *
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
-     * 
+     *
      */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
@@ -458,14 +478,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
      * @return VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
@@ -473,14 +493,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
-     * 
+     *
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
      * @return Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
-     * 
+     *
      */
     public Optional<Output<String>> zoneId() {
         return Optional.ofNullable(this.zoneId);
@@ -543,9 +563,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountId Account ID to which the instance belongs.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
@@ -554,9 +574,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountId Account ID to which the instance belongs.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
@@ -564,9 +584,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allowListIds List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder allowListIds(@Nullable Output<List<String>> allowListIds) {
             $.allowListIds = allowListIds;
@@ -575,9 +595,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allowListIds List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder allowListIds(List<String> allowListIds) {
             return allowListIds(Output.of(allowListIds));
@@ -585,9 +605,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allowListIds List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder allowListIds(String... allowListIds) {
             return allowListIds(List.of(allowListIds));
@@ -595,9 +615,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param applyPrivateDnsToPublic Whether private network domain name supports public resolution. true: enabled false: disabled
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder applyPrivateDnsToPublic(@Nullable Output<Boolean> applyPrivateDnsToPublic) {
             $.applyPrivateDnsToPublic = applyPrivateDnsToPublic;
@@ -606,9 +626,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param applyPrivateDnsToPublic Whether private network domain name supports public resolution. true: enabled false: disabled
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder applyPrivateDnsToPublic(Boolean applyPrivateDnsToPublic) {
             return applyPrivateDnsToPublic(Output.of(applyPrivateDnsToPublic));
@@ -616,9 +636,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoScaleQueue Whether to automatically create queues when the instance specification changes.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder autoScaleQueue(@Nullable Output<Boolean> autoScaleQueue) {
             $.autoScaleQueue = autoScaleQueue;
@@ -627,9 +647,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoScaleQueue Whether to automatically create queues when the instance specification changes.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder autoScaleQueue(Boolean autoScaleQueue) {
             return autoScaleQueue(Output.of(autoScaleQueue));
@@ -637,9 +657,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param availableQueueNumber Remaining number of partitions that can be created.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder availableQueueNumber(@Nullable Output<Integer> availableQueueNumber) {
             $.availableQueueNumber = availableQueueNumber;
@@ -648,9 +668,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param availableQueueNumber Remaining number of partitions that can be created.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder availableQueueNumber(Integer availableQueueNumber) {
             return availableQueueNumber(Output.of(availableQueueNumber));
@@ -658,9 +678,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param chargeDetail Billing method and related billing information for the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder chargeDetail(@Nullable Output<InstanceChargeDetailArgs> chargeDetail) {
             $.chargeDetail = chargeDetail;
@@ -669,9 +689,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param chargeDetail Billing method and related billing information for the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder chargeDetail(InstanceChargeDetailArgs chargeDetail) {
             return chargeDetail(Output.of(chargeDetail));
@@ -679,9 +699,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param computeSpec Instance compute specification. You can view the currently available compute specifications in the product specifications list.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder computeSpec(@Nullable Output<String> computeSpec) {
             $.computeSpec = computeSpec;
@@ -690,32 +710,53 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param computeSpec Instance compute specification. You can view the currently available compute specifications in the product specifications list.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder computeSpec(String computeSpec) {
             return computeSpec(Output.of(computeSpec));
         }
 
+        /**
+         * @param connectionInfos Instance connection information.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder connectionInfos(@Nullable Output<List<InstanceConnectionInfoArgs>> connectionInfos) {
             $.connectionInfos = connectionInfos;
             return this;
         }
 
+        /**
+         * @param connectionInfos Instance connection information.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder connectionInfos(List<InstanceConnectionInfoArgs> connectionInfos) {
             return connectionInfos(Output.of(connectionInfos));
         }
 
+        /**
+         * @param connectionInfos Instance connection information.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder connectionInfos(InstanceConnectionInfoArgs... connectionInfos) {
             return connectionInfos(List.of(connectionInfos));
         }
 
         /**
          * @param createTime Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createTime(@Nullable Output<String> createTime) {
             $.createTime = createTime;
@@ -724,9 +765,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createTime Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createTime(String createTime) {
             return createTime(Output.of(createTime));
@@ -734,9 +775,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param eipId EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder eipId(@Nullable Output<String> eipId) {
             $.eipId = eipId;
@@ -745,9 +786,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param eipId EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder eipId(String eipId) {
             return eipId(Output.of(eipId));
@@ -755,9 +796,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enableSsl Whether to use SSL encryption.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder enableSsl(@Nullable Output<Boolean> enableSsl) {
             $.enableSsl = enableSsl;
@@ -766,9 +807,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enableSsl Whether to use SSL encryption.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder enableSsl(Boolean enableSsl) {
             return enableSsl(Output.of(enableSsl));
@@ -776,9 +817,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param fileReservedTime Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder fileReservedTime(@Nullable Output<Integer> fileReservedTime) {
             $.fileReservedTime = fileReservedTime;
@@ -787,9 +828,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param fileReservedTime Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder fileReservedTime(Integer fileReservedTime) {
             return fileReservedTime(Output.of(fileReservedTime));
@@ -797,9 +838,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceDescription Brief description of the instance. Length range: 1–128 characters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceDescription(@Nullable Output<String> instanceDescription) {
             $.instanceDescription = instanceDescription;
@@ -808,9 +849,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceDescription Brief description of the instance. Length range: 1–128 characters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceDescription(String instanceDescription) {
             return instanceDescription(Output.of(instanceDescription));
@@ -818,9 +859,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -829,9 +870,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -839,9 +880,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceName Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceName(@Nullable Output<String> instanceName) {
             $.instanceName = instanceName;
@@ -850,9 +891,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceName Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
@@ -860,9 +901,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceStatus Instance status.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceStatus(@Nullable Output<String> instanceStatus) {
             $.instanceStatus = instanceStatus;
@@ -871,9 +912,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceStatus Instance status.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceStatus(String instanceStatus) {
             return instanceStatus(Output.of(instanceStatus));
@@ -881,9 +922,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ipVersionType IP version. Options are IPv4 or DualStack.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder ipVersionType(@Nullable Output<String> ipVersionType) {
             $.ipVersionType = ipVersionType;
@@ -892,9 +933,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ipVersionType IP version. Options are IPv4 or DualStack.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder ipVersionType(String ipVersionType) {
             return ipVersionType(Output.of(ipVersionType));
@@ -902,9 +943,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkTypes Instance network type, fixed as PrivateNetwork.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder networkTypes(@Nullable Output<String> networkTypes) {
             $.networkTypes = networkTypes;
@@ -913,9 +954,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkTypes Instance network type, fixed as PrivateNetwork.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder networkTypes(String networkTypes) {
             return networkTypes(Output.of(networkTypes));
@@ -923,9 +964,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param productInfo Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder productInfo(@Nullable Output<InstanceProductInfoArgs> productInfo) {
             $.productInfo = productInfo;
@@ -934,9 +975,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param productInfo Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder productInfo(InstanceProductInfoArgs productInfo) {
             return productInfo(Output.of(productInfo));
@@ -944,9 +985,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param projectName The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder projectName(@Nullable Output<String> projectName) {
             $.projectName = projectName;
@@ -955,9 +996,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param projectName The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder projectName(String projectName) {
             return projectName(Output.of(projectName));
@@ -965,9 +1006,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regionId Region ID where the instance is located.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder regionId(@Nullable Output<String> regionId) {
             $.regionId = regionId;
@@ -976,9 +1017,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regionId Region ID where the instance is located.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder regionId(String regionId) {
             return regionId(Output.of(regionId));
@@ -986,9 +1027,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sslMode The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder sslMode(@Nullable Output<String> sslMode) {
             $.sslMode = sslMode;
@@ -997,9 +1038,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sslMode The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder sslMode(String sslMode) {
             return sslMode(Output.of(sslMode));
@@ -1007,9 +1048,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageSpace Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder storageSpace(@Nullable Output<Integer> storageSpace) {
             $.storageSpace = storageSpace;
@@ -1018,9 +1059,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageSpace Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder storageSpace(Integer storageSpace) {
             return storageSpace(Output.of(storageSpace));
@@ -1028,9 +1069,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subnetId VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
@@ -1039,32 +1080,53 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subnetId VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
+        /**
+         * @param tags Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(@Nullable Output<List<InstanceTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(List<InstanceTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tags Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(InstanceTagArgs... tags) {
             return tags(List.of(tags));
         }
 
         /**
          * @param usedGroupNumber Number of consumer groups (Group) currently created for the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedGroupNumber(@Nullable Output<Integer> usedGroupNumber) {
             $.usedGroupNumber = usedGroupNumber;
@@ -1073,9 +1135,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedGroupNumber Number of consumer groups (Group) currently created for the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedGroupNumber(Integer usedGroupNumber) {
             return usedGroupNumber(Output.of(usedGroupNumber));
@@ -1083,9 +1145,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedQueueNumber Number of queues already used by the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedQueueNumber(@Nullable Output<Integer> usedQueueNumber) {
             $.usedQueueNumber = usedQueueNumber;
@@ -1094,9 +1156,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedQueueNumber Number of queues already used by the instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedQueueNumber(Integer usedQueueNumber) {
             return usedQueueNumber(Output.of(usedQueueNumber));
@@ -1104,9 +1166,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedStorageSpace Used storage space for the instance, in GiB.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedStorageSpace(@Nullable Output<Integer> usedStorageSpace) {
             $.usedStorageSpace = usedStorageSpace;
@@ -1115,9 +1177,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedStorageSpace Used storage space for the instance, in GiB.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedStorageSpace(Integer usedStorageSpace) {
             return usedStorageSpace(Output.of(usedStorageSpace));
@@ -1125,9 +1187,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedTopicNumber Number of topics created in the current instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedTopicNumber(@Nullable Output<Integer> usedTopicNumber) {
             $.usedTopicNumber = usedTopicNumber;
@@ -1136,9 +1198,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param usedTopicNumber Number of topics created in the current instance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder usedTopicNumber(Integer usedTopicNumber) {
             return usedTopicNumber(Output.of(usedTopicNumber));
@@ -1146,9 +1208,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
@@ -1157,9 +1219,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder version(String version) {
             return version(Output.of(version));
@@ -1167,9 +1229,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
@@ -1178,9 +1240,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
@@ -1188,9 +1250,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zoneId Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder zoneId(@Nullable Output<String> zoneId) {
             $.zoneId = zoneId;
@@ -1199,9 +1261,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zoneId Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));

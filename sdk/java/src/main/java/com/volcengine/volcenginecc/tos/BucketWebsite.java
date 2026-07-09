@@ -20,80 +20,144 @@ import javax.annotation.Nullable;
 
 /**
  * Static website hosting configuration for TOS bucket. You can configure the bucket for static website hosting mode and access the static website via the bucket domain name
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ *
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketWebsite;
+ * import com.volcengine.volcenginecc.tos.BucketWebsiteArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketWebsiteIndexDocumentArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketWebsiteErrorDocumentArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketWebsiteRoutingRuleArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketWebsiteRoutingRuleConditionArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketWebsiteRoutingRuleRedirectArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ *
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ *
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketWebsiteDemo = new BucketWebsite("tOSBucketWebsiteDemo", BucketWebsiteArgs.builder()
+ *             .bucket("ccapi-test")
+ *             .indexDocument(BucketWebsiteIndexDocumentArgs.builder()
+ *                 .suffix("index.html")
+ *                 .forbidden_sub_dir(false)
+ *                 .build())
+ *             .errorDocument(BucketWebsiteErrorDocumentArgs.builder()
+ *                 .key("error.html")
+ *                 .build())
+ *             .routingRules(BucketWebsiteRoutingRuleArgs.builder()
+ *                 .condition(BucketWebsiteRoutingRuleConditionArgs.builder()
+ *                     .httpErrorCodeReturnedEquals(404)
+ *                     .keyPrefixEquals("red/")
+ *                     .build())
+ *                 .redirect(BucketWebsiteRoutingRuleRedirectArgs.builder()
+ *                     .hostName("example.com")
+ *                     .httpRedirectCode(302)
+ *                     .protocol("https")
+ *                     .replaceKeyPrefixWith("redirect/")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ *
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketWebsite:BucketWebsite example &#34;bucket&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketWebsite:BucketWebsite")
 public class BucketWebsite extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name
-     * 
+     *
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
      * @return Bucket name
-     * 
+     *
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
      * Error page configuration
-     * 
+     *
      */
     @Export(name="errorDocument", refs={BucketWebsiteErrorDocument.class}, tree="[0]")
     private Output<BucketWebsiteErrorDocument> errorDocument;
 
     /**
      * @return Error page configuration
-     * 
+     *
      */
     public Output<BucketWebsiteErrorDocument> errorDocument() {
         return this.errorDocument;
     }
     /**
      * Default homepage configuration
-     * 
+     *
      */
     @Export(name="indexDocument", refs={BucketWebsiteIndexDocument.class}, tree="[0]")
     private Output<BucketWebsiteIndexDocument> indexDocument;
 
     /**
      * @return Default homepage configuration
-     * 
+     *
      */
     public Output<BucketWebsiteIndexDocument> indexDocument() {
         return this.indexDocument;
     }
     /**
      * Rule for redirecting all requests
-     * 
+     *
      */
     @Export(name="redirectAllRequestsTo", refs={BucketWebsiteRedirectAllRequestsTo.class}, tree="[0]")
     private Output<BucketWebsiteRedirectAllRequestsTo> redirectAllRequestsTo;
 
     /**
      * @return Rule for redirecting all requests
-     * 
+     *
      */
     public Output<BucketWebsiteRedirectAllRequestsTo> redirectAllRequestsTo() {
         return this.redirectAllRequestsTo;
     }
+    /**
+     * Redirect rule
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="routingRules", refs={List.class,BucketWebsiteRoutingRule.class}, tree="[0,1]")
     private Output<List<BucketWebsiteRoutingRule>> routingRules;
 
+    /**
+     * @return Redirect rule
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<BucketWebsiteRoutingRule>> routingRules() {
         return this.routingRules;
     }

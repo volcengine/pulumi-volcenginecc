@@ -22,14 +22,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Cluster Name of VPC Instance
-     * 
+     *
      */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
     /**
      * @return Cluster Name of VPC Instance
-     * 
+     *
      */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
@@ -37,14 +37,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC Instance Creation Time, Unix Timestamp
-     * 
+     *
      */
     @Import(name="createTime")
     private @Nullable Output<Integer> createTime;
 
     /**
      * @return VPC Instance Creation Time, Unix Timestamp
-     * 
+     *
      */
     public Optional<Output<Integer>> createTime() {
         return Optional.ofNullable(this.createTime);
@@ -52,14 +52,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Number of Cross-Account Virtual Gateways
-     * 
+     *
      */
     @Import(name="crossAccountVgwNum")
     private @Nullable Output<Integer> crossAccountVgwNum;
 
     /**
      * @return Number of Cross-Account Virtual Gateways
-     * 
+     *
      */
     public Optional<Output<Integer>> crossAccountVgwNum() {
         return Optional.ofNullable(this.crossAccountVgwNum);
@@ -67,14 +67,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Description of VPC Instance
-     * 
+     *
      */
     @Import(name="desc")
     private @Nullable Output<String> desc;
 
     /**
      * @return Description of VPC Instance
-     * 
+     *
      */
     public Optional<Output<String>> desc() {
         return Optional.ofNullable(this.desc);
@@ -82,14 +82,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Is Custom VPC
-     * 
+     *
      */
     @Import(name="isCustom")
     private @Nullable Output<Boolean> isCustom;
 
     /**
      * @return Is Custom VPC
-     * 
+     *
      */
     public Optional<Output<Boolean>> isCustom() {
         return Optional.ofNullable(this.isCustom);
@@ -97,14 +97,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Is Default VPC
-     * 
+     *
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
      * @return Is Default VPC
-     * 
+     *
      */
     public Optional<Output<Boolean>> isDefault() {
         return Optional.ofNullable(this.isDefault);
@@ -112,14 +112,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Is VLAN Type VPC
-     * 
+     *
      */
     @Import(name="isVlan")
     private @Nullable Output<Boolean> isVlan;
 
     /**
      * @return Is VLAN Type VPC
-     * 
+     *
      */
     public Optional<Output<Boolean>> isVlan() {
         return Optional.ofNullable(this.isVlan);
@@ -127,14 +127,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Number of Virtual Gateways for This Account
-     * 
+     *
      */
     @Import(name="localAccountVgwNum")
     private @Nullable Output<Integer> localAccountVgwNum;
 
     /**
      * @return Number of Virtual Gateways for This Account
-     * 
+     *
      */
     public Optional<Output<Integer>> localAccountVgwNum() {
         return Optional.ofNullable(this.localAccountVgwNum);
@@ -142,14 +142,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Project Name of VPC Instance
-     * 
+     *
      */
     @Import(name="project")
     private @Nullable Output<String> project;
 
     /**
      * @return Project Name of VPC Instance
-     * 
+     *
      */
     public Optional<Output<String>> project() {
         return Optional.ofNullable(this.project);
@@ -157,14 +157,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC Instance CIDR Block, e.g. 10.0.0.0/16
-     * 
+     *
      */
     @Import(name="segment")
     private @Nullable Output<String> segment;
 
     /**
      * @return VPC Instance CIDR Block, e.g. 10.0.0.0/16
-     * 
+     *
      */
     public Optional<Output<String>> segment() {
         return Optional.ofNullable(this.segment);
@@ -172,43 +172,63 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC Instance Status: available (available), modifying (modifying), deleting (deleting)
-     * 
+     *
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
      * @return VPC Instance Status: available (available), modifying (modifying), deleting (deleting)
-     * 
+     *
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * List of subnets created when creating the VPC
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="subnets")
     private @Nullable Output<List<VpcSubnetArgs>> subnets;
 
+    /**
+     * @return List of subnets created when creating the VPC
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<VpcSubnetArgs>>> subnets() {
         return Optional.ofNullable(this.subnets);
     }
 
+    /**
+     * Tag List of VPC Instance
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="tags")
     private @Nullable Output<List<VpcTagArgs>> tags;
 
+    /**
+     * @return Tag List of VPC Instance
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<VpcTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
      * VPC Instance Update Time, Unix Timestamp
-     * 
+     *
      */
     @Import(name="updateTime")
     private @Nullable Output<Integer> updateTime;
 
     /**
      * @return VPC Instance Update Time, Unix Timestamp
-     * 
+     *
      */
     public Optional<Output<Integer>> updateTime() {
         return Optional.ofNullable(this.updateTime);
@@ -216,14 +236,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Unique Identifier of VPC Instance
-     * 
+     *
      */
     @Import(name="vpcIdentity")
     private @Nullable Output<String> vpcIdentity;
 
     /**
      * @return Unique Identifier of VPC Instance
-     * 
+     *
      */
     public Optional<Output<String>> vpcIdentity() {
         return Optional.ofNullable(this.vpcIdentity);
@@ -231,14 +251,14 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * VPC Instance Name
-     * 
+     *
      */
     @Import(name="vpcName")
     private @Nullable Output<String> vpcName;
 
     /**
      * @return VPC Instance Name
-     * 
+     *
      */
     public Optional<Output<String>> vpcName() {
         return Optional.ofNullable(this.vpcName);
@@ -285,9 +305,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clusterName Cluster Name of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
@@ -296,9 +316,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clusterName Cluster Name of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
@@ -306,9 +326,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createTime VPC Instance Creation Time, Unix Timestamp
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createTime(@Nullable Output<Integer> createTime) {
             $.createTime = createTime;
@@ -317,9 +337,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createTime VPC Instance Creation Time, Unix Timestamp
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createTime(Integer createTime) {
             return createTime(Output.of(createTime));
@@ -327,9 +347,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param crossAccountVgwNum Number of Cross-Account Virtual Gateways
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder crossAccountVgwNum(@Nullable Output<Integer> crossAccountVgwNum) {
             $.crossAccountVgwNum = crossAccountVgwNum;
@@ -338,9 +358,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param crossAccountVgwNum Number of Cross-Account Virtual Gateways
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder crossAccountVgwNum(Integer crossAccountVgwNum) {
             return crossAccountVgwNum(Output.of(crossAccountVgwNum));
@@ -348,9 +368,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param desc Description of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder desc(@Nullable Output<String> desc) {
             $.desc = desc;
@@ -359,9 +379,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param desc Description of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder desc(String desc) {
             return desc(Output.of(desc));
@@ -369,9 +389,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isCustom Is Custom VPC
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isCustom(@Nullable Output<Boolean> isCustom) {
             $.isCustom = isCustom;
@@ -380,9 +400,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isCustom Is Custom VPC
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isCustom(Boolean isCustom) {
             return isCustom(Output.of(isCustom));
@@ -390,9 +410,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isDefault Is Default VPC
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isDefault(@Nullable Output<Boolean> isDefault) {
             $.isDefault = isDefault;
@@ -401,9 +421,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isDefault Is Default VPC
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
@@ -411,9 +431,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isVlan Is VLAN Type VPC
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isVlan(@Nullable Output<Boolean> isVlan) {
             $.isVlan = isVlan;
@@ -422,9 +442,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param isVlan Is VLAN Type VPC
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder isVlan(Boolean isVlan) {
             return isVlan(Output.of(isVlan));
@@ -432,9 +452,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param localAccountVgwNum Number of Virtual Gateways for This Account
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder localAccountVgwNum(@Nullable Output<Integer> localAccountVgwNum) {
             $.localAccountVgwNum = localAccountVgwNum;
@@ -443,9 +463,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param localAccountVgwNum Number of Virtual Gateways for This Account
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder localAccountVgwNum(Integer localAccountVgwNum) {
             return localAccountVgwNum(Output.of(localAccountVgwNum));
@@ -453,9 +473,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param project Project Name of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder project(@Nullable Output<String> project) {
             $.project = project;
@@ -464,9 +484,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param project Project Name of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder project(String project) {
             return project(Output.of(project));
@@ -474,9 +494,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param segment VPC Instance CIDR Block, e.g. 10.0.0.0/16
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder segment(@Nullable Output<String> segment) {
             $.segment = segment;
@@ -485,9 +505,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param segment VPC Instance CIDR Block, e.g. 10.0.0.0/16
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder segment(String segment) {
             return segment(Output.of(segment));
@@ -495,9 +515,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status VPC Instance Status: available (available), modifying (modifying), deleting (deleting)
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
@@ -506,45 +526,87 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status VPC Instance Status: available (available), modifying (modifying), deleting (deleting)
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param subnets List of subnets created when creating the VPC
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder subnets(@Nullable Output<List<VpcSubnetArgs>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
+        /**
+         * @param subnets List of subnets created when creating the VPC
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder subnets(List<VpcSubnetArgs> subnets) {
             return subnets(Output.of(subnets));
         }
 
+        /**
+         * @param subnets List of subnets created when creating the VPC
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder subnets(VpcSubnetArgs... subnets) {
             return subnets(List.of(subnets));
         }
 
+        /**
+         * @param tags Tag List of VPC Instance
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(@Nullable Output<List<VpcTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tag List of VPC Instance
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(List<VpcTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tags Tag List of VPC Instance
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder tags(VpcTagArgs... tags) {
             return tags(List.of(tags));
         }
 
         /**
          * @param updateTime VPC Instance Update Time, Unix Timestamp
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder updateTime(@Nullable Output<Integer> updateTime) {
             $.updateTime = updateTime;
@@ -553,9 +615,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param updateTime VPC Instance Update Time, Unix Timestamp
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder updateTime(Integer updateTime) {
             return updateTime(Output.of(updateTime));
@@ -563,9 +625,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcIdentity Unique Identifier of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder vpcIdentity(@Nullable Output<String> vpcIdentity) {
             $.vpcIdentity = vpcIdentity;
@@ -574,9 +636,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcIdentity Unique Identifier of VPC Instance
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder vpcIdentity(String vpcIdentity) {
             return vpcIdentity(Output.of(vpcIdentity));
@@ -584,9 +646,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcName VPC Instance Name
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder vpcName(@Nullable Output<String> vpcName) {
             $.vpcName = vpcName;
@@ -595,9 +657,9 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcName VPC Instance Name
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder vpcName(String vpcName) {
             return vpcName(Output.of(vpcName));

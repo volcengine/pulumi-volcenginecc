@@ -11,9 +11,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketNotificationNotificationRuleFilterTosKey {
+    /**
+     * @return Object filter information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     private @Nullable List<BucketNotificationNotificationRuleFilterTosKeyFilterRule> filterRules;
 
     private BucketNotificationNotificationRuleFilterTosKey() {}
+    /**
+     * @return Object filter information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public List<BucketNotificationNotificationRuleFilterTosKeyFilterRule> filterRules() {
         return this.filterRules == null ? List.of() : this.filterRules;
     }

@@ -17,38 +17,121 @@ import javax.annotation.Nullable;
 
 /**
  * Set event notification rules. Use event notification to receive alerts when resources in the bucket change.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ *
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketNotification;
+ * import com.volcengine.volcenginecc.tos.BucketNotificationArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketNotificationNotificationRuleArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketNotificationNotificationRuleDestinationArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketNotificationNotificationRuleDestinationVeFaaArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketNotificationNotificationRuleFilterArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketNotificationNotificationRuleFilterTosKeyArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ *
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ *
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketNotificationDemo = new BucketNotification("tOSBucketNotificationDemo", BucketNotificationArgs.builder()
+ *             .bucketName("ccapi-test")
+ *             .notificationRules(BucketNotificationNotificationRuleArgs.builder()
+ *                 .destination(BucketNotificationNotificationRuleDestinationArgs.builder()
+ *                     .kafka(Arrays.asList(Map.ofEntries(
+ *                         Map.entry("instanceId", "kafka-cnnxxxxxm26rh"),
+ *                         Map.entry("region", "cn-beijing"),
+ *                         Map.entry("role", "trn:iam::21xxxxxxx:role/TOSNotiKafkaRole"),
+ *                         Map.entry("topic", "topic-1"),
+ *                         Map.entry("user", "user-1")
+ *                     )))
+ *                     .rocketMq(Arrays.asList(Map.ofEntries(
+ *                         Map.entry("accessKeyId", "IpGw4i6xxxxxKrkdwRXZ"),
+ *                         Map.entry("instanceId", "rocketmq-cnngaxxxxx22ab8"),
+ *                         Map.entry("role", "trn:iam::21xxxxxxx:role/TOSNotiRocketMQRole"),
+ *                         Map.entry("topic", "topic-1")
+ *                     )))
+ *                     .veFaaS(BucketNotificationNotificationRuleDestinationVeFaaArgs.builder()
+ *                         .functionId("o1xxxxx")
+ *                         .build())
+ *                     .build())
+ *                 .events(
+ *                     "tos:ObjectCreated:Put",
+ *                     "tos:LifecycleExpiration:Delete")
+ *                 .filter(BucketNotificationNotificationRuleFilterArgs.builder()
+ *                     .tosKey(BucketNotificationNotificationRuleFilterTosKeyArgs.builder()
+ *                         .filterRules(
+ *                             BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs.builder()
+ *                                 .name("prefix")
+ *                                 .value("preifx")
+ *                                 .build(),
+ *                             BucketNotificationNotificationRuleFilterTosKeyFilterRuleArgs.builder()
+ *                                 .name("suffix")
+ *                                 .value("suffix")
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .rule_id("test-0")
+ *                 .build())
+ *             .build());
+ *
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketNotification:BucketNotification example &#34;bucket_name&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketNotification:BucketNotification")
 public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name.
-     * 
+     *
      */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
      * @return Bucket name.
-     * 
+     *
      */
     public Output<String> bucketName() {
         return this.bucketName;
     }
+    /**
+     * Event notification rule information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="notificationRules", refs={List.class,BucketNotificationNotificationRule.class}, tree="[0,1]")
     private Output<List<BucketNotificationNotificationRule>> notificationRules;
 
+    /**
+     * @return Event notification rule information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<BucketNotificationNotificationRule>> notificationRules() {
         return this.notificationRules;
     }

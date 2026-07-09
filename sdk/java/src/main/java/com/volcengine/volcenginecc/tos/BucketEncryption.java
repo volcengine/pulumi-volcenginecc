@@ -15,91 +15,91 @@ import javax.annotation.Nullable;
 
 /**
  * Set server-side encryption for the bucket. After server-side encryption is set for the bucket, if you upload a file to this bucket without specifying a server-side encryption method for the file, the file will inherit the bucket&#39;s server-side encryption method by default
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- * 
+ *
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.tos.BucketEncryption;
  * import com.volcengine.volcenginecc.tos.BucketEncryptionArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- * 
+ *
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- * 
+ *
  *     public static void stack(Context ctx) {
  *         var tOSBucketEncryptionDemo = new BucketEncryption("tOSBucketEncryptionDemo", BucketEncryptionArgs.builder()
  *             .kmsMasterKeyId("trn:kms:cn-beijing:21xxxxxxxxxxx:keyrings/ccapi-text/keys/terratest-kms-key-u-xxxxx")
  *             .name("ccapi-test")
  *             .sseAlgorithm("kms")
  *             .build());
- * 
+ *
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketEncryption:BucketEncryption example &#34;name&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketEncryption:BucketEncryption")
 public class BucketEncryption extends com.pulumi.resources.CustomResource {
     /**
      * The master key used for SSE-KMS encryption
-     * 
+     *
      */
     @Export(name="kmsMasterKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsMasterKeyId;
 
     /**
      * @return The master key used for SSE-KMS encryption
-     * 
+     *
      */
     public Output<String> kmsMasterKeyId() {
         return this.kmsMasterKeyId;
     }
     /**
      * Bucket name
-     * 
+     *
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Bucket name
-     * 
+     *
      */
     public Output<String> name() {
         return this.name;
     }
     /**
      * Default server-side encryption method. The values are explained as follows: kms: uses SSE-KMS encryption. AES256: uses SSE-TOS encryption with the AES256 algorithm. SM4: uses SSE-TOS encryption with the SM4 algorithm
-     * 
+     *
      */
     @Export(name="sseAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> sseAlgorithm;
 
     /**
      * @return Default server-side encryption method. The values are explained as follows: kms: uses SSE-KMS encryption. AES256: uses SSE-TOS encryption with the AES256 algorithm. SM4: uses SSE-TOS encryption with the SM4 algorithm
-     * 
+     *
      */
     public Output<String> sseAlgorithm() {
         return this.sseAlgorithm;

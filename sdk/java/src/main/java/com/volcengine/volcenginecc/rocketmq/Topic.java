@@ -21,153 +21,232 @@ import javax.annotation.Nullable;
 
 /**
  * In a RocketMQ instance, a Topic is the basic unit for sending and consuming messages. RocketMQ Message Queue categorizes and manages different types of messages using Topics. Producers send messages to RocketMQ Topics, and consumers consume messages by subscribing to those Topics.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ *
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.rocketmq.Topic;
+ * import com.volcengine.volcenginecc.rocketmq.TopicArgs;
+ * import com.pulumi.volcenginecc.rocketmq.inputs.TopicAccessPolicyArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ *
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ *
+ *     public static void stack(Context ctx) {
+ *         var rocketMQTopicDemo = new Topic("rocketMQTopicDemo", TopicArgs.builder()
+ *             .instanceId("rocketmq-cnngxxxxx3c2d")
+ *             .topicName("ccapi-test-test-2")
+ *             .messageType(0)
+ *             .description("this is a test")
+ *             .queueNumber(6)
+ *             .accessPolicies(TopicAccessPolicyArgs.builder()
+ *                 .access_key("TPl1xxxxxxblh5Gpxa79")
+ *                 .authority("ALL")
+ *                 .build())
+ *             .build());
+ *
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:rocketmq/topic:Topic example &#34;instance_id|topic_name&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:rocketmq/topic:Topic")
 public class Topic extends com.pulumi.resources.CustomResource {
+    /**
+     * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="accessPolicies", refs={List.class,TopicAccessPolicy.class}, tree="[0,1]")
     private Output<List<TopicAccessPolicy>> accessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<TopicAccessPolicy>> accessPolicies() {
         return this.accessPolicies;
     }
     /**
      * Topic creation time.
-     * 
+     *
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
      * @return Topic creation time.
-     * 
+     *
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
      * Topic description, length: 0–128 characters.
-     * 
+     *
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
      * @return Topic description, length: 0–128 characters.
-     * 
+     *
      */
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * Consumer group information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="groupsInfos", refs={List.class,TopicGroupsInfo.class}, tree="[0,1]")
     private Output<List<TopicGroupsInfo>> groupsInfos;
 
+    /**
+     * @return Consumer group information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<TopicGroupsInfo>> groupsInfos() {
         return this.groupsInfos;
     }
     /**
      * Instance ID.
-     * 
+     *
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     * 
+     *
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
      * Instance name.
-     * 
+     *
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
      * @return Instance name.
-     * 
+     *
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
      * Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-     * 
+     *
      */
     @Export(name="messageType", refs={Integer.class}, tree="[0]")
     private Output<Integer> messageType;
 
     /**
      * @return Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-     * 
+     *
      */
     public Output<Integer> messageType() {
         return this.messageType;
     }
     /**
      * Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-     * 
+     *
      */
     @Export(name="queueNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> queueNumber;
 
     /**
      * @return Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-     * 
+     *
      */
     public Output<Integer> queueNumber() {
         return this.queueNumber;
     }
+    /**
+     * Queue information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="queuesInfos", refs={List.class,TopicQueuesInfo.class}, tree="[0,1]")
     private Output<List<TopicQueuesInfo>> queuesInfos;
 
+    /**
+     * @return Queue information list.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<TopicQueuesInfo>> queuesInfos() {
         return this.queuesInfos;
     }
+    /**
+     * Permissions for each RocketMQ key on the current Topic, permission field
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="readAccessPolicies", refs={List.class,TopicReadAccessPolicy.class}, tree="[0,1]")
     private Output<List<TopicReadAccessPolicy>> readAccessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, permission field
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<TopicReadAccessPolicy>> readAccessPolicies() {
         return this.readAccessPolicies;
     }
     /**
      * Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
-     * 
+     *
      */
     @Export(name="serviceStatus", refs={String.class}, tree="[0]")
     private Output<String> serviceStatus;
 
     /**
      * @return Service status. Creating: being created, Running: running, Deleting: being deleted, Abnormal: abnormal, Updating: being updated.
-     * 
+     *
      */
     public Output<String> serviceStatus() {
         return this.serviceStatus;
     }
     /**
      * Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-     * 
+     *
      */
     @Export(name="topicName", refs={String.class}, tree="[0]")
     private Output<String> topicName;
 
     /**
      * @return Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-     * 
+     *
      */
     public Output<String> topicName() {
         return this.topicName;

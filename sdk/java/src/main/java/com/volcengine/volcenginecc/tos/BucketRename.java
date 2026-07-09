@@ -16,75 +16,75 @@ import javax.annotation.Nullable;
 
 /**
  * Bucket RenameObject feature configuration. When enabled, you can call the RenameObject API to rename objects; this feature is mutually exclusive with versioning
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- * 
+ *
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.tos.BucketRename;
  * import com.volcengine.volcenginecc.tos.BucketRenameArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- * 
+ *
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- * 
+ *
  *     public static void stack(Context ctx) {
  *         var tOSBucketRenameDemo = new BucketRename("tOSBucketRenameDemo", BucketRenameArgs.builder()
  *             .bucket("ccapi-test-16")
  *             .build());
- * 
+ *
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketRename:BucketRename example &#34;bucket&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketRename:BucketRename")
 public class BucketRename extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name
-     * 
+     *
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
      * @return Bucket name
-     * 
+     *
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
      * Whether to enable RenameObject feature. true means enabled
-     * 
+     *
      */
     @Export(name="renameEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> renameEnable;
 
     /**
      * @return Whether to enable RenameObject feature. true means enabled
-     * 
+     *
      */
     public Output<Boolean> renameEnable() {
         return this.renameEnable;

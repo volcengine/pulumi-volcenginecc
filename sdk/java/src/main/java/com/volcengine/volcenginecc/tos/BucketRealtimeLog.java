@@ -16,45 +16,82 @@ import javax.annotation.Nullable;
 
 /**
  * Log analysis feature
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ *
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.tos.BucketRealtimeLog;
+ * import com.volcengine.volcenginecc.tos.BucketRealtimeLogArgs;
+ * import com.pulumi.volcenginecc.tos.inputs.BucketRealtimeLogRealTimeLogArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ *
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ *
+ *     public static void stack(Context ctx) {
+ *         var tOSBucketRealtimeLogDemo = new BucketRealtimeLog("tOSBucketRealtimeLogDemo", BucketRealtimeLogArgs.builder()
+ *             .bucketName("ccapi-test")
+ *             .realTimeLog(BucketRealtimeLogRealTimeLogArgs.builder()
+ *                 .role("TOSLogArchiveTLSRole")
+ *                 .use_service_topic(true)
+ *                 .tls_project_id("569b6ea5-xxxxxx-90d47ff07774")
+ *                 .tls_topic_id("22fca26e-xxxxxx-a9bb6d3fb9bd")
+ *                 .build())
+ *             .build());
+ *
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog example &#34;bucket_name&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketRealtimeLog:BucketRealtimeLog")
 public class BucketRealtimeLog extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name
-     * 
+     *
      */
     @Export(name="bucketName", refs={String.class}, tree="[0]")
     private Output<String> bucketName;
 
     /**
      * @return Bucket name
-     * 
+     *
      */
     public Output<String> bucketName() {
         return this.bucketName;
     }
     /**
      * Log analysis feature for the bucket
-     * 
+     *
      */
     @Export(name="realTimeLog", refs={BucketRealtimeLogRealTimeLog.class}, tree="[0]")
     private Output<BucketRealtimeLogRealTimeLog> realTimeLog;
 
     /**
      * @return Log analysis feature for the bucket
-     * 
+     *
      */
     public Output<BucketRealtimeLogRealTimeLog> realTimeLog() {
         return this.realTimeLog;

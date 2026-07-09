@@ -19,14 +19,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Authorization Access Template
-     * 
+     *
      */
     @Import(name="authorizeTemplate", required=true)
     private Output<String> authorizeTemplate;
 
     /**
      * @return OAuth Authorization Access Template
-     * 
+     *
      */
     public Output<String> authorizeTemplate() {
         return this.authorizeTemplate;
@@ -34,14 +34,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Authorization Endpoint Address
-     * 
+     *
      */
     @Import(name="authorizeUrl", required=true)
     private Output<String> authorizeUrl;
 
     /**
      * @return OAuth Authorization Endpoint Address
-     * 
+     *
      */
     public Output<String> authorizeUrl() {
         return this.authorizeUrl;
@@ -49,14 +49,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Application Client Id
-     * 
+     *
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
      * @return OAuth Application Client Id
-     * 
+     *
      */
     public Output<String> clientId() {
         return this.clientId;
@@ -64,14 +64,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Authorization Application Secret
-     * 
+     *
      */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
     /**
      * @return OAuth Authorization Application Secret
-     * 
+     *
      */
     public Output<String> clientSecret() {
         return this.clientSecret;
@@ -79,29 +79,33 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Identity Provider Description
-     * 
+     *
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return Identity Provider Description
-     * 
+     *
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
-     * 
+     * OAuth User Info Sub-User Mapping Method
+     *   1. Map Sub-User Name
+     *   2. Map Sub-User Secure Mobile Number
+     *
      */
     @Import(name="identityMapType", required=true)
     private Output<Integer> identityMapType;
 
     /**
-     * @return OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
-     * 
+     * @return OAuth User Info Sub-User Mapping Method
+     *   1. Map Sub-User Name
+     *   2. Map Sub-User Secure Mobile Number
+     *
      */
     public Output<Integer> identityMapType() {
         return this.identityMapType;
@@ -109,14 +113,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth User Info Mapping Field
-     * 
+     *
      */
     @Import(name="idpIdentityKey", required=true)
     private Output<String> idpIdentityKey;
 
     /**
      * @return OAuth User Info Mapping Field
-     * 
+     *
      */
     public Output<String> idpIdentityKey() {
         return this.idpIdentityKey;
@@ -124,14 +128,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Identity Provider Name
-     * 
+     *
      */
     @Import(name="oauthProviderName", required=true)
     private Output<String> oauthProviderName;
 
     /**
      * @return OAuth Identity Provider Name
-     * 
+     *
      */
     public Output<String> oauthProviderName() {
         return this.oauthProviderName;
@@ -139,44 +143,54 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Authorization Service Scope (separate multiple scopes with spaces)
-     * 
+     *
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
      * @return OAuth Authorization Service Scope (separate multiple scopes with spaces)
-     * 
+     *
      */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
     }
 
     /**
-     * Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
-     * 
+     * Identity Provider SSO Type
+     *   1. Role SSO (not supported yet)
+     *   2. User SSO
+     *
      */
     @Import(name="ssoType", required=true)
     private Output<Integer> ssoType;
 
     /**
-     * @return Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
-     * 
+     * @return Identity Provider SSO Type
+     *   1. Role SSO (not supported yet)
+     *   2. User SSO
+     *
      */
     public Output<Integer> ssoType() {
         return this.ssoType;
     }
 
     /**
-     * Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
-     * 
+     * Identity Provider Status (User SSO Only)
+     *   1. Enabled
+     *   2. Enabled (other login methods disabled)
+     *   3. Disabled
+     *
      */
     @Import(name="status")
     private @Nullable Output<Integer> status;
 
     /**
-     * @return Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
-     * 
+     * @return Identity Provider Status (User SSO Only)
+     *   1. Enabled
+     *   2. Enabled (other login methods disabled)
+     *   3. Disabled
+     *
      */
     public Optional<Output<Integer>> status() {
         return Optional.ofNullable(this.status);
@@ -184,14 +198,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Authorization Service AccessToken Endpoint Address
-     * 
+     *
      */
     @Import(name="tokenUrl", required=true)
     private Output<String> tokenUrl;
 
     /**
      * @return OAuth Authorization Service AccessToken Endpoint Address
-     * 
+     *
      */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
@@ -199,14 +213,14 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * OAuth Authorization Service User Info Endpoint Address
-     * 
+     *
      */
     @Import(name="userInfoUrl", required=true)
     private Output<String> userInfoUrl;
 
     /**
      * @return OAuth Authorization Service User Info Endpoint Address
-     * 
+     *
      */
     public Output<String> userInfoUrl() {
         return this.userInfoUrl;
@@ -250,9 +264,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authorizeTemplate OAuth Authorization Access Template
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder authorizeTemplate(Output<String> authorizeTemplate) {
             $.authorizeTemplate = authorizeTemplate;
@@ -261,9 +275,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authorizeTemplate OAuth Authorization Access Template
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder authorizeTemplate(String authorizeTemplate) {
             return authorizeTemplate(Output.of(authorizeTemplate));
@@ -271,9 +285,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authorizeUrl OAuth Authorization Endpoint Address
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder authorizeUrl(Output<String> authorizeUrl) {
             $.authorizeUrl = authorizeUrl;
@@ -282,9 +296,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param authorizeUrl OAuth Authorization Endpoint Address
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder authorizeUrl(String authorizeUrl) {
             return authorizeUrl(Output.of(authorizeUrl));
@@ -292,9 +306,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clientId OAuth Application Client Id
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
@@ -303,9 +317,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clientId OAuth Application Client Id
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
@@ -313,9 +327,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clientSecret OAuth Authorization Application Secret
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
@@ -324,9 +338,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param clientSecret OAuth Authorization Application Secret
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
@@ -334,9 +348,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Identity Provider Description
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
@@ -345,19 +359,21 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Identity Provider Description
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
         /**
-         * @param identityMapType OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
-         * 
+         * @param identityMapType OAuth User Info Sub-User Mapping Method
+         *   1. Map Sub-User Name
+         *   2. Map Sub-User Secure Mobile Number
+         *
          * @return builder
-         * 
+         *
          */
         public Builder identityMapType(Output<Integer> identityMapType) {
             $.identityMapType = identityMapType;
@@ -365,10 +381,12 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityMapType OAuth User Info Sub-User Mapping Method 1. Map Sub-User Name 2. Map Sub-User Secure Mobile Number
-         * 
+         * @param identityMapType OAuth User Info Sub-User Mapping Method
+         *   1. Map Sub-User Name
+         *   2. Map Sub-User Secure Mobile Number
+         *
          * @return builder
-         * 
+         *
          */
         public Builder identityMapType(Integer identityMapType) {
             return identityMapType(Output.of(identityMapType));
@@ -376,9 +394,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param idpIdentityKey OAuth User Info Mapping Field
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder idpIdentityKey(Output<String> idpIdentityKey) {
             $.idpIdentityKey = idpIdentityKey;
@@ -387,9 +405,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param idpIdentityKey OAuth User Info Mapping Field
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder idpIdentityKey(String idpIdentityKey) {
             return idpIdentityKey(Output.of(idpIdentityKey));
@@ -397,9 +415,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param oauthProviderName OAuth Identity Provider Name
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder oauthProviderName(Output<String> oauthProviderName) {
             $.oauthProviderName = oauthProviderName;
@@ -408,9 +426,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param oauthProviderName OAuth Identity Provider Name
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder oauthProviderName(String oauthProviderName) {
             return oauthProviderName(Output.of(oauthProviderName));
@@ -418,9 +436,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param scope OAuth Authorization Service Scope (separate multiple scopes with spaces)
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder scope(@Nullable Output<String> scope) {
             $.scope = scope;
@@ -429,19 +447,21 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param scope OAuth Authorization Service Scope (separate multiple scopes with spaces)
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
         /**
-         * @param ssoType Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
-         * 
+         * @param ssoType Identity Provider SSO Type
+         *   1. Role SSO (not supported yet)
+         *   2. User SSO
+         *
          * @return builder
-         * 
+         *
          */
         public Builder ssoType(Output<Integer> ssoType) {
             $.ssoType = ssoType;
@@ -449,20 +469,25 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ssoType Identity Provider SSO Type 1. Role SSO (not supported yet) 2. User SSO
-         * 
+         * @param ssoType Identity Provider SSO Type
+         *   1. Role SSO (not supported yet)
+         *   2. User SSO
+         *
          * @return builder
-         * 
+         *
          */
         public Builder ssoType(Integer ssoType) {
             return ssoType(Output.of(ssoType));
         }
 
         /**
-         * @param status Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
-         * 
+         * @param status Identity Provider Status (User SSO Only)
+         *   1. Enabled
+         *   2. Enabled (other login methods disabled)
+         *   3. Disabled
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(@Nullable Output<Integer> status) {
             $.status = status;
@@ -470,10 +495,13 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Identity Provider Status (User SSO Only) 1. Enabled 2. Enabled (other login methods disabled) 3. Disabled
-         * 
+         * @param status Identity Provider Status (User SSO Only)
+         *   1. Enabled
+         *   2. Enabled (other login methods disabled)
+         *   3. Disabled
+         *
          * @return builder
-         * 
+         *
          */
         public Builder status(Integer status) {
             return status(Output.of(status));
@@ -481,9 +509,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tokenUrl OAuth Authorization Service AccessToken Endpoint Address
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder tokenUrl(Output<String> tokenUrl) {
             $.tokenUrl = tokenUrl;
@@ -492,9 +520,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tokenUrl OAuth Authorization Service AccessToken Endpoint Address
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder tokenUrl(String tokenUrl) {
             return tokenUrl(Output.of(tokenUrl));
@@ -502,9 +530,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userInfoUrl OAuth Authorization Service User Info Endpoint Address
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder userInfoUrl(Output<String> userInfoUrl) {
             $.userInfoUrl = userInfoUrl;
@@ -513,9 +541,9 @@ public final class OauthProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userInfoUrl OAuth Authorization Service User Info Endpoint Address
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder userInfoUrl(String userInfoUrl) {
             return userInfoUrl(Output.of(userInfoUrl));

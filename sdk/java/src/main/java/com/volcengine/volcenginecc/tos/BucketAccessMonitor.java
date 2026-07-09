@@ -15,75 +15,75 @@ import javax.annotation.Nullable;
 
 /**
  * This API is used to set access tracking for the storage bucket. You must enable access tracking before creating lifecycle rules for last access time. Once enabled, TOS automatically checks and records the last access time for all objects in the bucket.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- * 
+ *
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.volcengine.volcenginecc.tos.BucketAccessMonitor;
  * import com.volcengine.volcenginecc.tos.BucketAccessMonitorArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- * 
+ *
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- * 
+ *
  *     public static void stack(Context ctx) {
  *         var bucketAccessMonitorDemo = new BucketAccessMonitor("bucketAccessMonitorDemo", BucketAccessMonitorArgs.builder()
  *             .bucket("ccapi-test")
  *             .build());
- * 
+ *
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:tos/bucketAccessMonitor:BucketAccessMonitor example &#34;bucket&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:tos/bucketAccessMonitor:BucketAccessMonitor")
 public class BucketAccessMonitor extends com.pulumi.resources.CustomResource {
     /**
      * Bucket name.
-     * 
+     *
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
      * @return Bucket name.
-     * 
+     *
      */
     public Output<String> bucket() {
         return this.bucket;
     }
     /**
      * Whether to enable access tracking. Value descriptions: Enabled: Access tracking is enabled. Disabled: Access tracking is disabled.
-     * 
+     *
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return Whether to enable access tracking. Value descriptions: Enabled: Access tracking is enabled. Disabled: Access tracking is disabled.
-     * 
+     *
      */
     public Output<String> status() {
         return this.status;

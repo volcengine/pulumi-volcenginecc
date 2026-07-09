@@ -22,449 +22,525 @@ import javax.annotation.Nullable;
 
 /**
  * RocketMQ Message Queue is a distributed messaging middleware service built on Apache RocketMQ. It is fully compatible with all open-source RocketMQ components and concepts, offering low latency, high elasticity and high reliability, and high throughput. No changes to business code are required, enabling users to quickly migrate to the cloud.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ *
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.volcengine.volcenginecc.rocketmq.Instance;
+ * import com.volcengine.volcenginecc.rocketmq.InstanceArgs;
+ * import com.pulumi.volcenginecc.rocketmq.inputs.InstanceTagArgs;
+ * import com.pulumi.volcenginecc.rocketmq.inputs.InstanceChargeDetailArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ *
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ *
+ *     public static void stack(Context ctx) {
+ *         var rocketMQInstanceDemo = new Instance("rocketMQInstanceDemo", InstanceArgs.builder()
+ *             .allowListIds(
+ *                 "acl-5380876c62044b658c3c7da4xxxx",
+ *                 "acl-3e998a9ef43e48eda1d07e2exxxx")
+ *             .ipVersionType("IPv4")
+ *             .enableSsl(true)
+ *             .tags(InstanceTagArgs.builder()
+ *                 .key("env")
+ *                 .value("test")
+ *                 .build())
+ *             .version("5.x")
+ *             .zoneId("cn-beijing-a,cn-beijing-c,cn-beijing-d")
+ *             .computeSpec("rocketmq.x2.2k")
+ *             .storageSpace(300)
+ *             .vpcId("vpc-1a1vgeo93ycxxxxxxxjnuw")
+ *             .subnetId("subnet-ij9s4h4xxxxxxx95wx4p")
+ *             .fileReservedTime(72)
+ *             .instanceName("RocketMQInstanceDemo")
+ *             .chargeDetail(InstanceChargeDetailArgs.builder()
+ *                 .charge_type("PostPaid")
+ *                 .build())
+ *             .sslMode("permissive")
+ *             .networkTypes("PrivateNetwork")
+ *             .projectName("default")
+ *             .instanceDescription("RocketMQInstanceDemo description")
+ *             .eipId("eip-bt6jb362txxxxx2zbpbo")
+ *             .build());
+ *
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:rocketmq/instance:Instance example &#34;instance_id&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:rocketmq/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Account ID to which the instance belongs.
-     * 
+     *
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
      * @return Account ID to which the instance belongs.
-     * 
+     *
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
      * List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-     * 
+     *
      */
     @Export(name="allowListIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowListIds;
 
     /**
      * @return List of allowlist IDs bound to the instance. After binding an allowlist, only IP addresses and address ranges configured in the allowlist can access this instance. If no allowlist is bound to the instance, all IP addresses are denied access to the instance.
-     * 
+     *
      */
     public Output<List<String>> allowListIds() {
         return this.allowListIds;
     }
     /**
      * Whether private network domain name supports public resolution. true: enabled false: disabled
-     * 
+     *
      */
     @Export(name="applyPrivateDnsToPublic", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyPrivateDnsToPublic;
 
     /**
      * @return Whether private network domain name supports public resolution. true: enabled false: disabled
-     * 
+     *
      */
     public Output<Boolean> applyPrivateDnsToPublic() {
         return this.applyPrivateDnsToPublic;
     }
     /**
      * Whether to automatically create queues when the instance specification changes.
-     * 
+     *
      */
     @Export(name="autoScaleQueue", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoScaleQueue;
 
     /**
      * @return Whether to automatically create queues when the instance specification changes.
-     * 
+     *
      */
     public Output<Boolean> autoScaleQueue() {
         return this.autoScaleQueue;
     }
     /**
      * Remaining number of partitions that can be created.
-     * 
+     *
      */
     @Export(name="availableQueueNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> availableQueueNumber;
 
     /**
      * @return Remaining number of partitions that can be created.
-     * 
+     *
      */
     public Output<Integer> availableQueueNumber() {
         return this.availableQueueNumber;
     }
     /**
      * Billing method and related billing information for the instance.
-     * 
+     *
      */
     @Export(name="chargeDetail", refs={InstanceChargeDetail.class}, tree="[0]")
     private Output<InstanceChargeDetail> chargeDetail;
 
     /**
      * @return Billing method and related billing information for the instance.
-     * 
+     *
      */
     public Output<InstanceChargeDetail> chargeDetail() {
         return this.chargeDetail;
     }
     /**
      * Instance compute specification. You can view the currently available compute specifications in the product specifications list.
-     * 
+     *
      */
     @Export(name="computeSpec", refs={String.class}, tree="[0]")
     private Output<String> computeSpec;
 
     /**
      * @return Instance compute specification. You can view the currently available compute specifications in the product specifications list.
-     * 
+     *
      */
     public Output<String> computeSpec() {
         return this.computeSpec;
     }
+    /**
+     * Instance connection information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="connectionInfos", refs={List.class,InstanceConnectionInfo.class}, tree="[0,1]")
     private Output<List<InstanceConnectionInfo>> connectionInfos;
 
+    /**
+     * @return Instance connection information.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<InstanceConnectionInfo>> connectionInfos() {
         return this.connectionInfos;
     }
     /**
      * Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
-     * 
+     *
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
      * @return Instance creation time. The time format is YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;.
-     * 
+     *
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
      * EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
-     * 
+     *
      */
     @Export(name="eipId", refs={String.class}, tree="[0]")
     private Output<String> eipId;
 
     /**
      * @return EIP ID. Specifying EipId enables public access for the instance. EIP provides independent public IP resources, including public IP addresses and outbound bandwidth services. After enabling public access by specifying this parameter, the public address will be bound to your Elastic IP (EIP), and fees will be charged for the EIP resource.
-     * 
+     *
      */
     public Output<String> eipId() {
         return this.eipId;
     }
     /**
      * Whether to use SSL encryption.
-     * 
+     *
      */
     @Export(name="enableSsl", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableSsl;
 
     /**
      * @return Whether to use SSL encryption.
-     * 
+     *
      */
     public Output<Boolean> enableSsl() {
         return this.enableSsl;
     }
     /**
      * Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
-     * 
+     *
      */
     @Export(name="fileReservedTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> fileReservedTime;
 
     /**
      * @return Message retention period on the RocketMQ Message Queue server. Messages exceeding the retention period will be expired and cleaned up. Unit: hours. Value range: 1–72 hours.
-     * 
+     *
      */
     public Output<Integer> fileReservedTime() {
         return this.fileReservedTime;
     }
     /**
      * Brief description of the instance. Length range: 1–128 characters.
-     * 
+     *
      */
     @Export(name="instanceDescription", refs={String.class}, tree="[0]")
     private Output<String> instanceDescription;
 
     /**
      * @return Brief description of the instance. Length range: 1–128 characters.
-     * 
+     *
      */
     public Output<String> instanceDescription() {
         return this.instanceDescription;
     }
     /**
      * Instance ID.
-     * 
+     *
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     * 
+     *
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
      * Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
-     * 
+     *
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
      * @return Instance name. Must meet the following requirements: can only contain Chinese characters, letters, numbers, underscores (_), and hyphens (-); cannot start with a number or hyphen (-); length must be 1–128 characters. If no name is specified when creating the instance, the instance ID will be used as the default name.
-     * 
+     *
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
      * Instance status.
-     * 
+     *
      */
     @Export(name="instanceStatus", refs={String.class}, tree="[0]")
     private Output<String> instanceStatus;
 
     /**
      * @return Instance status.
-     * 
+     *
      */
     public Output<String> instanceStatus() {
         return this.instanceStatus;
     }
     /**
      * IP version. Options are IPv4 or DualStack.
-     * 
+     *
      */
     @Export(name="ipVersionType", refs={String.class}, tree="[0]")
     private Output<String> ipVersionType;
 
     /**
      * @return IP version. Options are IPv4 or DualStack.
-     * 
+     *
      */
     public Output<String> ipVersionType() {
         return this.ipVersionType;
     }
     /**
      * Instance network type, fixed as PrivateNetwork.
-     * 
+     *
      */
     @Export(name="networkTypes", refs={String.class}, tree="[0]")
     private Output<String> networkTypes;
 
     /**
      * @return Instance network type, fixed as PrivateNetwork.
-     * 
+     *
      */
     public Output<String> networkTypes() {
         return this.networkTypes;
     }
     /**
      * Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
-     * 
+     *
      */
     @Export(name="productInfo", refs={InstanceProductInfo.class}, tree="[0]")
     private Output<InstanceProductInfo> productInfo;
 
     /**
      * @return Product configuration information. Note: Only RocketMQ 5.x instances support adjusting the TPS ratio for the instance.
-     * 
+     *
      */
     public Output<InstanceProductInfo> productInfo() {
         return this.productInfo;
     }
     /**
      * The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
-     * 
+     *
      */
     @Export(name="projectName", refs={String.class}, tree="[0]")
     private Output<String> projectName;
 
     /**
      * @return The IAM project to which the newly created instance belongs. If not set, the new instance will be bound to the IAM project named &#39;default&#39;.
-     * 
+     *
      */
     public Output<String> projectName() {
         return this.projectName;
     }
     /**
      * Region ID where the instance is located.
-     * 
+     *
      */
     @Export(name="regionId", refs={String.class}, tree="[0]")
     private Output<String> regionId;
 
     /**
      * @return Region ID where the instance is located.
-     * 
+     *
      */
     public Output<String> regionId() {
         return this.regionId;
     }
     /**
      * The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
-     * 
+     *
      */
     @Export(name="sslMode", refs={String.class}, tree="[0]")
     private Output<String> sslMode;
 
     /**
      * @return The instance&#39;s public network connection policy only needs to be set when public access is enabled. Supported settings are: enforcing: When accessing the instance via the public network, SSL authentication is required. SSL authentication enables encrypted data transmission, offering higher security compared to standard public access, but may reduce performance. permissive: When accessing the instance via the public network, SSL authentication is optional. After the instance is created and public access is enabled, the SSL connection policy cannot be modified. To change it, you must disable and re-enable public access for the instance, and set the SSL connection policy again when re-enabling. For details, see Setting Public Access and SSL Authentication Policy.
-     * 
+     *
      */
     public Output<String> sslMode() {
         return this.sslMode;
     }
     /**
      * Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
-     * 
+     *
      */
     @Export(name="storageSpace", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageSpace;
 
     /**
      * @return Instance storage space, measured in GiB and must be specified in multiples of 100. The value range depends on the currently selected compute specification.
-     * 
+     *
      */
     public Output<Integer> storageSpace() {
         return this.storageSpace;
     }
     /**
      * VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
      * @return VPC subnet ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     public Output<String> subnetId() {
         return this.subnetId;
     }
+    /**
+     * Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="tags", refs={List.class,InstanceTag.class}, tree="[0,1]")
     private Output<List<InstanceTag>> tags;
 
+    /**
+     * @return Cloud resource tags. You can categorize instances by tags for easier search and resource aggregation. For details, see Tag Overview.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<InstanceTag>> tags() {
         return this.tags;
     }
     /**
      * Number of consumer groups (Group) currently created for the instance.
-     * 
+     *
      */
     @Export(name="usedGroupNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> usedGroupNumber;
 
     /**
      * @return Number of consumer groups (Group) currently created for the instance.
-     * 
+     *
      */
     public Output<Integer> usedGroupNumber() {
         return this.usedGroupNumber;
     }
     /**
      * Number of queues already used by the instance.
-     * 
+     *
      */
     @Export(name="usedQueueNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> usedQueueNumber;
 
     /**
      * @return Number of queues already used by the instance.
-     * 
+     *
      */
     public Output<Integer> usedQueueNumber() {
         return this.usedQueueNumber;
     }
     /**
      * Used storage space for the instance, in GiB.
-     * 
+     *
      */
     @Export(name="usedStorageSpace", refs={Integer.class}, tree="[0]")
     private Output<Integer> usedStorageSpace;
 
     /**
      * @return Used storage space for the instance, in GiB.
-     * 
+     *
      */
     public Output<Integer> usedStorageSpace() {
         return this.usedStorageSpace;
     }
     /**
      * Number of topics created in the current instance.
-     * 
+     *
      */
     @Export(name="usedTopicNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> usedTopicNumber;
 
     /**
      * @return Number of topics created in the current instance.
-     * 
+     *
      */
     public Output<Integer> usedTopicNumber() {
         return this.usedTopicNumber;
     }
     /**
      * Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
-     * 
+     *
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
      * @return Supported RocketMQ versions. Currently supported versions include: 4.8: compatible with RocketMQ 4.x series. 5.x: compatible with RocketMQ 5.x series. The 5.x version is currently available by whitelist application. To use it, contact technical support to apply for access.
-     * 
+     *
      */
     public Output<String> version() {
         return this.version;
     }
     /**
      * VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return VPC ID where the instance resides. After the instance is created, the associated VPC and subnet cannot be modified. Please operate carefully when creating the instance. You can call the DescribeVpcs API of the VPC to query the available VPC and subnet list.
-     * 
+     *
      */
     public Output<String> vpcId() {
         return this.vpcId;
     }
     /**
      * Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
-     * 
+     *
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**
      * @return Availability zone ID where the instance is located. RocketMQ Message Queue instances support cross-AZ deployment. When viewing available compute specifications in a specified availability zone, you can specify multiple zones. Separate multiple availability zone IDs with commas (,). You can call DescribeAvailabilityZones to query the list of currently available zones.
-     * 
+     *
      */
     public Output<String> zoneId() {
         return this.zoneId;

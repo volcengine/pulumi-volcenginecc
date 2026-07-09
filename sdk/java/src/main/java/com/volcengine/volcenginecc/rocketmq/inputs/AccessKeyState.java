@@ -20,14 +20,14 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * AccessKey ID for the RocketMQ key
-     * 
+     *
      */
     @Import(name="accessKey")
     private @Nullable Output<String> accessKey;
 
     /**
      * @return AccessKey ID for the RocketMQ key
-     * 
+     *
      */
     public Optional<Output<String>> accessKey() {
         return Optional.ofNullable(this.accessKey);
@@ -35,29 +35,29 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * All ACL configuration information for the RocketMQ key
-     * 
+     *
      */
     @Import(name="aclConfigJson")
     private @Nullable Output<String> aclConfigJson;
 
     /**
      * @return All ACL configuration information for the RocketMQ key
-     * 
+     *
      */
     public Optional<Output<String>> aclConfigJson() {
         return Optional.ofNullable(this.aclConfigJson);
     }
 
     /**
-     * Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
-     * 
+     * Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
+     *
      */
     @Import(name="actived")
     private @Nullable Output<Boolean> actived;
 
     /**
-     * @return Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
-     * 
+     * @return Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
+     *
      */
     public Optional<Output<Boolean>> actived() {
         return Optional.ofNullable(this.actived);
@@ -65,14 +65,14 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     * 
+     *
      */
     @Import(name="allAuthority")
     private @Nullable Output<String> allAuthority;
 
     /**
      * @return Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-     * 
+     *
      */
     public Optional<Output<String>> allAuthority() {
         return Optional.ofNullable(this.allAuthority);
@@ -80,14 +80,14 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-     * 
+     *
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
      * @return Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-     * 
+     *
      */
     public Optional<Output<String>> createTime() {
         return Optional.ofNullable(this.createTime);
@@ -95,14 +95,14 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     * 
+     *
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-     * 
+     *
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
@@ -110,14 +110,14 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance ID
-     * 
+     *
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Instance ID
-     * 
+     *
      */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
@@ -125,22 +125,32 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * RocketMQ key. Returned only after creation
-     * 
+     *
      */
     @Import(name="secretKey")
     private @Nullable Output<String> secretKey;
 
     /**
      * @return RocketMQ key. Returned only after creation
-     * 
+     *
      */
     public Optional<Output<String>> secretKey() {
         return Optional.ofNullable(this.secretKey);
     }
 
+    /**
+     * Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="topicPermissions")
     private @Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions;
 
+    /**
+     * @return Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<AccessKeyTopicPermissionArgs>>> topicPermissions() {
         return Optional.ofNullable(this.topicPermissions);
     }
@@ -179,9 +189,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accessKey AccessKey ID for the RocketMQ key
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder accessKey(@Nullable Output<String> accessKey) {
             $.accessKey = accessKey;
@@ -190,9 +200,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accessKey AccessKey ID for the RocketMQ key
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder accessKey(String accessKey) {
             return accessKey(Output.of(accessKey));
@@ -200,9 +210,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param aclConfigJson All ACL configuration information for the RocketMQ key
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder aclConfigJson(@Nullable Output<String> aclConfigJson) {
             $.aclConfigJson = aclConfigJson;
@@ -211,19 +221,19 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param aclConfigJson All ACL configuration information for the RocketMQ key
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder aclConfigJson(String aclConfigJson) {
             return aclConfigJson(Output.of(aclConfigJson));
         }
 
         /**
-         * @param actived Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
-         * 
+         * @param actived Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
+         *
          * @return builder
-         * 
+         *
          */
         public Builder actived(@Nullable Output<Boolean> actived) {
             $.actived = actived;
@@ -231,10 +241,10 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actived Enable status for the RocketMQ key.   - `true`: Enabled   - `false`: Not enabled
-         * 
+         * @param actived Enable status for the RocketMQ key.   - &lt;span pulumi-lang-nodejs=&#34;`true`&#34; pulumi-lang-dotnet=&#34;`True`&#34; pulumi-lang-go=&#34;`true`&#34; pulumi-lang-python=&#34;`true`&#34; pulumi-lang-yaml=&#34;`true`&#34; pulumi-lang-java=&#34;`true`&#34; pulumi-lang-hcl=&#34;`true`&#34;&gt;`true`&lt;/span&gt;: Enabled   - &lt;span pulumi-lang-nodejs=&#34;`false`&#34; pulumi-lang-dotnet=&#34;`False`&#34; pulumi-lang-go=&#34;`false`&#34; pulumi-lang-python=&#34;`false`&#34; pulumi-lang-yaml=&#34;`false`&#34; pulumi-lang-java=&#34;`false`&#34; pulumi-lang-hcl=&#34;`false`&#34;&gt;`false`&lt;/span&gt;: Not enabled
+         *
          * @return builder
-         * 
+         *
          */
         public Builder actived(Boolean actived) {
             return actived(Output.of(actived));
@@ -242,9 +252,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allAuthority Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder allAuthority(@Nullable Output<String> allAuthority) {
             $.allAuthority = allAuthority;
@@ -253,9 +263,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allAuthority Default permissions for the RocketMQ key.   - `ALL`: Publish and subscribe permissions   - `PUB`: Publish permission   - `SUB`: Subscribe permission   - `DENY`: No publish or subscribe permissions
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder allAuthority(String allAuthority) {
             return allAuthority(Output.of(allAuthority));
@@ -263,9 +273,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createTime Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createTime(@Nullable Output<String> createTime) {
             $.createTime = createTime;
@@ -274,9 +284,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createTime Creation time for the RocketMQ key. Time format: YYYY-MM-DD&#39;T&#39;HH:MM:SS&#39;Z&#39;
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder createTime(String createTime) {
             return createTime(Output.of(createTime));
@@ -284,9 +294,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
@@ -295,9 +305,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Description for the RocketMQ key, used to distinguish and manage keys effectively. Length limit: 0–128 characters
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(String description) {
             return description(Output.of(description));
@@ -305,9 +315,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -316,9 +326,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -326,9 +336,9 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secretKey RocketMQ key. Returned only after creation
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder secretKey(@Nullable Output<String> secretKey) {
             $.secretKey = secretKey;
@@ -337,23 +347,44 @@ public final class AccessKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param secretKey RocketMQ key. Returned only after creation
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder secretKey(String secretKey) {
             return secretKey(Output.of(secretKey));
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder topicPermissions(@Nullable Output<List<AccessKeyTopicPermissionArgs>> topicPermissions) {
             $.topicPermissions = topicPermissions;
             return this;
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder topicPermissions(List<AccessKeyTopicPermissionArgs> topicPermissions) {
             return topicPermissions(Output.of(topicPermissions));
         }
 
+        /**
+         * @param topicPermissions Custom permissions for the key. Sets the permissions this AccessKey has for a specific Topic. If there are no custom permissions, displays as null
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder topicPermissions(AccessKeyTopicPermissionArgs... topicPermissions) {
             return topicPermissions(List.of(topicPermissions));
         }

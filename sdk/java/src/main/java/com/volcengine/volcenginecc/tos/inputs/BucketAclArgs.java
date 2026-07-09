@@ -20,36 +20,46 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
-     * 
+     *
      */
     @Import(name="bucketAclDelivered")
     private @Nullable Output<Boolean> bucketAclDelivered;
 
     /**
      * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
-     * 
+     *
      */
     public Optional<Output<Boolean>> bucketAclDelivered() {
         return Optional.ofNullable(this.bucketAclDelivered);
     }
 
+    /**
+     * Root node for object access control permissions
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="grants")
     private @Nullable Output<List<BucketAclGrantArgs>> grants;
 
+    /**
+     * @return Root node for object access control permissions
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<BucketAclGrantArgs>>> grants() {
         return Optional.ofNullable(this.grants);
     }
 
     /**
      * Object owner
-     * 
+     *
      */
     @Import(name="owner")
     private @Nullable Output<BucketAclOwnerArgs> owner;
 
     /**
      * @return Object owner
-     * 
+     *
      */
     public Optional<Output<BucketAclOwnerArgs>> owner() {
         return Optional.ofNullable(this.owner);
@@ -83,9 +93,9 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucketAclDelivered Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder bucketAclDelivered(@Nullable Output<Boolean> bucketAclDelivered) {
             $.bucketAclDelivered = bucketAclDelivered;
@@ -94,32 +104,53 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucketAclDelivered Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder bucketAclDelivered(Boolean bucketAclDelivered) {
             return bucketAclDelivered(Output.of(bucketAclDelivered));
         }
 
+        /**
+         * @param grants Root node for object access control permissions
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder grants(@Nullable Output<List<BucketAclGrantArgs>> grants) {
             $.grants = grants;
             return this;
         }
 
+        /**
+         * @param grants Root node for object access control permissions
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder grants(List<BucketAclGrantArgs> grants) {
             return grants(Output.of(grants));
         }
 
+        /**
+         * @param grants Root node for object access control permissions
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder grants(BucketAclGrantArgs... grants) {
             return grants(List.of(grants));
         }
 
         /**
          * @param owner Object owner
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder owner(@Nullable Output<BucketAclOwnerArgs> owner) {
             $.owner = owner;
@@ -128,9 +159,9 @@ public final class BucketAclArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param owner Object owner
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder owner(BucketAclOwnerArgs owner) {
             return owner(Output.of(owner));

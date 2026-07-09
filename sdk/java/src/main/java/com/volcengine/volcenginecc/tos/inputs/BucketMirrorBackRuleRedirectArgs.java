@@ -23,23 +23,33 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     public static final BucketMirrorBackRuleRedirectArgs Empty = new BucketMirrorBackRuleRedirectArgs();
 
+    /**
+     * List of rules for writing origin response headers to object metadata.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="fetchHeaderToMetaDataRules")
     private @Nullable Output<List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs>> fetchHeaderToMetaDataRules;
 
+    /**
+     * @return List of rules for writing origin response headers to object metadata.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs>>> fetchHeaderToMetaDataRules() {
         return Optional.ofNullable(this.fetchHeaderToMetaDataRules);
     }
 
     /**
      * Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
-     * 
+     *
      */
     @Import(name="fetchSourceOnRedirect")
     private @Nullable Output<Boolean> fetchSourceOnRedirect;
 
     /**
      * @return Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
-     * 
+     *
      */
     public Optional<Output<Boolean>> fetchSourceOnRedirect() {
         return Optional.ofNullable(this.fetchSourceOnRedirect);
@@ -47,14 +57,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
-     * 
+     *
      */
     @Import(name="fetchSourceOnRedirectWithQuery")
     private @Nullable Output<Boolean> fetchSourceOnRedirectWithQuery;
 
     /**
      * @return Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
-     * 
+     *
      */
     public Optional<Output<Boolean>> fetchSourceOnRedirectWithQuery() {
         return Optional.ofNullable(this.fetchSourceOnRedirectWithQuery);
@@ -62,14 +72,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
-     * 
+     *
      */
     @Import(name="followRedirect")
     private @Nullable Output<Boolean> followRedirect;
 
     /**
      * @return If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
-     * 
+     *
      */
     public Optional<Output<Boolean>> followRedirect() {
         return Optional.ofNullable(this.followRedirect);
@@ -77,14 +87,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * Specify the headers to include when mirroring back to origin.
-     * 
+     *
      */
     @Import(name="mirrorHeader")
     private @Nullable Output<BucketMirrorBackRuleRedirectMirrorHeaderArgs> mirrorHeader;
 
     /**
      * @return Specify the headers to include when mirroring back to origin.
-     * 
+     *
      */
     public Optional<Output<BucketMirrorBackRuleRedirectMirrorHeaderArgs>> mirrorHeader() {
         return Optional.ofNullable(this.mirrorHeader);
@@ -92,14 +102,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * List of origin response headers allowed to be passed through directly.
-     * 
+     *
      */
     @Import(name="passHeaderFromSources")
     private @Nullable Output<List<String>> passHeaderFromSources;
 
     /**
      * @return List of origin response headers allowed to be passed through directly.
-     * 
+     *
      */
     public Optional<Output<List<String>>> passHeaderFromSources() {
         return Optional.ofNullable(this.passHeaderFromSources);
@@ -109,7 +119,7 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
      * Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
      * true: Include request parameters.
      * false: Do not include request parameters.
-     * 
+     *
      */
     @Import(name="passQuery")
     private @Nullable Output<Boolean> passQuery;
@@ -118,7 +128,7 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
      * @return Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
      * true: Include request parameters.
      * false: Do not include request parameters.
-     * 
+     *
      */
     public Optional<Output<Boolean>> passQuery() {
         return Optional.ofNullable(this.passQuery);
@@ -126,14 +136,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * List of origin response status codes allowed to be passed through directly.
-     * 
+     *
      */
     @Import(name="passStatusCodeFromSources")
     private @Nullable Output<List<Integer>> passStatusCodeFromSources;
 
     /**
      * @return List of origin response status codes allowed to be passed through directly.
-     * 
+     *
      */
     public Optional<Output<List<Integer>>> passStatusCodeFromSources() {
         return Optional.ofNullable(this.passStatusCodeFromSources);
@@ -141,14 +151,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * Back-to-origin address configuration when the origin server is a private bucket.
-     * 
+     *
      */
     @Import(name="privateSource")
     private @Nullable Output<BucketMirrorBackRuleRedirectPrivateSourceArgs> privateSource;
 
     /**
      * @return Back-to-origin address configuration when the origin server is a private bucket.
-     * 
+     *
      */
     public Optional<Output<BucketMirrorBackRuleRedirectPrivateSourceArgs>> privateSource() {
         return Optional.ofNullable(this.privateSource);
@@ -156,14 +166,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * Back-to-origin address configuration when the origin server is a public bucket.
-     * 
+     *
      */
     @Import(name="publicSource")
     private @Nullable Output<BucketMirrorBackRuleRedirectPublicSourceArgs> publicSource;
 
     /**
      * @return Back-to-origin address configuration when the origin server is a public bucket.
-     * 
+     *
      */
     public Optional<Output<BucketMirrorBackRuleRedirectPublicSourceArgs>> publicSource() {
         return Optional.ofNullable(this.publicSource);
@@ -171,14 +181,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
-     * 
+     *
      */
     @Import(name="redirectType")
     private @Nullable Output<String> redirectType;
 
     /**
      * @return Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
-     * 
+     *
      */
     public Optional<Output<String>> redirectType() {
         return Optional.ofNullable(this.redirectType);
@@ -186,14 +196,14 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
     /**
      * Define transformations for the object name when requesting the origin server.
-     * 
+     *
      */
     @Import(name="transform")
     private @Nullable Output<BucketMirrorBackRuleRedirectTransformArgs> transform;
 
     /**
      * @return Define transformations for the object name when requesting the origin server.
-     * 
+     *
      */
     public Optional<Output<BucketMirrorBackRuleRedirectTransformArgs>> transform() {
         return Optional.ofNullable(this.transform);
@@ -234,24 +244,45 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
             $ = new BucketMirrorBackRuleRedirectArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fetchHeaderToMetaDataRules List of rules for writing origin response headers to object metadata.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder fetchHeaderToMetaDataRules(@Nullable Output<List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs>> fetchHeaderToMetaDataRules) {
             $.fetchHeaderToMetaDataRules = fetchHeaderToMetaDataRules;
             return this;
         }
 
+        /**
+         * @param fetchHeaderToMetaDataRules List of rules for writing origin response headers to object metadata.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder fetchHeaderToMetaDataRules(List<BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs> fetchHeaderToMetaDataRules) {
             return fetchHeaderToMetaDataRules(Output.of(fetchHeaderToMetaDataRules));
         }
 
+        /**
+         * @param fetchHeaderToMetaDataRules List of rules for writing origin response headers to object metadata.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder fetchHeaderToMetaDataRules(BucketMirrorBackRuleRedirectFetchHeaderToMetaDataRuleArgs... fetchHeaderToMetaDataRules) {
             return fetchHeaderToMetaDataRules(List.of(fetchHeaderToMetaDataRules));
         }
 
         /**
          * @param fetchSourceOnRedirect Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder fetchSourceOnRedirect(@Nullable Output<Boolean> fetchSourceOnRedirect) {
             $.fetchSourceOnRedirect = fetchSourceOnRedirect;
@@ -260,9 +291,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param fetchSourceOnRedirect Whether to fetch data from the configured origin after redirection. Value description: true: Fetch data from the configured origin after redirection. false: Do not fetch data from the configured origin after redirection.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder fetchSourceOnRedirect(Boolean fetchSourceOnRedirect) {
             return fetchSourceOnRedirect(Output.of(fetchSourceOnRedirect));
@@ -270,9 +301,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param fetchSourceOnRedirectWithQuery Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder fetchSourceOnRedirectWithQuery(@Nullable Output<Boolean> fetchSourceOnRedirectWithQuery) {
             $.fetchSourceOnRedirectWithQuery = fetchSourceOnRedirectWithQuery;
@@ -281,9 +312,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param fetchSourceOnRedirectWithQuery Whether to include request parameters when fetching data after redirection. If not configured, inherits PassQuery settings: true: includes request parameters. false: does not include request parameters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder fetchSourceOnRedirectWithQuery(Boolean fetchSourceOnRedirectWithQuery) {
             return fetchSourceOnRedirectWithQuery(Output.of(fetchSourceOnRedirectWithQuery));
@@ -291,9 +322,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param followRedirect If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder followRedirect(@Nullable Output<Boolean> followRedirect) {
             $.followRedirect = followRedirect;
@@ -302,9 +333,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param followRedirect If the result of mirror origin fetch is 3xx, whether to continue redirecting to the specified Location to fetch data. Value description: true: TOS will continue to request the address corresponding to Location. false: TOS will return 302.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder followRedirect(Boolean followRedirect) {
             return followRedirect(Output.of(followRedirect));
@@ -312,9 +343,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param mirrorHeader Specify the headers to include when mirroring back to origin.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder mirrorHeader(@Nullable Output<BucketMirrorBackRuleRedirectMirrorHeaderArgs> mirrorHeader) {
             $.mirrorHeader = mirrorHeader;
@@ -323,9 +354,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param mirrorHeader Specify the headers to include when mirroring back to origin.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder mirrorHeader(BucketMirrorBackRuleRedirectMirrorHeaderArgs mirrorHeader) {
             return mirrorHeader(Output.of(mirrorHeader));
@@ -333,9 +364,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param passHeaderFromSources List of origin response headers allowed to be passed through directly.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passHeaderFromSources(@Nullable Output<List<String>> passHeaderFromSources) {
             $.passHeaderFromSources = passHeaderFromSources;
@@ -344,9 +375,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param passHeaderFromSources List of origin response headers allowed to be passed through directly.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passHeaderFromSources(List<String> passHeaderFromSources) {
             return passHeaderFromSources(Output.of(passHeaderFromSources));
@@ -354,9 +385,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param passHeaderFromSources List of origin response headers allowed to be passed through directly.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passHeaderFromSources(String... passHeaderFromSources) {
             return passHeaderFromSources(List.of(passHeaderFromSources));
@@ -366,9 +397,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
          * @param passQuery Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
          * true: Include request parameters.
          * false: Do not include request parameters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passQuery(@Nullable Output<Boolean> passQuery) {
             $.passQuery = passQuery;
@@ -379,9 +410,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
          * @param passQuery Whether to include request parameters when performing redirect or mirror back-to-origin rules. Value description:
          * true: Include request parameters.
          * false: Do not include request parameters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passQuery(Boolean passQuery) {
             return passQuery(Output.of(passQuery));
@@ -389,9 +420,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param passStatusCodeFromSources List of origin response status codes allowed to be passed through directly.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passStatusCodeFromSources(@Nullable Output<List<Integer>> passStatusCodeFromSources) {
             $.passStatusCodeFromSources = passStatusCodeFromSources;
@@ -400,9 +431,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param passStatusCodeFromSources List of origin response status codes allowed to be passed through directly.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passStatusCodeFromSources(List<Integer> passStatusCodeFromSources) {
             return passStatusCodeFromSources(Output.of(passStatusCodeFromSources));
@@ -410,9 +441,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param passStatusCodeFromSources List of origin response status codes allowed to be passed through directly.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder passStatusCodeFromSources(Integer... passStatusCodeFromSources) {
             return passStatusCodeFromSources(List.of(passStatusCodeFromSources));
@@ -420,9 +451,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param privateSource Back-to-origin address configuration when the origin server is a private bucket.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder privateSource(@Nullable Output<BucketMirrorBackRuleRedirectPrivateSourceArgs> privateSource) {
             $.privateSource = privateSource;
@@ -431,9 +462,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param privateSource Back-to-origin address configuration when the origin server is a private bucket.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder privateSource(BucketMirrorBackRuleRedirectPrivateSourceArgs privateSource) {
             return privateSource(Output.of(privateSource));
@@ -441,9 +472,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param publicSource Back-to-origin address configuration when the origin server is a public bucket.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder publicSource(@Nullable Output<BucketMirrorBackRuleRedirectPublicSourceArgs> publicSource) {
             $.publicSource = publicSource;
@@ -452,9 +483,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param publicSource Back-to-origin address configuration when the origin server is a public bucket.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder publicSource(BucketMirrorBackRuleRedirectPublicSourceArgs publicSource) {
             return publicSource(Output.of(publicSource));
@@ -462,9 +493,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param redirectType Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder redirectType(@Nullable Output<String> redirectType) {
             $.redirectType = redirectType;
@@ -473,9 +504,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param redirectType Specify redirect type. Value range: Mirror: Mirror origin fetch. Async: Redirect origin fetch.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder redirectType(String redirectType) {
             return redirectType(Output.of(redirectType));
@@ -483,9 +514,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param transform Define transformations for the object name when requesting the origin server.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder transform(@Nullable Output<BucketMirrorBackRuleRedirectTransformArgs> transform) {
             $.transform = transform;
@@ -494,9 +525,9 @@ public final class BucketMirrorBackRuleRedirectArgs extends com.pulumi.resources
 
         /**
          * @param transform Define transformations for the object name when requesting the origin server.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder transform(BucketMirrorBackRuleRedirectTransformArgs transform) {
             return transform(Output.of(transform));

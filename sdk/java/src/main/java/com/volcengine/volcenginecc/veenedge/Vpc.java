@@ -20,14 +20,14 @@ import javax.annotation.Nullable;
 
 /**
  * Edge computing custom VPC instance, used to create independent virtual network environments on edge nodes
- * 
+ *
  * ## Example Usage
- * 
+ *
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- * 
+ *
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -35,23 +35,23 @@ import javax.annotation.Nullable;
  * import com.volcengine.volcenginecc.veenedge.VpcArgs;
  * import com.pulumi.volcenginecc.veenedge.inputs.VpcSubnetArgs;
  * import com.pulumi.volcenginecc.veenedge.inputs.VpcTagArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- * 
+ *
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- * 
+ *
  *     public static void stack(Context ctx) {
  *         var example = new Vpc("example", VpcArgs.builder()
  *             .desc("测试VPC实例")
  *             .project("default")
- *             .subnets(            
+ *             .subnets(
  *                 VpcSubnetArgs.builder()
  *                     .desc("测试子网1")
  *                     .cidr("10.0.0.0/16")
@@ -70,226 +70,246 @@ import javax.annotation.Nullable;
  *                 .value("test")
  *                 .build())
  *             .build());
- * 
+ *
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ *
  * ## Import
- * 
+ *
  * ```sh
  * $ pulumi import volcenginecc:veenedge/vpc:Vpc example &#34;vpc_identity&#34;
  * ```
- * 
+ *
  */
 @ResourceType(type="volcenginecc:veenedge/vpc:Vpc")
 public class Vpc extends com.pulumi.resources.CustomResource {
     /**
      * Cluster Name of VPC Instance
-     * 
+     *
      */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
      * @return Cluster Name of VPC Instance
-     * 
+     *
      */
     public Output<String> clusterName() {
         return this.clusterName;
     }
     /**
      * VPC Instance Creation Time, Unix Timestamp
-     * 
+     *
      */
     @Export(name="createTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> createTime;
 
     /**
      * @return VPC Instance Creation Time, Unix Timestamp
-     * 
+     *
      */
     public Output<Integer> createTime() {
         return this.createTime;
     }
     /**
      * Number of Cross-Account Virtual Gateways
-     * 
+     *
      */
     @Export(name="crossAccountVgwNum", refs={Integer.class}, tree="[0]")
     private Output<Integer> crossAccountVgwNum;
 
     /**
      * @return Number of Cross-Account Virtual Gateways
-     * 
+     *
      */
     public Output<Integer> crossAccountVgwNum() {
         return this.crossAccountVgwNum;
     }
     /**
      * Description of VPC Instance
-     * 
+     *
      */
     @Export(name="desc", refs={String.class}, tree="[0]")
     private Output<String> desc;
 
     /**
      * @return Description of VPC Instance
-     * 
+     *
      */
     public Output<String> desc() {
         return this.desc;
     }
     /**
      * Is Custom VPC
-     * 
+     *
      */
     @Export(name="isCustom", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isCustom;
 
     /**
      * @return Is Custom VPC
-     * 
+     *
      */
     public Output<Boolean> isCustom() {
         return this.isCustom;
     }
     /**
      * Is Default VPC
-     * 
+     *
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
      * @return Is Default VPC
-     * 
+     *
      */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
     /**
      * Is VLAN Type VPC
-     * 
+     *
      */
     @Export(name="isVlan", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isVlan;
 
     /**
      * @return Is VLAN Type VPC
-     * 
+     *
      */
     public Output<Boolean> isVlan() {
         return this.isVlan;
     }
     /**
      * Number of Virtual Gateways for This Account
-     * 
+     *
      */
     @Export(name="localAccountVgwNum", refs={Integer.class}, tree="[0]")
     private Output<Integer> localAccountVgwNum;
 
     /**
      * @return Number of Virtual Gateways for This Account
-     * 
+     *
      */
     public Output<Integer> localAccountVgwNum() {
         return this.localAccountVgwNum;
     }
     /**
      * Project Name of VPC Instance
-     * 
+     *
      */
     @Export(name="project", refs={String.class}, tree="[0]")
     private Output<String> project;
 
     /**
      * @return Project Name of VPC Instance
-     * 
+     *
      */
     public Output<String> project() {
         return this.project;
     }
     /**
      * VPC Instance CIDR Block, e.g. 10.0.0.0/16
-     * 
+     *
      */
     @Export(name="segment", refs={String.class}, tree="[0]")
     private Output<String> segment;
 
     /**
      * @return VPC Instance CIDR Block, e.g. 10.0.0.0/16
-     * 
+     *
      */
     public Output<String> segment() {
         return this.segment;
     }
     /**
      * VPC Instance Status: available (available), modifying (modifying), deleting (deleting)
-     * 
+     *
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return VPC Instance Status: available (available), modifying (modifying), deleting (deleting)
-     * 
+     *
      */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * List of subnets created when creating the VPC
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="subnets", refs={List.class,VpcSubnet.class}, tree="[0,1]")
     private Output<List<VpcSubnet>> subnets;
 
+    /**
+     * @return List of subnets created when creating the VPC
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<VpcSubnet>> subnets() {
         return this.subnets;
     }
+    /**
+     * Tag List of VPC Instance
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Export(name="tags", refs={List.class,VpcTag.class}, tree="[0,1]")
     private Output<List<VpcTag>> tags;
 
+    /**
+     * @return Tag List of VPC Instance
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Output<List<VpcTag>> tags() {
         return this.tags;
     }
     /**
      * VPC Instance Update Time, Unix Timestamp
-     * 
+     *
      */
     @Export(name="updateTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> updateTime;
 
     /**
      * @return VPC Instance Update Time, Unix Timestamp
-     * 
+     *
      */
     public Output<Integer> updateTime() {
         return this.updateTime;
     }
     /**
      * Unique Identifier of VPC Instance
-     * 
+     *
      */
     @Export(name="vpcIdentity", refs={String.class}, tree="[0]")
     private Output<String> vpcIdentity;
 
     /**
      * @return Unique Identifier of VPC Instance
-     * 
+     *
      */
     public Output<String> vpcIdentity() {
         return this.vpcIdentity;
     }
     /**
      * VPC Instance Name
-     * 
+     *
      */
     @Export(name="vpcName", refs={String.class}, tree="[0]")
     private Output<String> vpcName;
 
     /**
      * @return VPC Instance Name
-     * 
+     *
      */
     public Output<String> vpcName() {
         return this.vpcName;

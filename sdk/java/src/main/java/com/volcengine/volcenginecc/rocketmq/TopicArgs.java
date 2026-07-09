@@ -19,23 +19,33 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicArgs Empty = new TopicArgs();
 
+    /**
+     * Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     @Import(name="accessPolicies")
     private @Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies;
 
+    /**
+     * @return Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public Optional<Output<List<TopicAccessPolicyArgs>>> accessPolicies() {
         return Optional.ofNullable(this.accessPolicies);
     }
 
     /**
      * Topic description, length: 0–128 characters.
-     * 
+     *
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return Topic description, length: 0–128 characters.
-     * 
+     *
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
@@ -43,14 +53,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Instance ID.
-     * 
+     *
      */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
     /**
      * @return Instance ID.
-     * 
+     *
      */
     public Output<String> instanceId() {
         return this.instanceId;
@@ -58,14 +68,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-     * 
+     *
      */
     @Import(name="messageType", required=true)
     private Output<Integer> messageType;
 
     /**
      * @return Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-     * 
+     *
      */
     public Output<Integer> messageType() {
         return this.messageType;
@@ -73,14 +83,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-     * 
+     *
      */
     @Import(name="queueNumber", required=true)
     private Output<Integer> queueNumber;
 
     /**
      * @return Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-     * 
+     *
      */
     public Output<Integer> queueNumber() {
         return this.queueNumber;
@@ -88,14 +98,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-     * 
+     *
      */
     @Import(name="topicName", required=true)
     private Output<String> topicName;
 
     /**
      * @return Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-     * 
+     *
      */
     public Output<String> topicName() {
         return this.topicName;
@@ -130,24 +140,45 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TopicArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder accessPolicies(@Nullable Output<List<TopicAccessPolicyArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
             return this;
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder accessPolicies(List<TopicAccessPolicyArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
         }
 
+        /**
+         * @param accessPolicies Permissions for each RocketMQ key on the current Topic, supports batch permission settings. If not set, each key retains its default permissions for the current Topic.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         *
+         * @return builder
+         *
+         */
         public Builder accessPolicies(TopicAccessPolicyArgs... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }
 
         /**
          * @param description Topic description, length: 0–128 characters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
@@ -156,9 +187,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param description Topic description, length: 0–128 characters.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder description(String description) {
             return description(Output.of(description));
@@ -166,9 +197,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
@@ -177,9 +208,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instanceId Instance ID.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
@@ -187,9 +218,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageType Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder messageType(Output<Integer> messageType) {
             $.messageType = messageType;
@@ -198,9 +229,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param messageType Message type. Set this parameter to filter the Topic list by the specified message type. Value description: 0: Normal message. 1: Transaction message. 2: Partitioned ordered message. 3: Globally ordered message. 4: Delayed message.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder messageType(Integer messageType) {
             return messageType(Output.of(messageType));
@@ -208,9 +239,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param queueNumber Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder queueNumber(Output<Integer> queueNumber) {
             $.queueNumber = queueNumber;
@@ -219,9 +250,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param queueNumber Set the number of queues for the current Topic. The maximum cannot exceed the remaining available queues for the current instance. For queue limits per instance specification, refer to the product specifications. When creating a Topic in a 4.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the queue number depends on the compute specification. For n3 and below, the default is 6; for above n3, the default is twice the number of broker groups. It is recommended to set the queue number as a multiple of the number of compute nodes to avoid data imbalance across Brokers. For example, for the rocketmq.n3.x2.medium specification with 3 compute nodes, set the queue number to a multiple of 3, such as 3, 6, or 9. When creating a Topic in a 5.x version instance, set the number of queues as follows: For globally ordered Topics, the default queue number is 1. For other Topic types, the default is twice the number of broker groups. In non-ordered scenarios, performance is not affected by the number of queues; more queues only improve concurrent performance for ordered consumption.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder queueNumber(Integer queueNumber) {
             return queueNumber(Output.of(queueNumber));
@@ -229,9 +260,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param topicName Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder topicName(Output<String> topicName) {
             $.topicName = topicName;
@@ -240,9 +271,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param topicName Topic name. Naming rules: Length must be 3–100 characters. Only English letters, numbers, hyphens (-), and underscores (*) are allowed. Topic names cannot contain the following reserved characters or special prefixes. Reserved characters: RMQ*SYS*TRANS*OP*HALF*TOPIC, BenchmarkTest, TBW102, OFFSET*MOVED*EVENT, SELF*TEST*TOPIC, RMQ*SYS*TRANS*HALF*TOPIC, SCHEDULE*TOPIC*XXXX, RMQ*SYS*TRACE*TOPIC. Special prefixes: rocketmq-broker-, %RETRY%, rmq*sys_, %DLQ%.
-         * 
+         *
          * @return builder
-         * 
+         *
          */
         public Builder topicName(String topicName) {
             return topicName(Output.of(topicName));

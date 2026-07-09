@@ -17,162 +17,172 @@ import javax.annotation.Nullable;
 public final class CloudServerNetworkConfig {
     /**
      * @return Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
-     * 
+     *
      */
     private @Nullable String bandwidthPeak;
+    /**
+     * @return Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     private @Nullable List<CloudServerNetworkConfigBandwidthPeakLimitIspConfig> bandwidthPeakLimitIspConfigs;
     /**
-     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
-     * 
+     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+     *
      */
     private @Nullable String boundEipShareBandwidthPeak;
     /**
      * @return Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
-     * 
+     *
      */
     private @Nullable String customExternalInterfaceName;
     /**
      * @return Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
-     * 
+     *
      */
     private @Nullable String customInternalInterfaceName;
     /**
      * @return Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
-     * 
+     *
      */
     private @Nullable Boolean disableIpv4;
     /**
      * @return DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-     * 
+     *
      */
     private @Nullable List<String> dnsLists;
     /**
      * @return DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
-     * 
+     *
      */
     private @Nullable String dnsType;
     /**
      * @return Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
-     * 
+     *
      */
     private @Nullable Boolean enableIpv6;
     /**
-     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
-     * 
+     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+     *
      */
     private @Nullable String limitMode;
     /**
      * @return Number of auxiliary private IPs.
-     * 
+     *
      */
     private @Nullable Integer secondaryInternalIpNum;
     /**
      * @return List of bound global firewall IDs.
-     * 
+     *
      */
     private @Nullable List<String> securityGroupIdLists;
     /**
      * @return TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
-     * 
+     *
      */
     private @Nullable Integer tcpTimeout;
     /**
      * @return UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
-     * 
+     *
      */
     private @Nullable Integer udpTimeout;
 
     private CloudServerNetworkConfig() {}
     /**
      * @return Peak public bandwidth. Value range: [5, maximum bandwidth supported by the instance type]. Value must be a multiple of 5. Unit: Mbps. When you select an IPv4/IPv6 dual-stack edge instance, the configured peak bandwidth is shared by the IPv4 and IPv6 public IP addresses. If disable*ipv4 is set to true, you do not need to configure the bandwidth*peak parameter.
-     * 
+     *
      */
     public Optional<String> bandwidthPeak() {
         return Optional.ofNullable(this.bandwidthPeak);
     }
+    /**
+     * @return Bandwidth throttling by carrier. The parameter values take effect only when you select carrier-based throttling (isp) mode. Mobile public network bandwidth peak: The default value equals the public network bandwidth peak. The value must be a multiple of 5. Unit: Mbps. Unicom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps. Telecom public network bandwidth peak: The default value is 0. The value must be a multiple of 5. Unit: Mbps.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public List<CloudServerNetworkConfigBandwidthPeakLimitIspConfig> bandwidthPeakLimitIspConfigs() {
         return this.bandwidthPeakLimitIspConfigs == null ? List.of() : this.bandwidthPeakLimitIspConfigs;
     }
     /**
-     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the bandwidth_peak parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
-     * 
+     * @return Shared public bandwidth peak for all elastic public IPs bound to the private IP address of the edge instance. Private IP addresses include both primary and secondary private IP addresses. The value range for this parameter is the same as the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;parameter. When you set a shared bandwidth peak, the bandwidth peak of the elastic public IP itself will not take effect.
+     *
      */
     public Optional<String> boundEipShareBandwidthPeak() {
         return Optional.ofNullable(this.boundEipShareBandwidthPeak);
     }
     /**
      * @return Name of the public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
-     * 
+     *
      */
     public Optional<String> customExternalInterfaceName() {
         return Optional.ofNullable(this.customExternalInterfaceName);
     }
     /**
      * @return Private network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. NIC names must be unique within the same edge instance.
-     * 
+     *
      */
     public Optional<String> customInternalInterfaceName() {
         return Optional.ofNullable(this.customInternalInterfaceName);
     }
     /**
      * @return Whether to disable IPv4. Value range: true: Disable IPv4. false (default): Enable IPv4.
-     * 
+     *
      */
     public Optional<Boolean> disableIpv4() {
         return Optional.ofNullable(this.disableIpv4);
     }
     /**
      * @return DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS.
-     * 
+     *
      */
     public List<String> dnsLists() {
         return this.dnsLists == null ? List.of() : this.dnsLists;
     }
     /**
      * @return DNS type: default: Default DNS. custom: Custom DNS. If this parameter is not set, the default DNS configuration is used, with the preferred DNS as 114.114.114.114 and the alternate DNS as 180.184.1.1. DNS configuration is not supported for bare metal instances. When the instance type is bare metal, you do not need to set the dns*type and dns*list parameters.
-     * 
+     *
      */
     public Optional<String> dnsType() {
         return Optional.ofNullable(this.dnsType);
     }
     /**
      * @return Enable IPv6. Value options: true: Enable IPv6. false (default): Disable IPv6. By default, the system assigns a public IPv4 address to the edge instance. When IPv6 is enabled, the system assigns both a public IPv4 address and a public IPv6 address to the edge instance.
-     * 
+     *
      */
     public Optional<Boolean> enableIpv6() {
         return Optional.ofNullable(this.enableIpv6);
     }
     /**
-     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the bandwidth_peak value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
-     * 
+     * @return Rate limiting mode. When using multi-line nodes, you can configure the rate limiting mode for edge instances. Value options: shared (default): Shared rate limiting. All carriers share bandwidth resources, and the total public bandwidth used does not exceed the&lt;span pulumi-lang-nodejs=&#34; bandwidthPeak &#34; pulumi-lang-dotnet=&#34; BandwidthPeak &#34; pulumi-lang-go=&#34; bandwidthPeak &#34; pulumi-lang-python=&#34; bandwidth_peak &#34; pulumi-lang-yaml=&#34; bandwidthPeak &#34; pulumi-lang-java=&#34; bandwidthPeak &#34; pulumi-lang-hcl=&#34; bandwidth_peak &#34;&gt; bandwidthPeak &lt;/span&gt;value (public bandwidth peak). isp: Carrier-based rate limiting. You can set the bandwidth peak for each carrier individually.
+     *
      */
     public Optional<String> limitMode() {
         return Optional.ofNullable(this.limitMode);
     }
     /**
      * @return Number of auxiliary private IPs.
-     * 
+     *
      */
     public Optional<Integer> secondaryInternalIpNum() {
         return Optional.ofNullable(this.secondaryInternalIpNum);
     }
     /**
      * @return List of bound global firewall IDs.
-     * 
+     *
      */
     public List<String> securityGroupIdLists() {
         return this.securityGroupIdLists == null ? List.of() : this.securityGroupIdLists;
     }
     /**
      * @return TCP connection timeout for edge instances. If no data is transmitted over an established TCP connection and this condition lasts for the configured timeout period, the edge instance will close the connection. Value range: 30~910. Default: 900. Unit: seconds. All edge instances created under edge services use the currently configured TCP connection timeout. If you modify this setting, newly created edge instances will use the updated configuration; existing edge instances are not affected.
-     * 
+     *
      */
     public Optional<Integer> tcpTimeout() {
         return Optional.ofNullable(this.tcpTimeout);
     }
     /**
      * @return UDP session timeout for edge instances. If no data is transmitted in an established UDP session and the duration reaches the configured timeout, the edge instance will clear the session state information. Value range: 15~310. Default: 60. Unit: seconds. All edge instances created under the edge service use the currently configured UDP session timeout. If you modify this configuration, new edge instances will use the updated configuration; existing edge instances are not affected.
-     * 
+     *
      */
     public Optional<Integer> udpTimeout() {
         return Optional.ofNullable(this.udpTimeout);

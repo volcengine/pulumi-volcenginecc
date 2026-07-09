@@ -16,43 +16,53 @@ import javax.annotation.Nullable;
 public final class BucketMirrorBackRuleRedirectMirrorHeader {
     /**
      * @return Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
-     * 
+     *
      */
     private @Nullable Boolean passAll;
     /**
      * @return Pass the specified headers to the origin server. Limit: up to 64.
-     * 
+     *
      */
     private @Nullable List<String> passes;
     /**
      * @return Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-     * 
+     *
      */
     private @Nullable List<String> removes;
+    /**
+     * @return List of request headers to add or overwrite during origin fetch.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     private @Nullable List<BucketMirrorBackRuleRedirectMirrorHeaderSet> sets;
 
     private BucketMirrorBackRuleRedirectMirrorHeader() {}
     /**
      * @return Whether to forward all HTTP headers to the origin. Values: true: forwards all HTTP headers to the origin. false: does not forward all HTTP headers to the origin. The following HTTP header types are not supported for forwarding: Host, Content-Length, Date, Authorization.
-     * 
+     *
      */
     public Optional<Boolean> passAll() {
         return Optional.ofNullable(this.passAll);
     }
     /**
      * @return Pass the specified headers to the origin server. Limit: up to 64.
-     * 
+     *
      */
     public List<String> passes() {
         return this.passes == null ? List.of() : this.passes;
     }
     /**
      * @return Prohibit forwarding specified headers to the origin. Limit: maximum 64.
-     * 
+     *
      */
     public List<String> removes() {
         return this.removes == null ? List.of() : this.removes;
     }
+    /**
+     * @return List of request headers to add or overwrite during origin fetch.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public List<BucketMirrorBackRuleRedirectMirrorHeaderSet> sets() {
         return this.sets == null ? List.of() : this.sets;
     }

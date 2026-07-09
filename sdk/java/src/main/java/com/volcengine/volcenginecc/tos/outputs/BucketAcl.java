@@ -16,30 +16,40 @@ import javax.annotation.Nullable;
 public final class BucketAcl {
     /**
      * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
-     * 
+     *
      */
     private @Nullable Boolean bucketAclDelivered;
+    /**
+     * @return Root node for object access control permissions
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     private @Nullable List<BucketAclGrant> grants;
     /**
      * @return Object owner
-     * 
+     *
      */
     private @Nullable BucketAclOwner owner;
 
     private BucketAcl() {}
     /**
      * @return Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
-     * 
+     *
      */
     public Optional<Boolean> bucketAclDelivered() {
         return Optional.ofNullable(this.bucketAclDelivered);
     }
+    /**
+     * @return Root node for object access control permissions
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     *
+     */
     public List<BucketAclGrant> grants() {
         return this.grants == null ? List.of() : this.grants;
     }
     /**
      * @return Object owner
-     * 
+     *
      */
     public Optional<BucketAclOwner> owner() {
         return Optional.ofNullable(this.owner);
