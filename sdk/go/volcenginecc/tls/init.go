@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:tls/alarm:Alarm":
 		r = &Alarm{}
+	case "volcenginecc:tls/alarmContentTemplateType:AlarmContentTemplateType":
+		r = &AlarmContentTemplateType{}
 	case "volcenginecc:tls/alarmNotifyGroup:AlarmNotifyGroup":
 		r = &AlarmNotifyGroup{}
 	case "volcenginecc:tls/alarmWebhookIntegrationType:AlarmWebhookIntegrationType":
@@ -65,6 +67,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tls/alarm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/alarmContentTemplateType",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -35,5 +35,8 @@ from .get_bucket_renames import *
 from .get_bucket_website import *
 from .get_bucket_websites import *
 from .get_buckets import *
+from .get_object import *
+from .get_objects import *
+from .tos_object import *
 from ._inputs import *
 from . import outputs

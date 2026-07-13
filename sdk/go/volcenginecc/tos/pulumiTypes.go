@@ -8631,6 +8631,333 @@ func (o BucketWebsiteRoutingRuleRedirectPtrOutput) ReplaceKeyWith() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type TosObjectAccountAcl struct {
+	// Authorized account ID.
+	AccountId *string `pulumi:"accountId"`
+	// Authorized principal type. Currently, only CanonicalUser is supported.
+	AclType *string `pulumi:"aclType"`
+	// Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+	Permission *string `pulumi:"permission"`
+}
+
+// TosObjectAccountAclInput is an input type that accepts TosObjectAccountAclArgs and TosObjectAccountAclOutput values.
+// You can construct a concrete instance of `TosObjectAccountAclInput` via:
+//
+//	TosObjectAccountAclArgs{...}
+type TosObjectAccountAclInput interface {
+	pulumi.Input
+
+	ToTosObjectAccountAclOutput() TosObjectAccountAclOutput
+	ToTosObjectAccountAclOutputWithContext(context.Context) TosObjectAccountAclOutput
+}
+
+type TosObjectAccountAclArgs struct {
+	// Authorized account ID.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Authorized principal type. Currently, only CanonicalUser is supported.
+	AclType pulumi.StringPtrInput `pulumi:"aclType"`
+	// Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+	Permission pulumi.StringPtrInput `pulumi:"permission"`
+}
+
+func (TosObjectAccountAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TosObjectAccountAcl)(nil)).Elem()
+}
+
+func (i TosObjectAccountAclArgs) ToTosObjectAccountAclOutput() TosObjectAccountAclOutput {
+	return i.ToTosObjectAccountAclOutputWithContext(context.Background())
+}
+
+func (i TosObjectAccountAclArgs) ToTosObjectAccountAclOutputWithContext(ctx context.Context) TosObjectAccountAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TosObjectAccountAclOutput)
+}
+
+// TosObjectAccountAclArrayInput is an input type that accepts TosObjectAccountAclArray and TosObjectAccountAclArrayOutput values.
+// You can construct a concrete instance of `TosObjectAccountAclArrayInput` via:
+//
+//	TosObjectAccountAclArray{ TosObjectAccountAclArgs{...} }
+type TosObjectAccountAclArrayInput interface {
+	pulumi.Input
+
+	ToTosObjectAccountAclArrayOutput() TosObjectAccountAclArrayOutput
+	ToTosObjectAccountAclArrayOutputWithContext(context.Context) TosObjectAccountAclArrayOutput
+}
+
+type TosObjectAccountAclArray []TosObjectAccountAclInput
+
+func (TosObjectAccountAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TosObjectAccountAcl)(nil)).Elem()
+}
+
+func (i TosObjectAccountAclArray) ToTosObjectAccountAclArrayOutput() TosObjectAccountAclArrayOutput {
+	return i.ToTosObjectAccountAclArrayOutputWithContext(context.Background())
+}
+
+func (i TosObjectAccountAclArray) ToTosObjectAccountAclArrayOutputWithContext(ctx context.Context) TosObjectAccountAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TosObjectAccountAclArrayOutput)
+}
+
+type TosObjectAccountAclOutput struct{ *pulumi.OutputState }
+
+func (TosObjectAccountAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TosObjectAccountAcl)(nil)).Elem()
+}
+
+func (o TosObjectAccountAclOutput) ToTosObjectAccountAclOutput() TosObjectAccountAclOutput {
+	return o
+}
+
+func (o TosObjectAccountAclOutput) ToTosObjectAccountAclOutputWithContext(ctx context.Context) TosObjectAccountAclOutput {
+	return o
+}
+
+// Authorized account ID.
+func (o TosObjectAccountAclOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectAccountAcl) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Authorized principal type. Currently, only CanonicalUser is supported.
+func (o TosObjectAccountAclOutput) AclType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectAccountAcl) *string { return v.AclType }).(pulumi.StringPtrOutput)
+}
+
+// Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+func (o TosObjectAccountAclOutput) Permission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectAccountAcl) *string { return v.Permission }).(pulumi.StringPtrOutput)
+}
+
+type TosObjectAccountAclArrayOutput struct{ *pulumi.OutputState }
+
+func (TosObjectAccountAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TosObjectAccountAcl)(nil)).Elem()
+}
+
+func (o TosObjectAccountAclArrayOutput) ToTosObjectAccountAclArrayOutput() TosObjectAccountAclArrayOutput {
+	return o
+}
+
+func (o TosObjectAccountAclArrayOutput) ToTosObjectAccountAclArrayOutputWithContext(ctx context.Context) TosObjectAccountAclArrayOutput {
+	return o
+}
+
+func (o TosObjectAccountAclArrayOutput) Index(i pulumi.IntInput) TosObjectAccountAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TosObjectAccountAcl {
+		return vs[0].([]TosObjectAccountAcl)[vs[1].(int)]
+	}).(TosObjectAccountAclOutput)
+}
+
+type TosObjectMetadata struct {
+	// Tag key.
+	Key *string `pulumi:"key"`
+	// Tag value.
+	Value *string `pulumi:"value"`
+}
+
+// TosObjectMetadataInput is an input type that accepts TosObjectMetadataArgs and TosObjectMetadataOutput values.
+// You can construct a concrete instance of `TosObjectMetadataInput` via:
+//
+//	TosObjectMetadataArgs{...}
+type TosObjectMetadataInput interface {
+	pulumi.Input
+
+	ToTosObjectMetadataOutput() TosObjectMetadataOutput
+	ToTosObjectMetadataOutputWithContext(context.Context) TosObjectMetadataOutput
+}
+
+type TosObjectMetadataArgs struct {
+	// Tag key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Tag value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TosObjectMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TosObjectMetadata)(nil)).Elem()
+}
+
+func (i TosObjectMetadataArgs) ToTosObjectMetadataOutput() TosObjectMetadataOutput {
+	return i.ToTosObjectMetadataOutputWithContext(context.Background())
+}
+
+func (i TosObjectMetadataArgs) ToTosObjectMetadataOutputWithContext(ctx context.Context) TosObjectMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TosObjectMetadataOutput)
+}
+
+// TosObjectMetadataArrayInput is an input type that accepts TosObjectMetadataArray and TosObjectMetadataArrayOutput values.
+// You can construct a concrete instance of `TosObjectMetadataArrayInput` via:
+//
+//	TosObjectMetadataArray{ TosObjectMetadataArgs{...} }
+type TosObjectMetadataArrayInput interface {
+	pulumi.Input
+
+	ToTosObjectMetadataArrayOutput() TosObjectMetadataArrayOutput
+	ToTosObjectMetadataArrayOutputWithContext(context.Context) TosObjectMetadataArrayOutput
+}
+
+type TosObjectMetadataArray []TosObjectMetadataInput
+
+func (TosObjectMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TosObjectMetadata)(nil)).Elem()
+}
+
+func (i TosObjectMetadataArray) ToTosObjectMetadataArrayOutput() TosObjectMetadataArrayOutput {
+	return i.ToTosObjectMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i TosObjectMetadataArray) ToTosObjectMetadataArrayOutputWithContext(ctx context.Context) TosObjectMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TosObjectMetadataArrayOutput)
+}
+
+type TosObjectMetadataOutput struct{ *pulumi.OutputState }
+
+func (TosObjectMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TosObjectMetadata)(nil)).Elem()
+}
+
+func (o TosObjectMetadataOutput) ToTosObjectMetadataOutput() TosObjectMetadataOutput {
+	return o
+}
+
+func (o TosObjectMetadataOutput) ToTosObjectMetadataOutputWithContext(ctx context.Context) TosObjectMetadataOutput {
+	return o
+}
+
+// Tag key.
+func (o TosObjectMetadataOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectMetadata) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Tag value.
+func (o TosObjectMetadataOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TosObjectMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (TosObjectMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TosObjectMetadata)(nil)).Elem()
+}
+
+func (o TosObjectMetadataArrayOutput) ToTosObjectMetadataArrayOutput() TosObjectMetadataArrayOutput {
+	return o
+}
+
+func (o TosObjectMetadataArrayOutput) ToTosObjectMetadataArrayOutputWithContext(ctx context.Context) TosObjectMetadataArrayOutput {
+	return o
+}
+
+func (o TosObjectMetadataArrayOutput) Index(i pulumi.IntInput) TosObjectMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TosObjectMetadata {
+		return vs[0].([]TosObjectMetadata)[vs[1].(int)]
+	}).(TosObjectMetadataOutput)
+}
+
+type TosObjectTag struct {
+	// Tag key.
+	Key *string `pulumi:"key"`
+	// Tag value.
+	Value *string `pulumi:"value"`
+}
+
+// TosObjectTagInput is an input type that accepts TosObjectTagArgs and TosObjectTagOutput values.
+// You can construct a concrete instance of `TosObjectTagInput` via:
+//
+//	TosObjectTagArgs{...}
+type TosObjectTagInput interface {
+	pulumi.Input
+
+	ToTosObjectTagOutput() TosObjectTagOutput
+	ToTosObjectTagOutputWithContext(context.Context) TosObjectTagOutput
+}
+
+type TosObjectTagArgs struct {
+	// Tag key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Tag value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TosObjectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TosObjectTag)(nil)).Elem()
+}
+
+func (i TosObjectTagArgs) ToTosObjectTagOutput() TosObjectTagOutput {
+	return i.ToTosObjectTagOutputWithContext(context.Background())
+}
+
+func (i TosObjectTagArgs) ToTosObjectTagOutputWithContext(ctx context.Context) TosObjectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TosObjectTagOutput)
+}
+
+// TosObjectTagArrayInput is an input type that accepts TosObjectTagArray and TosObjectTagArrayOutput values.
+// You can construct a concrete instance of `TosObjectTagArrayInput` via:
+//
+//	TosObjectTagArray{ TosObjectTagArgs{...} }
+type TosObjectTagArrayInput interface {
+	pulumi.Input
+
+	ToTosObjectTagArrayOutput() TosObjectTagArrayOutput
+	ToTosObjectTagArrayOutputWithContext(context.Context) TosObjectTagArrayOutput
+}
+
+type TosObjectTagArray []TosObjectTagInput
+
+func (TosObjectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TosObjectTag)(nil)).Elem()
+}
+
+func (i TosObjectTagArray) ToTosObjectTagArrayOutput() TosObjectTagArrayOutput {
+	return i.ToTosObjectTagArrayOutputWithContext(context.Background())
+}
+
+func (i TosObjectTagArray) ToTosObjectTagArrayOutputWithContext(ctx context.Context) TosObjectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TosObjectTagArrayOutput)
+}
+
+type TosObjectTagOutput struct{ *pulumi.OutputState }
+
+func (TosObjectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TosObjectTag)(nil)).Elem()
+}
+
+func (o TosObjectTagOutput) ToTosObjectTagOutput() TosObjectTagOutput {
+	return o
+}
+
+func (o TosObjectTagOutput) ToTosObjectTagOutputWithContext(ctx context.Context) TosObjectTagOutput {
+	return o
+}
+
+// Tag key.
+func (o TosObjectTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Tag value.
+func (o TosObjectTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TosObjectTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TosObjectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TosObjectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TosObjectTag)(nil)).Elem()
+}
+
+func (o TosObjectTagArrayOutput) ToTosObjectTagArrayOutput() TosObjectTagArrayOutput {
+	return o
+}
+
+func (o TosObjectTagArrayOutput) ToTosObjectTagArrayOutputWithContext(ctx context.Context) TosObjectTagArrayOutput {
+	return o
+}
+
+func (o TosObjectTagArrayOutput) Index(i pulumi.IntInput) TosObjectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TosObjectTag {
+		return vs[0].([]TosObjectTag)[vs[1].(int)]
+	}).(TosObjectTagOutput)
+}
+
 type GetBucketAcl struct {
 	// Enable object default bucket ACL inheritance. true: Enable object default bucket ACL inheritance. false: Disable object default bucket ACL inheritance.
 	BucketAclDelivered bool `pulumi:"bucketAclDelivered"`
@@ -13394,6 +13721,333 @@ func (o GetBucketWebsiteRoutingRuleRedirectOutput) ReplaceKeyWith() pulumi.Strin
 	return o.ApplyT(func(v GetBucketWebsiteRoutingRuleRedirect) string { return v.ReplaceKeyWith }).(pulumi.StringOutput)
 }
 
+type GetObjectAccountAcl struct {
+	// Authorized account ID.
+	AccountId string `pulumi:"accountId"`
+	// Authorized principal type. Currently, only CanonicalUser is supported.
+	AclType string `pulumi:"aclType"`
+	// Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+	Permission string `pulumi:"permission"`
+}
+
+// GetObjectAccountAclInput is an input type that accepts GetObjectAccountAclArgs and GetObjectAccountAclOutput values.
+// You can construct a concrete instance of `GetObjectAccountAclInput` via:
+//
+//	GetObjectAccountAclArgs{...}
+type GetObjectAccountAclInput interface {
+	pulumi.Input
+
+	ToGetObjectAccountAclOutput() GetObjectAccountAclOutput
+	ToGetObjectAccountAclOutputWithContext(context.Context) GetObjectAccountAclOutput
+}
+
+type GetObjectAccountAclArgs struct {
+	// Authorized account ID.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Authorized principal type. Currently, only CanonicalUser is supported.
+	AclType pulumi.StringInput `pulumi:"aclType"`
+	// Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+	Permission pulumi.StringInput `pulumi:"permission"`
+}
+
+func (GetObjectAccountAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetObjectAccountAcl)(nil)).Elem()
+}
+
+func (i GetObjectAccountAclArgs) ToGetObjectAccountAclOutput() GetObjectAccountAclOutput {
+	return i.ToGetObjectAccountAclOutputWithContext(context.Background())
+}
+
+func (i GetObjectAccountAclArgs) ToGetObjectAccountAclOutputWithContext(ctx context.Context) GetObjectAccountAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetObjectAccountAclOutput)
+}
+
+// GetObjectAccountAclArrayInput is an input type that accepts GetObjectAccountAclArray and GetObjectAccountAclArrayOutput values.
+// You can construct a concrete instance of `GetObjectAccountAclArrayInput` via:
+//
+//	GetObjectAccountAclArray{ GetObjectAccountAclArgs{...} }
+type GetObjectAccountAclArrayInput interface {
+	pulumi.Input
+
+	ToGetObjectAccountAclArrayOutput() GetObjectAccountAclArrayOutput
+	ToGetObjectAccountAclArrayOutputWithContext(context.Context) GetObjectAccountAclArrayOutput
+}
+
+type GetObjectAccountAclArray []GetObjectAccountAclInput
+
+func (GetObjectAccountAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetObjectAccountAcl)(nil)).Elem()
+}
+
+func (i GetObjectAccountAclArray) ToGetObjectAccountAclArrayOutput() GetObjectAccountAclArrayOutput {
+	return i.ToGetObjectAccountAclArrayOutputWithContext(context.Background())
+}
+
+func (i GetObjectAccountAclArray) ToGetObjectAccountAclArrayOutputWithContext(ctx context.Context) GetObjectAccountAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetObjectAccountAclArrayOutput)
+}
+
+type GetObjectAccountAclOutput struct{ *pulumi.OutputState }
+
+func (GetObjectAccountAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetObjectAccountAcl)(nil)).Elem()
+}
+
+func (o GetObjectAccountAclOutput) ToGetObjectAccountAclOutput() GetObjectAccountAclOutput {
+	return o
+}
+
+func (o GetObjectAccountAclOutput) ToGetObjectAccountAclOutputWithContext(ctx context.Context) GetObjectAccountAclOutput {
+	return o
+}
+
+// Authorized account ID.
+func (o GetObjectAccountAclOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectAccountAcl) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Authorized principal type. Currently, only CanonicalUser is supported.
+func (o GetObjectAccountAclOutput) AclType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectAccountAcl) string { return v.AclType }).(pulumi.StringOutput)
+}
+
+// Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+func (o GetObjectAccountAclOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectAccountAcl) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+type GetObjectAccountAclArrayOutput struct{ *pulumi.OutputState }
+
+func (GetObjectAccountAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetObjectAccountAcl)(nil)).Elem()
+}
+
+func (o GetObjectAccountAclArrayOutput) ToGetObjectAccountAclArrayOutput() GetObjectAccountAclArrayOutput {
+	return o
+}
+
+func (o GetObjectAccountAclArrayOutput) ToGetObjectAccountAclArrayOutputWithContext(ctx context.Context) GetObjectAccountAclArrayOutput {
+	return o
+}
+
+func (o GetObjectAccountAclArrayOutput) Index(i pulumi.IntInput) GetObjectAccountAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetObjectAccountAcl {
+		return vs[0].([]GetObjectAccountAcl)[vs[1].(int)]
+	}).(GetObjectAccountAclOutput)
+}
+
+type GetObjectMetadata struct {
+	// Tag key.
+	Key string `pulumi:"key"`
+	// Tag value.
+	Value string `pulumi:"value"`
+}
+
+// GetObjectMetadataInput is an input type that accepts GetObjectMetadataArgs and GetObjectMetadataOutput values.
+// You can construct a concrete instance of `GetObjectMetadataInput` via:
+//
+//	GetObjectMetadataArgs{...}
+type GetObjectMetadataInput interface {
+	pulumi.Input
+
+	ToGetObjectMetadataOutput() GetObjectMetadataOutput
+	ToGetObjectMetadataOutputWithContext(context.Context) GetObjectMetadataOutput
+}
+
+type GetObjectMetadataArgs struct {
+	// Tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetObjectMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetObjectMetadata)(nil)).Elem()
+}
+
+func (i GetObjectMetadataArgs) ToGetObjectMetadataOutput() GetObjectMetadataOutput {
+	return i.ToGetObjectMetadataOutputWithContext(context.Background())
+}
+
+func (i GetObjectMetadataArgs) ToGetObjectMetadataOutputWithContext(ctx context.Context) GetObjectMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetObjectMetadataOutput)
+}
+
+// GetObjectMetadataArrayInput is an input type that accepts GetObjectMetadataArray and GetObjectMetadataArrayOutput values.
+// You can construct a concrete instance of `GetObjectMetadataArrayInput` via:
+//
+//	GetObjectMetadataArray{ GetObjectMetadataArgs{...} }
+type GetObjectMetadataArrayInput interface {
+	pulumi.Input
+
+	ToGetObjectMetadataArrayOutput() GetObjectMetadataArrayOutput
+	ToGetObjectMetadataArrayOutputWithContext(context.Context) GetObjectMetadataArrayOutput
+}
+
+type GetObjectMetadataArray []GetObjectMetadataInput
+
+func (GetObjectMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetObjectMetadata)(nil)).Elem()
+}
+
+func (i GetObjectMetadataArray) ToGetObjectMetadataArrayOutput() GetObjectMetadataArrayOutput {
+	return i.ToGetObjectMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i GetObjectMetadataArray) ToGetObjectMetadataArrayOutputWithContext(ctx context.Context) GetObjectMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetObjectMetadataArrayOutput)
+}
+
+type GetObjectMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetObjectMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetObjectMetadata)(nil)).Elem()
+}
+
+func (o GetObjectMetadataOutput) ToGetObjectMetadataOutput() GetObjectMetadataOutput {
+	return o
+}
+
+func (o GetObjectMetadataOutput) ToGetObjectMetadataOutputWithContext(ctx context.Context) GetObjectMetadataOutput {
+	return o
+}
+
+// Tag key.
+func (o GetObjectMetadataOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectMetadata) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Tag value.
+func (o GetObjectMetadataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectMetadata) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetObjectMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetObjectMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetObjectMetadata)(nil)).Elem()
+}
+
+func (o GetObjectMetadataArrayOutput) ToGetObjectMetadataArrayOutput() GetObjectMetadataArrayOutput {
+	return o
+}
+
+func (o GetObjectMetadataArrayOutput) ToGetObjectMetadataArrayOutputWithContext(ctx context.Context) GetObjectMetadataArrayOutput {
+	return o
+}
+
+func (o GetObjectMetadataArrayOutput) Index(i pulumi.IntInput) GetObjectMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetObjectMetadata {
+		return vs[0].([]GetObjectMetadata)[vs[1].(int)]
+	}).(GetObjectMetadataOutput)
+}
+
+type GetObjectTag struct {
+	// Tag key.
+	Key string `pulumi:"key"`
+	// Tag value.
+	Value string `pulumi:"value"`
+}
+
+// GetObjectTagInput is an input type that accepts GetObjectTagArgs and GetObjectTagOutput values.
+// You can construct a concrete instance of `GetObjectTagInput` via:
+//
+//	GetObjectTagArgs{...}
+type GetObjectTagInput interface {
+	pulumi.Input
+
+	ToGetObjectTagOutput() GetObjectTagOutput
+	ToGetObjectTagOutputWithContext(context.Context) GetObjectTagOutput
+}
+
+type GetObjectTagArgs struct {
+	// Tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetObjectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetObjectTag)(nil)).Elem()
+}
+
+func (i GetObjectTagArgs) ToGetObjectTagOutput() GetObjectTagOutput {
+	return i.ToGetObjectTagOutputWithContext(context.Background())
+}
+
+func (i GetObjectTagArgs) ToGetObjectTagOutputWithContext(ctx context.Context) GetObjectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetObjectTagOutput)
+}
+
+// GetObjectTagArrayInput is an input type that accepts GetObjectTagArray and GetObjectTagArrayOutput values.
+// You can construct a concrete instance of `GetObjectTagArrayInput` via:
+//
+//	GetObjectTagArray{ GetObjectTagArgs{...} }
+type GetObjectTagArrayInput interface {
+	pulumi.Input
+
+	ToGetObjectTagArrayOutput() GetObjectTagArrayOutput
+	ToGetObjectTagArrayOutputWithContext(context.Context) GetObjectTagArrayOutput
+}
+
+type GetObjectTagArray []GetObjectTagInput
+
+func (GetObjectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetObjectTag)(nil)).Elem()
+}
+
+func (i GetObjectTagArray) ToGetObjectTagArrayOutput() GetObjectTagArrayOutput {
+	return i.ToGetObjectTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetObjectTagArray) ToGetObjectTagArrayOutputWithContext(ctx context.Context) GetObjectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetObjectTagArrayOutput)
+}
+
+type GetObjectTagOutput struct{ *pulumi.OutputState }
+
+func (GetObjectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetObjectTag)(nil)).Elem()
+}
+
+func (o GetObjectTagOutput) ToGetObjectTagOutput() GetObjectTagOutput {
+	return o
+}
+
+func (o GetObjectTagOutput) ToGetObjectTagOutputWithContext(ctx context.Context) GetObjectTagOutput {
+	return o
+}
+
+// Tag key.
+func (o GetObjectTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Tag value.
+func (o GetObjectTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetObjectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetObjectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetObjectTag)(nil)).Elem()
+}
+
+func (o GetObjectTagArrayOutput) ToGetObjectTagArrayOutput() GetObjectTagArrayOutput {
+	return o
+}
+
+func (o GetObjectTagArrayOutput) ToGetObjectTagArrayOutputWithContext(ctx context.Context) GetObjectTagArrayOutput {
+	return o
+}
+
+func (o GetObjectTagArrayOutput) Index(i pulumi.IntInput) GetObjectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetObjectTag {
+		return vs[0].([]GetObjectTag)[vs[1].(int)]
+	}).(GetObjectTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclInput)(nil)).Elem(), BucketAclArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAclPtrInput)(nil)).Elem(), BucketAclArgs{})
@@ -13505,6 +14159,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleConditionPtrInput)(nil)).Elem(), BucketWebsiteRoutingRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleRedirectInput)(nil)).Elem(), BucketWebsiteRoutingRuleRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteRoutingRuleRedirectPtrInput)(nil)).Elem(), BucketWebsiteRoutingRuleRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TosObjectAccountAclInput)(nil)).Elem(), TosObjectAccountAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TosObjectAccountAclArrayInput)(nil)).Elem(), TosObjectAccountAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TosObjectMetadataInput)(nil)).Elem(), TosObjectMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TosObjectMetadataArrayInput)(nil)).Elem(), TosObjectMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TosObjectTagInput)(nil)).Elem(), TosObjectTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TosObjectTagArrayInput)(nil)).Elem(), TosObjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclInput)(nil)).Elem(), GetBucketAclArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantInput)(nil)).Elem(), GetBucketAclGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketAclGrantArrayInput)(nil)).Elem(), GetBucketAclGrantArray{})
@@ -13578,6 +14238,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleArrayInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleConditionInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteRoutingRuleRedirectInput)(nil)).Elem(), GetBucketWebsiteRoutingRuleRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetObjectAccountAclInput)(nil)).Elem(), GetObjectAccountAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetObjectAccountAclArrayInput)(nil)).Elem(), GetObjectAccountAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetObjectMetadataInput)(nil)).Elem(), GetObjectMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetObjectMetadataArrayInput)(nil)).Elem(), GetObjectMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetObjectTagInput)(nil)).Elem(), GetObjectTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetObjectTagArrayInput)(nil)).Elem(), GetObjectTagArray{})
 	pulumi.RegisterOutputType(BucketAclOutput{})
 	pulumi.RegisterOutputType(BucketAclPtrOutput{})
 	pulumi.RegisterOutputType(BucketAclGrantOutput{})
@@ -13688,6 +14354,12 @@ func init() {
 	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleConditionPtrOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleRedirectOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteRoutingRuleRedirectPtrOutput{})
+	pulumi.RegisterOutputType(TosObjectAccountAclOutput{})
+	pulumi.RegisterOutputType(TosObjectAccountAclArrayOutput{})
+	pulumi.RegisterOutputType(TosObjectMetadataOutput{})
+	pulumi.RegisterOutputType(TosObjectMetadataArrayOutput{})
+	pulumi.RegisterOutputType(TosObjectTagOutput{})
+	pulumi.RegisterOutputType(TosObjectTagArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketAclOutput{})
 	pulumi.RegisterOutputType(GetBucketAclGrantOutput{})
 	pulumi.RegisterOutputType(GetBucketAclGrantArrayOutput{})
@@ -13761,4 +14433,10 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleConditionOutput{})
 	pulumi.RegisterOutputType(GetBucketWebsiteRoutingRuleRedirectOutput{})
+	pulumi.RegisterOutputType(GetObjectAccountAclOutput{})
+	pulumi.RegisterOutputType(GetObjectAccountAclArrayOutput{})
+	pulumi.RegisterOutputType(GetObjectMetadataOutput{})
+	pulumi.RegisterOutputType(GetObjectMetadataArrayOutput{})
+	pulumi.RegisterOutputType(GetObjectTagOutput{})
+	pulumi.RegisterOutputType(GetObjectTagArrayOutput{})
 }

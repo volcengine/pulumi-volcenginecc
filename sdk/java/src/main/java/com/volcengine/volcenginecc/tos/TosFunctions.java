@@ -30,6 +30,8 @@ import com.volcengine.volcenginecc.tos.inputs.GetBucketRenameArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRenamePlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketWebsiteArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketWebsitePlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetObjectArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetObjectPlainArgs;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketAccessMonitorResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketAccessMonitorsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketCorsResult;
@@ -49,6 +51,8 @@ import com.volcengine.volcenginecc.tos.outputs.GetBucketResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketWebsiteResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketWebsitesResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketsResult;
+import com.volcengine.volcenginecc.tos.outputs.GetObjectResult;
+import com.volcengine.volcenginecc.tos.outputs.GetObjectsResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class TosFunctions {
@@ -842,5 +846,89 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketsResult> getBucketsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBuckets:getBuckets", TypeShape.of(GetBucketsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectResult> getObject(GetObjectArgs args) {
+        return getObject(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static CompletableFuture<GetObjectResult> getObjectPlain(GetObjectPlainArgs args) {
+        return getObjectPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectResult> getObject(GetObjectArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getObject:getObject", TypeShape.of(GetObjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectResult> getObject(GetObjectArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getObject:getObject", TypeShape.of(GetObjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static CompletableFuture<GetObjectResult> getObjectPlain(GetObjectPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getObject:getObject", TypeShape.of(GetObjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectsResult> getObjects() {
+        return getObjects(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static CompletableFuture<GetObjectsResult> getObjectsPlain() {
+        return getObjectsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectsResult> getObjects(InvokeArgs args) {
+        return getObjects(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static CompletableFuture<GetObjectsResult> getObjectsPlain(InvokeArgs args) {
+        return getObjectsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectsResult> getObjects(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static Output<GetObjectsResult> getObjects(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::Object
+     * 
+     */
+    public static CompletableFuture<GetObjectsResult> getObjectsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
     }
 }

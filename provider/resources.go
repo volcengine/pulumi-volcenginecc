@@ -185,6 +185,11 @@ func Provider() tfbridge.ProviderInfo {
 		return tokens.MakeStandard(volcengeccpkg)(module, name)
 	}
 	prov.MustComputeTokens(token.VolcengineToken("volcenginecc_", makeToken))
+
+	// Avoid generating a TypeScript class named Object, which conflicts with
+	// JavaScript's built-in Object in NodeNext/CommonJS modules.
+	prov.Resources["volcenginecc_tos_object"].Tok = tfbridge.MakeResource(volcengeccpkg, "tos", "TosObject")
+
 	for k := range prov.Resources {
 		// 获取第二跟斜杠后面的值
 		lastPart := extractAndConvertToCamelCase(k)

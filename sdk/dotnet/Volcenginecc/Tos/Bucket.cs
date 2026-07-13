@@ -23,7 +23,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tos
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketDemo = new Volcenginecc.Tos.Bucket("BucketDemo", new()
+    ///     var example = new Volcenginecc.Tos.Bucket("Example", new()
     ///     {
     ///         Name = "bucket-demo",
     ///         StorageClass = "STANDARD",

@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         var bucketDemo = new Bucket("bucketDemo", BucketArgs.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .name("bucket-demo")
  *             .storageClass("STANDARD")
  *             .enableVersionStatus("Enabled")

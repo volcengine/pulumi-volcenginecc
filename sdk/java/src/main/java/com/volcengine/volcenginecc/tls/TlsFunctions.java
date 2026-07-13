@@ -11,6 +11,8 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmContentTemplateTypeArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetAlarmContentTemplateTypePlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmNotifyGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmPlainArgs;
@@ -38,6 +40,8 @@ import com.volcengine.volcenginecc.tls.inputs.GetShipperArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetShipperPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetTopicPlainArgs;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmContentTemplateTypeResult;
+import com.volcengine.volcenginecc.tls.outputs.GetAlarmContentTemplateTypesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmNotifyGroupsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmResult;
@@ -103,6 +107,90 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetAlarmResult> getAlarmPlain(GetAlarmPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarm:getAlarm", TypeShape.of(GetAlarmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypeResult> getAlarmContentTemplateType(GetAlarmContentTemplateTypeArgs args) {
+        return getAlarmContentTemplateType(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static CompletableFuture<GetAlarmContentTemplateTypeResult> getAlarmContentTemplateTypePlain(GetAlarmContentTemplateTypePlainArgs args) {
+        return getAlarmContentTemplateTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypeResult> getAlarmContentTemplateType(GetAlarmContentTemplateTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmContentTemplateType:getAlarmContentTemplateType", TypeShape.of(GetAlarmContentTemplateTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypeResult> getAlarmContentTemplateType(GetAlarmContentTemplateTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmContentTemplateType:getAlarmContentTemplateType", TypeShape.of(GetAlarmContentTemplateTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static CompletableFuture<GetAlarmContentTemplateTypeResult> getAlarmContentTemplateTypePlain(GetAlarmContentTemplateTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmContentTemplateType:getAlarmContentTemplateType", TypeShape.of(GetAlarmContentTemplateTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypes() {
+        return getAlarmContentTemplateTypes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static CompletableFuture<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypesPlain() {
+        return getAlarmContentTemplateTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypes(InvokeArgs args) {
+        return getAlarmContentTemplateTypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static CompletableFuture<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypesPlain(InvokeArgs args) {
+        return getAlarmContentTemplateTypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmContentTemplateTypes:getAlarmContentTemplateTypes", TypeShape.of(GetAlarmContentTemplateTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static Output<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypes(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getAlarmContentTemplateTypes:getAlarmContentTemplateTypes", TypeShape.of(GetAlarmContentTemplateTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::AlarmContentTemplateType
+     * 
+     */
+    public static CompletableFuture<GetAlarmContentTemplateTypesResult> getAlarmContentTemplateTypesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getAlarmContentTemplateTypes:getAlarmContentTemplateTypes", TypeShape.of(GetAlarmContentTemplateTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TLS::AlarmNotifyGroup
