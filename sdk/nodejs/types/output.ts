@@ -17343,6 +17343,124 @@ export namespace id {
         discoveryUrl: string;
     }
 
+    export interface GetOauth2CredentialProviderConfig {
+        /**
+         * OAuth2 Client ID。
+         */
+        clientId: string;
+        /**
+         * OAuth2 Client Secret。
+         */
+        clientSecret: string;
+        /**
+         * Default custom parameters in GetResourceOauth2Token request
+         */
+        customParameters: outputs.id.GetOauth2CredentialProviderConfigCustomParameters;
+        /**
+         * Default Flow in GetResourceOauth2Token request. Optional values: USER_FEDERATION, M2M
+         */
+        flow: string;
+        /**
+         * Default ForceAuthentication in GetResourceOauth2Token request
+         */
+        forceAuthentication: boolean;
+        /**
+         * Maximum token validity (seconds)
+         */
+        maxExpires: number;
+        /**
+         * Custom metadata
+         */
+        metadata: string;
+        /**
+         * OAuth2 discovery information
+         */
+        oauth2Discovery: outputs.id.GetOauth2CredentialProviderConfigOauth2Discovery;
+        /**
+         * Default RedirectUrl in GetResourceOauth2Token request
+         */
+        redirectUrl: string;
+        /**
+         * Default Scopes in GetResourceOauth2Token request
+         */
+        scopes: string[];
+        /**
+         * Encrypted storage configuration
+         */
+        secretStorage: outputs.id.GetOauth2CredentialProviderConfigSecretStorage;
+    }
+
+    export interface GetOauth2CredentialProviderConfigCustomParameters {
+        /**
+         * Custom parameter entry list
+         */
+        entries: outputs.id.GetOauth2CredentialProviderConfigCustomParametersEntry[];
+    }
+
+    export interface GetOauth2CredentialProviderConfigCustomParametersEntry {
+        /**
+         * Parameter key
+         */
+        key: string;
+        /**
+         * Parameter value
+         */
+        value: string;
+    }
+
+    export interface GetOauth2CredentialProviderConfigOauth2Discovery {
+        /**
+         * Authorization server metadata
+         */
+        authorizationServerMetadata: outputs.id.GetOauth2CredentialProviderConfigOauth2DiscoveryAuthorizationServerMetadata;
+        /**
+         * DiscoveryUrl field
+         */
+        discoveryUrl: string;
+    }
+
+    export interface GetOauth2CredentialProviderConfigOauth2DiscoveryAuthorizationServerMetadata {
+        /**
+         * AuthorizationEndpoint field
+         */
+        authorizationEndpoint: string;
+        /**
+         * CodeChallengeMethodsSupported field
+         */
+        codeChallengeMethodsSupporteds: string[];
+        /**
+         * Issuer field
+         */
+        issuer: string;
+        /**
+         * RegistrationEndpoint field
+         */
+        registrationEndpoint: string;
+        /**
+         * ResponseTypes field
+         */
+        responseTypes: string[];
+        /**
+         * RevocationEndpoint field
+         */
+        revocationEndpoint: string;
+        /**
+         * TokenEndpoint field
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface GetOauth2CredentialProviderConfigSecretStorage {
+        /**
+         * KMS key TRN for encrypted credential value. If not specified, the default key is used
+         */
+        encryptionKey: string;
+        /**
+         * Encrypted storage type. 0: SecretManager, 1: KMS
+         */
+        storageType: number;
+    }
+
     export interface GetPermissionNamespaceTag {
         /**
          * Tag Key
@@ -17550,6 +17668,125 @@ export namespace id {
          * Tag value
          */
         value: string;
+    }
+
+    export interface Oauth2CredentialProviderConfig {
+        /**
+         * OAuth2 Client ID。
+         */
+        clientId: string;
+        /**
+         * OAuth2 Client Secret。
+         */
+        clientSecret: string;
+        /**
+         * Default custom parameters in GetResourceOauth2Token request
+         */
+        customParameters: outputs.id.Oauth2CredentialProviderConfigCustomParameters;
+        /**
+         * Default Flow in GetResourceOauth2Token request. Optional values: USER_FEDERATION, M2M
+         */
+        flow: string;
+        /**
+         * Default ForceAuthentication in GetResourceOauth2Token request
+         */
+        forceAuthentication: boolean;
+        /**
+         * Maximum token validity (seconds)
+         */
+        maxExpires: number;
+        /**
+         * Custom metadata
+         */
+        metadata: string;
+        /**
+         * OAuth2 discovery information
+         */
+        oauth2Discovery: outputs.id.Oauth2CredentialProviderConfigOauth2Discovery;
+        /**
+         * Default RedirectUrl in GetResourceOauth2Token request
+         */
+        redirectUrl: string;
+        /**
+         * Default Scopes in GetResourceOauth2Token request
+         */
+        scopes: string[];
+        /**
+         * Encrypted storage configuration
+         */
+        secretStorage: outputs.id.Oauth2CredentialProviderConfigSecretStorage;
+    }
+
+    export interface Oauth2CredentialProviderConfigCustomParameters {
+        /**
+         * Custom parameter entry list
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         */
+        entries: outputs.id.Oauth2CredentialProviderConfigCustomParametersEntry[];
+    }
+
+    export interface Oauth2CredentialProviderConfigCustomParametersEntry {
+        /**
+         * Parameter key
+         */
+        key: string;
+        /**
+         * Parameter value
+         */
+        value: string;
+    }
+
+    export interface Oauth2CredentialProviderConfigOauth2Discovery {
+        /**
+         * Authorization server metadata
+         */
+        authorizationServerMetadata: outputs.id.Oauth2CredentialProviderConfigOauth2DiscoveryAuthorizationServerMetadata;
+        /**
+         * DiscoveryUrl field
+         */
+        discoveryUrl: string;
+    }
+
+    export interface Oauth2CredentialProviderConfigOauth2DiscoveryAuthorizationServerMetadata {
+        /**
+         * AuthorizationEndpoint field
+         */
+        authorizationEndpoint: string;
+        /**
+         * CodeChallengeMethodsSupported field
+         */
+        codeChallengeMethodsSupporteds: string[];
+        /**
+         * Issuer field
+         */
+        issuer: string;
+        /**
+         * RegistrationEndpoint field
+         */
+        registrationEndpoint: string;
+        /**
+         * ResponseTypes field
+         */
+        responseTypes: string[];
+        /**
+         * RevocationEndpoint field
+         */
+        revocationEndpoint: string;
+        /**
+         * TokenEndpoint field
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface Oauth2CredentialProviderConfigSecretStorage {
+        /**
+         * KMS key TRN for encrypted credential value. If not specified, the default key is used
+         */
+        encryptionKey: string;
+        /**
+         * Encrypted storage type. 0: SecretManager, 1: KMS
+         */
+        storageType: number;
     }
 
     export interface PermissionNamespaceTag {
@@ -18150,6 +18387,51 @@ export namespace kms {
         value: string;
     }
 
+    export interface GetSecretSecretRestore {
+        /**
+         * Complete credential data returned by backup, in JSON format.
+         */
+        backupData: string;
+        /**
+         * Encrypted data key returned by backup, Base64 encoded.
+         */
+        secretDataKey: string;
+        /**
+         * Signature of the backup data, Base64 encoded.
+         */
+        signature: string;
+    }
+
+    export interface GetSecretSecretRestoreRead {
+        /**
+         * Complete credential data returned by backup, in JSON format.
+         */
+        backupData: string;
+        /**
+         * Encrypted data key returned by backup, Base64 encoded.
+         */
+        secretDataKey: string;
+        /**
+         * Signature of the backup data, Base64 encoded.
+         */
+        signature: string;
+    }
+
+    export interface GetSecretSecretVersion {
+        /**
+         * Credential version creation time.
+         */
+        creationDate: number;
+        /**
+         * Unique identifier for the credential version, in UUID format.
+         */
+        versionId: string;
+        /**
+         * Credential version tags.
+         */
+        versionStage: string;
+    }
+
     export interface KeyAsymmetricCiphertext {
         /**
          * Encryption algorithm. Optional values: RSAES*OAEP*SHA_256, SM2PKE.
@@ -18308,6 +18590,51 @@ export namespace kms {
          * KMS key label value.
          */
         value: string;
+    }
+
+    export interface SecretSecretRestore {
+        /**
+         * Complete credential data returned by backup, in JSON format.
+         */
+        backupData: string;
+        /**
+         * Encrypted data key returned by backup, Base64 encoded.
+         */
+        secretDataKey: string;
+        /**
+         * Signature of the backup data, Base64 encoded.
+         */
+        signature: string;
+    }
+
+    export interface SecretSecretRestoreRead {
+        /**
+         * Complete credential data returned by backup, in JSON format.
+         */
+        backupData: string;
+        /**
+         * Encrypted data key returned by backup, Base64 encoded.
+         */
+        secretDataKey: string;
+        /**
+         * Signature of the backup data, Base64 encoded.
+         */
+        signature: string;
+    }
+
+    export interface SecretSecretVersion {
+        /**
+         * Credential version creation time.
+         */
+        creationDate: number;
+        /**
+         * Unique identifier for the credential version, in UUID format.
+         */
+        versionId: string;
+        /**
+         * Credential version tags.
+         */
+        versionStage: string;
     }
 
 }
@@ -24363,6 +24690,95 @@ export namespace tls {
         sms: number;
     }
 
+    export interface AlarmContentTemplateTypeDingTalk {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Alert notification subject
+         */
+        title: string;
+    }
+
+    export interface AlarmContentTemplateTypeEmail {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Email notification subject
+         */
+        subject: string;
+    }
+
+    export interface AlarmContentTemplateTypeLark {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Alert notification subject
+         */
+        title: string;
+    }
+
+    export interface AlarmContentTemplateTypeSms {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+    }
+
+    export interface AlarmContentTemplateTypeVms {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+    }
+
+    export interface AlarmContentTemplateTypeWeChat {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Alert notification subject
+         */
+        title: string;
+    }
+
+    export interface AlarmContentTemplateTypeWebhook {
+        /**
+         * Alert notification content, usually in JSON format. Supports content variables and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+    }
+
     export interface AlarmJoinConfiguration {
         /**
          * Expression used for left join or right join.
@@ -24870,6 +25286,95 @@ export namespace tls {
          * SMS alert interval, in minutes. Value range: 10–1440
          */
         sms: number;
+    }
+
+    export interface GetAlarmContentTemplateTypeDingTalk {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Alert notification subject
+         */
+        title: string;
+    }
+
+    export interface GetAlarmContentTemplateTypeEmail {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Email notification subject
+         */
+        subject: string;
+    }
+
+    export interface GetAlarmContentTemplateTypeLark {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Alert notification subject
+         */
+        title: string;
+    }
+
+    export interface GetAlarmContentTemplateTypeSms {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+    }
+
+    export interface GetAlarmContentTemplateTypeVms {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+    }
+
+    export interface GetAlarmContentTemplateTypeWeChat {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale: string;
+        /**
+         * Alert notification subject
+         */
+        title: string;
+    }
+
+    export interface GetAlarmContentTemplateTypeWebhook {
+        /**
+         * Alert notification content, usually in JSON format. Supports content variables and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content: string;
     }
 
     export interface GetAlarmJoinConfiguration {
@@ -29922,6 +30427,80 @@ export namespace tos {
         replaceKeyWith: string;
     }
 
+    export interface GetObjectAccountAcl {
+        /**
+         * Authorized account ID.
+         */
+        accountId: string;
+        /**
+         * Authorized principal type. Currently, only CanonicalUser is supported.
+         */
+        aclType: string;
+        /**
+         * Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+         */
+        permission: string;
+    }
+
+    export interface GetObjectMetadata {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * Tag value.
+         */
+        value: string;
+    }
+
+    export interface GetObjectTag {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * Tag value.
+         */
+        value: string;
+    }
+
+    export interface TosObjectAccountAcl {
+        /**
+         * Authorized account ID.
+         */
+        accountId: string;
+        /**
+         * Authorized principal type. Currently, only CanonicalUser is supported.
+         */
+        aclType: string;
+        /**
+         * Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+         */
+        permission: string;
+    }
+
+    export interface TosObjectMetadata {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * Tag value.
+         */
+        value: string;
+    }
+
+    export interface TosObjectTag {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * Tag value.
+         */
+        value: string;
+    }
+
 }
 
 export namespace transitrouter {
@@ -31608,6 +32187,435 @@ export namespace veenedge {
         value: string;
     }
 
+    export interface GetVeenAdvancedConfiguration {
+        /**
+         * Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+         */
+        deleteProtection: boolean;
+    }
+
+    export interface GetVeenBandwidthPeakLimitIspConfigs {
+        /**
+         * Bandwidth throttling value for this carrier.
+         */
+        bandwidthPeakLimit: string;
+        /**
+         * Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+         */
+        isp: string;
+    }
+
+    export interface GetVeenBilling {
+        /**
+         * Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+         */
+        bandwidthBillingMethod: string;
+        /**
+         * Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+         */
+        computingBillingMethod: string;
+    }
+
+    export interface GetVeenBillingConfig {
+        /**
+         * Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+         */
+        autoRenew: boolean;
+        /**
+         * Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+         */
+        prePaidPeriod: string;
+        /**
+         * Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+         */
+        prePaidPeriodNumber: number;
+    }
+
+    export interface GetVeenCluster {
+        /**
+         * Node alias.
+         */
+        alias: string;
+        /**
+         * City where the node is located.
+         */
+        city: string;
+        /**
+         * Name of the node
+         */
+        clusterName: string;
+        /**
+         * Country where the node is located.
+         */
+        country: string;
+        /**
+         * Network carrier of the node.
+         */
+        isp: string;
+        /**
+         * Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+         */
+        level: string;
+        /**
+         * Province where the node is located.
+         */
+        province: string;
+        /**
+         * Region where the node is located.
+         */
+        region: string;
+    }
+
+    export interface GetVeenCustomData {
+        /**
+         * Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+         */
+        data: string;
+        /**
+         * Whether the data uses Base64 encoding
+         */
+        isBase64: boolean;
+    }
+
+    export interface GetVeenGpu {
+        /**
+         * GPU specification information
+         */
+        gpuses: outputs.veenedge.GetVeenGpuGpus[];
+    }
+
+    export interface GetVeenGpuGpus {
+        /**
+         * GPU specification
+         */
+        gpuSpec: outputs.veenedge.GetVeenGpuGpusGpuSpec;
+        /**
+         * GPU quantity.
+         */
+        num: number;
+    }
+
+    export interface GetVeenGpuGpusGpuSpec {
+        /**
+         * GPU type.
+         */
+        gpuType: string;
+    }
+
+    export interface GetVeenImage {
+        /**
+         * Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+         */
+        disableVga: boolean;
+        /**
+         * Image boot mode: BIOS, UEFI
+         */
+        imageBootMode: string;
+        /**
+         * Image ID.
+         */
+        imageIdentity: string;
+        /**
+         * Image name.
+         */
+        imageName: string;
+        /**
+         * Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+         */
+        property: string;
+        /**
+         * Operating system architecture.
+         */
+        systemArch: string;
+        /**
+         * Operating system bitness.
+         */
+        systemBit: string;
+        /**
+         * Type of operating system.
+         */
+        systemType: string;
+        /**
+         * Operating system version.
+         */
+        systemVersion: string;
+    }
+
+    export interface GetVeenInstanceAreaNum {
+        /**
+         * Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+         */
+        areaName: string;
+        /**
+         * Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+         */
+        clusterName: string;
+        /**
+         * Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+         */
+        defaultIsp: string;
+        /**
+         * Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+         * single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+         * Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+         */
+        externalNetworkMode: string;
+        /**
+         * The host name list to assign to the created instances.
+         */
+        hostNameLists: string[];
+        /**
+         * Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+         */
+        isp: string;
+        /**
+         * NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+         * If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+         */
+        multiInterfaceNameConfig: outputs.veenedge.GetVeenInstanceAreaNumMultiInterfaceNameConfig;
+        /**
+         * Number of instances.
+         */
+        num: number;
+        /**
+         * Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+         */
+        singleInterfaceNameConfig: outputs.veenedge.GetVeenInstanceAreaNumSingleInterfaceNameConfig;
+        /**
+         * Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+         */
+        subnetIdentity: string;
+        /**
+         * Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+         */
+        vpcIdentity: string;
+    }
+
+    export interface GetVeenInstanceAreaNumMultiInterfaceNameConfig {
+        /**
+         * Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+         */
+        cmccExternalInterfaceName: string;
+        /**
+         * Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+         */
+        ctccExternalInterfaceName: string;
+        /**
+         * Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        cuccExternalInterfaceName: string;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        internalInterfaceName: string;
+    }
+
+    export interface GetVeenInstanceAreaNumSingleInterfaceNameConfig {
+        /**
+         * Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+         */
+        externalInterfaceName: string;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        internalInterfaceName: string;
+    }
+
+    export interface GetVeenMonitorAgent {
+        /**
+         * Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+         */
+        agentStatus: string;
+    }
+
+    export interface GetVeenNetwork {
+        /**
+         * Number of allocated auxiliary private IP addresses
+         */
+        actualSecondaryIpNum: number;
+        /**
+         * Percentile peak bandwidth, no fixed bandwidth value.
+         */
+        bandwidthPeakConfigRatio: outputs.veenedge.GetVeenNetworkBandwidthPeakConfigRatio;
+        /**
+         * Bandwidth peak update status: updating: updating. ready: update complete.
+         */
+        bandwidthPeakUpdateStatus: string;
+        /**
+         * Default carrier
+         */
+        defaultIsp: string;
+        /**
+         * Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+         */
+        disableIpv4: boolean;
+        /**
+         * DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+         */
+        dnsLists: string[];
+        /**
+         * DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+         */
+        dnsType: string;
+        /**
+         * Enable IPv6: true: enable IPv6. false: disable IPv6.
+         */
+        enableIpv6: boolean;
+        /**
+         * Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+         */
+        externalNetworkMode: string;
+        /**
+         * Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+         */
+        limitMode: string;
+        /**
+         * Edge instance TCP session timeout. Unit: seconds.
+         */
+        tcpTimeout: number;
+        /**
+         * UDP session timeout for the edge instance. Unit: seconds.
+         */
+        udpTimeout: number;
+        /**
+         * Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+         */
+        vfPassthrough: boolean;
+        /**
+         * Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+         */
+        vlanVfPassthrough: boolean;
+        /**
+         * Number of required auxiliary private network IP addresses
+         */
+        wantedSecondaryIpNum: number;
+    }
+
+    export interface GetVeenNetworkBandwidthPeakConfigRatio {
+        /**
+         * Bandwidth ratio in enhanced/burst mode
+         */
+        enhancedRatio: number;
+        /**
+         * Bandwidth ratio in standard mode
+         */
+        normalRatio: number;
+    }
+
+    export interface GetVeenSecret {
+        /**
+         * Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+         */
+        secretType: number;
+    }
+
+    export interface GetVeenStorage {
+        /**
+         * Data disk. This parameter is used to add a single data disk
+         */
+        dataDisk: outputs.veenedge.GetVeenStorageDataDisk;
+        /**
+         * Data disk list
+         */
+        dataDiskLists: outputs.veenedge.GetVeenStorageDataDiskList[];
+        /**
+         * System disk
+         */
+        systemDisk: outputs.veenedge.GetVeenStorageSystemDisk;
+    }
+
+    export interface GetVeenStorageDataDisk {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity: string;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance: boolean;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity: string;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass: string;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName: string;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType: string;
+    }
+
+    export interface GetVeenStorageDataDiskList {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity: string;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance: boolean;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity: string;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass: string;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName: string;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType: string;
+    }
+
+    export interface GetVeenStorageSystemDisk {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity: string;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance: boolean;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity: string;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass: string;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName: string;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType: string;
+    }
+
+    export interface GetVeenTag {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * Tag value.
+         */
+        value: string;
+    }
+
     export interface GetVpcSubnet {
         /**
          * Subnet CIDR Block, e.g. 10.1.0.0/16
@@ -31654,6 +32662,437 @@ export namespace veenedge {
         key: string;
         /**
          * Tag Value
+         */
+        value: string;
+    }
+
+    export interface VeenAdvancedConfiguration {
+        /**
+         * Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+         */
+        deleteProtection: boolean;
+    }
+
+    export interface VeenBandwidthPeakLimitIspConfigs {
+        /**
+         * Bandwidth throttling value for this carrier.
+         */
+        bandwidthPeakLimit: string;
+        /**
+         * Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+         */
+        isp: string;
+    }
+
+    export interface VeenBilling {
+        /**
+         * Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+         */
+        bandwidthBillingMethod: string;
+        /**
+         * Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+         */
+        computingBillingMethod: string;
+    }
+
+    export interface VeenBillingConfig {
+        /**
+         * Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+         */
+        autoRenew: boolean;
+        /**
+         * Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+         */
+        prePaidPeriod: string;
+        /**
+         * Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+         */
+        prePaidPeriodNumber: number;
+    }
+
+    export interface VeenCluster {
+        /**
+         * Node alias.
+         */
+        alias: string;
+        /**
+         * City where the node is located.
+         */
+        city: string;
+        /**
+         * Name of the node
+         */
+        clusterName: string;
+        /**
+         * Country where the node is located.
+         */
+        country: string;
+        /**
+         * Network carrier of the node.
+         */
+        isp: string;
+        /**
+         * Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+         */
+        level: string;
+        /**
+         * Province where the node is located.
+         */
+        province: string;
+        /**
+         * Region where the node is located.
+         */
+        region: string;
+    }
+
+    export interface VeenCustomData {
+        /**
+         * Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+         */
+        data: string;
+        /**
+         * Whether the data uses Base64 encoding
+         */
+        isBase64: boolean;
+    }
+
+    export interface VeenGpu {
+        /**
+         * GPU specification information
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         */
+        gpuses: outputs.veenedge.VeenGpuGpus[];
+    }
+
+    export interface VeenGpuGpus {
+        /**
+         * GPU specification
+         */
+        gpuSpec: outputs.veenedge.VeenGpuGpusGpuSpec;
+        /**
+         * GPU quantity.
+         */
+        num: number;
+    }
+
+    export interface VeenGpuGpusGpuSpec {
+        /**
+         * GPU type.
+         */
+        gpuType: string;
+    }
+
+    export interface VeenImage {
+        /**
+         * Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+         */
+        disableVga: boolean;
+        /**
+         * Image boot mode: BIOS, UEFI
+         */
+        imageBootMode: string;
+        /**
+         * Image ID.
+         */
+        imageIdentity: string;
+        /**
+         * Image name.
+         */
+        imageName: string;
+        /**
+         * Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+         */
+        property: string;
+        /**
+         * Operating system architecture.
+         */
+        systemArch: string;
+        /**
+         * Operating system bitness.
+         */
+        systemBit: string;
+        /**
+         * Type of operating system.
+         */
+        systemType: string;
+        /**
+         * Operating system version.
+         */
+        systemVersion: string;
+    }
+
+    export interface VeenInstanceAreaNum {
+        /**
+         * Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+         */
+        areaName: string;
+        /**
+         * Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+         */
+        clusterName: string;
+        /**
+         * Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+         */
+        defaultIsp: string;
+        /**
+         * Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+         * single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+         * Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+         */
+        externalNetworkMode: string;
+        /**
+         * The host name list to assign to the created instances.
+         */
+        hostNameLists: string[];
+        /**
+         * Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+         */
+        isp: string;
+        /**
+         * NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+         * If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+         */
+        multiInterfaceNameConfig: outputs.veenedge.VeenInstanceAreaNumMultiInterfaceNameConfig;
+        /**
+         * Number of instances.
+         */
+        num: number;
+        /**
+         * Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+         */
+        singleInterfaceNameConfig: outputs.veenedge.VeenInstanceAreaNumSingleInterfaceNameConfig;
+        /**
+         * Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+         */
+        subnetIdentity: string;
+        /**
+         * Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+         */
+        vpcIdentity: string;
+    }
+
+    export interface VeenInstanceAreaNumMultiInterfaceNameConfig {
+        /**
+         * Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+         */
+        cmccExternalInterfaceName: string;
+        /**
+         * Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+         */
+        ctccExternalInterfaceName: string;
+        /**
+         * Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        cuccExternalInterfaceName: string;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        internalInterfaceName: string;
+    }
+
+    export interface VeenInstanceAreaNumSingleInterfaceNameConfig {
+        /**
+         * Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+         */
+        externalInterfaceName: string;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        internalInterfaceName: string;
+    }
+
+    export interface VeenMonitorAgent {
+        /**
+         * Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+         */
+        agentStatus: string;
+    }
+
+    export interface VeenNetwork {
+        /**
+         * Number of allocated auxiliary private IP addresses
+         */
+        actualSecondaryIpNum: number;
+        /**
+         * Percentile peak bandwidth, no fixed bandwidth value.
+         */
+        bandwidthPeakConfigRatio: outputs.veenedge.VeenNetworkBandwidthPeakConfigRatio;
+        /**
+         * Bandwidth peak update status: updating: updating. ready: update complete.
+         */
+        bandwidthPeakUpdateStatus: string;
+        /**
+         * Default carrier
+         */
+        defaultIsp: string;
+        /**
+         * Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+         */
+        disableIpv4: boolean;
+        /**
+         * DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+         */
+        dnsLists: string[];
+        /**
+         * DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+         */
+        dnsType: string;
+        /**
+         * Enable IPv6: true: enable IPv6. false: disable IPv6.
+         */
+        enableIpv6: boolean;
+        /**
+         * Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+         */
+        externalNetworkMode: string;
+        /**
+         * Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+         */
+        limitMode: string;
+        /**
+         * Edge instance TCP session timeout. Unit: seconds.
+         */
+        tcpTimeout: number;
+        /**
+         * UDP session timeout for the edge instance. Unit: seconds.
+         */
+        udpTimeout: number;
+        /**
+         * Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+         */
+        vfPassthrough: boolean;
+        /**
+         * Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+         */
+        vlanVfPassthrough: boolean;
+        /**
+         * Number of required auxiliary private network IP addresses
+         */
+        wantedSecondaryIpNum: number;
+    }
+
+    export interface VeenNetworkBandwidthPeakConfigRatio {
+        /**
+         * Bandwidth ratio in enhanced/burst mode
+         */
+        enhancedRatio: number;
+        /**
+         * Bandwidth ratio in standard mode
+         */
+        normalRatio: number;
+    }
+
+    export interface VeenSecret {
+        /**
+         * Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+         */
+        secretType: number;
+    }
+
+    export interface VeenStorage {
+        /**
+         * Data disk. This parameter is used to add a single data disk
+         */
+        dataDisk: outputs.veenedge.VeenStorageDataDisk;
+        /**
+         * Data disk list
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         */
+        dataDiskLists: outputs.veenedge.VeenStorageDataDiskList[];
+        /**
+         * System disk
+         */
+        systemDisk: outputs.veenedge.VeenStorageSystemDisk;
+    }
+
+    export interface VeenStorageDataDisk {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity: string;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance: boolean;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity: string;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass: string;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName: string;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType: string;
+    }
+
+    export interface VeenStorageDataDiskList {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity: string;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance: boolean;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity: string;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass: string;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName: string;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType: string;
+    }
+
+    export interface VeenStorageSystemDisk {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity: string;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance: boolean;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity: string;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass: string;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName: string;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType: string;
+    }
+
+    export interface VeenTag {
+        /**
+         * Tag key.
+         */
+        key: string;
+        /**
+         * Tag value.
          */
         value: string;
     }

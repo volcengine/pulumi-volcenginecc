@@ -1027,6 +1027,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "id/oauth2CredentialProvider",
+  "fqn": "pulumi_volcenginecc.id",
+  "classes": {
+   "volcenginecc:id/oauth2CredentialProvider:Oauth2CredentialProvider": "Oauth2CredentialProvider"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "id/permissionNamespace",
   "fqn": "pulumi_volcenginecc.id",
   "classes": {
@@ -1635,6 +1643,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tls/alarmContentTemplateType",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/alarmContentTemplateType:AlarmContentTemplateType": "AlarmContentTemplateType"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tls/alarmNotifyGroup",
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
@@ -1819,6 +1835,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tos/tosObject",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/tosObject:TosObject": "TosObject"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "transitrouter/directConnectGatewayAttachment",
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
@@ -1951,6 +1975,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.veenedge",
   "classes": {
    "volcenginecc:veenedge/cloudServer:CloudServer": "CloudServer"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "veenedge/veen",
+  "fqn": "pulumi_volcenginecc.veenedge",
+  "classes": {
+   "volcenginecc:veenedge/veen:Veen": "Veen"
   }
  },
  {

@@ -20,6 +20,16 @@ export const getCloudServers: typeof import("./getCloudServers").getCloudServers
 export const getCloudServersOutput: typeof import("./getCloudServers").getCloudServersOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudServers","getCloudServersOutput"], () => require("./getCloudServers"));
 
+export { GetVeenArgs, GetVeenResult, GetVeenOutputArgs } from "./getVeen";
+export const getVeen: typeof import("./getVeen").getVeen = null as any;
+export const getVeenOutput: typeof import("./getVeen").getVeenOutput = null as any;
+utilities.lazyLoad(exports, ["getVeen","getVeenOutput"], () => require("./getVeen"));
+
+export { GetVeensResult } from "./getVeens";
+export const getVeens: typeof import("./getVeens").getVeens = null as any;
+export const getVeensOutput: typeof import("./getVeens").getVeensOutput = null as any;
+utilities.lazyLoad(exports, ["getVeens","getVeensOutput"], () => require("./getVeens"));
+
 export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
 export const getVpc: typeof import("./getVpc").getVpc = null as any;
 export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
@@ -29,6 +39,11 @@ export { GetVpcsResult } from "./getVpcs";
 export const getVpcs: typeof import("./getVpcs").getVpcs = null as any;
 export const getVpcsOutput: typeof import("./getVpcs").getVpcsOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));
+
+export { VeenArgs, VeenState } from "./veen";
+export type Veen = import("./veen").Veen;
+export const Veen: typeof import("./veen").Veen = null as any;
+utilities.lazyLoad(exports, ["Veen"], () => require("./veen"));
 
 export { VpcArgs, VpcState } from "./vpc";
 export type Vpc = import("./vpc").Vpc;
@@ -42,6 +57,8 @@ const _module = {
         switch (type) {
             case "volcenginecc:veenedge/cloudServer:CloudServer":
                 return new CloudServer(name, <any>undefined, { urn })
+            case "volcenginecc:veenedge/veen:Veen":
+                return new Veen(name, <any>undefined, { urn })
             case "volcenginecc:veenedge/vpc:Vpc":
                 return new Vpc(name, <any>undefined, { urn })
             default:
@@ -50,4 +67,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "veenedge/cloudServer", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "veenedge/veen", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "veenedge/vpc", _module)

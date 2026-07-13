@@ -9,8 +9,11 @@ import typing
 from .cloud_server import *
 from .get_cloud_server import *
 from .get_cloud_servers import *
+from .get_veen import *
+from .get_veens import *
 from .get_vpc import *
 from .get_vpcs import *
+from .veen import *
 from .vpc import *
 from ._inputs import *
 from . import outputs

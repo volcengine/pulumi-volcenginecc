@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
- * const bucketDemo = new volcenginecc.tos.Bucket("BucketDemo", {
+ * const example = new volcenginecc.tos.Bucket("Example", {
  *     name: "bucket-demo",
  *     storageClass: "STANDARD",
  *     enableVersionStatus: "Enabled",

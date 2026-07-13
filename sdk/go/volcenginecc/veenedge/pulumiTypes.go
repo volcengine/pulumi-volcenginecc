@@ -3160,6 +3160,4003 @@ func (o CloudServerTagArrayOutput) Index(i pulumi.IntInput) CloudServerTagOutput
 	}).(CloudServerTagOutput)
 }
 
+type VeenAdvancedConfiguration struct {
+	// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+	DeleteProtection *bool `pulumi:"deleteProtection"`
+}
+
+// VeenAdvancedConfigurationInput is an input type that accepts VeenAdvancedConfigurationArgs and VeenAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `VeenAdvancedConfigurationInput` via:
+//
+//	VeenAdvancedConfigurationArgs{...}
+type VeenAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToVeenAdvancedConfigurationOutput() VeenAdvancedConfigurationOutput
+	ToVeenAdvancedConfigurationOutputWithContext(context.Context) VeenAdvancedConfigurationOutput
+}
+
+type VeenAdvancedConfigurationArgs struct {
+	// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+	DeleteProtection pulumi.BoolPtrInput `pulumi:"deleteProtection"`
+}
+
+func (VeenAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i VeenAdvancedConfigurationArgs) ToVeenAdvancedConfigurationOutput() VeenAdvancedConfigurationOutput {
+	return i.ToVeenAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i VeenAdvancedConfigurationArgs) ToVeenAdvancedConfigurationOutputWithContext(ctx context.Context) VeenAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenAdvancedConfigurationOutput)
+}
+
+func (i VeenAdvancedConfigurationArgs) ToVeenAdvancedConfigurationPtrOutput() VeenAdvancedConfigurationPtrOutput {
+	return i.ToVeenAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VeenAdvancedConfigurationArgs) ToVeenAdvancedConfigurationPtrOutputWithContext(ctx context.Context) VeenAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenAdvancedConfigurationOutput).ToVeenAdvancedConfigurationPtrOutputWithContext(ctx)
+}
+
+// VeenAdvancedConfigurationPtrInput is an input type that accepts VeenAdvancedConfigurationArgs, VeenAdvancedConfigurationPtr and VeenAdvancedConfigurationPtrOutput values.
+// You can construct a concrete instance of `VeenAdvancedConfigurationPtrInput` via:
+//
+//	        VeenAdvancedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenAdvancedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVeenAdvancedConfigurationPtrOutput() VeenAdvancedConfigurationPtrOutput
+	ToVeenAdvancedConfigurationPtrOutputWithContext(context.Context) VeenAdvancedConfigurationPtrOutput
+}
+
+type veenAdvancedConfigurationPtrType VeenAdvancedConfigurationArgs
+
+func VeenAdvancedConfigurationPtr(v *VeenAdvancedConfigurationArgs) VeenAdvancedConfigurationPtrInput {
+	return (*veenAdvancedConfigurationPtrType)(v)
+}
+
+func (*veenAdvancedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i *veenAdvancedConfigurationPtrType) ToVeenAdvancedConfigurationPtrOutput() VeenAdvancedConfigurationPtrOutput {
+	return i.ToVeenAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *veenAdvancedConfigurationPtrType) ToVeenAdvancedConfigurationPtrOutputWithContext(ctx context.Context) VeenAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenAdvancedConfigurationPtrOutput)
+}
+
+type VeenAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VeenAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o VeenAdvancedConfigurationOutput) ToVeenAdvancedConfigurationOutput() VeenAdvancedConfigurationOutput {
+	return o
+}
+
+func (o VeenAdvancedConfigurationOutput) ToVeenAdvancedConfigurationOutputWithContext(ctx context.Context) VeenAdvancedConfigurationOutput {
+	return o
+}
+
+func (o VeenAdvancedConfigurationOutput) ToVeenAdvancedConfigurationPtrOutput() VeenAdvancedConfigurationPtrOutput {
+	return o.ToVeenAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VeenAdvancedConfigurationOutput) ToVeenAdvancedConfigurationPtrOutputWithContext(ctx context.Context) VeenAdvancedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenAdvancedConfiguration) *VeenAdvancedConfiguration {
+		return &v
+	}).(VeenAdvancedConfigurationPtrOutput)
+}
+
+// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+func (o VeenAdvancedConfigurationOutput) DeleteProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenAdvancedConfiguration) *bool { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
+}
+
+type VeenAdvancedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenAdvancedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o VeenAdvancedConfigurationPtrOutput) ToVeenAdvancedConfigurationPtrOutput() VeenAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o VeenAdvancedConfigurationPtrOutput) ToVeenAdvancedConfigurationPtrOutputWithContext(ctx context.Context) VeenAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o VeenAdvancedConfigurationPtrOutput) Elem() VeenAdvancedConfigurationOutput {
+	return o.ApplyT(func(v *VeenAdvancedConfiguration) VeenAdvancedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VeenAdvancedConfiguration
+		return ret
+	}).(VeenAdvancedConfigurationOutput)
+}
+
+// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+func (o VeenAdvancedConfigurationPtrOutput) DeleteProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenAdvancedConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteProtection
+	}).(pulumi.BoolPtrOutput)
+}
+
+type VeenBandwidthPeakLimitIspConfigs struct {
+	// Bandwidth throttling value for this carrier.
+	BandwidthPeakLimit *string `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+	Isp *string `pulumi:"isp"`
+}
+
+// VeenBandwidthPeakLimitIspConfigsInput is an input type that accepts VeenBandwidthPeakLimitIspConfigsArgs and VeenBandwidthPeakLimitIspConfigsOutput values.
+// You can construct a concrete instance of `VeenBandwidthPeakLimitIspConfigsInput` via:
+//
+//	VeenBandwidthPeakLimitIspConfigsArgs{...}
+type VeenBandwidthPeakLimitIspConfigsInput interface {
+	pulumi.Input
+
+	ToVeenBandwidthPeakLimitIspConfigsOutput() VeenBandwidthPeakLimitIspConfigsOutput
+	ToVeenBandwidthPeakLimitIspConfigsOutputWithContext(context.Context) VeenBandwidthPeakLimitIspConfigsOutput
+}
+
+type VeenBandwidthPeakLimitIspConfigsArgs struct {
+	// Bandwidth throttling value for this carrier.
+	BandwidthPeakLimit pulumi.StringPtrInput `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+	Isp pulumi.StringPtrInput `pulumi:"isp"`
+}
+
+func (VeenBandwidthPeakLimitIspConfigsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenBandwidthPeakLimitIspConfigs)(nil)).Elem()
+}
+
+func (i VeenBandwidthPeakLimitIspConfigsArgs) ToVeenBandwidthPeakLimitIspConfigsOutput() VeenBandwidthPeakLimitIspConfigsOutput {
+	return i.ToVeenBandwidthPeakLimitIspConfigsOutputWithContext(context.Background())
+}
+
+func (i VeenBandwidthPeakLimitIspConfigsArgs) ToVeenBandwidthPeakLimitIspConfigsOutputWithContext(ctx context.Context) VeenBandwidthPeakLimitIspConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBandwidthPeakLimitIspConfigsOutput)
+}
+
+func (i VeenBandwidthPeakLimitIspConfigsArgs) ToVeenBandwidthPeakLimitIspConfigsPtrOutput() VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return i.ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i VeenBandwidthPeakLimitIspConfigsArgs) ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(ctx context.Context) VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBandwidthPeakLimitIspConfigsOutput).ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(ctx)
+}
+
+// VeenBandwidthPeakLimitIspConfigsPtrInput is an input type that accepts VeenBandwidthPeakLimitIspConfigsArgs, VeenBandwidthPeakLimitIspConfigsPtr and VeenBandwidthPeakLimitIspConfigsPtrOutput values.
+// You can construct a concrete instance of `VeenBandwidthPeakLimitIspConfigsPtrInput` via:
+//
+//	        VeenBandwidthPeakLimitIspConfigsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenBandwidthPeakLimitIspConfigsPtrInput interface {
+	pulumi.Input
+
+	ToVeenBandwidthPeakLimitIspConfigsPtrOutput() VeenBandwidthPeakLimitIspConfigsPtrOutput
+	ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(context.Context) VeenBandwidthPeakLimitIspConfigsPtrOutput
+}
+
+type veenBandwidthPeakLimitIspConfigsPtrType VeenBandwidthPeakLimitIspConfigsArgs
+
+func VeenBandwidthPeakLimitIspConfigsPtr(v *VeenBandwidthPeakLimitIspConfigsArgs) VeenBandwidthPeakLimitIspConfigsPtrInput {
+	return (*veenBandwidthPeakLimitIspConfigsPtrType)(v)
+}
+
+func (*veenBandwidthPeakLimitIspConfigsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenBandwidthPeakLimitIspConfigs)(nil)).Elem()
+}
+
+func (i *veenBandwidthPeakLimitIspConfigsPtrType) ToVeenBandwidthPeakLimitIspConfigsPtrOutput() VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return i.ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i *veenBandwidthPeakLimitIspConfigsPtrType) ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(ctx context.Context) VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBandwidthPeakLimitIspConfigsPtrOutput)
+}
+
+type VeenBandwidthPeakLimitIspConfigsOutput struct{ *pulumi.OutputState }
+
+func (VeenBandwidthPeakLimitIspConfigsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenBandwidthPeakLimitIspConfigs)(nil)).Elem()
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsOutput) ToVeenBandwidthPeakLimitIspConfigsOutput() VeenBandwidthPeakLimitIspConfigsOutput {
+	return o
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsOutput) ToVeenBandwidthPeakLimitIspConfigsOutputWithContext(ctx context.Context) VeenBandwidthPeakLimitIspConfigsOutput {
+	return o
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsOutput) ToVeenBandwidthPeakLimitIspConfigsPtrOutput() VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return o.ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(context.Background())
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsOutput) ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(ctx context.Context) VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenBandwidthPeakLimitIspConfigs) *VeenBandwidthPeakLimitIspConfigs {
+		return &v
+	}).(VeenBandwidthPeakLimitIspConfigsPtrOutput)
+}
+
+// Bandwidth throttling value for this carrier.
+func (o VeenBandwidthPeakLimitIspConfigsOutput) BandwidthPeakLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenBandwidthPeakLimitIspConfigs) *string { return v.BandwidthPeakLimit }).(pulumi.StringPtrOutput)
+}
+
+// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+func (o VeenBandwidthPeakLimitIspConfigsOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenBandwidthPeakLimitIspConfigs) *string { return v.Isp }).(pulumi.StringPtrOutput)
+}
+
+type VeenBandwidthPeakLimitIspConfigsPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenBandwidthPeakLimitIspConfigsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenBandwidthPeakLimitIspConfigs)(nil)).Elem()
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsPtrOutput) ToVeenBandwidthPeakLimitIspConfigsPtrOutput() VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return o
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsPtrOutput) ToVeenBandwidthPeakLimitIspConfigsPtrOutputWithContext(ctx context.Context) VeenBandwidthPeakLimitIspConfigsPtrOutput {
+	return o
+}
+
+func (o VeenBandwidthPeakLimitIspConfigsPtrOutput) Elem() VeenBandwidthPeakLimitIspConfigsOutput {
+	return o.ApplyT(func(v *VeenBandwidthPeakLimitIspConfigs) VeenBandwidthPeakLimitIspConfigs {
+		if v != nil {
+			return *v
+		}
+		var ret VeenBandwidthPeakLimitIspConfigs
+		return ret
+	}).(VeenBandwidthPeakLimitIspConfigsOutput)
+}
+
+// Bandwidth throttling value for this carrier.
+func (o VeenBandwidthPeakLimitIspConfigsPtrOutput) BandwidthPeakLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenBandwidthPeakLimitIspConfigs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthPeakLimit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+func (o VeenBandwidthPeakLimitIspConfigsPtrOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenBandwidthPeakLimitIspConfigs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Isp
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenBilling struct {
+	// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod *string `pulumi:"bandwidthBillingMethod"`
+	// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+	ComputingBillingMethod *string `pulumi:"computingBillingMethod"`
+}
+
+// VeenBillingInput is an input type that accepts VeenBillingArgs and VeenBillingOutput values.
+// You can construct a concrete instance of `VeenBillingInput` via:
+//
+//	VeenBillingArgs{...}
+type VeenBillingInput interface {
+	pulumi.Input
+
+	ToVeenBillingOutput() VeenBillingOutput
+	ToVeenBillingOutputWithContext(context.Context) VeenBillingOutput
+}
+
+type VeenBillingArgs struct {
+	// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod pulumi.StringPtrInput `pulumi:"bandwidthBillingMethod"`
+	// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+	ComputingBillingMethod pulumi.StringPtrInput `pulumi:"computingBillingMethod"`
+}
+
+func (VeenBillingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenBilling)(nil)).Elem()
+}
+
+func (i VeenBillingArgs) ToVeenBillingOutput() VeenBillingOutput {
+	return i.ToVeenBillingOutputWithContext(context.Background())
+}
+
+func (i VeenBillingArgs) ToVeenBillingOutputWithContext(ctx context.Context) VeenBillingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBillingOutput)
+}
+
+func (i VeenBillingArgs) ToVeenBillingPtrOutput() VeenBillingPtrOutput {
+	return i.ToVeenBillingPtrOutputWithContext(context.Background())
+}
+
+func (i VeenBillingArgs) ToVeenBillingPtrOutputWithContext(ctx context.Context) VeenBillingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBillingOutput).ToVeenBillingPtrOutputWithContext(ctx)
+}
+
+// VeenBillingPtrInput is an input type that accepts VeenBillingArgs, VeenBillingPtr and VeenBillingPtrOutput values.
+// You can construct a concrete instance of `VeenBillingPtrInput` via:
+//
+//	        VeenBillingArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenBillingPtrInput interface {
+	pulumi.Input
+
+	ToVeenBillingPtrOutput() VeenBillingPtrOutput
+	ToVeenBillingPtrOutputWithContext(context.Context) VeenBillingPtrOutput
+}
+
+type veenBillingPtrType VeenBillingArgs
+
+func VeenBillingPtr(v *VeenBillingArgs) VeenBillingPtrInput {
+	return (*veenBillingPtrType)(v)
+}
+
+func (*veenBillingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenBilling)(nil)).Elem()
+}
+
+func (i *veenBillingPtrType) ToVeenBillingPtrOutput() VeenBillingPtrOutput {
+	return i.ToVeenBillingPtrOutputWithContext(context.Background())
+}
+
+func (i *veenBillingPtrType) ToVeenBillingPtrOutputWithContext(ctx context.Context) VeenBillingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBillingPtrOutput)
+}
+
+type VeenBillingOutput struct{ *pulumi.OutputState }
+
+func (VeenBillingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenBilling)(nil)).Elem()
+}
+
+func (o VeenBillingOutput) ToVeenBillingOutput() VeenBillingOutput {
+	return o
+}
+
+func (o VeenBillingOutput) ToVeenBillingOutputWithContext(ctx context.Context) VeenBillingOutput {
+	return o
+}
+
+func (o VeenBillingOutput) ToVeenBillingPtrOutput() VeenBillingPtrOutput {
+	return o.ToVeenBillingPtrOutputWithContext(context.Background())
+}
+
+func (o VeenBillingOutput) ToVeenBillingPtrOutputWithContext(ctx context.Context) VeenBillingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenBilling) *VeenBilling {
+		return &v
+	}).(VeenBillingPtrOutput)
+}
+
+// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+func (o VeenBillingOutput) BandwidthBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenBilling) *string { return v.BandwidthBillingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+func (o VeenBillingOutput) ComputingBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenBilling) *string { return v.ComputingBillingMethod }).(pulumi.StringPtrOutput)
+}
+
+type VeenBillingPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenBillingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenBilling)(nil)).Elem()
+}
+
+func (o VeenBillingPtrOutput) ToVeenBillingPtrOutput() VeenBillingPtrOutput {
+	return o
+}
+
+func (o VeenBillingPtrOutput) ToVeenBillingPtrOutputWithContext(ctx context.Context) VeenBillingPtrOutput {
+	return o
+}
+
+func (o VeenBillingPtrOutput) Elem() VeenBillingOutput {
+	return o.ApplyT(func(v *VeenBilling) VeenBilling {
+		if v != nil {
+			return *v
+		}
+		var ret VeenBilling
+		return ret
+	}).(VeenBillingOutput)
+}
+
+// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+func (o VeenBillingPtrOutput) BandwidthBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenBilling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthBillingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+func (o VeenBillingPtrOutput) ComputingBillingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenBilling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputingBillingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenBillingConfig struct {
+	// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+	PrePaidPeriod *string `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+	PrePaidPeriodNumber *int `pulumi:"prePaidPeriodNumber"`
+}
+
+// VeenBillingConfigInput is an input type that accepts VeenBillingConfigArgs and VeenBillingConfigOutput values.
+// You can construct a concrete instance of `VeenBillingConfigInput` via:
+//
+//	VeenBillingConfigArgs{...}
+type VeenBillingConfigInput interface {
+	pulumi.Input
+
+	ToVeenBillingConfigOutput() VeenBillingConfigOutput
+	ToVeenBillingConfigOutputWithContext(context.Context) VeenBillingConfigOutput
+}
+
+type VeenBillingConfigArgs struct {
+	// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
+	// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+	PrePaidPeriod pulumi.StringPtrInput `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+	PrePaidPeriodNumber pulumi.IntPtrInput `pulumi:"prePaidPeriodNumber"`
+}
+
+func (VeenBillingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenBillingConfig)(nil)).Elem()
+}
+
+func (i VeenBillingConfigArgs) ToVeenBillingConfigOutput() VeenBillingConfigOutput {
+	return i.ToVeenBillingConfigOutputWithContext(context.Background())
+}
+
+func (i VeenBillingConfigArgs) ToVeenBillingConfigOutputWithContext(ctx context.Context) VeenBillingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBillingConfigOutput)
+}
+
+func (i VeenBillingConfigArgs) ToVeenBillingConfigPtrOutput() VeenBillingConfigPtrOutput {
+	return i.ToVeenBillingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i VeenBillingConfigArgs) ToVeenBillingConfigPtrOutputWithContext(ctx context.Context) VeenBillingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBillingConfigOutput).ToVeenBillingConfigPtrOutputWithContext(ctx)
+}
+
+// VeenBillingConfigPtrInput is an input type that accepts VeenBillingConfigArgs, VeenBillingConfigPtr and VeenBillingConfigPtrOutput values.
+// You can construct a concrete instance of `VeenBillingConfigPtrInput` via:
+//
+//	        VeenBillingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenBillingConfigPtrInput interface {
+	pulumi.Input
+
+	ToVeenBillingConfigPtrOutput() VeenBillingConfigPtrOutput
+	ToVeenBillingConfigPtrOutputWithContext(context.Context) VeenBillingConfigPtrOutput
+}
+
+type veenBillingConfigPtrType VeenBillingConfigArgs
+
+func VeenBillingConfigPtr(v *VeenBillingConfigArgs) VeenBillingConfigPtrInput {
+	return (*veenBillingConfigPtrType)(v)
+}
+
+func (*veenBillingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenBillingConfig)(nil)).Elem()
+}
+
+func (i *veenBillingConfigPtrType) ToVeenBillingConfigPtrOutput() VeenBillingConfigPtrOutput {
+	return i.ToVeenBillingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *veenBillingConfigPtrType) ToVeenBillingConfigPtrOutputWithContext(ctx context.Context) VeenBillingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenBillingConfigPtrOutput)
+}
+
+type VeenBillingConfigOutput struct{ *pulumi.OutputState }
+
+func (VeenBillingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenBillingConfig)(nil)).Elem()
+}
+
+func (o VeenBillingConfigOutput) ToVeenBillingConfigOutput() VeenBillingConfigOutput {
+	return o
+}
+
+func (o VeenBillingConfigOutput) ToVeenBillingConfigOutputWithContext(ctx context.Context) VeenBillingConfigOutput {
+	return o
+}
+
+func (o VeenBillingConfigOutput) ToVeenBillingConfigPtrOutput() VeenBillingConfigPtrOutput {
+	return o.ToVeenBillingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o VeenBillingConfigOutput) ToVeenBillingConfigPtrOutputWithContext(ctx context.Context) VeenBillingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenBillingConfig) *VeenBillingConfig {
+		return &v
+	}).(VeenBillingConfigPtrOutput)
+}
+
+// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+func (o VeenBillingConfigOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenBillingConfig) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+func (o VeenBillingConfigOutput) PrePaidPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenBillingConfig) *string { return v.PrePaidPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+func (o VeenBillingConfigOutput) PrePaidPeriodNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenBillingConfig) *int { return v.PrePaidPeriodNumber }).(pulumi.IntPtrOutput)
+}
+
+type VeenBillingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenBillingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenBillingConfig)(nil)).Elem()
+}
+
+func (o VeenBillingConfigPtrOutput) ToVeenBillingConfigPtrOutput() VeenBillingConfigPtrOutput {
+	return o
+}
+
+func (o VeenBillingConfigPtrOutput) ToVeenBillingConfigPtrOutputWithContext(ctx context.Context) VeenBillingConfigPtrOutput {
+	return o
+}
+
+func (o VeenBillingConfigPtrOutput) Elem() VeenBillingConfigOutput {
+	return o.ApplyT(func(v *VeenBillingConfig) VeenBillingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VeenBillingConfig
+		return ret
+	}).(VeenBillingConfigOutput)
+}
+
+// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+func (o VeenBillingConfigPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenBillingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRenew
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+func (o VeenBillingConfigPtrOutput) PrePaidPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenBillingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrePaidPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+func (o VeenBillingConfigPtrOutput) PrePaidPeriodNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenBillingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PrePaidPeriodNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+type VeenCluster struct {
+	// Node alias.
+	Alias *string `pulumi:"alias"`
+	// City where the node is located.
+	City *string `pulumi:"city"`
+	// Name of the node
+	ClusterName *string `pulumi:"clusterName"`
+	// Country where the node is located.
+	Country *string `pulumi:"country"`
+	// Network carrier of the node.
+	Isp *string `pulumi:"isp"`
+	// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+	Level *string `pulumi:"level"`
+	// Province where the node is located.
+	Province *string `pulumi:"province"`
+	// Region where the node is located.
+	Region *string `pulumi:"region"`
+}
+
+// VeenClusterInput is an input type that accepts VeenClusterArgs and VeenClusterOutput values.
+// You can construct a concrete instance of `VeenClusterInput` via:
+//
+//	VeenClusterArgs{...}
+type VeenClusterInput interface {
+	pulumi.Input
+
+	ToVeenClusterOutput() VeenClusterOutput
+	ToVeenClusterOutputWithContext(context.Context) VeenClusterOutput
+}
+
+type VeenClusterArgs struct {
+	// Node alias.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// City where the node is located.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// Name of the node
+	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	// Country where the node is located.
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// Network carrier of the node.
+	Isp pulumi.StringPtrInput `pulumi:"isp"`
+	// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// Province where the node is located.
+	Province pulumi.StringPtrInput `pulumi:"province"`
+	// Region where the node is located.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (VeenClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenCluster)(nil)).Elem()
+}
+
+func (i VeenClusterArgs) ToVeenClusterOutput() VeenClusterOutput {
+	return i.ToVeenClusterOutputWithContext(context.Background())
+}
+
+func (i VeenClusterArgs) ToVeenClusterOutputWithContext(ctx context.Context) VeenClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenClusterOutput)
+}
+
+func (i VeenClusterArgs) ToVeenClusterPtrOutput() VeenClusterPtrOutput {
+	return i.ToVeenClusterPtrOutputWithContext(context.Background())
+}
+
+func (i VeenClusterArgs) ToVeenClusterPtrOutputWithContext(ctx context.Context) VeenClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenClusterOutput).ToVeenClusterPtrOutputWithContext(ctx)
+}
+
+// VeenClusterPtrInput is an input type that accepts VeenClusterArgs, VeenClusterPtr and VeenClusterPtrOutput values.
+// You can construct a concrete instance of `VeenClusterPtrInput` via:
+//
+//	        VeenClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenClusterPtrInput interface {
+	pulumi.Input
+
+	ToVeenClusterPtrOutput() VeenClusterPtrOutput
+	ToVeenClusterPtrOutputWithContext(context.Context) VeenClusterPtrOutput
+}
+
+type veenClusterPtrType VeenClusterArgs
+
+func VeenClusterPtr(v *VeenClusterArgs) VeenClusterPtrInput {
+	return (*veenClusterPtrType)(v)
+}
+
+func (*veenClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenCluster)(nil)).Elem()
+}
+
+func (i *veenClusterPtrType) ToVeenClusterPtrOutput() VeenClusterPtrOutput {
+	return i.ToVeenClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *veenClusterPtrType) ToVeenClusterPtrOutputWithContext(ctx context.Context) VeenClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenClusterPtrOutput)
+}
+
+type VeenClusterOutput struct{ *pulumi.OutputState }
+
+func (VeenClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenCluster)(nil)).Elem()
+}
+
+func (o VeenClusterOutput) ToVeenClusterOutput() VeenClusterOutput {
+	return o
+}
+
+func (o VeenClusterOutput) ToVeenClusterOutputWithContext(ctx context.Context) VeenClusterOutput {
+	return o
+}
+
+func (o VeenClusterOutput) ToVeenClusterPtrOutput() VeenClusterPtrOutput {
+	return o.ToVeenClusterPtrOutputWithContext(context.Background())
+}
+
+func (o VeenClusterOutput) ToVeenClusterPtrOutputWithContext(ctx context.Context) VeenClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenCluster) *VeenCluster {
+		return &v
+	}).(VeenClusterPtrOutput)
+}
+
+// Node alias.
+func (o VeenClusterOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// City where the node is located.
+func (o VeenClusterOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// Name of the node
+func (o VeenClusterOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// Country where the node is located.
+func (o VeenClusterOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+// Network carrier of the node.
+func (o VeenClusterOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.Isp }).(pulumi.StringPtrOutput)
+}
+
+// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+func (o VeenClusterOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Province where the node is located.
+func (o VeenClusterOutput) Province() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.Province }).(pulumi.StringPtrOutput)
+}
+
+// Region where the node is located.
+func (o VeenClusterOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCluster) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type VeenClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenCluster)(nil)).Elem()
+}
+
+func (o VeenClusterPtrOutput) ToVeenClusterPtrOutput() VeenClusterPtrOutput {
+	return o
+}
+
+func (o VeenClusterPtrOutput) ToVeenClusterPtrOutputWithContext(ctx context.Context) VeenClusterPtrOutput {
+	return o
+}
+
+func (o VeenClusterPtrOutput) Elem() VeenClusterOutput {
+	return o.ApplyT(func(v *VeenCluster) VeenCluster {
+		if v != nil {
+			return *v
+		}
+		var ret VeenCluster
+		return ret
+	}).(VeenClusterOutput)
+}
+
+// Node alias.
+func (o VeenClusterPtrOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Alias
+	}).(pulumi.StringPtrOutput)
+}
+
+// City where the node is located.
+func (o VeenClusterPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the node
+func (o VeenClusterPtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Country where the node is located.
+func (o VeenClusterPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network carrier of the node.
+func (o VeenClusterPtrOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Isp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+func (o VeenClusterPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Province where the node is located.
+func (o VeenClusterPtrOutput) Province() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Province
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region where the node is located.
+func (o VeenClusterPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenCustomData struct {
+	// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+	Data *string `pulumi:"data"`
+	// Whether the data uses Base64 encoding
+	IsBase64 *bool `pulumi:"isBase64"`
+}
+
+// VeenCustomDataInput is an input type that accepts VeenCustomDataArgs and VeenCustomDataOutput values.
+// You can construct a concrete instance of `VeenCustomDataInput` via:
+//
+//	VeenCustomDataArgs{...}
+type VeenCustomDataInput interface {
+	pulumi.Input
+
+	ToVeenCustomDataOutput() VeenCustomDataOutput
+	ToVeenCustomDataOutputWithContext(context.Context) VeenCustomDataOutput
+}
+
+type VeenCustomDataArgs struct {
+	// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+	Data pulumi.StringPtrInput `pulumi:"data"`
+	// Whether the data uses Base64 encoding
+	IsBase64 pulumi.BoolPtrInput `pulumi:"isBase64"`
+}
+
+func (VeenCustomDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenCustomData)(nil)).Elem()
+}
+
+func (i VeenCustomDataArgs) ToVeenCustomDataOutput() VeenCustomDataOutput {
+	return i.ToVeenCustomDataOutputWithContext(context.Background())
+}
+
+func (i VeenCustomDataArgs) ToVeenCustomDataOutputWithContext(ctx context.Context) VeenCustomDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenCustomDataOutput)
+}
+
+func (i VeenCustomDataArgs) ToVeenCustomDataPtrOutput() VeenCustomDataPtrOutput {
+	return i.ToVeenCustomDataPtrOutputWithContext(context.Background())
+}
+
+func (i VeenCustomDataArgs) ToVeenCustomDataPtrOutputWithContext(ctx context.Context) VeenCustomDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenCustomDataOutput).ToVeenCustomDataPtrOutputWithContext(ctx)
+}
+
+// VeenCustomDataPtrInput is an input type that accepts VeenCustomDataArgs, VeenCustomDataPtr and VeenCustomDataPtrOutput values.
+// You can construct a concrete instance of `VeenCustomDataPtrInput` via:
+//
+//	        VeenCustomDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenCustomDataPtrInput interface {
+	pulumi.Input
+
+	ToVeenCustomDataPtrOutput() VeenCustomDataPtrOutput
+	ToVeenCustomDataPtrOutputWithContext(context.Context) VeenCustomDataPtrOutput
+}
+
+type veenCustomDataPtrType VeenCustomDataArgs
+
+func VeenCustomDataPtr(v *VeenCustomDataArgs) VeenCustomDataPtrInput {
+	return (*veenCustomDataPtrType)(v)
+}
+
+func (*veenCustomDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenCustomData)(nil)).Elem()
+}
+
+func (i *veenCustomDataPtrType) ToVeenCustomDataPtrOutput() VeenCustomDataPtrOutput {
+	return i.ToVeenCustomDataPtrOutputWithContext(context.Background())
+}
+
+func (i *veenCustomDataPtrType) ToVeenCustomDataPtrOutputWithContext(ctx context.Context) VeenCustomDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenCustomDataPtrOutput)
+}
+
+type VeenCustomDataOutput struct{ *pulumi.OutputState }
+
+func (VeenCustomDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenCustomData)(nil)).Elem()
+}
+
+func (o VeenCustomDataOutput) ToVeenCustomDataOutput() VeenCustomDataOutput {
+	return o
+}
+
+func (o VeenCustomDataOutput) ToVeenCustomDataOutputWithContext(ctx context.Context) VeenCustomDataOutput {
+	return o
+}
+
+func (o VeenCustomDataOutput) ToVeenCustomDataPtrOutput() VeenCustomDataPtrOutput {
+	return o.ToVeenCustomDataPtrOutputWithContext(context.Background())
+}
+
+func (o VeenCustomDataOutput) ToVeenCustomDataPtrOutputWithContext(ctx context.Context) VeenCustomDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenCustomData) *VeenCustomData {
+		return &v
+	}).(VeenCustomDataPtrOutput)
+}
+
+// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+func (o VeenCustomDataOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenCustomData) *string { return v.Data }).(pulumi.StringPtrOutput)
+}
+
+// Whether the data uses Base64 encoding
+func (o VeenCustomDataOutput) IsBase64() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenCustomData) *bool { return v.IsBase64 }).(pulumi.BoolPtrOutput)
+}
+
+type VeenCustomDataPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenCustomDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenCustomData)(nil)).Elem()
+}
+
+func (o VeenCustomDataPtrOutput) ToVeenCustomDataPtrOutput() VeenCustomDataPtrOutput {
+	return o
+}
+
+func (o VeenCustomDataPtrOutput) ToVeenCustomDataPtrOutputWithContext(ctx context.Context) VeenCustomDataPtrOutput {
+	return o
+}
+
+func (o VeenCustomDataPtrOutput) Elem() VeenCustomDataOutput {
+	return o.ApplyT(func(v *VeenCustomData) VeenCustomData {
+		if v != nil {
+			return *v
+		}
+		var ret VeenCustomData
+		return ret
+	}).(VeenCustomDataOutput)
+}
+
+// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+func (o VeenCustomDataPtrOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenCustomData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the data uses Base64 encoding
+func (o VeenCustomDataPtrOutput) IsBase64() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenCustomData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsBase64
+	}).(pulumi.BoolPtrOutput)
+}
+
+type VeenGpu struct {
+	// GPU specification information
+	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+	Gpuses []VeenGpuGpus `pulumi:"gpuses"`
+}
+
+// VeenGpuInput is an input type that accepts VeenGpuArgs and VeenGpuOutput values.
+// You can construct a concrete instance of `VeenGpuInput` via:
+//
+//	VeenGpuArgs{...}
+type VeenGpuInput interface {
+	pulumi.Input
+
+	ToVeenGpuOutput() VeenGpuOutput
+	ToVeenGpuOutputWithContext(context.Context) VeenGpuOutput
+}
+
+type VeenGpuArgs struct {
+	// GPU specification information
+	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+	Gpuses VeenGpuGpusArrayInput `pulumi:"gpuses"`
+}
+
+func (VeenGpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenGpu)(nil)).Elem()
+}
+
+func (i VeenGpuArgs) ToVeenGpuOutput() VeenGpuOutput {
+	return i.ToVeenGpuOutputWithContext(context.Background())
+}
+
+func (i VeenGpuArgs) ToVeenGpuOutputWithContext(ctx context.Context) VeenGpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuOutput)
+}
+
+func (i VeenGpuArgs) ToVeenGpuPtrOutput() VeenGpuPtrOutput {
+	return i.ToVeenGpuPtrOutputWithContext(context.Background())
+}
+
+func (i VeenGpuArgs) ToVeenGpuPtrOutputWithContext(ctx context.Context) VeenGpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuOutput).ToVeenGpuPtrOutputWithContext(ctx)
+}
+
+// VeenGpuPtrInput is an input type that accepts VeenGpuArgs, VeenGpuPtr and VeenGpuPtrOutput values.
+// You can construct a concrete instance of `VeenGpuPtrInput` via:
+//
+//	        VeenGpuArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenGpuPtrInput interface {
+	pulumi.Input
+
+	ToVeenGpuPtrOutput() VeenGpuPtrOutput
+	ToVeenGpuPtrOutputWithContext(context.Context) VeenGpuPtrOutput
+}
+
+type veenGpuPtrType VeenGpuArgs
+
+func VeenGpuPtr(v *VeenGpuArgs) VeenGpuPtrInput {
+	return (*veenGpuPtrType)(v)
+}
+
+func (*veenGpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenGpu)(nil)).Elem()
+}
+
+func (i *veenGpuPtrType) ToVeenGpuPtrOutput() VeenGpuPtrOutput {
+	return i.ToVeenGpuPtrOutputWithContext(context.Background())
+}
+
+func (i *veenGpuPtrType) ToVeenGpuPtrOutputWithContext(ctx context.Context) VeenGpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuPtrOutput)
+}
+
+type VeenGpuOutput struct{ *pulumi.OutputState }
+
+func (VeenGpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenGpu)(nil)).Elem()
+}
+
+func (o VeenGpuOutput) ToVeenGpuOutput() VeenGpuOutput {
+	return o
+}
+
+func (o VeenGpuOutput) ToVeenGpuOutputWithContext(ctx context.Context) VeenGpuOutput {
+	return o
+}
+
+func (o VeenGpuOutput) ToVeenGpuPtrOutput() VeenGpuPtrOutput {
+	return o.ToVeenGpuPtrOutputWithContext(context.Background())
+}
+
+func (o VeenGpuOutput) ToVeenGpuPtrOutputWithContext(ctx context.Context) VeenGpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenGpu) *VeenGpu {
+		return &v
+	}).(VeenGpuPtrOutput)
+}
+
+// GPU specification information
+// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+func (o VeenGpuOutput) Gpuses() VeenGpuGpusArrayOutput {
+	return o.ApplyT(func(v VeenGpu) []VeenGpuGpus { return v.Gpuses }).(VeenGpuGpusArrayOutput)
+}
+
+type VeenGpuPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenGpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenGpu)(nil)).Elem()
+}
+
+func (o VeenGpuPtrOutput) ToVeenGpuPtrOutput() VeenGpuPtrOutput {
+	return o
+}
+
+func (o VeenGpuPtrOutput) ToVeenGpuPtrOutputWithContext(ctx context.Context) VeenGpuPtrOutput {
+	return o
+}
+
+func (o VeenGpuPtrOutput) Elem() VeenGpuOutput {
+	return o.ApplyT(func(v *VeenGpu) VeenGpu {
+		if v != nil {
+			return *v
+		}
+		var ret VeenGpu
+		return ret
+	}).(VeenGpuOutput)
+}
+
+// GPU specification information
+// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+func (o VeenGpuPtrOutput) Gpuses() VeenGpuGpusArrayOutput {
+	return o.ApplyT(func(v *VeenGpu) []VeenGpuGpus {
+		if v == nil {
+			return nil
+		}
+		return v.Gpuses
+	}).(VeenGpuGpusArrayOutput)
+}
+
+type VeenGpuGpus struct {
+	// GPU specification
+	GpuSpec *VeenGpuGpusGpuSpec `pulumi:"gpuSpec"`
+	// GPU quantity.
+	Num *int `pulumi:"num"`
+}
+
+// VeenGpuGpusInput is an input type that accepts VeenGpuGpusArgs and VeenGpuGpusOutput values.
+// You can construct a concrete instance of `VeenGpuGpusInput` via:
+//
+//	VeenGpuGpusArgs{...}
+type VeenGpuGpusInput interface {
+	pulumi.Input
+
+	ToVeenGpuGpusOutput() VeenGpuGpusOutput
+	ToVeenGpuGpusOutputWithContext(context.Context) VeenGpuGpusOutput
+}
+
+type VeenGpuGpusArgs struct {
+	// GPU specification
+	GpuSpec VeenGpuGpusGpuSpecPtrInput `pulumi:"gpuSpec"`
+	// GPU quantity.
+	Num pulumi.IntPtrInput `pulumi:"num"`
+}
+
+func (VeenGpuGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenGpuGpus)(nil)).Elem()
+}
+
+func (i VeenGpuGpusArgs) ToVeenGpuGpusOutput() VeenGpuGpusOutput {
+	return i.ToVeenGpuGpusOutputWithContext(context.Background())
+}
+
+func (i VeenGpuGpusArgs) ToVeenGpuGpusOutputWithContext(ctx context.Context) VeenGpuGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuGpusOutput)
+}
+
+// VeenGpuGpusArrayInput is an input type that accepts VeenGpuGpusArray and VeenGpuGpusArrayOutput values.
+// You can construct a concrete instance of `VeenGpuGpusArrayInput` via:
+//
+//	VeenGpuGpusArray{ VeenGpuGpusArgs{...} }
+type VeenGpuGpusArrayInput interface {
+	pulumi.Input
+
+	ToVeenGpuGpusArrayOutput() VeenGpuGpusArrayOutput
+	ToVeenGpuGpusArrayOutputWithContext(context.Context) VeenGpuGpusArrayOutput
+}
+
+type VeenGpuGpusArray []VeenGpuGpusInput
+
+func (VeenGpuGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenGpuGpus)(nil)).Elem()
+}
+
+func (i VeenGpuGpusArray) ToVeenGpuGpusArrayOutput() VeenGpuGpusArrayOutput {
+	return i.ToVeenGpuGpusArrayOutputWithContext(context.Background())
+}
+
+func (i VeenGpuGpusArray) ToVeenGpuGpusArrayOutputWithContext(ctx context.Context) VeenGpuGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuGpusArrayOutput)
+}
+
+type VeenGpuGpusOutput struct{ *pulumi.OutputState }
+
+func (VeenGpuGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenGpuGpus)(nil)).Elem()
+}
+
+func (o VeenGpuGpusOutput) ToVeenGpuGpusOutput() VeenGpuGpusOutput {
+	return o
+}
+
+func (o VeenGpuGpusOutput) ToVeenGpuGpusOutputWithContext(ctx context.Context) VeenGpuGpusOutput {
+	return o
+}
+
+// GPU specification
+func (o VeenGpuGpusOutput) GpuSpec() VeenGpuGpusGpuSpecPtrOutput {
+	return o.ApplyT(func(v VeenGpuGpus) *VeenGpuGpusGpuSpec { return v.GpuSpec }).(VeenGpuGpusGpuSpecPtrOutput)
+}
+
+// GPU quantity.
+func (o VeenGpuGpusOutput) Num() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenGpuGpus) *int { return v.Num }).(pulumi.IntPtrOutput)
+}
+
+type VeenGpuGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (VeenGpuGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenGpuGpus)(nil)).Elem()
+}
+
+func (o VeenGpuGpusArrayOutput) ToVeenGpuGpusArrayOutput() VeenGpuGpusArrayOutput {
+	return o
+}
+
+func (o VeenGpuGpusArrayOutput) ToVeenGpuGpusArrayOutputWithContext(ctx context.Context) VeenGpuGpusArrayOutput {
+	return o
+}
+
+func (o VeenGpuGpusArrayOutput) Index(i pulumi.IntInput) VeenGpuGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VeenGpuGpus {
+		return vs[0].([]VeenGpuGpus)[vs[1].(int)]
+	}).(VeenGpuGpusOutput)
+}
+
+type VeenGpuGpusGpuSpec struct {
+	// GPU type.
+	GpuType *string `pulumi:"gpuType"`
+}
+
+// VeenGpuGpusGpuSpecInput is an input type that accepts VeenGpuGpusGpuSpecArgs and VeenGpuGpusGpuSpecOutput values.
+// You can construct a concrete instance of `VeenGpuGpusGpuSpecInput` via:
+//
+//	VeenGpuGpusGpuSpecArgs{...}
+type VeenGpuGpusGpuSpecInput interface {
+	pulumi.Input
+
+	ToVeenGpuGpusGpuSpecOutput() VeenGpuGpusGpuSpecOutput
+	ToVeenGpuGpusGpuSpecOutputWithContext(context.Context) VeenGpuGpusGpuSpecOutput
+}
+
+type VeenGpuGpusGpuSpecArgs struct {
+	// GPU type.
+	GpuType pulumi.StringPtrInput `pulumi:"gpuType"`
+}
+
+func (VeenGpuGpusGpuSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenGpuGpusGpuSpec)(nil)).Elem()
+}
+
+func (i VeenGpuGpusGpuSpecArgs) ToVeenGpuGpusGpuSpecOutput() VeenGpuGpusGpuSpecOutput {
+	return i.ToVeenGpuGpusGpuSpecOutputWithContext(context.Background())
+}
+
+func (i VeenGpuGpusGpuSpecArgs) ToVeenGpuGpusGpuSpecOutputWithContext(ctx context.Context) VeenGpuGpusGpuSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuGpusGpuSpecOutput)
+}
+
+func (i VeenGpuGpusGpuSpecArgs) ToVeenGpuGpusGpuSpecPtrOutput() VeenGpuGpusGpuSpecPtrOutput {
+	return i.ToVeenGpuGpusGpuSpecPtrOutputWithContext(context.Background())
+}
+
+func (i VeenGpuGpusGpuSpecArgs) ToVeenGpuGpusGpuSpecPtrOutputWithContext(ctx context.Context) VeenGpuGpusGpuSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuGpusGpuSpecOutput).ToVeenGpuGpusGpuSpecPtrOutputWithContext(ctx)
+}
+
+// VeenGpuGpusGpuSpecPtrInput is an input type that accepts VeenGpuGpusGpuSpecArgs, VeenGpuGpusGpuSpecPtr and VeenGpuGpusGpuSpecPtrOutput values.
+// You can construct a concrete instance of `VeenGpuGpusGpuSpecPtrInput` via:
+//
+//	        VeenGpuGpusGpuSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenGpuGpusGpuSpecPtrInput interface {
+	pulumi.Input
+
+	ToVeenGpuGpusGpuSpecPtrOutput() VeenGpuGpusGpuSpecPtrOutput
+	ToVeenGpuGpusGpuSpecPtrOutputWithContext(context.Context) VeenGpuGpusGpuSpecPtrOutput
+}
+
+type veenGpuGpusGpuSpecPtrType VeenGpuGpusGpuSpecArgs
+
+func VeenGpuGpusGpuSpecPtr(v *VeenGpuGpusGpuSpecArgs) VeenGpuGpusGpuSpecPtrInput {
+	return (*veenGpuGpusGpuSpecPtrType)(v)
+}
+
+func (*veenGpuGpusGpuSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenGpuGpusGpuSpec)(nil)).Elem()
+}
+
+func (i *veenGpuGpusGpuSpecPtrType) ToVeenGpuGpusGpuSpecPtrOutput() VeenGpuGpusGpuSpecPtrOutput {
+	return i.ToVeenGpuGpusGpuSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *veenGpuGpusGpuSpecPtrType) ToVeenGpuGpusGpuSpecPtrOutputWithContext(ctx context.Context) VeenGpuGpusGpuSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenGpuGpusGpuSpecPtrOutput)
+}
+
+type VeenGpuGpusGpuSpecOutput struct{ *pulumi.OutputState }
+
+func (VeenGpuGpusGpuSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenGpuGpusGpuSpec)(nil)).Elem()
+}
+
+func (o VeenGpuGpusGpuSpecOutput) ToVeenGpuGpusGpuSpecOutput() VeenGpuGpusGpuSpecOutput {
+	return o
+}
+
+func (o VeenGpuGpusGpuSpecOutput) ToVeenGpuGpusGpuSpecOutputWithContext(ctx context.Context) VeenGpuGpusGpuSpecOutput {
+	return o
+}
+
+func (o VeenGpuGpusGpuSpecOutput) ToVeenGpuGpusGpuSpecPtrOutput() VeenGpuGpusGpuSpecPtrOutput {
+	return o.ToVeenGpuGpusGpuSpecPtrOutputWithContext(context.Background())
+}
+
+func (o VeenGpuGpusGpuSpecOutput) ToVeenGpuGpusGpuSpecPtrOutputWithContext(ctx context.Context) VeenGpuGpusGpuSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenGpuGpusGpuSpec) *VeenGpuGpusGpuSpec {
+		return &v
+	}).(VeenGpuGpusGpuSpecPtrOutput)
+}
+
+// GPU type.
+func (o VeenGpuGpusGpuSpecOutput) GpuType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenGpuGpusGpuSpec) *string { return v.GpuType }).(pulumi.StringPtrOutput)
+}
+
+type VeenGpuGpusGpuSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenGpuGpusGpuSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenGpuGpusGpuSpec)(nil)).Elem()
+}
+
+func (o VeenGpuGpusGpuSpecPtrOutput) ToVeenGpuGpusGpuSpecPtrOutput() VeenGpuGpusGpuSpecPtrOutput {
+	return o
+}
+
+func (o VeenGpuGpusGpuSpecPtrOutput) ToVeenGpuGpusGpuSpecPtrOutputWithContext(ctx context.Context) VeenGpuGpusGpuSpecPtrOutput {
+	return o
+}
+
+func (o VeenGpuGpusGpuSpecPtrOutput) Elem() VeenGpuGpusGpuSpecOutput {
+	return o.ApplyT(func(v *VeenGpuGpusGpuSpec) VeenGpuGpusGpuSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VeenGpuGpusGpuSpec
+		return ret
+	}).(VeenGpuGpusGpuSpecOutput)
+}
+
+// GPU type.
+func (o VeenGpuGpusGpuSpecPtrOutput) GpuType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenGpuGpusGpuSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GpuType
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenImage struct {
+	// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+	DisableVga *bool `pulumi:"disableVga"`
+	// Image boot mode: BIOS, UEFI
+	ImageBootMode *string `pulumi:"imageBootMode"`
+	// Image ID.
+	ImageIdentity *string `pulumi:"imageIdentity"`
+	// Image name.
+	ImageName *string `pulumi:"imageName"`
+	// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+	Property *string `pulumi:"property"`
+	// Operating system architecture.
+	SystemArch *string `pulumi:"systemArch"`
+	// Operating system bitness.
+	SystemBit *string `pulumi:"systemBit"`
+	// Type of operating system.
+	SystemType *string `pulumi:"systemType"`
+	// Operating system version.
+	SystemVersion *string `pulumi:"systemVersion"`
+}
+
+// VeenImageInput is an input type that accepts VeenImageArgs and VeenImageOutput values.
+// You can construct a concrete instance of `VeenImageInput` via:
+//
+//	VeenImageArgs{...}
+type VeenImageInput interface {
+	pulumi.Input
+
+	ToVeenImageOutput() VeenImageOutput
+	ToVeenImageOutputWithContext(context.Context) VeenImageOutput
+}
+
+type VeenImageArgs struct {
+	// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+	DisableVga pulumi.BoolPtrInput `pulumi:"disableVga"`
+	// Image boot mode: BIOS, UEFI
+	ImageBootMode pulumi.StringPtrInput `pulumi:"imageBootMode"`
+	// Image ID.
+	ImageIdentity pulumi.StringPtrInput `pulumi:"imageIdentity"`
+	// Image name.
+	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
+	// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// Operating system architecture.
+	SystemArch pulumi.StringPtrInput `pulumi:"systemArch"`
+	// Operating system bitness.
+	SystemBit pulumi.StringPtrInput `pulumi:"systemBit"`
+	// Type of operating system.
+	SystemType pulumi.StringPtrInput `pulumi:"systemType"`
+	// Operating system version.
+	SystemVersion pulumi.StringPtrInput `pulumi:"systemVersion"`
+}
+
+func (VeenImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenImage)(nil)).Elem()
+}
+
+func (i VeenImageArgs) ToVeenImageOutput() VeenImageOutput {
+	return i.ToVeenImageOutputWithContext(context.Background())
+}
+
+func (i VeenImageArgs) ToVeenImageOutputWithContext(ctx context.Context) VeenImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenImageOutput)
+}
+
+func (i VeenImageArgs) ToVeenImagePtrOutput() VeenImagePtrOutput {
+	return i.ToVeenImagePtrOutputWithContext(context.Background())
+}
+
+func (i VeenImageArgs) ToVeenImagePtrOutputWithContext(ctx context.Context) VeenImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenImageOutput).ToVeenImagePtrOutputWithContext(ctx)
+}
+
+// VeenImagePtrInput is an input type that accepts VeenImageArgs, VeenImagePtr and VeenImagePtrOutput values.
+// You can construct a concrete instance of `VeenImagePtrInput` via:
+//
+//	        VeenImageArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenImagePtrInput interface {
+	pulumi.Input
+
+	ToVeenImagePtrOutput() VeenImagePtrOutput
+	ToVeenImagePtrOutputWithContext(context.Context) VeenImagePtrOutput
+}
+
+type veenImagePtrType VeenImageArgs
+
+func VeenImagePtr(v *VeenImageArgs) VeenImagePtrInput {
+	return (*veenImagePtrType)(v)
+}
+
+func (*veenImagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenImage)(nil)).Elem()
+}
+
+func (i *veenImagePtrType) ToVeenImagePtrOutput() VeenImagePtrOutput {
+	return i.ToVeenImagePtrOutputWithContext(context.Background())
+}
+
+func (i *veenImagePtrType) ToVeenImagePtrOutputWithContext(ctx context.Context) VeenImagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenImagePtrOutput)
+}
+
+type VeenImageOutput struct{ *pulumi.OutputState }
+
+func (VeenImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenImage)(nil)).Elem()
+}
+
+func (o VeenImageOutput) ToVeenImageOutput() VeenImageOutput {
+	return o
+}
+
+func (o VeenImageOutput) ToVeenImageOutputWithContext(ctx context.Context) VeenImageOutput {
+	return o
+}
+
+func (o VeenImageOutput) ToVeenImagePtrOutput() VeenImagePtrOutput {
+	return o.ToVeenImagePtrOutputWithContext(context.Background())
+}
+
+func (o VeenImageOutput) ToVeenImagePtrOutputWithContext(ctx context.Context) VeenImagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenImage) *VeenImage {
+		return &v
+	}).(VeenImagePtrOutput)
+}
+
+// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+func (o VeenImageOutput) DisableVga() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenImage) *bool { return v.DisableVga }).(pulumi.BoolPtrOutput)
+}
+
+// Image boot mode: BIOS, UEFI
+func (o VeenImageOutput) ImageBootMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.ImageBootMode }).(pulumi.StringPtrOutput)
+}
+
+// Image ID.
+func (o VeenImageOutput) ImageIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.ImageIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Image name.
+func (o VeenImageOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+func (o VeenImageOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// Operating system architecture.
+func (o VeenImageOutput) SystemArch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.SystemArch }).(pulumi.StringPtrOutput)
+}
+
+// Operating system bitness.
+func (o VeenImageOutput) SystemBit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.SystemBit }).(pulumi.StringPtrOutput)
+}
+
+// Type of operating system.
+func (o VeenImageOutput) SystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.SystemType }).(pulumi.StringPtrOutput)
+}
+
+// Operating system version.
+func (o VeenImageOutput) SystemVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenImage) *string { return v.SystemVersion }).(pulumi.StringPtrOutput)
+}
+
+type VeenImagePtrOutput struct{ *pulumi.OutputState }
+
+func (VeenImagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenImage)(nil)).Elem()
+}
+
+func (o VeenImagePtrOutput) ToVeenImagePtrOutput() VeenImagePtrOutput {
+	return o
+}
+
+func (o VeenImagePtrOutput) ToVeenImagePtrOutputWithContext(ctx context.Context) VeenImagePtrOutput {
+	return o
+}
+
+func (o VeenImagePtrOutput) Elem() VeenImageOutput {
+	return o.ApplyT(func(v *VeenImage) VeenImage {
+		if v != nil {
+			return *v
+		}
+		var ret VeenImage
+		return ret
+	}).(VeenImageOutput)
+}
+
+// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+func (o VeenImagePtrOutput) DisableVga() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableVga
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Image boot mode: BIOS, UEFI
+func (o VeenImagePtrOutput) ImageBootMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageBootMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image ID.
+func (o VeenImagePtrOutput) ImageIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image name.
+func (o VeenImagePtrOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+func (o VeenImagePtrOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Property
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operating system architecture.
+func (o VeenImagePtrOutput) SystemArch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemArch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operating system bitness.
+func (o VeenImagePtrOutput) SystemBit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemBit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of operating system.
+func (o VeenImagePtrOutput) SystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operating system version.
+func (o VeenImagePtrOutput) SystemVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenImage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenInstanceAreaNum struct {
+	// Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	AreaName *string `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+	ClusterName *string `pulumi:"clusterName"`
+	// Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp *string `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+	// single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+	// Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+	ExternalNetworkMode *string `pulumi:"externalNetworkMode"`
+	// The host name list to assign to the created instances.
+	HostNameLists []string `pulumi:"hostNameLists"`
+	// Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	Isp *string `pulumi:"isp"`
+	// NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+	// If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+	MultiInterfaceNameConfig *VeenInstanceAreaNumMultiInterfaceNameConfig `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num *int `pulumi:"num"`
+	// Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+	SingleInterfaceNameConfig *VeenInstanceAreaNumSingleInterfaceNameConfig `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity *string `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+	VpcIdentity *string `pulumi:"vpcIdentity"`
+}
+
+// VeenInstanceAreaNumInput is an input type that accepts VeenInstanceAreaNumArgs and VeenInstanceAreaNumOutput values.
+// You can construct a concrete instance of `VeenInstanceAreaNumInput` via:
+//
+//	VeenInstanceAreaNumArgs{...}
+type VeenInstanceAreaNumInput interface {
+	pulumi.Input
+
+	ToVeenInstanceAreaNumOutput() VeenInstanceAreaNumOutput
+	ToVeenInstanceAreaNumOutputWithContext(context.Context) VeenInstanceAreaNumOutput
+}
+
+type VeenInstanceAreaNumArgs struct {
+	// Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	AreaName pulumi.StringPtrInput `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+	ClusterName pulumi.StringPtrInput `pulumi:"clusterName"`
+	// Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp pulumi.StringPtrInput `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+	// single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+	// Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+	ExternalNetworkMode pulumi.StringPtrInput `pulumi:"externalNetworkMode"`
+	// The host name list to assign to the created instances.
+	HostNameLists pulumi.StringArrayInput `pulumi:"hostNameLists"`
+	// Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	Isp pulumi.StringPtrInput `pulumi:"isp"`
+	// NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+	// If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+	MultiInterfaceNameConfig VeenInstanceAreaNumMultiInterfaceNameConfigPtrInput `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num pulumi.IntPtrInput `pulumi:"num"`
+	// Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+	SingleInterfaceNameConfig VeenInstanceAreaNumSingleInterfaceNameConfigPtrInput `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity pulumi.StringPtrInput `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+	VpcIdentity pulumi.StringPtrInput `pulumi:"vpcIdentity"`
+}
+
+func (VeenInstanceAreaNumArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (i VeenInstanceAreaNumArgs) ToVeenInstanceAreaNumOutput() VeenInstanceAreaNumOutput {
+	return i.ToVeenInstanceAreaNumOutputWithContext(context.Background())
+}
+
+func (i VeenInstanceAreaNumArgs) ToVeenInstanceAreaNumOutputWithContext(ctx context.Context) VeenInstanceAreaNumOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumOutput)
+}
+
+// VeenInstanceAreaNumArrayInput is an input type that accepts VeenInstanceAreaNumArray and VeenInstanceAreaNumArrayOutput values.
+// You can construct a concrete instance of `VeenInstanceAreaNumArrayInput` via:
+//
+//	VeenInstanceAreaNumArray{ VeenInstanceAreaNumArgs{...} }
+type VeenInstanceAreaNumArrayInput interface {
+	pulumi.Input
+
+	ToVeenInstanceAreaNumArrayOutput() VeenInstanceAreaNumArrayOutput
+	ToVeenInstanceAreaNumArrayOutputWithContext(context.Context) VeenInstanceAreaNumArrayOutput
+}
+
+type VeenInstanceAreaNumArray []VeenInstanceAreaNumInput
+
+func (VeenInstanceAreaNumArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (i VeenInstanceAreaNumArray) ToVeenInstanceAreaNumArrayOutput() VeenInstanceAreaNumArrayOutput {
+	return i.ToVeenInstanceAreaNumArrayOutputWithContext(context.Background())
+}
+
+func (i VeenInstanceAreaNumArray) ToVeenInstanceAreaNumArrayOutputWithContext(ctx context.Context) VeenInstanceAreaNumArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumArrayOutput)
+}
+
+type VeenInstanceAreaNumOutput struct{ *pulumi.OutputState }
+
+func (VeenInstanceAreaNumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (o VeenInstanceAreaNumOutput) ToVeenInstanceAreaNumOutput() VeenInstanceAreaNumOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumOutput) ToVeenInstanceAreaNumOutputWithContext(ctx context.Context) VeenInstanceAreaNumOutput {
+	return o
+}
+
+// Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+func (o VeenInstanceAreaNumOutput) AreaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.AreaName }).(pulumi.StringPtrOutput)
+}
+
+// Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+func (o VeenInstanceAreaNumOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+func (o VeenInstanceAreaNumOutput) DefaultIsp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.DefaultIsp }).(pulumi.StringPtrOutput)
+}
+
+// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+// single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+// Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+func (o VeenInstanceAreaNumOutput) ExternalNetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.ExternalNetworkMode }).(pulumi.StringPtrOutput)
+}
+
+// The host name list to assign to the created instances.
+func (o VeenInstanceAreaNumOutput) HostNameLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) []string { return v.HostNameLists }).(pulumi.StringArrayOutput)
+}
+
+// Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+func (o VeenInstanceAreaNumOutput) Isp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.Isp }).(pulumi.StringPtrOutput)
+}
+
+// NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+// If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+func (o VeenInstanceAreaNumOutput) MultiInterfaceNameConfig() VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *VeenInstanceAreaNumMultiInterfaceNameConfig {
+		return v.MultiInterfaceNameConfig
+	}).(VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput)
+}
+
+// Number of instances.
+func (o VeenInstanceAreaNumOutput) Num() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *int { return v.Num }).(pulumi.IntPtrOutput)
+}
+
+// Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+func (o VeenInstanceAreaNumOutput) SingleInterfaceNameConfig() VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *VeenInstanceAreaNumSingleInterfaceNameConfig {
+		return v.SingleInterfaceNameConfig
+	}).(VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput)
+}
+
+// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+func (o VeenInstanceAreaNumOutput) SubnetIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.SubnetIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+func (o VeenInstanceAreaNumOutput) VpcIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNum) *string { return v.VpcIdentity }).(pulumi.StringPtrOutput)
+}
+
+type VeenInstanceAreaNumArrayOutput struct{ *pulumi.OutputState }
+
+func (VeenInstanceAreaNumArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (o VeenInstanceAreaNumArrayOutput) ToVeenInstanceAreaNumArrayOutput() VeenInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumArrayOutput) ToVeenInstanceAreaNumArrayOutputWithContext(ctx context.Context) VeenInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumArrayOutput) Index(i pulumi.IntInput) VeenInstanceAreaNumOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VeenInstanceAreaNum {
+		return vs[0].([]VeenInstanceAreaNum)[vs[1].(int)]
+	}).(VeenInstanceAreaNumOutput)
+}
+
+type VeenInstanceAreaNumMultiInterfaceNameConfig struct {
+	// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CmccExternalInterfaceName *string `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+	CtccExternalInterfaceName *string `pulumi:"ctccExternalInterfaceName"`
+	// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	CuccExternalInterfaceName *string `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName *string `pulumi:"internalInterfaceName"`
+}
+
+// VeenInstanceAreaNumMultiInterfaceNameConfigInput is an input type that accepts VeenInstanceAreaNumMultiInterfaceNameConfigArgs and VeenInstanceAreaNumMultiInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `VeenInstanceAreaNumMultiInterfaceNameConfigInput` via:
+//
+//	VeenInstanceAreaNumMultiInterfaceNameConfigArgs{...}
+type VeenInstanceAreaNumMultiInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToVeenInstanceAreaNumMultiInterfaceNameConfigOutput() VeenInstanceAreaNumMultiInterfaceNameConfigOutput
+	ToVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigOutput
+}
+
+type VeenInstanceAreaNumMultiInterfaceNameConfigArgs struct {
+	// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CmccExternalInterfaceName pulumi.StringPtrInput `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+	CtccExternalInterfaceName pulumi.StringPtrInput `pulumi:"ctccExternalInterfaceName"`
+	// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	CuccExternalInterfaceName pulumi.StringPtrInput `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName pulumi.StringPtrInput `pulumi:"internalInterfaceName"`
+}
+
+func (VeenInstanceAreaNumMultiInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i VeenInstanceAreaNumMultiInterfaceNameConfigArgs) ToVeenInstanceAreaNumMultiInterfaceNameConfigOutput() VeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return i.ToVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i VeenInstanceAreaNumMultiInterfaceNameConfigArgs) ToVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+func (i VeenInstanceAreaNumMultiInterfaceNameConfigArgs) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput() VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return i.ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i VeenInstanceAreaNumMultiInterfaceNameConfigArgs) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumMultiInterfaceNameConfigOutput).ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx)
+}
+
+// VeenInstanceAreaNumMultiInterfaceNameConfigPtrInput is an input type that accepts VeenInstanceAreaNumMultiInterfaceNameConfigArgs, VeenInstanceAreaNumMultiInterfaceNameConfigPtr and VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput values.
+// You can construct a concrete instance of `VeenInstanceAreaNumMultiInterfaceNameConfigPtrInput` via:
+//
+//	        VeenInstanceAreaNumMultiInterfaceNameConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenInstanceAreaNumMultiInterfaceNameConfigPtrInput interface {
+	pulumi.Input
+
+	ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput() VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput
+	ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput
+}
+
+type veenInstanceAreaNumMultiInterfaceNameConfigPtrType VeenInstanceAreaNumMultiInterfaceNameConfigArgs
+
+func VeenInstanceAreaNumMultiInterfaceNameConfigPtr(v *VeenInstanceAreaNumMultiInterfaceNameConfigArgs) VeenInstanceAreaNumMultiInterfaceNameConfigPtrInput {
+	return (*veenInstanceAreaNumMultiInterfaceNameConfigPtrType)(v)
+}
+
+func (*veenInstanceAreaNumMultiInterfaceNameConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i *veenInstanceAreaNumMultiInterfaceNameConfigPtrType) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput() VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return i.ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *veenInstanceAreaNumMultiInterfaceNameConfigPtrType) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput)
+}
+
+type VeenInstanceAreaNumMultiInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (VeenInstanceAreaNumMultiInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) ToVeenInstanceAreaNumMultiInterfaceNameConfigOutput() VeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) ToVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput() VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o.ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenInstanceAreaNumMultiInterfaceNameConfig) *VeenInstanceAreaNumMultiInterfaceNameConfig {
+		return &v
+	}).(VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput)
+}
+
+// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) CmccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNumMultiInterfaceNameConfig) *string { return v.CmccExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) CtccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNumMultiInterfaceNameConfig) *string { return v.CtccExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) CuccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNumMultiInterfaceNameConfig) *string { return v.CuccExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNumMultiInterfaceNameConfig) *string { return v.InternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput() VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) ToVeenInstanceAreaNumMultiInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) Elem() VeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumMultiInterfaceNameConfig) VeenInstanceAreaNumMultiInterfaceNameConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VeenInstanceAreaNumMultiInterfaceNameConfig
+		return ret
+	}).(VeenInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) CmccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CmccExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) CtccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CtccExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) CuccExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CuccExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumMultiInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenInstanceAreaNumSingleInterfaceNameConfig struct {
+	// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+	ExternalInterfaceName *string `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName *string `pulumi:"internalInterfaceName"`
+}
+
+// VeenInstanceAreaNumSingleInterfaceNameConfigInput is an input type that accepts VeenInstanceAreaNumSingleInterfaceNameConfigArgs and VeenInstanceAreaNumSingleInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `VeenInstanceAreaNumSingleInterfaceNameConfigInput` via:
+//
+//	VeenInstanceAreaNumSingleInterfaceNameConfigArgs{...}
+type VeenInstanceAreaNumSingleInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToVeenInstanceAreaNumSingleInterfaceNameConfigOutput() VeenInstanceAreaNumSingleInterfaceNameConfigOutput
+	ToVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigOutput
+}
+
+type VeenInstanceAreaNumSingleInterfaceNameConfigArgs struct {
+	// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+	ExternalInterfaceName pulumi.StringPtrInput `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName pulumi.StringPtrInput `pulumi:"internalInterfaceName"`
+}
+
+func (VeenInstanceAreaNumSingleInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i VeenInstanceAreaNumSingleInterfaceNameConfigArgs) ToVeenInstanceAreaNumSingleInterfaceNameConfigOutput() VeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return i.ToVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i VeenInstanceAreaNumSingleInterfaceNameConfigArgs) ToVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+func (i VeenInstanceAreaNumSingleInterfaceNameConfigArgs) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput() VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return i.ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i VeenInstanceAreaNumSingleInterfaceNameConfigArgs) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumSingleInterfaceNameConfigOutput).ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx)
+}
+
+// VeenInstanceAreaNumSingleInterfaceNameConfigPtrInput is an input type that accepts VeenInstanceAreaNumSingleInterfaceNameConfigArgs, VeenInstanceAreaNumSingleInterfaceNameConfigPtr and VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput values.
+// You can construct a concrete instance of `VeenInstanceAreaNumSingleInterfaceNameConfigPtrInput` via:
+//
+//	        VeenInstanceAreaNumSingleInterfaceNameConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenInstanceAreaNumSingleInterfaceNameConfigPtrInput interface {
+	pulumi.Input
+
+	ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput() VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput
+	ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput
+}
+
+type veenInstanceAreaNumSingleInterfaceNameConfigPtrType VeenInstanceAreaNumSingleInterfaceNameConfigArgs
+
+func VeenInstanceAreaNumSingleInterfaceNameConfigPtr(v *VeenInstanceAreaNumSingleInterfaceNameConfigArgs) VeenInstanceAreaNumSingleInterfaceNameConfigPtrInput {
+	return (*veenInstanceAreaNumSingleInterfaceNameConfigPtrType)(v)
+}
+
+func (*veenInstanceAreaNumSingleInterfaceNameConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i *veenInstanceAreaNumSingleInterfaceNameConfigPtrType) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput() VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return i.ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *veenInstanceAreaNumSingleInterfaceNameConfigPtrType) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput)
+}
+
+type VeenInstanceAreaNumSingleInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (VeenInstanceAreaNumSingleInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigOutput) ToVeenInstanceAreaNumSingleInterfaceNameConfigOutput() VeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigOutput) ToVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigOutput) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput() VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o.ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(context.Background())
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigOutput) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenInstanceAreaNumSingleInterfaceNameConfig) *VeenInstanceAreaNumSingleInterfaceNameConfig {
+		return &v
+	}).(VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput)
+}
+
+// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigOutput) ExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNumSingleInterfaceNameConfig) *string { return v.ExternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenInstanceAreaNumSingleInterfaceNameConfig) *string { return v.InternalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput() VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ToVeenInstanceAreaNumSingleInterfaceNameConfigPtrOutputWithContext(ctx context.Context) VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput {
+	return o
+}
+
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput) Elem() VeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumSingleInterfaceNameConfig) VeenInstanceAreaNumSingleInterfaceNameConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VeenInstanceAreaNumSingleInterfaceNameConfig
+		return ret
+	}).(VeenInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput) ExternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumSingleInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput) InternalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenInstanceAreaNumSingleInterfaceNameConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InternalInterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenMonitorAgent struct {
+	// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+	AgentStatus *string `pulumi:"agentStatus"`
+}
+
+// VeenMonitorAgentInput is an input type that accepts VeenMonitorAgentArgs and VeenMonitorAgentOutput values.
+// You can construct a concrete instance of `VeenMonitorAgentInput` via:
+//
+//	VeenMonitorAgentArgs{...}
+type VeenMonitorAgentInput interface {
+	pulumi.Input
+
+	ToVeenMonitorAgentOutput() VeenMonitorAgentOutput
+	ToVeenMonitorAgentOutputWithContext(context.Context) VeenMonitorAgentOutput
+}
+
+type VeenMonitorAgentArgs struct {
+	// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+	AgentStatus pulumi.StringPtrInput `pulumi:"agentStatus"`
+}
+
+func (VeenMonitorAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenMonitorAgent)(nil)).Elem()
+}
+
+func (i VeenMonitorAgentArgs) ToVeenMonitorAgentOutput() VeenMonitorAgentOutput {
+	return i.ToVeenMonitorAgentOutputWithContext(context.Background())
+}
+
+func (i VeenMonitorAgentArgs) ToVeenMonitorAgentOutputWithContext(ctx context.Context) VeenMonitorAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenMonitorAgentOutput)
+}
+
+func (i VeenMonitorAgentArgs) ToVeenMonitorAgentPtrOutput() VeenMonitorAgentPtrOutput {
+	return i.ToVeenMonitorAgentPtrOutputWithContext(context.Background())
+}
+
+func (i VeenMonitorAgentArgs) ToVeenMonitorAgentPtrOutputWithContext(ctx context.Context) VeenMonitorAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenMonitorAgentOutput).ToVeenMonitorAgentPtrOutputWithContext(ctx)
+}
+
+// VeenMonitorAgentPtrInput is an input type that accepts VeenMonitorAgentArgs, VeenMonitorAgentPtr and VeenMonitorAgentPtrOutput values.
+// You can construct a concrete instance of `VeenMonitorAgentPtrInput` via:
+//
+//	        VeenMonitorAgentArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenMonitorAgentPtrInput interface {
+	pulumi.Input
+
+	ToVeenMonitorAgentPtrOutput() VeenMonitorAgentPtrOutput
+	ToVeenMonitorAgentPtrOutputWithContext(context.Context) VeenMonitorAgentPtrOutput
+}
+
+type veenMonitorAgentPtrType VeenMonitorAgentArgs
+
+func VeenMonitorAgentPtr(v *VeenMonitorAgentArgs) VeenMonitorAgentPtrInput {
+	return (*veenMonitorAgentPtrType)(v)
+}
+
+func (*veenMonitorAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenMonitorAgent)(nil)).Elem()
+}
+
+func (i *veenMonitorAgentPtrType) ToVeenMonitorAgentPtrOutput() VeenMonitorAgentPtrOutput {
+	return i.ToVeenMonitorAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *veenMonitorAgentPtrType) ToVeenMonitorAgentPtrOutputWithContext(ctx context.Context) VeenMonitorAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenMonitorAgentPtrOutput)
+}
+
+type VeenMonitorAgentOutput struct{ *pulumi.OutputState }
+
+func (VeenMonitorAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenMonitorAgent)(nil)).Elem()
+}
+
+func (o VeenMonitorAgentOutput) ToVeenMonitorAgentOutput() VeenMonitorAgentOutput {
+	return o
+}
+
+func (o VeenMonitorAgentOutput) ToVeenMonitorAgentOutputWithContext(ctx context.Context) VeenMonitorAgentOutput {
+	return o
+}
+
+func (o VeenMonitorAgentOutput) ToVeenMonitorAgentPtrOutput() VeenMonitorAgentPtrOutput {
+	return o.ToVeenMonitorAgentPtrOutputWithContext(context.Background())
+}
+
+func (o VeenMonitorAgentOutput) ToVeenMonitorAgentPtrOutputWithContext(ctx context.Context) VeenMonitorAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenMonitorAgent) *VeenMonitorAgent {
+		return &v
+	}).(VeenMonitorAgentPtrOutput)
+}
+
+// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+func (o VeenMonitorAgentOutput) AgentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenMonitorAgent) *string { return v.AgentStatus }).(pulumi.StringPtrOutput)
+}
+
+type VeenMonitorAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenMonitorAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenMonitorAgent)(nil)).Elem()
+}
+
+func (o VeenMonitorAgentPtrOutput) ToVeenMonitorAgentPtrOutput() VeenMonitorAgentPtrOutput {
+	return o
+}
+
+func (o VeenMonitorAgentPtrOutput) ToVeenMonitorAgentPtrOutputWithContext(ctx context.Context) VeenMonitorAgentPtrOutput {
+	return o
+}
+
+func (o VeenMonitorAgentPtrOutput) Elem() VeenMonitorAgentOutput {
+	return o.ApplyT(func(v *VeenMonitorAgent) VeenMonitorAgent {
+		if v != nil {
+			return *v
+		}
+		var ret VeenMonitorAgent
+		return ret
+	}).(VeenMonitorAgentOutput)
+}
+
+// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+func (o VeenMonitorAgentPtrOutput) AgentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenMonitorAgent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenNetwork struct {
+	// Number of allocated auxiliary private IP addresses
+	ActualSecondaryIpNum *int `pulumi:"actualSecondaryIpNum"`
+	// Percentile peak bandwidth, no fixed bandwidth value.
+	BandwidthPeakConfigRatio *VeenNetworkBandwidthPeakConfigRatio `pulumi:"bandwidthPeakConfigRatio"`
+	// Bandwidth peak update status: updating: updating. ready: update complete.
+	BandwidthPeakUpdateStatus *string `pulumi:"bandwidthPeakUpdateStatus"`
+	// Default carrier
+	DefaultIsp *string `pulumi:"defaultIsp"`
+	// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+	DisableIpv4 *bool `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+	DnsLists []string `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+	DnsType *string `pulumi:"dnsType"`
+	// Enable IPv6: true: enable IPv6. false: disable IPv6.
+	EnableIpv6 *bool `pulumi:"enableIpv6"`
+	// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+	ExternalNetworkMode *string `pulumi:"externalNetworkMode"`
+	// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+	LimitMode *string `pulumi:"limitMode"`
+	// Edge instance TCP session timeout. Unit: seconds.
+	TcpTimeout *int `pulumi:"tcpTimeout"`
+	// UDP session timeout for the edge instance. Unit: seconds.
+	UdpTimeout *int `pulumi:"udpTimeout"`
+	// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+	VfPassthrough *bool `pulumi:"vfPassthrough"`
+	// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+	VlanVfPassthrough *bool `pulumi:"vlanVfPassthrough"`
+	// Number of required auxiliary private network IP addresses
+	WantedSecondaryIpNum *int `pulumi:"wantedSecondaryIpNum"`
+}
+
+// VeenNetworkInput is an input type that accepts VeenNetworkArgs and VeenNetworkOutput values.
+// You can construct a concrete instance of `VeenNetworkInput` via:
+//
+//	VeenNetworkArgs{...}
+type VeenNetworkInput interface {
+	pulumi.Input
+
+	ToVeenNetworkOutput() VeenNetworkOutput
+	ToVeenNetworkOutputWithContext(context.Context) VeenNetworkOutput
+}
+
+type VeenNetworkArgs struct {
+	// Number of allocated auxiliary private IP addresses
+	ActualSecondaryIpNum pulumi.IntPtrInput `pulumi:"actualSecondaryIpNum"`
+	// Percentile peak bandwidth, no fixed bandwidth value.
+	BandwidthPeakConfigRatio VeenNetworkBandwidthPeakConfigRatioPtrInput `pulumi:"bandwidthPeakConfigRatio"`
+	// Bandwidth peak update status: updating: updating. ready: update complete.
+	BandwidthPeakUpdateStatus pulumi.StringPtrInput `pulumi:"bandwidthPeakUpdateStatus"`
+	// Default carrier
+	DefaultIsp pulumi.StringPtrInput `pulumi:"defaultIsp"`
+	// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+	DisableIpv4 pulumi.BoolPtrInput `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+	DnsLists pulumi.StringArrayInput `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+	DnsType pulumi.StringPtrInput `pulumi:"dnsType"`
+	// Enable IPv6: true: enable IPv6. false: disable IPv6.
+	EnableIpv6 pulumi.BoolPtrInput `pulumi:"enableIpv6"`
+	// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+	ExternalNetworkMode pulumi.StringPtrInput `pulumi:"externalNetworkMode"`
+	// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+	LimitMode pulumi.StringPtrInput `pulumi:"limitMode"`
+	// Edge instance TCP session timeout. Unit: seconds.
+	TcpTimeout pulumi.IntPtrInput `pulumi:"tcpTimeout"`
+	// UDP session timeout for the edge instance. Unit: seconds.
+	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
+	// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+	VfPassthrough pulumi.BoolPtrInput `pulumi:"vfPassthrough"`
+	// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+	VlanVfPassthrough pulumi.BoolPtrInput `pulumi:"vlanVfPassthrough"`
+	// Number of required auxiliary private network IP addresses
+	WantedSecondaryIpNum pulumi.IntPtrInput `pulumi:"wantedSecondaryIpNum"`
+}
+
+func (VeenNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenNetwork)(nil)).Elem()
+}
+
+func (i VeenNetworkArgs) ToVeenNetworkOutput() VeenNetworkOutput {
+	return i.ToVeenNetworkOutputWithContext(context.Background())
+}
+
+func (i VeenNetworkArgs) ToVeenNetworkOutputWithContext(ctx context.Context) VeenNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenNetworkOutput)
+}
+
+func (i VeenNetworkArgs) ToVeenNetworkPtrOutput() VeenNetworkPtrOutput {
+	return i.ToVeenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i VeenNetworkArgs) ToVeenNetworkPtrOutputWithContext(ctx context.Context) VeenNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenNetworkOutput).ToVeenNetworkPtrOutputWithContext(ctx)
+}
+
+// VeenNetworkPtrInput is an input type that accepts VeenNetworkArgs, VeenNetworkPtr and VeenNetworkPtrOutput values.
+// You can construct a concrete instance of `VeenNetworkPtrInput` via:
+//
+//	        VeenNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenNetworkPtrInput interface {
+	pulumi.Input
+
+	ToVeenNetworkPtrOutput() VeenNetworkPtrOutput
+	ToVeenNetworkPtrOutputWithContext(context.Context) VeenNetworkPtrOutput
+}
+
+type veenNetworkPtrType VeenNetworkArgs
+
+func VeenNetworkPtr(v *VeenNetworkArgs) VeenNetworkPtrInput {
+	return (*veenNetworkPtrType)(v)
+}
+
+func (*veenNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenNetwork)(nil)).Elem()
+}
+
+func (i *veenNetworkPtrType) ToVeenNetworkPtrOutput() VeenNetworkPtrOutput {
+	return i.ToVeenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *veenNetworkPtrType) ToVeenNetworkPtrOutputWithContext(ctx context.Context) VeenNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenNetworkPtrOutput)
+}
+
+type VeenNetworkOutput struct{ *pulumi.OutputState }
+
+func (VeenNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenNetwork)(nil)).Elem()
+}
+
+func (o VeenNetworkOutput) ToVeenNetworkOutput() VeenNetworkOutput {
+	return o
+}
+
+func (o VeenNetworkOutput) ToVeenNetworkOutputWithContext(ctx context.Context) VeenNetworkOutput {
+	return o
+}
+
+func (o VeenNetworkOutput) ToVeenNetworkPtrOutput() VeenNetworkPtrOutput {
+	return o.ToVeenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o VeenNetworkOutput) ToVeenNetworkPtrOutputWithContext(ctx context.Context) VeenNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenNetwork) *VeenNetwork {
+		return &v
+	}).(VeenNetworkPtrOutput)
+}
+
+// Number of allocated auxiliary private IP addresses
+func (o VeenNetworkOutput) ActualSecondaryIpNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *int { return v.ActualSecondaryIpNum }).(pulumi.IntPtrOutput)
+}
+
+// Percentile peak bandwidth, no fixed bandwidth value.
+func (o VeenNetworkOutput) BandwidthPeakConfigRatio() VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *VeenNetworkBandwidthPeakConfigRatio { return v.BandwidthPeakConfigRatio }).(VeenNetworkBandwidthPeakConfigRatioPtrOutput)
+}
+
+// Bandwidth peak update status: updating: updating. ready: update complete.
+func (o VeenNetworkOutput) BandwidthPeakUpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *string { return v.BandwidthPeakUpdateStatus }).(pulumi.StringPtrOutput)
+}
+
+// Default carrier
+func (o VeenNetworkOutput) DefaultIsp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *string { return v.DefaultIsp }).(pulumi.StringPtrOutput)
+}
+
+// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+func (o VeenNetworkOutput) DisableIpv4() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *bool { return v.DisableIpv4 }).(pulumi.BoolPtrOutput)
+}
+
+// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+func (o VeenNetworkOutput) DnsLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VeenNetwork) []string { return v.DnsLists }).(pulumi.StringArrayOutput)
+}
+
+// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+func (o VeenNetworkOutput) DnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *string { return v.DnsType }).(pulumi.StringPtrOutput)
+}
+
+// Enable IPv6: true: enable IPv6. false: disable IPv6.
+func (o VeenNetworkOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *bool { return v.EnableIpv6 }).(pulumi.BoolPtrOutput)
+}
+
+// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+func (o VeenNetworkOutput) ExternalNetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *string { return v.ExternalNetworkMode }).(pulumi.StringPtrOutput)
+}
+
+// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+func (o VeenNetworkOutput) LimitMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *string { return v.LimitMode }).(pulumi.StringPtrOutput)
+}
+
+// Edge instance TCP session timeout. Unit: seconds.
+func (o VeenNetworkOutput) TcpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *int { return v.TcpTimeout }).(pulumi.IntPtrOutput)
+}
+
+// UDP session timeout for the edge instance. Unit: seconds.
+func (o VeenNetworkOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+func (o VeenNetworkOutput) VfPassthrough() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *bool { return v.VfPassthrough }).(pulumi.BoolPtrOutput)
+}
+
+// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+func (o VeenNetworkOutput) VlanVfPassthrough() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *bool { return v.VlanVfPassthrough }).(pulumi.BoolPtrOutput)
+}
+
+// Number of required auxiliary private network IP addresses
+func (o VeenNetworkOutput) WantedSecondaryIpNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenNetwork) *int { return v.WantedSecondaryIpNum }).(pulumi.IntPtrOutput)
+}
+
+type VeenNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenNetwork)(nil)).Elem()
+}
+
+func (o VeenNetworkPtrOutput) ToVeenNetworkPtrOutput() VeenNetworkPtrOutput {
+	return o
+}
+
+func (o VeenNetworkPtrOutput) ToVeenNetworkPtrOutputWithContext(ctx context.Context) VeenNetworkPtrOutput {
+	return o
+}
+
+func (o VeenNetworkPtrOutput) Elem() VeenNetworkOutput {
+	return o.ApplyT(func(v *VeenNetwork) VeenNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret VeenNetwork
+		return ret
+	}).(VeenNetworkOutput)
+}
+
+// Number of allocated auxiliary private IP addresses
+func (o VeenNetworkPtrOutput) ActualSecondaryIpNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ActualSecondaryIpNum
+	}).(pulumi.IntPtrOutput)
+}
+
+// Percentile peak bandwidth, no fixed bandwidth value.
+func (o VeenNetworkPtrOutput) BandwidthPeakConfigRatio() VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *VeenNetworkBandwidthPeakConfigRatio {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthPeakConfigRatio
+	}).(VeenNetworkBandwidthPeakConfigRatioPtrOutput)
+}
+
+// Bandwidth peak update status: updating: updating. ready: update complete.
+func (o VeenNetworkPtrOutput) BandwidthPeakUpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthPeakUpdateStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Default carrier
+func (o VeenNetworkPtrOutput) DefaultIsp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultIsp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+func (o VeenNetworkPtrOutput) DisableIpv4() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableIpv4
+	}).(pulumi.BoolPtrOutput)
+}
+
+// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+func (o VeenNetworkPtrOutput) DnsLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VeenNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+func (o VeenNetworkPtrOutput) DnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable IPv6: true: enable IPv6. false: disable IPv6.
+func (o VeenNetworkPtrOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIpv6
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+func (o VeenNetworkPtrOutput) ExternalNetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalNetworkMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+func (o VeenNetworkPtrOutput) LimitMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LimitMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Edge instance TCP session timeout. Unit: seconds.
+func (o VeenNetworkPtrOutput) TcpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// UDP session timeout for the edge instance. Unit: seconds.
+func (o VeenNetworkPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+func (o VeenNetworkPtrOutput) VfPassthrough() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VfPassthrough
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+func (o VeenNetworkPtrOutput) VlanVfPassthrough() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VlanVfPassthrough
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of required auxiliary private network IP addresses
+func (o VeenNetworkPtrOutput) WantedSecondaryIpNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenNetwork) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WantedSecondaryIpNum
+	}).(pulumi.IntPtrOutput)
+}
+
+type VeenNetworkBandwidthPeakConfigRatio struct {
+	// Bandwidth ratio in enhanced/burst mode
+	EnhancedRatio *int `pulumi:"enhancedRatio"`
+	// Bandwidth ratio in standard mode
+	NormalRatio *int `pulumi:"normalRatio"`
+}
+
+// VeenNetworkBandwidthPeakConfigRatioInput is an input type that accepts VeenNetworkBandwidthPeakConfigRatioArgs and VeenNetworkBandwidthPeakConfigRatioOutput values.
+// You can construct a concrete instance of `VeenNetworkBandwidthPeakConfigRatioInput` via:
+//
+//	VeenNetworkBandwidthPeakConfigRatioArgs{...}
+type VeenNetworkBandwidthPeakConfigRatioInput interface {
+	pulumi.Input
+
+	ToVeenNetworkBandwidthPeakConfigRatioOutput() VeenNetworkBandwidthPeakConfigRatioOutput
+	ToVeenNetworkBandwidthPeakConfigRatioOutputWithContext(context.Context) VeenNetworkBandwidthPeakConfigRatioOutput
+}
+
+type VeenNetworkBandwidthPeakConfigRatioArgs struct {
+	// Bandwidth ratio in enhanced/burst mode
+	EnhancedRatio pulumi.IntPtrInput `pulumi:"enhancedRatio"`
+	// Bandwidth ratio in standard mode
+	NormalRatio pulumi.IntPtrInput `pulumi:"normalRatio"`
+}
+
+func (VeenNetworkBandwidthPeakConfigRatioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenNetworkBandwidthPeakConfigRatio)(nil)).Elem()
+}
+
+func (i VeenNetworkBandwidthPeakConfigRatioArgs) ToVeenNetworkBandwidthPeakConfigRatioOutput() VeenNetworkBandwidthPeakConfigRatioOutput {
+	return i.ToVeenNetworkBandwidthPeakConfigRatioOutputWithContext(context.Background())
+}
+
+func (i VeenNetworkBandwidthPeakConfigRatioArgs) ToVeenNetworkBandwidthPeakConfigRatioOutputWithContext(ctx context.Context) VeenNetworkBandwidthPeakConfigRatioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenNetworkBandwidthPeakConfigRatioOutput)
+}
+
+func (i VeenNetworkBandwidthPeakConfigRatioArgs) ToVeenNetworkBandwidthPeakConfigRatioPtrOutput() VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return i.ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(context.Background())
+}
+
+func (i VeenNetworkBandwidthPeakConfigRatioArgs) ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(ctx context.Context) VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenNetworkBandwidthPeakConfigRatioOutput).ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(ctx)
+}
+
+// VeenNetworkBandwidthPeakConfigRatioPtrInput is an input type that accepts VeenNetworkBandwidthPeakConfigRatioArgs, VeenNetworkBandwidthPeakConfigRatioPtr and VeenNetworkBandwidthPeakConfigRatioPtrOutput values.
+// You can construct a concrete instance of `VeenNetworkBandwidthPeakConfigRatioPtrInput` via:
+//
+//	        VeenNetworkBandwidthPeakConfigRatioArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenNetworkBandwidthPeakConfigRatioPtrInput interface {
+	pulumi.Input
+
+	ToVeenNetworkBandwidthPeakConfigRatioPtrOutput() VeenNetworkBandwidthPeakConfigRatioPtrOutput
+	ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(context.Context) VeenNetworkBandwidthPeakConfigRatioPtrOutput
+}
+
+type veenNetworkBandwidthPeakConfigRatioPtrType VeenNetworkBandwidthPeakConfigRatioArgs
+
+func VeenNetworkBandwidthPeakConfigRatioPtr(v *VeenNetworkBandwidthPeakConfigRatioArgs) VeenNetworkBandwidthPeakConfigRatioPtrInput {
+	return (*veenNetworkBandwidthPeakConfigRatioPtrType)(v)
+}
+
+func (*veenNetworkBandwidthPeakConfigRatioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenNetworkBandwidthPeakConfigRatio)(nil)).Elem()
+}
+
+func (i *veenNetworkBandwidthPeakConfigRatioPtrType) ToVeenNetworkBandwidthPeakConfigRatioPtrOutput() VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return i.ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(context.Background())
+}
+
+func (i *veenNetworkBandwidthPeakConfigRatioPtrType) ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(ctx context.Context) VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenNetworkBandwidthPeakConfigRatioPtrOutput)
+}
+
+type VeenNetworkBandwidthPeakConfigRatioOutput struct{ *pulumi.OutputState }
+
+func (VeenNetworkBandwidthPeakConfigRatioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenNetworkBandwidthPeakConfigRatio)(nil)).Elem()
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioOutput) ToVeenNetworkBandwidthPeakConfigRatioOutput() VeenNetworkBandwidthPeakConfigRatioOutput {
+	return o
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioOutput) ToVeenNetworkBandwidthPeakConfigRatioOutputWithContext(ctx context.Context) VeenNetworkBandwidthPeakConfigRatioOutput {
+	return o
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioOutput) ToVeenNetworkBandwidthPeakConfigRatioPtrOutput() VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return o.ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(context.Background())
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioOutput) ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(ctx context.Context) VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenNetworkBandwidthPeakConfigRatio) *VeenNetworkBandwidthPeakConfigRatio {
+		return &v
+	}).(VeenNetworkBandwidthPeakConfigRatioPtrOutput)
+}
+
+// Bandwidth ratio in enhanced/burst mode
+func (o VeenNetworkBandwidthPeakConfigRatioOutput) EnhancedRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenNetworkBandwidthPeakConfigRatio) *int { return v.EnhancedRatio }).(pulumi.IntPtrOutput)
+}
+
+// Bandwidth ratio in standard mode
+func (o VeenNetworkBandwidthPeakConfigRatioOutput) NormalRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenNetworkBandwidthPeakConfigRatio) *int { return v.NormalRatio }).(pulumi.IntPtrOutput)
+}
+
+type VeenNetworkBandwidthPeakConfigRatioPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenNetworkBandwidthPeakConfigRatioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenNetworkBandwidthPeakConfigRatio)(nil)).Elem()
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioPtrOutput) ToVeenNetworkBandwidthPeakConfigRatioPtrOutput() VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return o
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioPtrOutput) ToVeenNetworkBandwidthPeakConfigRatioPtrOutputWithContext(ctx context.Context) VeenNetworkBandwidthPeakConfigRatioPtrOutput {
+	return o
+}
+
+func (o VeenNetworkBandwidthPeakConfigRatioPtrOutput) Elem() VeenNetworkBandwidthPeakConfigRatioOutput {
+	return o.ApplyT(func(v *VeenNetworkBandwidthPeakConfigRatio) VeenNetworkBandwidthPeakConfigRatio {
+		if v != nil {
+			return *v
+		}
+		var ret VeenNetworkBandwidthPeakConfigRatio
+		return ret
+	}).(VeenNetworkBandwidthPeakConfigRatioOutput)
+}
+
+// Bandwidth ratio in enhanced/burst mode
+func (o VeenNetworkBandwidthPeakConfigRatioPtrOutput) EnhancedRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenNetworkBandwidthPeakConfigRatio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedRatio
+	}).(pulumi.IntPtrOutput)
+}
+
+// Bandwidth ratio in standard mode
+func (o VeenNetworkBandwidthPeakConfigRatioPtrOutput) NormalRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenNetworkBandwidthPeakConfigRatio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NormalRatio
+	}).(pulumi.IntPtrOutput)
+}
+
+type VeenSecret struct {
+	// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+	SecretType *int `pulumi:"secretType"`
+}
+
+// VeenSecretInput is an input type that accepts VeenSecretArgs and VeenSecretOutput values.
+// You can construct a concrete instance of `VeenSecretInput` via:
+//
+//	VeenSecretArgs{...}
+type VeenSecretInput interface {
+	pulumi.Input
+
+	ToVeenSecretOutput() VeenSecretOutput
+	ToVeenSecretOutputWithContext(context.Context) VeenSecretOutput
+}
+
+type VeenSecretArgs struct {
+	// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+	SecretType pulumi.IntPtrInput `pulumi:"secretType"`
+}
+
+func (VeenSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenSecret)(nil)).Elem()
+}
+
+func (i VeenSecretArgs) ToVeenSecretOutput() VeenSecretOutput {
+	return i.ToVeenSecretOutputWithContext(context.Background())
+}
+
+func (i VeenSecretArgs) ToVeenSecretOutputWithContext(ctx context.Context) VeenSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenSecretOutput)
+}
+
+func (i VeenSecretArgs) ToVeenSecretPtrOutput() VeenSecretPtrOutput {
+	return i.ToVeenSecretPtrOutputWithContext(context.Background())
+}
+
+func (i VeenSecretArgs) ToVeenSecretPtrOutputWithContext(ctx context.Context) VeenSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenSecretOutput).ToVeenSecretPtrOutputWithContext(ctx)
+}
+
+// VeenSecretPtrInput is an input type that accepts VeenSecretArgs, VeenSecretPtr and VeenSecretPtrOutput values.
+// You can construct a concrete instance of `VeenSecretPtrInput` via:
+//
+//	        VeenSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenSecretPtrInput interface {
+	pulumi.Input
+
+	ToVeenSecretPtrOutput() VeenSecretPtrOutput
+	ToVeenSecretPtrOutputWithContext(context.Context) VeenSecretPtrOutput
+}
+
+type veenSecretPtrType VeenSecretArgs
+
+func VeenSecretPtr(v *VeenSecretArgs) VeenSecretPtrInput {
+	return (*veenSecretPtrType)(v)
+}
+
+func (*veenSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenSecret)(nil)).Elem()
+}
+
+func (i *veenSecretPtrType) ToVeenSecretPtrOutput() VeenSecretPtrOutput {
+	return i.ToVeenSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *veenSecretPtrType) ToVeenSecretPtrOutputWithContext(ctx context.Context) VeenSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenSecretPtrOutput)
+}
+
+type VeenSecretOutput struct{ *pulumi.OutputState }
+
+func (VeenSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenSecret)(nil)).Elem()
+}
+
+func (o VeenSecretOutput) ToVeenSecretOutput() VeenSecretOutput {
+	return o
+}
+
+func (o VeenSecretOutput) ToVeenSecretOutputWithContext(ctx context.Context) VeenSecretOutput {
+	return o
+}
+
+func (o VeenSecretOutput) ToVeenSecretPtrOutput() VeenSecretPtrOutput {
+	return o.ToVeenSecretPtrOutputWithContext(context.Background())
+}
+
+func (o VeenSecretOutput) ToVeenSecretPtrOutputWithContext(ctx context.Context) VeenSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenSecret) *VeenSecret {
+		return &v
+	}).(VeenSecretPtrOutput)
+}
+
+// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+func (o VeenSecretOutput) SecretType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VeenSecret) *int { return v.SecretType }).(pulumi.IntPtrOutput)
+}
+
+type VeenSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenSecret)(nil)).Elem()
+}
+
+func (o VeenSecretPtrOutput) ToVeenSecretPtrOutput() VeenSecretPtrOutput {
+	return o
+}
+
+func (o VeenSecretPtrOutput) ToVeenSecretPtrOutputWithContext(ctx context.Context) VeenSecretPtrOutput {
+	return o
+}
+
+func (o VeenSecretPtrOutput) Elem() VeenSecretOutput {
+	return o.ApplyT(func(v *VeenSecret) VeenSecret {
+		if v != nil {
+			return *v
+		}
+		var ret VeenSecret
+		return ret
+	}).(VeenSecretOutput)
+}
+
+// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+func (o VeenSecretPtrOutput) SecretType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VeenSecret) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecretType
+	}).(pulumi.IntPtrOutput)
+}
+
+type VeenStorage struct {
+	// Data disk. This parameter is used to add a single data disk
+	DataDisk *VeenStorageDataDisk `pulumi:"dataDisk"`
+	// Data disk list
+	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+	DataDiskLists []VeenStorageDataDiskList `pulumi:"dataDiskLists"`
+	// System disk
+	SystemDisk *VeenStorageSystemDisk `pulumi:"systemDisk"`
+}
+
+// VeenStorageInput is an input type that accepts VeenStorageArgs and VeenStorageOutput values.
+// You can construct a concrete instance of `VeenStorageInput` via:
+//
+//	VeenStorageArgs{...}
+type VeenStorageInput interface {
+	pulumi.Input
+
+	ToVeenStorageOutput() VeenStorageOutput
+	ToVeenStorageOutputWithContext(context.Context) VeenStorageOutput
+}
+
+type VeenStorageArgs struct {
+	// Data disk. This parameter is used to add a single data disk
+	DataDisk VeenStorageDataDiskPtrInput `pulumi:"dataDisk"`
+	// Data disk list
+	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+	DataDiskLists VeenStorageDataDiskListArrayInput `pulumi:"dataDiskLists"`
+	// System disk
+	SystemDisk VeenStorageSystemDiskPtrInput `pulumi:"systemDisk"`
+}
+
+func (VeenStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorage)(nil)).Elem()
+}
+
+func (i VeenStorageArgs) ToVeenStorageOutput() VeenStorageOutput {
+	return i.ToVeenStorageOutputWithContext(context.Background())
+}
+
+func (i VeenStorageArgs) ToVeenStorageOutputWithContext(ctx context.Context) VeenStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageOutput)
+}
+
+func (i VeenStorageArgs) ToVeenStoragePtrOutput() VeenStoragePtrOutput {
+	return i.ToVeenStoragePtrOutputWithContext(context.Background())
+}
+
+func (i VeenStorageArgs) ToVeenStoragePtrOutputWithContext(ctx context.Context) VeenStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageOutput).ToVeenStoragePtrOutputWithContext(ctx)
+}
+
+// VeenStoragePtrInput is an input type that accepts VeenStorageArgs, VeenStoragePtr and VeenStoragePtrOutput values.
+// You can construct a concrete instance of `VeenStoragePtrInput` via:
+//
+//	        VeenStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenStoragePtrInput interface {
+	pulumi.Input
+
+	ToVeenStoragePtrOutput() VeenStoragePtrOutput
+	ToVeenStoragePtrOutputWithContext(context.Context) VeenStoragePtrOutput
+}
+
+type veenStoragePtrType VeenStorageArgs
+
+func VeenStoragePtr(v *VeenStorageArgs) VeenStoragePtrInput {
+	return (*veenStoragePtrType)(v)
+}
+
+func (*veenStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenStorage)(nil)).Elem()
+}
+
+func (i *veenStoragePtrType) ToVeenStoragePtrOutput() VeenStoragePtrOutput {
+	return i.ToVeenStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *veenStoragePtrType) ToVeenStoragePtrOutputWithContext(ctx context.Context) VeenStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStoragePtrOutput)
+}
+
+type VeenStorageOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorage)(nil)).Elem()
+}
+
+func (o VeenStorageOutput) ToVeenStorageOutput() VeenStorageOutput {
+	return o
+}
+
+func (o VeenStorageOutput) ToVeenStorageOutputWithContext(ctx context.Context) VeenStorageOutput {
+	return o
+}
+
+func (o VeenStorageOutput) ToVeenStoragePtrOutput() VeenStoragePtrOutput {
+	return o.ToVeenStoragePtrOutputWithContext(context.Background())
+}
+
+func (o VeenStorageOutput) ToVeenStoragePtrOutputWithContext(ctx context.Context) VeenStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenStorage) *VeenStorage {
+		return &v
+	}).(VeenStoragePtrOutput)
+}
+
+// Data disk. This parameter is used to add a single data disk
+func (o VeenStorageOutput) DataDisk() VeenStorageDataDiskPtrOutput {
+	return o.ApplyT(func(v VeenStorage) *VeenStorageDataDisk { return v.DataDisk }).(VeenStorageDataDiskPtrOutput)
+}
+
+// Data disk list
+// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+func (o VeenStorageOutput) DataDiskLists() VeenStorageDataDiskListArrayOutput {
+	return o.ApplyT(func(v VeenStorage) []VeenStorageDataDiskList { return v.DataDiskLists }).(VeenStorageDataDiskListArrayOutput)
+}
+
+// System disk
+func (o VeenStorageOutput) SystemDisk() VeenStorageSystemDiskPtrOutput {
+	return o.ApplyT(func(v VeenStorage) *VeenStorageSystemDisk { return v.SystemDisk }).(VeenStorageSystemDiskPtrOutput)
+}
+
+type VeenStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (VeenStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenStorage)(nil)).Elem()
+}
+
+func (o VeenStoragePtrOutput) ToVeenStoragePtrOutput() VeenStoragePtrOutput {
+	return o
+}
+
+func (o VeenStoragePtrOutput) ToVeenStoragePtrOutputWithContext(ctx context.Context) VeenStoragePtrOutput {
+	return o
+}
+
+func (o VeenStoragePtrOutput) Elem() VeenStorageOutput {
+	return o.ApplyT(func(v *VeenStorage) VeenStorage {
+		if v != nil {
+			return *v
+		}
+		var ret VeenStorage
+		return ret
+	}).(VeenStorageOutput)
+}
+
+// Data disk. This parameter is used to add a single data disk
+func (o VeenStoragePtrOutput) DataDisk() VeenStorageDataDiskPtrOutput {
+	return o.ApplyT(func(v *VeenStorage) *VeenStorageDataDisk {
+		if v == nil {
+			return nil
+		}
+		return v.DataDisk
+	}).(VeenStorageDataDiskPtrOutput)
+}
+
+// Data disk list
+// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+func (o VeenStoragePtrOutput) DataDiskLists() VeenStorageDataDiskListArrayOutput {
+	return o.ApplyT(func(v *VeenStorage) []VeenStorageDataDiskList {
+		if v == nil {
+			return nil
+		}
+		return v.DataDiskLists
+	}).(VeenStorageDataDiskListArrayOutput)
+}
+
+// System disk
+func (o VeenStoragePtrOutput) SystemDisk() VeenStorageSystemDiskPtrOutput {
+	return o.ApplyT(func(v *VeenStorage) *VeenStorageSystemDisk {
+		if v == nil {
+			return nil
+		}
+		return v.SystemDisk
+	}).(VeenStorageSystemDiskPtrOutput)
+}
+
+type VeenStorageDataDisk struct {
+	// Disk capacity. Unit: GB.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// VeenStorageDataDiskInput is an input type that accepts VeenStorageDataDiskArgs and VeenStorageDataDiskOutput values.
+// You can construct a concrete instance of `VeenStorageDataDiskInput` via:
+//
+//	VeenStorageDataDiskArgs{...}
+type VeenStorageDataDiskInput interface {
+	pulumi.Input
+
+	ToVeenStorageDataDiskOutput() VeenStorageDataDiskOutput
+	ToVeenStorageDataDiskOutputWithContext(context.Context) VeenStorageDataDiskOutput
+}
+
+type VeenStorageDataDiskArgs struct {
+	// Disk capacity. Unit: GB.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (VeenStorageDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorageDataDisk)(nil)).Elem()
+}
+
+func (i VeenStorageDataDiskArgs) ToVeenStorageDataDiskOutput() VeenStorageDataDiskOutput {
+	return i.ToVeenStorageDataDiskOutputWithContext(context.Background())
+}
+
+func (i VeenStorageDataDiskArgs) ToVeenStorageDataDiskOutputWithContext(ctx context.Context) VeenStorageDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageDataDiskOutput)
+}
+
+func (i VeenStorageDataDiskArgs) ToVeenStorageDataDiskPtrOutput() VeenStorageDataDiskPtrOutput {
+	return i.ToVeenStorageDataDiskPtrOutputWithContext(context.Background())
+}
+
+func (i VeenStorageDataDiskArgs) ToVeenStorageDataDiskPtrOutputWithContext(ctx context.Context) VeenStorageDataDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageDataDiskOutput).ToVeenStorageDataDiskPtrOutputWithContext(ctx)
+}
+
+// VeenStorageDataDiskPtrInput is an input type that accepts VeenStorageDataDiskArgs, VeenStorageDataDiskPtr and VeenStorageDataDiskPtrOutput values.
+// You can construct a concrete instance of `VeenStorageDataDiskPtrInput` via:
+//
+//	        VeenStorageDataDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenStorageDataDiskPtrInput interface {
+	pulumi.Input
+
+	ToVeenStorageDataDiskPtrOutput() VeenStorageDataDiskPtrOutput
+	ToVeenStorageDataDiskPtrOutputWithContext(context.Context) VeenStorageDataDiskPtrOutput
+}
+
+type veenStorageDataDiskPtrType VeenStorageDataDiskArgs
+
+func VeenStorageDataDiskPtr(v *VeenStorageDataDiskArgs) VeenStorageDataDiskPtrInput {
+	return (*veenStorageDataDiskPtrType)(v)
+}
+
+func (*veenStorageDataDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenStorageDataDisk)(nil)).Elem()
+}
+
+func (i *veenStorageDataDiskPtrType) ToVeenStorageDataDiskPtrOutput() VeenStorageDataDiskPtrOutput {
+	return i.ToVeenStorageDataDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *veenStorageDataDiskPtrType) ToVeenStorageDataDiskPtrOutputWithContext(ctx context.Context) VeenStorageDataDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageDataDiskPtrOutput)
+}
+
+type VeenStorageDataDiskOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorageDataDisk)(nil)).Elem()
+}
+
+func (o VeenStorageDataDiskOutput) ToVeenStorageDataDiskOutput() VeenStorageDataDiskOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskOutput) ToVeenStorageDataDiskOutputWithContext(ctx context.Context) VeenStorageDataDiskOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskOutput) ToVeenStorageDataDiskPtrOutput() VeenStorageDataDiskPtrOutput {
+	return o.ToVeenStorageDataDiskPtrOutputWithContext(context.Background())
+}
+
+func (o VeenStorageDataDiskOutput) ToVeenStorageDataDiskPtrOutputWithContext(ctx context.Context) VeenStorageDataDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenStorageDataDisk) *VeenStorageDataDisk {
+		return &v
+	}).(VeenStorageDataDiskPtrOutput)
+}
+
+// Disk capacity. Unit: GB.
+func (o VeenStorageDataDiskOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDisk) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o VeenStorageDataDiskOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDisk) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o VeenStorageDataDiskOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDisk) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o VeenStorageDataDiskOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDisk) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o VeenStorageDataDiskOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDisk) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o VeenStorageDataDiskOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDisk) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type VeenStorageDataDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageDataDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenStorageDataDisk)(nil)).Elem()
+}
+
+func (o VeenStorageDataDiskPtrOutput) ToVeenStorageDataDiskPtrOutput() VeenStorageDataDiskPtrOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskPtrOutput) ToVeenStorageDataDiskPtrOutputWithContext(ctx context.Context) VeenStorageDataDiskPtrOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskPtrOutput) Elem() VeenStorageDataDiskOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) VeenStorageDataDisk {
+		if v != nil {
+			return *v
+		}
+		var ret VeenStorageDataDisk
+		return ret
+	}).(VeenStorageDataDiskOutput)
+}
+
+// Disk capacity. Unit: GB.
+func (o VeenStorageDataDiskPtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o VeenStorageDataDiskPtrOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteWithInstance
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o VeenStorageDataDiskPtrOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o VeenStorageDataDiskPtrOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o VeenStorageDataDiskPtrOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o VeenStorageDataDiskPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageDataDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenStorageDataDiskList struct {
+	// Disk capacity. Unit: GB.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// VeenStorageDataDiskListInput is an input type that accepts VeenStorageDataDiskListArgs and VeenStorageDataDiskListOutput values.
+// You can construct a concrete instance of `VeenStorageDataDiskListInput` via:
+//
+//	VeenStorageDataDiskListArgs{...}
+type VeenStorageDataDiskListInput interface {
+	pulumi.Input
+
+	ToVeenStorageDataDiskListOutput() VeenStorageDataDiskListOutput
+	ToVeenStorageDataDiskListOutputWithContext(context.Context) VeenStorageDataDiskListOutput
+}
+
+type VeenStorageDataDiskListArgs struct {
+	// Disk capacity. Unit: GB.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (VeenStorageDataDiskListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (i VeenStorageDataDiskListArgs) ToVeenStorageDataDiskListOutput() VeenStorageDataDiskListOutput {
+	return i.ToVeenStorageDataDiskListOutputWithContext(context.Background())
+}
+
+func (i VeenStorageDataDiskListArgs) ToVeenStorageDataDiskListOutputWithContext(ctx context.Context) VeenStorageDataDiskListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageDataDiskListOutput)
+}
+
+// VeenStorageDataDiskListArrayInput is an input type that accepts VeenStorageDataDiskListArray and VeenStorageDataDiskListArrayOutput values.
+// You can construct a concrete instance of `VeenStorageDataDiskListArrayInput` via:
+//
+//	VeenStorageDataDiskListArray{ VeenStorageDataDiskListArgs{...} }
+type VeenStorageDataDiskListArrayInput interface {
+	pulumi.Input
+
+	ToVeenStorageDataDiskListArrayOutput() VeenStorageDataDiskListArrayOutput
+	ToVeenStorageDataDiskListArrayOutputWithContext(context.Context) VeenStorageDataDiskListArrayOutput
+}
+
+type VeenStorageDataDiskListArray []VeenStorageDataDiskListInput
+
+func (VeenStorageDataDiskListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (i VeenStorageDataDiskListArray) ToVeenStorageDataDiskListArrayOutput() VeenStorageDataDiskListArrayOutput {
+	return i.ToVeenStorageDataDiskListArrayOutputWithContext(context.Background())
+}
+
+func (i VeenStorageDataDiskListArray) ToVeenStorageDataDiskListArrayOutputWithContext(ctx context.Context) VeenStorageDataDiskListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageDataDiskListArrayOutput)
+}
+
+type VeenStorageDataDiskListOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageDataDiskListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (o VeenStorageDataDiskListOutput) ToVeenStorageDataDiskListOutput() VeenStorageDataDiskListOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskListOutput) ToVeenStorageDataDiskListOutputWithContext(ctx context.Context) VeenStorageDataDiskListOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB.
+func (o VeenStorageDataDiskListOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDiskList) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o VeenStorageDataDiskListOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDiskList) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o VeenStorageDataDiskListOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDiskList) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o VeenStorageDataDiskListOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDiskList) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o VeenStorageDataDiskListOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDiskList) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o VeenStorageDataDiskListOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageDataDiskList) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type VeenStorageDataDiskListArrayOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageDataDiskListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (o VeenStorageDataDiskListArrayOutput) ToVeenStorageDataDiskListArrayOutput() VeenStorageDataDiskListArrayOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskListArrayOutput) ToVeenStorageDataDiskListArrayOutputWithContext(ctx context.Context) VeenStorageDataDiskListArrayOutput {
+	return o
+}
+
+func (o VeenStorageDataDiskListArrayOutput) Index(i pulumi.IntInput) VeenStorageDataDiskListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VeenStorageDataDiskList {
+		return vs[0].([]VeenStorageDataDiskList)[vs[1].(int)]
+	}).(VeenStorageDataDiskListOutput)
+}
+
+type VeenStorageSystemDisk struct {
+	// Disk capacity. Unit: GB.
+	Capacity *string `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance *bool `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity *string `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass *string `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName *string `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// VeenStorageSystemDiskInput is an input type that accepts VeenStorageSystemDiskArgs and VeenStorageSystemDiskOutput values.
+// You can construct a concrete instance of `VeenStorageSystemDiskInput` via:
+//
+//	VeenStorageSystemDiskArgs{...}
+type VeenStorageSystemDiskInput interface {
+	pulumi.Input
+
+	ToVeenStorageSystemDiskOutput() VeenStorageSystemDiskOutput
+	ToVeenStorageSystemDiskOutputWithContext(context.Context) VeenStorageSystemDiskOutput
+}
+
+type VeenStorageSystemDiskArgs struct {
+	// Disk capacity. Unit: GB.
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance pulumi.BoolPtrInput `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity pulumi.StringPtrInput `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass pulumi.StringPtrInput `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName pulumi.StringPtrInput `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (VeenStorageSystemDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorageSystemDisk)(nil)).Elem()
+}
+
+func (i VeenStorageSystemDiskArgs) ToVeenStorageSystemDiskOutput() VeenStorageSystemDiskOutput {
+	return i.ToVeenStorageSystemDiskOutputWithContext(context.Background())
+}
+
+func (i VeenStorageSystemDiskArgs) ToVeenStorageSystemDiskOutputWithContext(ctx context.Context) VeenStorageSystemDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageSystemDiskOutput)
+}
+
+func (i VeenStorageSystemDiskArgs) ToVeenStorageSystemDiskPtrOutput() VeenStorageSystemDiskPtrOutput {
+	return i.ToVeenStorageSystemDiskPtrOutputWithContext(context.Background())
+}
+
+func (i VeenStorageSystemDiskArgs) ToVeenStorageSystemDiskPtrOutputWithContext(ctx context.Context) VeenStorageSystemDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageSystemDiskOutput).ToVeenStorageSystemDiskPtrOutputWithContext(ctx)
+}
+
+// VeenStorageSystemDiskPtrInput is an input type that accepts VeenStorageSystemDiskArgs, VeenStorageSystemDiskPtr and VeenStorageSystemDiskPtrOutput values.
+// You can construct a concrete instance of `VeenStorageSystemDiskPtrInput` via:
+//
+//	        VeenStorageSystemDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type VeenStorageSystemDiskPtrInput interface {
+	pulumi.Input
+
+	ToVeenStorageSystemDiskPtrOutput() VeenStorageSystemDiskPtrOutput
+	ToVeenStorageSystemDiskPtrOutputWithContext(context.Context) VeenStorageSystemDiskPtrOutput
+}
+
+type veenStorageSystemDiskPtrType VeenStorageSystemDiskArgs
+
+func VeenStorageSystemDiskPtr(v *VeenStorageSystemDiskArgs) VeenStorageSystemDiskPtrInput {
+	return (*veenStorageSystemDiskPtrType)(v)
+}
+
+func (*veenStorageSystemDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenStorageSystemDisk)(nil)).Elem()
+}
+
+func (i *veenStorageSystemDiskPtrType) ToVeenStorageSystemDiskPtrOutput() VeenStorageSystemDiskPtrOutput {
+	return i.ToVeenStorageSystemDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *veenStorageSystemDiskPtrType) ToVeenStorageSystemDiskPtrOutputWithContext(ctx context.Context) VeenStorageSystemDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenStorageSystemDiskPtrOutput)
+}
+
+type VeenStorageSystemDiskOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageSystemDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenStorageSystemDisk)(nil)).Elem()
+}
+
+func (o VeenStorageSystemDiskOutput) ToVeenStorageSystemDiskOutput() VeenStorageSystemDiskOutput {
+	return o
+}
+
+func (o VeenStorageSystemDiskOutput) ToVeenStorageSystemDiskOutputWithContext(ctx context.Context) VeenStorageSystemDiskOutput {
+	return o
+}
+
+func (o VeenStorageSystemDiskOutput) ToVeenStorageSystemDiskPtrOutput() VeenStorageSystemDiskPtrOutput {
+	return o.ToVeenStorageSystemDiskPtrOutputWithContext(context.Background())
+}
+
+func (o VeenStorageSystemDiskOutput) ToVeenStorageSystemDiskPtrOutputWithContext(ctx context.Context) VeenStorageSystemDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VeenStorageSystemDisk) *VeenStorageSystemDisk {
+		return &v
+	}).(VeenStorageSystemDiskPtrOutput)
+}
+
+// Disk capacity. Unit: GB.
+func (o VeenStorageSystemDiskOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageSystemDisk) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o VeenStorageSystemDiskOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VeenStorageSystemDisk) *bool { return v.DeleteWithInstance }).(pulumi.BoolPtrOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o VeenStorageSystemDiskOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageSystemDisk) *string { return v.DiskIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o VeenStorageSystemDiskOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageSystemDisk) *string { return v.LocalDiskClass }).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o VeenStorageSystemDiskOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageSystemDisk) *string { return v.LocalDiskResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o VeenStorageSystemDiskOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenStorageSystemDisk) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type VeenStorageSystemDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (VeenStorageSystemDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VeenStorageSystemDisk)(nil)).Elem()
+}
+
+func (o VeenStorageSystemDiskPtrOutput) ToVeenStorageSystemDiskPtrOutput() VeenStorageSystemDiskPtrOutput {
+	return o
+}
+
+func (o VeenStorageSystemDiskPtrOutput) ToVeenStorageSystemDiskPtrOutputWithContext(ctx context.Context) VeenStorageSystemDiskPtrOutput {
+	return o
+}
+
+func (o VeenStorageSystemDiskPtrOutput) Elem() VeenStorageSystemDiskOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) VeenStorageSystemDisk {
+		if v != nil {
+			return *v
+		}
+		var ret VeenStorageSystemDisk
+		return ret
+	}).(VeenStorageSystemDiskOutput)
+}
+
+// Disk capacity. Unit: GB.
+func (o VeenStorageSystemDiskPtrOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o VeenStorageSystemDiskPtrOutput) DeleteWithInstance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteWithInstance
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o VeenStorageSystemDiskPtrOutput) DiskIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o VeenStorageSystemDiskPtrOutput) LocalDiskClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o VeenStorageSystemDiskPtrOutput) LocalDiskResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDiskResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o VeenStorageSystemDiskPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VeenStorageSystemDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type VeenTag struct {
+	// Tag key.
+	Key *string `pulumi:"key"`
+	// Tag value.
+	Value *string `pulumi:"value"`
+}
+
+// VeenTagInput is an input type that accepts VeenTagArgs and VeenTagOutput values.
+// You can construct a concrete instance of `VeenTagInput` via:
+//
+//	VeenTagArgs{...}
+type VeenTagInput interface {
+	pulumi.Input
+
+	ToVeenTagOutput() VeenTagOutput
+	ToVeenTagOutputWithContext(context.Context) VeenTagOutput
+}
+
+type VeenTagArgs struct {
+	// Tag key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Tag value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (VeenTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenTag)(nil)).Elem()
+}
+
+func (i VeenTagArgs) ToVeenTagOutput() VeenTagOutput {
+	return i.ToVeenTagOutputWithContext(context.Background())
+}
+
+func (i VeenTagArgs) ToVeenTagOutputWithContext(ctx context.Context) VeenTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenTagOutput)
+}
+
+// VeenTagArrayInput is an input type that accepts VeenTagArray and VeenTagArrayOutput values.
+// You can construct a concrete instance of `VeenTagArrayInput` via:
+//
+//	VeenTagArray{ VeenTagArgs{...} }
+type VeenTagArrayInput interface {
+	pulumi.Input
+
+	ToVeenTagArrayOutput() VeenTagArrayOutput
+	ToVeenTagArrayOutputWithContext(context.Context) VeenTagArrayOutput
+}
+
+type VeenTagArray []VeenTagInput
+
+func (VeenTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenTag)(nil)).Elem()
+}
+
+func (i VeenTagArray) ToVeenTagArrayOutput() VeenTagArrayOutput {
+	return i.ToVeenTagArrayOutputWithContext(context.Background())
+}
+
+func (i VeenTagArray) ToVeenTagArrayOutputWithContext(ctx context.Context) VeenTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VeenTagArrayOutput)
+}
+
+type VeenTagOutput struct{ *pulumi.OutputState }
+
+func (VeenTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VeenTag)(nil)).Elem()
+}
+
+func (o VeenTagOutput) ToVeenTagOutput() VeenTagOutput {
+	return o
+}
+
+func (o VeenTagOutput) ToVeenTagOutputWithContext(ctx context.Context) VeenTagOutput {
+	return o
+}
+
+// Tag key.
+func (o VeenTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Tag value.
+func (o VeenTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VeenTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type VeenTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VeenTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VeenTag)(nil)).Elem()
+}
+
+func (o VeenTagArrayOutput) ToVeenTagArrayOutput() VeenTagArrayOutput {
+	return o
+}
+
+func (o VeenTagArrayOutput) ToVeenTagArrayOutputWithContext(ctx context.Context) VeenTagArrayOutput {
+	return o
+}
+
+func (o VeenTagArrayOutput) Index(i pulumi.IntInput) VeenTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VeenTag {
+		return vs[0].([]VeenTag)[vs[1].(int)]
+	}).(VeenTagOutput)
+}
+
 type VpcSubnet struct {
 	// Subnet CIDR Block, e.g. 10.1.0.0/16
 	Cidr *string `pulumi:"cidr"`
@@ -5064,6 +9061,1955 @@ func (o GetCloudServerTagArrayOutput) Index(i pulumi.IntInput) GetCloudServerTag
 	}).(GetCloudServerTagOutput)
 }
 
+type GetVeenAdvancedConfiguration struct {
+	// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+	DeleteProtection bool `pulumi:"deleteProtection"`
+}
+
+// GetVeenAdvancedConfigurationInput is an input type that accepts GetVeenAdvancedConfigurationArgs and GetVeenAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `GetVeenAdvancedConfigurationInput` via:
+//
+//	GetVeenAdvancedConfigurationArgs{...}
+type GetVeenAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToGetVeenAdvancedConfigurationOutput() GetVeenAdvancedConfigurationOutput
+	ToGetVeenAdvancedConfigurationOutputWithContext(context.Context) GetVeenAdvancedConfigurationOutput
+}
+
+type GetVeenAdvancedConfigurationArgs struct {
+	// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+	DeleteProtection pulumi.BoolInput `pulumi:"deleteProtection"`
+}
+
+func (GetVeenAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i GetVeenAdvancedConfigurationArgs) ToGetVeenAdvancedConfigurationOutput() GetVeenAdvancedConfigurationOutput {
+	return i.ToGetVeenAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetVeenAdvancedConfigurationArgs) ToGetVeenAdvancedConfigurationOutputWithContext(ctx context.Context) GetVeenAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenAdvancedConfigurationOutput)
+}
+
+type GetVeenAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetVeenAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o GetVeenAdvancedConfigurationOutput) ToGetVeenAdvancedConfigurationOutput() GetVeenAdvancedConfigurationOutput {
+	return o
+}
+
+func (o GetVeenAdvancedConfigurationOutput) ToGetVeenAdvancedConfigurationOutputWithContext(ctx context.Context) GetVeenAdvancedConfigurationOutput {
+	return o
+}
+
+// Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+func (o GetVeenAdvancedConfigurationOutput) DeleteProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenAdvancedConfiguration) bool { return v.DeleteProtection }).(pulumi.BoolOutput)
+}
+
+type GetVeenBandwidthPeakLimitIspConfigs struct {
+	// Bandwidth throttling value for this carrier.
+	BandwidthPeakLimit string `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+	Isp string `pulumi:"isp"`
+}
+
+// GetVeenBandwidthPeakLimitIspConfigsInput is an input type that accepts GetVeenBandwidthPeakLimitIspConfigsArgs and GetVeenBandwidthPeakLimitIspConfigsOutput values.
+// You can construct a concrete instance of `GetVeenBandwidthPeakLimitIspConfigsInput` via:
+//
+//	GetVeenBandwidthPeakLimitIspConfigsArgs{...}
+type GetVeenBandwidthPeakLimitIspConfigsInput interface {
+	pulumi.Input
+
+	ToGetVeenBandwidthPeakLimitIspConfigsOutput() GetVeenBandwidthPeakLimitIspConfigsOutput
+	ToGetVeenBandwidthPeakLimitIspConfigsOutputWithContext(context.Context) GetVeenBandwidthPeakLimitIspConfigsOutput
+}
+
+type GetVeenBandwidthPeakLimitIspConfigsArgs struct {
+	// Bandwidth throttling value for this carrier.
+	BandwidthPeakLimit pulumi.StringInput `pulumi:"bandwidthPeakLimit"`
+	// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+	Isp pulumi.StringInput `pulumi:"isp"`
+}
+
+func (GetVeenBandwidthPeakLimitIspConfigsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenBandwidthPeakLimitIspConfigs)(nil)).Elem()
+}
+
+func (i GetVeenBandwidthPeakLimitIspConfigsArgs) ToGetVeenBandwidthPeakLimitIspConfigsOutput() GetVeenBandwidthPeakLimitIspConfigsOutput {
+	return i.ToGetVeenBandwidthPeakLimitIspConfigsOutputWithContext(context.Background())
+}
+
+func (i GetVeenBandwidthPeakLimitIspConfigsArgs) ToGetVeenBandwidthPeakLimitIspConfigsOutputWithContext(ctx context.Context) GetVeenBandwidthPeakLimitIspConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenBandwidthPeakLimitIspConfigsOutput)
+}
+
+type GetVeenBandwidthPeakLimitIspConfigsOutput struct{ *pulumi.OutputState }
+
+func (GetVeenBandwidthPeakLimitIspConfigsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenBandwidthPeakLimitIspConfigs)(nil)).Elem()
+}
+
+func (o GetVeenBandwidthPeakLimitIspConfigsOutput) ToGetVeenBandwidthPeakLimitIspConfigsOutput() GetVeenBandwidthPeakLimitIspConfigsOutput {
+	return o
+}
+
+func (o GetVeenBandwidthPeakLimitIspConfigsOutput) ToGetVeenBandwidthPeakLimitIspConfigsOutputWithContext(ctx context.Context) GetVeenBandwidthPeakLimitIspConfigsOutput {
+	return o
+}
+
+// Bandwidth throttling value for this carrier.
+func (o GetVeenBandwidthPeakLimitIspConfigsOutput) BandwidthPeakLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenBandwidthPeakLimitIspConfigs) string { return v.BandwidthPeakLimit }).(pulumi.StringOutput)
+}
+
+// Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+func (o GetVeenBandwidthPeakLimitIspConfigsOutput) Isp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenBandwidthPeakLimitIspConfigs) string { return v.Isp }).(pulumi.StringOutput)
+}
+
+type GetVeenBilling struct {
+	// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod string `pulumi:"bandwidthBillingMethod"`
+	// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+	ComputingBillingMethod string `pulumi:"computingBillingMethod"`
+}
+
+// GetVeenBillingInput is an input type that accepts GetVeenBillingArgs and GetVeenBillingOutput values.
+// You can construct a concrete instance of `GetVeenBillingInput` via:
+//
+//	GetVeenBillingArgs{...}
+type GetVeenBillingInput interface {
+	pulumi.Input
+
+	ToGetVeenBillingOutput() GetVeenBillingOutput
+	ToGetVeenBillingOutputWithContext(context.Context) GetVeenBillingOutput
+}
+
+type GetVeenBillingArgs struct {
+	// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+	BandwidthBillingMethod pulumi.StringInput `pulumi:"bandwidthBillingMethod"`
+	// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+	ComputingBillingMethod pulumi.StringInput `pulumi:"computingBillingMethod"`
+}
+
+func (GetVeenBillingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenBilling)(nil)).Elem()
+}
+
+func (i GetVeenBillingArgs) ToGetVeenBillingOutput() GetVeenBillingOutput {
+	return i.ToGetVeenBillingOutputWithContext(context.Background())
+}
+
+func (i GetVeenBillingArgs) ToGetVeenBillingOutputWithContext(ctx context.Context) GetVeenBillingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenBillingOutput)
+}
+
+type GetVeenBillingOutput struct{ *pulumi.OutputState }
+
+func (GetVeenBillingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenBilling)(nil)).Elem()
+}
+
+func (o GetVeenBillingOutput) ToGetVeenBillingOutput() GetVeenBillingOutput {
+	return o
+}
+
+func (o GetVeenBillingOutput) ToGetVeenBillingOutputWithContext(ctx context.Context) GetVeenBillingOutput {
+	return o
+}
+
+// Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+func (o GetVeenBillingOutput) BandwidthBillingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenBilling) string { return v.BandwidthBillingMethod }).(pulumi.StringOutput)
+}
+
+// Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+func (o GetVeenBillingOutput) ComputingBillingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenBilling) string { return v.ComputingBillingMethod }).(pulumi.StringOutput)
+}
+
+type GetVeenBillingConfig struct {
+	// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+	AutoRenew bool `pulumi:"autoRenew"`
+	// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+	PrePaidPeriod string `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+	PrePaidPeriodNumber int `pulumi:"prePaidPeriodNumber"`
+}
+
+// GetVeenBillingConfigInput is an input type that accepts GetVeenBillingConfigArgs and GetVeenBillingConfigOutput values.
+// You can construct a concrete instance of `GetVeenBillingConfigInput` via:
+//
+//	GetVeenBillingConfigArgs{...}
+type GetVeenBillingConfigInput interface {
+	pulumi.Input
+
+	ToGetVeenBillingConfigOutput() GetVeenBillingConfigOutput
+	ToGetVeenBillingConfigOutputWithContext(context.Context) GetVeenBillingConfigOutput
+}
+
+type GetVeenBillingConfigArgs struct {
+	// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+	AutoRenew pulumi.BoolInput `pulumi:"autoRenew"`
+	// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+	PrePaidPeriod pulumi.StringInput `pulumi:"prePaidPeriod"`
+	// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+	PrePaidPeriodNumber pulumi.IntInput `pulumi:"prePaidPeriodNumber"`
+}
+
+func (GetVeenBillingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenBillingConfig)(nil)).Elem()
+}
+
+func (i GetVeenBillingConfigArgs) ToGetVeenBillingConfigOutput() GetVeenBillingConfigOutput {
+	return i.ToGetVeenBillingConfigOutputWithContext(context.Background())
+}
+
+func (i GetVeenBillingConfigArgs) ToGetVeenBillingConfigOutputWithContext(ctx context.Context) GetVeenBillingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenBillingConfigOutput)
+}
+
+type GetVeenBillingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetVeenBillingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenBillingConfig)(nil)).Elem()
+}
+
+func (o GetVeenBillingConfigOutput) ToGetVeenBillingConfigOutput() GetVeenBillingConfigOutput {
+	return o
+}
+
+func (o GetVeenBillingConfigOutput) ToGetVeenBillingConfigOutputWithContext(ctx context.Context) GetVeenBillingConfigOutput {
+	return o
+}
+
+// Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+func (o GetVeenBillingConfigOutput) AutoRenew() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenBillingConfig) bool { return v.AutoRenew }).(pulumi.BoolOutput)
+}
+
+// Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+func (o GetVeenBillingConfigOutput) PrePaidPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenBillingConfig) string { return v.PrePaidPeriod }).(pulumi.StringOutput)
+}
+
+// Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+func (o GetVeenBillingConfigOutput) PrePaidPeriodNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenBillingConfig) int { return v.PrePaidPeriodNumber }).(pulumi.IntOutput)
+}
+
+type GetVeenCluster struct {
+	// Node alias.
+	Alias string `pulumi:"alias"`
+	// City where the node is located.
+	City string `pulumi:"city"`
+	// Name of the node
+	ClusterName string `pulumi:"clusterName"`
+	// Country where the node is located.
+	Country string `pulumi:"country"`
+	// Network carrier of the node.
+	Isp string `pulumi:"isp"`
+	// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+	Level string `pulumi:"level"`
+	// Province where the node is located.
+	Province string `pulumi:"province"`
+	// Region where the node is located.
+	Region string `pulumi:"region"`
+}
+
+// GetVeenClusterInput is an input type that accepts GetVeenClusterArgs and GetVeenClusterOutput values.
+// You can construct a concrete instance of `GetVeenClusterInput` via:
+//
+//	GetVeenClusterArgs{...}
+type GetVeenClusterInput interface {
+	pulumi.Input
+
+	ToGetVeenClusterOutput() GetVeenClusterOutput
+	ToGetVeenClusterOutputWithContext(context.Context) GetVeenClusterOutput
+}
+
+type GetVeenClusterArgs struct {
+	// Node alias.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// City where the node is located.
+	City pulumi.StringInput `pulumi:"city"`
+	// Name of the node
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Country where the node is located.
+	Country pulumi.StringInput `pulumi:"country"`
+	// Network carrier of the node.
+	Isp pulumi.StringInput `pulumi:"isp"`
+	// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+	Level pulumi.StringInput `pulumi:"level"`
+	// Province where the node is located.
+	Province pulumi.StringInput `pulumi:"province"`
+	// Region where the node is located.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetVeenClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenCluster)(nil)).Elem()
+}
+
+func (i GetVeenClusterArgs) ToGetVeenClusterOutput() GetVeenClusterOutput {
+	return i.ToGetVeenClusterOutputWithContext(context.Background())
+}
+
+func (i GetVeenClusterArgs) ToGetVeenClusterOutputWithContext(ctx context.Context) GetVeenClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenClusterOutput)
+}
+
+type GetVeenClusterOutput struct{ *pulumi.OutputState }
+
+func (GetVeenClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenCluster)(nil)).Elem()
+}
+
+func (o GetVeenClusterOutput) ToGetVeenClusterOutput() GetVeenClusterOutput {
+	return o
+}
+
+func (o GetVeenClusterOutput) ToGetVeenClusterOutputWithContext(ctx context.Context) GetVeenClusterOutput {
+	return o
+}
+
+// Node alias.
+func (o GetVeenClusterOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// City where the node is located.
+func (o GetVeenClusterOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.City }).(pulumi.StringOutput)
+}
+
+// Name of the node
+func (o GetVeenClusterOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Country where the node is located.
+func (o GetVeenClusterOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// Network carrier of the node.
+func (o GetVeenClusterOutput) Isp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.Isp }).(pulumi.StringOutput)
+}
+
+// Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+func (o GetVeenClusterOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.Level }).(pulumi.StringOutput)
+}
+
+// Province where the node is located.
+func (o GetVeenClusterOutput) Province() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.Province }).(pulumi.StringOutput)
+}
+
+// Region where the node is located.
+func (o GetVeenClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCluster) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetVeenCustomData struct {
+	// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+	Data string `pulumi:"data"`
+	// Whether the data uses Base64 encoding
+	IsBase64 bool `pulumi:"isBase64"`
+}
+
+// GetVeenCustomDataInput is an input type that accepts GetVeenCustomDataArgs and GetVeenCustomDataOutput values.
+// You can construct a concrete instance of `GetVeenCustomDataInput` via:
+//
+//	GetVeenCustomDataArgs{...}
+type GetVeenCustomDataInput interface {
+	pulumi.Input
+
+	ToGetVeenCustomDataOutput() GetVeenCustomDataOutput
+	ToGetVeenCustomDataOutputWithContext(context.Context) GetVeenCustomDataOutput
+}
+
+type GetVeenCustomDataArgs struct {
+	// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+	Data pulumi.StringInput `pulumi:"data"`
+	// Whether the data uses Base64 encoding
+	IsBase64 pulumi.BoolInput `pulumi:"isBase64"`
+}
+
+func (GetVeenCustomDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenCustomData)(nil)).Elem()
+}
+
+func (i GetVeenCustomDataArgs) ToGetVeenCustomDataOutput() GetVeenCustomDataOutput {
+	return i.ToGetVeenCustomDataOutputWithContext(context.Background())
+}
+
+func (i GetVeenCustomDataArgs) ToGetVeenCustomDataOutputWithContext(ctx context.Context) GetVeenCustomDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenCustomDataOutput)
+}
+
+type GetVeenCustomDataOutput struct{ *pulumi.OutputState }
+
+func (GetVeenCustomDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenCustomData)(nil)).Elem()
+}
+
+func (o GetVeenCustomDataOutput) ToGetVeenCustomDataOutput() GetVeenCustomDataOutput {
+	return o
+}
+
+func (o GetVeenCustomDataOutput) ToGetVeenCustomDataOutputWithContext(ctx context.Context) GetVeenCustomDataOutput {
+	return o
+}
+
+// Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+func (o GetVeenCustomDataOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenCustomData) string { return v.Data }).(pulumi.StringOutput)
+}
+
+// Whether the data uses Base64 encoding
+func (o GetVeenCustomDataOutput) IsBase64() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenCustomData) bool { return v.IsBase64 }).(pulumi.BoolOutput)
+}
+
+type GetVeenGpu struct {
+	// GPU specification information
+	Gpuses []GetVeenGpuGpus `pulumi:"gpuses"`
+}
+
+// GetVeenGpuInput is an input type that accepts GetVeenGpuArgs and GetVeenGpuOutput values.
+// You can construct a concrete instance of `GetVeenGpuInput` via:
+//
+//	GetVeenGpuArgs{...}
+type GetVeenGpuInput interface {
+	pulumi.Input
+
+	ToGetVeenGpuOutput() GetVeenGpuOutput
+	ToGetVeenGpuOutputWithContext(context.Context) GetVeenGpuOutput
+}
+
+type GetVeenGpuArgs struct {
+	// GPU specification information
+	Gpuses GetVeenGpuGpusArrayInput `pulumi:"gpuses"`
+}
+
+func (GetVeenGpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenGpu)(nil)).Elem()
+}
+
+func (i GetVeenGpuArgs) ToGetVeenGpuOutput() GetVeenGpuOutput {
+	return i.ToGetVeenGpuOutputWithContext(context.Background())
+}
+
+func (i GetVeenGpuArgs) ToGetVeenGpuOutputWithContext(ctx context.Context) GetVeenGpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenGpuOutput)
+}
+
+type GetVeenGpuOutput struct{ *pulumi.OutputState }
+
+func (GetVeenGpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenGpu)(nil)).Elem()
+}
+
+func (o GetVeenGpuOutput) ToGetVeenGpuOutput() GetVeenGpuOutput {
+	return o
+}
+
+func (o GetVeenGpuOutput) ToGetVeenGpuOutputWithContext(ctx context.Context) GetVeenGpuOutput {
+	return o
+}
+
+// GPU specification information
+func (o GetVeenGpuOutput) Gpuses() GetVeenGpuGpusArrayOutput {
+	return o.ApplyT(func(v GetVeenGpu) []GetVeenGpuGpus { return v.Gpuses }).(GetVeenGpuGpusArrayOutput)
+}
+
+type GetVeenGpuGpus struct {
+	// GPU specification
+	GpuSpec GetVeenGpuGpusGpuSpec `pulumi:"gpuSpec"`
+	// GPU quantity.
+	Num int `pulumi:"num"`
+}
+
+// GetVeenGpuGpusInput is an input type that accepts GetVeenGpuGpusArgs and GetVeenGpuGpusOutput values.
+// You can construct a concrete instance of `GetVeenGpuGpusInput` via:
+//
+//	GetVeenGpuGpusArgs{...}
+type GetVeenGpuGpusInput interface {
+	pulumi.Input
+
+	ToGetVeenGpuGpusOutput() GetVeenGpuGpusOutput
+	ToGetVeenGpuGpusOutputWithContext(context.Context) GetVeenGpuGpusOutput
+}
+
+type GetVeenGpuGpusArgs struct {
+	// GPU specification
+	GpuSpec GetVeenGpuGpusGpuSpecInput `pulumi:"gpuSpec"`
+	// GPU quantity.
+	Num pulumi.IntInput `pulumi:"num"`
+}
+
+func (GetVeenGpuGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenGpuGpus)(nil)).Elem()
+}
+
+func (i GetVeenGpuGpusArgs) ToGetVeenGpuGpusOutput() GetVeenGpuGpusOutput {
+	return i.ToGetVeenGpuGpusOutputWithContext(context.Background())
+}
+
+func (i GetVeenGpuGpusArgs) ToGetVeenGpuGpusOutputWithContext(ctx context.Context) GetVeenGpuGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenGpuGpusOutput)
+}
+
+// GetVeenGpuGpusArrayInput is an input type that accepts GetVeenGpuGpusArray and GetVeenGpuGpusArrayOutput values.
+// You can construct a concrete instance of `GetVeenGpuGpusArrayInput` via:
+//
+//	GetVeenGpuGpusArray{ GetVeenGpuGpusArgs{...} }
+type GetVeenGpuGpusArrayInput interface {
+	pulumi.Input
+
+	ToGetVeenGpuGpusArrayOutput() GetVeenGpuGpusArrayOutput
+	ToGetVeenGpuGpusArrayOutputWithContext(context.Context) GetVeenGpuGpusArrayOutput
+}
+
+type GetVeenGpuGpusArray []GetVeenGpuGpusInput
+
+func (GetVeenGpuGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenGpuGpus)(nil)).Elem()
+}
+
+func (i GetVeenGpuGpusArray) ToGetVeenGpuGpusArrayOutput() GetVeenGpuGpusArrayOutput {
+	return i.ToGetVeenGpuGpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetVeenGpuGpusArray) ToGetVeenGpuGpusArrayOutputWithContext(ctx context.Context) GetVeenGpuGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenGpuGpusArrayOutput)
+}
+
+type GetVeenGpuGpusOutput struct{ *pulumi.OutputState }
+
+func (GetVeenGpuGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenGpuGpus)(nil)).Elem()
+}
+
+func (o GetVeenGpuGpusOutput) ToGetVeenGpuGpusOutput() GetVeenGpuGpusOutput {
+	return o
+}
+
+func (o GetVeenGpuGpusOutput) ToGetVeenGpuGpusOutputWithContext(ctx context.Context) GetVeenGpuGpusOutput {
+	return o
+}
+
+// GPU specification
+func (o GetVeenGpuGpusOutput) GpuSpec() GetVeenGpuGpusGpuSpecOutput {
+	return o.ApplyT(func(v GetVeenGpuGpus) GetVeenGpuGpusGpuSpec { return v.GpuSpec }).(GetVeenGpuGpusGpuSpecOutput)
+}
+
+// GPU quantity.
+func (o GetVeenGpuGpusOutput) Num() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenGpuGpus) int { return v.Num }).(pulumi.IntOutput)
+}
+
+type GetVeenGpuGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVeenGpuGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenGpuGpus)(nil)).Elem()
+}
+
+func (o GetVeenGpuGpusArrayOutput) ToGetVeenGpuGpusArrayOutput() GetVeenGpuGpusArrayOutput {
+	return o
+}
+
+func (o GetVeenGpuGpusArrayOutput) ToGetVeenGpuGpusArrayOutputWithContext(ctx context.Context) GetVeenGpuGpusArrayOutput {
+	return o
+}
+
+func (o GetVeenGpuGpusArrayOutput) Index(i pulumi.IntInput) GetVeenGpuGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVeenGpuGpus {
+		return vs[0].([]GetVeenGpuGpus)[vs[1].(int)]
+	}).(GetVeenGpuGpusOutput)
+}
+
+type GetVeenGpuGpusGpuSpec struct {
+	// GPU type.
+	GpuType string `pulumi:"gpuType"`
+}
+
+// GetVeenGpuGpusGpuSpecInput is an input type that accepts GetVeenGpuGpusGpuSpecArgs and GetVeenGpuGpusGpuSpecOutput values.
+// You can construct a concrete instance of `GetVeenGpuGpusGpuSpecInput` via:
+//
+//	GetVeenGpuGpusGpuSpecArgs{...}
+type GetVeenGpuGpusGpuSpecInput interface {
+	pulumi.Input
+
+	ToGetVeenGpuGpusGpuSpecOutput() GetVeenGpuGpusGpuSpecOutput
+	ToGetVeenGpuGpusGpuSpecOutputWithContext(context.Context) GetVeenGpuGpusGpuSpecOutput
+}
+
+type GetVeenGpuGpusGpuSpecArgs struct {
+	// GPU type.
+	GpuType pulumi.StringInput `pulumi:"gpuType"`
+}
+
+func (GetVeenGpuGpusGpuSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenGpuGpusGpuSpec)(nil)).Elem()
+}
+
+func (i GetVeenGpuGpusGpuSpecArgs) ToGetVeenGpuGpusGpuSpecOutput() GetVeenGpuGpusGpuSpecOutput {
+	return i.ToGetVeenGpuGpusGpuSpecOutputWithContext(context.Background())
+}
+
+func (i GetVeenGpuGpusGpuSpecArgs) ToGetVeenGpuGpusGpuSpecOutputWithContext(ctx context.Context) GetVeenGpuGpusGpuSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenGpuGpusGpuSpecOutput)
+}
+
+type GetVeenGpuGpusGpuSpecOutput struct{ *pulumi.OutputState }
+
+func (GetVeenGpuGpusGpuSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenGpuGpusGpuSpec)(nil)).Elem()
+}
+
+func (o GetVeenGpuGpusGpuSpecOutput) ToGetVeenGpuGpusGpuSpecOutput() GetVeenGpuGpusGpuSpecOutput {
+	return o
+}
+
+func (o GetVeenGpuGpusGpuSpecOutput) ToGetVeenGpuGpusGpuSpecOutputWithContext(ctx context.Context) GetVeenGpuGpusGpuSpecOutput {
+	return o
+}
+
+// GPU type.
+func (o GetVeenGpuGpusGpuSpecOutput) GpuType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenGpuGpusGpuSpec) string { return v.GpuType }).(pulumi.StringOutput)
+}
+
+type GetVeenImage struct {
+	// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+	DisableVga bool `pulumi:"disableVga"`
+	// Image boot mode: BIOS, UEFI
+	ImageBootMode string `pulumi:"imageBootMode"`
+	// Image ID.
+	ImageIdentity string `pulumi:"imageIdentity"`
+	// Image name.
+	ImageName string `pulumi:"imageName"`
+	// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+	Property string `pulumi:"property"`
+	// Operating system architecture.
+	SystemArch string `pulumi:"systemArch"`
+	// Operating system bitness.
+	SystemBit string `pulumi:"systemBit"`
+	// Type of operating system.
+	SystemType string `pulumi:"systemType"`
+	// Operating system version.
+	SystemVersion string `pulumi:"systemVersion"`
+}
+
+// GetVeenImageInput is an input type that accepts GetVeenImageArgs and GetVeenImageOutput values.
+// You can construct a concrete instance of `GetVeenImageInput` via:
+//
+//	GetVeenImageArgs{...}
+type GetVeenImageInput interface {
+	pulumi.Input
+
+	ToGetVeenImageOutput() GetVeenImageOutput
+	ToGetVeenImageOutputWithContext(context.Context) GetVeenImageOutput
+}
+
+type GetVeenImageArgs struct {
+	// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+	DisableVga pulumi.BoolInput `pulumi:"disableVga"`
+	// Image boot mode: BIOS, UEFI
+	ImageBootMode pulumi.StringInput `pulumi:"imageBootMode"`
+	// Image ID.
+	ImageIdentity pulumi.StringInput `pulumi:"imageIdentity"`
+	// Image name.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+	Property pulumi.StringInput `pulumi:"property"`
+	// Operating system architecture.
+	SystemArch pulumi.StringInput `pulumi:"systemArch"`
+	// Operating system bitness.
+	SystemBit pulumi.StringInput `pulumi:"systemBit"`
+	// Type of operating system.
+	SystemType pulumi.StringInput `pulumi:"systemType"`
+	// Operating system version.
+	SystemVersion pulumi.StringInput `pulumi:"systemVersion"`
+}
+
+func (GetVeenImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenImage)(nil)).Elem()
+}
+
+func (i GetVeenImageArgs) ToGetVeenImageOutput() GetVeenImageOutput {
+	return i.ToGetVeenImageOutputWithContext(context.Background())
+}
+
+func (i GetVeenImageArgs) ToGetVeenImageOutputWithContext(ctx context.Context) GetVeenImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenImageOutput)
+}
+
+type GetVeenImageOutput struct{ *pulumi.OutputState }
+
+func (GetVeenImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenImage)(nil)).Elem()
+}
+
+func (o GetVeenImageOutput) ToGetVeenImageOutput() GetVeenImageOutput {
+	return o
+}
+
+func (o GetVeenImageOutput) ToGetVeenImageOutputWithContext(ctx context.Context) GetVeenImageOutput {
+	return o
+}
+
+// Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+func (o GetVeenImageOutput) DisableVga() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenImage) bool { return v.DisableVga }).(pulumi.BoolOutput)
+}
+
+// Image boot mode: BIOS, UEFI
+func (o GetVeenImageOutput) ImageBootMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.ImageBootMode }).(pulumi.StringOutput)
+}
+
+// Image ID.
+func (o GetVeenImageOutput) ImageIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.ImageIdentity }).(pulumi.StringOutput)
+}
+
+// Image name.
+func (o GetVeenImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+func (o GetVeenImageOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.Property }).(pulumi.StringOutput)
+}
+
+// Operating system architecture.
+func (o GetVeenImageOutput) SystemArch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.SystemArch }).(pulumi.StringOutput)
+}
+
+// Operating system bitness.
+func (o GetVeenImageOutput) SystemBit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.SystemBit }).(pulumi.StringOutput)
+}
+
+// Type of operating system.
+func (o GetVeenImageOutput) SystemType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.SystemType }).(pulumi.StringOutput)
+}
+
+// Operating system version.
+func (o GetVeenImageOutput) SystemVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenImage) string { return v.SystemVersion }).(pulumi.StringOutput)
+}
+
+type GetVeenInstanceAreaNum struct {
+	// Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	AreaName string `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+	ClusterName string `pulumi:"clusterName"`
+	// Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp string `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+	// single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+	// Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+	ExternalNetworkMode string `pulumi:"externalNetworkMode"`
+	// The host name list to assign to the created instances.
+	HostNameLists []string `pulumi:"hostNameLists"`
+	// Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	Isp string `pulumi:"isp"`
+	// NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+	// If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+	MultiInterfaceNameConfig GetVeenInstanceAreaNumMultiInterfaceNameConfig `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num int `pulumi:"num"`
+	// Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+	SingleInterfaceNameConfig GetVeenInstanceAreaNumSingleInterfaceNameConfig `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity string `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+	VpcIdentity string `pulumi:"vpcIdentity"`
+}
+
+// GetVeenInstanceAreaNumInput is an input type that accepts GetVeenInstanceAreaNumArgs and GetVeenInstanceAreaNumOutput values.
+// You can construct a concrete instance of `GetVeenInstanceAreaNumInput` via:
+//
+//	GetVeenInstanceAreaNumArgs{...}
+type GetVeenInstanceAreaNumInput interface {
+	pulumi.Input
+
+	ToGetVeenInstanceAreaNumOutput() GetVeenInstanceAreaNumOutput
+	ToGetVeenInstanceAreaNumOutputWithContext(context.Context) GetVeenInstanceAreaNumOutput
+}
+
+type GetVeenInstanceAreaNumArgs struct {
+	// Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	AreaName pulumi.StringInput `pulumi:"areaName"`
+	// Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+	DefaultIsp pulumi.StringInput `pulumi:"defaultIsp"`
+	// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+	// single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+	// Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+	ExternalNetworkMode pulumi.StringInput `pulumi:"externalNetworkMode"`
+	// The host name list to assign to the created instances.
+	HostNameLists pulumi.StringArrayInput `pulumi:"hostNameLists"`
+	// Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+	Isp pulumi.StringInput `pulumi:"isp"`
+	// NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+	// If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+	MultiInterfaceNameConfig GetVeenInstanceAreaNumMultiInterfaceNameConfigInput `pulumi:"multiInterfaceNameConfig"`
+	// Number of instances.
+	Num pulumi.IntInput `pulumi:"num"`
+	// Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+	SingleInterfaceNameConfig GetVeenInstanceAreaNumSingleInterfaceNameConfigInput `pulumi:"singleInterfaceNameConfig"`
+	// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+	SubnetIdentity pulumi.StringInput `pulumi:"subnetIdentity"`
+	// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+	VpcIdentity pulumi.StringInput `pulumi:"vpcIdentity"`
+}
+
+func (GetVeenInstanceAreaNumArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (i GetVeenInstanceAreaNumArgs) ToGetVeenInstanceAreaNumOutput() GetVeenInstanceAreaNumOutput {
+	return i.ToGetVeenInstanceAreaNumOutputWithContext(context.Background())
+}
+
+func (i GetVeenInstanceAreaNumArgs) ToGetVeenInstanceAreaNumOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenInstanceAreaNumOutput)
+}
+
+// GetVeenInstanceAreaNumArrayInput is an input type that accepts GetVeenInstanceAreaNumArray and GetVeenInstanceAreaNumArrayOutput values.
+// You can construct a concrete instance of `GetVeenInstanceAreaNumArrayInput` via:
+//
+//	GetVeenInstanceAreaNumArray{ GetVeenInstanceAreaNumArgs{...} }
+type GetVeenInstanceAreaNumArrayInput interface {
+	pulumi.Input
+
+	ToGetVeenInstanceAreaNumArrayOutput() GetVeenInstanceAreaNumArrayOutput
+	ToGetVeenInstanceAreaNumArrayOutputWithContext(context.Context) GetVeenInstanceAreaNumArrayOutput
+}
+
+type GetVeenInstanceAreaNumArray []GetVeenInstanceAreaNumInput
+
+func (GetVeenInstanceAreaNumArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (i GetVeenInstanceAreaNumArray) ToGetVeenInstanceAreaNumArrayOutput() GetVeenInstanceAreaNumArrayOutput {
+	return i.ToGetVeenInstanceAreaNumArrayOutputWithContext(context.Background())
+}
+
+func (i GetVeenInstanceAreaNumArray) ToGetVeenInstanceAreaNumArrayOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenInstanceAreaNumArrayOutput)
+}
+
+type GetVeenInstanceAreaNumOutput struct{ *pulumi.OutputState }
+
+func (GetVeenInstanceAreaNumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (o GetVeenInstanceAreaNumOutput) ToGetVeenInstanceAreaNumOutput() GetVeenInstanceAreaNumOutput {
+	return o
+}
+
+func (o GetVeenInstanceAreaNumOutput) ToGetVeenInstanceAreaNumOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumOutput {
+	return o
+}
+
+// Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+func (o GetVeenInstanceAreaNumOutput) AreaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.AreaName }).(pulumi.StringOutput)
+}
+
+// Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+func (o GetVeenInstanceAreaNumOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+func (o GetVeenInstanceAreaNumOutput) DefaultIsp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.DefaultIsp }).(pulumi.StringOutput)
+}
+
+// Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+// single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+// Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+func (o GetVeenInstanceAreaNumOutput) ExternalNetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.ExternalNetworkMode }).(pulumi.StringOutput)
+}
+
+// The host name list to assign to the created instances.
+func (o GetVeenInstanceAreaNumOutput) HostNameLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) []string { return v.HostNameLists }).(pulumi.StringArrayOutput)
+}
+
+// Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+func (o GetVeenInstanceAreaNumOutput) Isp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.Isp }).(pulumi.StringOutput)
+}
+
+// NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+// If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+func (o GetVeenInstanceAreaNumOutput) MultiInterfaceNameConfig() GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) GetVeenInstanceAreaNumMultiInterfaceNameConfig {
+		return v.MultiInterfaceNameConfig
+	}).(GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+// Number of instances.
+func (o GetVeenInstanceAreaNumOutput) Num() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) int { return v.Num }).(pulumi.IntOutput)
+}
+
+// Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+func (o GetVeenInstanceAreaNumOutput) SingleInterfaceNameConfig() GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) GetVeenInstanceAreaNumSingleInterfaceNameConfig {
+		return v.SingleInterfaceNameConfig
+	}).(GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+// Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+func (o GetVeenInstanceAreaNumOutput) SubnetIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.SubnetIdentity }).(pulumi.StringOutput)
+}
+
+// Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+func (o GetVeenInstanceAreaNumOutput) VpcIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNum) string { return v.VpcIdentity }).(pulumi.StringOutput)
+}
+
+type GetVeenInstanceAreaNumArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVeenInstanceAreaNumArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenInstanceAreaNum)(nil)).Elem()
+}
+
+func (o GetVeenInstanceAreaNumArrayOutput) ToGetVeenInstanceAreaNumArrayOutput() GetVeenInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o GetVeenInstanceAreaNumArrayOutput) ToGetVeenInstanceAreaNumArrayOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumArrayOutput {
+	return o
+}
+
+func (o GetVeenInstanceAreaNumArrayOutput) Index(i pulumi.IntInput) GetVeenInstanceAreaNumOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVeenInstanceAreaNum {
+		return vs[0].([]GetVeenInstanceAreaNum)[vs[1].(int)]
+	}).(GetVeenInstanceAreaNumOutput)
+}
+
+type GetVeenInstanceAreaNumMultiInterfaceNameConfig struct {
+	// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CmccExternalInterfaceName string `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+	CtccExternalInterfaceName string `pulumi:"ctccExternalInterfaceName"`
+	// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	CuccExternalInterfaceName string `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName string `pulumi:"internalInterfaceName"`
+}
+
+// GetVeenInstanceAreaNumMultiInterfaceNameConfigInput is an input type that accepts GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs and GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `GetVeenInstanceAreaNumMultiInterfaceNameConfigInput` via:
+//
+//	GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs{...}
+type GetVeenInstanceAreaNumMultiInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutput() GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput
+	ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Context) GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput
+}
+
+type GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs struct {
+	// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+	CmccExternalInterfaceName pulumi.StringInput `pulumi:"cmccExternalInterfaceName"`
+	// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+	CtccExternalInterfaceName pulumi.StringInput `pulumi:"ctccExternalInterfaceName"`
+	// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	CuccExternalInterfaceName pulumi.StringInput `pulumi:"cuccExternalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName pulumi.StringInput `pulumi:"internalInterfaceName"`
+}
+
+func (GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs) ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutput() GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return i.ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs) ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput)
+}
+
+type GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenInstanceAreaNumMultiInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutput() GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+func (o GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) ToGetVeenInstanceAreaNumMultiInterfaceNameConfigOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput {
+	return o
+}
+
+// Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+func (o GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) CmccExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNumMultiInterfaceNameConfig) string { return v.CmccExternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+func (o GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) CtccExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNumMultiInterfaceNameConfig) string { return v.CtccExternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) CuccExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNumMultiInterfaceNameConfig) string { return v.CuccExternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNumMultiInterfaceNameConfig) string { return v.InternalInterfaceName }).(pulumi.StringOutput)
+}
+
+type GetVeenInstanceAreaNumSingleInterfaceNameConfig struct {
+	// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+	ExternalInterfaceName string `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName string `pulumi:"internalInterfaceName"`
+}
+
+// GetVeenInstanceAreaNumSingleInterfaceNameConfigInput is an input type that accepts GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs and GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput values.
+// You can construct a concrete instance of `GetVeenInstanceAreaNumSingleInterfaceNameConfigInput` via:
+//
+//	GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs{...}
+type GetVeenInstanceAreaNumSingleInterfaceNameConfigInput interface {
+	pulumi.Input
+
+	ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutput() GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput
+	ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Context) GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput
+}
+
+type GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs struct {
+	// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+	ExternalInterfaceName pulumi.StringInput `pulumi:"externalInterfaceName"`
+	// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+	InternalInterfaceName pulumi.StringInput `pulumi:"internalInterfaceName"`
+}
+
+func (GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (i GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs) ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutput() GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return i.ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(context.Background())
+}
+
+func (i GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs) ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput)
+}
+
+type GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput struct{ *pulumi.OutputState }
+
+func (GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenInstanceAreaNumSingleInterfaceNameConfig)(nil)).Elem()
+}
+
+func (o GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput) ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutput() GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+func (o GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput) ToGetVeenInstanceAreaNumSingleInterfaceNameConfigOutputWithContext(ctx context.Context) GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput {
+	return o
+}
+
+// Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+func (o GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput) ExternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNumSingleInterfaceNameConfig) string { return v.ExternalInterfaceName }).(pulumi.StringOutput)
+}
+
+// Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+func (o GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput) InternalInterfaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenInstanceAreaNumSingleInterfaceNameConfig) string { return v.InternalInterfaceName }).(pulumi.StringOutput)
+}
+
+type GetVeenMonitorAgent struct {
+	// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+	AgentStatus string `pulumi:"agentStatus"`
+}
+
+// GetVeenMonitorAgentInput is an input type that accepts GetVeenMonitorAgentArgs and GetVeenMonitorAgentOutput values.
+// You can construct a concrete instance of `GetVeenMonitorAgentInput` via:
+//
+//	GetVeenMonitorAgentArgs{...}
+type GetVeenMonitorAgentInput interface {
+	pulumi.Input
+
+	ToGetVeenMonitorAgentOutput() GetVeenMonitorAgentOutput
+	ToGetVeenMonitorAgentOutputWithContext(context.Context) GetVeenMonitorAgentOutput
+}
+
+type GetVeenMonitorAgentArgs struct {
+	// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+	AgentStatus pulumi.StringInput `pulumi:"agentStatus"`
+}
+
+func (GetVeenMonitorAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenMonitorAgent)(nil)).Elem()
+}
+
+func (i GetVeenMonitorAgentArgs) ToGetVeenMonitorAgentOutput() GetVeenMonitorAgentOutput {
+	return i.ToGetVeenMonitorAgentOutputWithContext(context.Background())
+}
+
+func (i GetVeenMonitorAgentArgs) ToGetVeenMonitorAgentOutputWithContext(ctx context.Context) GetVeenMonitorAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenMonitorAgentOutput)
+}
+
+type GetVeenMonitorAgentOutput struct{ *pulumi.OutputState }
+
+func (GetVeenMonitorAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenMonitorAgent)(nil)).Elem()
+}
+
+func (o GetVeenMonitorAgentOutput) ToGetVeenMonitorAgentOutput() GetVeenMonitorAgentOutput {
+	return o
+}
+
+func (o GetVeenMonitorAgentOutput) ToGetVeenMonitorAgentOutputWithContext(ctx context.Context) GetVeenMonitorAgentOutput {
+	return o
+}
+
+// Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+func (o GetVeenMonitorAgentOutput) AgentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenMonitorAgent) string { return v.AgentStatus }).(pulumi.StringOutput)
+}
+
+type GetVeenNetwork struct {
+	// Number of allocated auxiliary private IP addresses
+	ActualSecondaryIpNum int `pulumi:"actualSecondaryIpNum"`
+	// Percentile peak bandwidth, no fixed bandwidth value.
+	BandwidthPeakConfigRatio GetVeenNetworkBandwidthPeakConfigRatio `pulumi:"bandwidthPeakConfigRatio"`
+	// Bandwidth peak update status: updating: updating. ready: update complete.
+	BandwidthPeakUpdateStatus string `pulumi:"bandwidthPeakUpdateStatus"`
+	// Default carrier
+	DefaultIsp string `pulumi:"defaultIsp"`
+	// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+	DisableIpv4 bool `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+	DnsLists []string `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+	DnsType string `pulumi:"dnsType"`
+	// Enable IPv6: true: enable IPv6. false: disable IPv6.
+	EnableIpv6 bool `pulumi:"enableIpv6"`
+	// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+	ExternalNetworkMode string `pulumi:"externalNetworkMode"`
+	// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+	LimitMode string `pulumi:"limitMode"`
+	// Edge instance TCP session timeout. Unit: seconds.
+	TcpTimeout int `pulumi:"tcpTimeout"`
+	// UDP session timeout for the edge instance. Unit: seconds.
+	UdpTimeout int `pulumi:"udpTimeout"`
+	// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+	VfPassthrough bool `pulumi:"vfPassthrough"`
+	// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+	VlanVfPassthrough bool `pulumi:"vlanVfPassthrough"`
+	// Number of required auxiliary private network IP addresses
+	WantedSecondaryIpNum int `pulumi:"wantedSecondaryIpNum"`
+}
+
+// GetVeenNetworkInput is an input type that accepts GetVeenNetworkArgs and GetVeenNetworkOutput values.
+// You can construct a concrete instance of `GetVeenNetworkInput` via:
+//
+//	GetVeenNetworkArgs{...}
+type GetVeenNetworkInput interface {
+	pulumi.Input
+
+	ToGetVeenNetworkOutput() GetVeenNetworkOutput
+	ToGetVeenNetworkOutputWithContext(context.Context) GetVeenNetworkOutput
+}
+
+type GetVeenNetworkArgs struct {
+	// Number of allocated auxiliary private IP addresses
+	ActualSecondaryIpNum pulumi.IntInput `pulumi:"actualSecondaryIpNum"`
+	// Percentile peak bandwidth, no fixed bandwidth value.
+	BandwidthPeakConfigRatio GetVeenNetworkBandwidthPeakConfigRatioInput `pulumi:"bandwidthPeakConfigRatio"`
+	// Bandwidth peak update status: updating: updating. ready: update complete.
+	BandwidthPeakUpdateStatus pulumi.StringInput `pulumi:"bandwidthPeakUpdateStatus"`
+	// Default carrier
+	DefaultIsp pulumi.StringInput `pulumi:"defaultIsp"`
+	// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+	DisableIpv4 pulumi.BoolInput `pulumi:"disableIpv4"`
+	// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+	DnsLists pulumi.StringArrayInput `pulumi:"dnsLists"`
+	// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+	DnsType pulumi.StringInput `pulumi:"dnsType"`
+	// Enable IPv6: true: enable IPv6. false: disable IPv6.
+	EnableIpv6 pulumi.BoolInput `pulumi:"enableIpv6"`
+	// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+	ExternalNetworkMode pulumi.StringInput `pulumi:"externalNetworkMode"`
+	// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+	LimitMode pulumi.StringInput `pulumi:"limitMode"`
+	// Edge instance TCP session timeout. Unit: seconds.
+	TcpTimeout pulumi.IntInput `pulumi:"tcpTimeout"`
+	// UDP session timeout for the edge instance. Unit: seconds.
+	UdpTimeout pulumi.IntInput `pulumi:"udpTimeout"`
+	// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+	VfPassthrough pulumi.BoolInput `pulumi:"vfPassthrough"`
+	// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+	VlanVfPassthrough pulumi.BoolInput `pulumi:"vlanVfPassthrough"`
+	// Number of required auxiliary private network IP addresses
+	WantedSecondaryIpNum pulumi.IntInput `pulumi:"wantedSecondaryIpNum"`
+}
+
+func (GetVeenNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenNetwork)(nil)).Elem()
+}
+
+func (i GetVeenNetworkArgs) ToGetVeenNetworkOutput() GetVeenNetworkOutput {
+	return i.ToGetVeenNetworkOutputWithContext(context.Background())
+}
+
+func (i GetVeenNetworkArgs) ToGetVeenNetworkOutputWithContext(ctx context.Context) GetVeenNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenNetworkOutput)
+}
+
+type GetVeenNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetVeenNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenNetwork)(nil)).Elem()
+}
+
+func (o GetVeenNetworkOutput) ToGetVeenNetworkOutput() GetVeenNetworkOutput {
+	return o
+}
+
+func (o GetVeenNetworkOutput) ToGetVeenNetworkOutputWithContext(ctx context.Context) GetVeenNetworkOutput {
+	return o
+}
+
+// Number of allocated auxiliary private IP addresses
+func (o GetVeenNetworkOutput) ActualSecondaryIpNum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenNetwork) int { return v.ActualSecondaryIpNum }).(pulumi.IntOutput)
+}
+
+// Percentile peak bandwidth, no fixed bandwidth value.
+func (o GetVeenNetworkOutput) BandwidthPeakConfigRatio() GetVeenNetworkBandwidthPeakConfigRatioOutput {
+	return o.ApplyT(func(v GetVeenNetwork) GetVeenNetworkBandwidthPeakConfigRatio { return v.BandwidthPeakConfigRatio }).(GetVeenNetworkBandwidthPeakConfigRatioOutput)
+}
+
+// Bandwidth peak update status: updating: updating. ready: update complete.
+func (o GetVeenNetworkOutput) BandwidthPeakUpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenNetwork) string { return v.BandwidthPeakUpdateStatus }).(pulumi.StringOutput)
+}
+
+// Default carrier
+func (o GetVeenNetworkOutput) DefaultIsp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenNetwork) string { return v.DefaultIsp }).(pulumi.StringOutput)
+}
+
+// Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+func (o GetVeenNetworkOutput) DisableIpv4() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenNetwork) bool { return v.DisableIpv4 }).(pulumi.BoolOutput)
+}
+
+// DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+func (o GetVeenNetworkOutput) DnsLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVeenNetwork) []string { return v.DnsLists }).(pulumi.StringArrayOutput)
+}
+
+// DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+func (o GetVeenNetworkOutput) DnsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenNetwork) string { return v.DnsType }).(pulumi.StringOutput)
+}
+
+// Enable IPv6: true: enable IPv6. false: disable IPv6.
+func (o GetVeenNetworkOutput) EnableIpv6() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenNetwork) bool { return v.EnableIpv6 }).(pulumi.BoolOutput)
+}
+
+// Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+func (o GetVeenNetworkOutput) ExternalNetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenNetwork) string { return v.ExternalNetworkMode }).(pulumi.StringOutput)
+}
+
+// Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+func (o GetVeenNetworkOutput) LimitMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenNetwork) string { return v.LimitMode }).(pulumi.StringOutput)
+}
+
+// Edge instance TCP session timeout. Unit: seconds.
+func (o GetVeenNetworkOutput) TcpTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenNetwork) int { return v.TcpTimeout }).(pulumi.IntOutput)
+}
+
+// UDP session timeout for the edge instance. Unit: seconds.
+func (o GetVeenNetworkOutput) UdpTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenNetwork) int { return v.UdpTimeout }).(pulumi.IntOutput)
+}
+
+// Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+func (o GetVeenNetworkOutput) VfPassthrough() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenNetwork) bool { return v.VfPassthrough }).(pulumi.BoolOutput)
+}
+
+// Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+func (o GetVeenNetworkOutput) VlanVfPassthrough() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenNetwork) bool { return v.VlanVfPassthrough }).(pulumi.BoolOutput)
+}
+
+// Number of required auxiliary private network IP addresses
+func (o GetVeenNetworkOutput) WantedSecondaryIpNum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenNetwork) int { return v.WantedSecondaryIpNum }).(pulumi.IntOutput)
+}
+
+type GetVeenNetworkBandwidthPeakConfigRatio struct {
+	// Bandwidth ratio in enhanced/burst mode
+	EnhancedRatio int `pulumi:"enhancedRatio"`
+	// Bandwidth ratio in standard mode
+	NormalRatio int `pulumi:"normalRatio"`
+}
+
+// GetVeenNetworkBandwidthPeakConfigRatioInput is an input type that accepts GetVeenNetworkBandwidthPeakConfigRatioArgs and GetVeenNetworkBandwidthPeakConfigRatioOutput values.
+// You can construct a concrete instance of `GetVeenNetworkBandwidthPeakConfigRatioInput` via:
+//
+//	GetVeenNetworkBandwidthPeakConfigRatioArgs{...}
+type GetVeenNetworkBandwidthPeakConfigRatioInput interface {
+	pulumi.Input
+
+	ToGetVeenNetworkBandwidthPeakConfigRatioOutput() GetVeenNetworkBandwidthPeakConfigRatioOutput
+	ToGetVeenNetworkBandwidthPeakConfigRatioOutputWithContext(context.Context) GetVeenNetworkBandwidthPeakConfigRatioOutput
+}
+
+type GetVeenNetworkBandwidthPeakConfigRatioArgs struct {
+	// Bandwidth ratio in enhanced/burst mode
+	EnhancedRatio pulumi.IntInput `pulumi:"enhancedRatio"`
+	// Bandwidth ratio in standard mode
+	NormalRatio pulumi.IntInput `pulumi:"normalRatio"`
+}
+
+func (GetVeenNetworkBandwidthPeakConfigRatioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenNetworkBandwidthPeakConfigRatio)(nil)).Elem()
+}
+
+func (i GetVeenNetworkBandwidthPeakConfigRatioArgs) ToGetVeenNetworkBandwidthPeakConfigRatioOutput() GetVeenNetworkBandwidthPeakConfigRatioOutput {
+	return i.ToGetVeenNetworkBandwidthPeakConfigRatioOutputWithContext(context.Background())
+}
+
+func (i GetVeenNetworkBandwidthPeakConfigRatioArgs) ToGetVeenNetworkBandwidthPeakConfigRatioOutputWithContext(ctx context.Context) GetVeenNetworkBandwidthPeakConfigRatioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenNetworkBandwidthPeakConfigRatioOutput)
+}
+
+type GetVeenNetworkBandwidthPeakConfigRatioOutput struct{ *pulumi.OutputState }
+
+func (GetVeenNetworkBandwidthPeakConfigRatioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenNetworkBandwidthPeakConfigRatio)(nil)).Elem()
+}
+
+func (o GetVeenNetworkBandwidthPeakConfigRatioOutput) ToGetVeenNetworkBandwidthPeakConfigRatioOutput() GetVeenNetworkBandwidthPeakConfigRatioOutput {
+	return o
+}
+
+func (o GetVeenNetworkBandwidthPeakConfigRatioOutput) ToGetVeenNetworkBandwidthPeakConfigRatioOutputWithContext(ctx context.Context) GetVeenNetworkBandwidthPeakConfigRatioOutput {
+	return o
+}
+
+// Bandwidth ratio in enhanced/burst mode
+func (o GetVeenNetworkBandwidthPeakConfigRatioOutput) EnhancedRatio() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenNetworkBandwidthPeakConfigRatio) int { return v.EnhancedRatio }).(pulumi.IntOutput)
+}
+
+// Bandwidth ratio in standard mode
+func (o GetVeenNetworkBandwidthPeakConfigRatioOutput) NormalRatio() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenNetworkBandwidthPeakConfigRatio) int { return v.NormalRatio }).(pulumi.IntOutput)
+}
+
+type GetVeenSecret struct {
+	// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+	SecretType int `pulumi:"secretType"`
+}
+
+// GetVeenSecretInput is an input type that accepts GetVeenSecretArgs and GetVeenSecretOutput values.
+// You can construct a concrete instance of `GetVeenSecretInput` via:
+//
+//	GetVeenSecretArgs{...}
+type GetVeenSecretInput interface {
+	pulumi.Input
+
+	ToGetVeenSecretOutput() GetVeenSecretOutput
+	ToGetVeenSecretOutputWithContext(context.Context) GetVeenSecretOutput
+}
+
+type GetVeenSecretArgs struct {
+	// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+	SecretType pulumi.IntInput `pulumi:"secretType"`
+}
+
+func (GetVeenSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenSecret)(nil)).Elem()
+}
+
+func (i GetVeenSecretArgs) ToGetVeenSecretOutput() GetVeenSecretOutput {
+	return i.ToGetVeenSecretOutputWithContext(context.Background())
+}
+
+func (i GetVeenSecretArgs) ToGetVeenSecretOutputWithContext(ctx context.Context) GetVeenSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenSecretOutput)
+}
+
+type GetVeenSecretOutput struct{ *pulumi.OutputState }
+
+func (GetVeenSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenSecret)(nil)).Elem()
+}
+
+func (o GetVeenSecretOutput) ToGetVeenSecretOutput() GetVeenSecretOutput {
+	return o
+}
+
+func (o GetVeenSecretOutput) ToGetVeenSecretOutputWithContext(ctx context.Context) GetVeenSecretOutput {
+	return o
+}
+
+// Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+func (o GetVeenSecretOutput) SecretType() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVeenSecret) int { return v.SecretType }).(pulumi.IntOutput)
+}
+
+type GetVeenStorage struct {
+	// Data disk. This parameter is used to add a single data disk
+	DataDisk GetVeenStorageDataDisk `pulumi:"dataDisk"`
+	// Data disk list
+	DataDiskLists []GetVeenStorageDataDiskList `pulumi:"dataDiskLists"`
+	// System disk
+	SystemDisk GetVeenStorageSystemDisk `pulumi:"systemDisk"`
+}
+
+// GetVeenStorageInput is an input type that accepts GetVeenStorageArgs and GetVeenStorageOutput values.
+// You can construct a concrete instance of `GetVeenStorageInput` via:
+//
+//	GetVeenStorageArgs{...}
+type GetVeenStorageInput interface {
+	pulumi.Input
+
+	ToGetVeenStorageOutput() GetVeenStorageOutput
+	ToGetVeenStorageOutputWithContext(context.Context) GetVeenStorageOutput
+}
+
+type GetVeenStorageArgs struct {
+	// Data disk. This parameter is used to add a single data disk
+	DataDisk GetVeenStorageDataDiskInput `pulumi:"dataDisk"`
+	// Data disk list
+	DataDiskLists GetVeenStorageDataDiskListArrayInput `pulumi:"dataDiskLists"`
+	// System disk
+	SystemDisk GetVeenStorageSystemDiskInput `pulumi:"systemDisk"`
+}
+
+func (GetVeenStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorage)(nil)).Elem()
+}
+
+func (i GetVeenStorageArgs) ToGetVeenStorageOutput() GetVeenStorageOutput {
+	return i.ToGetVeenStorageOutputWithContext(context.Background())
+}
+
+func (i GetVeenStorageArgs) ToGetVeenStorageOutputWithContext(ctx context.Context) GetVeenStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenStorageOutput)
+}
+
+type GetVeenStorageOutput struct{ *pulumi.OutputState }
+
+func (GetVeenStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorage)(nil)).Elem()
+}
+
+func (o GetVeenStorageOutput) ToGetVeenStorageOutput() GetVeenStorageOutput {
+	return o
+}
+
+func (o GetVeenStorageOutput) ToGetVeenStorageOutputWithContext(ctx context.Context) GetVeenStorageOutput {
+	return o
+}
+
+// Data disk. This parameter is used to add a single data disk
+func (o GetVeenStorageOutput) DataDisk() GetVeenStorageDataDiskOutput {
+	return o.ApplyT(func(v GetVeenStorage) GetVeenStorageDataDisk { return v.DataDisk }).(GetVeenStorageDataDiskOutput)
+}
+
+// Data disk list
+func (o GetVeenStorageOutput) DataDiskLists() GetVeenStorageDataDiskListArrayOutput {
+	return o.ApplyT(func(v GetVeenStorage) []GetVeenStorageDataDiskList { return v.DataDiskLists }).(GetVeenStorageDataDiskListArrayOutput)
+}
+
+// System disk
+func (o GetVeenStorageOutput) SystemDisk() GetVeenStorageSystemDiskOutput {
+	return o.ApplyT(func(v GetVeenStorage) GetVeenStorageSystemDisk { return v.SystemDisk }).(GetVeenStorageSystemDiskOutput)
+}
+
+type GetVeenStorageDataDisk struct {
+	// Disk capacity. Unit: GB.
+	Capacity string `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetVeenStorageDataDiskInput is an input type that accepts GetVeenStorageDataDiskArgs and GetVeenStorageDataDiskOutput values.
+// You can construct a concrete instance of `GetVeenStorageDataDiskInput` via:
+//
+//	GetVeenStorageDataDiskArgs{...}
+type GetVeenStorageDataDiskInput interface {
+	pulumi.Input
+
+	ToGetVeenStorageDataDiskOutput() GetVeenStorageDataDiskOutput
+	ToGetVeenStorageDataDiskOutputWithContext(context.Context) GetVeenStorageDataDiskOutput
+}
+
+type GetVeenStorageDataDiskArgs struct {
+	// Disk capacity. Unit: GB.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetVeenStorageDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorageDataDisk)(nil)).Elem()
+}
+
+func (i GetVeenStorageDataDiskArgs) ToGetVeenStorageDataDiskOutput() GetVeenStorageDataDiskOutput {
+	return i.ToGetVeenStorageDataDiskOutputWithContext(context.Background())
+}
+
+func (i GetVeenStorageDataDiskArgs) ToGetVeenStorageDataDiskOutputWithContext(ctx context.Context) GetVeenStorageDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenStorageDataDiskOutput)
+}
+
+type GetVeenStorageDataDiskOutput struct{ *pulumi.OutputState }
+
+func (GetVeenStorageDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorageDataDisk)(nil)).Elem()
+}
+
+func (o GetVeenStorageDataDiskOutput) ToGetVeenStorageDataDiskOutput() GetVeenStorageDataDiskOutput {
+	return o
+}
+
+func (o GetVeenStorageDataDiskOutput) ToGetVeenStorageDataDiskOutputWithContext(ctx context.Context) GetVeenStorageDataDiskOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB.
+func (o GetVeenStorageDataDiskOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDisk) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o GetVeenStorageDataDiskOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDisk) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o GetVeenStorageDataDiskOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDisk) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o GetVeenStorageDataDiskOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDisk) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o GetVeenStorageDataDiskOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDisk) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetVeenStorageDataDiskOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDisk) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetVeenStorageDataDiskList struct {
+	// Disk capacity. Unit: GB.
+	Capacity string `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetVeenStorageDataDiskListInput is an input type that accepts GetVeenStorageDataDiskListArgs and GetVeenStorageDataDiskListOutput values.
+// You can construct a concrete instance of `GetVeenStorageDataDiskListInput` via:
+//
+//	GetVeenStorageDataDiskListArgs{...}
+type GetVeenStorageDataDiskListInput interface {
+	pulumi.Input
+
+	ToGetVeenStorageDataDiskListOutput() GetVeenStorageDataDiskListOutput
+	ToGetVeenStorageDataDiskListOutputWithContext(context.Context) GetVeenStorageDataDiskListOutput
+}
+
+type GetVeenStorageDataDiskListArgs struct {
+	// Disk capacity. Unit: GB.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetVeenStorageDataDiskListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (i GetVeenStorageDataDiskListArgs) ToGetVeenStorageDataDiskListOutput() GetVeenStorageDataDiskListOutput {
+	return i.ToGetVeenStorageDataDiskListOutputWithContext(context.Background())
+}
+
+func (i GetVeenStorageDataDiskListArgs) ToGetVeenStorageDataDiskListOutputWithContext(ctx context.Context) GetVeenStorageDataDiskListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenStorageDataDiskListOutput)
+}
+
+// GetVeenStorageDataDiskListArrayInput is an input type that accepts GetVeenStorageDataDiskListArray and GetVeenStorageDataDiskListArrayOutput values.
+// You can construct a concrete instance of `GetVeenStorageDataDiskListArrayInput` via:
+//
+//	GetVeenStorageDataDiskListArray{ GetVeenStorageDataDiskListArgs{...} }
+type GetVeenStorageDataDiskListArrayInput interface {
+	pulumi.Input
+
+	ToGetVeenStorageDataDiskListArrayOutput() GetVeenStorageDataDiskListArrayOutput
+	ToGetVeenStorageDataDiskListArrayOutputWithContext(context.Context) GetVeenStorageDataDiskListArrayOutput
+}
+
+type GetVeenStorageDataDiskListArray []GetVeenStorageDataDiskListInput
+
+func (GetVeenStorageDataDiskListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (i GetVeenStorageDataDiskListArray) ToGetVeenStorageDataDiskListArrayOutput() GetVeenStorageDataDiskListArrayOutput {
+	return i.ToGetVeenStorageDataDiskListArrayOutputWithContext(context.Background())
+}
+
+func (i GetVeenStorageDataDiskListArray) ToGetVeenStorageDataDiskListArrayOutputWithContext(ctx context.Context) GetVeenStorageDataDiskListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenStorageDataDiskListArrayOutput)
+}
+
+type GetVeenStorageDataDiskListOutput struct{ *pulumi.OutputState }
+
+func (GetVeenStorageDataDiskListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (o GetVeenStorageDataDiskListOutput) ToGetVeenStorageDataDiskListOutput() GetVeenStorageDataDiskListOutput {
+	return o
+}
+
+func (o GetVeenStorageDataDiskListOutput) ToGetVeenStorageDataDiskListOutputWithContext(ctx context.Context) GetVeenStorageDataDiskListOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB.
+func (o GetVeenStorageDataDiskListOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDiskList) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o GetVeenStorageDataDiskListOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDiskList) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o GetVeenStorageDataDiskListOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDiskList) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o GetVeenStorageDataDiskListOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDiskList) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o GetVeenStorageDataDiskListOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDiskList) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetVeenStorageDataDiskListOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageDataDiskList) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetVeenStorageDataDiskListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVeenStorageDataDiskListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenStorageDataDiskList)(nil)).Elem()
+}
+
+func (o GetVeenStorageDataDiskListArrayOutput) ToGetVeenStorageDataDiskListArrayOutput() GetVeenStorageDataDiskListArrayOutput {
+	return o
+}
+
+func (o GetVeenStorageDataDiskListArrayOutput) ToGetVeenStorageDataDiskListArrayOutputWithContext(ctx context.Context) GetVeenStorageDataDiskListArrayOutput {
+	return o
+}
+
+func (o GetVeenStorageDataDiskListArrayOutput) Index(i pulumi.IntInput) GetVeenStorageDataDiskListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVeenStorageDataDiskList {
+		return vs[0].([]GetVeenStorageDataDiskList)[vs[1].(int)]
+	}).(GetVeenStorageDataDiskListOutput)
+}
+
+type GetVeenStorageSystemDisk struct {
+	// Disk capacity. Unit: GB.
+	Capacity string `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance bool `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity string `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass string `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName string `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType string `pulumi:"storageType"`
+}
+
+// GetVeenStorageSystemDiskInput is an input type that accepts GetVeenStorageSystemDiskArgs and GetVeenStorageSystemDiskOutput values.
+// You can construct a concrete instance of `GetVeenStorageSystemDiskInput` via:
+//
+//	GetVeenStorageSystemDiskArgs{...}
+type GetVeenStorageSystemDiskInput interface {
+	pulumi.Input
+
+	ToGetVeenStorageSystemDiskOutput() GetVeenStorageSystemDiskOutput
+	ToGetVeenStorageSystemDiskOutputWithContext(context.Context) GetVeenStorageSystemDiskOutput
+}
+
+type GetVeenStorageSystemDiskArgs struct {
+	// Disk capacity. Unit: GB.
+	Capacity pulumi.StringInput `pulumi:"capacity"`
+	// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+	DeleteWithInstance pulumi.BoolInput `pulumi:"deleteWithInstance"`
+	// Unique disk ID, the primary key of the cloud disk resource.
+	DiskIdentity pulumi.StringInput `pulumi:"diskIdentity"`
+	// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+	LocalDiskClass pulumi.StringInput `pulumi:"localDiskClass"`
+	// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+	LocalDiskResourceName pulumi.StringInput `pulumi:"localDiskResourceName"`
+	// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+}
+
+func (GetVeenStorageSystemDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorageSystemDisk)(nil)).Elem()
+}
+
+func (i GetVeenStorageSystemDiskArgs) ToGetVeenStorageSystemDiskOutput() GetVeenStorageSystemDiskOutput {
+	return i.ToGetVeenStorageSystemDiskOutputWithContext(context.Background())
+}
+
+func (i GetVeenStorageSystemDiskArgs) ToGetVeenStorageSystemDiskOutputWithContext(ctx context.Context) GetVeenStorageSystemDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenStorageSystemDiskOutput)
+}
+
+type GetVeenStorageSystemDiskOutput struct{ *pulumi.OutputState }
+
+func (GetVeenStorageSystemDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenStorageSystemDisk)(nil)).Elem()
+}
+
+func (o GetVeenStorageSystemDiskOutput) ToGetVeenStorageSystemDiskOutput() GetVeenStorageSystemDiskOutput {
+	return o
+}
+
+func (o GetVeenStorageSystemDiskOutput) ToGetVeenStorageSystemDiskOutputWithContext(ctx context.Context) GetVeenStorageSystemDiskOutput {
+	return o
+}
+
+// Disk capacity. Unit: GB.
+func (o GetVeenStorageSystemDiskOutput) Capacity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageSystemDisk) string { return v.Capacity }).(pulumi.StringOutput)
+}
+
+// Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+func (o GetVeenStorageSystemDiskOutput) DeleteWithInstance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVeenStorageSystemDisk) bool { return v.DeleteWithInstance }).(pulumi.BoolOutput)
+}
+
+// Unique disk ID, the primary key of the cloud disk resource.
+func (o GetVeenStorageSystemDiskOutput) DiskIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageSystemDisk) string { return v.DiskIdentity }).(pulumi.StringOutput)
+}
+
+// Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+func (o GetVeenStorageSystemDiskOutput) LocalDiskClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageSystemDisk) string { return v.LocalDiskClass }).(pulumi.StringOutput)
+}
+
+// Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+func (o GetVeenStorageSystemDiskOutput) LocalDiskResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageSystemDisk) string { return v.LocalDiskResourceName }).(pulumi.StringOutput)
+}
+
+// Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+func (o GetVeenStorageSystemDiskOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenStorageSystemDisk) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+type GetVeenTag struct {
+	// Tag key.
+	Key string `pulumi:"key"`
+	// Tag value.
+	Value string `pulumi:"value"`
+}
+
+// GetVeenTagInput is an input type that accepts GetVeenTagArgs and GetVeenTagOutput values.
+// You can construct a concrete instance of `GetVeenTagInput` via:
+//
+//	GetVeenTagArgs{...}
+type GetVeenTagInput interface {
+	pulumi.Input
+
+	ToGetVeenTagOutput() GetVeenTagOutput
+	ToGetVeenTagOutputWithContext(context.Context) GetVeenTagOutput
+}
+
+type GetVeenTagArgs struct {
+	// Tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetVeenTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenTag)(nil)).Elem()
+}
+
+func (i GetVeenTagArgs) ToGetVeenTagOutput() GetVeenTagOutput {
+	return i.ToGetVeenTagOutputWithContext(context.Background())
+}
+
+func (i GetVeenTagArgs) ToGetVeenTagOutputWithContext(ctx context.Context) GetVeenTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenTagOutput)
+}
+
+// GetVeenTagArrayInput is an input type that accepts GetVeenTagArray and GetVeenTagArrayOutput values.
+// You can construct a concrete instance of `GetVeenTagArrayInput` via:
+//
+//	GetVeenTagArray{ GetVeenTagArgs{...} }
+type GetVeenTagArrayInput interface {
+	pulumi.Input
+
+	ToGetVeenTagArrayOutput() GetVeenTagArrayOutput
+	ToGetVeenTagArrayOutputWithContext(context.Context) GetVeenTagArrayOutput
+}
+
+type GetVeenTagArray []GetVeenTagInput
+
+func (GetVeenTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenTag)(nil)).Elem()
+}
+
+func (i GetVeenTagArray) ToGetVeenTagArrayOutput() GetVeenTagArrayOutput {
+	return i.ToGetVeenTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetVeenTagArray) ToGetVeenTagArrayOutputWithContext(ctx context.Context) GetVeenTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVeenTagArrayOutput)
+}
+
+type GetVeenTagOutput struct{ *pulumi.OutputState }
+
+func (GetVeenTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVeenTag)(nil)).Elem()
+}
+
+func (o GetVeenTagOutput) ToGetVeenTagOutput() GetVeenTagOutput {
+	return o
+}
+
+func (o GetVeenTagOutput) ToGetVeenTagOutputWithContext(ctx context.Context) GetVeenTagOutput {
+	return o
+}
+
+// Tag key.
+func (o GetVeenTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Tag value.
+func (o GetVeenTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVeenTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetVeenTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVeenTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVeenTag)(nil)).Elem()
+}
+
+func (o GetVeenTagArrayOutput) ToGetVeenTagArrayOutput() GetVeenTagArrayOutput {
+	return o
+}
+
+func (o GetVeenTagArrayOutput) ToGetVeenTagArrayOutputWithContext(ctx context.Context) GetVeenTagArrayOutput {
+	return o
+}
+
+func (o GetVeenTagArrayOutput) Index(i pulumi.IntInput) GetVeenTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVeenTag {
+		return vs[0].([]GetVeenTag)[vs[1].(int)]
+	}).(GetVeenTagOutput)
+}
+
 type GetVpcSubnet struct {
 	// Subnet CIDR Block, e.g. 10.1.0.0/16
 	Cidr string `pulumi:"cidr"`
@@ -5374,6 +11320,50 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerStorageConfigSystemDiskPtrInput)(nil)).Elem(), CloudServerStorageConfigSystemDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerTagInput)(nil)).Elem(), CloudServerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudServerTagArrayInput)(nil)).Elem(), CloudServerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenAdvancedConfigurationInput)(nil)).Elem(), VeenAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenAdvancedConfigurationPtrInput)(nil)).Elem(), VeenAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenBandwidthPeakLimitIspConfigsInput)(nil)).Elem(), VeenBandwidthPeakLimitIspConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenBandwidthPeakLimitIspConfigsPtrInput)(nil)).Elem(), VeenBandwidthPeakLimitIspConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenBillingInput)(nil)).Elem(), VeenBillingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenBillingPtrInput)(nil)).Elem(), VeenBillingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenBillingConfigInput)(nil)).Elem(), VeenBillingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenBillingConfigPtrInput)(nil)).Elem(), VeenBillingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenClusterInput)(nil)).Elem(), VeenClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenClusterPtrInput)(nil)).Elem(), VeenClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenCustomDataInput)(nil)).Elem(), VeenCustomDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenCustomDataPtrInput)(nil)).Elem(), VeenCustomDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenGpuInput)(nil)).Elem(), VeenGpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenGpuPtrInput)(nil)).Elem(), VeenGpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenGpuGpusInput)(nil)).Elem(), VeenGpuGpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenGpuGpusArrayInput)(nil)).Elem(), VeenGpuGpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenGpuGpusGpuSpecInput)(nil)).Elem(), VeenGpuGpusGpuSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenGpuGpusGpuSpecPtrInput)(nil)).Elem(), VeenGpuGpusGpuSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenImageInput)(nil)).Elem(), VeenImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenImagePtrInput)(nil)).Elem(), VeenImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenInstanceAreaNumInput)(nil)).Elem(), VeenInstanceAreaNumArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenInstanceAreaNumArrayInput)(nil)).Elem(), VeenInstanceAreaNumArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenInstanceAreaNumMultiInterfaceNameConfigInput)(nil)).Elem(), VeenInstanceAreaNumMultiInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenInstanceAreaNumMultiInterfaceNameConfigPtrInput)(nil)).Elem(), VeenInstanceAreaNumMultiInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenInstanceAreaNumSingleInterfaceNameConfigInput)(nil)).Elem(), VeenInstanceAreaNumSingleInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenInstanceAreaNumSingleInterfaceNameConfigPtrInput)(nil)).Elem(), VeenInstanceAreaNumSingleInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenMonitorAgentInput)(nil)).Elem(), VeenMonitorAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenMonitorAgentPtrInput)(nil)).Elem(), VeenMonitorAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenNetworkInput)(nil)).Elem(), VeenNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenNetworkPtrInput)(nil)).Elem(), VeenNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenNetworkBandwidthPeakConfigRatioInput)(nil)).Elem(), VeenNetworkBandwidthPeakConfigRatioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenNetworkBandwidthPeakConfigRatioPtrInput)(nil)).Elem(), VeenNetworkBandwidthPeakConfigRatioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenSecretInput)(nil)).Elem(), VeenSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenSecretPtrInput)(nil)).Elem(), VeenSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageInput)(nil)).Elem(), VeenStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStoragePtrInput)(nil)).Elem(), VeenStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageDataDiskInput)(nil)).Elem(), VeenStorageDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageDataDiskPtrInput)(nil)).Elem(), VeenStorageDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageDataDiskListInput)(nil)).Elem(), VeenStorageDataDiskListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageDataDiskListArrayInput)(nil)).Elem(), VeenStorageDataDiskListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageSystemDiskInput)(nil)).Elem(), VeenStorageSystemDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenStorageSystemDiskPtrInput)(nil)).Elem(), VeenStorageSystemDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenTagInput)(nil)).Elem(), VeenTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VeenTagArrayInput)(nil)).Elem(), VeenTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcSubnetInput)(nil)).Elem(), VpcSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcSubnetArrayInput)(nil)).Elem(), VpcSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcTagInput)(nil)).Elem(), VpcTagArgs{})
@@ -5400,6 +11390,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerStorageConfigSystemDiskInput)(nil)).Elem(), GetCloudServerStorageConfigSystemDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerTagInput)(nil)).Elem(), GetCloudServerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudServerTagArrayInput)(nil)).Elem(), GetCloudServerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenAdvancedConfigurationInput)(nil)).Elem(), GetVeenAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenBandwidthPeakLimitIspConfigsInput)(nil)).Elem(), GetVeenBandwidthPeakLimitIspConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenBillingInput)(nil)).Elem(), GetVeenBillingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenBillingConfigInput)(nil)).Elem(), GetVeenBillingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenClusterInput)(nil)).Elem(), GetVeenClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenCustomDataInput)(nil)).Elem(), GetVeenCustomDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenGpuInput)(nil)).Elem(), GetVeenGpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenGpuGpusInput)(nil)).Elem(), GetVeenGpuGpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenGpuGpusArrayInput)(nil)).Elem(), GetVeenGpuGpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenGpuGpusGpuSpecInput)(nil)).Elem(), GetVeenGpuGpusGpuSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenImageInput)(nil)).Elem(), GetVeenImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenInstanceAreaNumInput)(nil)).Elem(), GetVeenInstanceAreaNumArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenInstanceAreaNumArrayInput)(nil)).Elem(), GetVeenInstanceAreaNumArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenInstanceAreaNumMultiInterfaceNameConfigInput)(nil)).Elem(), GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenInstanceAreaNumSingleInterfaceNameConfigInput)(nil)).Elem(), GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenMonitorAgentInput)(nil)).Elem(), GetVeenMonitorAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenNetworkInput)(nil)).Elem(), GetVeenNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenNetworkBandwidthPeakConfigRatioInput)(nil)).Elem(), GetVeenNetworkBandwidthPeakConfigRatioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenSecretInput)(nil)).Elem(), GetVeenSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenStorageInput)(nil)).Elem(), GetVeenStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenStorageDataDiskInput)(nil)).Elem(), GetVeenStorageDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenStorageDataDiskListInput)(nil)).Elem(), GetVeenStorageDataDiskListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenStorageDataDiskListArrayInput)(nil)).Elem(), GetVeenStorageDataDiskListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenStorageSystemDiskInput)(nil)).Elem(), GetVeenStorageSystemDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenTagInput)(nil)).Elem(), GetVeenTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVeenTagArrayInput)(nil)).Elem(), GetVeenTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcSubnetInput)(nil)).Elem(), GetVpcSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcSubnetArrayInput)(nil)).Elem(), GetVpcSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcTagInput)(nil)).Elem(), GetVpcTagArgs{})
@@ -5438,6 +11454,50 @@ func init() {
 	pulumi.RegisterOutputType(CloudServerStorageConfigSystemDiskPtrOutput{})
 	pulumi.RegisterOutputType(CloudServerTagOutput{})
 	pulumi.RegisterOutputType(CloudServerTagArrayOutput{})
+	pulumi.RegisterOutputType(VeenAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(VeenAdvancedConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VeenBandwidthPeakLimitIspConfigsOutput{})
+	pulumi.RegisterOutputType(VeenBandwidthPeakLimitIspConfigsPtrOutput{})
+	pulumi.RegisterOutputType(VeenBillingOutput{})
+	pulumi.RegisterOutputType(VeenBillingPtrOutput{})
+	pulumi.RegisterOutputType(VeenBillingConfigOutput{})
+	pulumi.RegisterOutputType(VeenBillingConfigPtrOutput{})
+	pulumi.RegisterOutputType(VeenClusterOutput{})
+	pulumi.RegisterOutputType(VeenClusterPtrOutput{})
+	pulumi.RegisterOutputType(VeenCustomDataOutput{})
+	pulumi.RegisterOutputType(VeenCustomDataPtrOutput{})
+	pulumi.RegisterOutputType(VeenGpuOutput{})
+	pulumi.RegisterOutputType(VeenGpuPtrOutput{})
+	pulumi.RegisterOutputType(VeenGpuGpusOutput{})
+	pulumi.RegisterOutputType(VeenGpuGpusArrayOutput{})
+	pulumi.RegisterOutputType(VeenGpuGpusGpuSpecOutput{})
+	pulumi.RegisterOutputType(VeenGpuGpusGpuSpecPtrOutput{})
+	pulumi.RegisterOutputType(VeenImageOutput{})
+	pulumi.RegisterOutputType(VeenImagePtrOutput{})
+	pulumi.RegisterOutputType(VeenInstanceAreaNumOutput{})
+	pulumi.RegisterOutputType(VeenInstanceAreaNumArrayOutput{})
+	pulumi.RegisterOutputType(VeenInstanceAreaNumMultiInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(VeenInstanceAreaNumMultiInterfaceNameConfigPtrOutput{})
+	pulumi.RegisterOutputType(VeenInstanceAreaNumSingleInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(VeenInstanceAreaNumSingleInterfaceNameConfigPtrOutput{})
+	pulumi.RegisterOutputType(VeenMonitorAgentOutput{})
+	pulumi.RegisterOutputType(VeenMonitorAgentPtrOutput{})
+	pulumi.RegisterOutputType(VeenNetworkOutput{})
+	pulumi.RegisterOutputType(VeenNetworkPtrOutput{})
+	pulumi.RegisterOutputType(VeenNetworkBandwidthPeakConfigRatioOutput{})
+	pulumi.RegisterOutputType(VeenNetworkBandwidthPeakConfigRatioPtrOutput{})
+	pulumi.RegisterOutputType(VeenSecretOutput{})
+	pulumi.RegisterOutputType(VeenSecretPtrOutput{})
+	pulumi.RegisterOutputType(VeenStorageOutput{})
+	pulumi.RegisterOutputType(VeenStoragePtrOutput{})
+	pulumi.RegisterOutputType(VeenStorageDataDiskOutput{})
+	pulumi.RegisterOutputType(VeenStorageDataDiskPtrOutput{})
+	pulumi.RegisterOutputType(VeenStorageDataDiskListOutput{})
+	pulumi.RegisterOutputType(VeenStorageDataDiskListArrayOutput{})
+	pulumi.RegisterOutputType(VeenStorageSystemDiskOutput{})
+	pulumi.RegisterOutputType(VeenStorageSystemDiskPtrOutput{})
+	pulumi.RegisterOutputType(VeenTagOutput{})
+	pulumi.RegisterOutputType(VeenTagArrayOutput{})
 	pulumi.RegisterOutputType(VpcSubnetOutput{})
 	pulumi.RegisterOutputType(VpcSubnetArrayOutput{})
 	pulumi.RegisterOutputType(VpcTagOutput{})
@@ -5464,6 +11524,32 @@ func init() {
 	pulumi.RegisterOutputType(GetCloudServerStorageConfigSystemDiskOutput{})
 	pulumi.RegisterOutputType(GetCloudServerTagOutput{})
 	pulumi.RegisterOutputType(GetCloudServerTagArrayOutput{})
+	pulumi.RegisterOutputType(GetVeenAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(GetVeenBandwidthPeakLimitIspConfigsOutput{})
+	pulumi.RegisterOutputType(GetVeenBillingOutput{})
+	pulumi.RegisterOutputType(GetVeenBillingConfigOutput{})
+	pulumi.RegisterOutputType(GetVeenClusterOutput{})
+	pulumi.RegisterOutputType(GetVeenCustomDataOutput{})
+	pulumi.RegisterOutputType(GetVeenGpuOutput{})
+	pulumi.RegisterOutputType(GetVeenGpuGpusOutput{})
+	pulumi.RegisterOutputType(GetVeenGpuGpusArrayOutput{})
+	pulumi.RegisterOutputType(GetVeenGpuGpusGpuSpecOutput{})
+	pulumi.RegisterOutputType(GetVeenImageOutput{})
+	pulumi.RegisterOutputType(GetVeenInstanceAreaNumOutput{})
+	pulumi.RegisterOutputType(GetVeenInstanceAreaNumArrayOutput{})
+	pulumi.RegisterOutputType(GetVeenInstanceAreaNumMultiInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(GetVeenInstanceAreaNumSingleInterfaceNameConfigOutput{})
+	pulumi.RegisterOutputType(GetVeenMonitorAgentOutput{})
+	pulumi.RegisterOutputType(GetVeenNetworkOutput{})
+	pulumi.RegisterOutputType(GetVeenNetworkBandwidthPeakConfigRatioOutput{})
+	pulumi.RegisterOutputType(GetVeenSecretOutput{})
+	pulumi.RegisterOutputType(GetVeenStorageOutput{})
+	pulumi.RegisterOutputType(GetVeenStorageDataDiskOutput{})
+	pulumi.RegisterOutputType(GetVeenStorageDataDiskListOutput{})
+	pulumi.RegisterOutputType(GetVeenStorageDataDiskListArrayOutput{})
+	pulumi.RegisterOutputType(GetVeenStorageSystemDiskOutput{})
+	pulumi.RegisterOutputType(GetVeenTagOutput{})
+	pulumi.RegisterOutputType(GetVeenTagArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcSubnetOutput{})
 	pulumi.RegisterOutputType(GetVpcSubnetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcTagOutput{})

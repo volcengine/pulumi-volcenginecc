@@ -8545,6 +8545,125 @@ export namespace id {
         discoveryUrl?: pulumi.Input<string | undefined>;
     }
 
+    export interface Oauth2CredentialProviderConfig {
+        /**
+         * OAuth2 Client ID。
+         */
+        clientId?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 Client Secret。
+         */
+        clientSecret?: pulumi.Input<string | undefined>;
+        /**
+         * Default custom parameters in GetResourceOauth2Token request
+         */
+        customParameters?: pulumi.Input<inputs.id.Oauth2CredentialProviderConfigCustomParameters | undefined>;
+        /**
+         * Default Flow in GetResourceOauth2Token request. Optional values: USER_FEDERATION, M2M
+         */
+        flow?: pulumi.Input<string | undefined>;
+        /**
+         * Default ForceAuthentication in GetResourceOauth2Token request
+         */
+        forceAuthentication?: pulumi.Input<boolean | undefined>;
+        /**
+         * Maximum token validity (seconds)
+         */
+        maxExpires?: pulumi.Input<number | undefined>;
+        /**
+         * Custom metadata
+         */
+        metadata?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 discovery information
+         */
+        oauth2Discovery?: pulumi.Input<inputs.id.Oauth2CredentialProviderConfigOauth2Discovery | undefined>;
+        /**
+         * Default RedirectUrl in GetResourceOauth2Token request
+         */
+        redirectUrl?: pulumi.Input<string | undefined>;
+        /**
+         * Default Scopes in GetResourceOauth2Token request
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Encrypted storage configuration
+         */
+        secretStorage?: pulumi.Input<inputs.id.Oauth2CredentialProviderConfigSecretStorage | undefined>;
+    }
+
+    export interface Oauth2CredentialProviderConfigCustomParameters {
+        /**
+         * Custom parameter entry list
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         */
+        entries?: pulumi.Input<pulumi.Input<inputs.id.Oauth2CredentialProviderConfigCustomParametersEntry>[] | undefined>;
+    }
+
+    export interface Oauth2CredentialProviderConfigCustomParametersEntry {
+        /**
+         * Parameter key
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * Parameter value
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
+
+    export interface Oauth2CredentialProviderConfigOauth2Discovery {
+        /**
+         * Authorization server metadata
+         */
+        authorizationServerMetadata?: pulumi.Input<inputs.id.Oauth2CredentialProviderConfigOauth2DiscoveryAuthorizationServerMetadata | undefined>;
+        /**
+         * DiscoveryUrl field
+         */
+        discoveryUrl?: pulumi.Input<string | undefined>;
+    }
+
+    export interface Oauth2CredentialProviderConfigOauth2DiscoveryAuthorizationServerMetadata {
+        /**
+         * AuthorizationEndpoint field
+         */
+        authorizationEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * CodeChallengeMethodsSupported field
+         */
+        codeChallengeMethodsSupporteds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Issuer field
+         */
+        issuer?: pulumi.Input<string | undefined>;
+        /**
+         * RegistrationEndpoint field
+         */
+        registrationEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * ResponseTypes field
+         */
+        responseTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * RevocationEndpoint field
+         */
+        revocationEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * TokenEndpoint field
+         */
+        tokenEndpoint?: pulumi.Input<string | undefined>;
+    }
+
+    export interface Oauth2CredentialProviderConfigSecretStorage {
+        /**
+         * KMS key TRN for encrypted credential value. If not specified, the default key is used
+         */
+        encryptionKey?: pulumi.Input<string | undefined>;
+        /**
+         * Encrypted storage type. 0: SecretManager, 1: KMS
+         */
+        storageType?: pulumi.Input<number | undefined>;
+    }
+
     export interface PermissionNamespaceTag {
         /**
          * Tag Key
@@ -9028,6 +9147,51 @@ export namespace kms {
          * KMS key label value.
          */
         value?: pulumi.Input<string | undefined>;
+    }
+
+    export interface SecretSecretRestore {
+        /**
+         * Complete credential data returned by backup, in JSON format.
+         */
+        backupData?: pulumi.Input<string | undefined>;
+        /**
+         * Encrypted data key returned by backup, Base64 encoded.
+         */
+        secretDataKey?: pulumi.Input<string | undefined>;
+        /**
+         * Signature of the backup data, Base64 encoded.
+         */
+        signature?: pulumi.Input<string | undefined>;
+    }
+
+    export interface SecretSecretRestoreRead {
+        /**
+         * Complete credential data returned by backup, in JSON format.
+         */
+        backupData?: pulumi.Input<string | undefined>;
+        /**
+         * Encrypted data key returned by backup, Base64 encoded.
+         */
+        secretDataKey?: pulumi.Input<string | undefined>;
+        /**
+         * Signature of the backup data, Base64 encoded.
+         */
+        signature?: pulumi.Input<string | undefined>;
+    }
+
+    export interface SecretSecretVersion {
+        /**
+         * Credential version creation time.
+         */
+        creationDate?: pulumi.Input<number | undefined>;
+        /**
+         * Unique identifier for the credential version, in UUID format.
+         */
+        versionId?: pulumi.Input<string | undefined>;
+        /**
+         * Credential version tags.
+         */
+        versionStage?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -11969,6 +12133,95 @@ export namespace tls {
         sms?: pulumi.Input<number | undefined>;
     }
 
+    export interface AlarmContentTemplateTypeDingTalk {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale?: pulumi.Input<string | undefined>;
+        /**
+         * Alert notification subject
+         */
+        title?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmContentTemplateTypeEmail {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale?: pulumi.Input<string | undefined>;
+        /**
+         * Email notification subject
+         */
+        subject?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmContentTemplateTypeLark {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale?: pulumi.Input<string | undefined>;
+        /**
+         * Alert notification subject
+         */
+        title?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmContentTemplateTypeSms {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmContentTemplateTypeVms {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmContentTemplateTypeWeChat {
+        /**
+         * Alert notification content. Supports plain text format, content variables, and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+        /**
+         * The language for fixed content in alert notifications. Available values: zh-CN, en-US.
+         */
+        locale?: pulumi.Input<string | undefined>;
+        /**
+         * Alert notification subject
+         */
+        title?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmContentTemplateTypeWebhook {
+        /**
+         * Alert notification content, usually in JSON format. Supports content variables and content functions. Note: The maximum length of the notification content after variable rendering is 8 KB. Content exceeding this limit will be truncated. If the body is left blank, the default content will be used.
+         */
+        content?: pulumi.Input<string | undefined>;
+    }
+
     export interface AlarmJoinConfiguration {
         /**
          * Expression used for left join or right join.
@@ -14623,6 +14876,42 @@ export namespace tos {
         replaceKeyWith?: pulumi.Input<string | undefined>;
     }
 
+    export interface TosObjectAccountAcl {
+        /**
+         * Authorized account ID.
+         */
+        accountId?: pulumi.Input<string | undefined>;
+        /**
+         * Authorized principal type. Currently, only CanonicalUser is supported.
+         */
+        aclType?: pulumi.Input<string | undefined>;
+        /**
+         * Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+         */
+        permission?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TosObjectMetadata {
+        /**
+         * Tag key.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * Tag value.
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TosObjectTag {
+        /**
+         * Tag key.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * Tag value.
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace transitrouter {
@@ -15461,6 +15750,437 @@ export namespace veenedge {
         key?: pulumi.Input<string | undefined>;
         /**
          * Tag value
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenAdvancedConfiguration {
+        /**
+         * Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+         */
+        deleteProtection?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface VeenBandwidthPeakLimitIspConfigs {
+        /**
+         * Bandwidth throttling value for this carrier.
+         */
+        bandwidthPeakLimit?: pulumi.Input<string | undefined>;
+        /**
+         * Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+         */
+        isp?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenBilling {
+        /**
+         * Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+         */
+        bandwidthBillingMethod?: pulumi.Input<string | undefined>;
+        /**
+         * Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+         */
+        computingBillingMethod?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenBillingConfig {
+        /**
+         * Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+         */
+        autoRenew?: pulumi.Input<boolean | undefined>;
+        /**
+         * Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+         */
+        prePaidPeriod?: pulumi.Input<string | undefined>;
+        /**
+         * Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+         */
+        prePaidPeriodNumber?: pulumi.Input<number | undefined>;
+    }
+
+    export interface VeenCluster {
+        /**
+         * Node alias.
+         */
+        alias?: pulumi.Input<string | undefined>;
+        /**
+         * City where the node is located.
+         */
+        city?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the node
+         */
+        clusterName?: pulumi.Input<string | undefined>;
+        /**
+         * Country where the node is located.
+         */
+        country?: pulumi.Input<string | undefined>;
+        /**
+         * Network carrier of the node.
+         */
+        isp?: pulumi.Input<string | undefined>;
+        /**
+         * Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+         */
+        level?: pulumi.Input<string | undefined>;
+        /**
+         * Province where the node is located.
+         */
+        province?: pulumi.Input<string | undefined>;
+        /**
+         * Region where the node is located.
+         */
+        region?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenCustomData {
+        /**
+         * Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+         */
+        data?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the data uses Base64 encoding
+         */
+        isBase64?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface VeenGpu {
+        /**
+         * GPU specification information
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         */
+        gpuses?: pulumi.Input<pulumi.Input<inputs.veenedge.VeenGpuGpus>[] | undefined>;
+    }
+
+    export interface VeenGpuGpus {
+        /**
+         * GPU specification
+         */
+        gpuSpec?: pulumi.Input<inputs.veenedge.VeenGpuGpusGpuSpec | undefined>;
+        /**
+         * GPU quantity.
+         */
+        num?: pulumi.Input<number | undefined>;
+    }
+
+    export interface VeenGpuGpusGpuSpec {
+        /**
+         * GPU type.
+         */
+        gpuType?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenImage {
+        /**
+         * Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+         */
+        disableVga?: pulumi.Input<boolean | undefined>;
+        /**
+         * Image boot mode: BIOS, UEFI
+         */
+        imageBootMode?: pulumi.Input<string | undefined>;
+        /**
+         * Image ID.
+         */
+        imageIdentity?: pulumi.Input<string | undefined>;
+        /**
+         * Image name.
+         */
+        imageName?: pulumi.Input<string | undefined>;
+        /**
+         * Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+         */
+        property?: pulumi.Input<string | undefined>;
+        /**
+         * Operating system architecture.
+         */
+        systemArch?: pulumi.Input<string | undefined>;
+        /**
+         * Operating system bitness.
+         */
+        systemBit?: pulumi.Input<string | undefined>;
+        /**
+         * Type of operating system.
+         */
+        systemType?: pulumi.Input<string | undefined>;
+        /**
+         * Operating system version.
+         */
+        systemVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenInstanceAreaNum {
+        /**
+         * Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+         */
+        areaName?: pulumi.Input<string | undefined>;
+        /**
+         * Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+         */
+        clusterName?: pulumi.Input<string | undefined>;
+        /**
+         * Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+         */
+        defaultIsp?: pulumi.Input<string | undefined>;
+        /**
+         * Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+         * single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+         * Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+         */
+        externalNetworkMode?: pulumi.Input<string | undefined>;
+        /**
+         * The host name list to assign to the created instances.
+         */
+        hostNameLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+         */
+        isp?: pulumi.Input<string | undefined>;
+        /**
+         * NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+         * If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+         */
+        multiInterfaceNameConfig?: pulumi.Input<inputs.veenedge.VeenInstanceAreaNumMultiInterfaceNameConfig | undefined>;
+        /**
+         * Number of instances.
+         */
+        num?: pulumi.Input<number | undefined>;
+        /**
+         * Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+         */
+        singleInterfaceNameConfig?: pulumi.Input<inputs.veenedge.VeenInstanceAreaNumSingleInterfaceNameConfig | undefined>;
+        /**
+         * Subnet ID. If you specify a custom private network, you must also set subnetIdentity to specify the subnet.
+         */
+        subnetIdentity?: pulumi.Input<string | undefined>;
+        /**
+         * Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnetIdentity must also be set to specify the subnet
+         */
+        vpcIdentity?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenInstanceAreaNumMultiInterfaceNameConfig {
+        /**
+         * Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+         */
+        cmccExternalInterfaceName?: pulumi.Input<string | undefined>;
+        /**
+         * Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+         */
+        ctccExternalInterfaceName?: pulumi.Input<string | undefined>;
+        /**
+         * Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        cuccExternalInterfaceName?: pulumi.Input<string | undefined>;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        internalInterfaceName?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenInstanceAreaNumSingleInterfaceNameConfig {
+        /**
+         * Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+         */
+        externalInterfaceName?: pulumi.Input<string | undefined>;
+        /**
+         * Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+         */
+        internalInterfaceName?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenMonitorAgent {
+        /**
+         * Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+         */
+        agentStatus?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenNetwork {
+        /**
+         * Number of allocated auxiliary private IP addresses
+         */
+        actualSecondaryIpNum?: pulumi.Input<number | undefined>;
+        /**
+         * Percentile peak bandwidth, no fixed bandwidth value.
+         */
+        bandwidthPeakConfigRatio?: pulumi.Input<inputs.veenedge.VeenNetworkBandwidthPeakConfigRatio | undefined>;
+        /**
+         * Bandwidth peak update status: updating: updating. ready: update complete.
+         */
+        bandwidthPeakUpdateStatus?: pulumi.Input<string | undefined>;
+        /**
+         * Default carrier
+         */
+        defaultIsp?: pulumi.Input<string | undefined>;
+        /**
+         * Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+         */
+        disableIpv4?: pulumi.Input<boolean | undefined>;
+        /**
+         * DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+         */
+        dnsLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+         */
+        dnsType?: pulumi.Input<string | undefined>;
+        /**
+         * Enable IPv6: true: enable IPv6. false: disable IPv6.
+         */
+        enableIpv6?: pulumi.Input<boolean | undefined>;
+        /**
+         * Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+         */
+        externalNetworkMode?: pulumi.Input<string | undefined>;
+        /**
+         * Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+         */
+        limitMode?: pulumi.Input<string | undefined>;
+        /**
+         * Edge instance TCP session timeout. Unit: seconds.
+         */
+        tcpTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * UDP session timeout for the edge instance. Unit: seconds.
+         */
+        udpTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+         */
+        vfPassthrough?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+         */
+        vlanVfPassthrough?: pulumi.Input<boolean | undefined>;
+        /**
+         * Number of required auxiliary private network IP addresses
+         */
+        wantedSecondaryIpNum?: pulumi.Input<number | undefined>;
+    }
+
+    export interface VeenNetworkBandwidthPeakConfigRatio {
+        /**
+         * Bandwidth ratio in enhanced/burst mode
+         */
+        enhancedRatio?: pulumi.Input<number | undefined>;
+        /**
+         * Bandwidth ratio in standard mode
+         */
+        normalRatio?: pulumi.Input<number | undefined>;
+    }
+
+    export interface VeenSecret {
+        /**
+         * Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+         */
+        secretType?: pulumi.Input<number | undefined>;
+    }
+
+    export interface VeenStorage {
+        /**
+         * Data disk. This parameter is used to add a single data disk
+         */
+        dataDisk?: pulumi.Input<inputs.veenedge.VeenStorageDataDisk | undefined>;
+        /**
+         * Data disk list
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         */
+        dataDiskLists?: pulumi.Input<pulumi.Input<inputs.veenedge.VeenStorageDataDiskList>[] | undefined>;
+        /**
+         * System disk
+         */
+        systemDisk?: pulumi.Input<inputs.veenedge.VeenStorageSystemDisk | undefined>;
+    }
+
+    export interface VeenStorageDataDisk {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity?: pulumi.Input<string | undefined>;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance?: pulumi.Input<boolean | undefined>;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity?: pulumi.Input<string | undefined>;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass?: pulumi.Input<string | undefined>;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName?: pulumi.Input<string | undefined>;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenStorageDataDiskList {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity?: pulumi.Input<string | undefined>;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance?: pulumi.Input<boolean | undefined>;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity?: pulumi.Input<string | undefined>;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass?: pulumi.Input<string | undefined>;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName?: pulumi.Input<string | undefined>;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenStorageSystemDisk {
+        /**
+         * Disk capacity. Unit: GB.
+         */
+        capacity?: pulumi.Input<string | undefined>;
+        /**
+         * Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+         */
+        deleteWithInstance?: pulumi.Input<boolean | undefined>;
+        /**
+         * Unique disk ID, the primary key of the cloud disk resource.
+         */
+        diskIdentity?: pulumi.Input<string | undefined>;
+        /**
+         * Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+         */
+        localDiskClass?: pulumi.Input<string | undefined>;
+        /**
+         * Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+         */
+        localDiskResourceName?: pulumi.Input<string | undefined>;
+        /**
+         * Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+         */
+        storageType?: pulumi.Input<string | undefined>;
+    }
+
+    export interface VeenTag {
+        /**
+         * Tag key.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * Tag value.
          */
         value?: pulumi.Input<string | undefined>;
     }

@@ -511,7 +511,7 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_volcenginecc as volcenginecc
 
-        bucket_demo = volcenginecc.tos.Bucket("BucketDemo",
+        example = volcenginecc.tos.Bucket("Example",
             name="bucket-demo",
             storage_class="STANDARD",
             enable_version_status="Enabled",
@@ -584,7 +584,7 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_volcenginecc as volcenginecc
 
-        bucket_demo = volcenginecc.tos.Bucket("BucketDemo",
+        example = volcenginecc.tos.Bucket("Example",
             name="bucket-demo",
             storage_class="STANDARD",
             enable_version_status="Enabled",

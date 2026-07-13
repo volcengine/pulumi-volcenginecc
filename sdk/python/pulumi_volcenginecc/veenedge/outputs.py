@@ -33,6 +33,28 @@ __all__ = [
     'CloudServerStorageConfigDataLocalDiskDiskSpec',
     'CloudServerStorageConfigSystemDisk',
     'CloudServerTag',
+    'VeenAdvancedConfiguration',
+    'VeenBandwidthPeakLimitIspConfigs',
+    'VeenBilling',
+    'VeenBillingConfig',
+    'VeenCluster',
+    'VeenCustomData',
+    'VeenGpu',
+    'VeenGpuGpus',
+    'VeenGpuGpusGpuSpec',
+    'VeenImage',
+    'VeenInstanceAreaNum',
+    'VeenInstanceAreaNumMultiInterfaceNameConfig',
+    'VeenInstanceAreaNumSingleInterfaceNameConfig',
+    'VeenMonitorAgent',
+    'VeenNetwork',
+    'VeenNetworkBandwidthPeakConfigRatio',
+    'VeenSecret',
+    'VeenStorage',
+    'VeenStorageDataDisk',
+    'VeenStorageDataDiskList',
+    'VeenStorageSystemDisk',
+    'VeenTag',
     'VpcSubnet',
     'VpcTag',
     'GetCloudServerAdvancedConfigurationResult',
@@ -52,6 +74,28 @@ __all__ = [
     'GetCloudServerStorageConfigDataLocalDiskDiskSpecResult',
     'GetCloudServerStorageConfigSystemDiskResult',
     'GetCloudServerTagResult',
+    'GetVeenAdvancedConfigurationResult',
+    'GetVeenBandwidthPeakLimitIspConfigsResult',
+    'GetVeenBillingResult',
+    'GetVeenBillingConfigResult',
+    'GetVeenClusterResult',
+    'GetVeenCustomDataResult',
+    'GetVeenGpuResult',
+    'GetVeenGpuGpusResult',
+    'GetVeenGpuGpusGpuSpecResult',
+    'GetVeenImageResult',
+    'GetVeenInstanceAreaNumResult',
+    'GetVeenInstanceAreaNumMultiInterfaceNameConfigResult',
+    'GetVeenInstanceAreaNumSingleInterfaceNameConfigResult',
+    'GetVeenMonitorAgentResult',
+    'GetVeenNetworkResult',
+    'GetVeenNetworkBandwidthPeakConfigRatioResult',
+    'GetVeenSecretResult',
+    'GetVeenStorageResult',
+    'GetVeenStorageDataDiskResult',
+    'GetVeenStorageDataDiskListResult',
+    'GetVeenStorageSystemDiskResult',
+    'GetVeenTagResult',
     'GetVpcSubnetResult',
     'GetVpcTagResult',
 ]
@@ -1491,6 +1535,1692 @@ class CloudServerTag(dict):
 
 
 @pulumi.output_type
+class VeenAdvancedConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteProtection":
+            suggest = "delete_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenAdvancedConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenAdvancedConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenAdvancedConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_protection: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool delete_protection: Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+        """
+        if delete_protection is not None:
+            pulumi.set(__self__, "delete_protection", delete_protection)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> Optional[_builtins.bool]:
+        """
+        Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+        """
+        return pulumi.get(self, "delete_protection")
+
+
+@pulumi.output_type
+class VeenBandwidthPeakLimitIspConfigs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthPeakLimit":
+            suggest = "bandwidth_peak_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenBandwidthPeakLimitIspConfigs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenBandwidthPeakLimitIspConfigs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenBandwidthPeakLimitIspConfigs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_peak_limit: Optional[_builtins.str] = None,
+                 isp: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bandwidth_peak_limit: Bandwidth throttling value for this carrier.
+        :param _builtins.str isp: Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+        """
+        if bandwidth_peak_limit is not None:
+            pulumi.set(__self__, "bandwidth_peak_limit", bandwidth_peak_limit)
+        if isp is not None:
+            pulumi.set(__self__, "isp", isp)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthPeakLimit")
+    def bandwidth_peak_limit(self) -> Optional[_builtins.str]:
+        """
+        Bandwidth throttling value for this carrier.
+        """
+        return pulumi.get(self, "bandwidth_peak_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def isp(self) -> Optional[_builtins.str]:
+        """
+        Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+        """
+        return pulumi.get(self, "isp")
+
+
+@pulumi.output_type
+class VeenBilling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthBillingMethod":
+            suggest = "bandwidth_billing_method"
+        elif key == "computingBillingMethod":
+            suggest = "computing_billing_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenBilling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenBilling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenBilling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_billing_method: Optional[_builtins.str] = None,
+                 computing_billing_method: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bandwidth_billing_method: Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        :param _builtins.str computing_billing_method: Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+        """
+        if bandwidth_billing_method is not None:
+            pulumi.set(__self__, "bandwidth_billing_method", bandwidth_billing_method)
+        if computing_billing_method is not None:
+            pulumi.set(__self__, "computing_billing_method", computing_billing_method)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthBillingMethod")
+    def bandwidth_billing_method(self) -> Optional[_builtins.str]:
+        """
+        Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        """
+        return pulumi.get(self, "bandwidth_billing_method")
+
+    @_builtins.property
+    @pulumi.getter(name="computingBillingMethod")
+    def computing_billing_method(self) -> Optional[_builtins.str]:
+        """
+        Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+        """
+        return pulumi.get(self, "computing_billing_method")
+
+
+@pulumi.output_type
+class VeenBillingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRenew":
+            suggest = "auto_renew"
+        elif key == "prePaidPeriod":
+            suggest = "pre_paid_period"
+        elif key == "prePaidPeriodNumber":
+            suggest = "pre_paid_period_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenBillingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenBillingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenBillingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_renew: Optional[_builtins.bool] = None,
+                 pre_paid_period: Optional[_builtins.str] = None,
+                 pre_paid_period_number: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool auto_renew: Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+        :param _builtins.str pre_paid_period: Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+        :param _builtins.int pre_paid_period_number: Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+        """
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
+        if pre_paid_period is not None:
+            pulumi.set(__self__, "pre_paid_period", pre_paid_period)
+        if pre_paid_period_number is not None:
+            pulumi.set(__self__, "pre_paid_period_number", pre_paid_period_number)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[_builtins.bool]:
+        """
+        Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+        """
+        return pulumi.get(self, "auto_renew")
+
+    @_builtins.property
+    @pulumi.getter(name="prePaidPeriod")
+    def pre_paid_period(self) -> Optional[_builtins.str]:
+        """
+        Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+        """
+        return pulumi.get(self, "pre_paid_period")
+
+    @_builtins.property
+    @pulumi.getter(name="prePaidPeriodNumber")
+    def pre_paid_period_number(self) -> Optional[_builtins.int]:
+        """
+        Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+        """
+        return pulumi.get(self, "pre_paid_period_number")
+
+
+@pulumi.output_type
+class VeenCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias: Optional[_builtins.str] = None,
+                 city: Optional[_builtins.str] = None,
+                 cluster_name: Optional[_builtins.str] = None,
+                 country: Optional[_builtins.str] = None,
+                 isp: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 province: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str alias: Node alias.
+        :param _builtins.str city: City where the node is located.
+        :param _builtins.str cluster_name: Name of the node
+        :param _builtins.str country: Country where the node is located.
+        :param _builtins.str isp: Network carrier of the node.
+        :param _builtins.str level: Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+        :param _builtins.str province: Province where the node is located.
+        :param _builtins.str region: Region where the node is located.
+        """
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if isp is not None:
+            pulumi.set(__self__, "isp", isp)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if province is not None:
+            pulumi.set(__self__, "province", province)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> Optional[_builtins.str]:
+        """
+        Node alias.
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> Optional[_builtins.str]:
+        """
+        City where the node is located.
+        """
+        return pulumi.get(self, "city")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the node
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> Optional[_builtins.str]:
+        """
+        Country where the node is located.
+        """
+        return pulumi.get(self, "country")
+
+    @_builtins.property
+    @pulumi.getter
+    def isp(self) -> Optional[_builtins.str]:
+        """
+        Network carrier of the node.
+        """
+        return pulumi.get(self, "isp")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        """
+        Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+        """
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def province(self) -> Optional[_builtins.str]:
+        """
+        Province where the node is located.
+        """
+        return pulumi.get(self, "province")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        Region where the node is located.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class VeenCustomData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isBase64":
+            suggest = "is_base64"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenCustomData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenCustomData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenCustomData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data: Optional[_builtins.str] = None,
+                 is_base64: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str data: Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+        :param _builtins.bool is_base64: Whether the data uses Base64 encoding
+        """
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if is_base64 is not None:
+            pulumi.set(__self__, "is_base64", is_base64)
+
+    @_builtins.property
+    @pulumi.getter
+    def data(self) -> Optional[_builtins.str]:
+        """
+        Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+        """
+        return pulumi.get(self, "data")
+
+    @_builtins.property
+    @pulumi.getter(name="isBase64")
+    def is_base64(self) -> Optional[_builtins.bool]:
+        """
+        Whether the data uses Base64 encoding
+        """
+        return pulumi.get(self, "is_base64")
+
+
+@pulumi.output_type
+class VeenGpu(dict):
+    def __init__(__self__, *,
+                 gpuses: Optional[Sequence['outputs.VeenGpuGpus']] = None):
+        """
+        :param Sequence['VeenGpuGpusArgs'] gpuses: GPU specification information
+               Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+        """
+        if gpuses is not None:
+            pulumi.set(__self__, "gpuses", gpuses)
+
+    @_builtins.property
+    @pulumi.getter
+    def gpuses(self) -> Optional[Sequence['outputs.VeenGpuGpus']]:
+        """
+        GPU specification information
+        Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+        """
+        return pulumi.get(self, "gpuses")
+
+
+@pulumi.output_type
+class VeenGpuGpus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gpuSpec":
+            suggest = "gpu_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenGpuGpus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenGpuGpus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenGpuGpus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gpu_spec: Optional['outputs.VeenGpuGpusGpuSpec'] = None,
+                 num: Optional[_builtins.int] = None):
+        """
+        :param 'VeenGpuGpusGpuSpecArgs' gpu_spec: GPU specification
+        :param _builtins.int num: GPU quantity.
+        """
+        if gpu_spec is not None:
+            pulumi.set(__self__, "gpu_spec", gpu_spec)
+        if num is not None:
+            pulumi.set(__self__, "num", num)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuSpec")
+    def gpu_spec(self) -> Optional['outputs.VeenGpuGpusGpuSpec']:
+        """
+        GPU specification
+        """
+        return pulumi.get(self, "gpu_spec")
+
+    @_builtins.property
+    @pulumi.getter
+    def num(self) -> Optional[_builtins.int]:
+        """
+        GPU quantity.
+        """
+        return pulumi.get(self, "num")
+
+
+@pulumi.output_type
+class VeenGpuGpusGpuSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gpuType":
+            suggest = "gpu_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenGpuGpusGpuSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenGpuGpusGpuSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenGpuGpusGpuSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gpu_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str gpu_type: GPU type.
+        """
+        if gpu_type is not None:
+            pulumi.set(__self__, "gpu_type", gpu_type)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuType")
+    def gpu_type(self) -> Optional[_builtins.str]:
+        """
+        GPU type.
+        """
+        return pulumi.get(self, "gpu_type")
+
+
+@pulumi.output_type
+class VeenImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableVga":
+            suggest = "disable_vga"
+        elif key == "imageBootMode":
+            suggest = "image_boot_mode"
+        elif key == "imageIdentity":
+            suggest = "image_identity"
+        elif key == "imageName":
+            suggest = "image_name"
+        elif key == "systemArch":
+            suggest = "system_arch"
+        elif key == "systemBit":
+            suggest = "system_bit"
+        elif key == "systemType":
+            suggest = "system_type"
+        elif key == "systemVersion":
+            suggest = "system_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_vga: Optional[_builtins.bool] = None,
+                 image_boot_mode: Optional[_builtins.str] = None,
+                 image_identity: Optional[_builtins.str] = None,
+                 image_name: Optional[_builtins.str] = None,
+                 property: Optional[_builtins.str] = None,
+                 system_arch: Optional[_builtins.str] = None,
+                 system_bit: Optional[_builtins.str] = None,
+                 system_type: Optional[_builtins.str] = None,
+                 system_version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool disable_vga: Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+        :param _builtins.str image_boot_mode: Image boot mode: BIOS, UEFI
+        :param _builtins.str image_identity: Image ID.
+        :param _builtins.str image_name: Image name.
+        :param _builtins.str property: Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+        :param _builtins.str system_arch: Operating system architecture.
+        :param _builtins.str system_bit: Operating system bitness.
+        :param _builtins.str system_type: Type of operating system.
+        :param _builtins.str system_version: Operating system version.
+        """
+        if disable_vga is not None:
+            pulumi.set(__self__, "disable_vga", disable_vga)
+        if image_boot_mode is not None:
+            pulumi.set(__self__, "image_boot_mode", image_boot_mode)
+        if image_identity is not None:
+            pulumi.set(__self__, "image_identity", image_identity)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if system_arch is not None:
+            pulumi.set(__self__, "system_arch", system_arch)
+        if system_bit is not None:
+            pulumi.set(__self__, "system_bit", system_bit)
+        if system_type is not None:
+            pulumi.set(__self__, "system_type", system_type)
+        if system_version is not None:
+            pulumi.set(__self__, "system_version", system_version)
+
+    @_builtins.property
+    @pulumi.getter(name="disableVga")
+    def disable_vga(self) -> Optional[_builtins.bool]:
+        """
+        Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+        """
+        return pulumi.get(self, "disable_vga")
+
+    @_builtins.property
+    @pulumi.getter(name="imageBootMode")
+    def image_boot_mode(self) -> Optional[_builtins.str]:
+        """
+        Image boot mode: BIOS, UEFI
+        """
+        return pulumi.get(self, "image_boot_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="imageIdentity")
+    def image_identity(self) -> Optional[_builtins.str]:
+        """
+        Image ID.
+        """
+        return pulumi.get(self, "image_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[_builtins.str]:
+        """
+        Image name.
+        """
+        return pulumi.get(self, "image_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def property(self) -> Optional[_builtins.str]:
+        """
+        Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+        """
+        return pulumi.get(self, "property")
+
+    @_builtins.property
+    @pulumi.getter(name="systemArch")
+    def system_arch(self) -> Optional[_builtins.str]:
+        """
+        Operating system architecture.
+        """
+        return pulumi.get(self, "system_arch")
+
+    @_builtins.property
+    @pulumi.getter(name="systemBit")
+    def system_bit(self) -> Optional[_builtins.str]:
+        """
+        Operating system bitness.
+        """
+        return pulumi.get(self, "system_bit")
+
+    @_builtins.property
+    @pulumi.getter(name="systemType")
+    def system_type(self) -> Optional[_builtins.str]:
+        """
+        Type of operating system.
+        """
+        return pulumi.get(self, "system_type")
+
+    @_builtins.property
+    @pulumi.getter(name="systemVersion")
+    def system_version(self) -> Optional[_builtins.str]:
+        """
+        Operating system version.
+        """
+        return pulumi.get(self, "system_version")
+
+
+@pulumi.output_type
+class VeenInstanceAreaNum(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "areaName":
+            suggest = "area_name"
+        elif key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "defaultIsp":
+            suggest = "default_isp"
+        elif key == "externalNetworkMode":
+            suggest = "external_network_mode"
+        elif key == "hostNameLists":
+            suggest = "host_name_lists"
+        elif key == "multiInterfaceNameConfig":
+            suggest = "multi_interface_name_config"
+        elif key == "singleInterfaceNameConfig":
+            suggest = "single_interface_name_config"
+        elif key == "subnetIdentity":
+            suggest = "subnet_identity"
+        elif key == "vpcIdentity":
+            suggest = "vpc_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenInstanceAreaNum. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenInstanceAreaNum.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenInstanceAreaNum.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 area_name: Optional[_builtins.str] = None,
+                 cluster_name: Optional[_builtins.str] = None,
+                 default_isp: Optional[_builtins.str] = None,
+                 external_network_mode: Optional[_builtins.str] = None,
+                 host_name_lists: Optional[Sequence[_builtins.str]] = None,
+                 isp: Optional[_builtins.str] = None,
+                 multi_interface_name_config: Optional['outputs.VeenInstanceAreaNumMultiInterfaceNameConfig'] = None,
+                 num: Optional[_builtins.int] = None,
+                 single_interface_name_config: Optional['outputs.VeenInstanceAreaNumSingleInterfaceNameConfig'] = None,
+                 subnet_identity: Optional[_builtins.str] = None,
+                 vpc_identity: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str area_name: Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        :param _builtins.str cluster_name: Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+        :param _builtins.str default_isp: Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        :param _builtins.str external_network_mode: Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+               single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+               Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+        :param Sequence[_builtins.str] host_name_lists: The host name list to assign to the created instances.
+        :param _builtins.str isp: Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        :param 'VeenInstanceAreaNumMultiInterfaceNameConfigArgs' multi_interface_name_config: NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+               If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+        :param _builtins.int num: Number of instances.
+        :param 'VeenInstanceAreaNumSingleInterfaceNameConfigArgs' single_interface_name_config: Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+        :param _builtins.str subnet_identity: Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        :param _builtins.str vpc_identity: Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnet_identity must also be set to specify the subnet
+        """
+        if area_name is not None:
+            pulumi.set(__self__, "area_name", area_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if default_isp is not None:
+            pulumi.set(__self__, "default_isp", default_isp)
+        if external_network_mode is not None:
+            pulumi.set(__self__, "external_network_mode", external_network_mode)
+        if host_name_lists is not None:
+            pulumi.set(__self__, "host_name_lists", host_name_lists)
+        if isp is not None:
+            pulumi.set(__self__, "isp", isp)
+        if multi_interface_name_config is not None:
+            pulumi.set(__self__, "multi_interface_name_config", multi_interface_name_config)
+        if num is not None:
+            pulumi.set(__self__, "num", num)
+        if single_interface_name_config is not None:
+            pulumi.set(__self__, "single_interface_name_config", single_interface_name_config)
+        if subnet_identity is not None:
+            pulumi.set(__self__, "subnet_identity", subnet_identity)
+        if vpc_identity is not None:
+            pulumi.set(__self__, "vpc_identity", vpc_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="areaName")
+    def area_name(self) -> Optional[_builtins.str]:
+        """
+        Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        """
+        return pulumi.get(self, "area_name")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[_builtins.str]:
+        """
+        Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultIsp")
+    def default_isp(self) -> Optional[_builtins.str]:
+        """
+        Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        """
+        return pulumi.get(self, "default_isp")
+
+    @_builtins.property
+    @pulumi.getter(name="externalNetworkMode")
+    def external_network_mode(self) -> Optional[_builtins.str]:
+        """
+        Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+        single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+        Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+        """
+        return pulumi.get(self, "external_network_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="hostNameLists")
+    def host_name_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The host name list to assign to the created instances.
+        """
+        return pulumi.get(self, "host_name_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def isp(self) -> Optional[_builtins.str]:
+        """
+        Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        """
+        return pulumi.get(self, "isp")
+
+    @_builtins.property
+    @pulumi.getter(name="multiInterfaceNameConfig")
+    def multi_interface_name_config(self) -> Optional['outputs.VeenInstanceAreaNumMultiInterfaceNameConfig']:
+        """
+        NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+        If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+        """
+        return pulumi.get(self, "multi_interface_name_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def num(self) -> Optional[_builtins.int]:
+        """
+        Number of instances.
+        """
+        return pulumi.get(self, "num")
+
+    @_builtins.property
+    @pulumi.getter(name="singleInterfaceNameConfig")
+    def single_interface_name_config(self) -> Optional['outputs.VeenInstanceAreaNumSingleInterfaceNameConfig']:
+        """
+        Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+        """
+        return pulumi.get(self, "single_interface_name_config")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIdentity")
+    def subnet_identity(self) -> Optional[_builtins.str]:
+        """
+        Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+        return pulumi.get(self, "subnet_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentity")
+    def vpc_identity(self) -> Optional[_builtins.str]:
+        """
+        Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnet_identity must also be set to specify the subnet
+        """
+        return pulumi.get(self, "vpc_identity")
+
+
+@pulumi.output_type
+class VeenInstanceAreaNumMultiInterfaceNameConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cmccExternalInterfaceName":
+            suggest = "cmcc_external_interface_name"
+        elif key == "ctccExternalInterfaceName":
+            suggest = "ctcc_external_interface_name"
+        elif key == "cuccExternalInterfaceName":
+            suggest = "cucc_external_interface_name"
+        elif key == "internalInterfaceName":
+            suggest = "internal_interface_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenInstanceAreaNumMultiInterfaceNameConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenInstanceAreaNumMultiInterfaceNameConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenInstanceAreaNumMultiInterfaceNameConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cmcc_external_interface_name: Optional[_builtins.str] = None,
+                 ctcc_external_interface_name: Optional[_builtins.str] = None,
+                 cucc_external_interface_name: Optional[_builtins.str] = None,
+                 internal_interface_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cmcc_external_interface_name: Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        :param _builtins.str ctcc_external_interface_name: Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+        :param _builtins.str cucc_external_interface_name: Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        :param _builtins.str internal_interface_name: Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        if cmcc_external_interface_name is not None:
+            pulumi.set(__self__, "cmcc_external_interface_name", cmcc_external_interface_name)
+        if ctcc_external_interface_name is not None:
+            pulumi.set(__self__, "ctcc_external_interface_name", ctcc_external_interface_name)
+        if cucc_external_interface_name is not None:
+            pulumi.set(__self__, "cucc_external_interface_name", cucc_external_interface_name)
+        if internal_interface_name is not None:
+            pulumi.set(__self__, "internal_interface_name", internal_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="cmccExternalInterfaceName")
+    def cmcc_external_interface_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "cmcc_external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ctccExternalInterfaceName")
+    def ctcc_external_interface_name(self) -> Optional[_builtins.str]:
+        """
+        Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "ctcc_external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="cuccExternalInterfaceName")
+    def cucc_external_interface_name(self) -> Optional[_builtins.str]:
+        """
+        Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "cucc_external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="internalInterfaceName")
+    def internal_interface_name(self) -> Optional[_builtins.str]:
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "internal_interface_name")
+
+
+@pulumi.output_type
+class VeenInstanceAreaNumSingleInterfaceNameConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalInterfaceName":
+            suggest = "external_interface_name"
+        elif key == "internalInterfaceName":
+            suggest = "internal_interface_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenInstanceAreaNumSingleInterfaceNameConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenInstanceAreaNumSingleInterfaceNameConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenInstanceAreaNumSingleInterfaceNameConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_interface_name: Optional[_builtins.str] = None,
+                 internal_interface_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str external_interface_name: Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+        :param _builtins.str internal_interface_name: Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        if external_interface_name is not None:
+            pulumi.set(__self__, "external_interface_name", external_interface_name)
+        if internal_interface_name is not None:
+            pulumi.set(__self__, "internal_interface_name", internal_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="externalInterfaceName")
+    def external_interface_name(self) -> Optional[_builtins.str]:
+        """
+        Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="internalInterfaceName")
+    def internal_interface_name(self) -> Optional[_builtins.str]:
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "internal_interface_name")
+
+
+@pulumi.output_type
+class VeenMonitorAgent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentStatus":
+            suggest = "agent_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenMonitorAgent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenMonitorAgent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenMonitorAgent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str agent_status: Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+        """
+        if agent_status is not None:
+            pulumi.set(__self__, "agent_status", agent_status)
+
+    @_builtins.property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> Optional[_builtins.str]:
+        """
+        Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+        """
+        return pulumi.get(self, "agent_status")
+
+
+@pulumi.output_type
+class VeenNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actualSecondaryIpNum":
+            suggest = "actual_secondary_ip_num"
+        elif key == "bandwidthPeakConfigRatio":
+            suggest = "bandwidth_peak_config_ratio"
+        elif key == "bandwidthPeakUpdateStatus":
+            suggest = "bandwidth_peak_update_status"
+        elif key == "defaultIsp":
+            suggest = "default_isp"
+        elif key == "disableIpv4":
+            suggest = "disable_ipv4"
+        elif key == "dnsLists":
+            suggest = "dns_lists"
+        elif key == "dnsType":
+            suggest = "dns_type"
+        elif key == "enableIpv6":
+            suggest = "enable_ipv6"
+        elif key == "externalNetworkMode":
+            suggest = "external_network_mode"
+        elif key == "limitMode":
+            suggest = "limit_mode"
+        elif key == "tcpTimeout":
+            suggest = "tcp_timeout"
+        elif key == "udpTimeout":
+            suggest = "udp_timeout"
+        elif key == "vfPassthrough":
+            suggest = "vf_passthrough"
+        elif key == "vlanVfPassthrough":
+            suggest = "vlan_vf_passthrough"
+        elif key == "wantedSecondaryIpNum":
+            suggest = "wanted_secondary_ip_num"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actual_secondary_ip_num: Optional[_builtins.int] = None,
+                 bandwidth_peak_config_ratio: Optional['outputs.VeenNetworkBandwidthPeakConfigRatio'] = None,
+                 bandwidth_peak_update_status: Optional[_builtins.str] = None,
+                 default_isp: Optional[_builtins.str] = None,
+                 disable_ipv4: Optional[_builtins.bool] = None,
+                 dns_lists: Optional[Sequence[_builtins.str]] = None,
+                 dns_type: Optional[_builtins.str] = None,
+                 enable_ipv6: Optional[_builtins.bool] = None,
+                 external_network_mode: Optional[_builtins.str] = None,
+                 limit_mode: Optional[_builtins.str] = None,
+                 tcp_timeout: Optional[_builtins.int] = None,
+                 udp_timeout: Optional[_builtins.int] = None,
+                 vf_passthrough: Optional[_builtins.bool] = None,
+                 vlan_vf_passthrough: Optional[_builtins.bool] = None,
+                 wanted_secondary_ip_num: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int actual_secondary_ip_num: Number of allocated auxiliary private IP addresses
+        :param 'VeenNetworkBandwidthPeakConfigRatioArgs' bandwidth_peak_config_ratio: Percentile peak bandwidth, no fixed bandwidth value.
+        :param _builtins.str bandwidth_peak_update_status: Bandwidth peak update status: updating: updating. ready: update complete.
+        :param _builtins.str default_isp: Default carrier
+        :param _builtins.bool disable_ipv4: Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+        :param Sequence[_builtins.str] dns_lists: DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+        :param _builtins.str dns_type: DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+        :param _builtins.bool enable_ipv6: Enable IPv6: true: enable IPv6. false: disable IPv6.
+        :param _builtins.str external_network_mode: Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+        :param _builtins.str limit_mode: Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+        :param _builtins.int tcp_timeout: Edge instance TCP session timeout. Unit: seconds.
+        :param _builtins.int udp_timeout: UDP session timeout for the edge instance. Unit: seconds.
+        :param _builtins.bool vf_passthrough: Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+        :param _builtins.bool vlan_vf_passthrough: Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+        :param _builtins.int wanted_secondary_ip_num: Number of required auxiliary private network IP addresses
+        """
+        if actual_secondary_ip_num is not None:
+            pulumi.set(__self__, "actual_secondary_ip_num", actual_secondary_ip_num)
+        if bandwidth_peak_config_ratio is not None:
+            pulumi.set(__self__, "bandwidth_peak_config_ratio", bandwidth_peak_config_ratio)
+        if bandwidth_peak_update_status is not None:
+            pulumi.set(__self__, "bandwidth_peak_update_status", bandwidth_peak_update_status)
+        if default_isp is not None:
+            pulumi.set(__self__, "default_isp", default_isp)
+        if disable_ipv4 is not None:
+            pulumi.set(__self__, "disable_ipv4", disable_ipv4)
+        if dns_lists is not None:
+            pulumi.set(__self__, "dns_lists", dns_lists)
+        if dns_type is not None:
+            pulumi.set(__self__, "dns_type", dns_type)
+        if enable_ipv6 is not None:
+            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+        if external_network_mode is not None:
+            pulumi.set(__self__, "external_network_mode", external_network_mode)
+        if limit_mode is not None:
+            pulumi.set(__self__, "limit_mode", limit_mode)
+        if tcp_timeout is not None:
+            pulumi.set(__self__, "tcp_timeout", tcp_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+        if vf_passthrough is not None:
+            pulumi.set(__self__, "vf_passthrough", vf_passthrough)
+        if vlan_vf_passthrough is not None:
+            pulumi.set(__self__, "vlan_vf_passthrough", vlan_vf_passthrough)
+        if wanted_secondary_ip_num is not None:
+            pulumi.set(__self__, "wanted_secondary_ip_num", wanted_secondary_ip_num)
+
+    @_builtins.property
+    @pulumi.getter(name="actualSecondaryIpNum")
+    def actual_secondary_ip_num(self) -> Optional[_builtins.int]:
+        """
+        Number of allocated auxiliary private IP addresses
+        """
+        return pulumi.get(self, "actual_secondary_ip_num")
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthPeakConfigRatio")
+    def bandwidth_peak_config_ratio(self) -> Optional['outputs.VeenNetworkBandwidthPeakConfigRatio']:
+        """
+        Percentile peak bandwidth, no fixed bandwidth value.
+        """
+        return pulumi.get(self, "bandwidth_peak_config_ratio")
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthPeakUpdateStatus")
+    def bandwidth_peak_update_status(self) -> Optional[_builtins.str]:
+        """
+        Bandwidth peak update status: updating: updating. ready: update complete.
+        """
+        return pulumi.get(self, "bandwidth_peak_update_status")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultIsp")
+    def default_isp(self) -> Optional[_builtins.str]:
+        """
+        Default carrier
+        """
+        return pulumi.get(self, "default_isp")
+
+    @_builtins.property
+    @pulumi.getter(name="disableIpv4")
+    def disable_ipv4(self) -> Optional[_builtins.bool]:
+        """
+        Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+        """
+        return pulumi.get(self, "disable_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsLists")
+    def dns_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+        """
+        return pulumi.get(self, "dns_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsType")
+    def dns_type(self) -> Optional[_builtins.str]:
+        """
+        DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+        """
+        return pulumi.get(self, "dns_type")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIpv6")
+    def enable_ipv6(self) -> Optional[_builtins.bool]:
+        """
+        Enable IPv6: true: enable IPv6. false: disable IPv6.
+        """
+        return pulumi.get(self, "enable_ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="externalNetworkMode")
+    def external_network_mode(self) -> Optional[_builtins.str]:
+        """
+        Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+        """
+        return pulumi.get(self, "external_network_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="limitMode")
+    def limit_mode(self) -> Optional[_builtins.str]:
+        """
+        Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+        """
+        return pulumi.get(self, "limit_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="tcpTimeout")
+    def tcp_timeout(self) -> Optional[_builtins.int]:
+        """
+        Edge instance TCP session timeout. Unit: seconds.
+        """
+        return pulumi.get(self, "tcp_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[_builtins.int]:
+        """
+        UDP session timeout for the edge instance. Unit: seconds.
+        """
+        return pulumi.get(self, "udp_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="vfPassthrough")
+    def vf_passthrough(self) -> Optional[_builtins.bool]:
+        """
+        Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+        """
+        return pulumi.get(self, "vf_passthrough")
+
+    @_builtins.property
+    @pulumi.getter(name="vlanVfPassthrough")
+    def vlan_vf_passthrough(self) -> Optional[_builtins.bool]:
+        """
+        Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+        """
+        return pulumi.get(self, "vlan_vf_passthrough")
+
+    @_builtins.property
+    @pulumi.getter(name="wantedSecondaryIpNum")
+    def wanted_secondary_ip_num(self) -> Optional[_builtins.int]:
+        """
+        Number of required auxiliary private network IP addresses
+        """
+        return pulumi.get(self, "wanted_secondary_ip_num")
+
+
+@pulumi.output_type
+class VeenNetworkBandwidthPeakConfigRatio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enhancedRatio":
+            suggest = "enhanced_ratio"
+        elif key == "normalRatio":
+            suggest = "normal_ratio"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenNetworkBandwidthPeakConfigRatio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenNetworkBandwidthPeakConfigRatio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenNetworkBandwidthPeakConfigRatio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enhanced_ratio: Optional[_builtins.int] = None,
+                 normal_ratio: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int enhanced_ratio: Bandwidth ratio in enhanced/burst mode
+        :param _builtins.int normal_ratio: Bandwidth ratio in standard mode
+        """
+        if enhanced_ratio is not None:
+            pulumi.set(__self__, "enhanced_ratio", enhanced_ratio)
+        if normal_ratio is not None:
+            pulumi.set(__self__, "normal_ratio", normal_ratio)
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedRatio")
+    def enhanced_ratio(self) -> Optional[_builtins.int]:
+        """
+        Bandwidth ratio in enhanced/burst mode
+        """
+        return pulumi.get(self, "enhanced_ratio")
+
+    @_builtins.property
+    @pulumi.getter(name="normalRatio")
+    def normal_ratio(self) -> Optional[_builtins.int]:
+        """
+        Bandwidth ratio in standard mode
+        """
+        return pulumi.get(self, "normal_ratio")
+
+
+@pulumi.output_type
+class VeenSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretType":
+            suggest = "secret_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_type: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int secret_type: Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+        """
+        if secret_type is not None:
+            pulumi.set(__self__, "secret_type", secret_type)
+
+    @_builtins.property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> Optional[_builtins.int]:
+        """
+        Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+        """
+        return pulumi.get(self, "secret_type")
+
+
+@pulumi.output_type
+class VeenStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDisk":
+            suggest = "data_disk"
+        elif key == "dataDiskLists":
+            suggest = "data_disk_lists"
+        elif key == "systemDisk":
+            suggest = "system_disk"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_disk: Optional['outputs.VeenStorageDataDisk'] = None,
+                 data_disk_lists: Optional[Sequence['outputs.VeenStorageDataDiskList']] = None,
+                 system_disk: Optional['outputs.VeenStorageSystemDisk'] = None):
+        """
+        :param 'VeenStorageDataDiskArgs' data_disk: Data disk. This parameter is used to add a single data disk
+        :param Sequence['VeenStorageDataDiskListArgs'] data_disk_lists: Data disk list
+               Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+        :param 'VeenStorageSystemDiskArgs' system_disk: System disk
+        """
+        if data_disk is not None:
+            pulumi.set(__self__, "data_disk", data_disk)
+        if data_disk_lists is not None:
+            pulumi.set(__self__, "data_disk_lists", data_disk_lists)
+        if system_disk is not None:
+            pulumi.set(__self__, "system_disk", system_disk)
+
+    @_builtins.property
+    @pulumi.getter(name="dataDisk")
+    def data_disk(self) -> Optional['outputs.VeenStorageDataDisk']:
+        """
+        Data disk. This parameter is used to add a single data disk
+        """
+        return pulumi.get(self, "data_disk")
+
+    @_builtins.property
+    @pulumi.getter(name="dataDiskLists")
+    def data_disk_lists(self) -> Optional[Sequence['outputs.VeenStorageDataDiskList']]:
+        """
+        Data disk list
+        Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+        """
+        return pulumi.get(self, "data_disk_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="systemDisk")
+    def system_disk(self) -> Optional['outputs.VeenStorageSystemDisk']:
+        """
+        System disk
+        """
+        return pulumi.get(self, "system_disk")
+
+
+@pulumi.output_type
+class VeenStorageDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteWithInstance":
+            suggest = "delete_with_instance"
+        elif key == "diskIdentity":
+            suggest = "disk_identity"
+        elif key == "localDiskClass":
+            suggest = "local_disk_class"
+        elif key == "localDiskResourceName":
+            suggest = "local_disk_resource_name"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenStorageDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenStorageDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenStorageDataDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity: Optional[_builtins.str] = None,
+                 delete_with_instance: Optional[_builtins.bool] = None,
+                 disk_identity: Optional[_builtins.str] = None,
+                 local_disk_class: Optional[_builtins.str] = None,
+                 local_disk_resource_name: Optional[_builtins.str] = None,
+                 storage_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str capacity: Disk capacity. Unit: GB.
+        :param _builtins.bool delete_with_instance: Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        :param _builtins.str disk_identity: Unique disk ID, the primary key of the cloud disk resource.
+        :param _builtins.str local_disk_class: Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        :param _builtins.str local_disk_resource_name: Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        :param _builtins.str storage_type: Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[_builtins.str]:
+        """
+        Disk capacity. Unit: GB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[_builtins.bool]:
+        """
+        Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[_builtins.str]:
+        """
+        Unique disk ID, the primary key of the cloud disk resource.
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[_builtins.str]:
+        """
+        Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[_builtins.str]:
+        """
+        Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        """
+        Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class VeenStorageDataDiskList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteWithInstance":
+            suggest = "delete_with_instance"
+        elif key == "diskIdentity":
+            suggest = "disk_identity"
+        elif key == "localDiskClass":
+            suggest = "local_disk_class"
+        elif key == "localDiskResourceName":
+            suggest = "local_disk_resource_name"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenStorageDataDiskList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenStorageDataDiskList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenStorageDataDiskList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity: Optional[_builtins.str] = None,
+                 delete_with_instance: Optional[_builtins.bool] = None,
+                 disk_identity: Optional[_builtins.str] = None,
+                 local_disk_class: Optional[_builtins.str] = None,
+                 local_disk_resource_name: Optional[_builtins.str] = None,
+                 storage_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str capacity: Disk capacity. Unit: GB.
+        :param _builtins.bool delete_with_instance: Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        :param _builtins.str disk_identity: Unique disk ID, the primary key of the cloud disk resource.
+        :param _builtins.str local_disk_class: Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        :param _builtins.str local_disk_resource_name: Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        :param _builtins.str storage_type: Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[_builtins.str]:
+        """
+        Disk capacity. Unit: GB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[_builtins.bool]:
+        """
+        Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[_builtins.str]:
+        """
+        Unique disk ID, the primary key of the cloud disk resource.
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[_builtins.str]:
+        """
+        Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[_builtins.str]:
+        """
+        Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        """
+        Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class VeenStorageSystemDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteWithInstance":
+            suggest = "delete_with_instance"
+        elif key == "diskIdentity":
+            suggest = "disk_identity"
+        elif key == "localDiskClass":
+            suggest = "local_disk_class"
+        elif key == "localDiskResourceName":
+            suggest = "local_disk_resource_name"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VeenStorageSystemDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VeenStorageSystemDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VeenStorageSystemDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity: Optional[_builtins.str] = None,
+                 delete_with_instance: Optional[_builtins.bool] = None,
+                 disk_identity: Optional[_builtins.str] = None,
+                 local_disk_class: Optional[_builtins.str] = None,
+                 local_disk_resource_name: Optional[_builtins.str] = None,
+                 storage_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str capacity: Disk capacity. Unit: GB.
+        :param _builtins.bool delete_with_instance: Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        :param _builtins.str disk_identity: Unique disk ID, the primary key of the cloud disk resource.
+        :param _builtins.str local_disk_class: Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        :param _builtins.str local_disk_resource_name: Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        :param _builtins.str storage_type: Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if delete_with_instance is not None:
+            pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        if disk_identity is not None:
+            pulumi.set(__self__, "disk_identity", disk_identity)
+        if local_disk_class is not None:
+            pulumi.set(__self__, "local_disk_class", local_disk_class)
+        if local_disk_resource_name is not None:
+            pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[_builtins.str]:
+        """
+        Disk capacity. Unit: GB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> Optional[_builtins.bool]:
+        """
+        Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> Optional[_builtins.str]:
+        """
+        Unique disk ID, the primary key of the cloud disk resource.
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> Optional[_builtins.str]:
+        """
+        Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> Optional[_builtins.str]:
+        """
+        Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        """
+        Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class VeenTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: Tag key.
+        :param _builtins.str value: Tag value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class VpcSubnet(dict):
     def __init__(__self__, *,
                  cidr: Optional[_builtins.str] = None,
@@ -2548,6 +4278,1156 @@ class GetCloudServerTagResult(dict):
     def value(self) -> _builtins.str:
         """
         Tag value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVeenAdvancedConfigurationResult(dict):
+    def __init__(__self__, *,
+                 delete_protection: _builtins.bool):
+        """
+        :param _builtins.bool delete_protection: Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+        """
+        pulumi.set(__self__, "delete_protection", delete_protection)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteProtection")
+    def delete_protection(self) -> _builtins.bool:
+        """
+        Whether deletion protection is enabled for the edge instance. true: enabled. false: not enabled.
+        """
+        return pulumi.get(self, "delete_protection")
+
+
+@pulumi.output_type
+class GetVeenBandwidthPeakLimitIspConfigsResult(dict):
+    def __init__(__self__, *,
+                 bandwidth_peak_limit: _builtins.str,
+                 isp: _builtins.str):
+        """
+        :param _builtins.str bandwidth_peak_limit: Bandwidth throttling value for this carrier.
+        :param _builtins.str isp: Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+        """
+        pulumi.set(__self__, "bandwidth_peak_limit", bandwidth_peak_limit)
+        pulumi.set(__self__, "isp", isp)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthPeakLimit")
+    def bandwidth_peak_limit(self) -> _builtins.str:
+        """
+        Bandwidth throttling value for this carrier.
+        """
+        return pulumi.get(self, "bandwidth_peak_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def isp(self) -> _builtins.str:
+        """
+        Carrier. Value range: CMCC: China Mobile; CTCC: China Telecom; CUCC: China Unicom
+        """
+        return pulumi.get(self, "isp")
+
+
+@pulumi.output_type
+class GetVeenBillingResult(dict):
+    def __init__(__self__, *,
+                 bandwidth_billing_method: _builtins.str,
+                 computing_billing_method: _builtins.str):
+        """
+        :param _builtins.str bandwidth_billing_method: Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        :param _builtins.str computing_billing_method: Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+        """
+        pulumi.set(__self__, "bandwidth_billing_method", bandwidth_billing_method)
+        pulumi.set(__self__, "computing_billing_method", computing_billing_method)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthBillingMethod")
+    def bandwidth_billing_method(self) -> _builtins.str:
+        """
+        Bandwidth billing method: MonthlyP95: Billed by monthly 95th percentile. DailyPeak: Billed by daily peak. If you require daily peak billing or other billing methods, please submit a ticket.
+        """
+        return pulumi.get(self, "bandwidth_billing_method")
+
+    @_builtins.property
+    @pulumi.getter(name="computingBillingMethod")
+    def computing_billing_method(self) -> _builtins.str:
+        """
+        Compute billing method: MonthlyPeak: monthly peak billing. DailyPeak: daily peak billing. If you require daily peak billing or other billing methods, please submit a ticket. PrePaid: yearly/monthly subscription.
+        """
+        return pulumi.get(self, "computing_billing_method")
+
+
+@pulumi.output_type
+class GetVeenBillingConfigResult(dict):
+    def __init__(__self__, *,
+                 auto_renew: _builtins.bool,
+                 pre_paid_period: _builtins.str,
+                 pre_paid_period_number: _builtins.int):
+        """
+        :param _builtins.bool auto_renew: Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+        :param _builtins.str pre_paid_period: Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+        :param _builtins.int pre_paid_period_number: Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+        """
+        pulumi.set(__self__, "auto_renew", auto_renew)
+        pulumi.set(__self__, "pre_paid_period", pre_paid_period)
+        pulumi.set(__self__, "pre_paid_period_number", pre_paid_period_number)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> _builtins.bool:
+        """
+        Enable auto-renewal. Value options: true: enable auto-renewal. false (default): disable auto-renewal.
+        """
+        return pulumi.get(self, "auto_renew")
+
+    @_builtins.property
+    @pulumi.getter(name="prePaidPeriod")
+    def pre_paid_period(self) -> _builtins.str:
+        """
+        Unit of resource purchase duration. This parameter must be used together with the pre*paid*period_number parameter. Valid values: monthly: month
+        """
+        return pulumi.get(self, "pre_paid_period")
+
+    @_builtins.property
+    @pulumi.getter(name="prePaidPeriodNumber")
+    def pre_paid_period_number(self) -> _builtins.int:
+        """
+        Resource purchase duration. This parameter must be used together with the pre*paid*period parameter. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36
+        """
+        return pulumi.get(self, "pre_paid_period_number")
+
+
+@pulumi.output_type
+class GetVeenClusterResult(dict):
+    def __init__(__self__, *,
+                 alias: _builtins.str,
+                 city: _builtins.str,
+                 cluster_name: _builtins.str,
+                 country: _builtins.str,
+                 isp: _builtins.str,
+                 level: _builtins.str,
+                 province: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str alias: Node alias.
+        :param _builtins.str city: City where the node is located.
+        :param _builtins.str cluster_name: Name of the node
+        :param _builtins.str country: Country where the node is located.
+        :param _builtins.str isp: Network carrier of the node.
+        :param _builtins.str level: Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+        :param _builtins.str province: Province where the node is located.
+        :param _builtins.str region: Region where the node is located.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "city", city)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "isp", isp)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "province", province)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> _builtins.str:
+        """
+        Node alias.
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter
+    def city(self) -> _builtins.str:
+        """
+        City where the node is located.
+        """
+        return pulumi.get(self, "city")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> _builtins.str:
+        """
+        Name of the node
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def country(self) -> _builtins.str:
+        """
+        Country where the node is located.
+        """
+        return pulumi.get(self, "country")
+
+    @_builtins.property
+    @pulumi.getter
+    def isp(self) -> _builtins.str:
+        """
+        Network carrier of the node.
+        """
+        return pulumi.get(self, "isp")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        """
+        Node billing category: 1: Beijing, Shanghai, Guangzhou; 2: regional centers; 3: general cities
+        """
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def province(self) -> _builtins.str:
+        """
+        Province where the node is located.
+        """
+        return pulumi.get(self, "province")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Region where the node is located.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetVeenCustomDataResult(dict):
+    def __init__(__self__, *,
+                 data: _builtins.str,
+                 is_base64: _builtins.bool):
+        """
+        :param _builtins.str data: Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+        :param _builtins.bool is_base64: Whether the data uses Base64 encoding
+        """
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "is_base64", is_base64)
+
+    @_builtins.property
+    @pulumi.getter
+    def data(self) -> _builtins.str:
+        """
+        Original user data content. When IsBase64 is true, the data should be Base64 encoded.
+        """
+        return pulumi.get(self, "data")
+
+    @_builtins.property
+    @pulumi.getter(name="isBase64")
+    def is_base64(self) -> _builtins.bool:
+        """
+        Whether the data uses Base64 encoding
+        """
+        return pulumi.get(self, "is_base64")
+
+
+@pulumi.output_type
+class GetVeenGpuResult(dict):
+    def __init__(__self__, *,
+                 gpuses: Sequence['outputs.GetVeenGpuGpusResult']):
+        """
+        :param Sequence['GetVeenGpuGpusArgs'] gpuses: GPU specification information
+        """
+        pulumi.set(__self__, "gpuses", gpuses)
+
+    @_builtins.property
+    @pulumi.getter
+    def gpuses(self) -> Sequence['outputs.GetVeenGpuGpusResult']:
+        """
+        GPU specification information
+        """
+        return pulumi.get(self, "gpuses")
+
+
+@pulumi.output_type
+class GetVeenGpuGpusResult(dict):
+    def __init__(__self__, *,
+                 gpu_spec: 'outputs.GetVeenGpuGpusGpuSpecResult',
+                 num: _builtins.int):
+        """
+        :param 'GetVeenGpuGpusGpuSpecArgs' gpu_spec: GPU specification
+        :param _builtins.int num: GPU quantity.
+        """
+        pulumi.set(__self__, "gpu_spec", gpu_spec)
+        pulumi.set(__self__, "num", num)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuSpec")
+    def gpu_spec(self) -> 'outputs.GetVeenGpuGpusGpuSpecResult':
+        """
+        GPU specification
+        """
+        return pulumi.get(self, "gpu_spec")
+
+    @_builtins.property
+    @pulumi.getter
+    def num(self) -> _builtins.int:
+        """
+        GPU quantity.
+        """
+        return pulumi.get(self, "num")
+
+
+@pulumi.output_type
+class GetVeenGpuGpusGpuSpecResult(dict):
+    def __init__(__self__, *,
+                 gpu_type: _builtins.str):
+        """
+        :param _builtins.str gpu_type: GPU type.
+        """
+        pulumi.set(__self__, "gpu_type", gpu_type)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuType")
+    def gpu_type(self) -> _builtins.str:
+        """
+        GPU type.
+        """
+        return pulumi.get(self, "gpu_type")
+
+
+@pulumi.output_type
+class GetVeenImageResult(dict):
+    def __init__(__self__, *,
+                 disable_vga: _builtins.bool,
+                 image_boot_mode: _builtins.str,
+                 image_identity: _builtins.str,
+                 image_name: _builtins.str,
+                 property: _builtins.str,
+                 system_arch: _builtins.str,
+                 system_bit: _builtins.str,
+                 system_type: _builtins.str,
+                 system_version: _builtins.str):
+        """
+        :param _builtins.bool disable_vga: Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+        :param _builtins.str image_boot_mode: Image boot mode: BIOS, UEFI
+        :param _builtins.str image_identity: Image ID.
+        :param _builtins.str image_name: Image name.
+        :param _builtins.str property: Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+        :param _builtins.str system_arch: Operating system architecture.
+        :param _builtins.str system_bit: Operating system bitness.
+        :param _builtins.str system_type: Type of operating system.
+        :param _builtins.str system_version: Operating system version.
+        """
+        pulumi.set(__self__, "disable_vga", disable_vga)
+        pulumi.set(__self__, "image_boot_mode", image_boot_mode)
+        pulumi.set(__self__, "image_identity", image_identity)
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "property", property)
+        pulumi.set(__self__, "system_arch", system_arch)
+        pulumi.set(__self__, "system_bit", system_bit)
+        pulumi.set(__self__, "system_type", system_type)
+        pulumi.set(__self__, "system_version", system_version)
+
+    @_builtins.property
+    @pulumi.getter(name="disableVga")
+    def disable_vga(self) -> _builtins.bool:
+        """
+        Whether to disable VGA. Value range: true: disable VGA; false: enable VGA.
+        """
+        return pulumi.get(self, "disable_vga")
+
+    @_builtins.property
+    @pulumi.getter(name="imageBootMode")
+    def image_boot_mode(self) -> _builtins.str:
+        """
+        Image boot mode: BIOS, UEFI
+        """
+        return pulumi.get(self, "image_boot_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="imageIdentity")
+    def image_identity(self) -> _builtins.str:
+        """
+        Image ID.
+        """
+        return pulumi.get(self, "image_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> _builtins.str:
+        """
+        Image name.
+        """
+        return pulumi.get(self, "image_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def property(self) -> _builtins.str:
+        """
+        Image attributes: BENBuildImage: image created from edge instance. LocalImage: local image. PublicBaseImage: public image. UrlImage: image uploaded via URL
+        """
+        return pulumi.get(self, "property")
+
+    @_builtins.property
+    @pulumi.getter(name="systemArch")
+    def system_arch(self) -> _builtins.str:
+        """
+        Operating system architecture.
+        """
+        return pulumi.get(self, "system_arch")
+
+    @_builtins.property
+    @pulumi.getter(name="systemBit")
+    def system_bit(self) -> _builtins.str:
+        """
+        Operating system bitness.
+        """
+        return pulumi.get(self, "system_bit")
+
+    @_builtins.property
+    @pulumi.getter(name="systemType")
+    def system_type(self) -> _builtins.str:
+        """
+        Type of operating system.
+        """
+        return pulumi.get(self, "system_type")
+
+    @_builtins.property
+    @pulumi.getter(name="systemVersion")
+    def system_version(self) -> _builtins.str:
+        """
+        Operating system version.
+        """
+        return pulumi.get(self, "system_version")
+
+
+@pulumi.output_type
+class GetVeenInstanceAreaNumResult(dict):
+    def __init__(__self__, *,
+                 area_name: _builtins.str,
+                 cluster_name: _builtins.str,
+                 default_isp: _builtins.str,
+                 external_network_mode: _builtins.str,
+                 host_name_lists: Sequence[_builtins.str],
+                 isp: _builtins.str,
+                 multi_interface_name_config: 'outputs.GetVeenInstanceAreaNumMultiInterfaceNameConfigResult',
+                 num: _builtins.int,
+                 single_interface_name_config: 'outputs.GetVeenInstanceAreaNumSingleInterfaceNameConfigResult',
+                 subnet_identity: _builtins.str,
+                 vpc_identity: _builtins.str):
+        """
+        :param _builtins.str area_name: Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        :param _builtins.str cluster_name: Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+        :param _builtins.str default_isp: Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        :param _builtins.str external_network_mode: Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+               single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+               Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+        :param Sequence[_builtins.str] host_name_lists: The host name list to assign to the created instances.
+        :param _builtins.str isp: Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        :param 'GetVeenInstanceAreaNumMultiInterfaceNameConfigArgs' multi_interface_name_config: NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+               If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+        :param _builtins.int num: Number of instances.
+        :param 'GetVeenInstanceAreaNumSingleInterfaceNameConfigArgs' single_interface_name_config: Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+        :param _builtins.str subnet_identity: Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        :param _builtins.str vpc_identity: Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnet_identity must also be set to specify the subnet
+        """
+        pulumi.set(__self__, "area_name", area_name)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "default_isp", default_isp)
+        pulumi.set(__self__, "external_network_mode", external_network_mode)
+        pulumi.set(__self__, "host_name_lists", host_name_lists)
+        pulumi.set(__self__, "isp", isp)
+        pulumi.set(__self__, "multi_interface_name_config", multi_interface_name_config)
+        pulumi.set(__self__, "num", num)
+        pulumi.set(__self__, "single_interface_name_config", single_interface_name_config)
+        pulumi.set(__self__, "subnet_identity", subnet_identity)
+        pulumi.set(__self__, "vpc_identity", vpc_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="areaName")
+    def area_name(self) -> _builtins.str:
+        """
+        Region name. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        """
+        return pulumi.get(self, "area_name")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> _builtins.str:
+        """
+        Node name. Specify the node where you want to deploy the edge service. You can query the supported regions, cities, carriers, and node information for instance types through the ListAvailableResourceInfo API.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultIsp")
+    def default_isp(self) -> _builtins.str:
+        """
+        Default ISP. This parameter is only applicable to multi-line nodes. When specifying the default ISP, ensure it is within the range of node ISPs. Only one ISP can be specified as the default. Note: When the value of external*network*mode is single*interface*cmcc*ip, single*interface*cucc*ip, or single*interface*ctcc*ip, the ISP specified in default*isp must be the same as the ISP specified in external*network*mode. For example, when external*network*mode is set to single*interface*cmcc*ip, the value of default*isp must be set to CMCC. When external*network*mode is set to single*interface*multi*ip or multi*interface*multi*ip, the default*isp parameter must be specified, and the value can be set to CMCC, CUCC, or CTCC as needed. When external*network*mode is set to single*interface*single*ip or no*interface, default*isp does not need to be specified.
+        """
+        return pulumi.get(self, "default_isp")
+
+    @_builtins.property
+    @pulumi.getter(name="externalNetworkMode")
+    def external_network_mode(self) -> _builtins.str:
+        """
+        Public network configuration. This parameter applies only to multi-line nodes. Value options: single*interface*multi*ip: single NIC with multiple IPs. If you are a new user of multi-line nodes, you must submit a ticket to enable the relevant permissions. single*interface*cmcc*ip: single NIC with China Mobile IP. You must submit a ticket to enable the relevant permissions. single*interface*cucc*ip: single NIC with China Unicom IP. You must submit a ticket to enable the relevant permissions.
+        single*interface*ctcc*ip: single NIC with China Telecom IP. You must submit a ticket to enable the relevant permissions. multi*interface*multi*ip: multiple NICs with multiple IPs. You must submit a ticket to enable the relevant permissions. single*interface*single*ip: single NIC with a single IP. In this mode, the system randomly assigns a public IP address from an available carrier. no*interface: no public network NIC. You must submit a ticket to enable the relevant permissions. Default values: When a public network NIC is available:
+        Single NIC multi-IP permission enabled: single*interface*multi*ip (single NIC with multiple IPs) is used by default. Single NIC multi-IP permission disabled: single*interface*single*ip (single NIC with a single IP) is used by default. When no public network NIC is available, no*interface is used by default.
+        """
+        return pulumi.get(self, "external_network_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="hostNameLists")
+    def host_name_lists(self) -> Sequence[_builtins.str]:
+        """
+        The host name list to assign to the created instances.
+        """
+        return pulumi.get(self, "host_name_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def isp(self) -> _builtins.str:
+        """
+        Carrier. You can use the ListAvailableResourceInfo API to query supported regions, cities, carriers, and node information for instance types
+        """
+        return pulumi.get(self, "isp")
+
+    @_builtins.property
+    @pulumi.getter(name="multiInterfaceNameConfig")
+    def multi_interface_name_config(self) -> 'outputs.GetVeenInstanceAreaNumMultiInterfaceNameConfigResult':
+        """
+        NIC name for edge instances of private network type with multiple public NICs. You can use this parameter to set the names of public and private NICs. When using this parameter, note the following: Usage restrictions: This parameter applies only to edge instances of private network type. You must submit a ticket to enable this feature before you can use this parameter; otherwise, the parameter value is invalid. Effect: If you set the NIC name using the custom*internal*interface*name or custom*external*interface*name parameter in the edge service network*config struct, and also set the NIC name using the multi*interface*name*config parameter, only the latter takes effect.
+        If you set the public NIC name only through the custom*external*interface*name parameter in the edge service network*config struct, the name cannot be eth2, eth3, Ethernet2, or Ethernet3. The name you set will be used as the name for the China Telecom public NIC. The China Unicom and China Mobile public NICs will use the default values. If you do not set the NIC name, the following default values apply: Linux edge instance: The default name for the private NIC is eth0. The default name for the China Telecom public NIC is eth1. The default name for the China Unicom public NIC is eth2. The default name for the China Mobile public NIC is eth3. Windows edge instance: The default name for the private NIC is Ethernet0. The default name for the China Telecom public NIC is Ethernet1. The default name for the China Unicom public NIC is Ethernet2. The default name for the China Mobile public NIC is Ethernet3.
+        """
+        return pulumi.get(self, "multi_interface_name_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def num(self) -> _builtins.int:
+        """
+        Number of instances.
+        """
+        return pulumi.get(self, "num")
+
+    @_builtins.property
+    @pulumi.getter(name="singleInterfaceNameConfig")
+    def single_interface_name_config(self) -> 'outputs.GetVeenInstanceAreaNumSingleInterfaceNameConfigResult':
+        """
+        Name of the network interface for a private network type edge instance configured with a single public network interface. You can use this parameter to set the names of both the public and private network interfaces. It is recommended to set both the public and private network interface names. Please note the following when using this parameter: Usage restrictions: This parameter is only applicable to private network type edge instances. You must submit a ticket to enable the related feature before this parameter can be used; otherwise, the parameter value is invalid. Effectiveness: If you set the network interface name using the custom*internal*interface*name or custom*external*interface*name parameter in the network*config structure of the edge service, and also set the network interface name using the single*interface*name*config parameter, only the latter takes effect. If you do not set the network interface name, the default values are used: For Linux edge instances: the default name for the private network interface is eth0, and for the public network interface is eth1. For Windows edge instances: the default name for the private network interface is Ethernet0, and for the public network interface is Ethernet1.
+        """
+        return pulumi.get(self, "single_interface_name_config")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIdentity")
+    def subnet_identity(self) -> _builtins.str:
+        """
+        Subnet ID. If you specify a custom private network, you must also set subnet_identity to specify the subnet.
+        """
+        return pulumi.get(self, "subnet_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentity")
+    def vpc_identity(self) -> _builtins.str:
+        """
+        Private network ID. This parameter specifies the private network where the edge service is deployed. If vpc*identity is set, cluster*name must also be set. If you specify a custom private network, subnet_identity must also be set to specify the subnet
+        """
+        return pulumi.get(self, "vpc_identity")
+
+
+@pulumi.output_type
+class GetVeenInstanceAreaNumMultiInterfaceNameConfigResult(dict):
+    def __init__(__self__, *,
+                 cmcc_external_interface_name: _builtins.str,
+                 ctcc_external_interface_name: _builtins.str,
+                 cucc_external_interface_name: _builtins.str,
+                 internal_interface_name: _builtins.str):
+        """
+        :param _builtins.str cmcc_external_interface_name: Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        :param _builtins.str ctcc_external_interface_name: Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+        :param _builtins.str cucc_external_interface_name: Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        :param _builtins.str internal_interface_name: Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        pulumi.set(__self__, "cmcc_external_interface_name", cmcc_external_interface_name)
+        pulumi.set(__self__, "ctcc_external_interface_name", ctcc_external_interface_name)
+        pulumi.set(__self__, "cucc_external_interface_name", cucc_external_interface_name)
+        pulumi.set(__self__, "internal_interface_name", internal_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="cmccExternalInterfaceName")
+    def cmcc_external_interface_name(self) -> _builtins.str:
+        """
+        Name of the mobile public network interface. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are allowed. The network interface name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "cmcc_external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ctccExternalInterfaceName")
+    def ctcc_external_interface_name(self) -> _builtins.str:
+        """
+        Telecom public network NIC name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers allowed. Hyphens (-) and underscores (_) allowed. NIC names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "ctcc_external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="cuccExternalInterfaceName")
+    def cucc_external_interface_name(self) -> _builtins.str:
+        """
+        Public network interface name for Unicom. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "cucc_external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="internalInterfaceName")
+    def internal_interface_name(self) -> _builtins.str:
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "internal_interface_name")
+
+
+@pulumi.output_type
+class GetVeenInstanceAreaNumSingleInterfaceNameConfigResult(dict):
+    def __init__(__self__, *,
+                 external_interface_name: _builtins.str,
+                 internal_interface_name: _builtins.str):
+        """
+        :param _builtins.str external_interface_name: Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+        :param _builtins.str internal_interface_name: Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        pulumi.set(__self__, "external_interface_name", external_interface_name)
+        pulumi.set(__self__, "internal_interface_name", internal_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="externalInterfaceName")
+    def external_interface_name(self) -> _builtins.str:
+        """
+        Public network interface card name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. The network interface card name must be unique within the same edge instance.
+        """
+        return pulumi.get(self, "external_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="internalInterfaceName")
+    def internal_interface_name(self) -> _builtins.str:
+        """
+        Private network interface name. Naming rules: 3–15 characters allowed. Uppercase and lowercase letters, numbers, hyphens (-), and underscores (_) are permitted. Interface names must be unique within the same edge instance
+        """
+        return pulumi.get(self, "internal_interface_name")
+
+
+@pulumi.output_type
+class GetVeenMonitorAgentResult(dict):
+    def __init__(__self__, *,
+                 agent_status: _builtins.str):
+        """
+        :param _builtins.str agent_status: Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+        """
+        pulumi.set(__self__, "agent_status", agent_status)
+
+    @_builtins.property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> _builtins.str:
+        """
+        Status of the monitoring Agent: running: running. stopped: not running. If the return value is an empty string, it means the Agent is not running.
+        """
+        return pulumi.get(self, "agent_status")
+
+
+@pulumi.output_type
+class GetVeenNetworkResult(dict):
+    def __init__(__self__, *,
+                 actual_secondary_ip_num: _builtins.int,
+                 bandwidth_peak_config_ratio: 'outputs.GetVeenNetworkBandwidthPeakConfigRatioResult',
+                 bandwidth_peak_update_status: _builtins.str,
+                 default_isp: _builtins.str,
+                 disable_ipv4: _builtins.bool,
+                 dns_lists: Sequence[_builtins.str],
+                 dns_type: _builtins.str,
+                 enable_ipv6: _builtins.bool,
+                 external_network_mode: _builtins.str,
+                 limit_mode: _builtins.str,
+                 tcp_timeout: _builtins.int,
+                 udp_timeout: _builtins.int,
+                 vf_passthrough: _builtins.bool,
+                 vlan_vf_passthrough: _builtins.bool,
+                 wanted_secondary_ip_num: _builtins.int):
+        """
+        :param _builtins.int actual_secondary_ip_num: Number of allocated auxiliary private IP addresses
+        :param 'GetVeenNetworkBandwidthPeakConfigRatioArgs' bandwidth_peak_config_ratio: Percentile peak bandwidth, no fixed bandwidth value.
+        :param _builtins.str bandwidth_peak_update_status: Bandwidth peak update status: updating: updating. ready: update complete.
+        :param _builtins.str default_isp: Default carrier
+        :param _builtins.bool disable_ipv4: Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+        :param Sequence[_builtins.str] dns_lists: DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+        :param _builtins.str dns_type: DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+        :param _builtins.bool enable_ipv6: Enable IPv6: true: enable IPv6. false: disable IPv6.
+        :param _builtins.str external_network_mode: Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+        :param _builtins.str limit_mode: Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+        :param _builtins.int tcp_timeout: Edge instance TCP session timeout. Unit: seconds.
+        :param _builtins.int udp_timeout: UDP session timeout for the edge instance. Unit: seconds.
+        :param _builtins.bool vf_passthrough: Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+        :param _builtins.bool vlan_vf_passthrough: Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+        :param _builtins.int wanted_secondary_ip_num: Number of required auxiliary private network IP addresses
+        """
+        pulumi.set(__self__, "actual_secondary_ip_num", actual_secondary_ip_num)
+        pulumi.set(__self__, "bandwidth_peak_config_ratio", bandwidth_peak_config_ratio)
+        pulumi.set(__self__, "bandwidth_peak_update_status", bandwidth_peak_update_status)
+        pulumi.set(__self__, "default_isp", default_isp)
+        pulumi.set(__self__, "disable_ipv4", disable_ipv4)
+        pulumi.set(__self__, "dns_lists", dns_lists)
+        pulumi.set(__self__, "dns_type", dns_type)
+        pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+        pulumi.set(__self__, "external_network_mode", external_network_mode)
+        pulumi.set(__self__, "limit_mode", limit_mode)
+        pulumi.set(__self__, "tcp_timeout", tcp_timeout)
+        pulumi.set(__self__, "udp_timeout", udp_timeout)
+        pulumi.set(__self__, "vf_passthrough", vf_passthrough)
+        pulumi.set(__self__, "vlan_vf_passthrough", vlan_vf_passthrough)
+        pulumi.set(__self__, "wanted_secondary_ip_num", wanted_secondary_ip_num)
+
+    @_builtins.property
+    @pulumi.getter(name="actualSecondaryIpNum")
+    def actual_secondary_ip_num(self) -> _builtins.int:
+        """
+        Number of allocated auxiliary private IP addresses
+        """
+        return pulumi.get(self, "actual_secondary_ip_num")
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthPeakConfigRatio")
+    def bandwidth_peak_config_ratio(self) -> 'outputs.GetVeenNetworkBandwidthPeakConfigRatioResult':
+        """
+        Percentile peak bandwidth, no fixed bandwidth value.
+        """
+        return pulumi.get(self, "bandwidth_peak_config_ratio")
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthPeakUpdateStatus")
+    def bandwidth_peak_update_status(self) -> _builtins.str:
+        """
+        Bandwidth peak update status: updating: updating. ready: update complete.
+        """
+        return pulumi.get(self, "bandwidth_peak_update_status")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultIsp")
+    def default_isp(self) -> _builtins.str:
+        """
+        Default carrier
+        """
+        return pulumi.get(self, "default_isp")
+
+    @_builtins.property
+    @pulumi.getter(name="disableIpv4")
+    def disable_ipv4(self) -> _builtins.bool:
+        """
+        Disable IPv4: true: IPv4 disabled. false: IPv4 enabled
+        """
+        return pulumi.get(self, "disable_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsLists")
+    def dns_lists(self) -> Sequence[_builtins.str]:
+        """
+        DNS list. The first IP address is the primary DNS, and the subsequent IP addresses are backup DNS servers
+        """
+        return pulumi.get(self, "dns_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsType")
+    def dns_type(self) -> _builtins.str:
+        """
+        DNS type: default: Default DNS. Default DNS configuration: Preferred DNS is 114.114.114.114, alternate DNS is 180.184.1.1. custom: Custom DNS.
+        """
+        return pulumi.get(self, "dns_type")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIpv6")
+    def enable_ipv6(self) -> _builtins.bool:
+        """
+        Enable IPv6: true: enable IPv6. false: disable IPv6.
+        """
+        return pulumi.get(self, "enable_ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="externalNetworkMode")
+    def external_network_mode(self) -> _builtins.str:
+        """
+        Public network configuration for multi-line nodes. single*interface*multi*ip: single NIC, multiple IPs. single*interface*cmcc*ip: single NIC, China Mobile IP. single*interface*cucc*ip: single NIC, China Unicom IP. single*interface*ctcc*ip: single NIC, China Telecom IP. multi*interface*multi*ip: multiple NICs, multiple IPs. no*interface: no public NIC.
+        """
+        return pulumi.get(self, "external_network_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="limitMode")
+    def limit_mode(self) -> _builtins.str:
+        """
+        Bandwidth throttling mode. shared: shared throttling. Bandwidth resources are shared among carriers. isp: throttling by carrier. You set the bandwidth peak for each carrier separately.
+        """
+        return pulumi.get(self, "limit_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="tcpTimeout")
+    def tcp_timeout(self) -> _builtins.int:
+        """
+        Edge instance TCP session timeout. Unit: seconds.
+        """
+        return pulumi.get(self, "tcp_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> _builtins.int:
+        """
+        UDP session timeout for the edge instance. Unit: seconds.
+        """
+        return pulumi.get(self, "udp_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="vfPassthrough")
+    def vf_passthrough(self) -> _builtins.bool:
+        """
+        Whether it is a VF passthrough type: true: VF passthrough type. false: non-VF passthrough type.
+        """
+        return pulumi.get(self, "vf_passthrough")
+
+    @_builtins.property
+    @pulumi.getter(name="vlanVfPassthrough")
+    def vlan_vf_passthrough(self) -> _builtins.bool:
+        """
+        Whether it is a VLAN VF passthrough type: true: VLAN VF passthrough type. false: Non-VLAN VF passthrough type.
+        """
+        return pulumi.get(self, "vlan_vf_passthrough")
+
+    @_builtins.property
+    @pulumi.getter(name="wantedSecondaryIpNum")
+    def wanted_secondary_ip_num(self) -> _builtins.int:
+        """
+        Number of required auxiliary private network IP addresses
+        """
+        return pulumi.get(self, "wanted_secondary_ip_num")
+
+
+@pulumi.output_type
+class GetVeenNetworkBandwidthPeakConfigRatioResult(dict):
+    def __init__(__self__, *,
+                 enhanced_ratio: _builtins.int,
+                 normal_ratio: _builtins.int):
+        """
+        :param _builtins.int enhanced_ratio: Bandwidth ratio in enhanced/burst mode
+        :param _builtins.int normal_ratio: Bandwidth ratio in standard mode
+        """
+        pulumi.set(__self__, "enhanced_ratio", enhanced_ratio)
+        pulumi.set(__self__, "normal_ratio", normal_ratio)
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedRatio")
+    def enhanced_ratio(self) -> _builtins.int:
+        """
+        Bandwidth ratio in enhanced/burst mode
+        """
+        return pulumi.get(self, "enhanced_ratio")
+
+    @_builtins.property
+    @pulumi.getter(name="normalRatio")
+    def normal_ratio(self) -> _builtins.int:
+        """
+        Bandwidth ratio in standard mode
+        """
+        return pulumi.get(self, "normal_ratio")
+
+
+@pulumi.output_type
+class GetVeenSecretResult(dict):
+    def __init__(__self__, *,
+                 secret_type: _builtins.int):
+        """
+        :param _builtins.int secret_type: Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+        """
+        pulumi.set(__self__, "secret_type", secret_type)
+
+    @_builtins.property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> _builtins.int:
+        """
+        Edge instance login password type: 2: custom password. 3: SSH Key password. 4: do not inject login credentials.
+        """
+        return pulumi.get(self, "secret_type")
+
+
+@pulumi.output_type
+class GetVeenStorageResult(dict):
+    def __init__(__self__, *,
+                 data_disk: 'outputs.GetVeenStorageDataDiskResult',
+                 data_disk_lists: Sequence['outputs.GetVeenStorageDataDiskListResult'],
+                 system_disk: 'outputs.GetVeenStorageSystemDiskResult'):
+        """
+        :param 'GetVeenStorageDataDiskArgs' data_disk: Data disk. This parameter is used to add a single data disk
+        :param Sequence['GetVeenStorageDataDiskListArgs'] data_disk_lists: Data disk list
+        :param 'GetVeenStorageSystemDiskArgs' system_disk: System disk
+        """
+        pulumi.set(__self__, "data_disk", data_disk)
+        pulumi.set(__self__, "data_disk_lists", data_disk_lists)
+        pulumi.set(__self__, "system_disk", system_disk)
+
+    @_builtins.property
+    @pulumi.getter(name="dataDisk")
+    def data_disk(self) -> 'outputs.GetVeenStorageDataDiskResult':
+        """
+        Data disk. This parameter is used to add a single data disk
+        """
+        return pulumi.get(self, "data_disk")
+
+    @_builtins.property
+    @pulumi.getter(name="dataDiskLists")
+    def data_disk_lists(self) -> Sequence['outputs.GetVeenStorageDataDiskListResult']:
+        """
+        Data disk list
+        """
+        return pulumi.get(self, "data_disk_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="systemDisk")
+    def system_disk(self) -> 'outputs.GetVeenStorageSystemDiskResult':
+        """
+        System disk
+        """
+        return pulumi.get(self, "system_disk")
+
+
+@pulumi.output_type
+class GetVeenStorageDataDiskResult(dict):
+    def __init__(__self__, *,
+                 capacity: _builtins.str,
+                 delete_with_instance: _builtins.bool,
+                 disk_identity: _builtins.str,
+                 local_disk_class: _builtins.str,
+                 local_disk_resource_name: _builtins.str,
+                 storage_type: _builtins.str):
+        """
+        :param _builtins.str capacity: Disk capacity. Unit: GB.
+        :param _builtins.bool delete_with_instance: Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        :param _builtins.str disk_identity: Unique disk ID, the primary key of the cloud disk resource.
+        :param _builtins.str local_disk_class: Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        :param _builtins.str local_disk_resource_name: Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        :param _builtins.str storage_type: Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        pulumi.set(__self__, "disk_identity", disk_identity)
+        pulumi.set(__self__, "local_disk_class", local_disk_class)
+        pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> _builtins.str:
+        """
+        Disk capacity. Unit: GB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> _builtins.bool:
+        """
+        Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> _builtins.str:
+        """
+        Unique disk ID, the primary key of the cloud disk resource.
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> _builtins.str:
+        """
+        Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> _builtins.str:
+        """
+        Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> _builtins.str:
+        """
+        Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class GetVeenStorageDataDiskListResult(dict):
+    def __init__(__self__, *,
+                 capacity: _builtins.str,
+                 delete_with_instance: _builtins.bool,
+                 disk_identity: _builtins.str,
+                 local_disk_class: _builtins.str,
+                 local_disk_resource_name: _builtins.str,
+                 storage_type: _builtins.str):
+        """
+        :param _builtins.str capacity: Disk capacity. Unit: GB.
+        :param _builtins.bool delete_with_instance: Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        :param _builtins.str disk_identity: Unique disk ID, the primary key of the cloud disk resource.
+        :param _builtins.str local_disk_class: Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        :param _builtins.str local_disk_resource_name: Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        :param _builtins.str storage_type: Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        pulumi.set(__self__, "disk_identity", disk_identity)
+        pulumi.set(__self__, "local_disk_class", local_disk_class)
+        pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> _builtins.str:
+        """
+        Disk capacity. Unit: GB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> _builtins.bool:
+        """
+        Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> _builtins.str:
+        """
+        Unique disk ID, the primary key of the cloud disk resource.
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> _builtins.str:
+        """
+        Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> _builtins.str:
+        """
+        Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> _builtins.str:
+        """
+        Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class GetVeenStorageSystemDiskResult(dict):
+    def __init__(__self__, *,
+                 capacity: _builtins.str,
+                 delete_with_instance: _builtins.bool,
+                 disk_identity: _builtins.str,
+                 local_disk_class: _builtins.str,
+                 local_disk_resource_name: _builtins.str,
+                 storage_type: _builtins.str):
+        """
+        :param _builtins.str capacity: Disk capacity. Unit: GB.
+        :param _builtins.bool delete_with_instance: Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        :param _builtins.str disk_identity: Unique disk ID, the primary key of the cloud disk resource.
+        :param _builtins.str local_disk_class: Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        :param _builtins.str local_disk_resource_name: Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        :param _builtins.str storage_type: Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "delete_with_instance", delete_with_instance)
+        pulumi.set(__self__, "disk_identity", disk_identity)
+        pulumi.set(__self__, "local_disk_class", local_disk_class)
+        pulumi.set(__self__, "local_disk_resource_name", local_disk_resource_name)
+        pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> _builtins.str:
+        """
+        Disk capacity. Unit: GB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteWithInstance")
+    def delete_with_instance(self) -> _builtins.bool:
+        """
+        Release disk when instance is deleted. true: delete disk with instance; false: retain disk independently.
+        """
+        return pulumi.get(self, "delete_with_instance")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIdentity")
+    def disk_identity(self) -> _builtins.str:
+        """
+        Unique disk ID, the primary key of the cloud disk resource.
+        """
+        return pulumi.get(self, "disk_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskClass")
+    def local_disk_class(self) -> _builtins.str:
+        """
+        Local disk specification type. Applies only to local disk instances; cloud disk instances leave this blank.
+        """
+        return pulumi.get(self, "local_disk_class")
+
+    @_builtins.property
+    @pulumi.getter(name="localDiskResourceName")
+    def local_disk_resource_name(self) -> _builtins.str:
+        """
+        Local disk resource name, exclusive identifier for local disk instances. Not required for cloud disk instances
+        """
+        return pulumi.get(self, "local_disk_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> _builtins.str:
+        """
+        Disk type: CloudBlockHDD: HDD cloud disk. CloudBlockSSD: SSD cloud disk.
+        """
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class GetVeenTagResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Tag key.
+        :param _builtins.str value: Tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Tag value.
         """
         return pulumi.get(self, "value")
 

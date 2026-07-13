@@ -12,10 +12,14 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.veenedge.inputs.GetCloudServerArgs;
 import com.volcengine.volcenginecc.veenedge.inputs.GetCloudServerPlainArgs;
+import com.volcengine.volcenginecc.veenedge.inputs.GetVeenArgs;
+import com.volcengine.volcenginecc.veenedge.inputs.GetVeenPlainArgs;
 import com.volcengine.volcenginecc.veenedge.inputs.GetVpcArgs;
 import com.volcengine.volcenginecc.veenedge.inputs.GetVpcPlainArgs;
 import com.volcengine.volcenginecc.veenedge.outputs.GetCloudServerResult;
 import com.volcengine.volcenginecc.veenedge.outputs.GetCloudServersResult;
+import com.volcengine.volcenginecc.veenedge.outputs.GetVeenResult;
+import com.volcengine.volcenginecc.veenedge.outputs.GetVeensResult;
 import com.volcengine.volcenginecc.veenedge.outputs.GetVpcResult;
 import com.volcengine.volcenginecc.veenedge.outputs.GetVpcsResult;
 import java.util.concurrent.CompletableFuture;
@@ -104,6 +108,90 @@ public final class VeenedgeFunctions {
      */
     public static CompletableFuture<GetCloudServersResult> getCloudServersPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:veenedge/getCloudServers:getCloudServers", TypeShape.of(GetCloudServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeenResult> getVeen(GetVeenArgs args) {
+        return getVeen(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static CompletableFuture<GetVeenResult> getVeenPlain(GetVeenPlainArgs args) {
+        return getVeenPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeenResult> getVeen(GetVeenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getVeen:getVeen", TypeShape.of(GetVeenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeenResult> getVeen(GetVeenArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getVeen:getVeen", TypeShape.of(GetVeenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static CompletableFuture<GetVeenResult> getVeenPlain(GetVeenPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:veenedge/getVeen:getVeen", TypeShape.of(GetVeenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeensResult> getVeens() {
+        return getVeens(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static CompletableFuture<GetVeensResult> getVeensPlain() {
+        return getVeensPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeensResult> getVeens(InvokeArgs args) {
+        return getVeens(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static CompletableFuture<GetVeensResult> getVeensPlain(InvokeArgs args) {
+        return getVeensPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeensResult> getVeens(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getVeens:getVeens", TypeShape.of(GetVeensResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static Output<GetVeensResult> getVeens(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:veenedge/getVeens:getVeens", TypeShape.of(GetVeensResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VeenEdge::Veen
+     * 
+     */
+    public static CompletableFuture<GetVeensResult> getVeensPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:veenedge/getVeens:getVeens", TypeShape.of(GetVeensResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VeenEdge::VPC

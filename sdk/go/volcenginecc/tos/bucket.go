@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := tos.NewBucket(ctx, "BucketDemo", &tos.BucketArgs{
+//			_, err := tos.NewBucket(ctx, "Example", &tos.BucketArgs{
 //				Name:                pulumi.String("bucket-demo"),
 //				StorageClass:        pulumi.String("STANDARD"),
 //				EnableVersionStatus: pulumi.String("Enabled"),

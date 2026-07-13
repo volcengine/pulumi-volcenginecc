@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketRename{}
 	case "volcenginecc:tos/bucketWebsite:BucketWebsite":
 		r = &BucketWebsite{}
+	case "volcenginecc:tos/tosObject:TosObject":
+		r = &TosObject{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -102,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tos/bucketWebsite",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tos/tosObject",
 		&module{version},
 	)
 }

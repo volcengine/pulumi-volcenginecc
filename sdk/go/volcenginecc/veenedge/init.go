@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:veenedge/cloudServer:CloudServer":
 		r = &CloudServer{}
+	case "volcenginecc:veenedge/veen:Veen":
+		r = &Veen{}
 	case "volcenginecc:veenedge/vpc:Vpc":
 		r = &Vpc{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"veenedge/cloudServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"veenedge/veen",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

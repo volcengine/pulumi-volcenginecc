@@ -123,6 +123,12 @@ __all__ = [
     'BucketWebsiteRoutingRuleConditionArgsDict',
     'BucketWebsiteRoutingRuleRedirectArgs',
     'BucketWebsiteRoutingRuleRedirectArgsDict',
+    'TosObjectAccountAclArgs',
+    'TosObjectAccountAclArgsDict',
+    'TosObjectMetadataArgs',
+    'TosObjectMetadataArgsDict',
+    'TosObjectTagArgs',
+    'TosObjectTagArgsDict',
 ]
 
 class BucketAclArgsDict(TypedDict):
@@ -3875,5 +3881,172 @@ class BucketWebsiteRoutingRuleRedirectArgs:
     @replace_key_with.setter
     def replace_key_with(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replace_key_with", value)
+
+
+class TosObjectAccountAclArgsDict(TypedDict):
+    account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Authorized account ID.
+    """
+    acl_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Authorized principal type. Currently, only CanonicalUser is supported.
+    """
+    permission: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+    """
+
+@pulumi.input_type
+class TosObjectAccountAclArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 acl_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 permission: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] account_id: Authorized account ID.
+        :param pulumi.Input[_builtins.str] acl_type: Authorized principal type. Currently, only CanonicalUser is supported.
+        :param pulumi.Input[_builtins.str] permission: Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if acl_type is not None:
+            pulumi.set(__self__, "acl_type", acl_type)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authorized account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aclType")
+    def acl_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authorized principal type. Currently, only CanonicalUser is supported.
+        """
+        return pulumi.get(self, "acl_type")
+
+    @acl_type.setter
+    def acl_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "acl_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "permission", value)
+
+
+class TosObjectMetadataArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Tag key.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Tag value.
+    """
+
+@pulumi.input_type
+class TosObjectMetadataArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: Tag key.
+        :param pulumi.Input[_builtins.str] value: Tag value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class TosObjectTagArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Tag key.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Tag value.
+    """
+
+@pulumi.input_type
+class TosObjectTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: Tag key.
+        :param pulumi.Input[_builtins.str] value: Tag value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 

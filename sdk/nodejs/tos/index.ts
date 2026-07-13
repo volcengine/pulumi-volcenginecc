@@ -150,6 +150,21 @@ export const getBuckets: typeof import("./getBuckets").getBuckets = null as any;
 export const getBucketsOutput: typeof import("./getBuckets").getBucketsOutput = null as any;
 utilities.lazyLoad(exports, ["getBuckets","getBucketsOutput"], () => require("./getBuckets"));
 
+export { GetObjectArgs, GetObjectResult, GetObjectOutputArgs } from "./getObject";
+export const getObject: typeof import("./getObject").getObject = null as any;
+export const getObjectOutput: typeof import("./getObject").getObjectOutput = null as any;
+utilities.lazyLoad(exports, ["getObject","getObjectOutput"], () => require("./getObject"));
+
+export { GetObjectsResult } from "./getObjects";
+export const getObjects: typeof import("./getObjects").getObjects = null as any;
+export const getObjectsOutput: typeof import("./getObjects").getObjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getObjects","getObjectsOutput"], () => require("./getObjects"));
+
+export { TosObjectArgs, TosObjectState } from "./tosObject";
+export type TosObject = import("./tosObject").TosObject;
+export const TosObject: typeof import("./tosObject").TosObject = null as any;
+utilities.lazyLoad(exports, ["TosObject"], () => require("./tosObject"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -175,6 +190,8 @@ const _module = {
                 return new BucketRename(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketWebsite:BucketWebsite":
                 return new BucketWebsite(name, <any>undefined, { urn })
+            case "volcenginecc:tos/tosObject:TosObject":
+                return new TosObject(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -190,3 +207,4 @@ pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketNotification", 
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRealtimeLog", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRename", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketWebsite", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/tosObject", _module)

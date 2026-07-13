@@ -70,6 +70,9 @@ __all__ = [
     'BucketWebsiteRoutingRule',
     'BucketWebsiteRoutingRuleCondition',
     'BucketWebsiteRoutingRuleRedirect',
+    'TosObjectAccountAcl',
+    'TosObjectMetadata',
+    'TosObjectTag',
     'GetBucketAclResult',
     'GetBucketAclGrantResult',
     'GetBucketAclOwnerResult',
@@ -124,6 +127,9 @@ __all__ = [
     'GetBucketWebsiteRoutingRuleResult',
     'GetBucketWebsiteRoutingRuleConditionResult',
     'GetBucketWebsiteRoutingRuleRedirectResult',
+    'GetObjectAccountAclResult',
+    'GetObjectMetadataResult',
+    'GetObjectTagResult',
 ]
 
 @pulumi.output_type
@@ -3249,6 +3255,130 @@ class BucketWebsiteRoutingRuleRedirect(dict):
 
 
 @pulumi.output_type
+class TosObjectAccountAcl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "aclType":
+            suggest = "acl_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TosObjectAccountAcl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TosObjectAccountAcl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TosObjectAccountAcl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: Optional[_builtins.str] = None,
+                 acl_type: Optional[_builtins.str] = None,
+                 permission: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str account_id: Authorized account ID.
+        :param _builtins.str acl_type: Authorized principal type. Currently, only CanonicalUser is supported.
+        :param _builtins.str permission: Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if acl_type is not None:
+            pulumi.set(__self__, "acl_type", acl_type)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[_builtins.str]:
+        """
+        Authorized account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="aclType")
+    def acl_type(self) -> Optional[_builtins.str]:
+        """
+        Authorized principal type. Currently, only CanonicalUser is supported.
+        """
+        return pulumi.get(self, "acl_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> Optional[_builtins.str]:
+        """
+        Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+        """
+        return pulumi.get(self, "permission")
+
+
+@pulumi.output_type
+class TosObjectMetadata(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: Tag key.
+        :param _builtins.str value: Tag value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TosObjectTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: Tag key.
+        :param _builtins.str value: Tag value.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetBucketAclResult(dict):
     def __init__(__self__, *,
                  bucket_acl_delivered: _builtins.bool,
@@ -5406,5 +5536,103 @@ class GetBucketWebsiteRoutingRuleRedirectResult(dict):
         Object name used for redirect
         """
         return pulumi.get(self, "replace_key_with")
+
+
+@pulumi.output_type
+class GetObjectAccountAclResult(dict):
+    def __init__(__self__, *,
+                 account_id: _builtins.str,
+                 acl_type: _builtins.str,
+                 permission: _builtins.str):
+        """
+        :param _builtins.str account_id: Authorized account ID.
+        :param _builtins.str acl_type: Authorized principal type. Currently, only CanonicalUser is supported.
+        :param _builtins.str permission: Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "acl_type", acl_type)
+        pulumi.set(__self__, "permission", permission)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        Authorized account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="aclType")
+    def acl_type(self) -> _builtins.str:
+        """
+        Authorized principal type. Currently, only CanonicalUser is supported.
+        """
+        return pulumi.get(self, "acl_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> _builtins.str:
+        """
+        Authorization permission type. Includes FULL*CONTROL, READ, READ*ACP, WRITE, WRITE_ACP.
+        """
+        return pulumi.get(self, "permission")
+
+
+@pulumi.output_type
+class GetObjectMetadataResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Tag key.
+        :param _builtins.str value: Tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetObjectTagResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Tag key.
+        :param _builtins.str value: Tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
 
 
