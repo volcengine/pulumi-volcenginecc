@@ -71,6 +71,21 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
     ///                 },
     ///             },
     ///         },
+    ///         VersionDetails = new[]
+    ///         {
+    ///             new Volcenginecc.Apig.Inputs.UpstreamVersionDetailArgs
+    ///             {
+    ///                 Labels = new[]
+    ///                 {
+    ///                     new Volcenginecc.Apig.Inputs.UpstreamVersionDetailLabelArgs
+    ///                     {
+    ///                         Key = "k1",
+    ///                         Value = "v1",
+    ///                     },
+    ///                 },
+    ///                 Name = "v1",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -283,6 +298,19 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig
         /// </summary>
         [Input("upstreamSpec", required: true)]
         public Input<Inputs.UpstreamUpstreamSpecArgs> UpstreamSpec { get; set; } = null!;
+
+        [Input("versionDetails")]
+        private InputList<Inputs.UpstreamVersionDetailArgs>? _versionDetails;
+
+        /// <summary>
+        /// Upstream version, only valid when the upstream source type is K8S
+        /// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+        /// </summary>
+        public InputList<Inputs.UpstreamVersionDetailArgs> VersionDetails
+        {
+            get => _versionDetails ?? (_versionDetails = new InputList<Inputs.UpstreamVersionDetailArgs>());
+            set => _versionDetails = value;
+        }
 
         public UpstreamArgs()
         {

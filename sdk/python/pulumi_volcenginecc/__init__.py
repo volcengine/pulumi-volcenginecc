@@ -827,6 +827,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "escloud/ipAllowList",
+  "fqn": "pulumi_volcenginecc.escloud",
+  "classes": {
+   "volcenginecc:escloud/ipAllowList:IpAllowList": "IpAllowList"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "filenas/instance",
   "fqn": "pulumi_volcenginecc.filenas",
   "classes": {
@@ -1675,6 +1683,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "tls/downloadTask",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/downloadTask:DownloadTask": "DownloadTask"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "tls/etl",
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
@@ -1727,6 +1743,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.tls",
   "classes": {
    "volcenginecc:tls/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tls/ruleBoundHostGroup",
+  "fqn": "pulumi_volcenginecc.tls",
+  "classes": {
+   "volcenginecc:tls/ruleBoundHostGroup:RuleBoundHostGroup": "RuleBoundHostGroup"
   }
  },
  {
@@ -1823,6 +1847,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.tos",
   "classes": {
    "volcenginecc:tos/bucketRename:BucketRename": "BucketRename"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tos/bucketReplication",
+  "fqn": "pulumi_volcenginecc.tos",
+  "classes": {
+   "volcenginecc:tos/bucketReplication:BucketReplication": "BucketReplication"
   }
  },
  {
@@ -2119,6 +2151,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vmp",
   "classes": {
    "volcenginecc:vmp/alertingRule:AlertingRule": "AlertingRule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vmp/integrationTask",
+  "fqn": "pulumi_volcenginecc.vmp",
+  "classes": {
+   "volcenginecc:vmp/integrationTask:IntegrationTask": "IntegrationTask"
   }
  },
  {

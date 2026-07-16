@@ -42,6 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.volcenginecc.apig.inputs.UpstreamTlsSettingsArgs;
  * import com.pulumi.volcenginecc.apig.inputs.UpstreamUpstreamSpecArgs;
  * import com.pulumi.volcenginecc.apig.inputs.UpstreamUpstreamSpecDomainArgs;
+ * import com.pulumi.volcenginecc.apig.inputs.UpstreamVersionDetailArgs;
+ * import com.pulumi.volcenginecc.apig.inputs.UpstreamVersionDetailLabelArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -91,6 +93,13 @@ import javax.annotation.Nullable;
  *                         Map.entry("port", 5566)
  *                     )))
  *                     .build())
+ *                 .build())
+ *             .versionDetails(UpstreamVersionDetailArgs.builder()
+ *                 .labels(UpstreamVersionDetailLabelArgs.builder()
+ *                     .key("k1")
+ *                     .value("v1")
+ *                     .build())
+ *                 .name("v1")
  *                 .build())
  *             .build());
  * 

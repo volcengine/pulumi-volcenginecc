@@ -2648,10 +2648,6 @@ export namespace apig {
          * Version name. Supports uppercase and lowercase letters, numbers, and hyphens (-). Length: 2~63 characters. Cannot start with a hyphen (-)
          */
         name: string;
-        /**
-         * Update time
-         */
-        updateTime: string;
     }
 
     export interface UpstreamVersionDetailLabel {
@@ -14608,6 +14604,17 @@ export namespace escloud {
         warmNodeNum: number;
     }
 
+    export interface GetIpAllowListGroup {
+        /**
+         * Custom group IP allowlist list cannot be empty; to configure multiple IPs, use commas (,)
+         */
+        allowLists: string[];
+        /**
+         * Custom group name
+         */
+        name: string;
+    }
+
     export interface InstanceInstanceConfiguration {
         /**
          * Administrator password.
@@ -15195,6 +15202,17 @@ export namespace escloud {
          * Number of warm nodes
          */
         warmNodeNum: number;
+    }
+
+    export interface IpAllowListGroup {
+        /**
+         * Custom group IP allowlist list cannot be empty; to configure multiple IPs, use commas (,)
+         */
+        allowLists: string[];
+        /**
+         * Custom group name
+         */
+        name: string;
     }
 
 }
@@ -25048,6 +25066,21 @@ export namespace tls {
         value: string;
     }
 
+    export interface DownloadTaskLogContextInfos {
+        /**
+         * LogGroup ID to which the log context belongs.
+         */
+        contextFlow: string;
+        /**
+         * Specifies the log index in the LogGroup.
+         */
+        packageOffset: number;
+        /**
+         * Host of the log source.
+         */
+        source: string;
+    }
+
     export interface EtlTargetResource {
         /**
          * Name of the custom output target. You must use this name to refer to the output target in the data processing rules
@@ -25645,6 +25678,21 @@ export namespace tls {
          * Value for custom request header
          */
         value: string;
+    }
+
+    export interface GetDownloadTaskLogContextInfos {
+        /**
+         * LogGroup ID to which the log context belongs.
+         */
+        contextFlow: string;
+        /**
+         * Specifies the log index in the LogGroup.
+         */
+        packageOffset: number;
+        /**
+         * Host of the log source.
+         */
+        source: string;
     }
 
     export interface GetEtlTargetResource {
@@ -26619,6 +26667,73 @@ export namespace tls {
         value: string;
     }
 
+    export interface GetRuleBoundHostGroupHostGroup {
+        /**
+         * Number of machines with abnormal heartbeat status
+         */
+        abnormalHeartbeatStatusCount: number;
+        /**
+         * Latest LogCollector version number available for upgrade
+         */
+        agentLatestVersion: string;
+        /**
+         * Enable LogCollector auto upgrade on machine group servers. true: The log service will check upgrade conditions during the specified time period each day. If conditions are met, LogCollector will be upgraded automatically without manual intervention. false (default): LogCollector will not upgrade automatically. To use a newer version, refer to the LogCollector upgrade procedure.
+         */
+        autoUpdate: boolean;
+        /**
+         * Machine group creation time
+         */
+        createTime: string;
+        /**
+         * Number of machines in the machine group
+         */
+        hostCount: number;
+        /**
+         * Machine group ID
+         */
+        hostGroupId: string;
+        /**
+         * Machine group name
+         */
+        hostGroupName: string;
+        /**
+         * Machine group type. IP: machine IP. Label: machine label.
+         */
+        hostGroupType: string;
+        /**
+         * Machine identifier
+         */
+        hostIdentifier: string;
+        /**
+         * IAM project associated with the machine group
+         */
+        iamProjectName: string;
+        /**
+         * Machine group modification time
+         */
+        modifyTime: string;
+        /**
+         * Number of machines with normal heartbeat status
+         */
+        normalHeartbeatStatusCount: number;
+        /**
+         * Number of collection configurations bound to the machine group
+         */
+        ruleCount: number;
+        /**
+         * Enable LogCollector service log feature. true: enabled. false (default): disabled.
+         */
+        serviceLogging: boolean;
+        /**
+         * LogCollector auto upgrade end time
+         */
+        updateEndTime: string;
+        /**
+         * LogCollector auto upgrade start time. Note: Only required when AutoUpdate is set to true. It is recommended to schedule auto upgrade during off-peak hours. LogCollector may restart during the upgrade process, but logs will not be lost.
+         */
+        updateStartTime: string;
+    }
+
     export interface GetRuleContainerRule {
         /**
          * Container name to collect. If no container name is specified, all containers in the machine group will be collected. Supports regex matching; for example, setting the container name to ^(container-test)$ will collect all containers named container-test.
@@ -27235,6 +27350,33 @@ export namespace tls {
          * Top-level directory name for the bucket. Cannot start with / or \, and cannot use consecutive /. Cannot use .. as a folder name. Duplicate names are not allowed within the same bucket.
          */
         prefix: string;
+    }
+
+    export interface GetTopicShard {
+        /**
+         * Ending key value of the partition
+         */
+        exclusiveEndKey: string;
+        /**
+         * Starting key value of the partition
+         */
+        inclusiveBeginKey: string;
+        /**
+         * Last modified time of the partition
+         */
+        modifyTime: string;
+        /**
+         * Partition ID of the log topic
+         */
+        shardId: number;
+        /**
+         * Partition status: readwrite means read/write, readonly means read-only
+         */
+        status: string;
+        /**
+         * Time when the partition stopped writing, that is, the last time logs were written to this partition
+         */
+        stopWriteTime: string;
     }
 
     export interface GetTopicTag {
@@ -28206,6 +28348,73 @@ export namespace tls {
         value: string;
     }
 
+    export interface RuleBoundHostGroupHostGroup {
+        /**
+         * Number of machines with abnormal heartbeat status
+         */
+        abnormalHeartbeatStatusCount: number;
+        /**
+         * Latest LogCollector version number available for upgrade
+         */
+        agentLatestVersion: string;
+        /**
+         * Enable LogCollector auto upgrade on machine group servers. true: The log service will check upgrade conditions during the specified time period each day. If conditions are met, LogCollector will be upgraded automatically without manual intervention. false (default): LogCollector will not upgrade automatically. To use a newer version, refer to the LogCollector upgrade procedure.
+         */
+        autoUpdate: boolean;
+        /**
+         * Machine group creation time
+         */
+        createTime: string;
+        /**
+         * Number of machines in the machine group
+         */
+        hostCount: number;
+        /**
+         * Machine group ID
+         */
+        hostGroupId: string;
+        /**
+         * Machine group name
+         */
+        hostGroupName: string;
+        /**
+         * Machine group type. IP: machine IP. Label: machine label.
+         */
+        hostGroupType: string;
+        /**
+         * Machine identifier
+         */
+        hostIdentifier: string;
+        /**
+         * IAM project associated with the machine group
+         */
+        iamProjectName: string;
+        /**
+         * Machine group modification time
+         */
+        modifyTime: string;
+        /**
+         * Number of machines with normal heartbeat status
+         */
+        normalHeartbeatStatusCount: number;
+        /**
+         * Number of collection configurations bound to the machine group
+         */
+        ruleCount: number;
+        /**
+         * Enable LogCollector service log feature. true: enabled. false (default): disabled.
+         */
+        serviceLogging: boolean;
+        /**
+         * LogCollector auto upgrade end time
+         */
+        updateEndTime: string;
+        /**
+         * LogCollector auto upgrade start time. Note: Only required when AutoUpdate is set to true. It is recommended to schedule auto upgrade during off-peak hours. LogCollector may restart during the upgrade process, but logs will not be lost.
+         */
+        updateStartTime: string;
+    }
+
     export interface RuleContainerRule {
         /**
          * Container name to collect. If no container name is specified, all containers in the machine group will be collected. Supports regex matching; for example, setting the container name to ^(container-test)$ will collect all containers named container-test.
@@ -28775,6 +28984,33 @@ export namespace tls {
          * Top-level directory name for the bucket. Cannot start with / or \, and cannot use consecutive /. Cannot use .. as a folder name. Duplicate names are not allowed within the same bucket.
          */
         prefix: string;
+    }
+
+    export interface TopicShard {
+        /**
+         * Ending key value of the partition
+         */
+        exclusiveEndKey: string;
+        /**
+         * Starting key value of the partition
+         */
+        inclusiveBeginKey: string;
+        /**
+         * Last modified time of the partition
+         */
+        modifyTime: string;
+        /**
+         * Partition ID of the log topic
+         */
+        shardId: number;
+        /**
+         * Partition status: readwrite means read/write, readonly means read-only
+         */
+        status: string;
+        /**
+         * Time when the partition stopped writing, that is, the last time logs were written to this partition
+         */
+        stopWriteTime: string;
     }
 
     export interface TopicTag {
@@ -29528,6 +29764,74 @@ export namespace tos {
          * For topics created using the TOS service, only "true" is allowed as a value
          */
         useServiceTopic: boolean;
+    }
+
+    export interface BucketReplicationRule {
+        /**
+         * Object owner management permissions
+         */
+        accessControlTranslation: outputs.tos.BucketReplicationRuleAccessControlTranslation;
+        /**
+         * Replication target bucket information
+         */
+        destination: outputs.tos.BucketReplicationRuleDestination;
+        /**
+         * Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+         */
+        historicalObjectReplication: string;
+        /**
+         * Unique identifier for the rule, less than 255 characters
+         */
+        id: string;
+        /**
+         * Object name prefix to which this rule applies
+         */
+        prefixSets: string[];
+        /**
+         * Save replication progress
+         */
+        progress: outputs.tos.BucketReplicationRuleProgress;
+        /**
+         * Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+         */
+        status: string;
+    }
+
+    export interface BucketReplicationRuleAccessControlTranslation {
+        /**
+         * Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+         */
+        owner: string;
+    }
+
+    export interface BucketReplicationRuleDestination {
+        /**
+         * Name of the bucket storing object replicas identified by the rule
+         */
+        bucket: string;
+        /**
+         * Region of the target bucket
+         */
+        location: string;
+        /**
+         * Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+         */
+        storageClass: string;
+        /**
+         * Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+         */
+        storageClassInheritDirective: string;
+    }
+
+    export interface BucketReplicationRuleProgress {
+        /**
+         * Show the percentage of historical data that has been replicated
+         */
+        historicalObject: number;
+        /**
+         * Show the timestamp when data is replicated to the target bucket
+         */
+        newObject: string;
     }
 
     export interface BucketTag {
@@ -30340,6 +30644,74 @@ export namespace tos {
          * For topics created using the TOS service, only "true" is allowed as a value
          */
         useServiceTopic: boolean;
+    }
+
+    export interface GetBucketReplicationRule {
+        /**
+         * Object owner management permissions
+         */
+        accessControlTranslation: outputs.tos.GetBucketReplicationRuleAccessControlTranslation;
+        /**
+         * Replication target bucket information
+         */
+        destination: outputs.tos.GetBucketReplicationRuleDestination;
+        /**
+         * Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+         */
+        historicalObjectReplication: string;
+        /**
+         * Unique identifier for the rule, less than 255 characters
+         */
+        id: string;
+        /**
+         * Object name prefix to which this rule applies
+         */
+        prefixSets: string[];
+        /**
+         * Save replication progress
+         */
+        progress: outputs.tos.GetBucketReplicationRuleProgress;
+        /**
+         * Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+         */
+        status: string;
+    }
+
+    export interface GetBucketReplicationRuleAccessControlTranslation {
+        /**
+         * Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+         */
+        owner: string;
+    }
+
+    export interface GetBucketReplicationRuleDestination {
+        /**
+         * Name of the bucket storing object replicas identified by the rule
+         */
+        bucket: string;
+        /**
+         * Region of the target bucket
+         */
+        location: string;
+        /**
+         * Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+         */
+        storageClass: string;
+        /**
+         * Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+         */
+        storageClassInheritDirective: string;
+    }
+
+    export interface GetBucketReplicationRuleProgress {
+        /**
+         * Show the percentage of historical data that has been replicated
+         */
+        historicalObject: number;
+        /**
+         * Show the timestamp when data is replicated to the target bucket
+         */
+        newObject: string;
     }
 
     export interface GetBucketTag {
@@ -36711,6 +37083,17 @@ export namespace vmp {
         value: string;
     }
 
+    export interface GetIntegrationTaskTag {
+        /**
+         * Tag Key
+         */
+        key: string;
+        /**
+         * Tag Value
+         */
+        value: string;
+    }
+
     export interface GetWorkspaceInstanceType {
         /**
          * Maximum active time series count
@@ -36835,6 +37218,17 @@ export namespace vmp {
          * Samples written per second
          */
         ingestedSamplesPerSecond: number;
+    }
+
+    export interface IntegrationTaskTag {
+        /**
+         * Tag Key
+         */
+        key: string;
+        /**
+         * Tag Value
+         */
+        value: string;
     }
 
     export interface WorkspaceInstanceType {

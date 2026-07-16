@@ -7601,6 +7601,531 @@ func (o BucketRealtimeLogRealTimeLogPtrOutput) UseServiceTopic() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+type BucketReplicationRule struct {
+	// Object owner management permissions
+	AccessControlTranslation *BucketReplicationRuleAccessControlTranslation `pulumi:"accessControlTranslation"`
+	// Replication target bucket information
+	Destination BucketReplicationRuleDestination `pulumi:"destination"`
+	// Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+	HistoricalObjectReplication string `pulumi:"historicalObjectReplication"`
+	// Unique identifier for the rule, less than 255 characters
+	Id string `pulumi:"id"`
+	// Object name prefix to which this rule applies
+	PrefixSets []string `pulumi:"prefixSets"`
+	// Save replication progress
+	Progress *BucketReplicationRuleProgress `pulumi:"progress"`
+	// Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+	Status string `pulumi:"status"`
+}
+
+// BucketReplicationRuleInput is an input type that accepts BucketReplicationRuleArgs and BucketReplicationRuleOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleInput` via:
+//
+//	BucketReplicationRuleArgs{...}
+type BucketReplicationRuleInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleOutput() BucketReplicationRuleOutput
+	ToBucketReplicationRuleOutputWithContext(context.Context) BucketReplicationRuleOutput
+}
+
+type BucketReplicationRuleArgs struct {
+	// Object owner management permissions
+	AccessControlTranslation BucketReplicationRuleAccessControlTranslationPtrInput `pulumi:"accessControlTranslation"`
+	// Replication target bucket information
+	Destination BucketReplicationRuleDestinationInput `pulumi:"destination"`
+	// Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+	HistoricalObjectReplication pulumi.StringInput `pulumi:"historicalObjectReplication"`
+	// Unique identifier for the rule, less than 255 characters
+	Id pulumi.StringInput `pulumi:"id"`
+	// Object name prefix to which this rule applies
+	PrefixSets pulumi.StringArrayInput `pulumi:"prefixSets"`
+	// Save replication progress
+	Progress BucketReplicationRuleProgressPtrInput `pulumi:"progress"`
+	// Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRule)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleArgs) ToBucketReplicationRuleOutput() BucketReplicationRuleOutput {
+	return i.ToBucketReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleArgs) ToBucketReplicationRuleOutputWithContext(ctx context.Context) BucketReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleOutput)
+}
+
+// BucketReplicationRuleArrayInput is an input type that accepts BucketReplicationRuleArray and BucketReplicationRuleArrayOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleArrayInput` via:
+//
+//	BucketReplicationRuleArray{ BucketReplicationRuleArgs{...} }
+type BucketReplicationRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleArrayOutput() BucketReplicationRuleArrayOutput
+	ToBucketReplicationRuleArrayOutputWithContext(context.Context) BucketReplicationRuleArrayOutput
+}
+
+type BucketReplicationRuleArray []BucketReplicationRuleInput
+
+func (BucketReplicationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketReplicationRule)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleArray) ToBucketReplicationRuleArrayOutput() BucketReplicationRuleArrayOutput {
+	return i.ToBucketReplicationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleArray) ToBucketReplicationRuleArrayOutputWithContext(ctx context.Context) BucketReplicationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleArrayOutput)
+}
+
+type BucketReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRule)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutput() BucketReplicationRuleOutput {
+	return o
+}
+
+func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutputWithContext(ctx context.Context) BucketReplicationRuleOutput {
+	return o
+}
+
+// Object owner management permissions
+func (o BucketReplicationRuleOutput) AccessControlTranslation() BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *BucketReplicationRuleAccessControlTranslation {
+		return v.AccessControlTranslation
+	}).(BucketReplicationRuleAccessControlTranslationPtrOutput)
+}
+
+// Replication target bucket information
+func (o BucketReplicationRuleOutput) Destination() BucketReplicationRuleDestinationOutput {
+	return o.ApplyT(func(v BucketReplicationRule) BucketReplicationRuleDestination { return v.Destination }).(BucketReplicationRuleDestinationOutput)
+}
+
+// Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+func (o BucketReplicationRuleOutput) HistoricalObjectReplication() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationRule) string { return v.HistoricalObjectReplication }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the rule, less than 255 characters
+func (o BucketReplicationRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Object name prefix to which this rule applies
+func (o BucketReplicationRuleOutput) PrefixSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketReplicationRule) []string { return v.PrefixSets }).(pulumi.StringArrayOutput)
+}
+
+// Save replication progress
+func (o BucketReplicationRuleOutput) Progress() BucketReplicationRuleProgressPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *BucketReplicationRuleProgress { return v.Progress }).(BucketReplicationRuleProgressPtrOutput)
+}
+
+// Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+func (o BucketReplicationRuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationRule) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketReplicationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketReplicationRule)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleArrayOutput) ToBucketReplicationRuleArrayOutput() BucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o BucketReplicationRuleArrayOutput) ToBucketReplicationRuleArrayOutputWithContext(ctx context.Context) BucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o BucketReplicationRuleArrayOutput) Index(i pulumi.IntInput) BucketReplicationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketReplicationRule {
+		return vs[0].([]BucketReplicationRule)[vs[1].(int)]
+	}).(BucketReplicationRuleOutput)
+}
+
+type BucketReplicationRuleAccessControlTranslation struct {
+	// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+	Owner *string `pulumi:"owner"`
+}
+
+// BucketReplicationRuleAccessControlTranslationInput is an input type that accepts BucketReplicationRuleAccessControlTranslationArgs and BucketReplicationRuleAccessControlTranslationOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleAccessControlTranslationInput` via:
+//
+//	BucketReplicationRuleAccessControlTranslationArgs{...}
+type BucketReplicationRuleAccessControlTranslationInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleAccessControlTranslationOutput() BucketReplicationRuleAccessControlTranslationOutput
+	ToBucketReplicationRuleAccessControlTranslationOutputWithContext(context.Context) BucketReplicationRuleAccessControlTranslationOutput
+}
+
+type BucketReplicationRuleAccessControlTranslationArgs struct {
+	// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+}
+
+func (BucketReplicationRuleAccessControlTranslationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleAccessControlTranslation)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleAccessControlTranslationArgs) ToBucketReplicationRuleAccessControlTranslationOutput() BucketReplicationRuleAccessControlTranslationOutput {
+	return i.ToBucketReplicationRuleAccessControlTranslationOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleAccessControlTranslationArgs) ToBucketReplicationRuleAccessControlTranslationOutputWithContext(ctx context.Context) BucketReplicationRuleAccessControlTranslationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAccessControlTranslationOutput)
+}
+
+func (i BucketReplicationRuleAccessControlTranslationArgs) ToBucketReplicationRuleAccessControlTranslationPtrOutput() BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return i.ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleAccessControlTranslationArgs) ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAccessControlTranslationOutput).ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(ctx)
+}
+
+// BucketReplicationRuleAccessControlTranslationPtrInput is an input type that accepts BucketReplicationRuleAccessControlTranslationArgs, BucketReplicationRuleAccessControlTranslationPtr and BucketReplicationRuleAccessControlTranslationPtrOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleAccessControlTranslationPtrInput` via:
+//
+//	        BucketReplicationRuleAccessControlTranslationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketReplicationRuleAccessControlTranslationPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleAccessControlTranslationPtrOutput() BucketReplicationRuleAccessControlTranslationPtrOutput
+	ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(context.Context) BucketReplicationRuleAccessControlTranslationPtrOutput
+}
+
+type bucketReplicationRuleAccessControlTranslationPtrType BucketReplicationRuleAccessControlTranslationArgs
+
+func BucketReplicationRuleAccessControlTranslationPtr(v *BucketReplicationRuleAccessControlTranslationArgs) BucketReplicationRuleAccessControlTranslationPtrInput {
+	return (*bucketReplicationRuleAccessControlTranslationPtrType)(v)
+}
+
+func (*bucketReplicationRuleAccessControlTranslationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleAccessControlTranslation)(nil)).Elem()
+}
+
+func (i *bucketReplicationRuleAccessControlTranslationPtrType) ToBucketReplicationRuleAccessControlTranslationPtrOutput() BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return i.ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationRuleAccessControlTranslationPtrType) ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAccessControlTranslationPtrOutput)
+}
+
+type BucketReplicationRuleAccessControlTranslationOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleAccessControlTranslationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleAccessControlTranslation)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleAccessControlTranslationOutput) ToBucketReplicationRuleAccessControlTranslationOutput() BucketReplicationRuleAccessControlTranslationOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAccessControlTranslationOutput) ToBucketReplicationRuleAccessControlTranslationOutputWithContext(ctx context.Context) BucketReplicationRuleAccessControlTranslationOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAccessControlTranslationOutput) ToBucketReplicationRuleAccessControlTranslationPtrOutput() BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return o.ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationRuleAccessControlTranslationOutput) ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationRuleAccessControlTranslation) *BucketReplicationRuleAccessControlTranslation {
+		return &v
+	}).(BucketReplicationRuleAccessControlTranslationPtrOutput)
+}
+
+// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+func (o BucketReplicationRuleAccessControlTranslationOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleAccessControlTranslation) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationRuleAccessControlTranslationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleAccessControlTranslationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleAccessControlTranslation)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleAccessControlTranslationPtrOutput) ToBucketReplicationRuleAccessControlTranslationPtrOutput() BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAccessControlTranslationPtrOutput) ToBucketReplicationRuleAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAccessControlTranslationPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAccessControlTranslationPtrOutput) Elem() BucketReplicationRuleAccessControlTranslationOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleAccessControlTranslation) BucketReplicationRuleAccessControlTranslation {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationRuleAccessControlTranslation
+		return ret
+	}).(BucketReplicationRuleAccessControlTranslationOutput)
+}
+
+// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+func (o BucketReplicationRuleAccessControlTranslationPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleAccessControlTranslation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationRuleDestination struct {
+	// Name of the bucket storing object replicas identified by the rule
+	Bucket string `pulumi:"bucket"`
+	// Region of the target bucket
+	Location string `pulumi:"location"`
+	// Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+	StorageClass *string `pulumi:"storageClass"`
+	// Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+	StorageClassInheritDirective *string `pulumi:"storageClassInheritDirective"`
+}
+
+// BucketReplicationRuleDestinationInput is an input type that accepts BucketReplicationRuleDestinationArgs and BucketReplicationRuleDestinationOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleDestinationInput` via:
+//
+//	BucketReplicationRuleDestinationArgs{...}
+type BucketReplicationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleDestinationOutput() BucketReplicationRuleDestinationOutput
+	ToBucketReplicationRuleDestinationOutputWithContext(context.Context) BucketReplicationRuleDestinationOutput
+}
+
+type BucketReplicationRuleDestinationArgs struct {
+	// Name of the bucket storing object replicas identified by the rule
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Region of the target bucket
+	Location pulumi.StringInput `pulumi:"location"`
+	// Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
+	// Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+	StorageClassInheritDirective pulumi.StringPtrInput `pulumi:"storageClassInheritDirective"`
+}
+
+func (BucketReplicationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleDestinationArgs) ToBucketReplicationRuleDestinationOutput() BucketReplicationRuleDestinationOutput {
+	return i.ToBucketReplicationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleDestinationArgs) ToBucketReplicationRuleDestinationOutputWithContext(ctx context.Context) BucketReplicationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleDestinationOutput)
+}
+
+type BucketReplicationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleDestinationOutput) ToBucketReplicationRuleDestinationOutput() BucketReplicationRuleDestinationOutput {
+	return o
+}
+
+func (o BucketReplicationRuleDestinationOutput) ToBucketReplicationRuleDestinationOutputWithContext(ctx context.Context) BucketReplicationRuleDestinationOutput {
+	return o
+}
+
+// Name of the bucket storing object replicas identified by the rule
+func (o BucketReplicationRuleDestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Region of the target bucket
+func (o BucketReplicationRuleDestinationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationRuleDestination) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+func (o BucketReplicationRuleDestinationOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+}
+
+// Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+func (o BucketReplicationRuleDestinationOutput) StorageClassInheritDirective() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleDestination) *string { return v.StorageClassInheritDirective }).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationRuleProgress struct {
+	// Show the percentage of historical data that has been replicated
+	HistoricalObject *float64 `pulumi:"historicalObject"`
+	// Show the timestamp when data is replicated to the target bucket
+	NewObject *string `pulumi:"newObject"`
+}
+
+// BucketReplicationRuleProgressInput is an input type that accepts BucketReplicationRuleProgressArgs and BucketReplicationRuleProgressOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleProgressInput` via:
+//
+//	BucketReplicationRuleProgressArgs{...}
+type BucketReplicationRuleProgressInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleProgressOutput() BucketReplicationRuleProgressOutput
+	ToBucketReplicationRuleProgressOutputWithContext(context.Context) BucketReplicationRuleProgressOutput
+}
+
+type BucketReplicationRuleProgressArgs struct {
+	// Show the percentage of historical data that has been replicated
+	HistoricalObject pulumi.Float64PtrInput `pulumi:"historicalObject"`
+	// Show the timestamp when data is replicated to the target bucket
+	NewObject pulumi.StringPtrInput `pulumi:"newObject"`
+}
+
+func (BucketReplicationRuleProgressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleProgress)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleProgressArgs) ToBucketReplicationRuleProgressOutput() BucketReplicationRuleProgressOutput {
+	return i.ToBucketReplicationRuleProgressOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleProgressArgs) ToBucketReplicationRuleProgressOutputWithContext(ctx context.Context) BucketReplicationRuleProgressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleProgressOutput)
+}
+
+func (i BucketReplicationRuleProgressArgs) ToBucketReplicationRuleProgressPtrOutput() BucketReplicationRuleProgressPtrOutput {
+	return i.ToBucketReplicationRuleProgressPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleProgressArgs) ToBucketReplicationRuleProgressPtrOutputWithContext(ctx context.Context) BucketReplicationRuleProgressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleProgressOutput).ToBucketReplicationRuleProgressPtrOutputWithContext(ctx)
+}
+
+// BucketReplicationRuleProgressPtrInput is an input type that accepts BucketReplicationRuleProgressArgs, BucketReplicationRuleProgressPtr and BucketReplicationRuleProgressPtrOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleProgressPtrInput` via:
+//
+//	        BucketReplicationRuleProgressArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketReplicationRuleProgressPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleProgressPtrOutput() BucketReplicationRuleProgressPtrOutput
+	ToBucketReplicationRuleProgressPtrOutputWithContext(context.Context) BucketReplicationRuleProgressPtrOutput
+}
+
+type bucketReplicationRuleProgressPtrType BucketReplicationRuleProgressArgs
+
+func BucketReplicationRuleProgressPtr(v *BucketReplicationRuleProgressArgs) BucketReplicationRuleProgressPtrInput {
+	return (*bucketReplicationRuleProgressPtrType)(v)
+}
+
+func (*bucketReplicationRuleProgressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleProgress)(nil)).Elem()
+}
+
+func (i *bucketReplicationRuleProgressPtrType) ToBucketReplicationRuleProgressPtrOutput() BucketReplicationRuleProgressPtrOutput {
+	return i.ToBucketReplicationRuleProgressPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationRuleProgressPtrType) ToBucketReplicationRuleProgressPtrOutputWithContext(ctx context.Context) BucketReplicationRuleProgressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleProgressPtrOutput)
+}
+
+type BucketReplicationRuleProgressOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleProgressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleProgress)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleProgressOutput) ToBucketReplicationRuleProgressOutput() BucketReplicationRuleProgressOutput {
+	return o
+}
+
+func (o BucketReplicationRuleProgressOutput) ToBucketReplicationRuleProgressOutputWithContext(ctx context.Context) BucketReplicationRuleProgressOutput {
+	return o
+}
+
+func (o BucketReplicationRuleProgressOutput) ToBucketReplicationRuleProgressPtrOutput() BucketReplicationRuleProgressPtrOutput {
+	return o.ToBucketReplicationRuleProgressPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationRuleProgressOutput) ToBucketReplicationRuleProgressPtrOutputWithContext(ctx context.Context) BucketReplicationRuleProgressPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationRuleProgress) *BucketReplicationRuleProgress {
+		return &v
+	}).(BucketReplicationRuleProgressPtrOutput)
+}
+
+// Show the percentage of historical data that has been replicated
+func (o BucketReplicationRuleProgressOutput) HistoricalObject() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleProgress) *float64 { return v.HistoricalObject }).(pulumi.Float64PtrOutput)
+}
+
+// Show the timestamp when data is replicated to the target bucket
+func (o BucketReplicationRuleProgressOutput) NewObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleProgress) *string { return v.NewObject }).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationRuleProgressPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleProgressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleProgress)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleProgressPtrOutput) ToBucketReplicationRuleProgressPtrOutput() BucketReplicationRuleProgressPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleProgressPtrOutput) ToBucketReplicationRuleProgressPtrOutputWithContext(ctx context.Context) BucketReplicationRuleProgressPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleProgressPtrOutput) Elem() BucketReplicationRuleProgressOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleProgress) BucketReplicationRuleProgress {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationRuleProgress
+		return ret
+	}).(BucketReplicationRuleProgressOutput)
+}
+
+// Show the percentage of historical data that has been replicated
+func (o BucketReplicationRuleProgressPtrOutput) HistoricalObject() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleProgress) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.HistoricalObject
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Show the timestamp when data is replicated to the target bucket
+func (o BucketReplicationRuleProgressPtrOutput) NewObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleProgress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewObject
+	}).(pulumi.StringPtrOutput)
+}
+
 type BucketTag struct {
 	// Tag key
 	Key *string `pulumi:"key"`
@@ -13186,6 +13711,351 @@ func (o GetBucketRealtimeLogRealTimeLogOutput) UseServiceTopic() pulumi.BoolOutp
 	return o.ApplyT(func(v GetBucketRealtimeLogRealTimeLog) bool { return v.UseServiceTopic }).(pulumi.BoolOutput)
 }
 
+type GetBucketReplicationRule struct {
+	// Object owner management permissions
+	AccessControlTranslation GetBucketReplicationRuleAccessControlTranslation `pulumi:"accessControlTranslation"`
+	// Replication target bucket information
+	Destination GetBucketReplicationRuleDestination `pulumi:"destination"`
+	// Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+	HistoricalObjectReplication string `pulumi:"historicalObjectReplication"`
+	// Unique identifier for the rule, less than 255 characters
+	Id string `pulumi:"id"`
+	// Object name prefix to which this rule applies
+	PrefixSets []string `pulumi:"prefixSets"`
+	// Save replication progress
+	Progress GetBucketReplicationRuleProgress `pulumi:"progress"`
+	// Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+	Status string `pulumi:"status"`
+}
+
+// GetBucketReplicationRuleInput is an input type that accepts GetBucketReplicationRuleArgs and GetBucketReplicationRuleOutput values.
+// You can construct a concrete instance of `GetBucketReplicationRuleInput` via:
+//
+//	GetBucketReplicationRuleArgs{...}
+type GetBucketReplicationRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationRuleOutput() GetBucketReplicationRuleOutput
+	ToGetBucketReplicationRuleOutputWithContext(context.Context) GetBucketReplicationRuleOutput
+}
+
+type GetBucketReplicationRuleArgs struct {
+	// Object owner management permissions
+	AccessControlTranslation GetBucketReplicationRuleAccessControlTranslationInput `pulumi:"accessControlTranslation"`
+	// Replication target bucket information
+	Destination GetBucketReplicationRuleDestinationInput `pulumi:"destination"`
+	// Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+	HistoricalObjectReplication pulumi.StringInput `pulumi:"historicalObjectReplication"`
+	// Unique identifier for the rule, less than 255 characters
+	Id pulumi.StringInput `pulumi:"id"`
+	// Object name prefix to which this rule applies
+	PrefixSets pulumi.StringArrayInput `pulumi:"prefixSets"`
+	// Save replication progress
+	Progress GetBucketReplicationRuleProgressInput `pulumi:"progress"`
+	// Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetBucketReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRule)(nil)).Elem()
+}
+
+func (i GetBucketReplicationRuleArgs) ToGetBucketReplicationRuleOutput() GetBucketReplicationRuleOutput {
+	return i.ToGetBucketReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationRuleArgs) ToGetBucketReplicationRuleOutputWithContext(ctx context.Context) GetBucketReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationRuleOutput)
+}
+
+// GetBucketReplicationRuleArrayInput is an input type that accepts GetBucketReplicationRuleArray and GetBucketReplicationRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationRuleArrayInput` via:
+//
+//	GetBucketReplicationRuleArray{ GetBucketReplicationRuleArgs{...} }
+type GetBucketReplicationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationRuleArrayOutput() GetBucketReplicationRuleArrayOutput
+	ToGetBucketReplicationRuleArrayOutputWithContext(context.Context) GetBucketReplicationRuleArrayOutput
+}
+
+type GetBucketReplicationRuleArray []GetBucketReplicationRuleInput
+
+func (GetBucketReplicationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationRule)(nil)).Elem()
+}
+
+func (i GetBucketReplicationRuleArray) ToGetBucketReplicationRuleArrayOutput() GetBucketReplicationRuleArrayOutput {
+	return i.ToGetBucketReplicationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationRuleArray) ToGetBucketReplicationRuleArrayOutputWithContext(ctx context.Context) GetBucketReplicationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationRuleArrayOutput)
+}
+
+type GetBucketReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRule)(nil)).Elem()
+}
+
+func (o GetBucketReplicationRuleOutput) ToGetBucketReplicationRuleOutput() GetBucketReplicationRuleOutput {
+	return o
+}
+
+func (o GetBucketReplicationRuleOutput) ToGetBucketReplicationRuleOutputWithContext(ctx context.Context) GetBucketReplicationRuleOutput {
+	return o
+}
+
+// Object owner management permissions
+func (o GetBucketReplicationRuleOutput) AccessControlTranslation() GetBucketReplicationRuleAccessControlTranslationOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) GetBucketReplicationRuleAccessControlTranslation {
+		return v.AccessControlTranslation
+	}).(GetBucketReplicationRuleAccessControlTranslationOutput)
+}
+
+// Replication target bucket information
+func (o GetBucketReplicationRuleOutput) Destination() GetBucketReplicationRuleDestinationOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) GetBucketReplicationRuleDestination { return v.Destination }).(GetBucketReplicationRuleDestinationOutput)
+}
+
+// Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+func (o GetBucketReplicationRuleOutput) HistoricalObjectReplication() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) string { return v.HistoricalObjectReplication }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the rule, less than 255 characters
+func (o GetBucketReplicationRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Object name prefix to which this rule applies
+func (o GetBucketReplicationRuleOutput) PrefixSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) []string { return v.PrefixSets }).(pulumi.StringArrayOutput)
+}
+
+// Save replication progress
+func (o GetBucketReplicationRuleOutput) Progress() GetBucketReplicationRuleProgressOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) GetBucketReplicationRuleProgress { return v.Progress }).(GetBucketReplicationRuleProgressOutput)
+}
+
+// Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+func (o GetBucketReplicationRuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRule) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationRule)(nil)).Elem()
+}
+
+func (o GetBucketReplicationRuleArrayOutput) ToGetBucketReplicationRuleArrayOutput() GetBucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationRuleArrayOutput) ToGetBucketReplicationRuleArrayOutputWithContext(ctx context.Context) GetBucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationRuleArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationRule {
+		return vs[0].([]GetBucketReplicationRule)[vs[1].(int)]
+	}).(GetBucketReplicationRuleOutput)
+}
+
+type GetBucketReplicationRuleAccessControlTranslation struct {
+	// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+	Owner string `pulumi:"owner"`
+}
+
+// GetBucketReplicationRuleAccessControlTranslationInput is an input type that accepts GetBucketReplicationRuleAccessControlTranslationArgs and GetBucketReplicationRuleAccessControlTranslationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationRuleAccessControlTranslationInput` via:
+//
+//	GetBucketReplicationRuleAccessControlTranslationArgs{...}
+type GetBucketReplicationRuleAccessControlTranslationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationRuleAccessControlTranslationOutput() GetBucketReplicationRuleAccessControlTranslationOutput
+	ToGetBucketReplicationRuleAccessControlTranslationOutputWithContext(context.Context) GetBucketReplicationRuleAccessControlTranslationOutput
+}
+
+type GetBucketReplicationRuleAccessControlTranslationArgs struct {
+	// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+	Owner pulumi.StringInput `pulumi:"owner"`
+}
+
+func (GetBucketReplicationRuleAccessControlTranslationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRuleAccessControlTranslation)(nil)).Elem()
+}
+
+func (i GetBucketReplicationRuleAccessControlTranslationArgs) ToGetBucketReplicationRuleAccessControlTranslationOutput() GetBucketReplicationRuleAccessControlTranslationOutput {
+	return i.ToGetBucketReplicationRuleAccessControlTranslationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationRuleAccessControlTranslationArgs) ToGetBucketReplicationRuleAccessControlTranslationOutputWithContext(ctx context.Context) GetBucketReplicationRuleAccessControlTranslationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationRuleAccessControlTranslationOutput)
+}
+
+type GetBucketReplicationRuleAccessControlTranslationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationRuleAccessControlTranslationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRuleAccessControlTranslation)(nil)).Elem()
+}
+
+func (o GetBucketReplicationRuleAccessControlTranslationOutput) ToGetBucketReplicationRuleAccessControlTranslationOutput() GetBucketReplicationRuleAccessControlTranslationOutput {
+	return o
+}
+
+func (o GetBucketReplicationRuleAccessControlTranslationOutput) ToGetBucketReplicationRuleAccessControlTranslationOutputWithContext(ctx context.Context) GetBucketReplicationRuleAccessControlTranslationOutput {
+	return o
+}
+
+// Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+func (o GetBucketReplicationRuleAccessControlTranslationOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRuleAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationRuleDestination struct {
+	// Name of the bucket storing object replicas identified by the rule
+	Bucket string `pulumi:"bucket"`
+	// Region of the target bucket
+	Location string `pulumi:"location"`
+	// Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+	StorageClass string `pulumi:"storageClass"`
+	// Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+	StorageClassInheritDirective string `pulumi:"storageClassInheritDirective"`
+}
+
+// GetBucketReplicationRuleDestinationInput is an input type that accepts GetBucketReplicationRuleDestinationArgs and GetBucketReplicationRuleDestinationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationRuleDestinationInput` via:
+//
+//	GetBucketReplicationRuleDestinationArgs{...}
+type GetBucketReplicationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationRuleDestinationOutput() GetBucketReplicationRuleDestinationOutput
+	ToGetBucketReplicationRuleDestinationOutputWithContext(context.Context) GetBucketReplicationRuleDestinationOutput
+}
+
+type GetBucketReplicationRuleDestinationArgs struct {
+	// Name of the bucket storing object replicas identified by the rule
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Region of the target bucket
+	Location pulumi.StringInput `pulumi:"location"`
+	// Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
+	// Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+	StorageClassInheritDirective pulumi.StringInput `pulumi:"storageClassInheritDirective"`
+}
+
+func (GetBucketReplicationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (i GetBucketReplicationRuleDestinationArgs) ToGetBucketReplicationRuleDestinationOutput() GetBucketReplicationRuleDestinationOutput {
+	return i.ToGetBucketReplicationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationRuleDestinationArgs) ToGetBucketReplicationRuleDestinationOutputWithContext(ctx context.Context) GetBucketReplicationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationRuleDestinationOutput)
+}
+
+type GetBucketReplicationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRuleDestination)(nil)).Elem()
+}
+
+func (o GetBucketReplicationRuleDestinationOutput) ToGetBucketReplicationRuleDestinationOutput() GetBucketReplicationRuleDestinationOutput {
+	return o
+}
+
+func (o GetBucketReplicationRuleDestinationOutput) ToGetBucketReplicationRuleDestinationOutputWithContext(ctx context.Context) GetBucketReplicationRuleDestinationOutput {
+	return o
+}
+
+// Name of the bucket storing object replicas identified by the rule
+func (o GetBucketReplicationRuleDestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Region of the target bucket
+func (o GetBucketReplicationRuleDestinationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRuleDestination) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+func (o GetBucketReplicationRuleDestinationOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRuleDestination) string { return v.StorageClass }).(pulumi.StringOutput)
+}
+
+// Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+func (o GetBucketReplicationRuleDestinationOutput) StorageClassInheritDirective() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRuleDestination) string { return v.StorageClassInheritDirective }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationRuleProgress struct {
+	// Show the percentage of historical data that has been replicated
+	HistoricalObject float64 `pulumi:"historicalObject"`
+	// Show the timestamp when data is replicated to the target bucket
+	NewObject string `pulumi:"newObject"`
+}
+
+// GetBucketReplicationRuleProgressInput is an input type that accepts GetBucketReplicationRuleProgressArgs and GetBucketReplicationRuleProgressOutput values.
+// You can construct a concrete instance of `GetBucketReplicationRuleProgressInput` via:
+//
+//	GetBucketReplicationRuleProgressArgs{...}
+type GetBucketReplicationRuleProgressInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationRuleProgressOutput() GetBucketReplicationRuleProgressOutput
+	ToGetBucketReplicationRuleProgressOutputWithContext(context.Context) GetBucketReplicationRuleProgressOutput
+}
+
+type GetBucketReplicationRuleProgressArgs struct {
+	// Show the percentage of historical data that has been replicated
+	HistoricalObject pulumi.Float64Input `pulumi:"historicalObject"`
+	// Show the timestamp when data is replicated to the target bucket
+	NewObject pulumi.StringInput `pulumi:"newObject"`
+}
+
+func (GetBucketReplicationRuleProgressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRuleProgress)(nil)).Elem()
+}
+
+func (i GetBucketReplicationRuleProgressArgs) ToGetBucketReplicationRuleProgressOutput() GetBucketReplicationRuleProgressOutput {
+	return i.ToGetBucketReplicationRuleProgressOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationRuleProgressArgs) ToGetBucketReplicationRuleProgressOutputWithContext(ctx context.Context) GetBucketReplicationRuleProgressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationRuleProgressOutput)
+}
+
+type GetBucketReplicationRuleProgressOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationRuleProgressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationRuleProgress)(nil)).Elem()
+}
+
+func (o GetBucketReplicationRuleProgressOutput) ToGetBucketReplicationRuleProgressOutput() GetBucketReplicationRuleProgressOutput {
+	return o
+}
+
+func (o GetBucketReplicationRuleProgressOutput) ToGetBucketReplicationRuleProgressOutputWithContext(ctx context.Context) GetBucketReplicationRuleProgressOutput {
+	return o
+}
+
+// Show the percentage of historical data that has been replicated
+func (o GetBucketReplicationRuleProgressOutput) HistoricalObject() pulumi.Float64Output {
+	return o.ApplyT(func(v GetBucketReplicationRuleProgress) float64 { return v.HistoricalObject }).(pulumi.Float64Output)
+}
+
+// Show the timestamp when data is replicated to the target bucket
+func (o GetBucketReplicationRuleProgressOutput) NewObject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationRuleProgress) string { return v.NewObject }).(pulumi.StringOutput)
+}
+
 type GetBucketTag struct {
 	// Tag key
 	Key string `pulumi:"key"`
@@ -14145,6 +15015,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleDefaultRetentionPtrInput)(nil)).Elem(), BucketObjectLockConfigurationRuleDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRealtimeLogRealTimeLogInput)(nil)).Elem(), BucketRealtimeLogRealTimeLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRealtimeLogRealTimeLogPtrInput)(nil)).Elem(), BucketRealtimeLogRealTimeLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleInput)(nil)).Elem(), BucketReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleArrayInput)(nil)).Elem(), BucketReplicationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleAccessControlTranslationInput)(nil)).Elem(), BucketReplicationRuleAccessControlTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleAccessControlTranslationPtrInput)(nil)).Elem(), BucketReplicationRuleAccessControlTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleDestinationInput)(nil)).Elem(), BucketReplicationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleProgressInput)(nil)).Elem(), BucketReplicationRuleProgressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationRuleProgressPtrInput)(nil)).Elem(), BucketReplicationRuleProgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteErrorDocumentInput)(nil)).Elem(), BucketWebsiteErrorDocumentArgs{})
@@ -14229,6 +15106,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleDefaultRetentionInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketRealtimeLogRealTimeLogInput)(nil)).Elem(), GetBucketRealtimeLogRealTimeLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationRuleInput)(nil)).Elem(), GetBucketReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationRuleArrayInput)(nil)).Elem(), GetBucketReplicationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationRuleAccessControlTranslationInput)(nil)).Elem(), GetBucketReplicationRuleAccessControlTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationRuleDestinationInput)(nil)).Elem(), GetBucketReplicationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationRuleProgressInput)(nil)).Elem(), GetBucketReplicationRuleProgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketTagInput)(nil)).Elem(), GetBucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketTagArrayInput)(nil)).Elem(), GetBucketTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketWebsiteErrorDocumentInput)(nil)).Elem(), GetBucketWebsiteErrorDocumentArgs{})
@@ -14340,6 +15222,13 @@ func init() {
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput{})
 	pulumi.RegisterOutputType(BucketRealtimeLogRealTimeLogOutput{})
 	pulumi.RegisterOutputType(BucketRealtimeLogRealTimeLogPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleAccessControlTranslationOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleAccessControlTranslationPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleProgressOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleProgressPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagOutput{})
 	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(BucketWebsiteErrorDocumentOutput{})
@@ -14424,6 +15313,11 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleDefaultRetentionOutput{})
 	pulumi.RegisterOutputType(GetBucketRealtimeLogRealTimeLogOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationRuleAccessControlTranslationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationRuleProgressOutput{})
 	pulumi.RegisterOutputType(GetBucketTagOutput{})
 	pulumi.RegisterOutputType(GetBucketTagArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketWebsiteErrorDocumentOutput{})
