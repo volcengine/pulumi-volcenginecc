@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlarmWebhookIntegrationType{}
 	case "volcenginecc:tls/consumerGroup:ConsumerGroup":
 		r = &ConsumerGroup{}
+	case "volcenginecc:tls/downloadTask:DownloadTask":
+		r = &DownloadTask{}
 	case "volcenginecc:tls/etl:Etl":
 		r = &Etl{}
 	case "volcenginecc:tls/host:Host":
@@ -45,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "volcenginecc:tls/rule:Rule":
 		r = &Rule{}
+	case "volcenginecc:tls/ruleBoundHostGroup:RuleBoundHostGroup":
+		r = &RuleBoundHostGroup{}
 	case "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask":
 		r = &ScheduleSqlTask{}
 	case "volcenginecc:tls/shipper:Shipper":
@@ -91,6 +95,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
+		"tls/downloadTask",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
 		"tls/etl",
 		&module{version},
 	)
@@ -122,6 +131,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tls/rule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tls/ruleBoundHostGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

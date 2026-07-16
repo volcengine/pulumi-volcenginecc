@@ -32,12 +32,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Apig.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Update time
-        /// </summary>
-        [Input("updateTime")]
-        public Input<string>? UpdateTime { get; set; }
-
         public UpstreamVersionDetailArgs()
         {
         }

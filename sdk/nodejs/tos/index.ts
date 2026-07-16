@@ -50,6 +50,11 @@ export type BucketRename = import("./bucketRename").BucketRename;
 export const BucketRename: typeof import("./bucketRename").BucketRename = null as any;
 utilities.lazyLoad(exports, ["BucketRename"], () => require("./bucketRename"));
 
+export { BucketReplicationArgs, BucketReplicationState } from "./bucketReplication";
+export type BucketReplication = import("./bucketReplication").BucketReplication;
+export const BucketReplication: typeof import("./bucketReplication").BucketReplication = null as any;
+utilities.lazyLoad(exports, ["BucketReplication"], () => require("./bucketReplication"));
+
 export { BucketWebsiteArgs, BucketWebsiteState } from "./bucketWebsite";
 export type BucketWebsite = import("./bucketWebsite").BucketWebsite;
 export const BucketWebsite: typeof import("./bucketWebsite").BucketWebsite = null as any;
@@ -135,6 +140,16 @@ export const getBucketRenames: typeof import("./getBucketRenames").getBucketRena
 export const getBucketRenamesOutput: typeof import("./getBucketRenames").getBucketRenamesOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketRenames","getBucketRenamesOutput"], () => require("./getBucketRenames"));
 
+export { GetBucketReplicationArgs, GetBucketReplicationResult, GetBucketReplicationOutputArgs } from "./getBucketReplication";
+export const getBucketReplication: typeof import("./getBucketReplication").getBucketReplication = null as any;
+export const getBucketReplicationOutput: typeof import("./getBucketReplication").getBucketReplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketReplication","getBucketReplicationOutput"], () => require("./getBucketReplication"));
+
+export { GetBucketReplicationsResult } from "./getBucketReplications";
+export const getBucketReplications: typeof import("./getBucketReplications").getBucketReplications = null as any;
+export const getBucketReplicationsOutput: typeof import("./getBucketReplications").getBucketReplicationsOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketReplications","getBucketReplicationsOutput"], () => require("./getBucketReplications"));
+
 export { GetBucketWebsiteArgs, GetBucketWebsiteResult, GetBucketWebsiteOutputArgs } from "./getBucketWebsite";
 export const getBucketWebsite: typeof import("./getBucketWebsite").getBucketWebsite = null as any;
 export const getBucketWebsiteOutput: typeof import("./getBucketWebsite").getBucketWebsiteOutput = null as any;
@@ -188,6 +203,8 @@ const _module = {
                 return new BucketRealtimeLog(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketRename:BucketRename":
                 return new BucketRename(name, <any>undefined, { urn })
+            case "volcenginecc:tos/bucketReplication:BucketReplication":
+                return new BucketReplication(name, <any>undefined, { urn })
             case "volcenginecc:tos/bucketWebsite:BucketWebsite":
                 return new BucketWebsite(name, <any>undefined, { urn })
             case "volcenginecc:tos/tosObject:TosObject":
@@ -206,5 +223,6 @@ pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketMirrorBack", _m
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRealtimeLog", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketRename", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketReplication", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/bucketWebsite", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tos/tosObject", _module)

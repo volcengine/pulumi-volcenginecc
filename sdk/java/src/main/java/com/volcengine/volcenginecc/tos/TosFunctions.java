@@ -28,6 +28,8 @@ import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRealtimeLogPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRenameArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketRenamePlainArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketReplicationArgs;
+import com.volcengine.volcenginecc.tos.inputs.GetBucketReplicationPlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketWebsiteArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetBucketWebsitePlainArgs;
 import com.volcengine.volcenginecc.tos.inputs.GetObjectArgs;
@@ -47,6 +49,8 @@ import com.volcengine.volcenginecc.tos.outputs.GetBucketRealtimeLogResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketRealtimeLogsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketRenameResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketRenamesResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketReplicationResult;
+import com.volcengine.volcenginecc.tos.outputs.GetBucketReplicationsResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketWebsiteResult;
 import com.volcengine.volcenginecc.tos.outputs.GetBucketWebsitesResult;
@@ -713,6 +717,90 @@ public final class TosFunctions {
      */
     public static CompletableFuture<GetBucketRenamesResult> getBucketRenamesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketRenames:getBucketRenames", TypeShape.of(GetBucketRenamesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationResult> getBucketReplication(GetBucketReplicationArgs args) {
+        return getBucketReplication(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationResult> getBucketReplicationPlain(GetBucketReplicationPlainArgs args) {
+        return getBucketReplicationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationResult> getBucketReplication(GetBucketReplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketReplication:getBucketReplication", TypeShape.of(GetBucketReplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationResult> getBucketReplication(GetBucketReplicationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketReplication:getBucketReplication", TypeShape.of(GetBucketReplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationResult> getBucketReplicationPlain(GetBucketReplicationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketReplication:getBucketReplication", TypeShape.of(GetBucketReplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationsResult> getBucketReplications() {
+        return getBucketReplications(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationsResult> getBucketReplicationsPlain() {
+        return getBucketReplicationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationsResult> getBucketReplications(InvokeArgs args) {
+        return getBucketReplications(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationsResult> getBucketReplicationsPlain(InvokeArgs args) {
+        return getBucketReplicationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationsResult> getBucketReplications(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketReplications:getBucketReplications", TypeShape.of(GetBucketReplicationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static Output<GetBucketReplicationsResult> getBucketReplications(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tos/getBucketReplications:getBucketReplications", TypeShape.of(GetBucketReplicationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TOS::BucketReplication
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationsResult> getBucketReplicationsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tos/getBucketReplications:getBucketReplications", TypeShape.of(GetBucketReplicationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TOS::BucketWebsite

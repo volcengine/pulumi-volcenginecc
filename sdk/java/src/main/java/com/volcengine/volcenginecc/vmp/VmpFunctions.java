@@ -12,12 +12,16 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.vmp.inputs.GetAlertingRuleArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetAlertingRulePlainArgs;
+import com.volcengine.volcenginecc.vmp.inputs.GetIntegrationTaskArgs;
+import com.volcengine.volcenginecc.vmp.inputs.GetIntegrationTaskPlainArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetRuleFileArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetRuleFilePlainArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetWorkspaceArgs;
 import com.volcengine.volcenginecc.vmp.inputs.GetWorkspacePlainArgs;
 import com.volcengine.volcenginecc.vmp.outputs.GetAlertingRuleResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetAlertingRulesResult;
+import com.volcengine.volcenginecc.vmp.outputs.GetIntegrationTaskResult;
+import com.volcengine.volcenginecc.vmp.outputs.GetIntegrationTasksResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetRuleFileResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetRuleFilesResult;
 import com.volcengine.volcenginecc.vmp.outputs.GetWorkspaceResult;
@@ -108,6 +112,90 @@ public final class VmpFunctions {
      */
     public static CompletableFuture<GetAlertingRulesResult> getAlertingRulesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getAlertingRules:getAlertingRules", TypeShape.of(GetAlertingRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTaskResult> getIntegrationTask(GetIntegrationTaskArgs args) {
+        return getIntegrationTask(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static CompletableFuture<GetIntegrationTaskResult> getIntegrationTaskPlain(GetIntegrationTaskPlainArgs args) {
+        return getIntegrationTaskPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTaskResult> getIntegrationTask(GetIntegrationTaskArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getIntegrationTask:getIntegrationTask", TypeShape.of(GetIntegrationTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTaskResult> getIntegrationTask(GetIntegrationTaskArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getIntegrationTask:getIntegrationTask", TypeShape.of(GetIntegrationTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static CompletableFuture<GetIntegrationTaskResult> getIntegrationTaskPlain(GetIntegrationTaskPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getIntegrationTask:getIntegrationTask", TypeShape.of(GetIntegrationTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTasksResult> getIntegrationTasks() {
+        return getIntegrationTasks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static CompletableFuture<GetIntegrationTasksResult> getIntegrationTasksPlain() {
+        return getIntegrationTasksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTasksResult> getIntegrationTasks(InvokeArgs args) {
+        return getIntegrationTasks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static CompletableFuture<GetIntegrationTasksResult> getIntegrationTasksPlain(InvokeArgs args) {
+        return getIntegrationTasksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTasksResult> getIntegrationTasks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getIntegrationTasks:getIntegrationTasks", TypeShape.of(GetIntegrationTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static Output<GetIntegrationTasksResult> getIntegrationTasks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:vmp/getIntegrationTasks:getIntegrationTasks", TypeShape.of(GetIntegrationTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::VMP::IntegrationTask
+     * 
+     */
+    public static CompletableFuture<GetIntegrationTasksResult> getIntegrationTasksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:vmp/getIntegrationTasks:getIntegrationTasks", TypeShape.of(GetIntegrationTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::VMP::RuleFile

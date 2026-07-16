@@ -109,6 +109,14 @@ __all__ = [
     'BucketObjectLockConfigurationRuleDefaultRetentionArgsDict',
     'BucketRealtimeLogRealTimeLogArgs',
     'BucketRealtimeLogRealTimeLogArgsDict',
+    'BucketReplicationRuleArgs',
+    'BucketReplicationRuleArgsDict',
+    'BucketReplicationRuleAccessControlTranslationArgs',
+    'BucketReplicationRuleAccessControlTranslationArgsDict',
+    'BucketReplicationRuleDestinationArgs',
+    'BucketReplicationRuleDestinationArgsDict',
+    'BucketReplicationRuleProgressArgs',
+    'BucketReplicationRuleProgressArgsDict',
     'BucketTagArgs',
     'BucketTagArgsDict',
     'BucketWebsiteErrorDocumentArgs',
@@ -3498,6 +3506,316 @@ class BucketRealtimeLogRealTimeLogArgs:
     @tls_topic_id.setter
     def tls_topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_topic_id", value)
+
+
+class BucketReplicationRuleArgsDict(TypedDict):
+    destination: pulumi.Input['BucketReplicationRuleDestinationArgsDict']
+    """
+    Replication target bucket information
+    """
+    historical_object_replication: pulumi.Input[_builtins.str]
+    """
+    Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Unique identifier for the rule, less than 255 characters
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+    """
+    access_control_translation: NotRequired[pulumi.Input[Optional['BucketReplicationRuleAccessControlTranslationArgsDict']]]
+    """
+    Object owner management permissions
+    """
+    prefix_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Object name prefix to which this rule applies
+    """
+    progress: NotRequired[pulumi.Input[Optional['BucketReplicationRuleProgressArgsDict']]]
+    """
+    Save replication progress
+    """
+
+@pulumi.input_type
+class BucketReplicationRuleArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['BucketReplicationRuleDestinationArgs'],
+                 historical_object_replication: pulumi.Input[_builtins.str],
+                 id: pulumi.Input[_builtins.str],
+                 status: pulumi.Input[_builtins.str],
+                 access_control_translation: pulumi.Input[Optional['BucketReplicationRuleAccessControlTranslationArgs']] = None,
+                 prefix_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 progress: pulumi.Input[Optional['BucketReplicationRuleProgressArgs']] = None):
+        """
+        :param pulumi.Input['BucketReplicationRuleDestinationArgs'] destination: Replication target bucket information
+        :param pulumi.Input[_builtins.str] historical_object_replication: Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+        :param pulumi.Input[_builtins.str] id: Unique identifier for the rule, less than 255 characters
+        :param pulumi.Input[_builtins.str] status: Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+        :param pulumi.Input['BucketReplicationRuleAccessControlTranslationArgs'] access_control_translation: Object owner management permissions
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_sets: Object name prefix to which this rule applies
+        :param pulumi.Input['BucketReplicationRuleProgressArgs'] progress: Save replication progress
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "historical_object_replication", historical_object_replication)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "status", status)
+        if access_control_translation is not None:
+            pulumi.set(__self__, "access_control_translation", access_control_translation)
+        if prefix_sets is not None:
+            pulumi.set(__self__, "prefix_sets", prefix_sets)
+        if progress is not None:
+            pulumi.set(__self__, "progress", progress)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['BucketReplicationRuleDestinationArgs']:
+        """
+        Replication target bucket information
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['BucketReplicationRuleDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="historicalObjectReplication")
+    def historical_object_replication(self) -> pulumi.Input[_builtins.str]:
+        """
+        Enable historical object replication. If enabled, historical objects matching this rule will be replicated. Options: Enabled: Enable historical object replication. Disabled: Do not enable historical object replication
+        """
+        return pulumi.get(self, "historical_object_replication")
+
+    @historical_object_replication.setter
+    def historical_object_replication(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "historical_object_replication", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unique identifier for the rule, less than 255 characters
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specify whether to enable this rule. Options: Enabled: Enable this rule. Disabled: Do not enable this rule
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessControlTranslation")
+    def access_control_translation(self) -> pulumi.Input[Optional['BucketReplicationRuleAccessControlTranslationArgs']]:
+        """
+        Object owner management permissions
+        """
+        return pulumi.get(self, "access_control_translation")
+
+    @access_control_translation.setter
+    def access_control_translation(self, value: pulumi.Input[Optional['BucketReplicationRuleAccessControlTranslationArgs']]):
+        pulumi.set(self, "access_control_translation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixSets")
+    def prefix_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Object name prefix to which this rule applies
+        """
+        return pulumi.get(self, "prefix_sets")
+
+    @prefix_sets.setter
+    def prefix_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "prefix_sets", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def progress(self) -> pulumi.Input[Optional['BucketReplicationRuleProgressArgs']]:
+        """
+        Save replication progress
+        """
+        return pulumi.get(self, "progress")
+
+    @progress.setter
+    def progress(self, value: pulumi.Input[Optional['BucketReplicationRuleProgressArgs']]):
+        pulumi.set(self, "progress", value)
+
+
+class BucketReplicationRuleAccessControlTranslationArgsDict(TypedDict):
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+    """
+
+@pulumi.input_type
+class BucketReplicationRuleAccessControlTranslationArgs:
+    def __init__(__self__, *,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] owner: Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+        """
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Object owner management permissions have been granted for replication to the destination bucket, allowing the destination bucket to read objects and grant other accounts permission to read objects
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+
+class BucketReplicationRuleDestinationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    Name of the bucket storing object replicas identified by the rule
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    Region of the target bucket
+    """
+    storage_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+    """
+    storage_class_inherit_directive: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+    """
+
+@pulumi.input_type
+class BucketReplicationRuleDestinationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 location: pulumi.Input[_builtins.str],
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class_inherit_directive: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: Name of the bucket storing object replicas identified by the rule
+        :param pulumi.Input[_builtins.str] location: Region of the target bucket
+        :param pulumi.Input[_builtins.str] storage_class: Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+        :param pulumi.Input[_builtins.str] storage_class_inherit_directive: Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "location", location)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+        if storage_class_inherit_directive is not None:
+            pulumi.set(__self__, "storage_class_inherit_directive", storage_class_inherit_directive)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the bucket storing object replicas identified by the rule
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[_builtins.str]:
+        """
+        Region of the target bucket
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specify the storage class for objects replicated to the target bucket. Options: STANDARD: Standard storage. STANDARD*IA: Infrequent access storage. GLACIER*IR: Archive instant retrieval storage. INTELLIGENT*TIERING: Intelligent tiering storage. ARCHIVE: Archive storage. COLD*ARCHIVE: Cold archive storage. DEEP*COLD*ARCHIVE: Deep cold archive storage
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_class", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClassInheritDirective")
+    def storage_class_inherit_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Set the storage class for objects replicated to the target bucket. Options: SOURCE*OBJECT: Inherit the storage class of the source bucket object. DESTINATION*BUCKET: Inherit the default storage class of the target bucket
+        """
+        return pulumi.get(self, "storage_class_inherit_directive")
+
+    @storage_class_inherit_directive.setter
+    def storage_class_inherit_directive(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_class_inherit_directive", value)
+
+
+class BucketReplicationRuleProgressArgsDict(TypedDict):
+    historical_object: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Show the percentage of historical data that has been replicated
+    """
+    new_object: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Show the timestamp when data is replicated to the target bucket
+    """
+
+@pulumi.input_type
+class BucketReplicationRuleProgressArgs:
+    def __init__(__self__, *,
+                 historical_object: pulumi.Input[Optional[_builtins.float]] = None,
+                 new_object: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.float] historical_object: Show the percentage of historical data that has been replicated
+        :param pulumi.Input[_builtins.str] new_object: Show the timestamp when data is replicated to the target bucket
+        """
+        if historical_object is not None:
+            pulumi.set(__self__, "historical_object", historical_object)
+        if new_object is not None:
+            pulumi.set(__self__, "new_object", new_object)
+
+    @_builtins.property
+    @pulumi.getter(name="historicalObject")
+    def historical_object(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Show the percentage of historical data that has been replicated
+        """
+        return pulumi.get(self, "historical_object")
+
+    @historical_object.setter
+    def historical_object(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "historical_object", value)
+
+    @_builtins.property
+    @pulumi.getter(name="newObject")
+    def new_object(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Show the timestamp when data is replicated to the target bucket
+        """
+        return pulumi.get(self, "new_object")
+
+    @new_object.setter
+    def new_object(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "new_object", value)
 
 
 class BucketTagArgsDict(TypedDict):

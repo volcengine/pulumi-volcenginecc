@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.tls.TopicArgs;
 import com.volcengine.volcenginecc.tls.inputs.TopicState;
+import com.volcengine.volcenginecc.tls.outputs.TopicShard;
 import com.volcengine.volcenginecc.tls.outputs.TopicTag;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -66,6 +67,8 @@ import javax.annotation.Nullable;
  *             .projectId("c6fef4c1-041f-434e-b0f4-d5e9*****")
  *             .enableHotTtl(false)
  *             .allowConsume(false)
+ *             .splitShardId(0)
+ *             .splitNumber(2)
  *             .build());
  * 
  *     }
@@ -278,6 +281,50 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> shardCount() {
         return this.shardCount;
+    }
+    /**
+     * Partition list of the log topic
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
+    @Export(name="shards", refs={List.class,TopicShard.class}, tree="[0,1]")
+    private Output<List<TopicShard>> shards;
+
+    /**
+     * @return Partition list of the log topic
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
+    public Output<List<TopicShard>> shards() {
+        return this.shards;
+    }
+    /**
+     * Number of splits for the partition. The split number must be a non-zero even number, such as 2, 4, 8, or 16. After splitting, the total number of readwrite partitions must not exceed 256. Must be used together with SplitShardId
+     * 
+     */
+    @Export(name="splitNumber", refs={Integer.class}, tree="[0]")
+    private Output<Integer> splitNumber;
+
+    /**
+     * @return Number of splits for the partition. The split number must be a non-zero even number, such as 2, 4, 8, or 16. After splitting, the total number of readwrite partitions must not exceed 256. Must be used together with SplitShardId
+     * 
+     */
+    public Output<Integer> splitNumber() {
+        return this.splitNumber;
+    }
+    /**
+     * Partition ID to be manually split. Must be used together with SplitNumber. Only partitions with readwrite status can be split
+     * 
+     */
+    @Export(name="splitShardId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> splitShardId;
+
+    /**
+     * @return Partition ID to be manually split. Must be used together with SplitNumber. Only partitions with readwrite status can be split
+     * 
+     */
+    public Output<Integer> splitShardId() {
+        return this.splitShardId;
     }
     /**
      * Tag list.

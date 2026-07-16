@@ -1852,6 +1852,24 @@
                     }
                 }
             },
+            "volcenginecc_escloud_ip_allow_list": {
+                "current": "volcenginecc:escloud/ipAllowList:IpAllowList",
+                "fields": {
+                    "allow_list": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allow_list": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "volcenginecc_filenas_instance": {
                 "current": "volcenginecc:filenas/instance:Instance",
                 "fields": {
@@ -3353,6 +3371,9 @@
                     }
                 }
             },
+            "volcenginecc_tls_download_task": {
+                "current": "volcenginecc:tls/downloadTask:DownloadTask"
+            },
             "volcenginecc_tls_etl": {
                 "current": "volcenginecc:tls/etl:Etl",
                 "fields": {
@@ -3593,6 +3614,9 @@
                     }
                 }
             },
+            "volcenginecc_tls_rule_bound_host_group": {
+                "current": "volcenginecc:tls/ruleBoundHostGroup:RuleBoundHostGroup"
+            },
             "volcenginecc_tls_schedule_sql_task": {
                 "current": "volcenginecc:tls/scheduleSqlTask:ScheduleSqlTask"
             },
@@ -3622,6 +3646,9 @@
             "volcenginecc_tls_topic": {
                 "current": "volcenginecc:tls/topic:Topic",
                 "fields": {
+                    "shards": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -3820,6 +3847,21 @@
             },
             "volcenginecc_tos_bucket_rename": {
                 "current": "volcenginecc:tos/bucketRename:BucketRename"
+            },
+            "volcenginecc_tos_bucket_replication": {
+                "current": "volcenginecc:tos/bucketReplication:BucketReplication",
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "prefix_set": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "volcenginecc_tos_bucket_website": {
                 "current": "volcenginecc:tos/bucketWebsite:BucketWebsite",
@@ -4451,6 +4493,14 @@
                     "levels": {
                         "maxItemsOne": false
                     },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vmp_integration_task": {
+                "current": "volcenginecc:vmp/integrationTask:IntegrationTask",
+                "fields": {
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -7386,6 +7436,32 @@
                     }
                 }
             },
+            "volcenginecc_escloud_ip_allow_list": {
+                "current": "volcenginecc:escloud/getIpAllowList:getIpAllowList",
+                "fields": {
+                    "allow_list": {
+                        "maxItemsOne": false
+                    },
+                    "groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allow_list": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_escloud_ip_allow_lists": {
+                "current": "volcenginecc:escloud/getIpAllowLists:getIpAllowLists",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_filenas_instance": {
                 "current": "volcenginecc:filenas/getInstance:getInstance",
                 "fields": {
@@ -9814,6 +9890,17 @@
                     }
                 }
             },
+            "volcenginecc_tls_download_task": {
+                "current": "volcenginecc:tls/getDownloadTask:getDownloadTask"
+            },
+            "volcenginecc_tls_download_tasks": {
+                "current": "volcenginecc:tls/getDownloadTasks:getDownloadTasks",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_tls_etl": {
                 "current": "volcenginecc:tls/getEtl:getEtl",
                 "fields": {
@@ -10102,6 +10189,17 @@
                     }
                 }
             },
+            "volcenginecc_tls_rule_bound_host_group": {
+                "current": "volcenginecc:tls/getRuleBoundHostGroup:getRuleBoundHostGroup"
+            },
+            "volcenginecc_tls_rule_bound_host_groups": {
+                "current": "volcenginecc:tls/getRuleBoundHostGroups:getRuleBoundHostGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_tls_rules": {
                 "current": "volcenginecc:tls/getRules:getRules",
                 "fields": {
@@ -10155,6 +10253,9 @@
             "volcenginecc_tls_topic": {
                 "current": "volcenginecc:tls/getTopic:getTopic",
                 "fields": {
+                    "shards": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -10412,6 +10513,29 @@
             },
             "volcenginecc_tos_bucket_renames": {
                 "current": "volcenginecc:tos/getBucketRenames:getBucketRenames",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_tos_bucket_replication": {
+                "current": "volcenginecc:tos/getBucketReplication:getBucketReplication",
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "prefix_set": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "volcenginecc_tos_bucket_replications": {
+                "current": "volcenginecc:tos/getBucketReplications:getBucketReplications",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -11357,6 +11481,22 @@
                     }
                 }
             },
+            "volcenginecc_vmp_integration_task": {
+                "current": "volcenginecc:vmp/getIntegrationTask:getIntegrationTask",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_vmp_integration_tasks": {
+                "current": "volcenginecc:vmp/getIntegrationTasks:getIntegrationTasks",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_vmp_rule_file": {
                 "current": "volcenginecc:vmp/getRuleFile:getRuleFile"
             },
@@ -12081,6 +12221,7 @@
             "volcenginecc_emr_cluster_user_group": {},
             "volcenginecc_emr_node_group": {},
             "volcenginecc_escloud_instance": {},
+            "volcenginecc_escloud_ip_allow_list": {},
             "volcenginecc_filenas_instance": {},
             "volcenginecc_filenas_mount_point": {},
             "volcenginecc_filenas_snapshot": {},
@@ -12187,6 +12328,7 @@
             "volcenginecc_tls_alarm_notify_group": {},
             "volcenginecc_tls_alarm_webhook_integration_type": {},
             "volcenginecc_tls_consumer_group": {},
+            "volcenginecc_tls_download_task": {},
             "volcenginecc_tls_etl": {},
             "volcenginecc_tls_host": {},
             "volcenginecc_tls_host_group": {},
@@ -12194,6 +12336,7 @@
             "volcenginecc_tls_index": {},
             "volcenginecc_tls_project": {},
             "volcenginecc_tls_rule": {},
+            "volcenginecc_tls_rule_bound_host_group": {},
             "volcenginecc_tls_schedule_sql_task": {},
             "volcenginecc_tls_shipper": {},
             "volcenginecc_tls_topic": {},
@@ -12206,6 +12349,7 @@
             "volcenginecc_tos_bucket_notification": {},
             "volcenginecc_tos_bucket_realtime_log": {},
             "volcenginecc_tos_bucket_rename": {},
+            "volcenginecc_tos_bucket_replication": {},
             "volcenginecc_tos_bucket_website": {},
             "volcenginecc_tos_object": {},
             "volcenginecc_transitrouter_direct_connect_gateway_attachment": {},
@@ -12243,6 +12387,7 @@
             "volcenginecc_vke_node_pool": {},
             "volcenginecc_vke_permission": {},
             "volcenginecc_vmp_alerting_rule": {},
+            "volcenginecc_vmp_integration_task": {},
             "volcenginecc_vmp_rule_file": {},
             "volcenginecc_vmp_workspace": {},
             "volcenginecc_vpc_bandwidth_package": {},

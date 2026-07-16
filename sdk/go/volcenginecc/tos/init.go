@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketRealtimeLog{}
 	case "volcenginecc:tos/bucketRename:BucketRename":
 		r = &BucketRename{}
+	case "volcenginecc:tos/bucketReplication:BucketReplication":
+		r = &BucketReplication{}
 	case "volcenginecc:tos/bucketWebsite:BucketWebsite":
 		r = &BucketWebsite{}
 	case "volcenginecc:tos/tosObject:TosObject":
@@ -99,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"tos/bucketRename",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"tos/bucketReplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

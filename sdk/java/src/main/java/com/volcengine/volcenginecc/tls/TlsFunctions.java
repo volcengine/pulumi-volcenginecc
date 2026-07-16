@@ -20,6 +20,8 @@ import com.volcengine.volcenginecc.tls.inputs.GetAlarmWebhookIntegrationTypeArgs
 import com.volcengine.volcenginecc.tls.inputs.GetAlarmWebhookIntegrationTypePlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetConsumerGroupPlainArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetDownloadTaskArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetDownloadTaskPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetEtlArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetEtlPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetHostArgs;
@@ -33,6 +35,8 @@ import com.volcengine.volcenginecc.tls.inputs.GetIndexPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetProjectArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetProjectPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetRuleArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetRuleBoundHostGroupArgs;
+import com.volcengine.volcenginecc.tls.inputs.GetRuleBoundHostGroupPlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetRulePlainArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetScheduleSqlTaskArgs;
 import com.volcengine.volcenginecc.tls.inputs.GetScheduleSqlTaskPlainArgs;
@@ -50,6 +54,8 @@ import com.volcengine.volcenginecc.tls.outputs.GetAlarmWebhookIntegrationTypesRe
 import com.volcengine.volcenginecc.tls.outputs.GetAlarmsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupResult;
 import com.volcengine.volcenginecc.tls.outputs.GetConsumerGroupsResult;
+import com.volcengine.volcenginecc.tls.outputs.GetDownloadTaskResult;
+import com.volcengine.volcenginecc.tls.outputs.GetDownloadTasksResult;
 import com.volcengine.volcenginecc.tls.outputs.GetEtlResult;
 import com.volcengine.volcenginecc.tls.outputs.GetEtlsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetHostGroupResult;
@@ -62,6 +68,8 @@ import com.volcengine.volcenginecc.tls.outputs.GetIndexResult;
 import com.volcengine.volcenginecc.tls.outputs.GetIndicesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetProjectResult;
 import com.volcengine.volcenginecc.tls.outputs.GetProjectsResult;
+import com.volcengine.volcenginecc.tls.outputs.GetRuleBoundHostGroupResult;
+import com.volcengine.volcenginecc.tls.outputs.GetRuleBoundHostGroupsResult;
 import com.volcengine.volcenginecc.tls.outputs.GetRuleResult;
 import com.volcengine.volcenginecc.tls.outputs.GetRulesResult;
 import com.volcengine.volcenginecc.tls.outputs.GetScheduleSqlTaskResult;
@@ -492,6 +500,90 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetConsumerGroupsResult> getConsumerGroupsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getConsumerGroups:getConsumerGroups", TypeShape.of(GetConsumerGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTaskResult> getDownloadTask(GetDownloadTaskArgs args) {
+        return getDownloadTask(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static CompletableFuture<GetDownloadTaskResult> getDownloadTaskPlain(GetDownloadTaskPlainArgs args) {
+        return getDownloadTaskPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTaskResult> getDownloadTask(GetDownloadTaskArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getDownloadTask:getDownloadTask", TypeShape.of(GetDownloadTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTaskResult> getDownloadTask(GetDownloadTaskArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getDownloadTask:getDownloadTask", TypeShape.of(GetDownloadTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static CompletableFuture<GetDownloadTaskResult> getDownloadTaskPlain(GetDownloadTaskPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getDownloadTask:getDownloadTask", TypeShape.of(GetDownloadTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTasksResult> getDownloadTasks() {
+        return getDownloadTasks(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static CompletableFuture<GetDownloadTasksResult> getDownloadTasksPlain() {
+        return getDownloadTasksPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTasksResult> getDownloadTasks(InvokeArgs args) {
+        return getDownloadTasks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static CompletableFuture<GetDownloadTasksResult> getDownloadTasksPlain(InvokeArgs args) {
+        return getDownloadTasksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTasksResult> getDownloadTasks(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getDownloadTasks:getDownloadTasks", TypeShape.of(GetDownloadTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static Output<GetDownloadTasksResult> getDownloadTasks(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getDownloadTasks:getDownloadTasks", TypeShape.of(GetDownloadTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::DownloadTask
+     * 
+     */
+    public static CompletableFuture<GetDownloadTasksResult> getDownloadTasksPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getDownloadTasks:getDownloadTasks", TypeShape.of(GetDownloadTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::TLS::Etl
@@ -1031,6 +1123,90 @@ public final class TlsFunctions {
      */
     public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:tls/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupResult> getRuleBoundHostGroup(GetRuleBoundHostGroupArgs args) {
+        return getRuleBoundHostGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static CompletableFuture<GetRuleBoundHostGroupResult> getRuleBoundHostGroupPlain(GetRuleBoundHostGroupPlainArgs args) {
+        return getRuleBoundHostGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupResult> getRuleBoundHostGroup(GetRuleBoundHostGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRuleBoundHostGroup:getRuleBoundHostGroup", TypeShape.of(GetRuleBoundHostGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupResult> getRuleBoundHostGroup(GetRuleBoundHostGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRuleBoundHostGroup:getRuleBoundHostGroup", TypeShape.of(GetRuleBoundHostGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static CompletableFuture<GetRuleBoundHostGroupResult> getRuleBoundHostGroupPlain(GetRuleBoundHostGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getRuleBoundHostGroup:getRuleBoundHostGroup", TypeShape.of(GetRuleBoundHostGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupsResult> getRuleBoundHostGroups() {
+        return getRuleBoundHostGroups(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static CompletableFuture<GetRuleBoundHostGroupsResult> getRuleBoundHostGroupsPlain() {
+        return getRuleBoundHostGroupsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupsResult> getRuleBoundHostGroups(InvokeArgs args) {
+        return getRuleBoundHostGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static CompletableFuture<GetRuleBoundHostGroupsResult> getRuleBoundHostGroupsPlain(InvokeArgs args) {
+        return getRuleBoundHostGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupsResult> getRuleBoundHostGroups(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRuleBoundHostGroups:getRuleBoundHostGroups", TypeShape.of(GetRuleBoundHostGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static Output<GetRuleBoundHostGroupsResult> getRuleBoundHostGroups(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tls/getRuleBoundHostGroups:getRuleBoundHostGroups", TypeShape.of(GetRuleBoundHostGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TLS::RuleBoundHostGroup
+     * 
+     */
+    public static CompletableFuture<GetRuleBoundHostGroupsResult> getRuleBoundHostGroupsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tls/getRuleBoundHostGroups:getRuleBoundHostGroups", TypeShape.of(GetRuleBoundHostGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::TLS::Rule
