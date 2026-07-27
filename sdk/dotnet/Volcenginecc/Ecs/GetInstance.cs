@@ -65,6 +65,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
         public readonly int AutoRenewPeriod;
         public readonly double CpuMaxFrequency;
         public readonly Outputs.GetInstanceCpuMemoryResult CpuMemory;
+        public readonly Outputs.GetInstanceCpuOptionsResult CpuOptions;
         public readonly string CreatedAt;
         public readonly string CreditSpecification;
         public readonly ImmutableArray<Outputs.GetInstanceDataVolumeResult> DataVolumes;
@@ -126,6 +127,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
             double cpuMaxFrequency,
 
             Outputs.GetInstanceCpuMemoryResult cpuMemory,
+
+            Outputs.GetInstanceCpuOptionsResult cpuOptions,
 
             string createdAt,
 
@@ -224,6 +227,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Ecs
             AutoRenewPeriod = autoRenewPeriod;
             CpuMaxFrequency = cpuMaxFrequency;
             CpuMemory = cpuMemory;
+            CpuOptions = cpuOptions;
             CreatedAt = createdAt;
             CreditSpecification = creditSpecification;
             DataVolumes = dataVolumes;

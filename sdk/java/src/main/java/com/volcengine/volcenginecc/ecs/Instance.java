@@ -11,6 +11,7 @@ import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.ecs.InstanceArgs;
 import com.volcengine.volcenginecc.ecs.inputs.InstanceState;
 import com.volcengine.volcenginecc.ecs.outputs.InstanceCpuMemory;
+import com.volcengine.volcenginecc.ecs.outputs.InstanceCpuOptions;
 import com.volcengine.volcenginecc.ecs.outputs.InstanceDataVolume;
 import com.volcengine.volcenginecc.ecs.outputs.InstanceEipAddress;
 import com.volcengine.volcenginecc.ecs.outputs.InstanceImage;
@@ -52,6 +53,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.volcenginecc.ecs.inputs.InstanceSecondaryNetworkInterfaceArgs;
  * import com.pulumi.volcenginecc.ecs.inputs.InstancePlacementArgs;
  * import com.pulumi.volcenginecc.ecs.inputs.InstanceSystemVolumeArgs;
+ * import com.pulumi.volcenginecc.ecs.inputs.InstanceCpuOptionsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -108,6 +110,9 @@ import javax.annotation.Nullable;
  *                 .size(50)
  *                 .delete_with_instance(true)
  *                 .volume_type("ESSD_FlexPL")
+ *                 .build())
+ *             .cpuOptions(InstanceCpuOptionsArgs.builder()
+ *                 .topology_type("DiscreteCoreToHTMapping")
  *                 .build())
  *             .build());
  * 
@@ -253,6 +258,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<InstanceCpuMemory> cpuMemory() {
         return this.cpuMemory;
+    }
+    /**
+     * CPU configuration options for the instance
+     * 
+     */
+    @Export(name="cpuOptions", refs={InstanceCpuOptions.class}, tree="[0]")
+    private Output<InstanceCpuOptions> cpuOptions;
+
+    /**
+     * @return CPU configuration options for the instance
+     * 
+     */
+    public Output<InstanceCpuOptions> cpuOptions() {
+        return this.cpuOptions;
     }
     /**
      * Instance creation time.

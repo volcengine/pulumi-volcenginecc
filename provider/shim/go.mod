@@ -4,13 +4,14 @@ go 1.25.8
 
 require (
 	github.com/hashicorp/terraform-plugin-framework v1.19.0
-	github.com/volcengine/terraform-provider-volcenginecc v0.0.59
+	github.com/volcengine/terraform-provider-volcenginecc v0.0.60
 )
 
 require (
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
+	github.com/hashicorp/go-uuid v1.0.3 // indirect
 	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.2.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timetypes v0.5.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.18.0 // indirect

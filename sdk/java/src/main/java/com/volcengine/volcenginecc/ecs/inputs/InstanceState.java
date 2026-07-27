@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.ecs.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.ecs.inputs.InstanceCpuMemoryArgs;
+import com.volcengine.volcenginecc.ecs.inputs.InstanceCpuOptionsArgs;
 import com.volcengine.volcenginecc.ecs.inputs.InstanceDataVolumeArgs;
 import com.volcengine.volcenginecc.ecs.inputs.InstanceEipAddressArgs;
 import com.volcengine.volcenginecc.ecs.inputs.InstanceImageArgs;
@@ -166,6 +167,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<InstanceCpuMemoryArgs>> cpuMemory() {
         return Optional.ofNullable(this.cpuMemory);
+    }
+
+    /**
+     * CPU configuration options for the instance
+     * 
+     */
+    @Import(name="cpuOptions")
+    private @Nullable Output<InstanceCpuOptionsArgs> cpuOptions;
+
+    /**
+     * @return CPU configuration options for the instance
+     * 
+     */
+    public Optional<Output<InstanceCpuOptionsArgs>> cpuOptions() {
+        return Optional.ofNullable(this.cpuOptions);
     }
 
     /**
@@ -984,6 +1000,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.autoRenewPeriod = $.autoRenewPeriod;
         this.cpuMaxFrequency = $.cpuMaxFrequency;
         this.cpuMemory = $.cpuMemory;
+        this.cpuOptions = $.cpuOptions;
         this.createdAt = $.createdAt;
         this.creditSpecification = $.creditSpecification;
         this.dataVolumes = $.dataVolumes;
@@ -1223,6 +1240,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cpuMemory(InstanceCpuMemoryArgs cpuMemory) {
             return cpuMemory(Output.of(cpuMemory));
+        }
+
+        /**
+         * @param cpuOptions CPU configuration options for the instance
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuOptions(@Nullable Output<InstanceCpuOptionsArgs> cpuOptions) {
+            $.cpuOptions = cpuOptions;
+            return this;
+        }
+
+        /**
+         * @param cpuOptions CPU configuration options for the instance
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuOptions(InstanceCpuOptionsArgs cpuOptions) {
+            return cpuOptions(Output.of(cpuOptions));
         }
 
         /**
