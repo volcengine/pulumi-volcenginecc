@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.ecs.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.ecs.outputs.GetInstanceCpuMemory;
+import com.volcengine.volcenginecc.ecs.outputs.GetInstanceCpuOptions;
 import com.volcengine.volcenginecc.ecs.outputs.GetInstanceDataVolume;
 import com.volcengine.volcenginecc.ecs.outputs.GetInstanceEipAddress;
 import com.volcengine.volcenginecc.ecs.outputs.GetInstanceImage;
@@ -35,6 +36,7 @@ public final class GetInstanceResult {
     private Integer autoRenewPeriod;
     private Double cpuMaxFrequency;
     private GetInstanceCpuMemory cpuMemory;
+    private GetInstanceCpuOptions cpuOptions;
     private String createdAt;
     private String creditSpecification;
     private List<GetInstanceDataVolume> dataVolumes;
@@ -102,6 +104,9 @@ public final class GetInstanceResult {
     }
     public GetInstanceCpuMemory cpuMemory() {
         return this.cpuMemory;
+    }
+    public GetInstanceCpuOptions cpuOptions() {
+        return this.cpuOptions;
     }
     public String createdAt() {
         return this.createdAt;
@@ -255,6 +260,7 @@ public final class GetInstanceResult {
         private Integer autoRenewPeriod;
         private Double cpuMaxFrequency;
         private GetInstanceCpuMemory cpuMemory;
+        private GetInstanceCpuOptions cpuOptions;
         private String createdAt;
         private String creditSpecification;
         private List<GetInstanceDataVolume> dataVolumes;
@@ -310,6 +316,7 @@ public final class GetInstanceResult {
     	      this.autoRenewPeriod = defaults.autoRenewPeriod;
     	      this.cpuMaxFrequency = defaults.cpuMaxFrequency;
     	      this.cpuMemory = defaults.cpuMemory;
+    	      this.cpuOptions = defaults.cpuOptions;
     	      this.createdAt = defaults.createdAt;
     	      this.creditSpecification = defaults.creditSpecification;
     	      this.dataVolumes = defaults.dataVolumes;
@@ -411,6 +418,14 @@ public final class GetInstanceResult {
               throw new MissingRequiredPropertyException("GetInstanceResult", "cpuMemory");
             }
             this.cpuMemory = cpuMemory;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cpuOptions(GetInstanceCpuOptions cpuOptions) {
+            if (cpuOptions == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "cpuOptions");
+            }
+            this.cpuOptions = cpuOptions;
             return this;
         }
         @CustomType.Setter
@@ -803,6 +818,7 @@ public final class GetInstanceResult {
             _resultValue.autoRenewPeriod = autoRenewPeriod;
             _resultValue.cpuMaxFrequency = cpuMaxFrequency;
             _resultValue.cpuMemory = cpuMemory;
+            _resultValue.cpuOptions = cpuOptions;
             _resultValue.createdAt = createdAt;
             _resultValue.creditSpecification = creditSpecification;
             _resultValue.dataVolumes = dataVolumes;
