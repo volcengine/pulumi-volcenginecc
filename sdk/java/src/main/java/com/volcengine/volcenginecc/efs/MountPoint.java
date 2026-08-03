@@ -15,14 +15,14 @@ import javax.annotation.Nullable;
 
 /**
  * EFS file storage mount point, used to mount the file system on the client within the specified VPC and subnet
- *
+ * 
  * ## Example Usage
- *
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
  * package generated_program;
- *
+ * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
@@ -34,12 +34,12 @@ import javax.annotation.Nullable;
  * import java.io.File;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
- *
+ * 
  * public class App {
  *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
  *     }
- *
+ * 
  *     public static void stack(Context ctx) {
  *         var primaryEfsMountpointCase1 = new MountPoint("primaryEfsMountpointCase1", MountPointArgs.builder()
  *             .fileSystemId("vol-1234567890abcdef")
@@ -48,242 +48,242 @@ import javax.annotation.Nullable;
  *             .vpcId("vpc-1234567890abcdef")
  *             .subnetId("subnet-1234567890abcdef")
  *             .build());
- *
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- *
+ * 
  * ## Import
- *
+ * 
  * ```sh
  * $ pulumi import volcenginecc:efs/mountPoint:MountPoint example &#34;file_system_id|mount_point_id&#34;
  * ```
- *
+ * 
  */
 @ResourceType(type="volcenginecc:efs/mountPoint:MountPoint")
 public class MountPoint extends com.pulumi.resources.CustomResource {
     /**
      * Creation time of the mount point
-     *
+     * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
      * @return Creation time of the mount point
-     *
+     * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
      * Domain name of the mount point
-     *
+     * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
      * @return Domain name of the mount point
-     *
+     * 
      */
     public Output<String> domain() {
         return this.domain;
     }
     /**
      * ID of the associated file system
-     *
+     * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
      * @return ID of the associated file system
-     *
+     * 
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
     /**
      * IP address of the mount point
-     *
+     * 
      */
     @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
      * @return IP address of the mount point
-     *
+     * 
      */
     public Output<String> ip() {
         return this.ip;
     }
     /**
      * ID of the mount point
-     *
+     * 
      */
     @Export(name="mountPointId", refs={String.class}, tree="[0]")
     private Output<String> mountPointId;
 
     /**
      * @return ID of the mount point
-     *
+     * 
      */
     public Output<String> mountPointId() {
         return this.mountPointId;
     }
     /**
      * Name of the mount point
-     *
+     * 
      */
     @Export(name="mountPointName", refs={String.class}, tree="[0]")
     private Output<String> mountPointName;
 
     /**
      * @return Name of the mount point
-     *
+     * 
      */
     public Output<String> mountPointName() {
         return this.mountPointName;
     }
     /**
      * ID of the permission group bound to the mount point
-     *
+     * 
      */
     @Export(name="permissionGroupId", refs={String.class}, tree="[0]")
     private Output<String> permissionGroupId;
 
     /**
      * @return ID of the permission group bound to the mount point
-     *
+     * 
      */
     public Output<String> permissionGroupId() {
         return this.permissionGroupId;
     }
     /**
      * Name of the permission group bound to the mount point
-     *
+     * 
      */
     @Export(name="permissionGroupName", refs={String.class}, tree="[0]")
     private Output<String> permissionGroupName;
 
     /**
      * @return Name of the permission group bound to the mount point
-     *
+     * 
      */
     public Output<String> permissionGroupName() {
         return this.permissionGroupName;
     }
     /**
      * Status of the mount point. Creating: In progress; Running: Available; Updating: In progress; Deleting: In progress; CreateError: Creation failed; DeleteError: Deletion failed; Disabled: Disabled; Unknown: Unknown
-     *
+     * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
      * @return Status of the mount point. Creating: In progress; Running: Available; Updating: In progress; Deleting: In progress; CreateError: Creation failed; DeleteError: Deletion failed; Disabled: Disabled; Unknown: Unknown
-     *
+     * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
      * ID of the subnet associated with the mount point
-     *
+     * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
      * @return ID of the subnet associated with the mount point
-     *
+     * 
      */
     public Output<String> subnetId() {
         return this.subnetId;
     }
     /**
      * Name of the subnet associated with the mount point
-     *
+     * 
      */
     @Export(name="subnetName", refs={String.class}, tree="[0]")
     private Output<String> subnetName;
 
     /**
      * @return Name of the subnet associated with the mount point
-     *
+     * 
      */
     public Output<String> subnetName() {
         return this.subnetName;
     }
     /**
      * Last update time of the mount point
-     *
+     * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**
      * @return Last update time of the mount point
-     *
+     * 
      */
     public Output<String> updateTime() {
         return this.updateTime;
     }
     /**
      * ID of the VPC associated with the mount point
-     *
+     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return ID of the VPC associated with the mount point
-     *
+     * 
      */
     public Output<String> vpcId() {
         return this.vpcId;
     }
     /**
      * Name of the VPC associated with the mount point
-     *
+     * 
      */
     @Export(name="vpcName", refs={String.class}, tree="[0]")
     private Output<String> vpcName;
 
     /**
      * @return Name of the VPC associated with the mount point
-     *
+     * 
      */
     public Output<String> vpcName() {
         return this.vpcName;
     }
     /**
      * ID of the availability zone associated with the mount point
-     *
+     * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**
      * @return ID of the availability zone associated with the mount point
-     *
+     * 
      */
     public Output<String> zoneId() {
         return this.zoneId;
     }
     /**
      * Name of the availability zone associated with the mount point
-     *
+     * 
      */
     @Export(name="zoneName", refs={String.class}, tree="[0]")
     private Output<String> zoneName;
 
     /**
      * @return Name of the availability zone associated with the mount point
-     *
+     * 
      */
     public Output<String> zoneName() {
         return this.zoneName;

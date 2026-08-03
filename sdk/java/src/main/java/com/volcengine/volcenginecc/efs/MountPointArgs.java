@@ -18,14 +18,14 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ID of the associated file system
-     *
+     * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
      * @return ID of the associated file system
-     *
+     * 
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
@@ -33,14 +33,14 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Name of the mount point
-     *
+     * 
      */
     @Import(name="mountPointName", required=true)
     private Output<String> mountPointName;
 
     /**
      * @return Name of the mount point
-     *
+     * 
      */
     public Output<String> mountPointName() {
         return this.mountPointName;
@@ -48,14 +48,14 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ID of the permission group bound to the mount point
-     *
+     * 
      */
     @Import(name="permissionGroupId", required=true)
     private Output<String> permissionGroupId;
 
     /**
      * @return ID of the permission group bound to the mount point
-     *
+     * 
      */
     public Output<String> permissionGroupId() {
         return this.permissionGroupId;
@@ -63,14 +63,14 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ID of the subnet associated with the mount point
-     *
+     * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
      * @return ID of the subnet associated with the mount point
-     *
+     * 
      */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
@@ -78,14 +78,14 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ID of the VPC associated with the mount point
-     *
+     * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
      * @return ID of the VPC associated with the mount point
-     *
+     * 
      */
     public Output<String> vpcId() {
         return this.vpcId;
@@ -121,9 +121,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param fileSystemId ID of the associated file system
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
@@ -132,9 +132,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param fileSystemId ID of the associated file system
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
@@ -142,9 +142,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param mountPointName Name of the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder mountPointName(Output<String> mountPointName) {
             $.mountPointName = mountPointName;
@@ -153,9 +153,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param mountPointName Name of the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder mountPointName(String mountPointName) {
             return mountPointName(Output.of(mountPointName));
@@ -163,9 +163,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param permissionGroupId ID of the permission group bound to the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder permissionGroupId(Output<String> permissionGroupId) {
             $.permissionGroupId = permissionGroupId;
@@ -174,9 +174,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param permissionGroupId ID of the permission group bound to the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder permissionGroupId(String permissionGroupId) {
             return permissionGroupId(Output.of(permissionGroupId));
@@ -184,9 +184,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subnetId ID of the subnet associated with the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
@@ -195,9 +195,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subnetId ID of the subnet associated with the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
@@ -205,9 +205,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId ID of the VPC associated with the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
@@ -216,9 +216,9 @@ public final class MountPointArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId ID of the VPC associated with the mount point
-         *
+         * 
          * @return builder
-         *
+         * 
          */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));

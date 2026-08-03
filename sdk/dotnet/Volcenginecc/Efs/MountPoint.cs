@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
 {
     /// <summary>
     /// EFS file storage mount point, used to mount the file system on the client within the specified VPC and subnet
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var primaryEfsMountpointCase1 = new Volcenginecc.Efs.MountPoint("primary_efs_mountpoint_case_1", new()
     ///     {
@@ -31,12 +31,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Efs
     ///         VpcId = "vpc-1234567890abcdef",
     ///         SubnetId = "subnet-1234567890abcdef",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:efs/mountPoint:MountPoint example "file_system_id|mount_point_id"
     /// ```

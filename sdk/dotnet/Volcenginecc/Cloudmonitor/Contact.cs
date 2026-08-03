@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
 {
     /// <summary>
     /// Cloud Monitoring alert contact. Used to configure recipients for alert notifications. You can add a contact to one or more contact groups.
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Volcenginecc.Cloudmonitor.Contact("Example", new()
     ///     {
@@ -33,12 +33,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor
     ///         Phone = "138*****000",
     ///         Name = "Test_Contact2",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:cloudmonitor/contact:Contact example "contact_id"
     /// ```

@@ -12,16 +12,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Waf
 {
     /// <summary>
     /// WAF CC protection rule. Restricts requests based on network access IP, session, and other HTTP request objects. When the specified statistical conditions are met, a protection action is triggered
-    ///
+    /// 
     /// ## Example Usage
-    ///
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Volcenginecc = Volcengine.Pulumi.Volcenginecc;
-    ///
-    /// return await Deployment.RunAsync(() =&gt;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var primaryWafCcruleCase2 = new Volcenginecc.Waf.CcRule("primary_waf_ccrule_case_2", new()
     ///     {
@@ -46,12 +46,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Waf
     ///         Url = "/admin",
     ///         Name = "test-rule-block",
     ///     });
-    ///
+    /// 
     /// });
     /// ```
-    ///
+    /// 
     /// ## Import
-    ///
+    /// 
     /// ```sh
     /// $ pulumi import volcenginecc:waf/ccRule:CcRule example "host|rule_id"
     /// ```

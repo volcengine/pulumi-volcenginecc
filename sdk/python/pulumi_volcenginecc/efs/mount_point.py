@@ -692,3 +692,4 @@ class MountPoint(pulumi.CustomResource):
         Name of the availability zone associated with the mount point
         """
         return pulumi.get(self, "zone_name")
+
