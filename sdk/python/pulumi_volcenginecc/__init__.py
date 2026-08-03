@@ -571,6 +571,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudmonitor/contact",
+  "fqn": "pulumi_volcenginecc.cloudmonitor",
+  "classes": {
+   "volcenginecc:cloudmonitor/contact:Contact": "Contact"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cloudmonitor/contactGroup",
   "fqn": "pulumi_volcenginecc.cloudmonitor",
   "classes": {
@@ -783,6 +791,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.efs",
   "classes": {
    "volcenginecc:efs/fileSystem:FileSystem": "FileSystem"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "efs/mountPoint",
+  "fqn": "pulumi_volcenginecc.efs",
+  "classes": {
+   "volcenginecc:efs/mountPoint:MountPoint": "MountPoint"
   }
  },
  {
@@ -2359,6 +2375,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpn",
   "classes": {
    "volcenginecc:vpn/vpnGatewayRoute:VpnGatewayRoute": "VpnGatewayRoute"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "waf/ccRule",
+  "fqn": "pulumi_volcenginecc.waf",
+  "classes": {
+   "volcenginecc:waf/ccRule:CcRule": "CcRule"
   }
  },
  {

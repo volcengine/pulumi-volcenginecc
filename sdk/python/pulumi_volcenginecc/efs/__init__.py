@@ -9,5 +9,8 @@ import typing
 from .file_system import *
 from .get_file_system import *
 from .get_file_systems import *
+from .get_mount_point import *
+from .get_mount_points import *
+from .mount_point import *
 from ._inputs import *
 from . import outputs

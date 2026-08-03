@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:efs/fileSystem:FileSystem":
 		r = &FileSystem{}
+	case "volcenginecc:efs/mountPoint:MountPoint":
+		r = &MountPoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"efs/fileSystem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"efs/mountPoint",
 		&module{version},
 	)
 }

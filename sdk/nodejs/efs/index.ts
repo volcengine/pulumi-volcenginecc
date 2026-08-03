@@ -20,6 +20,21 @@ export const getFileSystems: typeof import("./getFileSystems").getFileSystems = 
 export const getFileSystemsOutput: typeof import("./getFileSystems").getFileSystemsOutput = null as any;
 utilities.lazyLoad(exports, ["getFileSystems","getFileSystemsOutput"], () => require("./getFileSystems"));
 
+export { GetMountPointArgs, GetMountPointResult, GetMountPointOutputArgs } from "./getMountPoint";
+export const getMountPoint: typeof import("./getMountPoint").getMountPoint = null as any;
+export const getMountPointOutput: typeof import("./getMountPoint").getMountPointOutput = null as any;
+utilities.lazyLoad(exports, ["getMountPoint","getMountPointOutput"], () => require("./getMountPoint"));
+
+export { GetMountPointsResult } from "./getMountPoints";
+export const getMountPoints: typeof import("./getMountPoints").getMountPoints = null as any;
+export const getMountPointsOutput: typeof import("./getMountPoints").getMountPointsOutput = null as any;
+utilities.lazyLoad(exports, ["getMountPoints","getMountPointsOutput"], () => require("./getMountPoints"));
+
+export { MountPointArgs, MountPointState } from "./mountPoint";
+export type MountPoint = import("./mountPoint").MountPoint;
+export const MountPoint: typeof import("./mountPoint").MountPoint = null as any;
+utilities.lazyLoad(exports, ["MountPoint"], () => require("./mountPoint"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +42,12 @@ const _module = {
         switch (type) {
             case "volcenginecc:efs/fileSystem:FileSystem":
                 return new FileSystem(name, <any>undefined, { urn })
+            case "volcenginecc:efs/mountPoint:MountPoint":
+                return new MountPoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("volcenginecc", "efs/fileSystem", _module)
+pulumi.runtime.registerResourceModule("volcenginecc", "efs/mountPoint", _module)

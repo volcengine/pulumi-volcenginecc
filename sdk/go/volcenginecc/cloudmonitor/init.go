@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:cloudmonitor/contact:Contact":
+		r = &Contact{}
 	case "volcenginecc:cloudmonitor/contactGroup:ContactGroup":
 		r = &ContactGroup{}
 	case "volcenginecc:cloudmonitor/eventRule:EventRule":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"cloudmonitor/contact",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"cloudmonitor/contactGroup",
