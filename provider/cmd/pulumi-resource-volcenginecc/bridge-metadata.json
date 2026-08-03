@@ -1235,6 +1235,14 @@
             "volcenginecc_cloudidentity_user_provisioning": {
                 "current": "volcenginecc:cloudidentity/userProvisioning:UserProvisioning"
             },
+            "volcenginecc_cloudmonitor_contact": {
+                "current": "volcenginecc:cloudmonitor/contact:Contact",
+                "fields": {
+                    "contact_group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cloudmonitor_contact_group": {
                 "current": "volcenginecc:cloudmonitor/contactGroup:ContactGroup",
                 "fields": {
@@ -1654,6 +1662,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_efs_mount_point": {
+                "current": "volcenginecc:efs/mountPoint:MountPoint"
             },
             "volcenginecc_emr_cluster": {
                 "current": "volcenginecc:emr/cluster:Cluster",
@@ -4835,6 +4846,21 @@
                     }
                 }
             },
+            "volcenginecc_waf_cc_rule": {
+                "current": "volcenginecc:waf/ccRule:CcRule",
+                "fields": {
+                    "accurate_group": {
+                        "fields": {
+                            "accurate_rules": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "cron_confs": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_waf_domain": {
                 "current": "volcenginecc:waf/domain:Domain",
                 "fields": {
@@ -6560,6 +6586,14 @@
                     }
                 }
             },
+            "volcenginecc_cloudmonitor_contact": {
+                "current": "volcenginecc:cloudmonitor/getContact:getContact",
+                "fields": {
+                    "contact_group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_cloudmonitor_contact_group": {
                 "current": "volcenginecc:cloudmonitor/getContactGroup:getContactGroup",
                 "fields": {
@@ -6570,6 +6604,14 @@
             },
             "volcenginecc_cloudmonitor_contact_groups": {
                 "current": "volcenginecc:cloudmonitor/getContactGroups:getContactGroups",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cloudmonitor_contacts": {
+                "current": "volcenginecc:cloudmonitor/getContacts:getContacts",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -7190,6 +7232,17 @@
             },
             "volcenginecc_efs_file_systems": {
                 "current": "volcenginecc:efs/getFileSystems:getFileSystems",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_efs_mount_point": {
+                "current": "volcenginecc:efs/getMountPoint:getMountPoint"
+            },
+            "volcenginecc_efs_mount_points": {
+                "current": "volcenginecc:efs/getMountPoints:getMountPoints",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -12047,6 +12100,29 @@
                     }
                 }
             },
+            "volcenginecc_waf_cc_rule": {
+                "current": "volcenginecc:waf/getCcRule:getCcRule",
+                "fields": {
+                    "accurate_group": {
+                        "fields": {
+                            "accurate_rules": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "cron_confs": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_waf_cc_rules": {
+                "current": "volcenginecc:waf/getCcRules:getCcRules",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_waf_domain": {
                 "current": "volcenginecc:waf/getDomain:getDomain",
                 "fields": {
@@ -12189,6 +12265,7 @@
             "volcenginecc_cloudidentity_permission_set_provisioning": {},
             "volcenginecc_cloudidentity_user": {},
             "volcenginecc_cloudidentity_user_provisioning": {},
+            "volcenginecc_cloudmonitor_contact": {},
             "volcenginecc_cloudmonitor_contact_group": {},
             "volcenginecc_cloudmonitor_event_rule": {},
             "volcenginecc_cloudmonitor_rule": {},
@@ -12216,6 +12293,7 @@
             "volcenginecc_ecs_launch_template": {},
             "volcenginecc_ecs_launch_template_version": {},
             "volcenginecc_efs_file_system": {},
+            "volcenginecc_efs_mount_point": {},
             "volcenginecc_emr_cluster": {},
             "volcenginecc_emr_cluster_user": {},
             "volcenginecc_emr_cluster_user_group": {},
@@ -12413,6 +12491,7 @@
             "volcenginecc_vpn_vpn_connection": {},
             "volcenginecc_vpn_vpn_gateway": {},
             "volcenginecc_vpn_vpn_gateway_route": {},
+            "volcenginecc_waf_cc_rule": {},
             "volcenginecc_waf_domain": {},
             "volcenginecc_waf_host_group": {}
         }
