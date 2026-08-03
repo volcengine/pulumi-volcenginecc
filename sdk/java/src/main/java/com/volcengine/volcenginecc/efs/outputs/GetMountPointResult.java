@@ -12,206 +12,206 @@ import java.util.Objects;
 public final class GetMountPointResult {
     /**
      * @return Creation time of the mount point
-     *
+     * 
      */
     private String createTime;
     /**
      * @return Domain name of the mount point
-     *
+     * 
      */
     private String domain;
     /**
      * @return ID of the associated file system
-     *
+     * 
      */
     private String fileSystemId;
     /**
      * @return Uniquely identifies the resource.
-     *
+     * 
      */
     private String id;
     /**
      * @return IP address of the mount point
-     *
+     * 
      */
     private String ip;
     /**
      * @return ID of the mount point
-     *
+     * 
      */
     private String mountPointId;
     /**
      * @return Name of the mount point
-     *
+     * 
      */
     private String mountPointName;
     /**
      * @return ID of the permission group bound to the mount point
-     *
+     * 
      */
     private String permissionGroupId;
     /**
      * @return Name of the permission group bound to the mount point
-     *
+     * 
      */
     private String permissionGroupName;
     /**
      * @return Status of the mount point. Creating: In progress; Running: Available; Updating: In progress; Deleting: In progress; CreateError: Creation failed; DeleteError: Deletion failed; Disabled: Disabled; Unknown: Unknown
-     *
+     * 
      */
     private String status;
     /**
      * @return ID of the subnet associated with the mount point
-     *
+     * 
      */
     private String subnetId;
     /**
      * @return Name of the subnet associated with the mount point
-     *
+     * 
      */
     private String subnetName;
     /**
      * @return Last update time of the mount point
-     *
+     * 
      */
     private String updateTime;
     /**
      * @return ID of the VPC associated with the mount point
-     *
+     * 
      */
     private String vpcId;
     /**
      * @return Name of the VPC associated with the mount point
-     *
+     * 
      */
     private String vpcName;
     /**
      * @return ID of the availability zone associated with the mount point
-     *
+     * 
      */
     private String zoneId;
     /**
      * @return Name of the availability zone associated with the mount point
-     *
+     * 
      */
     private String zoneName;
 
     private GetMountPointResult() {}
     /**
      * @return Creation time of the mount point
-     *
+     * 
      */
     public String createTime() {
         return this.createTime;
     }
     /**
      * @return Domain name of the mount point
-     *
+     * 
      */
     public String domain() {
         return this.domain;
     }
     /**
      * @return ID of the associated file system
-     *
+     * 
      */
     public String fileSystemId() {
         return this.fileSystemId;
     }
     /**
      * @return Uniquely identifies the resource.
-     *
+     * 
      */
     public String id() {
         return this.id;
     }
     /**
      * @return IP address of the mount point
-     *
+     * 
      */
     public String ip() {
         return this.ip;
     }
     /**
      * @return ID of the mount point
-     *
+     * 
      */
     public String mountPointId() {
         return this.mountPointId;
     }
     /**
      * @return Name of the mount point
-     *
+     * 
      */
     public String mountPointName() {
         return this.mountPointName;
     }
     /**
      * @return ID of the permission group bound to the mount point
-     *
+     * 
      */
     public String permissionGroupId() {
         return this.permissionGroupId;
     }
     /**
      * @return Name of the permission group bound to the mount point
-     *
+     * 
      */
     public String permissionGroupName() {
         return this.permissionGroupName;
     }
     /**
      * @return Status of the mount point. Creating: In progress; Running: Available; Updating: In progress; Deleting: In progress; CreateError: Creation failed; DeleteError: Deletion failed; Disabled: Disabled; Unknown: Unknown
-     *
+     * 
      */
     public String status() {
         return this.status;
     }
     /**
      * @return ID of the subnet associated with the mount point
-     *
+     * 
      */
     public String subnetId() {
         return this.subnetId;
     }
     /**
      * @return Name of the subnet associated with the mount point
-     *
+     * 
      */
     public String subnetName() {
         return this.subnetName;
     }
     /**
      * @return Last update time of the mount point
-     *
+     * 
      */
     public String updateTime() {
         return this.updateTime;
     }
     /**
      * @return ID of the VPC associated with the mount point
-     *
+     * 
      */
     public String vpcId() {
         return this.vpcId;
     }
     /**
      * @return Name of the VPC associated with the mount point
-     *
+     * 
      */
     public String vpcName() {
         return this.vpcName;
     }
     /**
      * @return ID of the availability zone associated with the mount point
-     *
+     * 
      */
     public String zoneId() {
         return this.zoneId;
     }
     /**
      * @return Name of the availability zone associated with the mount point
-     *
+     * 
      */
     public String zoneName() {
         return this.zoneName;
@@ -245,24 +245,24 @@ public final class GetMountPointResult {
         private String zoneName;
         public Builder() {}
         public Builder(GetMountPointResult defaults) {
-              Objects.requireNonNull(defaults);
-              this.createTime = defaults.createTime;
-              this.domain = defaults.domain;
-              this.fileSystemId = defaults.fileSystemId;
-              this.id = defaults.id;
-              this.ip = defaults.ip;
-              this.mountPointId = defaults.mountPointId;
-              this.mountPointName = defaults.mountPointName;
-              this.permissionGroupId = defaults.permissionGroupId;
-              this.permissionGroupName = defaults.permissionGroupName;
-              this.status = defaults.status;
-              this.subnetId = defaults.subnetId;
-              this.subnetName = defaults.subnetName;
-              this.updateTime = defaults.updateTime;
-              this.vpcId = defaults.vpcId;
-              this.vpcName = defaults.vpcName;
-              this.zoneId = defaults.zoneId;
-              this.zoneName = defaults.zoneName;
+    	      Objects.requireNonNull(defaults);
+    	      this.createTime = defaults.createTime;
+    	      this.domain = defaults.domain;
+    	      this.fileSystemId = defaults.fileSystemId;
+    	      this.id = defaults.id;
+    	      this.ip = defaults.ip;
+    	      this.mountPointId = defaults.mountPointId;
+    	      this.mountPointName = defaults.mountPointName;
+    	      this.permissionGroupId = defaults.permissionGroupId;
+    	      this.permissionGroupName = defaults.permissionGroupName;
+    	      this.status = defaults.status;
+    	      this.subnetId = defaults.subnetId;
+    	      this.subnetName = defaults.subnetName;
+    	      this.updateTime = defaults.updateTime;
+    	      this.vpcId = defaults.vpcId;
+    	      this.vpcName = defaults.vpcName;
+    	      this.zoneId = defaults.zoneId;
+    	      this.zoneName = defaults.zoneName;
         }
 
         @CustomType.Setter

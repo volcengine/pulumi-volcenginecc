@@ -23,168 +23,168 @@ import java.util.concurrent.CompletableFuture;
 public final class EfsFunctions {
     /**
      * Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemResult> getFileSystem(GetFileSystemArgs args) {
         return getFileSystem(args, InvokeOptions.Empty);
     }
     /**
      * Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static CompletableFuture<GetFileSystemResult> getFileSystemPlain(GetFileSystemPlainArgs args) {
         return getFileSystemPlain(args, InvokeOptions.Empty);
     }
     /**
      * Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemResult> getFileSystem(GetFileSystemArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getFileSystem:getFileSystem", TypeShape.of(GetFileSystemResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemResult> getFileSystem(GetFileSystemArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getFileSystem:getFileSystem", TypeShape.of(GetFileSystemResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static CompletableFuture<GetFileSystemResult> getFileSystemPlain(GetFileSystemPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:efs/getFileSystem:getFileSystem", TypeShape.of(GetFileSystemResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemsResult> getFileSystems() {
         return getFileSystems(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static CompletableFuture<GetFileSystemsResult> getFileSystemsPlain() {
         return getFileSystemsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemsResult> getFileSystems(InvokeArgs args) {
         return getFileSystems(args, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static CompletableFuture<GetFileSystemsResult> getFileSystemsPlain(InvokeArgs args) {
         return getFileSystemsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemsResult> getFileSystems(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getFileSystems:getFileSystems", TypeShape.of(GetFileSystemsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static Output<GetFileSystemsResult> getFileSystems(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getFileSystems:getFileSystems", TypeShape.of(GetFileSystemsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::FileSystem
-     *
+     * 
      */
     public static CompletableFuture<GetFileSystemsResult> getFileSystemsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:efs/getFileSystems:getFileSystems", TypeShape.of(GetFileSystemsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointResult> getMountPoint(GetMountPointArgs args) {
         return getMountPoint(args, InvokeOptions.Empty);
     }
     /**
      * Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static CompletableFuture<GetMountPointResult> getMountPointPlain(GetMountPointPlainArgs args) {
         return getMountPointPlain(args, InvokeOptions.Empty);
     }
     /**
      * Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointResult> getMountPoint(GetMountPointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getMountPoint:getMountPoint", TypeShape.of(GetMountPointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointResult> getMountPoint(GetMountPointArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getMountPoint:getMountPoint", TypeShape.of(GetMountPointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static CompletableFuture<GetMountPointResult> getMountPointPlain(GetMountPointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:efs/getMountPoint:getMountPoint", TypeShape.of(GetMountPointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointsResult> getMountPoints() {
         return getMountPoints(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static CompletableFuture<GetMountPointsResult> getMountPointsPlain() {
         return getMountPointsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointsResult> getMountPoints(InvokeArgs args) {
         return getMountPoints(args, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static CompletableFuture<GetMountPointsResult> getMountPointsPlain(InvokeArgs args) {
         return getMountPointsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointsResult> getMountPoints(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getMountPoints:getMountPoints", TypeShape.of(GetMountPointsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static Output<GetMountPointsResult> getMountPoints(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("volcenginecc:efs/getMountPoints:getMountPoints", TypeShape.of(GetMountPointsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Plural Data Source schema for Volcengine::EFS::MountPoint
-     *
+     * 
      */
     public static CompletableFuture<GetMountPointsResult> getMountPointsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:efs/getMountPoints:getMountPoints", TypeShape.of(GetMountPointsResult.class), args, Utilities.withVersion(options));
