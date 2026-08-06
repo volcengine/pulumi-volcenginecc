@@ -18,6 +18,7 @@ import * as bmq from "./bmq";
 import * as cbr from "./cbr";
 import * as cdn from "./cdn";
 import * as cen from "./cen";
+import * as certificateservice from "./certificateservice";
 import * as clb from "./clb";
 import * as cloudidentity from "./cloudidentity";
 import * as cloudmonitor from "./cloudmonitor";
@@ -47,6 +48,7 @@ import * as rdsmssql from "./rdsmssql";
 import * as rdsmysql from "./rdsmysql";
 import * as rdspostgresql from "./rdspostgresql";
 import * as redis from "./redis";
+import * as resourceshare from "./resourceshare";
 import * as rocketmq from "./rocketmq";
 import * as storageebs from "./storageebs";
 import * as tls from "./tls";
@@ -72,6 +74,7 @@ export {
     cbr,
     cdn,
     cen,
+    certificateservice,
     clb,
     cloudidentity,
     cloudmonitor,
@@ -101,6 +104,7 @@ export {
     rdsmysql,
     rdspostgresql,
     redis,
+    resourceshare,
     rocketmq,
     storageebs,
     tls,

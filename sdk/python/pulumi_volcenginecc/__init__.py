@@ -27,6 +27,8 @@ if typing.TYPE_CHECKING:
     cdn = __cdn
     import pulumi_volcenginecc.cen as __cen
     cen = __cen
+    import pulumi_volcenginecc.certificateservice as __certificateservice
+    certificateservice = __certificateservice
     import pulumi_volcenginecc.clb as __clb
     clb = __clb
     import pulumi_volcenginecc.cloudidentity as __cloudidentity
@@ -85,6 +87,8 @@ if typing.TYPE_CHECKING:
     rdspostgresql = __rdspostgresql
     import pulumi_volcenginecc.redis as __redis
     redis = __redis
+    import pulumi_volcenginecc.resourceshare as __resourceshare
+    resourceshare = __resourceshare
     import pulumi_volcenginecc.rocketmq as __rocketmq
     rocketmq = __rocketmq
     import pulumi_volcenginecc.storageebs as __storageebs
@@ -122,6 +126,7 @@ else:
     cbr = _utilities.lazy_import('pulumi_volcenginecc.cbr')
     cdn = _utilities.lazy_import('pulumi_volcenginecc.cdn')
     cen = _utilities.lazy_import('pulumi_volcenginecc.cen')
+    certificateservice = _utilities.lazy_import('pulumi_volcenginecc.certificateservice')
     clb = _utilities.lazy_import('pulumi_volcenginecc.clb')
     cloudidentity = _utilities.lazy_import('pulumi_volcenginecc.cloudidentity')
     cloudmonitor = _utilities.lazy_import('pulumi_volcenginecc.cloudmonitor')
@@ -151,6 +156,7 @@ else:
     rdsmysql = _utilities.lazy_import('pulumi_volcenginecc.rdsmysql')
     rdspostgresql = _utilities.lazy_import('pulumi_volcenginecc.rdspostgresql')
     redis = _utilities.lazy_import('pulumi_volcenginecc.redis')
+    resourceshare = _utilities.lazy_import('pulumi_volcenginecc.resourceshare')
     rocketmq = _utilities.lazy_import('pulumi_volcenginecc.rocketmq')
     storageebs = _utilities.lazy_import('pulumi_volcenginecc.storageebs')
     tls = _utilities.lazy_import('pulumi_volcenginecc.tls')
@@ -423,6 +429,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.cen",
   "classes": {
    "volcenginecc:cen/serviceRouteEntry:ServiceRouteEntry": "ServiceRouteEntry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "certificateservice/childCertInstance",
+  "fqn": "pulumi_volcenginecc.certificateservice",
+  "classes": {
+   "volcenginecc:certificateservice/childCertInstance:ChildCertInstance": "ChildCertInstance"
   }
  },
  {
@@ -1583,6 +1597,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.redis",
   "classes": {
    "volcenginecc:redis/parameterGroup:ParameterGroup": "ParameterGroup"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "resourceshare/resourceShare",
+  "fqn": "pulumi_volcenginecc.resourceshare",
+  "classes": {
+   "volcenginecc:resourceshare/resourceShare:ResourceShare": "ResourceShare"
   }
  },
  {
