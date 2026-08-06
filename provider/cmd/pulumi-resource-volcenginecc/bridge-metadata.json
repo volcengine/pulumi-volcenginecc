@@ -1041,6 +1041,31 @@
                     }
                 }
             },
+            "volcenginecc_certificateservice_child_cert_instance": {
+                "current": "volcenginecc:certificateservice/childCertInstance:ChildCertInstance",
+                "fields": {
+                    "certificate_detail": {
+                        "fields": {
+                            "chain": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "encryption_certificate_detail": {
+                        "fields": {
+                            "chain": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "san": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_clb_acl": {
                 "current": "volcenginecc:clb/acl:Acl",
                 "fields": {
@@ -3168,6 +3193,14 @@
                         "maxItemsOne": false
                     },
                     "parameters": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_resourceshare_resource_share": {
+                "current": "volcenginecc:resourceshare/resourceShare:ResourceShare",
+                "fields": {
+                    "tags": {
                         "maxItemsOne": false
                     }
                 }
@@ -6244,6 +6277,39 @@
                 "current": "volcenginecc:cen/getServiceRouteEntry:getServiceRouteEntry",
                 "fields": {
                     "publish_to_instances": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_certificateservice_child_cert_instance": {
+                "current": "volcenginecc:certificateservice/getChildCertInstance:getChildCertInstance",
+                "fields": {
+                    "certificate_detail": {
+                        "fields": {
+                            "chain": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "encryption_certificate_detail": {
+                        "fields": {
+                            "chain": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "san": {
+                        "maxItemsOne": false
+                    },
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_certificateservice_child_cert_instances": {
+                "current": "volcenginecc:certificateservice/getChildCertInstances:getChildCertInstances",
+                "fields": {
+                    "ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -9563,6 +9629,22 @@
                     }
                 }
             },
+            "volcenginecc_resourceshare_resource_share": {
+                "current": "volcenginecc:resourceshare/getResourceShare:getResourceShare",
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_resourceshare_resource_shares": {
+                "current": "volcenginecc:resourceshare/getResourceShares:getResourceShares",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_rocketmq_access_key": {
                 "current": "volcenginecc:rocketmq/getAccessKey:getAccessKey",
                 "fields": {
@@ -12247,6 +12329,7 @@
             "volcenginecc_cen_inter_region_bandwidth": {},
             "volcenginecc_cen_route_entry": {},
             "volcenginecc_cen_service_route_entry": {},
+            "volcenginecc_certificateservice_child_cert_instance": {},
             "volcenginecc_clb_acl": {},
             "volcenginecc_clb_certificate": {},
             "volcenginecc_clb_check_log_project": {},
@@ -12392,6 +12475,7 @@
             "volcenginecc_redis_endpoint_public_address": {},
             "volcenginecc_redis_instance": {},
             "volcenginecc_redis_parameter_group": {},
+            "volcenginecc_resourceshare_resource_share": {},
             "volcenginecc_rocketmq_access_key": {},
             "volcenginecc_rocketmq_allow_list": {},
             "volcenginecc_rocketmq_group": {},
