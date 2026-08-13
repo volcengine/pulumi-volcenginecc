@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:certificateservice/childCertInstance:ChildCertInstance":
 		r = &ChildCertInstance{}
+	case "volcenginecc:certificateservice/organizationInfo:OrganizationInfo":
+		r = &OrganizationInfo{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"certificateservice/childCertInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"certificateservice/organizationInfo",
 		&module{version},
 	)
 }

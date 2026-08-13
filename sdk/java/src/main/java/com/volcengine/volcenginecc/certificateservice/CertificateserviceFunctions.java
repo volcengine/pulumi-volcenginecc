@@ -12,8 +12,12 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.certificateservice.inputs.GetChildCertInstanceArgs;
 import com.volcengine.volcenginecc.certificateservice.inputs.GetChildCertInstancePlainArgs;
+import com.volcengine.volcenginecc.certificateservice.inputs.GetOrganizationInfoArgs;
+import com.volcengine.volcenginecc.certificateservice.inputs.GetOrganizationInfoPlainArgs;
 import com.volcengine.volcenginecc.certificateservice.outputs.GetChildCertInstanceResult;
 import com.volcengine.volcenginecc.certificateservice.outputs.GetChildCertInstancesResult;
+import com.volcengine.volcenginecc.certificateservice.outputs.GetOrganizationInfoResult;
+import com.volcengine.volcenginecc.certificateservice.outputs.GetOrganizationInfosResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CertificateserviceFunctions {
@@ -100,5 +104,89 @@ public final class CertificateserviceFunctions {
      */
     public static CompletableFuture<GetChildCertInstancesResult> getChildCertInstancesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:certificateservice/getChildCertInstances:getChildCertInstances", TypeShape.of(GetChildCertInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfoResult> getOrganizationInfo(GetOrganizationInfoArgs args) {
+        return getOrganizationInfo(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static CompletableFuture<GetOrganizationInfoResult> getOrganizationInfoPlain(GetOrganizationInfoPlainArgs args) {
+        return getOrganizationInfoPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfoResult> getOrganizationInfo(GetOrganizationInfoArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:certificateservice/getOrganizationInfo:getOrganizationInfo", TypeShape.of(GetOrganizationInfoResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfoResult> getOrganizationInfo(GetOrganizationInfoArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:certificateservice/getOrganizationInfo:getOrganizationInfo", TypeShape.of(GetOrganizationInfoResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static CompletableFuture<GetOrganizationInfoResult> getOrganizationInfoPlain(GetOrganizationInfoPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:certificateservice/getOrganizationInfo:getOrganizationInfo", TypeShape.of(GetOrganizationInfoResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfosResult> getOrganizationInfos() {
+        return getOrganizationInfos(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static CompletableFuture<GetOrganizationInfosResult> getOrganizationInfosPlain() {
+        return getOrganizationInfosPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfosResult> getOrganizationInfos(InvokeArgs args) {
+        return getOrganizationInfos(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static CompletableFuture<GetOrganizationInfosResult> getOrganizationInfosPlain(InvokeArgs args) {
+        return getOrganizationInfosPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfosResult> getOrganizationInfos(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:certificateservice/getOrganizationInfos:getOrganizationInfos", TypeShape.of(GetOrganizationInfosResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static Output<GetOrganizationInfosResult> getOrganizationInfos(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:certificateservice/getOrganizationInfos:getOrganizationInfos", TypeShape.of(GetOrganizationInfosResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CertificateService::OrganizationInfo
+     * 
+     */
+    public static CompletableFuture<GetOrganizationInfosResult> getOrganizationInfosPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:certificateservice/getOrganizationInfos:getOrganizationInfos", TypeShape.of(GetOrganizationInfosResult.class), args, Utilities.withVersion(options));
     }
 }

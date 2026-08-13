@@ -28,6 +28,8 @@ import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplateArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplatePlainArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplateVersionArgs;
 import com.volcengine.volcenginecc.ecs.inputs.GetLaunchTemplateVersionPlainArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetScheduledInstanceArgs;
+import com.volcengine.volcenginecc.ecs.inputs.GetScheduledInstancePlainArgs;
 import com.volcengine.volcenginecc.ecs.outputs.GetCommandResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetCommandsResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetDeploymentSetResult;
@@ -46,6 +48,8 @@ import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplateResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplateVersionResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplateVersionsResult;
 import com.volcengine.volcenginecc.ecs.outputs.GetLaunchTemplatesResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetScheduledInstanceResult;
+import com.volcengine.volcenginecc.ecs.outputs.GetScheduledInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class EcsFunctions {
@@ -804,5 +808,89 @@ public final class EcsFunctions {
      */
     public static CompletableFuture<GetLaunchTemplatesResult> getLaunchTemplatesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getLaunchTemplates:getLaunchTemplates", TypeShape.of(GetLaunchTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstanceResult> getScheduledInstance(GetScheduledInstanceArgs args) {
+        return getScheduledInstance(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static CompletableFuture<GetScheduledInstanceResult> getScheduledInstancePlain(GetScheduledInstancePlainArgs args) {
+        return getScheduledInstancePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstanceResult> getScheduledInstance(GetScheduledInstanceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getScheduledInstance:getScheduledInstance", TypeShape.of(GetScheduledInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstanceResult> getScheduledInstance(GetScheduledInstanceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getScheduledInstance:getScheduledInstance", TypeShape.of(GetScheduledInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static CompletableFuture<GetScheduledInstanceResult> getScheduledInstancePlain(GetScheduledInstancePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getScheduledInstance:getScheduledInstance", TypeShape.of(GetScheduledInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstancesResult> getScheduledInstances() {
+        return getScheduledInstances(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static CompletableFuture<GetScheduledInstancesResult> getScheduledInstancesPlain() {
+        return getScheduledInstancesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstancesResult> getScheduledInstances(InvokeArgs args) {
+        return getScheduledInstances(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static CompletableFuture<GetScheduledInstancesResult> getScheduledInstancesPlain(InvokeArgs args) {
+        return getScheduledInstancesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstancesResult> getScheduledInstances(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getScheduledInstances:getScheduledInstances", TypeShape.of(GetScheduledInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static Output<GetScheduledInstancesResult> getScheduledInstances(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:ecs/getScheduledInstances:getScheduledInstances", TypeShape.of(GetScheduledInstancesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::ECS::ScheduledInstance
+     * 
+     */
+    public static CompletableFuture<GetScheduledInstancesResult> getScheduledInstancesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:ecs/getScheduledInstances:getScheduledInstances", TypeShape.of(GetScheduledInstancesResult.class), args, Utilities.withVersion(options));
     }
 }

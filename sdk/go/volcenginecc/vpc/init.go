@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlowLog{}
 	case "volcenginecc:vpc/haVip:HaVip":
 		r = &HaVip{}
+	case "volcenginecc:vpc/ipPool:IpPool":
+		r = &IpPool{}
+	case "volcenginecc:vpc/ipPoolCidrBlock:IpPoolCidrBlock":
+		r = &IpPoolCidrBlock{}
 	case "volcenginecc:vpc/ipv6AddressBandwidth:Ipv6AddressBandwidth":
 		r = &Ipv6AddressBandwidth{}
 	case "volcenginecc:vpc/ipv6Gateway:Ipv6Gateway":
@@ -91,6 +95,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"vpc/haVip",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/ipPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"vpc/ipPoolCidrBlock",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
