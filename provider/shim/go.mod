@@ -4,7 +4,7 @@ go 1.25.8
 
 require (
 	github.com/hashicorp/terraform-plugin-framework v1.19.0
-	github.com/volcengine/terraform-provider-volcenginecc v0.0.62
+	github.com/volcengine/terraform-provider-volcenginecc v0.0.64
 )
 
 require (
@@ -26,7 +26,9 @@ require (
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.23 // indirect
 	github.com/volcengine/volcengine-go-sdk v1.2.36 // indirect
+	golang.org/x/net v0.52.0 // indirect
 	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/text v0.36.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

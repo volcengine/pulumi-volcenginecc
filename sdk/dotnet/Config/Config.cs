@@ -34,7 +34,7 @@ namespace Volcengine.Pulumi.Volcenginecc
 
         private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey") ?? Utilities.GetEnv("VOLCENGINE_ACCESS_KEY"));
         /// <summary>
-        /// The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
+        /// The Access Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
         /// </summary>
         public static string? AccessKey
         {
@@ -44,7 +44,7 @@ namespace Volcengine.Pulumi.Volcenginecc
 
         private static readonly __Value<Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole?> _assumeRole = new __Value<Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole?>(() => __config.GetObject<Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole>("assumeRole"));
         /// <summary>
-        /// An `AssumeRole` block (documented below). Only one `AssumeRole` block may be in the configuration.
+        /// An `AssumeRole` block that uses the selected source credentials to obtain target-role credentials. Only one `AssumeRole` block may be in the configuration.
         /// </summary>
         public static Volcengine.Pulumi.Volcenginecc.Config.Types.AssumeRole? AssumeRole
         {
@@ -84,7 +84,7 @@ namespace Volcengine.Pulumi.Volcenginecc
 
         private static readonly __Value<string?> _filePath = new __Value<string?>(() => __config.Get("filePath") ?? Utilities.GetEnv("VOLCENGINE_FILE_PATH"));
         /// <summary>
-        /// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
+        /// The Profile configuration file path for Volcengine Provider. It defaults to `~/.volcengine/config.json` and can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
         /// </summary>
         public static string? FilePath
         {
@@ -92,9 +92,19 @@ namespace Volcengine.Pulumi.Volcenginecc
             set => _filePath.Set(value);
         }
 
+        private static readonly __Value<string?> _noProxy = new __Value<string?>(() => __config.Get("noProxy"));
+        /// <summary>
+        /// Comma-separated hosts, domain suffixes, IP addresses, or CIDR ranges that bypass proxy_url. It follows standard NO_PROXY matching and can be sourced from VOLCENGINE_NO_PROXY, NO_PROXY, or no_proxy.
+        /// </summary>
+        public static string? NoProxy
+        {
+            get => _noProxy.Get();
+            set => _noProxy.Set(value);
+        }
+
         private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile") ?? Utilities.GetEnv("VOLCENGINE_PROFILE"));
         /// <summary>
-        /// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+        /// The Profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable. Complete AccessKey and SecretKey credentials take precedence when both sources are configured
         /// </summary>
         public static string? Profile
         {
@@ -102,9 +112,29 @@ namespace Volcengine.Pulumi.Volcenginecc
             set => _profile.Set(value);
         }
 
+        private static readonly __Value<string?> _proxyAuthorization = new __Value<string?>(() => __config.Get("proxyAuthorization"));
+        /// <summary>
+        /// Value of the Proxy-Authorization header for Cloud Control API proxy requests, for example `Basic &lt;token&gt;`. It can also be sourced from the `VOLCENGINE_PROXY_AUTHORIZATION` environment variable.
+        /// </summary>
+        public static string? ProxyAuthorization
+        {
+            get => _proxyAuthorization.Get();
+            set => _proxyAuthorization.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<string>> _proxyIncludeDomains = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("proxyIncludeDomains"));
+        /// <summary>
+        /// Hosts, domain suffixes, IP addresses, or CIDR ranges that use ProxyUrl while all other destinations connect directly. It can be sourced as a comma-separated list from VOLCENGINE_PROXY_INCLUDE_DOMAINS and cannot be combined with no_proxy.
+        /// </summary>
+        public static ImmutableArray<string> ProxyIncludeDomains
+        {
+            get => _proxyIncludeDomains.Get();
+            set => _proxyIncludeDomains.Set(value);
+        }
+
         private static readonly __Value<string?> _proxyUrl = new __Value<string?>(() => __config.Get("proxyUrl") ?? Utilities.GetEnv("VOLCENGINE_PROXY_URL"));
         /// <summary>
-        /// PROXY URL for Volcengine Provider
+        /// HTTP, HTTPS, SOCKS5, or SOCKS5H proxy URL for Cloud Control API requests. It can also be sourced from the `VOLCENGINE_PROXY_URL` environment variable.
         /// </summary>
         public static string? ProxyUrl
         {
@@ -124,7 +154,7 @@ namespace Volcengine.Pulumi.Volcenginecc
 
         private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey") ?? Utilities.GetEnv("VOLCENGINE_SECRET_KEY"));
         /// <summary>
-        /// he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
+        /// The Secret Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
         /// </summary>
         public static string? SecretKey
         {

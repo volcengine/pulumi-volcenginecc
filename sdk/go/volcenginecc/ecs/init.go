@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LaunchTemplate{}
 	case "volcenginecc:ecs/launchTemplateVersion:LaunchTemplateVersion":
 		r = &LaunchTemplateVersion{}
+	case "volcenginecc:ecs/scheduledInstance:ScheduledInstance":
+		r = &ScheduledInstance{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"ecs/launchTemplateVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"ecs/scheduledInstance",
 		&module{version},
 	)
 }

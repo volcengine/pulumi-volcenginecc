@@ -441,6 +441,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "certificateservice/organizationInfo",
+  "fqn": "pulumi_volcenginecc.certificateservice",
+  "classes": {
+   "volcenginecc:certificateservice/organizationInfo:OrganizationInfo": "OrganizationInfo"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "clb/acl",
   "fqn": "pulumi_volcenginecc.clb",
   "classes": {
@@ -613,6 +621,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.cloudmonitor",
   "classes": {
    "volcenginecc:cloudmonitor/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "config/groupRule",
+  "fqn": "pulumi_volcenginecc.config",
+  "classes": {
+   "volcenginecc:config/groupRule:GroupRule": "GroupRule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "config/rule",
+  "fqn": "pulumi_volcenginecc.config",
+  "classes": {
+   "volcenginecc:config/rule:Rule": "Rule"
   }
  },
  {
@@ -797,6 +821,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.ecs",
   "classes": {
    "volcenginecc:ecs/launchTemplateVersion:LaunchTemplateVersion": "LaunchTemplateVersion"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "ecs/scheduledInstance",
+  "fqn": "pulumi_volcenginecc.ecs",
+  "classes": {
+   "volcenginecc:ecs/scheduledInstance:ScheduledInstance": "ScheduledInstance"
   }
  },
  {
@@ -2253,6 +2285,22 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.vpc",
   "classes": {
    "volcenginecc:vpc/haVip:HaVip": "HaVip"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/ipPool",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/ipPool:IpPool": "IpPool"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "vpc/ipPoolCidrBlock",
+  "fqn": "pulumi_volcenginecc.vpc",
+  "classes": {
+   "volcenginecc:vpc/ipPoolCidrBlock:IpPoolCidrBlock": "IpPoolCidrBlock"
   }
  },
  {

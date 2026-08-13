@@ -11,7 +11,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
+// The Access Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
 func GetAccessKey(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "volcenginecc:accessKey")
 	if err == nil {
@@ -24,7 +24,7 @@ func GetAccessKey(ctx *pulumi.Context) string {
 	return value
 }
 
-// An `assumeRole` block (documented below). Only one `assumeRole` block may be in the configuration.
+// An `assumeRole` block that uses the selected source credentials to obtain target-role credentials. Only one `assumeRole` block may be in the configuration.
 func GetAssumeRole(ctx *pulumi.Context) string {
 	return config.Get(ctx, "volcenginecc:assumeRole")
 }
@@ -60,7 +60,7 @@ func GetEndpoints(ctx *pulumi.Context) string {
 	return config.Get(ctx, "volcenginecc:endpoints")
 }
 
-// The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
+// The Profile configuration file path for Volcengine Provider. It defaults to `~/.volcengine/config.json` and can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
 func GetFilePath(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "volcenginecc:filePath")
 	if err == nil {
@@ -73,7 +73,12 @@ func GetFilePath(ctx *pulumi.Context) string {
 	return value
 }
 
-// The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+// Comma-separated hosts, domain suffixes, IP addresses, or CIDR ranges that bypass proxy_url. It follows standard NO_PROXY matching and can be sourced from VOLCENGINE_NO_PROXY, NO_PROXY, or no_proxy.
+func GetNoProxy(ctx *pulumi.Context) string {
+	return config.Get(ctx, "volcenginecc:noProxy")
+}
+
+// The Profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable. Complete AccessKey and SecretKey credentials take precedence when both sources are configured
 func GetProfile(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "volcenginecc:profile")
 	if err == nil {
@@ -86,7 +91,17 @@ func GetProfile(ctx *pulumi.Context) string {
 	return value
 }
 
-// PROXY URL for Volcengine Provider
+// Value of the Proxy-Authorization header for Cloud Control API proxy requests, for example `Basic <token>`. It can also be sourced from the `VOLCENGINE_PROXY_AUTHORIZATION` environment variable.
+func GetProxyAuthorization(ctx *pulumi.Context) string {
+	return config.Get(ctx, "volcenginecc:proxyAuthorization")
+}
+
+// Hosts, domain suffixes, IP addresses, or CIDR ranges that use proxyUrl while all other destinations connect directly. It can be sourced as a comma-separated list from VOLCENGINE_PROXY_INCLUDE_DOMAINS and cannot be combined with no_proxy.
+func GetProxyIncludeDomains(ctx *pulumi.Context) string {
+	return config.Get(ctx, "volcenginecc:proxyIncludeDomains")
+}
+
+// HTTP, HTTPS, SOCKS5, or SOCKS5H proxy URL for Cloud Control API requests. It can also be sourced from the `VOLCENGINE_PROXY_URL` environment variable.
 func GetProxyUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "volcenginecc:proxyUrl")
 	if err == nil {
@@ -112,7 +127,7 @@ func GetRegion(ctx *pulumi.Context) string {
 	return value
 }
 
-// he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
+// The Secret Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
 func GetSecretKey(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "volcenginecc:secretKey")
 	if err == nil {

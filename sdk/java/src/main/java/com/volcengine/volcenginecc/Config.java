@@ -3,25 +3,27 @@
 
 package com.volcengine.volcenginecc;
 
+import com.pulumi.core.TypeShape;
 import com.pulumi.core.internal.Codegen;
 import com.volcengine.volcenginecc.config.inputs.AssumeRole;
 import com.volcengine.volcenginecc.config.inputs.Endpoints;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 
 public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("volcenginecc");
 /**
- * The Access Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
+ * The Access Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable
  * 
  */
     public Optional<String> accessKey() {
         return Codegen.stringProp("accessKey").config(config).env("VOLCENGINE_ACCESS_KEY").get();
     }
 /**
- * An &lt;span pulumi-lang-nodejs=&#34;`assumeRole`&#34; pulumi-lang-dotnet=&#34;`AssumeRole`&#34; pulumi-lang-go=&#34;`assumeRole`&#34; pulumi-lang-python=&#34;`assume_role`&#34; pulumi-lang-yaml=&#34;`assumeRole`&#34; pulumi-lang-java=&#34;`assumeRole`&#34; pulumi-lang-hcl=&#34;`assume_role`&#34;&gt;`assumeRole`&lt;/span&gt; block (documented below). Only one &lt;span pulumi-lang-nodejs=&#34;`assumeRole`&#34; pulumi-lang-dotnet=&#34;`AssumeRole`&#34; pulumi-lang-go=&#34;`assumeRole`&#34; pulumi-lang-python=&#34;`assume_role`&#34; pulumi-lang-yaml=&#34;`assumeRole`&#34; pulumi-lang-java=&#34;`assumeRole`&#34; pulumi-lang-hcl=&#34;`assume_role`&#34;&gt;`assumeRole`&lt;/span&gt; block may be in the configuration.
+ * An &lt;span pulumi-lang-nodejs=&#34;`assumeRole`&#34; pulumi-lang-dotnet=&#34;`AssumeRole`&#34; pulumi-lang-go=&#34;`assumeRole`&#34; pulumi-lang-python=&#34;`assume_role`&#34; pulumi-lang-yaml=&#34;`assumeRole`&#34; pulumi-lang-java=&#34;`assumeRole`&#34; pulumi-lang-hcl=&#34;`assume_role`&#34;&gt;`assumeRole`&lt;/span&gt; block that uses the selected source credentials to obtain target-role credentials. Only one &lt;span pulumi-lang-nodejs=&#34;`assumeRole`&#34; pulumi-lang-dotnet=&#34;`AssumeRole`&#34; pulumi-lang-go=&#34;`assumeRole`&#34; pulumi-lang-python=&#34;`assume_role`&#34; pulumi-lang-yaml=&#34;`assumeRole`&#34; pulumi-lang-java=&#34;`assumeRole`&#34; pulumi-lang-hcl=&#34;`assume_role`&#34;&gt;`assumeRole`&lt;/span&gt; block may be in the configuration.
  * 
  */
     public Optional<AssumeRole> assumeRole() {
@@ -49,21 +51,42 @@ public final class Config {
         return Codegen.objectProp("endpoints", Endpoints.class).config(config).get();
     }
 /**
- * The file path for Volcengine Provider configuration. It can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
+ * The Profile configuration file path for Volcengine Provider. It defaults to `~/.volcengine/config.json` and can be sourced from the `VOLCENGINE_FILE_PATH` environment variable
  * 
  */
     public Optional<String> filePath() {
         return Codegen.stringProp("filePath").config(config).env("VOLCENGINE_FILE_PATH").get();
     }
 /**
- * The profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable
+ * Comma-separated hosts, domain suffixes, IP addresses, or CIDR ranges that bypass proxy_url. It follows standard NO_PROXY matching and can be sourced from VOLCENGINE_NO_PROXY, NO_PROXY, or no_proxy.
+ * 
+ */
+    public Optional<String> noProxy() {
+        return Codegen.stringProp("noProxy").config(config).get();
+    }
+/**
+ * The Profile for Volcengine Provider. It can be sourced from the `VOLCENGINE_PROFILE` environment variable. Complete AccessKey and SecretKey credentials take precedence when both sources are configured
  * 
  */
     public Optional<String> profile() {
         return Codegen.stringProp("profile").config(config).env("VOLCENGINE_PROFILE").get();
     }
 /**
- * PROXY URL for Volcengine Provider
+ * Value of the Proxy-Authorization header for Cloud Control API proxy requests, for example `Basic &lt;token&gt;`. It can also be sourced from the `VOLCENGINE_PROXY_AUTHORIZATION` environment variable.
+ * 
+ */
+    public Optional<String> proxyAuthorization() {
+        return Codegen.stringProp("proxyAuthorization").config(config).get();
+    }
+/**
+ * Hosts, domain suffixes, IP addresses, or CIDR ranges that use&lt;span pulumi-lang-nodejs=&#34; proxyUrl &#34; pulumi-lang-dotnet=&#34; ProxyUrl &#34; pulumi-lang-go=&#34; proxyUrl &#34; pulumi-lang-python=&#34; proxy_url &#34; pulumi-lang-yaml=&#34; proxyUrl &#34; pulumi-lang-java=&#34; proxyUrl &#34; pulumi-lang-hcl=&#34; proxy_url &#34;&gt; proxyUrl &lt;/span&gt;while all other destinations connect directly. It can be sourced as a comma-separated list from VOLCENGINE_PROXY_INCLUDE_DOMAINS and cannot be combined with no_proxy.
+ * 
+ */
+    public Optional<List<String>> proxyIncludeDomains() {
+        return Codegen.objectProp("proxyIncludeDomains", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
+    }
+/**
+ * HTTP, HTTPS, SOCKS5, or SOCKS5H proxy URL for Cloud Control API requests. It can also be sourced from the `VOLCENGINE_PROXY_URL` environment variable.
  * 
  */
     public Optional<String> proxyUrl() {
@@ -77,7 +100,7 @@ public final class Config {
         return Codegen.stringProp("region").config(config).env("VOLCENGINE_REGION").get();
     }
 /**
- * he Secret Key for Volcengine Provider. It must be provided, but it can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
+ * The Secret Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable
  * 
  */
     public Optional<String> secretKey() {
