@@ -289,6 +289,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "autoscaling/notificationConfiguration",
+  "fqn": "pulumi_volcenginecc.autoscaling",
+  "classes": {
+   "volcenginecc:autoscaling/notificationConfiguration:NotificationConfiguration": "NotificationConfiguration"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "autoscaling/scalingConfiguration",
   "fqn": "pulumi_volcenginecc.autoscaling",
   "classes": {
@@ -621,6 +629,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.cloudmonitor",
   "classes": {
    "volcenginecc:cloudmonitor/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "config/configurationRecorder",
+  "fqn": "pulumi_volcenginecc.config",
+  "classes": {
+   "volcenginecc:config/configurationRecorder:ConfigurationRecorder": "ConfigurationRecorder"
   }
  },
  {
@@ -2005,6 +2021,30 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.transitrouter",
   "classes": {
    "volcenginecc:transitrouter/transitRouterRouteTableAssociation:TransitRouterRouteTableAssociation": "TransitRouterRouteTableAssociation"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterTrafficQosMarkingEntry",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterTrafficQosMarkingEntry:TransitRouterTrafficQosMarkingEntry": "TransitRouterTrafficQosMarkingEntry"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterTrafficQosMarkingPolicy",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterTrafficQosMarkingPolicy:TransitRouterTrafficQosMarkingPolicy": "TransitRouterTrafficQosMarkingPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "transitrouter/transitRouterTrafficQosQueueEntry",
+  "fqn": "pulumi_volcenginecc.transitrouter",
+  "classes": {
+   "volcenginecc:transitrouter/transitRouterTrafficQosQueueEntry:TransitRouterTrafficQosQueueEntry": "TransitRouterTrafficQosQueueEntry"
   }
  },
  {

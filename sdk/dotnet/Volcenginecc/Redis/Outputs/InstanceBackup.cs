@@ -23,6 +23,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis.Outputs
         /// </summary>
         public readonly string? BackupPointName;
         /// <summary>
+        /// Current backup progress. Measured as a percentage.
+        /// </summary>
+        public readonly int? BackupProgress;
+        /// <summary>
         /// Backup policy
         /// </summary>
         public readonly string? BackupStrategy;
@@ -57,6 +61,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis.Outputs
 
             string? backupPointName,
 
+            int? backupProgress,
+
             string? backupStrategy,
 
             string? backupType,
@@ -73,6 +79,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis.Outputs
         {
             BackupPointId = backupPointId;
             BackupPointName = backupPointName;
+            BackupProgress = backupProgress;
             BackupStrategy = backupStrategy;
             BackupType = backupType;
             EndTime = endTime;

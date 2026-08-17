@@ -273,6 +273,14 @@
                     }
                 }
             },
+            "volcenginecc_autoscaling_notification_configuration": {
+                "current": "volcenginecc:autoscaling/notificationConfiguration:NotificationConfiguration",
+                "fields": {
+                    "event_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_autoscaling_scaling_configuration": {
                 "current": "volcenginecc:autoscaling/scalingConfiguration:ScalingConfiguration",
                 "fields": {
@@ -1370,6 +1378,14 @@
                         "maxItemsOne": false
                     },
                     "webhook_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_config_configuration_recorder": {
+                "current": "volcenginecc:config/configurationRecorder:ConfigurationRecorder",
+                "fields": {
+                    "include_resource_types": {
                         "maxItemsOne": false
                     }
                 }
@@ -4189,6 +4205,20 @@
             "volcenginecc_transitrouter_transit_router_route_table_association": {
                 "current": "volcenginecc:transitrouter/transitRouterRouteTableAssociation:TransitRouterRouteTableAssociation"
             },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_entry": {
+                "current": "volcenginecc:transitrouter/transitRouterTrafficQosMarkingEntry:TransitRouterTrafficQosMarkingEntry"
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_policy": {
+                "current": "volcenginecc:transitrouter/transitRouterTrafficQosMarkingPolicy:TransitRouterTrafficQosMarkingPolicy"
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_queue_entry": {
+                "current": "volcenginecc:transitrouter/transitRouterTrafficQosQueueEntry:TransitRouterTrafficQosQueueEntry",
+                "fields": {
+                    "dscps": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_transitrouter_vpc_attachment": {
                 "current": "volcenginecc:transitrouter/vpcAttachment:VpcAttachment",
                 "fields": {
@@ -5567,6 +5597,22 @@
             },
             "volcenginecc_ark_endpoints": {
                 "current": "volcenginecc:ark/getEndpoints:getEndpoints",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_autoscaling_notification_configuration": {
+                "current": "volcenginecc:autoscaling/getNotificationConfiguration:getNotificationConfiguration",
+                "fields": {
+                    "event_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_autoscaling_notification_configurations": {
+                "current": "volcenginecc:autoscaling/getNotificationConfigurations:getNotificationConfigurations",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -7004,6 +7050,22 @@
             },
             "volcenginecc_cloudmonitor_rules": {
                 "current": "volcenginecc:cloudmonitor/getRules:getRules",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_config_configuration_recorder": {
+                "current": "volcenginecc:config/getConfigurationRecorder:getConfigurationRecorder",
+                "fields": {
+                    "include_resource_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_config_configuration_recorders": {
+                "current": "volcenginecc:config/getConfigurationRecorders:getConfigurationRecorders",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -11275,6 +11337,44 @@
                     }
                 }
             },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_entries": {
+                "current": "volcenginecc:transitrouter/getTransitRouterTrafficQosMarkingEntries:getTransitRouterTrafficQosMarkingEntries",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_entry": {
+                "current": "volcenginecc:transitrouter/getTransitRouterTrafficQosMarkingEntry:getTransitRouterTrafficQosMarkingEntry"
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_policies": {
+                "current": "volcenginecc:transitrouter/getTransitRouterTrafficQosMarkingPolicies:getTransitRouterTrafficQosMarkingPolicies",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_policy": {
+                "current": "volcenginecc:transitrouter/getTransitRouterTrafficQosMarkingPolicy:getTransitRouterTrafficQosMarkingPolicy"
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_queue_entries": {
+                "current": "volcenginecc:transitrouter/getTransitRouterTrafficQosQueueEntries:getTransitRouterTrafficQosQueueEntries",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_transitrouter_transit_router_traffic_qos_queue_entry": {
+                "current": "volcenginecc:transitrouter/getTransitRouterTrafficQosQueueEntry:getTransitRouterTrafficQosQueueEntry",
+                "fields": {
+                    "dscps": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_transitrouter_transit_routers": {
                 "current": "volcenginecc:transitrouter/getTransitRouters:getTransitRouters",
                 "fields": {
@@ -12767,6 +12867,7 @@
             "volcenginecc_apig_upstream": {},
             "volcenginecc_apig_upstream_source": {},
             "volcenginecc_ark_endpoint": {},
+            "volcenginecc_autoscaling_notification_configuration": {},
             "volcenginecc_autoscaling_scaling_configuration": {},
             "volcenginecc_autoscaling_scaling_group": {},
             "volcenginecc_autoscaling_scaling_lifecycle_hook": {},
@@ -12809,6 +12910,7 @@
             "volcenginecc_cloudmonitor_contact_group": {},
             "volcenginecc_cloudmonitor_event_rule": {},
             "volcenginecc_cloudmonitor_rule": {},
+            "volcenginecc_config_configuration_recorder": {},
             "volcenginecc_config_group_rule": {},
             "volcenginecc_config_rule": {},
             "volcenginecc_cr_endpoint_acl_policy": {},
@@ -12982,6 +13084,9 @@
             "volcenginecc_transitrouter_transit_router_route_entry": {},
             "volcenginecc_transitrouter_transit_router_route_table": {},
             "volcenginecc_transitrouter_transit_router_route_table_association": {},
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_entry": {},
+            "volcenginecc_transitrouter_transit_router_traffic_qos_marking_policy": {},
+            "volcenginecc_transitrouter_transit_router_traffic_qos_queue_entry": {},
             "volcenginecc_transitrouter_vpc_attachment": {},
             "volcenginecc_transitrouter_vpn_attachment": {},
             "volcenginecc_vedbm_account": {},

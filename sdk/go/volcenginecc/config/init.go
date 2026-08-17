@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "volcenginecc:config/configurationRecorder:ConfigurationRecorder":
+		r = &ConfigurationRecorder{}
 	case "volcenginecc:config/groupRule:GroupRule":
 		r = &GroupRule{}
 	case "volcenginecc:config/rule:Rule":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"config/configurationRecorder",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"config/groupRule",

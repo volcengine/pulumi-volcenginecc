@@ -25173,6 +25173,10 @@ export namespace redis {
          */
         backupPointName: string;
         /**
+         * Current backup progress. Measured as a percentage.
+         */
+        backupProgress: number;
+        /**
          * Backup policy
          */
         backupStrategy: string;
@@ -25358,6 +25362,10 @@ export namespace redis {
          * Backup point name
          */
         backupPointName: string;
+        /**
+         * Current backup progress. Measured as a percentage.
+         */
+        backupProgress: number;
         /**
          * Backup policy
          */
