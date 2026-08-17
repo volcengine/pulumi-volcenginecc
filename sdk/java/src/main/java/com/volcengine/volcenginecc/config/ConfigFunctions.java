@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.config.inputs.GetConfigurationRecorderArgs;
+import com.volcengine.volcenginecc.config.inputs.GetConfigurationRecorderPlainArgs;
 import com.volcengine.volcenginecc.config.inputs.GetGroupRuleArgs;
 import com.volcengine.volcenginecc.config.inputs.GetGroupRulePlainArgs;
 import com.volcengine.volcenginecc.config.inputs.GetRuleArgs;
 import com.volcengine.volcenginecc.config.inputs.GetRulePlainArgs;
+import com.volcengine.volcenginecc.config.outputs.GetConfigurationRecorderResult;
+import com.volcengine.volcenginecc.config.outputs.GetConfigurationRecordersResult;
 import com.volcengine.volcenginecc.config.outputs.GetGroupRuleResult;
 import com.volcengine.volcenginecc.config.outputs.GetGroupRulesResult;
 import com.volcengine.volcenginecc.config.outputs.GetRuleResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.config.outputs.GetRulesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class ConfigFunctions {
+    /**
+     * Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecorderResult> getConfigurationRecorder(GetConfigurationRecorderArgs args) {
+        return getConfigurationRecorder(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static CompletableFuture<GetConfigurationRecorderResult> getConfigurationRecorderPlain(GetConfigurationRecorderPlainArgs args) {
+        return getConfigurationRecorderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecorderResult> getConfigurationRecorder(GetConfigurationRecorderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:config/getConfigurationRecorder:getConfigurationRecorder", TypeShape.of(GetConfigurationRecorderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecorderResult> getConfigurationRecorder(GetConfigurationRecorderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:config/getConfigurationRecorder:getConfigurationRecorder", TypeShape.of(GetConfigurationRecorderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static CompletableFuture<GetConfigurationRecorderResult> getConfigurationRecorderPlain(GetConfigurationRecorderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:config/getConfigurationRecorder:getConfigurationRecorder", TypeShape.of(GetConfigurationRecorderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecordersResult> getConfigurationRecorders() {
+        return getConfigurationRecorders(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static CompletableFuture<GetConfigurationRecordersResult> getConfigurationRecordersPlain() {
+        return getConfigurationRecordersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecordersResult> getConfigurationRecorders(InvokeArgs args) {
+        return getConfigurationRecorders(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static CompletableFuture<GetConfigurationRecordersResult> getConfigurationRecordersPlain(InvokeArgs args) {
+        return getConfigurationRecordersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecordersResult> getConfigurationRecorders(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:config/getConfigurationRecorders:getConfigurationRecorders", TypeShape.of(GetConfigurationRecordersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static Output<GetConfigurationRecordersResult> getConfigurationRecorders(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:config/getConfigurationRecorders:getConfigurationRecorders", TypeShape.of(GetConfigurationRecordersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Config::ConfigurationRecorder
+     * 
+     */
+    public static CompletableFuture<GetConfigurationRecordersResult> getConfigurationRecordersPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:config/getConfigurationRecorders:getConfigurationRecorders", TypeShape.of(GetConfigurationRecordersResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::Config::GroupRule
      * 

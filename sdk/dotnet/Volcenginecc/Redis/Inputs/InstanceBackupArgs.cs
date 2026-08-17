@@ -26,6 +26,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Redis.Inputs
         public Input<string>? BackupPointName { get; set; }
 
         /// <summary>
+        /// Current backup progress. Measured as a percentage.
+        /// </summary>
+        [Input("backupProgress")]
+        public Input<int>? BackupProgress { get; set; }
+
+        /// <summary>
         /// Backup policy
         /// </summary>
         [Input("backupStrategy")]

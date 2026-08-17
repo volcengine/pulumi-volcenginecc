@@ -37,6 +37,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitRouterRouteTable{}
 	case "volcenginecc:transitrouter/transitRouterRouteTableAssociation:TransitRouterRouteTableAssociation":
 		r = &TransitRouterRouteTableAssociation{}
+	case "volcenginecc:transitrouter/transitRouterTrafficQosMarkingEntry:TransitRouterTrafficQosMarkingEntry":
+		r = &TransitRouterTrafficQosMarkingEntry{}
+	case "volcenginecc:transitrouter/transitRouterTrafficQosMarkingPolicy:TransitRouterTrafficQosMarkingPolicy":
+		r = &TransitRouterTrafficQosMarkingPolicy{}
+	case "volcenginecc:transitrouter/transitRouterTrafficQosQueueEntry:TransitRouterTrafficQosQueueEntry":
+		r = &TransitRouterTrafficQosQueueEntry{}
 	case "volcenginecc:transitrouter/vpcAttachment:VpcAttachment":
 		r = &VpcAttachment{}
 	case "volcenginecc:transitrouter/vpnAttachment:VpnAttachment":
@@ -92,6 +98,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"transitrouter/transitRouterRouteTableAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/transitRouterTrafficQosMarkingEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/transitRouterTrafficQosMarkingPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"transitrouter/transitRouterTrafficQosQueueEntry",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
